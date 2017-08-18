@@ -1,0 +1,249 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+/*@import "fullcalendar/dist/fullcalendar.min.css";*/
+/*@import "~angular-calendar/dist/css/angular-calendar.css";*/
+/*@import "~@ng-bootstrap/ng-bootstrap/dist/css/bootstrap.min.css";*/
+
+.ml {
+  margin-left: 10px;
+
+}
+
+.page {
+  height: 100%;
+
+}
+
+.page1 {
+  height: 95%;
+
+}
+
+.bg-goo {
+  background-color: #2b3b4b;
+
+}
+
+.icomarg {
+  margin-right : 20px;
+  color: #ffffff;
+}
+
+
+.example-container {
+margin-top: 50px !important;
+  height: 100%;
+}
+
+.a {
+  color: #464a4c;
+}
+
+.btn-outline-primary {
+margin-top: 20px;
+}
+
+.btn {
+margin-bottom: 3px;
+}
+
+.form-control {
+margin-bottom: 3px;
+}
+
+.container {
+  height: 100%;
+margin-bottom: 20px;
+}
+
+.box {
+background-color: #fff; margin: 20px; padding: 20px;
+}
+
+body {
+    background-color: #fff;
+}
+
+H1, H2, H3, H4, H5 {
+  text-Align: Center; padding: 5px;
+}
+a {
+font-family: sans-serif;
+}
+
+.row {
+
+  justify-content: center;
+
+}
+
+.row-2 {
+margin: 20px;
+}
+
+
+.bg-inverse {
+border-radius: 5px;
+}
+
+
+#wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-link:hover {
+    color: #ffffff !important;
+    background-color: rgba(204, 204, 204, 1);
+
+}
+
+.nav-link { padding-left: 10px !important;
+  color: #464a4c !important;
+}
+
+.navbar { padding: 0px !important;
+}
+
+
+.active {
+    color: #ffffff !important;
+    background-color: rgba(148, 17, 17, 1);
+  }
+
+.active2 {
+    color: #d0505c !important;
+  }
+
+.header {
+text-align: center;
+background-color: #b5b5b5;
+background-repeat:repeat;
+background-size:auto;
+background-position:left;
+padding-bottom:10px;
+padding-top:0px;
+margin-top:0px;
+width:auto;
+}
+
+.card-header {
+color: #fff;
+text-align: center;
+background-color: #337ab7;
+}
+
+.btn {
+text-align: center;
+font-family: sans-serif;
+}
+
+.card-block {
+text-align: center;
+}
+
+.card {
+margin:10px;
+}
+
+
+.title {
+color: #fff;
+text-align: center;
+background-color: #337ab7;
+border-radius: 5px;
+justify-content: center;
+}
+
+.tdbtn1 {
+text-align: left;
+width: 80%;
+}
+
+.tdbtn2 {
+text-align: right;
+width: 20%;
+}
+
+.tdbtn3 {
+text-align: left;
+width: 15%;
+}
+
+.tdbtn4 {
+text-align: left;
+width: 55%;
+}
+
+.tdbtn5 {
+text-align: left;
+width: 15%;
+}
+
+.tdbtn6 {
+text-align: right;
+width: 15%;
+}
+
+.tdbtn7 {
+text-align: right;
+width: 10%;
+}
+
+.table-responsive {
+      display: table;
+
+}
+
+table {
+width: 100%;
+}
+
+.table td{
+    padding: 0rem;
+    vertical-align: bottom;
+    border-top: 0px;
+}
+
+.ferme {
+border-radius: 8px;
+}
+
+.whtxt {
+color: #fff;
+padding-bottom: 10px;
+}
+
+.spcright {
+margin-right: 5px;
+}
+
+.logo-img {
+height: 50px;
+}
+
+// Mixin itself
+@mixin clearfix() {
+  &::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
+
+// Usage as a mixin
+.element {
+  @include clearfix;
+}
+
+.table td.centre {
+  text-align: center;
+}
+
+.table th.centre {
+  text-align: center;
+}
+
+.margebasse {
+margin-bottom: 5px;
+}

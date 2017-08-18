@@ -1,0 +1,365 @@
+<!-- <div class="goldgradient beigeborder subnav">
+  <button class="btn btn-warning" (click)="goBack()"><i class="fa fa-chevron-left"></i><a> Retour</a></button>
+  <h3 style="text-align: center;">Quote</h3>
+</div> -->
+<div class="container">
+  <app-header [showBackButton]="true" [nameObject]="'quote'" [showCreateButton]="false"></app-header>
+
+
+
+
+  <div>
+    <h4 class="dspl-nn">id: {{fetchedQuote._id}}</h4>
+    <button class="btn btn-primary" (click)="downloadPDF()">
+      download PDF
+    </button>
+    <button class="btn btn-outline-primary" style="margin-top: 0px;" [routerLink]="['/quote/public/' + fetchedQuote._id]">
+      Devis acces public
+    </button>
+    <form [formGroup]="myForm" novalidate (ngSubmit)="save()">
+
+
+      <div class="form-group">
+        <md-select  formControlName="statusQuote" placeholder="statusQuote" [(ngModel)]="fetchedQuote.statusQuote" name="statusQuote">
+          <md-option *ngFor="let n of statusQuotes" [value]="n.indexStatus">
+            {{n.label}}
+          </md-option>
+        </md-select>
+        <!-- <select class="form-control col-md-3" #statusQuoteSelect (change)="changeStatutsQuote(statusQuoteSelect.value)" formControlName="statusQuote" [(ngModel)]="fetchedQuote.statusQuote">
+          <option *ngFor="let n of statusQuotes" [ngValue]="n.index">{{n.label}}</option>
+        </select> -->
+      </div>
+
+      <div *ngIf="fetchedQuote._id">
+        <div class="FormGroup">
+          <button type="button" class="btn btn-warning" (click)="showLogs = !showLogs">
+           <i class="fa fa-calendar" aria-hidden="true"></i>
+           <span>{{'Show Comments' | translate}}</span>
+          </button>
+
+          <div *ngIf="showLogs">
+            <app-comments [search]="search"></app-comments>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-sm-6">
+        <div>
+          <!-- <app-autocomplete [typeAutocomplete]="'user'" [title]="'Owner Quote'" [singleChoice]="'true'" [arrayContent]="fetchedQuote.ownerQuotes" (getResultAutocomplete)="selectUser($event[0])">
+          </app-autocomplete> -->
+
+          <app-autocomplete [typeAutocomplete]="'user'" [title]="'Customer'" [singleChoice]="'true'" [arrayContent]="fetchedQuote.clients" (getResultAutocomplete)="selectUser($event[0])">
+          </app-autocomplete>
+          <app-autocomplete [typeAutocomplete]="'project'" [canDelete]="true" [title]="'Project'" [singleChoice]="true" [arrayContent]="fetchedQuote.projects" (getResultAutocomplete)="selectProject($event[0])">
+          </app-autocomplete>
+
+          <div *ngFor="let project of fetchedQuote.projects">
+            <div *ngFor="let user of project.assignedTos">
+              Owner Project: {{user.profile.name}}
+            </div>
+          </div>
+          <label>{{'Name Quote' | translate}}</label>
+          <input type="text" class="form-control" formControlName="name" [(ngModel)]="fetchedQuote.name" required minlength="5" placeholder="Nom du quote">
+          <br>
+          <div *ngFor="let client of fetchedQuote.clients">
+            <div>name:{{client.profile.name}}</div>
+            <div>lastName:{{client.profile.lastName}}</div>
+            <div>phoneNumber:{{client.profile.phoneNumber}}</div>
+            <div>address:{{client.profile.address.address}}</div>
+            <div>city:{{client.profile.address.city}}</div>
+            <div>state:{{client.profile.address.state}}</div>
+            <div>zip:{{client.profile.address.zip}}</div>
+          </div>
+        </div>
+      </div>
+      <div class="container row">
+        <div class="col-sm-5">
+          <div class="form-group">
+            <label class="col-sm-6 control-label col1" for="EstimateCode">Estimate Number</label>
+            <div class="col-sm-7">
+              <div class="input-group">
+                <span class="input-group-addon">DEV</span>
+                <input class="form-control" id="EstimateCode" name="EstimateCode" type="text" value="28" />
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-4 control-label col1" for="IssueDateISO">Issue Date</label>
+            <div class="col-sm-7">
+              <div>
+                <input type="date" class="form-control" [ngModelOptions]="{standalone: true}" class="form-control" [(ngModel)]="fetchedQuote.detail.dateQuote.issueDateString">
+              </div>
+            </div>
+          </div>
+          <div class="form-group duedate">
+            <label class="col-sm-4 control-label col1" for="DueDate">Expiry Date</label>
+            <div class="col-sm-7">
+
+              <input type="date" class="form-control" [ngModelOptions]="{standalone: true}" class="form-control" [(ngModel)]="fetchedQuote.detail.dateQuote.expiryDateString">
+
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-4 control-label col1" for="CurrencyCode">Currency</label>
+            <div class="col-sm-7">
+              <select class="form-control" name="currency" formControlName="currency" [(ngModel)]="fetchedQuote.detail.currency">
+                <option value="">Select..</option>
+                <option selected="selected" value="EUR">EUR - Euro</option>
+                <option value="USD">USD - United States Dollar</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-sm-offset-1">
+          <div class="form-group">
+            <label class="col-sm-4 control-label" for="InvoiceTemplateIDFK">Estimate Template</label>
+            <div class="col-sm-6">
+              <select class="form-control" data-val="true" data-val-number="The field Estimate Template must be a number." id="InvoiceTemplateIDFK" name="InvoiceTemplateIDFK"><option value="30390">Mod&#232;le Facture</option>
+                <option selected="selected" value="30391">Mod&#232;le Devis</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-4 control-label" for="EstimateTaxConfigCode">Amounts are</label>
+            <div class="col-sm-6">
+              <select name="EstimateTaxConfigCode" class="form-control" id="EstimateTaxConfigCode" data-bind='options: EstimateTaxConfigCodes, optionsText: "Text", optionsValue:"Value", value: EstimateTaxConfigCode'></select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-4 control-label" for="DiscountPercent">Discount</label>
+            <div class="col-sm-6">
+              <div class="input-group">
+                <input id="DiscountPercent" name="DiscountPercent" class="form-control" data-bind='value: formattedDefaultDiscount' />
+                <span class="input-group-addon" style="color: #999;">%</span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-4 control-label" for="Subject">Subject</label>
+            <div class="col-sm-6">
+              <textarea class="form-control" cols="10" id="Subject" maxlength="255" name="Subject" rows="4"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br><br>
+
+
+
+      <div class="form-control">
+        <div class="row">
+          <div class="h6 col-md-1"></div>
+          <!-- <div class="h6 col-md-1">{{'Image' | translate}}</div> -->
+          <div class="h6 col-md-3">{{'Item' | translate}}</div>
+          <!-- <div class="h6 col-md-2">{{'Ref' | translate}}</div> -->
+          <div class="h6 col-md-1">{{'Quantity' | translate}}</div>
+          <div class="h6 col-md-1">{{'Price whithout taxes' | translate}}</div>
+          <!-- <div class="h6 col-md-1">{{'VAT(%)' | translate}}</div> -->
+          <div class="h6 col-md-1">{{'Total wihout taxes' | translate}}</div>
+          <!-- <div class="h6 col-md-1">{{'Total with taxes' | translate}}</div> -->
+        </div>
+
+        <!-- <button type="button" class="btn btn-success" (click)="addBucketProducts()">AddBucketProducts</button> -->
+        <div *ngFor="let devisDetail of fetchedQuote.devisDetails; let i=index">
+          <input
+            class="form-control col-md-3"
+            type="text"
+            [ngModelOptions]="{standalone: true}"
+            [(ngModel)]="fetchedQuote.devisDetails[i].nameBucketProducts"
+            placeholder="Category">
+          <button type="button" class="btn btn-danger btn-sm" (click)="removeBucketProducts(i)"><i class="fa fa-times"></i></button>
+          <div [dragulaModel]='fetchedQuote.devisDetails[i].bucketProducts' [dragula]='"third-bag"'>
+          <div *ngFor="let bucketProduct of devisDetail.bucketProducts; let j=index" >
+
+            <div class="row">
+              <div class="col-md-1"></div>
+              <div class="col-md-1">
+                <button type="button" class="btn btn-danger btn-sm" (click)="removeRow(i, j)"><i class="fa fa-times"></i></button>
+
+                <button type="button" class="btn btn-sm handle"><i class="fa fa-arrows handle"></i></button>
+                <!-- <button type="button" class="btn btn-sm" (click)="editRaw(i, j)"><i class="fa fa-times"></i></button> -->
+              </div>
+
+
+              <div class="col-md-4">
+                <div *ngIf="bucketProduct.typeRow=='product'">
+                  <app-autocomplete
+                    [typeAutocomplete]="'product'"
+                    [title]="" [singleChoice]=true
+                    [arrayContent]="fetchedQuote.devisDetails[i].bucketProducts[j].productInit"
+                    (getResultAutocomplete)="selectProduct($event[0], i, j)">
+                  </app-autocomplete>
+                </div>
+                  <!-- <a [routerLink]="['/product/' + bucketProduct.productInit._id]" class="admn-btn">
+                    {{bucketProduct.productInit.details.reference}}
+                  </a> -->
+                <div *ngIf="bucketProduct.typeRow=='text'">
+                  <quill-editor
+                    [ngModelOptions]="{standalone: true}"
+                    [(ngModel)]="fetchedQuote.devisDetails[i].bucketProducts[j].title">
+                    <div quill-editor-toolbar>
+                      <span class="ql-formats">
+                        <button class="ql-bold" [title]="'Bold'"></button>
+                        <button class="ql-italic" [title]="'Italic'"></button>
+                        <button class="ql-underline" [title]="'Underline'"></button>
+
+                      </span>
+                      <span class="ql-formats">
+                        <button class="ql-list" [title]="'list'" value='ordered'></button>
+                        <button class="ql-list" [title]="'list'" value='bullet'></button>
+                        <!-- <button class="ql-italic" [title]="'Italic'"></button> -->
+
+                      </span>
+
+                      <span class="ql-formats">
+                        <select class="ql-align" [title]="'Aligment'">
+                          <option selected></option>
+                          <option value="center"></option>
+                          <option value="right"></option>
+                          <option value="justify"></option>
+                        </select>
+                      </span>
+                    </div>
+                  </quill-editor>
+
+                  <!-- <ckeditor
+                    [ngModelOptions]="{standalone: true}"
+                    [(ngModel)]="fetchedQuote.devisDetails[i].bucketProducts[j].title"
+                    [config]="ckeConfig"
+                    [readonly]="false"
+                    (change)="onChange($event)"
+                    (ready)="onReady($event)"
+                    (focus)="onFocus($event)"
+                    (blur)="onBlur($event)"
+                    debounce="500">
+                  </ckeditor> -->
+                </div>
+              </div>
+              <!-- <div class="col-md-2">
+                <a [routerLink]="['/product/' + bucketProduct.productInit._id]" class="admn-btn">
+                          {{bucketProduct.productInit.details.reference}}
+                        </a>
+              </div> -->
+              <div class="col-md-2">
+                <input class="gooplusInput form-control" type="number"
+                  (ngModelChange)="calculateQuote()" [ngModelOptions]="{standalone: true}" [(ngModel)]="fetchedQuote.devisDetails[i].bucketProducts[j].quantity" placeholder="quantity">
+              </div>
+              <div class="col-md-2">
+                <input class="gooplusInput form-control" type="number"
+                  (ngModelChange)="calculateQuote()" [ngModelOptions]="{standalone: true}"
+                  [(ngModel)]="fetchedQuote.devisDetails[i].bucketProducts[j].priceWithoutTaxes" placeholder="priceWithoutTaxes">
+              </div>
+
+              <!-- <div class="col-md-1">
+                <input class="gooplusInput form-control" type="text"
+                  (ngModelChange)="calculateQuote()" [ngModelOptions]="{standalone: true}"
+                  [(ngModel)]="fetchedQuote.devisDetails[i].bucketProducts[j].vat" placeholder="vat">
+              </div> -->
+              <div class="col-md-1">
+                {{fetchedQuote.devisDetails[i].bucketProducts[j].totalPriceWithoutTaxes | round}}
+              </div>
+              <!-- <div class="col-md-1">
+                {{fetchedQuote.devisDetails[i].bucketProducts[j].totalPriceWithTaxes | round}}
+              </div> -->
+            </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-md-8">
+          </div>
+          <div class="col-md-1">
+            {{'Total' | translate}}
+          </div>
+          <div class="col-md-1">
+            {{fetchedQuote.priceQuote.priceQuoteWithoutTaxes | round}}
+          </div>
+          <div class="col-md-1">
+            {{fetchedQuote.priceQuote.priceQuoteWithTaxes | round}}
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-md-3">
+          <select class="form-control" #t (change)="addRow(t.value); t.value = ''">
+            <option [attr.value]="''">{{'Add row' | translate}}</option>
+            <option *ngFor="let n of rowTypes" [attr.value]="n.value">{{n.label}}</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <input type="text" class="form-control" placeholder="nameTemplate" #nameTemplate>
+          <button type="button" class="btn btn-success" (click)="saveTemplateQuote(nameTemplate.value)">saveTemplateQuote</button>
+        </div>
+        <div class="col-md-3">
+          <app-autocomplete [typeAutocomplete]="'templateQuote'" [title]="" [singleChoice]=true [arrayContent]="arrayContentToSearch" (getResultAutocomplete)="selectTemplateQuote($event[0])">
+          </app-autocomplete>
+        </div>
+        <div class="col-md-3">
+        </div>
+
+      </div>
+
+
+
+      <div class="row">
+        <div class="col-md-6">
+        </div>
+        <div class="col-md-4">
+          <div class="card" style="width:250px;">
+            <div *ngIf="!fetchedQuote.signature.base64">
+              <button type="button" class="delete" md-button (click)="resetSignature()">
+                  {{'Reset' | translate}}
+              </button>
+              <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()">
+              </signature-pad>
+              <button type="button" class="delete" md-button (click)="validateSignature()">
+                  ok
+              </button>
+            </div>
+            <div *ngIf="fetchedQuote.signature.base64">
+              <img [src]="fetchedQuote.signature.base64" />
+              <div *ngFor="let user of fetchedQuote.signature.users">
+                {{fetchedQuote.signature.dateSignature | date:'yMdjm'}} - {{user.profile.name }}
+              </div>
+              <button type="button" class="delete" md-button (click)="removeSignature()">
+                  {{'Unsign' | translate}}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div (click)="togglePaiements()">Paiements</div>
+      <div *ngIf="showPaiements">
+        <button
+          class="btn btn-success"
+          type="button" md-button
+          (click)="openDialog()">
+          <i class="fa fa-plus"></i> Add new one
+        </button>
+        <br>
+        <app-paiementQuotes
+          (getPaiementQuotesCross)="getPaiementQuotes($event)"
+          [showHeader]="false" [showCreate]="false" [idQuote]="fetchedQuote._id">
+        </app-paiementQuotes>
+        {{'Total Paiement' | translate}} = {{totalPaiementAmount}}
+        <br> {{'To be paid' | translate}} = {{fetchedQuote.priceQuote.priceQuoteWithoutTaxes*1 - totalPaiementAmount*1| round}}
+        <!-- <app-paiementQuote [showHeader]="false" (newPaiementQuoteSaved)="newPaiementQuoteSaved()">
+        </app-paiementQuote> -->
+
+
+      </div>
+      <br><br>
+      <div class="valid-edit">
+        <button type="submit" class="btn btn-success">{{'Save' | translate}}</button>
+        <button *ngIf="fetchedQuote._id" type="button" class="delete" md-button (click)="openDialogDelete()">
+          Delete
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
