@@ -4,7 +4,7 @@
 
 <app-footer *ngIf="isLoggedIn()"></app-footer> -->
 
-<app-navbar></app-navbar>
+
 
 <md-sidenav-container class="example-container">
   <md-sidenav #sidenav mode="side" opened="true" class="example-sidenav">
@@ -21,7 +21,6 @@
       Nav
     </button> -->
     <i *ngIf="!sidenav.opened" (click)="sidenav.toggle()" class="fa fa-bars" aria-hidden="true"></i>
-
     <router-outlet></router-outlet>
 
   </div>
@@ -29,8 +28,6 @@
 </md-sidenav-container>
 
 <app-error></app-error>
-
-<app-footer></app-footer>
 
 <div *ngIf="loading">
     <app-loading></app-loading>

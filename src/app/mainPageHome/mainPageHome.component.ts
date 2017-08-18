@@ -105,7 +105,8 @@ export class MainPageHomeComponent implements OnInit {
     // }
   }
   showObjHTML(nameObject) {
-    return this.authService.showObjHTML(nameObject)
+    return true;
+    // return this.authService.showObjHTML(nameObject)
   }
 
   ngOnInit() {
