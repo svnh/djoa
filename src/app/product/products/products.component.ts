@@ -8,7 +8,7 @@ import { Router} from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ViewEncapsulation} from '@angular/core';
 import { UserService} from '../../user/user.service';
-// import { TranslateService } from '../../translate/translate.service';
+
 
 @Component({
   selector: 'app-products',

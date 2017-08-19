@@ -25,7 +25,7 @@ import { PaiementQuote } from '../../paiementQuote/paiementQuote.model';
 // import { PaiementQuoteDialogComponent } from '../paiementQuote/single/dialog/paiementQuoteDialog.component';
 import { PaiementQuoteDialogComponent } from '../../paiementQuote/single/dialog/paiementQuoteDialog.component'
 
-import { TranslateService } from '../../translate/translate.service';
+
 declare let jsPDF;
 import { SignaturePad } from 'angular2-signaturepad/signature-pad';
 import { PaiementQuotesComponent } from '../../paiementQuote/paiementQuotes/paiementQuotes.component';
@@ -84,7 +84,6 @@ export class QuoteComponent implements OnInit {
     private _fb: FormBuilder,
     private authService: AuthService,
     private dragulaService: DragulaService,
-    private translateService: TranslateService,
   ) {
     // dragulaService.setOptions('third-bag', {
     //   removeOnSpill: true

@@ -9,7 +9,7 @@ import {PictureModule} from '../picture/picture.module';
 // import {CommentModule} from '../comment/comment.module';
 
 
-import { TRANSLATION_PROVIDERS, TranslatePipe, TranslateService }   from '../translate';
+
 
 import { RoundPipe} from './round.pipe';
 import { HeaderComponent } from '../nav/header/header.component';
@@ -37,7 +37,7 @@ import {CommentModule} from '../comment/comment.module';
   declarations: [
     RoundPipe,
     // AutocompleteComponent,
-    TranslatePipe,
+    // TranslatePipe,
     // HeaderComponent,
     // newObjDialogComponent,
     LoadingInAppComponent,
@@ -46,7 +46,7 @@ import {CommentModule} from '../comment/comment.module';
 
   ],
   exports: [
-    TranslatePipe,
+    // TranslatePipe,
     // AutocompleteModule,
     CommonModule,
     FormsModule,
@@ -63,8 +63,8 @@ import {CommentModule} from '../comment/comment.module';
     // AutocompleteComponent,
   ],
   providers: [
-    TRANSLATION_PROVIDERS,
-    TranslateService,
+    // TRANSLATION_PROVIDERS,
+    // TranslateService,
   ]
 })
 export class SharedSmallModule { }
