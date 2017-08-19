@@ -34,7 +34,7 @@
         <div class="FormGroup">
           <button type="button" class="btn btn-warning" (click)="showLogs = !showLogs">
            <i class="fa fa-calendar" aria-hidden="true"></i>
-           <span>{{'Show Comments' | translate}}</span>
+           <span>{{'Show Comments' }}</span>
           </button>
 
           <div *ngIf="showLogs">
@@ -59,7 +59,7 @@
               Owner Project: {{user.profile.name}}
             </div>
           </div>
-          <label>{{'Name Quote' | translate}}</label>
+          <label>{{'Name Quote' }}</label>
           <input type="text" class="form-control" formControlName="name" [(ngModel)]="fetchedQuote.name" required minlength="5" placeholder="Nom du quote">
           <br>
           <div *ngFor="let client of fetchedQuote.clients">
@@ -150,14 +150,14 @@
       <div class="form-control">
         <div class="row">
           <div class="h6 col-md-1"></div>
-          <!-- <div class="h6 col-md-1">{{'Image' | translate}}</div> -->
-          <div class="h6 col-md-3">{{'Item' | translate}}</div>
-          <!-- <div class="h6 col-md-2">{{'Ref' | translate}}</div> -->
-          <div class="h6 col-md-1">{{'Quantity' | translate}}</div>
-          <div class="h6 col-md-1">{{'Price whithout taxes' | translate}}</div>
-          <!-- <div class="h6 col-md-1">{{'VAT(%)' | translate}}</div> -->
-          <div class="h6 col-md-1">{{'Total wihout taxes' | translate}}</div>
-          <!-- <div class="h6 col-md-1">{{'Total with taxes' | translate}}</div> -->
+          <!-- <div class="h6 col-md-1">{{'Image' }}</div> -->
+          <div class="h6 col-md-3">{{'Item' }}</div>
+          <!-- <div class="h6 col-md-2">{{'Ref' }}</div> -->
+          <div class="h6 col-md-1">{{'Quantity' }}</div>
+          <div class="h6 col-md-1">{{'Price whithout taxes' }}</div>
+          <!-- <div class="h6 col-md-1">{{'VAT(%)' }}</div> -->
+          <div class="h6 col-md-1">{{'Total wihout taxes' }}</div>
+          <!-- <div class="h6 col-md-1">{{'Total with taxes' }}</div> -->
         </div>
 
         <!-- <button type="button" class="btn btn-success" (click)="addBucketProducts()">AddBucketProducts</button> -->
@@ -272,7 +272,7 @@
           <div class="col-md-8">
           </div>
           <div class="col-md-1">
-            {{'Total' | translate}}
+            {{'Total' }}
           </div>
           <div class="col-md-1">
             {{fetchedQuote.priceQuote.priceQuoteWithoutTaxes | round}}
@@ -287,7 +287,7 @@
       <div class="row">
         <div class="col-md-3">
           <select class="form-control" #t (change)="addRow(t.value); t.value = ''">
-            <option [attr.value]="''">{{'Add row' | translate}}</option>
+            <option [attr.value]="''">{{'Add row' }}</option>
             <option *ngFor="let n of rowTypes" [attr.value]="n.value">{{n.label}}</option>
           </select>
         </div>
@@ -313,7 +313,7 @@
           <div class="card" style="width:250px;">
             <div *ngIf="!fetchedQuote.signature.base64">
               <button type="button" class="delete" md-button (click)="resetSignature()">
-                  {{'Reset' | translate}}
+                  {{'Reset' }}
               </button>
               <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()">
               </signature-pad>
@@ -327,7 +327,7 @@
                 {{fetchedQuote.signature.dateSignature | date:'yMdjm'}} - {{user.profile.name }}
               </div>
               <button type="button" class="delete" md-button (click)="removeSignature()">
-                  {{'Unsign' | translate}}
+                  {{'Unsign' }}
               </button>
             </div>
           </div>
@@ -346,8 +346,8 @@
           (getPaiementQuotesCross)="getPaiementQuotes($event)"
           [showHeader]="false" [showCreate]="false" [idQuote]="fetchedQuote._id">
         </app-paiementQuotes>
-        {{'Total Paiement' | translate}} = {{totalPaiementAmount}}
-        <br> {{'To be paid' | translate}} = {{fetchedQuote.priceQuote.priceQuoteWithoutTaxes*1 - totalPaiementAmount*1| round}}
+        {{'Total Paiement' }} = {{totalPaiementAmount}}
+        <br> {{'To be paid' }} = {{fetchedQuote.priceQuote.priceQuoteWithoutTaxes*1 - totalPaiementAmount*1| round}}
         <!-- <app-paiementQuote [showHeader]="false" (newPaiementQuoteSaved)="newPaiementQuoteSaved()">
         </app-paiementQuote> -->
 
@@ -355,7 +355,7 @@
       </div>
       <br><br>
       <div class="valid-edit">
-        <button type="submit" class="btn btn-success">{{'Save' | translate}}</button>
+        <button type="submit" class="btn btn-success">{{'Save' }}</button>
         <button *ngIf="fetchedQuote._id" type="button" class="delete" md-button (click)="openDialogDelete()">
           Delete
         </button>

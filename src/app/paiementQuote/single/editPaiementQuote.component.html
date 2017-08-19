@@ -12,7 +12,7 @@
       <app-autocomplete [typeAutocomplete]="'quote'" [canDelete]="true" [title]="" [singleChoice]="true" [arrayContent]="fetchedPaiementQuote.quotes" (getResultAutocomplete)="selectQuote($event[0])">
       </app-autocomplete>
       <div *ngFor="let quote of fetchedPaiementQuote.quotes">
-        {{'Amont' | translate}}: {{quote.priceQuote.priceQuoteWithoutTaxes}}
+        {{'Amont' }}: {{quote.priceQuote.priceQuoteWithoutTaxes}}
       </div>
 
       <app-autocomplete [typeAutocomplete]="'project'" [canDelete]="true" [title]="" [singleChoice]="true" [arrayContent]="fetchedPaiementQuote.projects" (getResultAutocomplete)="selectProject($event[0])">
@@ -39,7 +39,7 @@
       <input type="date" class="form-control" [ngModelOptions]="{standalone: true}" class="form-control" [(ngModel)]="fetchedPaiementQuote.datePaiementString">
 
       <div class="valid-edit">
-        <button type="submit" class="sln-edt done">{{'Save' | translate}}</button>
+        <button type="submit" class="sln-edt done">{{'Save' }}</button>
         <button *ngIf="fetchedPaiementQuote._id" type="button" class="delete" md-button (click)="openDialogDelete()">
             Delete
           </button>
@@ -48,7 +48,7 @@
 
 
     <div *ngIf="fetchedPaiementQuote.type=='stripe' && fetchedPaiementQuote._id">
-      <h4>{{'Stripe Paiement' | translate}}</h4>
+      <h4>{{'Stripe Paiement' }}</h4>
       <div *ngIf="!stripeCust.id">
         <button type="button" class="done" (click)="saveCustInStripe()">{{'Start paying in stripe'}}</button>
       </div>
@@ -98,7 +98,7 @@
         </div>
         <div *ngIf="fetchedPaiementQuote.amount =='0'">
           <div *ngIf="stripeCust.sources.data.length">
-            <h4>{{'Paiement' | translate}}</h4>
+            <h4>{{'Paiement' }}</h4>
             <input type="number" class="form-control" #amountStripe placeholder="Amount">
             <button type="button" class="done" (click)="payInStripe(amountStripe.value)">Pay!</button>
           </div>
@@ -131,7 +131,7 @@
 
           </div>
           <div *ngIf="showReLoginInApp">
-            {{'You must loggin agin to apply changes:' | translate}}
+            {{'You must loggin agin to apply changes:' }}
             <app-loginInApp></app-loginInApp>
           </div>
         </div>

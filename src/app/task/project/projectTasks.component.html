@@ -78,7 +78,7 @@
           class="form-control"
           (focusout)="saveTask(task, bucketTaskIndex)"
           [(ngModel)]="fetchedProject.bucketTasks[bucketTaskIndex].tasks[taskIndex].title"
-          placeholder="{{'Task Name' | translate}}"
+          placeholder="{{'Task Name' }}"
           (keyup.enter)="saveTask(task, bucketTaskIndex)">
 
 

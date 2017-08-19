@@ -10,10 +10,10 @@
 
 
   <button *ngIf="search.isExternalUser == 'false'" class="btn btn-success float-right" [routerLink]="['/user/newuser', {isExternalUser: false}]" routerLinkActive="active"><i class="">
-  </i>{{ 'Create a new team member' | translate }}
+  </i>{{ 'Create a new team member'  }}
   </button>
   <button *ngIf="search.isExternalUser== 'true'" class="btn btn-success float-right" [routerLink]="['/user/newuser', {isExternalUser: true}]" routerLinkActive="active"><i class="">
-  </i>{{ 'Create a new external member' | translate }}
+  </i>{{ 'Create a new external member'  }}
   </button>
 </div> -->
 <div class="container">
@@ -33,7 +33,7 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title">{{ 'List' | translate }}</h4>
+          <h4 class="card-title">{{ 'List'  }}</h4>
         </div>
         <div class="card-block clearfix">
           <div id="wrapper" class="subsubnav-clients float-left">

@@ -38,12 +38,12 @@
       <div class="form-group">
 
         <div class="phyto-ctnr ttl-cde">
-          <label>{{'Name' | translate}}</label>
+          <label>{{'Name' }}</label>
           <input class="form-control col-md-4" type="text" formControlName="name" [(ngModel)]="fetchedProject.details.name" placeholder="Ref">
         </div>
       </div>
       <div class="form-group phyto-ctnr ttl-cde">
-        <label>{{'Description' | translate}}</label>
+        <label>{{'Description' }}</label>
         <input class="form-control col-md-4" type="text" formControlName="description" placeholder="description" [(ngModel)]="fetchedProject.details.description">
       </div>
 
@@ -54,7 +54,7 @@
       <br>
       <div *ngIf="fetchedProject._id">
         <div *ngFor="let user of fetchedProject.clients">
-          <label>{{'Quote' | translate}}</label>
+          <label>{{'Quote' }}</label>
 
           <app-quotes [showHeader]=false [idProject]="fetchedProject._id" [idClient]="fetchedProject.clients[0]._id" [showBackButton]=false [userId]="user._id" [projectId]="fetchedProject._id">
           </app-quotes>
@@ -69,7 +69,7 @@
 
 
       <div class="form-group">
-        {{'Status' | translate}}
+        {{'Status' }}
         <select class="form-control col-md-3" formControlName="status" [(ngModel)]="fetchedProject.status">
           <option *ngFor="let n of status" [ngValue]="n.index">{{n.label}}</option>
         </select>
@@ -84,7 +84,7 @@
         <div class="FormGroup">
           <button type="button" class="btn btn-warning" (click)="showLogs = !showLogs">
            <i class="fa fa-calendar" aria-hidden="true"></i>
-           <span>{{'Show Comments' | translate}}</span>
+           <span>{{'Show Comments' }}</span>
           </button>
 
           <div *ngIf="showLogs">
@@ -95,13 +95,13 @@
         <div class="FormGroup whtxt">
           <a class="btn btn-warning" [routerLink]="['/task/project/' + fetchedProject._id]">
          <i class="fa fa-calendar" aria-hidden="true"></i>
-         <span>{{'Tasks' | translate}}</span>
+         <span>{{'Tasks' }}</span>
         </a>
         </div>
         <div class="FormGroup whtxt">
           <button type="button" class="btn btn-warning" (click)="seeCalendar()">
          <i class="fa fa-calendar" aria-hidden="true"></i>
-         <span>{{'See calendar' | translate}}</span>
+         <span>{{'See calendar' }}</span>
        </button>
         </div>
       </div>
@@ -110,9 +110,9 @@
 
 
       <div class="valid-edit">
-        <button type="submit" class="done btn btn-success" [disabled]="!myForm.valid">{{'Save' | translate}}</button>
+        <button type="submit" class="done btn btn-success" [disabled]="!myForm.valid">{{'Save' }}</button>
         <button *ngIf="fetchedProject._id" type="button" class="delete" md-button (click)="openDialogDelete()">
-        {{'Delete' | translate}}
+        {{'Delete' }}
       </button>
       </div>
       <div class="clearfix"></div>
