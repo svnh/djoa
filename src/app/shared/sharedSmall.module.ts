@@ -19,6 +19,8 @@ import { MaterialModule } from '@angular/material';
 
 import { LoadingInAppComponent } from '../nav/loadingInApp/loadingInApp.component';
 import { LoginInAppComponent } from '../nav/loginInApp/loginInApp.component';
+// import { SideBarObjModule } from '../nav/sideBarObj/sideBarObj.module';
+
 
 import {CommentModule} from '../comment/comment.module';
 
@@ -30,6 +32,7 @@ import {CommentModule} from '../comment/comment.module';
     PictureModule,
     // CommentModule,
     MaterialModule,
+    // SideBarObjModule,
 
 
 
@@ -42,6 +45,7 @@ import {CommentModule} from '../comment/comment.module';
     // newObjDialogComponent,
     LoadingInAppComponent,
     LoginInAppComponent,
+    // SideBarObjComponent,
 
 
   ],
@@ -51,11 +55,13 @@ import {CommentModule} from '../comment/comment.module';
     CommonModule,
     FormsModule,
     RoundPipe,
+    // SideBarObjModule,
     // HeaderComponent,
     // newObjDialogComponent,
     // LoadingComponent,
     LoadingInAppComponent,
     LoginInAppComponent,
+    // SideBarObjComponent,
     PictureModule,
     MaterialModule,
     // CommentModule,

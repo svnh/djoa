@@ -24,16 +24,22 @@ import { LoginInAppComponent } from '../nav/loginInApp/loginInApp.component';
 
 import {CommentModule} from '../comment/comment.module';
 
-import {SharedSmallModule} from './sharedSmall.module'
+import {SharedModule} from './shared.module';
+import {UserModule} from '../user/user.module';
+
+
 @NgModule({
   imports:      [
-    SharedSmallModule,
+    SharedModule,
+    UserModule,
     CommonModule,
     FormsModule,
-    AutocompleteModule,
-    PictureModule,
-    CommentModule,
-    NavbarModule,
+    // CommonModule,
+    // FormsModule,
+    // AutocompleteModule,
+    // PictureModule,
+    // CommentModule,
+    // NavbarModule,
 
     // CommentModule,
 
@@ -43,7 +49,7 @@ import {SharedSmallModule} from './sharedSmall.module'
     // RoundPipe,
     // AutocompleteComponent,
     // TranslatePipe,
-    HeaderComponent,
+    // HeaderComponent,
 
     // newObjDialogComponent,
     // LoadingInAppComponent,
@@ -53,19 +59,19 @@ import {SharedSmallModule} from './sharedSmall.module'
   ],
   exports: [
     // TranslatePipe,
-    SharedSmallModule,
-    AutocompleteModule,
+    SharedModule,
+    UserModule,
     CommonModule,
     FormsModule,
     // RoundPipe,
-    HeaderComponent,
-    NavbarModule,
+    // HeaderComponent,
+    // NavbarModule,
     // newObjDialogComponent,
     // LoadingComponent,
     // LoadingInAppComponent,
     // LoginInAppComponent,
     // PictureModule,
-    CommentModule,
+    // CommentModule,
     // CommentModule,
     // AutocompleteComponent,
   ],
@@ -74,4 +80,4 @@ import {SharedSmallModule} from './sharedSmall.module'
     // TranslateService,
   ]
 })
-export class SharedModule { }
+export class SharedObjModule { }

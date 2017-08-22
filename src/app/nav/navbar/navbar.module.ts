@@ -7,7 +7,7 @@ import { Routes, RouterModule} from '@angular/router';
 import { MaterialModule } from '@angular/material';
 
 import { NavbarComponent} from './navbar.component';
-import {SharedModule } from '../../shared/shared.module';
+// import {SharedModule } from '../../shared/shared.module';
 import { NotificationService} from '../../notification/notification.service';
 
 
@@ -18,7 +18,7 @@ import { NotificationService} from '../../notification/notification.service';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedModule,
+    // SharedModule,
     //  FormsModule,
     // MaterialModule,
     // ReactiveFormsModule,

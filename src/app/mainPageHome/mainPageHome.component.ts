@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MainPageHomeService} from './mainPageHome.service';
 import { FormGroup } from '@angular/forms';
 import { ToastsManager} from 'ng2-toastr';
 import { MdDialog} from '@angular/material';
 // import { EditOptionsComponentDialog }  from '../form/modalLibrary/modalLibrary.component';
 import { AdminService} from '../admin/services/admin.service';
+import { SideBarObjComponent} from '../nav/sideBarObj/sideBarObj.component';
 
 
 // import { Options } from './options.model';
@@ -18,6 +19,8 @@ import { AuthService} from '../auth/auth.service';
   styleUrls: ['./mainPageHome.component.css']
 })
 export class MainPageHomeComponent implements OnInit {
+  @ViewChild(SideBarObjComponent) private sideBarObjComponent: SideBarObjComponent;
+
   // companies: Companie[] = []
   // trackinPage : any = {
   //   lastVisitPagePressCount: [],
@@ -90,7 +93,10 @@ export class MainPageHomeComponent implements OnInit {
   //
   // }
 
-
+  sideNavOpen() {
+    this.sideBarObjComponent.sidenavOpen()
+    // sidenav.open()
+  }
   goTo(path: string) {
 
       this.router.navigate([path]);

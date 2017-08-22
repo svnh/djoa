@@ -102,7 +102,7 @@ import {SharedModule } from '../shared/shared.module';
 
   ],
   exports:      [
-    // NewUserComponent,
+    NewUserComponent,
     // AutocompleteComponent
     // UsersComponent
    ],
