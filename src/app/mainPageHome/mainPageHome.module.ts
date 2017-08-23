@@ -22,6 +22,8 @@ import {SharedModule } from '../shared/shared.module';
 // import { ChartsModule } from 'ng2-charts/ng2-charts';
 
 import { SideBarObjModule } from '../nav/sideBarObj/sideBarObj.module';
+import { SideBarModule } from '../nav/sideBar/sideBar.module';
+
 
 
 
@@ -38,6 +40,7 @@ import { SideBarObjModule } from '../nav/sideBarObj/sideBarObj.module';
     // ProductModule,
     SharedModule,
     SideBarObjModule,
+    SideBarModule,
     // SignaturePadModule,
     // ChartsModule,
     // AutocompleteComponent,

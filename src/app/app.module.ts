@@ -27,7 +27,7 @@ import { CustomOption } from './toast-options';
 
 // import { NavbarComponent} from './nav/navbar/navbar.component';
 import { NavbarModule} from './nav/navbar/navbar.module';
-import { SidebarModule} from './nav/sidebar/sidebar.module';
+import { SideBarModule} from './nav/sideBar/sideBar.module';
 
 import { FooterComponent} from './nav/footer/footer.component';
 
@@ -217,8 +217,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     // ProgressBarModule,
     FormsModule,
     // MaterialModule,
-    NavbarModule,
-    SidebarModule,
+    // NavbarModule,
+    // SidebarModule,
     MdSidenavModule,
     // CKEditorModule,
     // NgbModule.forRoot(),
