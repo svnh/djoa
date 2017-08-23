@@ -11,12 +11,12 @@ import {GlobalEventsManager} from '../../globalEventsManager';
 
 
 @Component({
-  selector: 'app-sideBar',
+  selector: 'app-sideBarLeft',
   // changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './sideBar.component.html',
-  styleUrls: ['./sideBar.component.css']
+  templateUrl: './sideBarLeft.component.html',
+  styleUrls: ['./sideBarLeft.component.css']
 })
-export class SideBarComponent implements OnInit {
+export class SideBarLeftComponent implements OnInit {
   @Input() sidenav: any;
   showNavBar: boolean = false;
  // private userId: string = localStorage.getItem('userId');

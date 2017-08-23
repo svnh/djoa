@@ -4,11 +4,11 @@ import { GlobalEventsManager} from '../../globalEventsManager';
 import {MdSidenav} from '@angular/material';
 
 @Component({
-  selector: 'app-sideBarObj',
-  templateUrl: './sideBarObj.component.html',
-  styleUrls: ['./sideBarObj.component.css']
+  selector: 'app-sideBarRight',
+  templateUrl: './sideBarRight.component.html',
+  styleUrls: ['./sideBarRight.component.css']
 })
-export class SideBarObjComponent implements OnInit {
+export class SideBarRightComponent implements OnInit {
   @ViewChild('sidenav') public sidenav: MdSidenav;
 
   search = {

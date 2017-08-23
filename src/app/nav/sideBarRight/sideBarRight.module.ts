@@ -6,7 +6,7 @@ import { Routes, RouterModule} from '@angular/router';
 
 import { MaterialModule } from '@angular/material';
 
-import { SideBarObjComponent} from './sideBarObj.component';
+import { SideBarRightComponent} from './sideBarRight.component';
 import {SharedObjModule } from '../../shared/sharedObj.module';
 // import { NotificationService} from '../../notification/notification.service';
 // import {UserModule} from '../../user/user.module';
@@ -36,13 +36,13 @@ import {SharedObjModule } from '../../shared/sharedObj.module';
   ],
   declarations: [
 
-    SideBarObjComponent,
+    SideBarRightComponent,
     // NewUserComponent,
     // ProductsComponent,
     // ProductSingleComponent,
   ],
   exports:      [
-    SideBarObjComponent
+    SideBarRightComponent
     // ProductsComponent
   ],
   providers:    [
@@ -51,4 +51,4 @@ import {SharedObjModule } from '../../shared/sharedObj.module';
   ],
   entryComponents: [ ]
 })
-export class SideBarObjModule { }
+export class SideBarRightModule { }

@@ -5,7 +5,7 @@ import { ToastsManager} from 'ng2-toastr';
 import { MdDialog} from '@angular/material';
 // import { EditOptionsComponentDialog }  from '../form/modalLibrary/modalLibrary.component';
 import { AdminService} from '../admin/services/admin.service';
-import { SideBarObjComponent} from '../nav/sideBarObj/sideBarObj.component';
+import { SideBarRightComponent} from '../nav/sideBarRight/sideBarRight.component';
 
 import {Search} from './mainPageHome.model'
 // import { Options } from './options.model';
@@ -19,7 +19,7 @@ import { User} from '../user/user.model';
   styleUrls: ['./mainPageHome.component.css']
 })
 export class MainPageHomeComponent implements OnInit {
-  @ViewChild(SideBarObjComponent) private sideBarObjComponent: SideBarObjComponent;
+  @ViewChild(SideBarRightComponent) private sideBarObjComponent: SideBarRightComponent;
   fetchedUser: User = new User();
   search: Search = new Search(
 

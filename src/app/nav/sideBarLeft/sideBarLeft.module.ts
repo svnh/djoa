@@ -6,7 +6,7 @@ import { Routes, RouterModule} from '@angular/router';
 
 import { MaterialModule } from '@angular/material';
 
-import { SideBarComponent} from './sideBar.component';
+import { SideBarLeftComponent} from './sideBarLeft.component';
 import {SharedModule } from '../../shared/shared.module';
 
 @NgModule({
@@ -24,12 +24,12 @@ import {SharedModule } from '../../shared/shared.module';
   ],
   declarations: [
 
-    SideBarComponent,
+    SideBarLeftComponent,
     // ProductsComponent,
     // ProductSingleComponent,
   ],
   exports:      [
-    SideBarComponent
+    SideBarLeftComponent
     // ProductsComponent
   ],
   providers:    [
@@ -37,4 +37,4 @@ import {SharedModule } from '../../shared/shared.module';
   ],
   entryComponents: [ ]
 })
-export class SideBarModule { }
+export class SideBarLeftModule { }
