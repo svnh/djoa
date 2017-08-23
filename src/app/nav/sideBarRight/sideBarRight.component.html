@@ -1,5 +1,7 @@
 <md-sidenav #sidenav align="end" class="example-sidenav">
-  <button type="button" (click)="sidenavOpen('','')">SideBar</button>
+  <!-- <button type="button" (click)="sidenavOpen('','')">SideBar</button> -->
+  <i (click)="sidenavOpen('','')" class="fa fa-bars" aria-hidden="true"></i>
+
   <div>
     <app-newUser *ngIf="search.typeObj == 'user'" [search]="search"></app-newUser>
     <app-projectSingle *ngIf="search.typeObj == 'project'"></app-projectSingle>

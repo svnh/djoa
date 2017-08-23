@@ -3,6 +3,7 @@
 <div class="container">
 
   <div class="row">
+    <div class="col-md-12">
     <form [formGroup]="myForm" novalidate (ngSubmit)="save()" (keydown.enter)="$event.preventDefault()">
       <div>
         <div>
@@ -115,5 +116,6 @@
       </div>
       <div class="clearfix"></div>
     </form>
+  </div>
   </div>
 </div>
