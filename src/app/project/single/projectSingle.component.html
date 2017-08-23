@@ -1,8 +1,8 @@
 
 
 <div class="container">
-  <app-header [showBackButton]="true" [nameObject]="'project'" [showCreateButton]=false [openInDialog]=true></app-header>
-  <div>
+
+  <div class="row">
     <form [formGroup]="myForm" novalidate (ngSubmit)="save()" (keydown.enter)="$event.preventDefault()">
       <div>
         <div>

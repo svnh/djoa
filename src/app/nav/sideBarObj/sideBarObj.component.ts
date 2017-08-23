@@ -11,7 +11,10 @@ import {MdSidenav} from '@angular/material';
 export class SideBarObjComponent implements OnInit {
   @ViewChild('sidenav') public sidenav: MdSidenav;
 
-
+  search = {
+    typeObj:'',
+    userId: '',
+  }
   constructor(
     private globalEventsManager: GlobalEventsManager,
   ) {}
@@ -22,7 +25,8 @@ export class SideBarObjComponent implements OnInit {
 
   }
 
-  sidenavOpen() {
+  sidenavOpen(search) {
+    this.search = search
     this.sidenav.toggle()
   }
 

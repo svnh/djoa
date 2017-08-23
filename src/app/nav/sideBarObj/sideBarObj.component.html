@@ -1,6 +1,8 @@
 <md-sidenav #sidenav align="end" class="example-sidenav">
-  <button type="button" (click)="sidenavOpen()">SideBar</button>
-  <app-newUser></app-newUser>
+  <button type="button" (click)="sidenavOpen('','')">SideBar</button>
+  <div *ngIf="search.typeObj == 'user'">
+  <app-newUser [search]="search"></app-newUser>
+</div>
   <!-- <app-autocomplete
     [typeAutocomplete]="'project'"
     [canDelete]=true

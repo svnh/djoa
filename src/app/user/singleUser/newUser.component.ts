@@ -28,7 +28,8 @@ import { DeleteDialog } from '../../deleteDialog/deleteDialog.component'
 export class NewUserComponent implements OnInit {
   @Output() saved: EventEmitter<any> = new EventEmitter();
   @Input() search: any = {
-    isExternalUser: true
+    isExternalUser: true,
+    userId:'',
   };
   fetchedCompanies: Companie[] = []
   autocompleteCompanie: string = '';
@@ -100,14 +101,15 @@ export class NewUserComponent implements OnInit {
       })
 
       this.fetchedUser.isExternalUser = this.search.isExternalUser
+      console.log(this.search.userId)
       this.activatedRoute.params.subscribe((params: Params) => {
-        if(params['id']) {
-          this.getUser(params['id'])
-        } else {
-          if(params['isExternalUser'] === 'false') {
-            this.fetchedUser.isExternalUser = false
-          }
+        if(this.search.userId) {
+
+          this.getUser(this.search.userId)
         }
+        // if(params['id']) {
+        //   this.getUser(params['id'])
+        // }
 
       })
     }

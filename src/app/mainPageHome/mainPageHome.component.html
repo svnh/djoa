@@ -1,8 +1,5 @@
 <md-sidenav-container  class="example-container">
-  <!-- <md-sidenav #sidenav align="end" class="example-sidenav">
-    Jolly good!
-  </md-sidenav> -->
-  <!-- <app-loadingInApp></app-loadingInApp> -->
+
     <app-sideBarObj></app-sideBarObj>
     <app-navbar></app-navbar>
     <div class="container">
@@ -15,13 +12,15 @@
       <div class="row">
 
         <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-          test
-          test
-          test
-          test
-          <button type="button" md-button (click)="sideNavOpen()">
-            Open sidenav
+
+          <button type="button" md-button (click)="sideNavOpen('user', '')">
+            Create new user
           </button>
+          <button type="button" md-button (click)="sideNavOpen('user', fetchedUser._id)">
+            Open my profile
+          </button>
+          <br><br><br><br>
+
           Main page
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 
