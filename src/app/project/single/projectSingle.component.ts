@@ -15,7 +15,7 @@ import { QuoteService} from '../../quote/quote.service';
 import { User } from '../../user/user.model';
 import { Quote } from '../../quote/quote.model';
 import { AuthService} from '../../auth/auth.service';
-
+import {Search} from '../../mainPageHome/mainPageHome.model'
 
 
 @Component({
@@ -30,7 +30,7 @@ export class ProjectSingleComponent implements OnInit {
   @Input() showBackButton: Boolean = true;
   @Output() saved: EventEmitter<any> = new EventEmitter();
 
-
+  @Input() search: Search
 
   selectedIndex0: number = -1
   selectedIndex1: number = -1
@@ -43,9 +43,7 @@ export class ProjectSingleComponent implements OnInit {
 
   itemSteps:any =[];
 
-  search: any = {
-    projectId: ''
-  }
+
   status = StatusProject
   categ: string = 'Electricité';
   subCateg: string = 'file';

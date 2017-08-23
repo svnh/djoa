@@ -2,15 +2,11 @@
 
     <app-sideBarObj></app-sideBarObj>
     <app-navbar></app-navbar>
+
+
+
     <div class="container">
-
-
-
       <div class="row">
-
-      </div>
-      <div class="row">
-
         <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
 
           <button type="button" md-button (click)="sideNavOpen('user', '')">
@@ -19,6 +15,10 @@
           <button type="button" md-button (click)="sideNavOpen('user', fetchedUser._id)">
             Open my profile
           </button>
+          <button type="button" md-button (click)="sideNavOpen('project', '')">
+            New Project
+          </button>
+
           <br><br><br><br>
 
           Main page

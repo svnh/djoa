@@ -26,14 +26,16 @@ import {CommentModule} from '../comment/comment.module';
 
 import {SharedModule} from './shared.module';
 import {UserModule} from '../user/user.module';
+import {ProjectModule} from '../project/project.module';
 
 
 @NgModule({
   imports:      [
     SharedModule,
     UserModule,
-    CommonModule,
-    FormsModule,
+    // CommonModule,
+    // FormsModule,
+    ProjectModule,
     // CommonModule,
     // FormsModule,
     // AutocompleteModule,
@@ -61,8 +63,9 @@ import {UserModule} from '../user/user.module';
     // TranslatePipe,
     SharedModule,
     UserModule,
-    CommonModule,
-    FormsModule,
+    // CommonModule,
+    // FormsModule,
+    ProjectModule,
     // RoundPipe,
     // HeaderComponent,
     // NavbarModule,

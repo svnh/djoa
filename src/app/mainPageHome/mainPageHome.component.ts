@@ -40,7 +40,9 @@ export class MainPageHomeComponent implements OnInit {
     this.fetchedUser = this.authService.getCurrentUser()
   }
   sideNavOpen(typeObj: string, id: string) {
-    this.search.userId = id;
+    if(typeObj === 'user') this.search.userId = id;
+    if(typeObj === 'project') this.search.projectId = id;
+
     this.search.typeObj = typeObj;
 
     this.sideBarObjComponent.sidenavOpen(this.search)
