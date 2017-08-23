@@ -56,6 +56,8 @@ import {SharedModule } from '../shared/shared.module';
   ],
   exports:      [
     ProjectSingleComponent,
+    ProjectsComponent,
+
     // ProjectsComponent,
     // AutocompleteComponent,
   ],

@@ -7,8 +7,7 @@ import { Routes, RouterModule} from '@angular/router';
 import { MaterialModule } from '@angular/material';
 
 import { SideBarLeftComponent} from './sideBarLeft.component';
-import {SharedModule } from '../../shared/shared.module';
-
+import { SharedObjModule } from '../../shared/sharedObj.module';
 @NgModule({
   imports:      [
     // ProductRouting,
@@ -16,7 +15,7 @@ import {SharedModule } from '../../shared/shared.module';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedModule,
+    SharedObjModule,
     //  FormsModule,
     // MaterialModule,
     // ReactiveFormsModule,
