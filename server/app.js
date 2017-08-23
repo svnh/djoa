@@ -111,7 +111,7 @@ app.use('/templateQuote', templateQuotes)
 app.use('/right', right)
 app.use('/notification', notification)
 app.use('/comment', comment)
-// app.use('/chat', chat)
+app.use('/chat', chat)
 
 
 
