@@ -5,3 +5,9 @@ export class Search {
     projectId: string = '';
 
 }
+
+
+export class ShowNavBarData {
+  showNavBar: boolean = false;
+  typeObj: string = '';
+}

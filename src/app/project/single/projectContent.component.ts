@@ -17,6 +17,9 @@ import { Quote } from '../../quote/quote.model';
 import { AuthService} from '../../auth/auth.service';
 import {Search} from '../../mainPageHome/mainPageHome.model'
 import {GlobalEventsManager} from '../../globalEventsManager';
+import {ShowNavBarData} from '../../mainPageHome/mainPageHome.model'
+
+
 
 @Component({
   selector: 'app-projectContent',
@@ -51,7 +54,7 @@ export class ProjectContentComponent implements OnInit {
   // autocompleteQuote: string = '';
   fetchedUsers: User[] = [];
   fetchedQuotes: Quote[] = [];
-  showNavBar= false
+  showNavBarData: ShowNavBarData = new ShowNavBarData()
 
   fetchedProject: Project = new Project();
 
@@ -75,7 +78,7 @@ export class ProjectContentComponent implements OnInit {
     this.globalEventsManager.showNavBarEmitter.subscribe((mode)=>{
         // mode will be null the first time it is created, so you need to igonore it when null
         if (mode !== null) {
-          this.showNavBar = mode;
+          this.showNavBarData = mode;
           // this.fetchedUser = this.authService.getCurrentUser()
         }
     });
@@ -116,10 +119,14 @@ export class ProjectContentComponent implements OnInit {
 
   }
   test() {
-    this.globalEventsManager.showNavBar(true);
+    let showNavBarData = {
+      showNavBar: false,
+      typeObj: 'mission'
+    }
+    this.globalEventsManager.showNavBar(showNavBarData);
   }
 
-  
+
   getItemSteps() {
     let currentUser = this.authService.getCurrentUser()
 

@@ -9,6 +9,8 @@ import { PaiementGuardService} from '../../user/paiement/paiementGuard.service'
 import { ChangeDetectionStrategy} from '@angular/core';
 import {GlobalEventsManager} from '../../globalEventsManager';
 import {MdSidenav} from '@angular/material';
+import {ShowNavBarData} from '../../mainPageHome/mainPageHome.model'
+
 
 @Component({
   selector: 'app-sideBarLeft',
@@ -19,7 +21,7 @@ import {MdSidenav} from '@angular/material';
 export class SideBarLeftComponent implements OnInit {
   @ViewChild('sidenav') public sidenav: MdSidenav;
   // @Input() sidenav: any;
-  showNavBar: boolean = false;
+  showNavBarData: ShowNavBarData = new ShowNavBarData()
  // private userId: string = localStorage.getItem('userId');
   // private userId: string;
   fetchedUser: User = new User();
@@ -36,7 +38,8 @@ export class SideBarLeftComponent implements OnInit {
     this.globalEventsManager.showNavBarEmitter.subscribe((mode)=>{
         // mode will be null the first time it is created, so you need to igonore it when null
         if (mode !== null) {
-          this.showNavBar = mode;
+          console.log('ok')
+          this.showNavBarData = mode;
           // this.fetchedUser = this.authService.getCurrentUser()
         }
     });
@@ -45,7 +48,11 @@ export class SideBarLeftComponent implements OnInit {
     this.sidenav.toggle()
   }
   test() {
-    this.globalEventsManager.showNavBar(true);
+    let showNavBarData = {
+      showNavBar: true,
+      typeObj: 'project'
+    }
+    this.globalEventsManager.showNavBar(showNavBarData);
   }
   ngOnInit() {
     // if (this.authService.isLoggedIn()) {
