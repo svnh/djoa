@@ -8,7 +8,7 @@ export class ShowNavBarData {
 
 }
 export class SideBarData {
-  showNavBar: boolean = false;
+  showNavBar: boolean = true;
   search: Search = new Search();
 }
 

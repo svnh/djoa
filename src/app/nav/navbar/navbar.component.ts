@@ -20,8 +20,8 @@ import {Observable} from 'rxjs/Rx';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  @Input() sidenav: any;
-  showNavBar: boolean = false;
+  // @Input() sidenav: any;
+  // showNavBar: boolean = false;
  // private userId: string = localStorage.getItem('userId');
   // private userId: string;
   fetchedUser: User = new User();
@@ -38,50 +38,50 @@ export class NavbarComponent implements OnInit {
     // private companieGuardService: CompanieGuardService,
     // private paiementGuardService: PaiementGuardService,
   ) {
-    this.globalEventsManager.showNavBarEmitter.subscribe((mode)=>{
-        // mode will be null the first time it is created, so you need to igonore it when null
-        if (mode !== null) {
-          this.showNavBar = mode;
-          this.fetchedUser = this.authService.getCurrentUser()
-        }
-    });
+    // this.globalEventsManager.showNavBarEmitter.subscribe((mode)=>{
+    //     // mode will be null the first time it is created, so you need to igonore it when null
+    //     if (mode !== null) {
+    //       this.showNavBar = mode;
+    //       this.fetchedUser = this.authService.getCurrentUser()
+    //     }
+    // });
   }
 
 
 
   ngOnInit() {
-    if (this.authService.isLoggedIn()) {
-      //let userId = localStorage.getItem('userId');
-
-      this.getNotifications(1, {})
-      Observable.interval(1000 * 30).subscribe(x => {
-        this.getNotifications(1, {})
-      });
-
-      this.globalEventsManager.showNavBar(true);
-      this.showNavBar = true;
-      this.fetchedUser = this.authService.getCurrentUser()
-    }
+    // if (this.authService.isLoggedIn()) {
+    //   //let userId = localStorage.getItem('userId');
+    //
+    //   this.getNotifications(1, {})
+    //   Observable.interval(1000 * 30).subscribe(x => {
+    //     this.getNotifications(1, {})
+    //   });
+    //
+    //   this.globalEventsManager.showNavBar(true);
+    //   this.showNavBar = true;
+    //   this.fetchedUser = this.authService.getCurrentUser()
+    // }
   }
   cleanNotifications() {
-    this.notificationsNotRead = 0
+    // this.notificationsNotRead = 0
   }
   getNotifications(page: number, search: any) {
-    this.notificationService.getNotifications(page, search)
-      .subscribe(
-        res => {
-          this.fetchedNotifications =  res.data
-          this.notificationsNotRead = 0
-          this.fetchedNotifications.forEach(notif=> {
-            if(notif.isRead === false) {
-              this.notificationsNotRead++
-            }
-          })
-        },
-        error => {
-          console.log(error);
-        }
-      );
+    // this.notificationService.getNotifications(page, search)
+    //   .subscribe(
+    //     res => {
+    //       this.fetchedNotifications =  res.data
+    //       this.notificationsNotRead = 0
+    //       this.fetchedNotifications.forEach(notif=> {
+    //         if(notif.isRead === false) {
+    //           this.notificationsNotRead++
+    //         }
+    //       })
+    //     },
+    //     error => {
+    //       console.log(error);
+    //     }
+    //   );
   }
 
 

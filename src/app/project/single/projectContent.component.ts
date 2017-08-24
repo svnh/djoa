@@ -17,7 +17,7 @@ import { Quote } from '../../quote/quote.model';
 import { AuthService} from '../../auth/auth.service';
 import {Search} from '../../mainPageHome/mainPageHome.model'
 import {GlobalEventsManager} from '../../globalEventsManager';
-import {ShowNavBarData, SideBarData} from '../../mainPageHome/mainPageHome.model'
+import {ShowNavBarData} from '../../mainPageHome/mainPageHome.model'
 
 
 
@@ -107,21 +107,22 @@ export class ProjectContentComponent implements OnInit {
       if(params['id']) {
         // this.search.projectId = params['id']
         this.getProject(params['id'])
-      } else {
-        if(params['idClient'])
-           this.getUser(params['idClient'])
-        if(params['selectedIndex'])
-          this.selectedIndex0 = params['selectedIndex']
-
-          this.getItemSteps()
       }
+      // else {
+      //   // if(params['idClient'])
+      //   //    this.getUser(params['idClient'])
+      //   if(params['selectedIndex'])
+      //     this.selectedIndex0 = params['selectedIndex']
+      //
+      //     this.getItemSteps()
+      // }
     })
 
   }
 
 
   sideNavAction(side: string, showNavBar: boolean, typeObj: string) {
-    this.showNavBarData = new ShowNavBarData()
+    // this.showNavBarData = new ShowNavBarData()
     this.showNavBarData[side].showNavBar = showNavBar
     this.showNavBarData[side].search.typeObj = typeObj
     this.globalEventsManager.showNavBar(this.showNavBarData);
@@ -134,7 +135,7 @@ export class ProjectContentComponent implements OnInit {
     this.globalEventsManager.showNavBar(this.showNavBarData);
   }
   opendetailsProject() {
-    this.showNavBarData.rightSideBar = new SideBarData()
+    this.showNavBarData = new ShowNavBarData()
     this.showNavBarData.rightSideBar.showNavBar = true
     this.showNavBarData.rightSideBar.search.typeObj = 'project'
     this.showNavBarData.rightSideBar.search.projectId = this.fetchedProject._id
@@ -160,66 +161,66 @@ export class ProjectContentComponent implements OnInit {
 
 
 
+  //
+  // addCalendar() {
+  //   let queryParams = {}
+  //   // queryParams['new'] = true
+  //   queryParams['showCreateEvent'] = true
+  //   queryParams['showSearchEvent'] = false
+  //
+  //
+  //   // if(this.fetchedProject.assignedTos.length) {queryParams['idUserNew'] = this.fetchedProject.assignedTos[0]._id}
+  //   if(this.fetchedProject._id) {queryParams['idProjectNew'] = this.fetchedProject._id}
+  //   if(this.fetchedProject.clients.length) {queryParams['idClientNew'] = this.fetchedProject.clients[0]._id }
+  //   // if(this.fetchedProject.assignedTos.length)  {queryParams['idUserSearch'] = this.fetchedProject.assignedTos[0]._id }
+  //   if(this.fetchedProject._id) {queryParams['idProjectSearch'] = this.fetchedProject._id}
+  //
+  //   this.router.navigate(['userCalendar/', queryParams])
+  // }
+  // seeCalendar() {
+  //   let queryParams = {}
+  //   // queryParams['showCreateEvent'] = true
+  //   queryParams['showSearchEvent'] = false
+  //
+  //   // if(this.fetchedProject.assignedTos.length)  {queryParams['idUserSearch'] = this.fetchedProject.assignedTos[0]._id }
+  //   if(this.fetchedProject._id) {queryParams['idProjectSearch'] = this.fetchedProject._id}
+  //   // if(this.fetchedProject.clients.length)      {queryParams['idClientSearch'] = this.fetchedProject.clients[0]._id}
+  //   this.router.navigate(['userCalendar/', queryParams])
+  // }
+  //
+  // newComment(comment: string) {
+  //   // let newLog = new Log()
+  //   // newLog.comment = comment
+  //   // this.fetchedProject.logs.push(newLog)
+  // }
+  // getUser(id: string) {
+  //   this.userService.getUser(id)
+  //     .subscribe(
+  //       res => {
+  //         //this.fetchedUsers[0] = res.user
+  //         this.selectUser(res)
+  //       },
+  //       error => {
+  //         console.log(error);
+  //       }
+  //     );
+  // }
 
-  addCalendar() {
-    let queryParams = {}
-    // queryParams['new'] = true
-    queryParams['showCreateEvent'] = true
-    queryParams['showSearchEvent'] = false
-
-
-    // if(this.fetchedProject.assignedTos.length) {queryParams['idUserNew'] = this.fetchedProject.assignedTos[0]._id}
-    if(this.fetchedProject._id) {queryParams['idProjectNew'] = this.fetchedProject._id}
-    if(this.fetchedProject.clients.length) {queryParams['idClientNew'] = this.fetchedProject.clients[0]._id }
-    // if(this.fetchedProject.assignedTos.length)  {queryParams['idUserSearch'] = this.fetchedProject.assignedTos[0]._id }
-    if(this.fetchedProject._id) {queryParams['idProjectSearch'] = this.fetchedProject._id}
-
-    this.router.navigate(['userCalendar/', queryParams])
-  }
-  seeCalendar() {
-    let queryParams = {}
-    // queryParams['showCreateEvent'] = true
-    queryParams['showSearchEvent'] = false
-
-    // if(this.fetchedProject.assignedTos.length)  {queryParams['idUserSearch'] = this.fetchedProject.assignedTos[0]._id }
-    if(this.fetchedProject._id) {queryParams['idProjectSearch'] = this.fetchedProject._id}
-    // if(this.fetchedProject.clients.length)      {queryParams['idClientSearch'] = this.fetchedProject.clients[0]._id}
-    this.router.navigate(['userCalendar/', queryParams])
-  }
-
-  newComment(comment: string) {
-    // let newLog = new Log()
-    // newLog.comment = comment
-    // this.fetchedProject.logs.push(newLog)
-  }
-  getUser(id: string) {
-    this.userService.getUser(id)
-      .subscribe(
-        res => {
-          //this.fetchedUsers[0] = res.user
-          this.selectUser(res)
-        },
-        error => {
-          console.log(error);
-        }
-      );
-  }
-
-  changeCascade(selectedIndex0, selectedIndex1, selectedIndex2) {
-    this.selectedIndex0 = selectedIndex0
-    this.selectedIndex1 = selectedIndex1
-    this.selectedIndex2 = selectedIndex2
-  }
+  // changeCascade(selectedIndex0, selectedIndex1, selectedIndex2) {
+  //   this.selectedIndex0 = selectedIndex0
+  //   this.selectedIndex1 = selectedIndex1
+  //   this.selectedIndex2 = selectedIndex2
+  // }
   // addQuote(){
   // }
 
 
-  // autocomplete user
-  selectUser(user: User) {
-    // this.autocompleteUser=''
-    // this.fetchedUsers = []
-    this.fetchedProject.clients = [user]
-  }
+  // // autocomplete user
+  // selectUser(user: User) {
+  //   // this.autocompleteUser=''
+  //   // this.fetchedUsers = []
+  //   this.fetchedProject.clients = [user]
+  // }
   // searchUsers() {
   //   if(!this.autocompleteUser) {
   //      this.fetchedUsers = []
@@ -230,22 +231,22 @@ export class ProjectContentComponent implements OnInit {
   //     this.getUsers(1, search)
   //   }
   // }
-  getUsers(page: number, search: any) {
-    this.userService.getUsers(page, search)
-      .subscribe(
-        res => {
-          this.fetchedUsers = res.data
-        },
-        error => {
-          console.log(error);
-        }
-      );
-  }
+  // getUsers(page: number, search: any) {
+  //   this.userService.getUsers(page, search)
+  //     .subscribe(
+  //       res => {
+  //         this.fetchedUsers = res.data
+  //       },
+  //       error => {
+  //         console.log(error);
+  //       }
+  //     );
+  // }
 
-
-  removePic(i) {
-    // this.fetchedProject.forms.splice(i, 1);
-  }
+  //
+  // removePic(i) {
+  //   // this.fetchedProject.forms.splice(i, 1);
+  // }
 
 
 
@@ -266,16 +267,16 @@ export class ProjectContentComponent implements OnInit {
   //   this.location.back();
   // }
 
-
-  openDialog(positionImage: string) {
-    // let dialogRef = this.dialog.open(EditOptionsComponentDialog);
-    // dialogRef.afterClosed().subscribe(result => {
-    //   if(result) {
-    //     console.log(result)
-    //     // this.fetchedProject.forms.push( result)
-    //   }
-    // })
-  }
+  // 
+  // openDialog(positionImage: string) {
+  //   // let dialogRef = this.dialog.open(EditOptionsComponentDialog);
+  //   // dialogRef.afterClosed().subscribe(result => {
+  //   //   if(result) {
+  //   //     console.log(result)
+  //   //     // this.fetchedProject.forms.push( result)
+  //   //   }
+  //   // })
+  // }
 
 
   save() {
