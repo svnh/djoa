@@ -36,25 +36,19 @@ export class SideBarLeftComponent implements OnInit {
     // private paiementGuardService: PaiementGuardService,
   ) {
     this.globalEventsManager.showNavBarEmitter.subscribe((showNavBarData)=>{
-        // mode will be null the first time it is created, so you need to igonore it when null
         if (showNavBarData !== null) {
-
           this.showNavBarData = showNavBarData;
-          console.log(this.showNavBarData.leftSideBar.showNavBar)
           if(this.showNavBarData.leftSideBar.showNavBar) {
             this.sidenav.open()
           } else {
             this.sidenav.close()
           }
-          // this.fetchedUser = this.authService.getCurrentUser()
         }
-    });
+    })
   }
   sideNavAction(side: string, showNavBar: boolean, typeObj: string) {
-    console.log(side)
-    console.log(this.showNavBarData[side])
     this.showNavBarData[side].showNavBar = showNavBar
-    this.showNavBarData[side].typeObj = typeObj
+    this.showNavBarData[side].search.typeObj = typeObj
     this.globalEventsManager.showNavBar(this.showNavBarData);
   }
   // sidenavOpen(search) {

@@ -118,11 +118,20 @@ export class ProjectContentComponent implements OnInit {
     })
 
   }
-  test() {
-    this.showNavBarData.leftSideBar.showNavBar = true
-    this.showNavBarData.leftSideBar.typeObj = ''
-    this.globalEventsManager.showNavBar(this.showNavBarData);
 
+
+  sideNavAction(side: string, showNavBar: boolean, typeObj: string) {
+    this.showNavBarData = new ShowNavBarData()
+    this.showNavBarData[side].showNavBar = showNavBar
+    this.showNavBarData[side].search.typeObj = typeObj
+    this.globalEventsManager.showNavBar(this.showNavBarData);
+  }
+  openMyProfile() {
+    this.showNavBarData = new ShowNavBarData()
+    this.showNavBarData.rightSideBar.showNavBar = true
+    this.showNavBarData.rightSideBar.search.typeObj = 'user'
+    this.showNavBarData.rightSideBar.search.userId = this.authService.getCurrentUser()._id
+    this.globalEventsManager.showNavBar(this.showNavBarData);
   }
 
 

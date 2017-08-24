@@ -1,10 +1,5 @@
 
-export class Search {
-    userId: string = '';
-    typeObj: string = '';
-    projectId: string = '';
 
-}
 
 
 export class ShowNavBarData {
@@ -14,5 +9,12 @@ export class ShowNavBarData {
 }
 export class SideBar {
   showNavBar: boolean = false;
-  typeObj: string = '';
+  search: Search = new Search();
+}
+
+export class Search {
+    userId: string = '';
+    typeObj: string = '';
+    projectId: string = '';
+
 }

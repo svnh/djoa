@@ -39,23 +39,23 @@ export class MainPageHomeComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.fetchedUser = this.authService.getCurrentUser()
+    // this.fetchedUser = this.authService.getCurrentUser()
   }
-  sideNavRightOpen(typeObj: string, id: string) {
-    if(typeObj === 'user') this.search.userId = id;
-    if(typeObj === 'project') this.search.projectId = id;
+  // sideNavRightOpen(typeObj: string, id: string) {
+  //   if(typeObj === 'user') this.search.userId = id;
+  //   if(typeObj === 'project') this.search.projectId = id;
+  //
+  //   this.search.typeObj = typeObj;
+  //
+  //   // this.sideBarRightComponent.sidenavOpen(this.search)
+  //   // sidenav.open()
+  // }
 
-    this.search.typeObj = typeObj;
-
-    // this.sideBarRightComponent.sidenavOpen(this.search)
-    // sidenav.open()
-  }
-
-  sideNavLeftOpen(typeObj: string) {
-
-    // this.sideBarLeftComponent.sidenavOpen(this.search)
-    // sidenav.open()
-  }
+  // sideNavLeftOpen(typeObj: string) {
+  //
+  //   // this.sideBarLeftComponent.sidenavOpen(this.search)
+  //   // sidenav.open()
+  // }
 
   //
   // goTo(path: string) {
