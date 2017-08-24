@@ -90,21 +90,21 @@ export class ProjectSingleComponent implements OnInit {
     this.authService
     .isoDateToHtmlDate(this.fetchedProject
     .dateProject.creationDate)
-
-
-    this.activatedRoute.params.subscribe((params: Params) => {
-      if(params['id']) {
-        this.search.projectId = params['id']
-        this.getProject(params['id'])
-      } else {
-        if(params['idClient'])
-           this.getUser(params['idClient'])
-        if(params['selectedIndex'])
-          this.selectedIndex0 = params['selectedIndex']
-
-          this.getItemSteps()
-      }
-    })
+    console.log(this.search)
+    this.getProject(this.search.projectId)
+    // this.activatedRoute.params.subscribe((params: Params) => {
+    //   if(params['id']) {
+    //     this.search.projectId = params['id']
+    //     this.getProject(params['id'])
+    //   } else {
+    //     if(params['idClient'])
+    //        this.getUser(params['idClient'])
+    //     if(params['selectedIndex'])
+    //       this.selectedIndex0 = params['selectedIndex']
+    //
+    //       this.getItemSteps()
+    //   }
+    // })
 
   }
 

@@ -5,6 +5,6 @@
   <div>
     {{showNavBarData.rightSideBar.search|json}}
     <app-newUser *ngIf="showNavBarData.rightSideBar.search.typeObj == 'user'" [search]="showNavBarData.rightSideBar.search"></app-newUser>
-    <app-projectSingle *ngIf="showNavBarData.rightSideBar.search.typeObj == 'project'"></app-projectSingle>
+    <app-projectSingle *ngIf="showNavBarData.rightSideBar.search.typeObj == 'project'" [search]="showNavBarData.rightSideBar.search"></app-projectSingle>
   </div>
 </md-sidenav>

@@ -3,11 +3,11 @@
 
 
 export class ShowNavBarData {
-  rightSideBar = new SideBar()
-  leftSideBar = new SideBar()
+  rightSideBar = new SideBarData()
+  leftSideBar = new SideBarData()
 
 }
-export class SideBar {
+export class SideBarData {
   showNavBar: boolean = false;
   search: Search = new Search();
 }

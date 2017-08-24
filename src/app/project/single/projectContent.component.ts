@@ -17,7 +17,7 @@ import { Quote } from '../../quote/quote.model';
 import { AuthService} from '../../auth/auth.service';
 import {Search} from '../../mainPageHome/mainPageHome.model'
 import {GlobalEventsManager} from '../../globalEventsManager';
-import {ShowNavBarData} from '../../mainPageHome/mainPageHome.model'
+import {ShowNavBarData, SideBarData} from '../../mainPageHome/mainPageHome.model'
 
 
 
@@ -131,6 +131,13 @@ export class ProjectContentComponent implements OnInit {
     this.showNavBarData.rightSideBar.showNavBar = true
     this.showNavBarData.rightSideBar.search.typeObj = 'user'
     this.showNavBarData.rightSideBar.search.userId = this.authService.getCurrentUser()._id
+    this.globalEventsManager.showNavBar(this.showNavBarData);
+  }
+  opendetailsProject() {
+    this.showNavBarData.rightSideBar = new SideBarData()
+    this.showNavBarData.rightSideBar.showNavBar = true
+    this.showNavBarData.rightSideBar.search.typeObj = 'project'
+    this.showNavBarData.rightSideBar.search.projectId = this.fetchedProject._id
     this.globalEventsManager.showNavBar(this.showNavBarData);
   }
 
