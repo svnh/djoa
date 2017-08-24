@@ -5,7 +5,7 @@ import {Router} from '@angular/router';
 
 import { UserDialogComponent } from '../../user/singleUser/dialog/userDialog.component';
 import { CompanieDialogComponent } from '../../companie/single/dialog/companieDialog.component';
-import { ProjectDialogComponent } from '../../project/single/dialog/projectDialog.component';
+// import { ProjectDialogComponent } from '../../project/single/dialog/projectDialog.component';
 import { ProductDialogComponent } from '../../product/single/dialog/productDialog.component';
 
 
@@ -49,9 +49,9 @@ export class newObjDialogComponent implements OnInit {
 
     if(typeObj == 'companie')
       dialogComp = CompanieDialogComponent
-
-    if(typeObj == 'project')
-      dialogComp = ProjectDialogComponent
+    //
+    // if(typeObj == 'project')
+    //   dialogComp = ProjectDialogComponent
 
     if(typeObj == 'paiementQuote')
       dialogComp = PaiementQuoteDialogComponent

@@ -31,8 +31,10 @@ import { Project } from '../../project/project.model';
 })
 export class MissionComponent implements OnInit {
   @Output() newMissionSaved: EventEmitter<any> = new EventEmitter();
-  @Input() showHeader = true;
+  
   @Input() fetchedMission: Mission = new Mission()
+
+
 
   statusTypes = [
     { label: 'Not Started', value: '' },

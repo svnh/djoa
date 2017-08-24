@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MaterialModule } from '@angular/material';
 
-import { ProjectDialogComponent } from './single/dialog/projectDialog.component';
+// import { ProjectDialogComponent } from './single/dialog/projectDialog.component';
 
 // import { ProjectTasksComponent} from './task/singleTask/projectTasks.component';
 import { ProjectsComponent} from './projects/projects.component';
@@ -50,7 +50,7 @@ import {SharedModule } from '../shared/shared.module';
     ProjectSingleComponent,
     ProjectContentComponent,
     // TasksComponent,
-    ProjectDialogComponent,
+    // ProjectDialogComponent,
     // CommentComponent,
     // PictureComponent,
     // TaskDialogComponent,
@@ -66,10 +66,10 @@ import {SharedModule } from '../shared/shared.module';
   ],
   providers:    [
     ProjectService,
-    TaskService
+    // TaskService
   ],
   entryComponents: [
-    ProjectDialogComponent,
+    // ProjectDialogComponent,
     // TaskDialogComponent,
   ]
 })

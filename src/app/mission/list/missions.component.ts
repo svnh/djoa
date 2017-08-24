@@ -19,7 +19,7 @@ import { UserService} from '../../user/user.service';
 })
 export class MissionsComponent implements OnInit {
   @Input() userId = '';
-  @Input() showHeader = true;
+  @Input() productType = '';
   token: string = localStorage.getItem('id_token');
   fetchedMissions: Mission[] = [];
   search: any = {

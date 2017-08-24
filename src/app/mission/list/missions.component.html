@@ -17,7 +17,7 @@
     <div class="col-md-10">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title">{{ 'List'  }}</h4>
+          <h4 class="card-title">{{productType}}</h4>
         </div>
         <div class="card-block clearfix">
           <!-- <app-autocomplete
@@ -31,7 +31,6 @@
         </app-autocomplete> -->
 
 
-          <md-checkbox class="example-margin" [(ngModel)]="search.myMissions" (change)="searchMissions()">My missions</md-checkbox>
 
 
           <!-- <div id="wrapper" class="subsubnav-clients float-left">
@@ -79,7 +78,7 @@
               [pageSize]="paginationData.itemsPerPage"
               (page)="getPage($event.pageIndex*1+1)">
             </md-paginator>
-<app-loadingInApp *ngIf="loading"></app-loadingInApp>  
+<app-loadingInApp *ngIf="loading"></app-loadingInApp>
             <!-- <div [hidden]="!loading">Loading...</div>
             <pagination-controls (pageChange)="getPage($event)" id="missionPagination" class="change-page"></pagination-controls> -->
           </div>
