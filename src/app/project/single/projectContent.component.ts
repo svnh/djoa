@@ -134,6 +134,7 @@ export class ProjectContentComponent implements OnInit {
     this.showNavBarData.rightSideBar.search.userId = this.authService.getCurrentUser()._id
     this.globalEventsManager.showNavBar(this.showNavBarData);
   }
+  
   opendetailsProject() {
     this.showNavBarData = new ShowNavBarData()
     this.showNavBarData.rightSideBar.showNavBar = true
@@ -267,7 +268,7 @@ export class ProjectContentComponent implements OnInit {
   //   this.location.back();
   // }
 
-  // 
+  //
   // openDialog(positionImage: string) {
   //   // let dialogRef = this.dialog.open(EditOptionsComponentDialog);
   //   // dialogRef.afterClosed().subscribe(result => {

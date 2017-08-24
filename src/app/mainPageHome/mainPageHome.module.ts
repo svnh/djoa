@@ -17,7 +17,7 @@ import { MainPageHomeRouting} from './mainPageHomeRouting.module';
 // import { ProductModule } from '../product/product.module';
 // import { AutocompleteComponent } from '../autocomplete/autocomplete.component'
 
-// import {SharedModule } from '../shared/shared.module';
+import {SharedModule } from '../shared/shared.module';
 // import { SignaturePadModule } from 'angular2-signaturepad';
 // import { ChartsModule } from 'ng2-charts/ng2-charts';
 
@@ -38,7 +38,7 @@ import { MainPageHomeRouting} from './mainPageHomeRouting.module';
     ReactiveFormsModule,
     RouterModule,
     // ProductModule,
-    // SharedModule,
+    SharedModule,
     // SideBarRightModule,
     // SideBarLeftModule,
     // SignaturePadModule,

@@ -37,6 +37,7 @@ export class SideBarLeftComponent implements OnInit {
   ) {
     this.globalEventsManager.showNavBarEmitter.subscribe((showNavBarData)=>{
         if (showNavBarData !== null) {
+          console.log(showNavBarData)
           this.showNavBarData = showNavBarData;
           if(this.showNavBarData.leftSideBar.showNavBar) {
             this.sidenav.open()
@@ -63,13 +64,15 @@ export class SideBarLeftComponent implements OnInit {
   //   this.globalEventsManager.showNavBar(showNavBarData);
   // }
   ngOnInit() {
-    // if (this.authService.isLoggedIn()) {
-    //   this.globalEventsManager.showNavBar(true);
-    //   this.showNavBar = true;
-    //   //let userId = localStorage.getItem('userId');
-    //
-    //   this.fetchedUser = this.authService.getCurrentUser()
-    // }
+    if (this.authService.isLoggedIn()) {
+      this.showNavBarData.leftSideBar.showNavBar = true
+      this.globalEventsManager.showNavBar(this.showNavBarData);
+      // this.globalEventsManager.showNavBar(true);
+      // this.showNavBar = true;
+      //let userId = localStorage.getItem('userId');
+
+      this.fetchedUser = this.authService.getCurrentUser()
+    }
   }
   // redirect(typeObj) {
   //     // this.router.navigate([typeObj]);

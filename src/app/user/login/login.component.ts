@@ -5,6 +5,8 @@ import {Router} from '@angular/router';
 import {AuthService} from '../../auth/auth.service';
 import {UserAuth} from '../../auth/user.model';
 import {GlobalEventsManager} from '../../globalEventsManager';
+import {ShowNavBarData} from '../../mainPageHome/mainPageHome.model'
+
 
 
 @Component({
@@ -54,7 +56,9 @@ export class LoginComponent implements OnInit, AfterViewInit {
     this._authService.signin(user)
       .subscribe(
         data => {
-          this.globalEventsManager.showNavBar(true);
+          let newShowNavBarData = new ShowNavBarData()
+          newShowNavBarData.leftSideBar.showNavBar = true
+          this.globalEventsManager.showNavBar(newShowNavBarData);
           //console.log(data)
           // if the user credentials are correct, set the localStorage token and userId,
           // we need these info in order to do stuff later when the user is signed in and verified

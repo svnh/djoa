@@ -16,7 +16,8 @@ import {Router} from '@angular/router';
 import {JwtHelper} from 'angular2-jwt';
 // import {UserService} from '../user/user.service'
 import {User} from '../user/user.model'
-
+import {ShowNavBarData} from '../mainPageHome/mainPageHome.model'
+import { GlobalEventsManager} from '../globalEventsManager';
 
 @Injectable()
 
@@ -39,6 +40,7 @@ export class AuthService {
     private errorService: ErrorService,
     private toastr: ToastsManager,
     private router: Router,
+    private globalEventsManager: GlobalEventsManager
     // private userService: UserService,
   ) {
 
@@ -103,37 +105,6 @@ export class AuthService {
         return Observable.throw(error.json());
       });
   }
-  //
-  // refreshCookiesOfCurrentUser() {
-  //   console.log('refreshCookiesOfCurrentUser')
-  //
-  //
-  //   this.getUser('')
-  //     .subscribe(
-  //       res => {
-  //         this.user = res
-  //          console.log(res)
-  //        },
-  //       error => { console.log(error) }
-  //     )
-  //
-  //
-  // }
-
-
-  //
-  // getUser(id: string) {
-  //   let headers = new Headers({'Content-Type': 'application/json'});
-  //   headers.append('Authorization', '' + this.currentUser.token);
-  //   return this.http.get(this.url + 'profile/' + id, {headers: headers})
-  //     .map((response: Response) => {
-  //       return response.json().user;
-  //     })
-  //     .catch((error: Response) => {
-  //       this.errorService.handleError(error.json());
-  //       return Observable.throw(error.json());
-  //     });
-  // }
 
 
 
@@ -233,47 +204,6 @@ export class AuthService {
     return true
   }
 
-  // isCurrentUserIsInSubPeriod(){
-  //   if (new Date(this.currentUser.paiement.stripe.current_period_end) > new Date())
-  //     return true;
-  //   return false
-  //
-  // }
-  // isCurrentUserHasCompanie(){
-  //   if(this.currentUser.companies.length)
-  //     return true
-  //   return false
-  // }
-
-  // isStylist() {
-  //   let userInfo = localStorage.getItem('id_token') ? this.jwtHelper.decodeToken(localStorage.getItem('id_token')) : null;
-  //   if (userInfo) {
-  //     if (userInfo.user.role[0] === 'stylist') {
-  //       return true;
-  //     }
-  //   }
-  //   return false;
-  // }
-  // isSalesRep() {
-  //   let userInfo = localStorage.getItem('id_token') ? this.jwtHelper.decodeToken(localStorage.getItem('id_token')) : null;
-  //   if (userInfo) {
-  //     if (userInfo.user.role[0] === 'salesRep') {
-  //       return true;
-  //     }
-  //   }
-  //   return false;
-  // }
-  //
-  // isManager(){
-  //   let userInfo = localStorage.getItem('id_token') ? this.jwtHelper.decodeToken(localStorage.getItem('id_token')) : null;
-  //   if (userInfo) {
-  //     if (userInfo.user.role[0] === 'manager') {
-  //       return true;
-  //     }
-  //   }
-  //   return false;
-  // }
-
   // sending request for password reset
   forget(reset: Reset) {
     const body = JSON.stringify(reset);
@@ -300,6 +230,11 @@ export class AuthService {
 
   // logout function to be used in html file of both pages (login/register) in order to clear the localStorage from token and user id.
   logout() {
+    let newShowNavBarData = new ShowNavBarData()
+    newShowNavBarData.leftSideBar.showNavBar = false
+    newShowNavBarData.rightSideBar.showNavBar = false
+    this.globalEventsManager.showNavBar(newShowNavBarData);
+
     localStorage.clear();
     this.token = null;
 

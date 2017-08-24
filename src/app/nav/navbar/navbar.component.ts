@@ -7,7 +7,7 @@ import { User} from '../../user/user.model';
 import { CompanieGuardService} from '../../companie/companieGuard.service'
 import { PaiementGuardService} from '../../user/paiement/paiementGuard.service'
 import { ChangeDetectionStrategy} from '@angular/core';
-import { GlobalEventsManager} from '../../globalEventsManager';
+// import { GlobalEventsManager} from '../../globalEventsManager';
 import { NotificationService} from '../../notification/notification.service';
 import { Notification} from '../../notification/notification.model';
 import {Observable} from 'rxjs/Rx';
@@ -29,7 +29,7 @@ export class NavbarComponent implements OnInit {
   notificationsNotRead: number=0;
 
   constructor(
-    private globalEventsManager: GlobalEventsManager,
+    // private globalEventsManager: GlobalEventsManager,
     private authService: AuthService,
     private adminService: AdminService,
     private notificationService: NotificationService,
@@ -136,7 +136,9 @@ export class NavbarComponent implements OnInit {
   // this calls the logout function from our authentication service, it's activated when user clicks logout in front end.
   // It's called by the (click)='logout()' when the user presses the button
   logout() {
-    this.globalEventsManager.showNavBar(false);
+    // this.globalEventsManager.showNavBar(false);
+
+
     this.authService.logout();
     let this2 = this
     setTimeout(function(){
