@@ -8,6 +8,11 @@ export class Search {
 
 
 export class ShowNavBarData {
+  rightSideBar = new SideBar()
+  leftSideBar = new SideBar()
+
+}
+export class SideBar {
   showNavBar: boolean = false;
   typeObj: string = '';
 }

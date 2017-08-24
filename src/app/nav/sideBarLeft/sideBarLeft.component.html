@@ -1,8 +1,8 @@
 <md-sidenav #sidenav mode="side" opened="true" class="example-sidenav">
   <div class="sideBarLeft" id="accordion" role="tablist" aria-multiselectable="true">
+
+    <i (click)="sideNavAction('leftSideBar', false, '')" class="fa fa-bars" aria-hidden="true"></i>
     {{showNavBarData|json}}
-    <button type="button" (click)="test()">test</button>
-    <i (click)="sidenav.toggle()" class="fa fa-bars" aria-hidden="true"></i>
 
     <app-projects></app-projects>
   </div>

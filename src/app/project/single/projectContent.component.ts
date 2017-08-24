@@ -119,11 +119,10 @@ export class ProjectContentComponent implements OnInit {
 
   }
   test() {
-    let showNavBarData = {
-      showNavBar: false,
-      typeObj: 'mission'
-    }
-    this.globalEventsManager.showNavBar(showNavBarData);
+    this.showNavBarData.leftSideBar.showNavBar = true
+    this.showNavBarData.leftSideBar.typeObj = ''
+    this.globalEventsManager.showNavBar(this.showNavBarData);
+
   }
 
 
