@@ -1,6 +1,7 @@
 <md-sidenav #sidenav mode="side" opened="true" class="example-sidenav">
   <div class="sideBarLeft" id="accordion" role="tablist" aria-multiselectable="true">
-
+    {{showNavBar}}
+    <button type="button" (click)="test()">test</button>
     <i (click)="sidenav.toggle()" class="fa fa-bars" aria-hidden="true"></i>
 
     <app-projects></app-projects>

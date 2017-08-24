@@ -33,16 +33,19 @@ export class SideBarLeftComponent implements OnInit {
     // private companieGuardService: CompanieGuardService,
     // private paiementGuardService: PaiementGuardService,
   ) {
-    // this.globalEventsManager.showNavBarEmitter.subscribe((mode)=>{
-    //     // mode will be null the first time it is created, so you need to igonore it when null
-    //     if (mode !== null) {
-    //       this.showNavBar = mode;
-    //       this.fetchedUser = this.authService.getCurrentUser()
-    //     }
-    // });
+    this.globalEventsManager.showNavBarEmitter.subscribe((mode)=>{
+        // mode will be null the first time it is created, so you need to igonore it when null
+        if (mode !== null) {
+          this.showNavBar = mode;
+          // this.fetchedUser = this.authService.getCurrentUser()
+        }
+    });
   }
   sidenavOpen(search) {
     this.sidenav.toggle()
+  }
+  test() {
+    this.globalEventsManager.showNavBar(true);
   }
   ngOnInit() {
     // if (this.authService.isLoggedIn()) {

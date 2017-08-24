@@ -16,7 +16,7 @@ import { User } from '../../user/user.model';
 import { Quote } from '../../quote/quote.model';
 import { AuthService} from '../../auth/auth.service';
 import {Search} from '../../mainPageHome/mainPageHome.model'
-
+import {GlobalEventsManager} from '../../globalEventsManager';
 
 @Component({
   selector: 'app-projectContent',
@@ -51,7 +51,7 @@ export class ProjectContentComponent implements OnInit {
   // autocompleteQuote: string = '';
   fetchedUsers: User[] = [];
   fetchedQuotes: Quote[] = [];
-
+  showNavBar= false
 
   fetchedProject: Project = new Project();
 
@@ -59,6 +59,7 @@ export class ProjectContentComponent implements OnInit {
   public myForm: FormGroup;
 
   constructor(
+    private globalEventsManager: GlobalEventsManager,
     private sanitizer: DomSanitizer,
     private projectService: ProjectService,
     private toastr: ToastsManager,
@@ -71,6 +72,13 @@ export class ProjectContentComponent implements OnInit {
     private quoteService: QuoteService,
     private authService: AuthService,
   ) {
+    this.globalEventsManager.showNavBarEmitter.subscribe((mode)=>{
+        // mode will be null the first time it is created, so you need to igonore it when null
+        if (mode !== null) {
+          this.showNavBar = mode;
+          // this.fetchedUser = this.authService.getCurrentUser()
+        }
+    });
   }
 
 
@@ -107,7 +115,11 @@ export class ProjectContentComponent implements OnInit {
     })
 
   }
+  test() {
+    this.globalEventsManager.showNavBar(true);
+  }
 
+  
   getItemSteps() {
     let currentUser = this.authService.getCurrentUser()
 
