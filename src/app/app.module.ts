@@ -209,8 +209,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
 
   ],
   imports: [
-    SideBarRightModule,
-    SideBarLeftModule,
+
 
     BrowserModule,
     CommonModule,
@@ -236,7 +235,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   //  CompanieModule,
   //  QuoteModule,
 
-
+  SideBarRightModule,
+  SideBarLeftModule,
 
 
   ],

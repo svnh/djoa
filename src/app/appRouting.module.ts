@@ -24,7 +24,8 @@ import { NgModule } from '@angular/core';
 
 export const routes: Routes = [
   {path: '', loadChildren: 'app/mainPageHome/mainPageHome.module#MainPageHomeModule', canActivate: [AuthGuardService], pathMatch: 'full'},
-  // {path: 'comment', loadChildren: 'app/comment/comment.module#CommentModule', canActivate: [AuthGuardService]},
+  {path: 'comment', loadChildren: 'app/comment/comment.module#CommentModule', canActivate: [AuthGuardService]},
+  {path: 'mission', loadChildren: 'app/mission/mission.module#MissionModule', canActivate: [AuthGuardService]},
   // {path: 'userCalendar', loadChildren: 'app/userCalendar/userCalendar.module#UserCalendarModule', canActivate: [AuthGuardService]},
   {path: 'companie', loadChildren: 'app/companie/companie.module#CompanieModule', canActivate: [AuthGuardService]},
   {path: 'right', loadChildren: 'app/right/right.module#RightModule', canActivate: [AuthGuardService]},

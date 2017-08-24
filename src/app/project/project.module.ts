@@ -15,7 +15,7 @@ import { ProjectRouting} from './projectRouting.module';
 // import { TasksComponent} from './task/tasks/tasks.component';
 
 import { TaskService} from '../task/task.service';
-import { QuoteModule} from '../quote/quote.module';
+import { MissionModule} from '../mission/mission.module';
 
 import { DragulaModule } from 'ng2-dragula';
 // import { AutocompleteComponent } from '../autocomplete/autocomplete.component'
@@ -37,7 +37,7 @@ import {SharedModule } from '../shared/shared.module';
     // FormsModule,
     // MaterialModule,
     ReactiveFormsModule,
-    QuoteModule,
+    MissionModule,
     SharedModule,
     // CommentModule,
 

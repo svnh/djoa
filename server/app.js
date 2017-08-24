@@ -28,6 +28,7 @@ var right    = require('./routes/right')
 var notification    = require('./routes/notification')
 var comment    = require('./routes/comment')
 var chat    = require('./routes/chat')
+var mission    = require('./routes/mission')
 
 
 
@@ -112,6 +113,7 @@ app.use('/right', right)
 app.use('/notification', notification)
 app.use('/comment', comment)
 app.use('/chat', chat)
+app.use('/mission', mission)
 
 
 
