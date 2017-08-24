@@ -8,6 +8,7 @@ import { ProjectDialogComponent } from './single/dialog/projectDialog.component'
 // import { ProjectTasksComponent} from './task/singleTask/projectTasks.component';
 import { ProjectsComponent} from './projects/projects.component';
 import { ProjectSingleComponent} from './single/projectSingle.component';
+import { ProjectContentComponent} from './single/projectContent.component';
 import { ProjectService} from './project.service';
 import { ProjectRouting} from './projectRouting.module';
 
@@ -47,6 +48,7 @@ import {SharedModule } from '../shared/shared.module';
     // ProjectTasksComponent,
     ProjectsComponent,
     ProjectSingleComponent,
+    ProjectContentComponent,
     // TasksComponent,
     ProjectDialogComponent,
     // CommentComponent,
@@ -57,6 +59,7 @@ import {SharedModule } from '../shared/shared.module';
   exports:      [
     ProjectSingleComponent,
     ProjectsComponent,
+    ProjectContentComponent,
 
     // ProjectsComponent,
     // AutocompleteComponent,

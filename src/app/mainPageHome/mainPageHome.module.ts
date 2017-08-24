@@ -21,8 +21,8 @@ import {SharedModule } from '../shared/shared.module';
 // import { SignaturePadModule } from 'angular2-signaturepad';
 // import { ChartsModule } from 'ng2-charts/ng2-charts';
 
-import { SideBarRightModule } from '../nav/sideBarRight/sideBarRight.module';
-import { SideBarLeftModule } from '../nav/sideBarLeft/sideBarLeft.module';
+// import { SideBarRightModule } from '../nav/sideBarRight/sideBarRight.module';
+// import { SideBarLeftModule } from '../nav/sideBarLeft/sideBarLeft.module';
 
 
 
@@ -39,8 +39,8 @@ import { SideBarLeftModule } from '../nav/sideBarLeft/sideBarLeft.module';
     RouterModule,
     // ProductModule,
     SharedModule,
-    SideBarRightModule,
-    SideBarLeftModule,
+    // SideBarRightModule,
+    // SideBarLeftModule,
     // SignaturePadModule,
     // ChartsModule,
     // AutocompleteComponent,

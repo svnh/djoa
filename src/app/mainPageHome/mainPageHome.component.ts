@@ -5,8 +5,8 @@ import { ToastsManager} from 'ng2-toastr';
 import { MdDialog} from '@angular/material';
 // import { EditOptionsComponentDialog }  from '../form/modalLibrary/modalLibrary.component';
 import { AdminService} from '../admin/services/admin.service';
-import { SideBarRightComponent} from '../nav/sideBarRight/sideBarRight.component';
-import { SideBarLeftComponent} from '../nav/sideBarLeft/sideBarLeft.component';
+// import { SideBarRightComponent} from '../nav/sideBarRight/sideBarRight.component';
+// import { SideBarLeftComponent} from '../nav/sideBarLeft/sideBarLeft.component';
 
 import {Search} from './mainPageHome.model'
 // import { Options } from './options.model';
@@ -20,8 +20,8 @@ import { User} from '../user/user.model';
   styleUrls: ['./mainPageHome.component.css']
 })
 export class MainPageHomeComponent implements OnInit {
-  @ViewChild(SideBarRightComponent) private sideBarRightComponent: SideBarRightComponent;
-  @ViewChild(SideBarLeftComponent) private sideBarLeftComponent: SideBarLeftComponent;
+  // @ViewChild(SideBarRightComponent) private sideBarRightComponent: SideBarRightComponent;
+  // @ViewChild(SideBarLeftComponent) private sideBarLeftComponent: SideBarLeftComponent;
   fetchedUser: User = new User();
   search: Search = new Search(
 
@@ -47,13 +47,13 @@ export class MainPageHomeComponent implements OnInit {
 
     this.search.typeObj = typeObj;
 
-    this.sideBarRightComponent.sidenavOpen(this.search)
+    // this.sideBarRightComponent.sidenavOpen(this.search)
     // sidenav.open()
   }
 
   sideNavLeftOpen(typeObj: string) {
 
-    this.sideBarLeftComponent.sidenavOpen(this.search)
+    // this.sideBarLeftComponent.sidenavOpen(this.search)
     // sidenav.open()
   }
 
