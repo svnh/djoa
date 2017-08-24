@@ -23,11 +23,11 @@ export class SideBarRightComponent implements OnInit {
     private globalEventsManager: GlobalEventsManager,
   ) {
     // console.log(this.showNavBarData)
-    this.globalEventsManager.showNavBarEmitter.subscribe((showNavBarData)=>{
+    this.globalEventsManager.showNavBarEmitterRight.subscribe((showNavBarData)=>{
         if (showNavBarData !== null) {
           console.log(showNavBarData)
           this.showNavBarData = showNavBarData;
-          if(this.showNavBarData.rightSideBar.showNavBar) {
+          if(this.showNavBarData.showNavBar) {
             this.sidenav.open()
           } else {
             this.sidenav.close()
@@ -49,9 +49,9 @@ export class SideBarRightComponent implements OnInit {
   // }
 
   sideNavAction(side: string, showNavBar: boolean, typeObj: string) {
-    this.showNavBarData[side].showNavBar = showNavBar
-    this.showNavBarData[side].typeObj = typeObj
-    this.globalEventsManager.showNavBar(this.showNavBarData);
+    this.showNavBarData.showNavBar = showNavBar
+    this.showNavBarData.search.typeObj = typeObj
+    this.globalEventsManager.showNavBarRight(this.showNavBarData);
   }
 
 

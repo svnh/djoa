@@ -75,7 +75,7 @@ export class ProjectContentComponent implements OnInit {
     private quoteService: QuoteService,
     private authService: AuthService,
   ) {
-    this.globalEventsManager.showNavBarEmitter.subscribe((mode)=>{
+    this.globalEventsManager.showNavBarEmitterRight.subscribe((mode)=>{
         // mode will be null the first time it is created, so you need to igonore it when null
         if (mode !== null) {
           this.showNavBarData = mode;
@@ -120,27 +120,33 @@ export class ProjectContentComponent implements OnInit {
 
   }
 
+  openSideBarLeft(){
+    let newShowNavBarData = new ShowNavBarData()
+    newShowNavBarData.showNavBar = true
+    newShowNavBarData.search.typeObj = ''
+    this.globalEventsManager.showNavBarLeft(newShowNavBarData);
+  }
 
   sideNavAction(side: string, showNavBar: boolean, typeObj: string) {
     // this.showNavBarData = new ShowNavBarData()
-    this.showNavBarData[side].showNavBar = showNavBar
-    this.showNavBarData[side].search.typeObj = typeObj
-    this.globalEventsManager.showNavBar(this.showNavBarData);
+    this.showNavBarData.showNavBar = showNavBar
+    this.showNavBarData.search.typeObj = typeObj
+    this.globalEventsManager.showNavBarRight(this.showNavBarData);
   }
   openMyProfile() {
     this.showNavBarData = new ShowNavBarData()
-    this.showNavBarData.rightSideBar.showNavBar = true
-    this.showNavBarData.rightSideBar.search.typeObj = 'user'
-    this.showNavBarData.rightSideBar.search.userId = this.authService.getCurrentUser()._id
-    this.globalEventsManager.showNavBar(this.showNavBarData);
+    this.showNavBarData.showNavBar = true
+    this.showNavBarData.search.typeObj = 'user'
+    this.showNavBarData.search.userId = this.authService.getCurrentUser()._id
+    this.globalEventsManager.showNavBarRight(this.showNavBarData);
   }
-  
+
   opendetailsProject() {
     this.showNavBarData = new ShowNavBarData()
-    this.showNavBarData.rightSideBar.showNavBar = true
-    this.showNavBarData.rightSideBar.search.typeObj = 'project'
-    this.showNavBarData.rightSideBar.search.projectId = this.fetchedProject._id
-    this.globalEventsManager.showNavBar(this.showNavBarData);
+    this.showNavBarData.showNavBar = true
+    this.showNavBarData.search.typeObj = 'project'
+    this.showNavBarData.search.projectId = this.fetchedProject._id
+    this.globalEventsManager.showNavBarRight(this.showNavBarData);
   }
 
 

@@ -1,13 +1,14 @@
 
 
 
-
+//
+// export class ShowNavBarData {
+//   rightSideBar = new SideBarData()
+//   leftSideBar = new SideBarData()
+//
+// }
+// export class SideBarData {
 export class ShowNavBarData {
-  rightSideBar = new SideBarData()
-  leftSideBar = new SideBarData()
-
-}
-export class SideBarData {
   showNavBar: boolean = false;
   search: Search = new Search();
 }

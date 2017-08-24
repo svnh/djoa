@@ -57,8 +57,8 @@ export class LoginComponent implements OnInit, AfterViewInit {
       .subscribe(
         data => {
           let newShowNavBarData = new ShowNavBarData()
-          newShowNavBarData.leftSideBar.showNavBar = true
-          this.globalEventsManager.showNavBar(newShowNavBarData);
+          newShowNavBarData.showNavBar = true
+          this.globalEventsManager.showNavBarLeft(newShowNavBarData);
           //console.log(data)
           // if the user credentials are correct, set the localStorage token and userId,
           // we need these info in order to do stuff later when the user is signed in and verified

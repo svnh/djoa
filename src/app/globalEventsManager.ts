@@ -5,14 +5,19 @@ import { Observable } from "rxjs/Observable";
 @Injectable()
 export class GlobalEventsManager {
 
-    private _showNavBar: BehaviorSubject<any> = new BehaviorSubject<any>(null);
-    public showNavBarEmitter: Observable<any> = this._showNavBar.asObservable();
+    private _showNavBarLeft: BehaviorSubject<any> = new BehaviorSubject<any>(null);
+    public showNavBarEmitterLeft: Observable<any> = this._showNavBarLeft.asObservable();
+
+    private _showNavBarRight: BehaviorSubject<any> = new BehaviorSubject<any>(null);
+    public showNavBarEmitterRight: Observable<any> = this._showNavBarRight.asObservable();
 
     constructor() {}
 
-    showNavBar(ifShow: any) {
-        this._showNavBar.next(ifShow);
+    showNavBarLeft(ifShow: any) {
+        this._showNavBarLeft.next(ifShow);
     }
-
+    showNavBarRight(ifShow: any) {
+        this._showNavBarRight.next(ifShow);
+    }
 
 }

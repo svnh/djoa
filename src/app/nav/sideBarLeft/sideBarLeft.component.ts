@@ -35,11 +35,11 @@ export class SideBarLeftComponent implements OnInit {
     // private companieGuardService: CompanieGuardService,
     // private paiementGuardService: PaiementGuardService,
   ) {
-    this.globalEventsManager.showNavBarEmitter.subscribe((showNavBarData)=>{
+    this.globalEventsManager.showNavBarEmitterLeft.subscribe((showNavBarData)=>{
         if (showNavBarData !== null) {
           console.log(showNavBarData)
           this.showNavBarData = showNavBarData;
-          if(this.showNavBarData.leftSideBar.showNavBar) {
+          if(this.showNavBarData.showNavBar) {
             this.sidenav.open()
           } else {
             this.sidenav.close()
@@ -48,9 +48,9 @@ export class SideBarLeftComponent implements OnInit {
     })
   }
   sideNavAction(side: string, showNavBar: boolean, typeObj: string) {
-    this.showNavBarData[side].showNavBar = showNavBar
-    this.showNavBarData[side].search.typeObj = typeObj
-    this.globalEventsManager.showNavBar(this.showNavBarData);
+    this.showNavBarData.showNavBar = showNavBar
+    this.showNavBarData.search.typeObj = typeObj
+    this.globalEventsManager.showNavBarLeft(this.showNavBarData);
   }
   // sidenavOpen(search) {
   //   this.sidenav.open()
@@ -65,8 +65,8 @@ export class SideBarLeftComponent implements OnInit {
   // }
   ngOnInit() {
     if (this.authService.isLoggedIn()) {
-      this.showNavBarData.leftSideBar.showNavBar = true
-      this.globalEventsManager.showNavBar(this.showNavBarData);
+      this.showNavBarData.showNavBar = true
+      this.globalEventsManager.showNavBarLeft(this.showNavBarData);
       // this.globalEventsManager.showNavBar(true);
       // this.showNavBar = true;
       //let userId = localStorage.getItem('userId');
