@@ -18,6 +18,7 @@ export class Search {
     typeObj: string = '';
     projectId: string = '';
     documentId: string = '';
+    stratId: string = '';
     isExternalUser: boolean = false;
 
 }

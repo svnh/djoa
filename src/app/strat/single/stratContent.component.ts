@@ -1,10 +1,10 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
-import { ProjectService} from '../project.service';
+import { StratService} from '../strat.service';
 import { ToastsManager} from 'ng2-toastr';
 import { MdDialog } from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
-import { Project, StatusProject, Log} from '../project.model';
+import { Strat, StatusStrat, Log} from '../strat.model';
 // import { EditOptionsComponentDialog } from '../../form/modalLibrary/modalLibrary.component';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -22,13 +22,13 @@ import {ShowNavBarData} from '../../mainPageHome/mainPageHome.model'
 
 
 @Component({
-  selector: 'app-projectContent',
-  templateUrl: './projectContent.component.html',
-  styleUrls: ['../project.component.css'],
+  selector: 'app-stratContent',
+  templateUrl: './stratContent.component.html',
+  styleUrls: ['../strat.component.css'],
 
 })
 
-export class ProjectContentComponent implements OnInit {
+export class StratContentComponent implements OnInit {
 
   @Input() showBackButton: Boolean = true;
   @Output() saved: EventEmitter<any> = new EventEmitter();
@@ -47,7 +47,7 @@ export class ProjectContentComponent implements OnInit {
   // itemSteps:any =[];
 
 
-  status = StatusProject
+  status = StatusStrat
   categ: string = 'Electricité';
   subCateg: string = 'file';
   // autocompleteUser: string = '';
@@ -56,7 +56,7 @@ export class ProjectContentComponent implements OnInit {
   fetchedQuotes: Quote[] = [];
   showNavBarData: ShowNavBarData = new ShowNavBarData()
 
-  fetchedProject: Project = new Project();
+  fetchedStrat: Strat = new Strat();
 
 
   public myForm: FormGroup;
@@ -64,7 +64,7 @@ export class ProjectContentComponent implements OnInit {
   constructor(
     private globalEventsManager: GlobalEventsManager,
     private sanitizer: DomSanitizer,
-    private projectService: ProjectService,
+    private stratService: StratService,
     private toastr: ToastsManager,
     public dialog: MdDialog,
     private router: Router,
@@ -96,14 +96,14 @@ export class ProjectContentComponent implements OnInit {
     });
 
 
-    this.fetchedProject.dateProject.startString = this.authService.isoDateToHtmlDate(this.fetchedProject.dateProject.start)
-    this.fetchedProject.dateProject.endString = this.authService.isoDateToHtmlDate(this.fetchedProject.dateProject.end)
+    this.fetchedStrat.dateStrat.startString = this.authService.isoDateToHtmlDate(this.fetchedStrat.dateStrat.start)
+    this.fetchedStrat.dateStrat.endString = this.authService.isoDateToHtmlDate(this.fetchedStrat.dateStrat.end)
 
 
     this.activatedRoute.params.subscribe((params: Params) => {
       if(params['id']) {
-        // this.search.projectId = params['id']
-        this.getProject(params['id'])
+        // this.search.stratId = params['id']
+        this.getStrat(params['id'])
       }
       // else {
       //   // if(params['idClient'])
@@ -138,11 +138,11 @@ export class ProjectContentComponent implements OnInit {
   //   this.globalEventsManager.showNavBarRight(this.showNavBarData);
   // }
 
-  opendetailsProject() {
+  opendetailsStrat() {
     this.showNavBarData = new ShowNavBarData()
     this.showNavBarData.showNavBar = true
-    this.showNavBarData.search.typeObj = 'project'
-    this.showNavBarData.search.projectId = this.fetchedProject._id
+    this.showNavBarData.search.typeObj = 'strat'
+    this.showNavBarData.search.stratId = this.fetchedStrat._id
     this.globalEventsManager.showNavBarRight(this.showNavBarData);
   }
 
@@ -152,13 +152,13 @@ export class ProjectContentComponent implements OnInit {
   //
   //   currentUser.ownerCompanies.forEach((companie, index) => {
   //
-  //     if(this.selectedIndex0 >= companie.categories.categProject.length)
+  //     if(this.selectedIndex0 >= companie.categories.categStrat.length)
   //       this.selectedIndex0 = -1
   //
   //
-  //     // console.log(JSON.parse(currentUser.companies[index].categJson.categProject))
-  //     if(currentUser.ownerCompanies[index].categories.categProject)
-  //       this.itemSteps = currentUser.ownerCompanies[index].categories.categProject
+  //     // console.log(JSON.parse(currentUser.companies[index].categJson.categStrat))
+  //     if(currentUser.ownerCompanies[index].categories.categStrat)
+  //       this.itemSteps = currentUser.ownerCompanies[index].categories.categStrat
   //   })
   // }
 
@@ -173,11 +173,11 @@ export class ProjectContentComponent implements OnInit {
   //   queryParams['showSearchEvent'] = false
   //
   //
-  //   // if(this.fetchedProject.assignedTos.length) {queryParams['idUserNew'] = this.fetchedProject.assignedTos[0]._id}
-  //   if(this.fetchedProject._id) {queryParams['idProjectNew'] = this.fetchedProject._id}
-  //   if(this.fetchedProject.clients.length) {queryParams['idClientNew'] = this.fetchedProject.clients[0]._id }
-  //   // if(this.fetchedProject.assignedTos.length)  {queryParams['idUserSearch'] = this.fetchedProject.assignedTos[0]._id }
-  //   if(this.fetchedProject._id) {queryParams['idProjectSearch'] = this.fetchedProject._id}
+  //   // if(this.fetchedStrat.assignedTos.length) {queryParams['idUserNew'] = this.fetchedStrat.assignedTos[0]._id}
+  //   if(this.fetchedStrat._id) {queryParams['idStratNew'] = this.fetchedStrat._id}
+  //   if(this.fetchedStrat.clients.length) {queryParams['idClientNew'] = this.fetchedStrat.clients[0]._id }
+  //   // if(this.fetchedStrat.assignedTos.length)  {queryParams['idUserSearch'] = this.fetchedStrat.assignedTos[0]._id }
+  //   if(this.fetchedStrat._id) {queryParams['idStratSearch'] = this.fetchedStrat._id}
   //
   //   this.router.navigate(['userCalendar/', queryParams])
   // }
@@ -186,16 +186,16 @@ export class ProjectContentComponent implements OnInit {
   //   // queryParams['showCreateEvent'] = true
   //   queryParams['showSearchEvent'] = false
   //
-  //   // if(this.fetchedProject.assignedTos.length)  {queryParams['idUserSearch'] = this.fetchedProject.assignedTos[0]._id }
-  //   if(this.fetchedProject._id) {queryParams['idProjectSearch'] = this.fetchedProject._id}
-  //   // if(this.fetchedProject.clients.length)      {queryParams['idClientSearch'] = this.fetchedProject.clients[0]._id}
+  //   // if(this.fetchedStrat.assignedTos.length)  {queryParams['idUserSearch'] = this.fetchedStrat.assignedTos[0]._id }
+  //   if(this.fetchedStrat._id) {queryParams['idStratSearch'] = this.fetchedStrat._id}
+  //   // if(this.fetchedStrat.clients.length)      {queryParams['idClientSearch'] = this.fetchedStrat.clients[0]._id}
   //   this.router.navigate(['userCalendar/', queryParams])
   // }
   //
   // newComment(comment: string) {
   //   // let newLog = new Log()
   //   // newLog.comment = comment
-  //   // this.fetchedProject.logs.push(newLog)
+  //   // this.fetchedStrat.logs.push(newLog)
   // }
   // getUser(id: string) {
   //   this.userService.getUser(id)
@@ -223,7 +223,7 @@ export class ProjectContentComponent implements OnInit {
   // selectUser(user: User) {
   //   // this.autocompleteUser=''
   //   // this.fetchedUsers = []
-  //   this.fetchedProject.clients = [user]
+  //   this.fetchedStrat.clients = [user]
   // }
   // searchUsers() {
   //   if(!this.autocompleteUser) {
@@ -249,7 +249,7 @@ export class ProjectContentComponent implements OnInit {
 
   //
   // removePic(i) {
-  //   // this.fetchedProject.forms.splice(i, 1);
+  //   // this.fetchedStrat.forms.splice(i, 1);
   // }
 
 
@@ -260,7 +260,7 @@ export class ProjectContentComponent implements OnInit {
     selectAssignedTo(user: User) {
       // this.autocompleteAssignedTo=''
       // this.fetchedAssignedTos = []
-      // this.fetchedProject.assignedTos = [user]
+      // this.fetchedStrat.assignedTos = [user]
     }
 
 
@@ -277,7 +277,7 @@ export class ProjectContentComponent implements OnInit {
   //   // dialogRef.afterClosed().subscribe(result => {
   //   //   if(result) {
   //   //     console.log(result)
-  //   //     // this.fetchedProject.forms.push( result)
+  //   //     // this.fetchedStrat.forms.push( result)
   //   //   }
   //   // })
   // }
@@ -285,8 +285,8 @@ export class ProjectContentComponent implements OnInit {
   //
   // save() {
   //
-  //   this.fetchedProject.dateProject.start = this.authService.HTMLDatetoIsoDate(this.fetchedProject.dateProject.startString)
-  //   this.fetchedProject.dateProject.end = this.authService.HTMLDatetoIsoDate(this.fetchedProject.dateProject.endString)
+  //   this.fetchedStrat.dateStrat.start = this.authService.HTMLDatetoIsoDate(this.fetchedStrat.dateStrat.startString)
+  //   this.fetchedStrat.dateStrat.end = this.authService.HTMLDatetoIsoDate(this.fetchedStrat.dateStrat.endString)
   //
   //   // let categName0 = ''
   //   // let categName1 = ''
@@ -297,34 +297,34 @@ export class ProjectContentComponent implements OnInit {
   //   // if(this.selectedIndex2>=0) {categName2 = this.itemSteps[this.selectedIndex0].subCateg[this.selectedIndex1].subCateg[this.selectedIndex2].categ}
   //   //
   //   //
-  //   // this.fetchedProject.categorie.categ0 = [{name: categName0}]
-  //   // this.fetchedProject.categorie.categ1 = [{name: categName1}]
-  //   // this.fetchedProject.categorie.categ2 = [{name: categName2}]
+  //   // this.fetchedStrat.categorie.categ0 = [{name: categName0}]
+  //   // this.fetchedStrat.categorie.categ1 = [{name: categName1}]
+  //   // this.fetchedStrat.categorie.categ2 = [{name: categName2}]
   //
   //
   //
-  //   if(this.fetchedProject._id) {
-  //     this.projectService.updateProject(this.fetchedProject)
+  //   if(this.fetchedStrat._id) {
+  //     this.stratService.updateStrat(this.fetchedStrat)
   //       .subscribe(
   //         res => {
   //
   //           this.toastr.success('Great!', res.message)
-  //           // this.fetchedProject = res.obj
-  //           this.getProject(res.obj._id)
+  //           // this.fetchedStrat = res.obj
+  //           this.getStrat(res.obj._id)
   //           this.saved.emit(res.obj)
-  //           // this.router.navigate(['project/' + res.obj._id]);
+  //           // this.router.navigate(['strat/' + res.obj._id]);
   //         },
   //         error => {console.log(error)}
   //       );
   //   } else {
-  //     this.projectService.saveProject(this.fetchedProject)
+  //     this.stratService.saveStrat(this.fetchedStrat)
   //       .subscribe(
   //         res => {
   //           this.toastr.success('Great!', res.message)
-  //           // this.fetchedProject = res.obj
-  //           this.getProject(res.obj._id)
+  //           // this.fetchedStrat = res.obj
+  //           this.getStrat(res.obj._id)
   //           this.saved.emit(res.obj)
-  //           // this.router.navigate(['project/' + res.obj._id]);
+  //           // this.router.navigate(['strat/' + res.obj._id]);
   //         },
   //         error => {
   //           this.toastr.error('Error!', error.message)
@@ -339,7 +339,7 @@ export class ProjectContentComponent implements OnInit {
   //   let dialogRefDelete = this.dialog.open(DeleteDialog)
   //   dialogRefDelete.afterClosed().subscribe(result => {
   //     if(result) {
-  //       this.onDelete(this.fetchedProject._id).then(function(){
+  //       this.onDelete(this.fetchedStrat._id).then(function(){
   //         // this2.router.navigate(['user']);
   //         // this2.goBack();
   //       })
@@ -356,7 +356,7 @@ export class ProjectContentComponent implements OnInit {
   //   })
   //
   //   this.categoriesHard2.forEach((HardCategorie, indexHard) => {
-  //     this.fetchedProject.categories.forEach((fetchedCategorie, indexFetched) => {
+  //     this.fetchedStrat.categories.forEach((fetchedCategorie, indexFetched) => {
   //       if(HardCategorie.name == fetchedCategorie.name) {
   //         this.categoriesHard2[indexHard].selected = true
   //       }
@@ -368,7 +368,7 @@ export class ProjectContentComponent implements OnInit {
   //   })
   //
   //   this.categoriesHard1.forEach((HardCategorie, indexHard) => {
-  //     this.fetchedProject.categories.forEach((fetchedCategorie, indexFetched) => {
+  //     this.fetchedStrat.categories.forEach((fetchedCategorie, indexFetched) => {
   //       if(HardCategorie.name == fetchedCategorie.name) {
   //         this.categoriesHard1[indexHard].selected = true
   //       }
@@ -379,21 +379,21 @@ export class ProjectContentComponent implements OnInit {
 
 
 
-  getProject(id : string) {
-    this.projectService.getProject(id)
+  getStrat(id : string) {
+    this.stratService.getStrat(id)
       .subscribe(
         res => {
           let categName0 = ''
           let categName1 = ''
           let categName2 = ''
-          this.fetchedProject = <Project>res
-          // console.log(this.fetchedProject.categorie)
-          // if(this.fetchedProject.categorie.categ0.length)
-          //   categName0 = this.fetchedProject.categorie.categ0[0].name
-          // if(this.fetchedProject.categorie.categ1.length)
-          //   categName1 = this.fetchedProject.categorie.categ1[0].name
-          // if(this.fetchedProject.categorie.categ2.length)
-          //   categName2 = this.fetchedProject.categorie.categ2[0].name
+          this.fetchedStrat = <Strat>res
+          // console.log(this.fetchedStrat.categorie)
+          // if(this.fetchedStrat.categorie.categ0.length)
+          //   categName0 = this.fetchedStrat.categorie.categ0[0].name
+          // if(this.fetchedStrat.categorie.categ1.length)
+          //   categName1 = this.fetchedStrat.categorie.categ1[0].name
+          // if(this.fetchedStrat.categorie.categ2.length)
+          //   categName2 = this.fetchedStrat.categorie.categ2[0].name
           //
           // this.itemSteps.forEach((categ0, index) => {
           //   if(categ0.categ === categName0)
@@ -412,16 +412,16 @@ export class ProjectContentComponent implements OnInit {
           // })
 
 
-          this.fetchedProject.dateProject.startString = this.authService.isoDateToHtmlDate(this.fetchedProject.dateProject.start)
-          this.fetchedProject.dateProject.endString = this.authService.isoDateToHtmlDate(this.fetchedProject.dateProject.end)
+          this.fetchedStrat.dateStrat.startString = this.authService.isoDateToHtmlDate(this.fetchedStrat.dateStrat.start)
+          this.fetchedStrat.dateStrat.endString = this.authService.isoDateToHtmlDate(this.fetchedStrat.dateStrat.end)
 
 
-          let durationProject = +new Date(this.fetchedProject.dateProject.end) - +new Date(this.fetchedProject.dateProject.start)
-          let timeSpent = +new Date() - +new Date(this.fetchedProject.dateProject.start)
-          // console.log(durationProject)
+          let durationStrat = +new Date(this.fetchedStrat.dateStrat.end) - +new Date(this.fetchedStrat.dateStrat.start)
+          let timeSpent = +new Date() - +new Date(this.fetchedStrat.dateStrat.start)
+          // console.log(durationStrat)
           // console.log(timeSpent)
-          this.fetchedProject.dateProject.percentageProgress = Math.round((timeSpent / durationProject) * 100)
-          // console.log(this.fetchedProject.dateProject.percentageProgress)
+          this.fetchedStrat.dateStrat.percentageProgress = Math.round((timeSpent / durationStrat) * 100)
+          // console.log(this.fetchedStrat.dateStrat.percentageProgress)
 
 
         },
@@ -435,7 +435,7 @@ export class ProjectContentComponent implements OnInit {
   onDelete(id: string) {
     let this2 = this
     return new Promise(function(resolve, reject) {
-      this2.projectService.deleteProject(id)
+      this2.stratService.deleteStrat(id)
         .subscribe(
           res => {
             this2.toastr.success('Great!', res.message);

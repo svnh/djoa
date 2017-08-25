@@ -1,0 +1,50 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-12">
+
+
+
+      <app-navbar></app-navbar>
+      {{fetchedStrat._id}}
+      <br> {{fetchedStrat.details.name}}
+      <br> {{fetchedStrat.details.description}}
+      <br>
+      
+      <app-missions [productType]="'content'"></app-missions>
+      <br>
+      <app-missions [productType]="'research'"></app-missions>
+
+
+
+      <md-card>
+        <md-card-content>
+          <h2 class="example-h2">Strat Information</h2>
+          <button type="button" (click)="opendetailsStrat()">Edit</button>
+          <br>
+          Start Date {{fetchedStrat.dateStrat.start | date:'yyyy-MM-dd' }} /
+          End Date {{fetchedStrat.dateStrat.end | date:'yyyy-MM-dd' }} / {{fetchedStrat.dateStrat.percentageProgress}}%
+          <section class="example-section">
+            <md-progress-bar
+              class="example-margin"
+              [color]="'primary'"
+              [mode]="'determinate'"
+              [value]="fetchedStrat.dateStrat.percentageProgress"
+              [bufferValue]="bufferValue">
+            </md-progress-bar>
+          </section>
+
+
+        </md-card-content>
+      </md-card>
+
+
+      <br><br><br><br><br><br><br><br>
+    </div>
+
+    <!--
+    <app-autocomplete class="col-md-4" [typeAutocomplete]="'user'" [title]="'Customer'" [singleChoice]="'true'" [arrayContent]="fetchedStrat.clients" (getResultAutocomplete)="selectUser($event[0])">
+    </app-autocomplete> -->
+
+  </div>
+</div>

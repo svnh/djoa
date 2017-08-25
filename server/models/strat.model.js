@@ -6,7 +6,7 @@ var mongoose                = require('mongoose'),
     mongooseUniqueValidator = require('mongoose-unique-validator')
 
 
-var document = new Schema({
+var strat = new Schema({
     ownerCompanies: [{type: Schema.Types.ObjectId, ref: 'Companie'}],
     details: {
       name: {type: String},
@@ -22,7 +22,7 @@ var document = new Schema({
     //   date: {type: Date, default: [Date()]},
     // }],
     status: {type: Number},
-    dateDocument:{
+    dateStrat:{
       start: {type: Date, default: [Date()]},
       end: {type: Date, default: [Date()]},
     },
@@ -52,6 +52,6 @@ var document = new Schema({
     timestamps: true
   })
 
-document.plugin(mongooseUniqueValidator)
+strat.plugin(mongooseUniqueValidator)
 
-module.exports = mongoose.model('Document', document)
+module.exports = mongoose.model('Strat', strat)

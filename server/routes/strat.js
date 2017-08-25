@@ -3,12 +3,12 @@ var express = require('express'),
   config = require('../config/config'),
   User = require('../models/user.model'),
   Task = require('../models/task.model'),
-  Document = require('../models/document.model'),
+  Strat = require('../models/strat.model'),
   Form = require('../models/form.model'),
   fs = require('fs'),
   jwt = require('jsonwebtoken'),
   shared = require('./shared.js'),
-  nameObject = 'document'
+  nameObject = 'strat'
 
 // this process does not hang the nodejs server on error
 process.on('uncaughtException', function(err) {
@@ -72,7 +72,7 @@ router.put('/updateTask/:id', function(req, res, next) {
       }
     })
   }
-  Document.findById(({_id: req.params.id}), function(err, item) {
+  Strat.findById(({_id: req.params.id}), function(err, item) {
     if (err) {
       return res.status(404).json({message: '', err: err})
     } else {
@@ -105,7 +105,7 @@ router.put('/:id', function(req, res, next) {
       }
     })
   }
-  Document.findById(({_id: req.params.id}), function(err, item) {
+  Strat.findById(({_id: req.params.id}), function(err, item) {
     if (err) {
       return res.status(404).json({message: '', err: err})
     } else {
@@ -122,7 +122,7 @@ router.put('/:id', function(req, res, next) {
       item.assignedTos = req.body.assignedTos
       item.bucketTasks = req.body.bucketTasks
       item.progressTasks = req.body.progressTasks
-      item.dateDocument = req.body.dateDocument
+      item.dateStrat = req.body.dateStrat
       item.logs = req.body.logs
 
       item.save(function(err, result) {
@@ -151,9 +151,9 @@ router.post('/', function(req, res, next) {
   console.log(req.user.companies)
   req.body.ownerCompanies = req.user.ownerCompanies
 
-  // document.ownerCompanies = req.user.companies
-  var document = new Document(req.body)
-  document.save(function(err, result) {
+  // strat.ownerCompanies = req.user.companies
+  var strat = new Strat(req.body)
+  strat.save(function(err, result) {
     if (err) {
       console.log(err)
       return res.status(403).json({
@@ -186,7 +186,7 @@ router.get('/page/:page', function(req, res, next) {
     // console.log(hasWhatsNewCateg)
   // console.log(searchQuery)
 
-  Document.find(searchQuery)
+  Strat.find(searchQuery)
   .sort('-createdAt')
   .populate({path: 'clients', model: 'User'})
   .populate({path: 'assignedTos', model: 'User'})
@@ -210,7 +210,7 @@ router.get('/page/:page', function(req, res, next) {
     if (err) {
       return res.status(404).json({message: 'No results', err: err})
     } else {
-      Document.find(searchQuery).count().exec(function(err, count) {
+      Strat.find(searchQuery).count().exec(function(err, count) {
         res.status(200).json({
           paginationData: {
             totalItems: count,
@@ -235,10 +235,10 @@ router.get('/unwind', function(req, res, next) {
 
 
 
-  if (req.query.idDocument)
+  if (req.query.idStrat)
     aggregate.push({
       $match: {
-        _id: mongoose.Types.ObjectId(req.query.idDocument)
+        _id: mongoose.Types.ObjectId(req.query.idStrat)
       }
     })
 
@@ -260,7 +260,7 @@ router.get('/unwind', function(req, res, next) {
     }
   })
 
-  Document.aggregate(aggregate).exec(function(err, item) {
+  Strat.aggregate(aggregate).exec(function(err, item) {
     if (err) {
       return res.status(404).json({message: '', err: err})
     } else {
@@ -272,7 +272,7 @@ router.get('/unwind', function(req, res, next) {
 // getting user forms to display them on front end
 router.get('/:id', function(req, res, next) {
 
-  Document.findById((req.params.id), function(err, obj) {
+  Strat.findById((req.params.id), function(err, obj) {
     if (err) {
       return res.status(500).json({message: 'An error occured', err: err})
     }
@@ -285,7 +285,7 @@ router.get('/:id', function(req, res, next) {
       })
     }
 
-    Document.findById({_id: req.params.id})
+    Strat.findById({_id: req.params.id})
     .populate({path: 'clients', model: 'User'})
     .populate({path: 'logs.forms', model: 'Form'})
     .populate({path: 'logs.by', model: 'User'})
@@ -302,8 +302,8 @@ router.get('/:id', function(req, res, next) {
       path: 'bucketTasks.tasks',
       model: 'Task',
       populate: {
-        path: 'documents',
-        model: 'Document'
+        path: 'strats',
+        model: 'Strat'
       }
     })
 
@@ -330,8 +330,8 @@ router.get('/:id', function(req, res, next) {
 //         error: err
 //       });
 //     } else {
-//       Document
-//       .find({createdAt:{"$gt": user.trackinPage.lastVisitPageDocument}})
+//       Strat
+//       .find({createdAt:{"$gt": user.trackinPage.lastVisitPageStrat}})
 //       .exec(function (err, item) {
 //         if (err) {
 //           return res.status(404).json({
@@ -358,7 +358,7 @@ router.delete('/:id', function(req, res, next) {
       }
     })
   }
-  Document.findById((req.params.id), function(err, item) {
+  Strat.findById((req.params.id), function(err, item) {
     if (err) {
       return res.status(500).json({message: 'An error occured', err: err})
     }
