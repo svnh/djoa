@@ -25,8 +25,10 @@ export class Log {
   date: Date = new Date()
 }
 export class DateProject {
-  creationDate: Date = new Date()
-  creationDateString: string = '';
+  start: Date = new Date()
+  startString: string = '';
+  end: Date = new Date()
+  endString: string = '';  
 }
 export class BucketTasks {
   bucketName: string = '';

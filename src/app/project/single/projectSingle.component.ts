@@ -80,16 +80,15 @@ export class ProjectSingleComponent implements OnInit {
   ngOnInit() {
     this.myForm = this._fb.group({
       status: [''],
+      start: [''],
+      end: [''],
       name: ['', [Validators.required, Validators.minLength(2)]],
       description: [''],
     });
 
 
-    this.fetchedProject
-    .dateProject.creationDateString =
-    this.authService
-    .isoDateToHtmlDate(this.fetchedProject
-    .dateProject.creationDate)
+    this.fetchedProject.dateProject.startString = this.authService.isoDateToHtmlDate(this.fetchedProject.dateProject.start)
+    this.fetchedProject.dateProject.endString = this.authService.isoDateToHtmlDate(this.fetchedProject.dateProject.end)
 
     if(this.search.projectId)
       this.getProject(this.search.projectId)
@@ -247,7 +246,8 @@ export class ProjectSingleComponent implements OnInit {
 
   save() {
 
-    this.fetchedProject.dateProject.creationDate = this.authService.HTMLDatetoIsoDate(this.fetchedProject.dateProject.creationDateString)
+    this.fetchedProject.dateProject.start = this.authService.HTMLDatetoIsoDate(this.fetchedProject.dateProject.startString)
+    this.fetchedProject.dateProject.end = this.authService.HTMLDatetoIsoDate(this.fetchedProject.dateProject.endString)
 
     let categName0 = ''
     let categName1 = ''
@@ -373,7 +373,8 @@ export class ProjectSingleComponent implements OnInit {
           })
 
 
-          this.fetchedProject.dateProject.creationDateString = this.authService.isoDateToHtmlDate(this.fetchedProject.dateProject.creationDate)
+          this.fetchedProject.dateProject.startString = this.authService.isoDateToHtmlDate(this.fetchedProject.dateProject.start)
+          this.fetchedProject.dateProject.endString = this.authService.isoDateToHtmlDate(this.fetchedProject.dateProject.end)
 
 
 

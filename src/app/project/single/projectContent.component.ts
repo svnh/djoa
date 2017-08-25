@@ -96,11 +96,8 @@ export class ProjectContentComponent implements OnInit {
     });
 
 
-    this.fetchedProject
-    .dateProject.creationDateString =
-    this.authService
-    .isoDateToHtmlDate(this.fetchedProject
-    .dateProject.creationDate)
+    this.fetchedProject.dateProject.startString = this.authService.isoDateToHtmlDate(this.fetchedProject.dateProject.start)
+    this.fetchedProject.dateProject.endString = this.authService.isoDateToHtmlDate(this.fetchedProject.dateProject.end)
 
 
     this.activatedRoute.params.subscribe((params: Params) => {
@@ -288,7 +285,8 @@ export class ProjectContentComponent implements OnInit {
 
   save() {
 
-    this.fetchedProject.dateProject.creationDate = this.authService.HTMLDatetoIsoDate(this.fetchedProject.dateProject.creationDateString)
+    this.fetchedProject.dateProject.start = this.authService.HTMLDatetoIsoDate(this.fetchedProject.dateProject.startString)
+    this.fetchedProject.dateProject.end = this.authService.HTMLDatetoIsoDate(this.fetchedProject.dateProject.endString)
 
     // let categName0 = ''
     // let categName1 = ''
@@ -414,7 +412,8 @@ export class ProjectContentComponent implements OnInit {
           // })
 
 
-          this.fetchedProject.dateProject.creationDateString = this.authService.isoDateToHtmlDate(this.fetchedProject.dateProject.creationDate)
+          this.fetchedProject.dateProject.startString = this.authService.isoDateToHtmlDate(this.fetchedProject.dateProject.start)
+          this.fetchedProject.dateProject.endString = this.authService.isoDateToHtmlDate(this.fetchedProject.dateProject.end)
 
 
 

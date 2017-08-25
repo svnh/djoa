@@ -23,7 +23,8 @@ var project = new Schema({
     // }],
     status: {type: Number},
     dateProject:{
-      creationDate: {type: Date, default: [Date()]},
+      start: {type: Date, default: [Date()]},
+      end: {type: Date, default: [Date()]},
     },
     categorie: {
       categ0:[{name: {type: String}}],
