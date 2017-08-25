@@ -27,12 +27,13 @@ import {MissionModule} from '../mission/mission.module';
 import {SharedModule} from './shared.module';
 import {UserModule} from '../user/user.module';
 import {ProjectModule} from '../project/project.module';
-
+import {NewObjModule} from '../nav/newObj/newObj.module';
 
 @NgModule({
   imports:      [
     SharedModule,
     UserModule,
+    NewObjModule,
     // CommonModule,
     // FormsModule,
     ProjectModule,
@@ -64,6 +65,7 @@ import {ProjectModule} from '../project/project.module';
     // TranslatePipe,
     SharedModule,
     UserModule,
+    NewObjModule,
     // CommonModule,
     // FormsModule,
     ProjectModule,

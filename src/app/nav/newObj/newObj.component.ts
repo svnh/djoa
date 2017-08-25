@@ -16,12 +16,12 @@ import {ShowNavBarData} from '../../mainPageHome/mainPageHome.model'
 import {GlobalEventsManager} from '../../globalEventsManager';
 
 @Component({
-  selector: 'app-navbar',
+  selector: 'app-newObj',
   // changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  templateUrl: './newObj.component.html',
+  styleUrls: ['./newObj.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NewObjComponent implements OnInit {
   // @Input() sidenav: any;
   // showNavBar: boolean = false;
  // private userId: string = localStorage.getItem('userId');
@@ -98,12 +98,6 @@ export class NavbarComponent implements OnInit {
     let newShowNavBarData = new ShowNavBarData()
     newShowNavBarData.showNavBar = true
     newShowNavBarData.search.typeObj = 'mission'
-    this.globalEventsManager.showNavBarRight(newShowNavBarData)
-  }
-  newObj(){
-    let newShowNavBarData = new ShowNavBarData()
-    newShowNavBarData.showNavBar = true
-    newShowNavBarData.search.typeObj = 'newObj'
     this.globalEventsManager.showNavBarRight(newShowNavBarData)
   }
 
