@@ -30,7 +30,7 @@
         </div>
 
 
-        <app-autocomplete class="col-md-4" [typeAutocomplete]="'user'" [title]="'Customer'" [singleChoice]="'true'" [arrayContent]="fetchedProject.clients" >
+        <app-autocomplete class="col-md-4" [typeAutocomplete]="'user'" [title]="'Customer'" [search]="{isExternalUser:false}" [singleChoice]=false [arrayContent]="fetchedProject.users" >
         </app-autocomplete>
 
         <br>
@@ -61,8 +61,8 @@
         </div>
 
         <div class="form-group">
-          <app-autocomplete [typeAutocomplete]="'user'" [title]="'Assigned To'" [singleChoice]=true [search]="{isExternalUser:false}" [arrayContent]="fetchedProject.assignedTos">
-          </app-autocomplete>
+          <!-- <app-autocomplete [typeAutocomplete]="'user'" [title]="'Assigned To'" [singleChoice]=true [search]="{isExternalUser:false}" [arrayContent]="fetchedProject.assignedTos">
+          </app-autocomplete> -->
         </div>
 
         <!-- <div *ngIf="fetchedProject._id">

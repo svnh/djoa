@@ -116,7 +116,7 @@ router.put('/:id', function(req, res, next) {
       item.status = req.body.status
       // item.embed = req.body.embed
       item.categories = req.body.categories
-      item.clients = req.body.clients
+      item.users = req.body.users
       item.quotes = req.body.quotes
       item.categorie = req.body.categorie
       item.assignedTos = req.body.assignedTos
@@ -181,14 +181,14 @@ router.get('/page/:page', function(req, res, next) {
     searchQuery['details.name'] = new RegExp(req.query.search, 'i')
 
   if (req.query.userId)
-    searchQuery['clients'] = mongoose.Types.ObjectId(req.query.userId)
+    searchQuery['users'] = mongoose.Types.ObjectId(req.query.userId)
 
     // console.log(hasWhatsNewCateg)
   // console.log(searchQuery)
 
   Project.find(searchQuery)
   .sort('-createdAt')
-  .populate({path: 'clients', model: 'User'})
+  .populate({path: 'users', model: 'User'})
   .populate({path: 'assignedTos', model: 'User'})
   // .populate({path: 'bucketTasks.tasks', model: 'Task'})
   // .populate({path: 'bucketTasks.tasks.assignedTos', model: 'User'})
@@ -224,50 +224,52 @@ router.get('/page/:page', function(req, res, next) {
   })
 })
 
-router.get('/unwind', function(req, res, next) {
-
-  let aggregate = []
-  aggregate.push({
-    $match: {
-      ownerCompanies: req.user.ownerCompanies
-    }
-  })
 
 
-
-  if (req.query.idProject)
-    aggregate.push({
-      $match: {
-        _id: mongoose.Types.ObjectId(req.query.idProject)
-      }
-    })
-
-  aggregate.push({$unwind: "$bucketTasks"})
-  aggregate.push({$unwind: "$bucketTasks.tasks"})
-
-  if (req.query.myTasks === 'true')
-    aggregate.push({
-      $match: {
-        'bucketTasks.tasks.assignedTos': mongoose.Types.ObjectId(req.user._id)
-      }
-    })
-  aggregate.push({
-    $lookup: {
-      from: 'users',
-      localField: 'bucketTasks.tasks.assignedTos',
-      foreignField: '_id',
-      as: 'bucketTasks.tasks.assignedTos'
-    }
-  })
-
-  Project.aggregate(aggregate).exec(function(err, item) {
-    if (err) {
-      return res.status(404).json({message: '', err: err})
-    } else {
-      res.status(200).json({message: 'Success', item: item})
-    }
-  })
-})
+// router.get('/unwind', function(req, res, next) {
+//
+//   let aggregate = []
+//   aggregate.push({
+//     $match: {
+//       ownerCompanies: req.user.ownerCompanies
+//     }
+//   })
+//
+//
+//
+//   if (req.query.idProject)
+//     aggregate.push({
+//       $match: {
+//         _id: mongoose.Types.ObjectId(req.query.idProject)
+//       }
+//     })
+//
+//   aggregate.push({$unwind: "$bucketTasks"})
+//   aggregate.push({$unwind: "$bucketTasks.tasks"})
+//
+//   if (req.query.myTasks === 'true')
+//     aggregate.push({
+//       $match: {
+//         'bucketTasks.tasks.assignedTos': mongoose.Types.ObjectId(req.user._id)
+//       }
+//     })
+//   aggregate.push({
+//     $lookup: {
+//       from: 'users',
+//       localField: 'bucketTasks.tasks.assignedTos',
+//       foreignField: '_id',
+//       as: 'bucketTasks.tasks.assignedTos'
+//     }
+//   })
+//
+//   Project.aggregate(aggregate).exec(function(err, item) {
+//     if (err) {
+//       return res.status(404).json({message: '', err: err})
+//     } else {
+//       res.status(200).json({message: 'Success', item: item})
+//     }
+//   })
+// })
 
 // getting user forms to display them on front end
 router.get('/:id', function(req, res, next) {
@@ -286,16 +288,14 @@ router.get('/:id', function(req, res, next) {
     }
 
     Project.findById({_id: req.params.id})
-    .populate({path: 'clients', model: 'User'})
-    .populate({path: 'logs.forms', model: 'Form'})
-    .populate({path: 'logs.by', model: 'User'})
-    .populate({path: 'assignedTos', model: 'User'})
+
+    .populate({path: 'users', model: 'User'})
     .populate({
-      path: 'bucketTasks.tasks',
-      model: 'Task',
+      path: 'users',
+      model: 'User',
       populate: {
-        path: 'users',
-        model: 'User'
+        path: 'forms',
+        model: 'Form'
       },
     })
     .populate({

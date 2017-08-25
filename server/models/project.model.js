@@ -12,7 +12,7 @@ var project = new Schema({
       name: {type: String},
       description: {type: String},
     },
-    clients: [{type: Schema.Types.ObjectId, ref: 'User'}],
+    users: [{type: Schema.Types.ObjectId, ref: 'User'}],
     assignedTos: [{type: Schema.Types.ObjectId, ref: 'User'}],
     status: {type: String, default: [0]},
     // logs:[{

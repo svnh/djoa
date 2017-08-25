@@ -38,6 +38,21 @@
         </md-card-content>
       </md-card>
 
+      <md-card>
+        <md-card-content>
+          <h2>Team</h2>
+          <button type="button" (click)="opendetailsProject()">Edit</button>
+          <br>
+          <div *ngFor="let user of fetchedProject.users">
+            <!-- {{user.forms|json}} -->
+            <app-picture [addPicture]=false [deletePicture]=false [forms]="user.forms"></app-picture>
+          </div>
+
+
+        </md-card-content>
+      </md-card>
+
+
 
       <br><br><br><br><br><br><br><br>
     </div>
