@@ -35,40 +35,13 @@ export class MissionComponent implements OnInit {
   @Input() search: Search
 
 
-
-  // statusTypes = [
-  //   { label: 'Not Started', value: '' },
-  //   { label: 'Pending', value: 'pending' },
-  //   { label: 'Done', value: 'done' }
-  // ]
-
-  // showPaiements: boolean = false
-
-  // autocompleteUser: string = '';
-  // autocompleteProject: string = '';
-  // fetchedProducts: Product[] = []
-  // fetchedProjects: Project[] = []
-  // currentUser: User = new User()
-  // imgLogoUrl: string = './assets/images/profile-placeholder.jpg'
-  // imgSignatureBase64Temp = ''
-  // userAdmins : User[] = []
-  // userManagers : User[] = []
-  // userClients : User[] = []
-  // usersSalesRep : User[] = []
-  // userStylists : User[] = []
-
   myForm: FormGroup;
-  // autocompleteProduct: String = ''
-  // fetchedUsers: User[] = [];
-  // arrayContentToSearch =[]
 
-//   paiementsTypes = [
-//     { label: 'cheque', value: 'check' },
-//     { label: 'Espece', value: 'cash' }
 // ]
   constructor(
     private missionService: MissionService,
     private quoteService: QuoteService,
+
     // private projectService: ProjectService,
     // private userService: UserService,
     // private productService: ProductService,

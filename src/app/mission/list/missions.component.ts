@@ -9,6 +9,9 @@ import { Location } from '@angular/common';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ViewEncapsulation} from '@angular/core';
 import { UserService} from '../../user/user.service';
+import {ShowNavBarData} from '../../mainPageHome/mainPageHome.model'
+import {GlobalEventsManager} from '../../globalEventsManager';
+
 
 @Component({
   selector: 'app-missions',
@@ -40,6 +43,7 @@ export class MissionsComponent implements OnInit {
 
 
   constructor(
+    private globalEventsManager: GlobalEventsManager,
     private sanitizer: DomSanitizer,
     private missionService: MissionService,
     private toastr: ToastsManager,
@@ -84,7 +88,13 @@ export class MissionsComponent implements OnInit {
     this.getMissions(this.paginationData.currentPage, this.search)
   }
 
-
+  createNewObj(typeObj: string) {
+    let newShowNavBarData = new ShowNavBarData()
+    newShowNavBarData.showNavBar = true
+    newShowNavBarData.search.typeObj = typeObj
+    this.globalEventsManager.showNavBarRight(newShowNavBarData)
+  }
+  
   getMissions(page: number, search: any) {
     this.loading = true;
     this.missionService.getMissions(page, search)
