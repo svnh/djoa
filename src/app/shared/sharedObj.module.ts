@@ -28,6 +28,9 @@ import {SharedModule} from './shared.module';
 import {UserModule} from '../user/user.module';
 import {ProjectModule} from '../project/project.module';
 import {NewObjModule} from '../nav/newObj/newObj.module';
+import {DocumentModule} from '../document/document.module';
+
+
 
 @NgModule({
   imports:      [
@@ -38,6 +41,7 @@ import {NewObjModule} from '../nav/newObj/newObj.module';
     // FormsModule,
     ProjectModule,
     MissionModule,
+    DocumentModule,
     // CommonModule,
     // FormsModule,
     // AutocompleteModule,
@@ -70,6 +74,7 @@ import {NewObjModule} from '../nav/newObj/newObj.module';
     // FormsModule,
     ProjectModule,
     MissionModule,
+    DocumentModule,
     // RoundPipe,
     // HeaderComponent,
     // NavbarModule,

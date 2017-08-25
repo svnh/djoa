@@ -17,6 +17,7 @@ export class Search {
     userId: string = '';
     typeObj: string = '';
     projectId: string = '';
+    documentId: string = '';
     isExternalUser: boolean = false;
 
 }

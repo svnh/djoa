@@ -100,6 +100,12 @@ export class NewObjComponent implements OnInit {
     newShowNavBarData.search.typeObj = 'mission'
     this.globalEventsManager.showNavBarRight(newShowNavBarData)
   }
+  createDocument(){
+    let newShowNavBarData = new ShowNavBarData()
+    newShowNavBarData.showNavBar = true
+    newShowNavBarData.search.typeObj = 'document'
+    this.globalEventsManager.showNavBarRight(newShowNavBarData)
+  }
 
   // cleanNotifications() {
   //   // this.notificationsNotRead = 0

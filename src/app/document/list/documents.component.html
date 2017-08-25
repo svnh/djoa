@@ -1,0 +1,8 @@
+
+
+              <div *ngFor="let document of fetchedDocuments" [routerLink]="['/document/' + document._id]" routerLinkActive="active">
+
+                <div class="centre">{{document.details.name}}</div>
+
+
+  </div>
