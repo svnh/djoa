@@ -90,7 +90,9 @@ export class ProjectSingleComponent implements OnInit {
     this.authService
     .isoDateToHtmlDate(this.fetchedProject
     .dateProject.creationDate)
-    this.getProject(this.search.projectId)
+
+    if(this.search.projectId)
+      this.getProject(this.search.projectId)
     // this.activatedRoute.params.subscribe((params: Params) => {
     //   if(params['id']) {
     //     this.search.projectId = params['id']

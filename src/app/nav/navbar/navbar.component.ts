@@ -8,10 +8,12 @@ import { CompanieGuardService} from '../../companie/companieGuard.service'
 import { PaiementGuardService} from '../../user/paiement/paiementGuard.service'
 import { ChangeDetectionStrategy} from '@angular/core';
 // import { GlobalEventsManager} from '../../globalEventsManager';
-import { NotificationService} from '../../notification/notification.service';
-import { Notification} from '../../notification/notification.model';
-import {Observable} from 'rxjs/Rx';
+// import { NotificationService} from '../../notification/notification.service';
+// import { Notification} from '../../notification/notification.model';
+// import {Observable} from 'rxjs/Rx';
+import {ShowNavBarData} from '../../mainPageHome/mainPageHome.model'
 
+import {GlobalEventsManager} from '../../globalEventsManager';
 
 @Component({
   selector: 'app-navbar',
@@ -32,8 +34,9 @@ export class NavbarComponent implements OnInit {
     // private globalEventsManager: GlobalEventsManager,
     private authService: AuthService,
     private adminService: AdminService,
-    private notificationService: NotificationService,
+    // private notificationService: NotificationService,
     // private userService: UserService,
+    private globalEventsManager: GlobalEventsManager,
     private router: Router,
     // private companieGuardService: CompanieGuardService,
     // private paiementGuardService: PaiementGuardService,
@@ -63,26 +66,41 @@ export class NavbarComponent implements OnInit {
     //   this.fetchedUser = this.authService.getCurrentUser()
     // }
   }
-  cleanNotifications() {
-    // this.notificationsNotRead = 0
+
+  createProject() {
+    let newShowNavBarData = new ShowNavBarData()
+    newShowNavBarData.showNavBar = true
+    newShowNavBarData.search.typeObj = 'project'
+    newShowNavBarData.search.userId = ''
+    this.globalEventsManager.showNavBarRight(newShowNavBarData);
   }
-  getNotifications(page: number, search: any) {
-    // this.notificationService.getNotifications(page, search)
-    //   .subscribe(
-    //     res => {
-    //       this.fetchedNotifications =  res.data
-    //       this.notificationsNotRead = 0
-    //       this.fetchedNotifications.forEach(notif=> {
-    //         if(notif.isRead === false) {
-    //           this.notificationsNotRead++
-    //         }
-    //       })
-    //     },
-    //     error => {
-    //       console.log(error);
-    //     }
-    //   );
+  openSideBarLeft(){
+    let newShowNavBarData = new ShowNavBarData()
+    newShowNavBarData.showNavBar = true
+    newShowNavBarData.search.typeObj = ''
+    this.globalEventsManager.showNavBarLeft(newShowNavBarData);
   }
+
+  // cleanNotifications() {
+  //   // this.notificationsNotRead = 0
+  // }
+  // getNotifications(page: number, search: any) {
+  //   // this.notificationService.getNotifications(page, search)
+  //   //   .subscribe(
+  //   //     res => {
+  //   //       this.fetchedNotifications =  res.data
+  //   //       this.notificationsNotRead = 0
+  //   //       this.fetchedNotifications.forEach(notif=> {
+  //   //         if(notif.isRead === false) {
+  //   //           this.notificationsNotRead++
+  //   //         }
+  //   //       })
+  //   //     },
+  //   //     error => {
+  //   //       console.log(error);
+  //   //     }
+  //   //   );
+  // }
 
 
   // isCurrentUserIsInSubPeriod(){
@@ -101,28 +119,28 @@ export class NavbarComponent implements OnInit {
   // }
 
 
-  getUser(id: string) {
+  // getUser(id: string) {
+  //
+  //   this.fetchedUser = this.authService.getCurrentUser()
+  //   console.log(this.fetchedUser)
+  //   // let this2 = this
+  //   // setTimeout(function(){
+  //   //     this2.fetchedUser = this2.authService.getCurrentUser()
+  //   // }, 2000);
+  //
+  //   // this.userService.getUser(id)
+  //   //   .subscribe(
+  //   //     res => { this.fetchedUser = res },
+  //   //     error => { console.log(error) }
+  //   //   )
+  // }
 
-    this.fetchedUser = this.authService.getCurrentUser()
-    console.log(this.fetchedUser)
-    // let this2 = this
-    // setTimeout(function(){
-    //     this2.fetchedUser = this2.authService.getCurrentUser()
-    // }, 2000);
-
-    // this.userService.getUser(id)
-    //   .subscribe(
-    //     res => { this.fetchedUser = res },
-    //     error => { console.log(error) }
-    //   )
-  }
-
-  isCurrentUserIsInSubPeriod() {
-    return this.authService.isCurrentUserIsInSubPeriod()
-  }
-  showObjHTML(nameObject) {
-    return this.authService.showObjHTML(nameObject)
-  }
+  // isCurrentUserIsInSubPeriod() {
+  //   return this.authService.isCurrentUserIsInSubPeriod()
+  // }
+  // showObjHTML(nameObject) {
+  //   return this.authService.showObjHTML(nameObject)
+  // }
   // isCurentUserHasAccess(nameObject, typeAccess) {
   //   return this.authService.isCurentUserHasAccess(nameObject, typeAccess);
   // }
