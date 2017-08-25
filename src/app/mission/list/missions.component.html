@@ -37,26 +37,25 @@
           <input class="form-control margebasse col-md-12" type="text" name="Search" placeholder="Rechercher" [(ngModel)]="search.search" (ngModelChange)="searchProjects()">
         </div> -->
           <table class="table table-hover">
-            <thead>
-              <tr>
 
-                <th class="centre">Project</th>
-                <th class="centre">Name Mission</th>
-                <th class="centre">Assigned to</th>
-
-              </tr>
-            </thead>
             <tbody class="clienttbl">
               <tr *ngFor="let mission of fetchedMissions" [routerLink]="['/mission/' + mission._id]" routerLinkActive="active">
 
 
 
-                <td class="centre"></td>
+
                 <td class="centre">{{mission.title}}</td>
                 <td class="centre">
-                  <!-- <div *ngFor="let assignedTo of project.bucketMissions.missions.users">
-                  {{assignedTo.profile.name}} {{assignedTo.profile.lastName}}
-                </div> -->
+                  <section class="example-section">
+                    <md-progress-bar
+                      class="example-margin"
+                      [color]="'primary'"
+                      [mode]="'determinate'"
+                      [value]="mission.dateMission.percentageProgress"
+                      >
+                    </md-progress-bar>
+                  </section>
+
                 </td>
                 <!-- <td class="centre">{{project.details.customer}}</td>
               <td class="centre">{{project.details.name}}</td>

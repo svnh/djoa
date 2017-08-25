@@ -36,13 +36,13 @@ export class MissionComponent implements OnInit {
 
 
 
-  statusTypes = [
-    { label: 'Not Started', value: '' },
-    { label: 'Pending', value: 'pending' },
-    { label: 'Done', value: 'done' }
-  ]
+  // statusTypes = [
+  //   { label: 'Not Started', value: '' },
+  //   { label: 'Pending', value: 'pending' },
+  //   { label: 'Done', value: 'done' }
+  // ]
 
-  showPaiements: boolean = false
+  // showPaiements: boolean = false
 
   // autocompleteUser: string = '';
   // autocompleteProject: string = '';
@@ -58,14 +58,14 @@ export class MissionComponent implements OnInit {
   // userStylists : User[] = []
 
   myForm: FormGroup;
-  autocompleteProduct: String = ''
-  fetchedUsers: User[] = [];
-  arrayContentToSearch =[]
+  // autocompleteProduct: String = ''
+  // fetchedUsers: User[] = [];
+  // arrayContentToSearch =[]
 
-  paiementsTypes = [
-    { label: 'cheque', value: 'check' },
-    { label: 'Espece', value: 'cash' }
-]
+//   paiementsTypes = [
+//     { label: 'cheque', value: 'check' },
+//     { label: 'Espece', value: 'cash' }
+// ]
   constructor(
     private missionService: MissionService,
     private quoteService: QuoteService,
@@ -92,6 +92,10 @@ export class MissionComponent implements OnInit {
     })
 
 
+    this.fetchedMission.dateMission.startString = this.authService.isoDateToHtmlDate(this.fetchedMission.dateMission.start)
+    this.fetchedMission.dateMission.endString = this.authService.isoDateToHtmlDate(this.fetchedMission.dateMission.end)
+
+
 
     // this.fetchedMission
     // .datePaiementString =
@@ -112,20 +116,20 @@ export class MissionComponent implements OnInit {
 
 
 
-  selectAssignedTo(event) {
-    this.fetchedMission.users = [event]
-  }
+  // selectAssignedTo(event) {
+  //   this.fetchedMission.users = [event]
+  // }
 
 
   save() {
 
-      this.fetchedMission
+      this.fetchedMission.dateMission
       .start = this.authService
-      .HTMLDatetoIsoDate(this.fetchedMission.startString)
+      .HTMLDatetoIsoDate(this.fetchedMission.dateMission.startString)
 
-      this.fetchedMission
+      this.fetchedMission.dateMission
       .end = this.authService
-      .HTMLDatetoIsoDate(this.fetchedMission.endString)
+      .HTMLDatetoIsoDate(this.fetchedMission.dateMission.endString)
 
 
     // this.fetchedMission.datePaiement = this.authService.HTMLDatetoIsoDate(this.fetchedMission.datePaiementString)
@@ -214,13 +218,13 @@ export class MissionComponent implements OnInit {
           this.fetchedMission = res
 
 
-          this.fetchedMission
+          this.fetchedMission.dateMission
             .startString = this.authService
-              .isoDateToHtmlDate(this.fetchedMission.start)
+              .isoDateToHtmlDate(this.fetchedMission.dateMission.start)
 
-          this.fetchedMission
+          this.fetchedMission.dateMission
             .endString = this.authService
-              .isoDateToHtmlDate(this.fetchedMission.end)
+              .isoDateToHtmlDate(this.fetchedMission.dateMission.end)
 
 
 

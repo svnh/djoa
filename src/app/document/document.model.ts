@@ -10,7 +10,7 @@ export class Document {
     status: number = 0;
     clients: User[] = [];
     assignedTos: User[] = [];
-    // forms: Form[] = [];
+    forms: Form[] = [];
     logs: Log[] = [];
     categorie: Categorie = new Categorie();
     bucketTasks: BucketTasks[] = []

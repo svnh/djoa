@@ -355,9 +355,9 @@ export class ProjectSingleComponent implements OnInit {
     this.projectService.getProject(id)
       .subscribe(
         res => {
-          let categName0 = ''
-          let categName1 = ''
-          let categName2 = ''
+          // let categName0 = ''
+          // let categName1 = ''
+          // let categName2 = ''
           this.fetchedProject = <Project>res
           // console.log(this.fetchedProject.categorie)
           // if(this.fetchedProject.categorie.categ0.length)

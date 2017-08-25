@@ -15,12 +15,7 @@ var document = new Schema({
     clients: [{type: Schema.Types.ObjectId, ref: 'User'}],
     assignedTos: [{type: Schema.Types.ObjectId, ref: 'User'}],
     status: {type: String, default: [0]},
-    // logs:[{
-    //   comment: {type: String, default: ['']},
-    //   by: [{type: Schema.Types.ObjectId, ref: 'User'}],
-    //   forms: [{type: Schema.Types.ObjectId, ref: 'Form'}],
-    //   date: {type: Date, default: [Date()]},
-    // }],
+    forms: [{type: Schema.Types.ObjectId, ref: 'Form'}],
     status: {type: Number},
     dateDocument:{
       start: {type: Date, default: [Date()]},
@@ -31,22 +26,22 @@ var document = new Schema({
       categ1:[{name: {type: String}}],
       categ2:[{name: {type: String}}],
     },
-    progressTasks:{type: Number, default: [0]},
-    bucketTasks:[{
-      bucketName:{type: String, default: ['']},
-      tasks:[{type: Schema.Types.ObjectId, ref: 'Task'}
-      //   {
-      //   name: {type: String},
-      //   status: {type: String},
-      //   description: {type: String},
-      //   assignedTos: [{type: Schema.Types.ObjectId, ref: 'User'}],
-      //   dateTask:{
-      //     creationDate: {type: Date, default: [Date()]},
-      //     endDate: {type: Date, default: [Date()]},
-      //   }
-      // }
-    ]
-    }]
+    // progressTasks:{type: Number, default: [0]},
+    // bucketTasks:[{
+    //   bucketName:{type: String, default: ['']},
+    //   tasks:[{type: Schema.Types.ObjectId, ref: 'Task'}
+    //   //   {
+    //   //   name: {type: String},
+    //   //   status: {type: String},
+    //   //   description: {type: String},
+    //   //   assignedTos: [{type: Schema.Types.ObjectId, ref: 'User'}],
+    //   //   dateTask:{
+    //   //     creationDate: {type: Date, default: [Date()]},
+    //   //     endDate: {type: Date, default: [Date()]},
+    //   //   }
+    //   // }
+    // ]
+    // }]
   },
   {
     timestamps: true

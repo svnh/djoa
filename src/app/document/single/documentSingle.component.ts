@@ -90,9 +90,19 @@ export class DocumentSingleComponent implements OnInit {
     this.fetchedDocument.dateDocument.startString = this.authService.isoDateToHtmlDate(this.fetchedDocument.dateDocument.start)
     this.fetchedDocument.dateDocument.endString = this.authService.isoDateToHtmlDate(this.fetchedDocument.dateDocument.end)
 
+
+
+
     if(this.search.documentId)
       this.getDocument(this.search.documentId)
-    // this.activatedRoute.params.subscribe((params: Params) => {
+    this.activatedRoute.params.subscribe((params: Params) => {
+
+      if (this.search.documentId) {
+        this.getDocument(this.search.documentId)
+      } else if(params['id']) {
+          this.getDocument(params['id'])
+      }
+
     //   if(params['id']) {
     //     this.search.documentId = params['id']
     //     this.getDocument(params['id'])
@@ -104,7 +114,7 @@ export class DocumentSingleComponent implements OnInit {
     //
     //       this.getItemSteps()
     //   }
-    // })
+    })
 
   }
   //
@@ -152,40 +162,40 @@ export class DocumentSingleComponent implements OnInit {
     // if(this.fetchedDocument.clients.length)      {queryParams['idClientSearch'] = this.fetchedDocument.clients[0]._id}
     this.router.navigate(['userCalendar/', queryParams])
   }
-
-  newComment(comment: string) {
-    // let newLog = new Log()
-    // newLog.comment = comment
-    // this.fetchedDocument.logs.push(newLog)
-  }
-  getUser(id: string) {
-    this.userService.getUser(id)
-      .subscribe(
-        res => {
-          //this.fetchedUsers[0] = res.user
-          this.selectUser(res)
-        },
-        error => {
-          console.log(error);
-        }
-      );
-  }
-
-  changeCascade(selectedIndex0, selectedIndex1, selectedIndex2) {
-    this.selectedIndex0 = selectedIndex0
-    this.selectedIndex1 = selectedIndex1
-    this.selectedIndex2 = selectedIndex2
-  }
+  //
+  // newComment(comment: string) {
+  //   // let newLog = new Log()
+  //   // newLog.comment = comment
+  //   // this.fetchedDocument.logs.push(newLog)
+  // }
+  // getUser(id: string) {
+  //   this.userService.getUser(id)
+  //     .subscribe(
+  //       res => {
+  //         //this.fetchedUsers[0] = res.user
+  //         this.selectUser(res)
+  //       },
+  //       error => {
+  //         console.log(error);
+  //       }
+  //     );
+  // }
+  //
+  // changeCascade(selectedIndex0, selectedIndex1, selectedIndex2) {
+  //   this.selectedIndex0 = selectedIndex0
+  //   this.selectedIndex1 = selectedIndex1
+  //   this.selectedIndex2 = selectedIndex2
+  // }
   // addQuote(){
   // }
 
 
-  // autocomplete user
-  selectUser(user: User) {
-    // this.autocompleteUser=''
-    // this.fetchedUsers = []
-    this.fetchedDocument.clients = [user]
-  }
+  // // autocomplete user
+  // selectUser(user: User) {
+  //   // this.autocompleteUser=''
+  //   // this.fetchedUsers = []
+  //   this.fetchedDocument.clients = [user]
+  // }
   // searchUsers() {
   //   if(!this.autocompleteUser) {
   //      this.fetchedUsers = []
@@ -196,33 +206,33 @@ export class DocumentSingleComponent implements OnInit {
   //     this.getUsers(1, search)
   //   }
   // }
-  getUsers(page: number, search: any) {
-    this.userService.getUsers(page, search)
-      .subscribe(
-        res => {
-          this.fetchedUsers = res.data
-        },
-        error => {
-          console.log(error);
-        }
-      );
-  }
+  // getUsers(page: number, search: any) {
+  //   this.userService.getUsers(page, search)
+  //     .subscribe(
+  //       res => {
+  //         this.fetchedUsers = res.data
+  //       },
+  //       error => {
+  //         console.log(error);
+  //       }
+  //     );
+  // }
 
 
-  removePic(i) {
-    // this.fetchedDocument.forms.splice(i, 1);
-  }
+  // removePic(i) {
+  //   // this.fetchedDocument.forms.splice(i, 1);
+  // }
 
 
 
     // autocomplete AssignedTo
     // autocompleteAssignedTo: string = '';
     // fetchedAssignedTos: User[] = [];
-    selectAssignedTo(user: User) {
-      // this.autocompleteAssignedTo=''
-      // this.fetchedAssignedTos = []
-      // this.fetchedDocument.assignedTos = [user]
-    }
+    // selectAssignedTo(user: User) {
+    //   // this.autocompleteAssignedTo=''
+    //   // this.fetchedAssignedTos = []
+    //   // this.fetchedDocument.assignedTos = [user]
+    // }
 
 
 
@@ -233,35 +243,35 @@ export class DocumentSingleComponent implements OnInit {
   // }
 
 
-  openDialog(positionImage: string) {
-    // let dialogRef = this.dialog.open(EditOptionsComponentDialog);
-    // dialogRef.afterClosed().subscribe(result => {
-    //   if(result) {
-    //     console.log(result)
-    //     // this.fetchedDocument.forms.push( result)
-    //   }
-    // })
-  }
+  // openDialog(positionImage: string) {
+  //   // let dialogRef = this.dialog.open(EditOptionsComponentDialog);
+  //   // dialogRef.afterClosed().subscribe(result => {
+  //   //   if(result) {
+  //   //     console.log(result)
+  //   //     // this.fetchedDocument.forms.push( result)
+  //   //   }
+  //   // })
+  // }
 
 
   save() {
 
     this.fetchedDocument.dateDocument.start = this.authService.HTMLDatetoIsoDate(this.fetchedDocument.dateDocument.startString)
     this.fetchedDocument.dateDocument.end = this.authService.HTMLDatetoIsoDate(this.fetchedDocument.dateDocument.endString)
-
-    let categName0 = ''
-    let categName1 = ''
-    let categName2 = ''
-
-    if(this.selectedIndex0>=0) {categName0 = this.itemSteps[this.selectedIndex0].categ}
-    if(this.selectedIndex1>=0) {categName1 = this.itemSteps[this.selectedIndex0].subCateg[this.selectedIndex1].categ}
-    if(this.selectedIndex2>=0) {categName2 = this.itemSteps[this.selectedIndex0].subCateg[this.selectedIndex1].subCateg[this.selectedIndex2].categ}
-
-
-    this.fetchedDocument.categorie.categ0 = [{name: categName0}]
-    this.fetchedDocument.categorie.categ1 = [{name: categName1}]
-    this.fetchedDocument.categorie.categ2 = [{name: categName2}]
-
+    //
+    // let categName0 = ''
+    // let categName1 = ''
+    // let categName2 = ''
+    //
+    // if(this.selectedIndex0>=0) {categName0 = this.itemSteps[this.selectedIndex0].categ}
+    // if(this.selectedIndex1>=0) {categName1 = this.itemSteps[this.selectedIndex0].subCateg[this.selectedIndex1].categ}
+    // if(this.selectedIndex2>=0) {categName2 = this.itemSteps[this.selectedIndex0].subCateg[this.selectedIndex1].subCateg[this.selectedIndex2].categ}
+    //
+    //
+    // this.fetchedDocument.categorie.categ0 = [{name: categName0}]
+    // this.fetchedDocument.categorie.categ1 = [{name: categName1}]
+    // this.fetchedDocument.categorie.categ2 = [{name: categName2}]
+    //
 
 
     if(this.fetchedDocument._id) {
@@ -295,19 +305,19 @@ export class DocumentSingleComponent implements OnInit {
     }
   }
 
-  openDialogDelete(){
-    let this2 = this
-    let dialogRefDelete = this.dialog.open(DeleteDialog)
-    dialogRefDelete.afterClosed().subscribe(result => {
-      if(result) {
-        this.onDelete(this.fetchedDocument._id).then(function(){
-          // this2.router.navigate(['user']);
-          // this2.goBack();
-        })
-
-      }
-    })
-  }
+  // openDialogDelete(){
+  //   let this2 = this
+  //   let dialogRefDelete = this.dialog.open(DeleteDialog)
+  //   dialogRefDelete.afterClosed().subscribe(result => {
+  //     if(result) {
+  //       this.onDelete(this.fetchedDocument._id).then(function(){
+  //         // this2.router.navigate(['user']);
+  //         // this2.goBack();
+  //       })
+  //
+  //     }
+  //   })
+  // }
 
 
   //
@@ -386,22 +396,22 @@ export class DocumentSingleComponent implements OnInit {
   }
 
 
-  onDelete(id: string) {
-    let this2 = this
-    return new Promise(function(resolve, reject) {
-      this2.documentService.deleteDocument(id)
-        .subscribe(
-          res => {
-            this2.toastr.success('Great!', res.message);
-            resolve(res)
-          },
-          error => {
-            console.log(error);
-            reject(error)
-          }
-        )
-      })
-  }
+  // onDelete(id: string) {
+  //   let this2 = this
+  //   return new Promise(function(resolve, reject) {
+  //     this2.documentService.deleteDocument(id)
+  //       .subscribe(
+  //         res => {
+  //           this2.toastr.success('Great!', res.message);
+  //           resolve(res)
+  //         },
+  //         error => {
+  //           console.log(error);
+  //           reject(error)
+  //         }
+  //       )
+  //     })
+  // }
 
 
 }

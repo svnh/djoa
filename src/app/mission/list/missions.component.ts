@@ -92,7 +92,15 @@ export class MissionsComponent implements OnInit {
         res => {
           this.paginationData = res.paginationData;
           this.fetchedMissions = res.data
+          this.fetchedMissions.forEach((mission, i) => {
+              this.fetchedMissions[i].dateMission.percentageProgress = this.authService.getPourcentageProgress(mission.dateMission.start, mission.dateMission.end)
+          });
 
+
+          // let durationProject = +new Date(this.fetchedProject.dateProject.end) - +new Date(this.fetchedProject.dateProject.start)
+          // let timeSpent = +new Date() - +new Date(this.fetchedProject.dateProject.start)
+          // this.fetchedProject.dateProject.percentageProgress = Math.round((timeSpent / durationProject) * 100)
+          //
           this.loading = false;
         },
         error => {

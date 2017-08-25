@@ -416,13 +416,13 @@ export class ProjectContentComponent implements OnInit {
           this.fetchedProject.dateProject.endString = this.authService.isoDateToHtmlDate(this.fetchedProject.dateProject.end)
 
 
-          let durationProject = +new Date(this.fetchedProject.dateProject.end) - +new Date(this.fetchedProject.dateProject.start)
-          let timeSpent = +new Date() - +new Date(this.fetchedProject.dateProject.start)
-          // console.log(durationProject)
-          // console.log(timeSpent)
-          this.fetchedProject.dateProject.percentageProgress = Math.round((timeSpent / durationProject) * 100)
-          // console.log(this.fetchedProject.dateProject.percentageProgress)
+          // let durationProject = +new Date(this.fetchedProject.dateProject.end) - +new Date(this.fetchedProject.dateProject.start)
+          // let timeSpent = +new Date() - +new Date(this.fetchedProject.dateProject.start)
+          // this.fetchedProject.dateProject.percentageProgress = Math.round((timeSpent / durationProject) * 100)
+          // // console.log(this.fetchedProject.dateProject.percentageProgress)
 
+
+          this.fetchedProject.dateProject.percentageProgress = this.authService.getPourcentageProgress(this.fetchedProject.dateProject.start, this.fetchedProject.dateProject.end)
 
         },
         error => {

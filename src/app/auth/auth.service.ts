@@ -277,4 +277,10 @@ export class AuthService {
       return date.getFullYear()+'-' + monthString + '-'+dtString
     }
 
+    getPourcentageProgress(start: Date, end: Date) {
+      let durationProject = +new Date(end) - +new Date(start)
+      let timeSpent = +new Date() - +new Date(start)
+      return Math.round((timeSpent / durationProject) * 100)
+    }
+
 }

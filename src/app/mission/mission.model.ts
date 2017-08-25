@@ -1,7 +1,8 @@
 import { Form } from '../picture/form/form.model';
 import { User } from '../user/user.model';
 import { Quote } from '../quote/quote.model';
-import { Project } from '../project/project.model';
+
+import { Project, DateDjoa } from '../project/project.model';
 
 
 export class Mission {
@@ -11,11 +12,12 @@ export class Mission {
     editMode: boolean = false;
     description: string = '';
     status: string = '';
+    dateMission: DateDjoa = new DateDjoa()
     users: User[] = [];
-    start: Date = new Date()
-    startString: string = '';
-    end: Date = new Date()
-    endString: string = '';
+    // start: Date = new Date()
+    // startString: string = '';
+    // end: Date = new Date()
+    // endString: string = '';
 
     // dateMission: DateMission = new DateMission()
 }

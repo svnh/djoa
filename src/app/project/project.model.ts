@@ -15,7 +15,7 @@ export class Project {
     categorie: Categorie = new Categorie();
     bucketTasks: BucketTasks[] = []
     progressTasks: number = 0;
-    dateProject: DateProject = new DateProject()
+    dateProject: DateDjoa = new DateDjoa()
 }
 
 export class Log {
@@ -24,7 +24,7 @@ export class Log {
   forms: Form[] = [];
   date: Date = new Date()
 }
-export class DateProject {
+export class DateDjoa {
   start: Date = new Date()
   startString: string = '';
   end: Date = new Date()

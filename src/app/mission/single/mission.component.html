@@ -33,8 +33,8 @@
           [arrayContent]="fetchedMission.users"
           (getResultAutocomplete)="selectAssignedTo($event[0])">
         </app-autocomplete>
-        <input type="date" class="form-control" formControlName="startString" [(ngModel)]="fetchedMission.startString">
-        <input type="date" class="form-control" formControlName="endString" [(ngModel)]="fetchedMission.endString">
+        <input type="date" class="form-control" formControlName="startString" [(ngModel)]="fetchedMission.dateMission.startString">
+        <input type="date" class="form-control" formControlName="endString" [(ngModel)]="fetchedMission.dateMission.endString">
 
 
 <!--

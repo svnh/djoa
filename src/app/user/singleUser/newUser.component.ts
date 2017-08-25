@@ -101,15 +101,14 @@ export class NewUserComponent implements OnInit {
       })
 
       this.fetchedUser.isExternalUser = this.search.isExternalUser
-      console.log(this.search.userId)
+      // console.log(this.search.userId)
       this.activatedRoute.params.subscribe((params: Params) => {
-        if(this.search.userId) {
-
+        if (this.search.userId) {
           this.getUser(this.search.userId)
+        } else if(params['id']) {
+            this.getUser(params['id'])
         }
-        // if(params['id']) {
-        //   this.getUser(params['id'])
-        // }
+
 
       })
     }
