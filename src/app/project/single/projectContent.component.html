@@ -6,14 +6,15 @@
 
 
       <app-navbar></app-navbar>
-
-      <app-missions [productType]="'content'"></app-missions>
-      <br>
-      <app-missions [productType]="'research'"></app-missions>
       {{fetchedProject._id}}
       <br> {{fetchedProject.details.name}}
       <br> {{fetchedProject.details.description}}
       <br>
+      
+      <app-missions [productType]="'content'"></app-missions>
+      <br>
+      <app-missions [productType]="'research'"></app-missions>
+
 
 
       <md-card>

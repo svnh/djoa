@@ -484,7 +484,7 @@ function sendEmailToUserToJoinCompanie(req, user) {
                   </tr>
                   <tr>
                     <td style="padding: 15px 0 30px 0;">
-                      You have been invited to join a salon on the Gooplus Management App.
+                      You have been invited to join the Djoa App.
                     </td>
                   </tr>
                   <tr>
@@ -508,7 +508,7 @@ function sendEmailToUserToJoinCompanie(req, user) {
       var mailOptions = {
         to: user.email,
         from: 'hello@gooplus.fr',
-        subject: 'Gooplus Management | New Invitation',
+        subject: 'Djoa App | New Invitation',
         html: html
       };
       mailer.sendMail(mailOptions, function (err) {
