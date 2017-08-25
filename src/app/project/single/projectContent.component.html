@@ -14,7 +14,30 @@
       <br> {{fetchedProject.details.name}}
       <br> {{fetchedProject.details.description}}
       <br>
-      <button type="button" (click)="opendetailsProject()"> details Project</button>
+
+
+      <md-card>
+        <md-card-content>
+          <h2 class="example-h2">Project Information</h2>
+          <button type="button" (click)="opendetailsProject()">Edit</button>
+          <br>
+          Start Date {{fetchedProject.dateProject.start | date:'yyyy-MM-dd' }} /
+          End Date {{fetchedProject.dateProject.end | date:'yyyy-MM-dd' }} / {{fetchedProject.dateProject.percentageProgress}}%
+          <section class="example-section">
+            <md-progress-bar
+              class="example-margin"
+              [color]="'primary'"
+              [mode]="'determinate'"
+              [value]="fetchedProject.dateProject.percentageProgress"
+              [bufferValue]="bufferValue">
+            </md-progress-bar>
+          </section>
+
+
+        </md-card-content>
+      </md-card>
+
+
       <br><br><br><br><br><br><br><br>
     </div>
 

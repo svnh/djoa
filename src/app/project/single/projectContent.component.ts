@@ -281,72 +281,72 @@ export class ProjectContentComponent implements OnInit {
   //   //   }
   //   // })
   // }
-
-
-  save() {
-
-    this.fetchedProject.dateProject.start = this.authService.HTMLDatetoIsoDate(this.fetchedProject.dateProject.startString)
-    this.fetchedProject.dateProject.end = this.authService.HTMLDatetoIsoDate(this.fetchedProject.dateProject.endString)
-
-    // let categName0 = ''
-    // let categName1 = ''
-    // let categName2 = ''
-    //
-    // if(this.selectedIndex0>=0) {categName0 = this.itemSteps[this.selectedIndex0].categ}
-    // if(this.selectedIndex1>=0) {categName1 = this.itemSteps[this.selectedIndex0].subCateg[this.selectedIndex1].categ}
-    // if(this.selectedIndex2>=0) {categName2 = this.itemSteps[this.selectedIndex0].subCateg[this.selectedIndex1].subCateg[this.selectedIndex2].categ}
-    //
-    //
-    // this.fetchedProject.categorie.categ0 = [{name: categName0}]
-    // this.fetchedProject.categorie.categ1 = [{name: categName1}]
-    // this.fetchedProject.categorie.categ2 = [{name: categName2}]
-
-
-
-    if(this.fetchedProject._id) {
-      this.projectService.updateProject(this.fetchedProject)
-        .subscribe(
-          res => {
-
-            this.toastr.success('Great!', res.message)
-            // this.fetchedProject = res.obj
-            this.getProject(res.obj._id)
-            this.saved.emit(res.obj)
-            // this.router.navigate(['project/' + res.obj._id]);
-          },
-          error => {console.log(error)}
-        );
-    } else {
-      this.projectService.saveProject(this.fetchedProject)
-        .subscribe(
-          res => {
-            this.toastr.success('Great!', res.message)
-            // this.fetchedProject = res.obj
-            this.getProject(res.obj._id)
-            this.saved.emit(res.obj)
-            // this.router.navigate(['project/' + res.obj._id]);
-          },
-          error => {
-            this.toastr.error('Error!', error.message)
-            console.log(error)
-          }
-        );
-    }
-  }
-
-  openDialogDelete(){
-    let this2 = this
-    let dialogRefDelete = this.dialog.open(DeleteDialog)
-    dialogRefDelete.afterClosed().subscribe(result => {
-      if(result) {
-        this.onDelete(this.fetchedProject._id).then(function(){
-          // this2.router.navigate(['user']);
-          // this2.goBack();
-        })
-
-      }
-    })
-  }
+  //
+  //
+  // save() {
+  //
+  //   this.fetchedProject.dateProject.start = this.authService.HTMLDatetoIsoDate(this.fetchedProject.dateProject.startString)
+  //   this.fetchedProject.dateProject.end = this.authService.HTMLDatetoIsoDate(this.fetchedProject.dateProject.endString)
+  //
+  //   // let categName0 = ''
+  //   // let categName1 = ''
+  //   // let categName2 = ''
+  //   //
+  //   // if(this.selectedIndex0>=0) {categName0 = this.itemSteps[this.selectedIndex0].categ}
+  //   // if(this.selectedIndex1>=0) {categName1 = this.itemSteps[this.selectedIndex0].subCateg[this.selectedIndex1].categ}
+  //   // if(this.selectedIndex2>=0) {categName2 = this.itemSteps[this.selectedIndex0].subCateg[this.selectedIndex1].subCateg[this.selectedIndex2].categ}
+  //   //
+  //   //
+  //   // this.fetchedProject.categorie.categ0 = [{name: categName0}]
+  //   // this.fetchedProject.categorie.categ1 = [{name: categName1}]
+  //   // this.fetchedProject.categorie.categ2 = [{name: categName2}]
+  //
+  //
+  //
+  //   if(this.fetchedProject._id) {
+  //     this.projectService.updateProject(this.fetchedProject)
+  //       .subscribe(
+  //         res => {
+  //
+  //           this.toastr.success('Great!', res.message)
+  //           // this.fetchedProject = res.obj
+  //           this.getProject(res.obj._id)
+  //           this.saved.emit(res.obj)
+  //           // this.router.navigate(['project/' + res.obj._id]);
+  //         },
+  //         error => {console.log(error)}
+  //       );
+  //   } else {
+  //     this.projectService.saveProject(this.fetchedProject)
+  //       .subscribe(
+  //         res => {
+  //           this.toastr.success('Great!', res.message)
+  //           // this.fetchedProject = res.obj
+  //           this.getProject(res.obj._id)
+  //           this.saved.emit(res.obj)
+  //           // this.router.navigate(['project/' + res.obj._id]);
+  //         },
+  //         error => {
+  //           this.toastr.error('Error!', error.message)
+  //           console.log(error)
+  //         }
+  //       );
+  //   }
+  // }
+  //
+  // openDialogDelete(){
+  //   let this2 = this
+  //   let dialogRefDelete = this.dialog.open(DeleteDialog)
+  //   dialogRefDelete.afterClosed().subscribe(result => {
+  //     if(result) {
+  //       this.onDelete(this.fetchedProject._id).then(function(){
+  //         // this2.router.navigate(['user']);
+  //         // this2.goBack();
+  //       })
+  //
+  //     }
+  //   })
+  // }
 
 
   //
@@ -415,6 +415,13 @@ export class ProjectContentComponent implements OnInit {
           this.fetchedProject.dateProject.startString = this.authService.isoDateToHtmlDate(this.fetchedProject.dateProject.start)
           this.fetchedProject.dateProject.endString = this.authService.isoDateToHtmlDate(this.fetchedProject.dateProject.end)
 
+
+          let durationProject = +new Date(this.fetchedProject.dateProject.end) - +new Date(this.fetchedProject.dateProject.start)
+          let timeSpent = +new Date() - +new Date(this.fetchedProject.dateProject.start)
+          // console.log(durationProject)
+          // console.log(timeSpent)
+          this.fetchedProject.dateProject.percentageProgress = Math.round((timeSpent / durationProject) * 100)
+          // console.log(this.fetchedProject.dateProject.percentageProgress)
 
 
         },

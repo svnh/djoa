@@ -28,7 +28,8 @@ export class DateProject {
   start: Date = new Date()
   startString: string = '';
   end: Date = new Date()
-  endString: string = '';  
+  endString: string = '';
+  percentageProgress: number = 0;
 }
 export class BucketTasks {
   bucketName: string = '';
