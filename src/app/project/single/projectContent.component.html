@@ -16,7 +16,7 @@
       <app-missions [productType]="'research'"></app-missions>
 
 
-
+      <br>
       <md-card>
         <md-card-content>
           <h2 class="example-h2">Project Information</h2>
@@ -37,15 +37,16 @@
 
         </md-card-content>
       </md-card>
-
+      <br>
       <md-card>
         <md-card-content>
           <h2>Team</h2>
           <button type="button" (click)="opendetailsProject()">Edit</button>
           <br>
           <div *ngFor="let user of fetchedProject.users">
-            <!-- {{user.forms|json}} -->
             <app-picture [addPicture]=false [deletePicture]=false [forms]="user.forms"></app-picture>
+            {{user.profile.name}}
+            <br>
           </div>
 
 
