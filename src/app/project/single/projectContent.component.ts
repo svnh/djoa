@@ -120,12 +120,12 @@ export class ProjectContentComponent implements OnInit {
 
   }
 
-  openSideBarLeft(){
-    let newShowNavBarData = new ShowNavBarData()
-    newShowNavBarData.showNavBar = true
-    newShowNavBarData.search.typeObj = ''
-    this.globalEventsManager.showNavBarLeft(newShowNavBarData);
-  }
+  // openSideBarLeft(){
+  //   let newShowNavBarData = new ShowNavBarData()
+  //   newShowNavBarData.showNavBar = true
+  //   newShowNavBarData.search.typeObj = ''
+  //   this.globalEventsManager.showNavBarLeft(newShowNavBarData);
+  // }
 
   sideNavAction(side: string, showNavBar: boolean, typeObj: string) {
     // this.showNavBarData = new ShowNavBarData()
@@ -133,13 +133,13 @@ export class ProjectContentComponent implements OnInit {
     this.showNavBarData.search.typeObj = typeObj
     this.globalEventsManager.showNavBarRight(this.showNavBarData);
   }
-  openMyProfile() {
-    this.showNavBarData = new ShowNavBarData()
-    this.showNavBarData.showNavBar = true
-    this.showNavBarData.search.typeObj = 'user'
-    this.showNavBarData.search.userId = this.authService.getCurrentUser()._id
-    this.globalEventsManager.showNavBarRight(this.showNavBarData);
-  }
+  // openMyProfile() {
+  //   this.showNavBarData = new ShowNavBarData()
+  //   this.showNavBarData.showNavBar = true
+  //   this.showNavBarData.search.typeObj = 'user'
+  //   this.showNavBarData.search.userId = this.authService.getCurrentUser()._id
+  //   this.globalEventsManager.showNavBarRight(this.showNavBarData);
+  // }
 
   opendetailsProject() {
     this.showNavBarData = new ShowNavBarData()

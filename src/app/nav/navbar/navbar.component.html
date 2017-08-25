@@ -6,9 +6,6 @@
     <a class="nav-link" routerLinkActive="active" [routerLink]="['/chat']">Chat</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" routerLinkActive="active" [routerLink]="['/project']">Projects</a>
-  </li>
-  <li class="nav-item">
     <a class="nav-link" routerLinkActive="active" [routerLink]="['/user/list/false']">Users</a>
   </li>
   <li class="nav-item">
@@ -22,5 +19,9 @@
   <li class="nav-item">
     <button type="button" (click)="createProject()">CreateProject</button>
   </li>
+  <li class="nav-item">
+    <button type="button" (click)="openMyProfile()"> My profile</button>
+  </li>
+
 
 </ul>

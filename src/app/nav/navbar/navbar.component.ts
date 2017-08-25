@@ -80,6 +80,13 @@ export class NavbarComponent implements OnInit {
     newShowNavBarData.search.typeObj = ''
     this.globalEventsManager.showNavBarLeft(newShowNavBarData);
   }
+  openMyProfile() {
+    let newShowNavBarData = new ShowNavBarData()
+    newShowNavBarData.showNavBar = true
+    newShowNavBarData.search.typeObj = 'user'
+    newShowNavBarData.search.userId = this.authService.getCurrentUser()._id
+    this.globalEventsManager.showNavBarRight(newShowNavBarData);
+  }
 
   // cleanNotifications() {
   //   // this.notificationsNotRead = 0
