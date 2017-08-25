@@ -29,6 +29,7 @@ import {UserModule} from '../user/user.module';
 import {ProjectModule} from '../project/project.module';
 import {NewObjModule} from '../nav/newObj/newObj.module';
 import {DocumentModule} from '../document/document.module';
+import {StratModule} from '../strat/strat.module';
 
 
 
@@ -42,6 +43,7 @@ import {DocumentModule} from '../document/document.module';
     ProjectModule,
     MissionModule,
     DocumentModule,
+    StratModule,
     // CommonModule,
     // FormsModule,
     // AutocompleteModule,
@@ -75,6 +77,7 @@ import {DocumentModule} from '../document/document.module';
     ProjectModule,
     MissionModule,
     DocumentModule,
+    StratModule,
     // RoundPipe,
     // HeaderComponent,
     // NavbarModule,

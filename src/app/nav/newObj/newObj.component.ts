@@ -66,44 +66,50 @@ export class NewObjComponent implements OnInit {
     //   this.fetchedUser = this.authService.getCurrentUser()
     // }
   }
-
-  createProject() {
+  //
+  // createProject() {
+  //   let newShowNavBarData = new ShowNavBarData()
+  //   newShowNavBarData.showNavBar = true
+  //   newShowNavBarData.search.typeObj = 'project'
+  //   newShowNavBarData.search.userId = ''
+  //   this.globalEventsManager.showNavBarRight(newShowNavBarData);
+  // }
+  // openSideBarLeft(){
+  //   let newShowNavBarData = new ShowNavBarData()
+  //   newShowNavBarData.showNavBar = true
+  //   newShowNavBarData.search.typeObj = ''
+  //   this.globalEventsManager.showNavBarLeft(newShowNavBarData)
+  // }
+  // openMyProfile() {
+  //   let newShowNavBarData = new ShowNavBarData()
+  //   newShowNavBarData.showNavBar = true
+  //   newShowNavBarData.search.typeObj = 'user'
+  //   newShowNavBarData.search.userId = this.authService.getCurrentUser()._id
+  //   this.globalEventsManager.showNavBarRight(newShowNavBarData)
+  // }
+  // createUser() {
+  //   let newShowNavBarData = new ShowNavBarData()
+  //   newShowNavBarData.showNavBar = true
+  //   newShowNavBarData.search.typeObj = 'user'
+  //   newShowNavBarData.search.isExternalUser = false
+  //   this.globalEventsManager.showNavBarRight(newShowNavBarData)
+  // }
+  // createMission(){
+  //   let newShowNavBarData = new ShowNavBarData()
+  //   newShowNavBarData.showNavBar = true
+  //   newShowNavBarData.search.typeObj = 'mission'
+  //   this.globalEventsManager.showNavBarRight(newShowNavBarData)
+  // }
+  // createDocument(){
+  //   let newShowNavBarData = new ShowNavBarData()
+  //   newShowNavBarData.showNavBar = true
+  //   newShowNavBarData.search.typeObj = 'document'
+  //   this.globalEventsManager.showNavBarRight(newShowNavBarData)
+  // }
+  createNewObj(typeObj: string) {
     let newShowNavBarData = new ShowNavBarData()
     newShowNavBarData.showNavBar = true
-    newShowNavBarData.search.typeObj = 'project'
-    newShowNavBarData.search.userId = ''
-    this.globalEventsManager.showNavBarRight(newShowNavBarData);
-  }
-  openSideBarLeft(){
-    let newShowNavBarData = new ShowNavBarData()
-    newShowNavBarData.showNavBar = true
-    newShowNavBarData.search.typeObj = ''
-    this.globalEventsManager.showNavBarLeft(newShowNavBarData)
-  }
-  openMyProfile() {
-    let newShowNavBarData = new ShowNavBarData()
-    newShowNavBarData.showNavBar = true
-    newShowNavBarData.search.typeObj = 'user'
-    newShowNavBarData.search.userId = this.authService.getCurrentUser()._id
-    this.globalEventsManager.showNavBarRight(newShowNavBarData)
-  }
-  createUser() {
-    let newShowNavBarData = new ShowNavBarData()
-    newShowNavBarData.showNavBar = true
-    newShowNavBarData.search.typeObj = 'user'
-    newShowNavBarData.search.isExternalUser = false
-    this.globalEventsManager.showNavBarRight(newShowNavBarData)
-  }
-  createMission(){
-    let newShowNavBarData = new ShowNavBarData()
-    newShowNavBarData.showNavBar = true
-    newShowNavBarData.search.typeObj = 'mission'
-    this.globalEventsManager.showNavBarRight(newShowNavBarData)
-  }
-  createDocument(){
-    let newShowNavBarData = new ShowNavBarData()
-    newShowNavBarData.showNavBar = true
-    newShowNavBarData.search.typeObj = 'document'
+    newShowNavBarData.search.typeObj = typeObj
     this.globalEventsManager.showNavBarRight(newShowNavBarData)
   }
 
