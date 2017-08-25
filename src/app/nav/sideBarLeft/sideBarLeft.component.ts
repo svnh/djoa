@@ -37,7 +37,6 @@ export class SideBarLeftComponent implements OnInit {
   ) {
     this.globalEventsManager.showNavBarEmitterLeft.subscribe((showNavBarData)=>{
         if (showNavBarData !== null) {
-          console.log(showNavBarData)
           this.showNavBarData = showNavBarData;
           if(this.showNavBarData.showNavBar) {
             this.sidenav.open()

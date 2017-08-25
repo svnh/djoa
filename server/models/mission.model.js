@@ -10,7 +10,7 @@ var mission = new Schema({
     title: {type: String, default: ['']},
     status: {type: String},
     description: {type: String},
-    // users: [{type: Schema.Types.ObjectId, ref: 'User'}],
+    users: [{type: Schema.Types.ObjectId, ref: 'User'}],
     // // dateMission:{
     // start: {type: Date, default: [Date()]},
     // end: {type: Date, default: [Date()]},

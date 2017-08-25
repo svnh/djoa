@@ -35,16 +35,16 @@ export class ProjectContentComponent implements OnInit {
 
   @Input() search: Search
 
-  selectedIndex0: number = -1
-  selectedIndex1: number = -1
-  selectedIndex2: number = -1
-  // show1 = false
-  // show2 = false
-  // categ0: string = '';
-  // categ1: string = '';
-  // categ2: string = '';
-
-  itemSteps:any =[];
+  // selectedIndex0: number = -1
+  // selectedIndex1: number = -1
+  // selectedIndex2: number = -1
+  // // show1 = false
+  // // show2 = false
+  // // categ0: string = '';
+  // // categ1: string = '';
+  // // categ2: string = '';
+  //
+  // itemSteps:any =[];
 
 
   status = StatusProject
@@ -127,12 +127,12 @@ export class ProjectContentComponent implements OnInit {
   //   this.globalEventsManager.showNavBarLeft(newShowNavBarData);
   // }
 
-  sideNavAction(side: string, showNavBar: boolean, typeObj: string) {
-    // this.showNavBarData = new ShowNavBarData()
-    this.showNavBarData.showNavBar = showNavBar
-    this.showNavBarData.search.typeObj = typeObj
-    this.globalEventsManager.showNavBarRight(this.showNavBarData);
-  }
+  // sideNavAction(side: string, showNavBar: boolean, typeObj: string) {
+  //   // this.showNavBarData = new ShowNavBarData()
+  //   this.showNavBarData.showNavBar = showNavBar
+  //   this.showNavBarData.search.typeObj = typeObj
+  //   this.globalEventsManager.showNavBarRight(this.showNavBarData);
+  // }
   // openMyProfile() {
   //   this.showNavBarData = new ShowNavBarData()
   //   this.showNavBarData.showNavBar = true
@@ -150,20 +150,20 @@ export class ProjectContentComponent implements OnInit {
   }
 
 
-  getItemSteps() {
-    let currentUser = this.authService.getCurrentUser()
-
-    currentUser.ownerCompanies.forEach((companie, index) => {
-
-      if(this.selectedIndex0 >= companie.categories.categProject.length)
-        this.selectedIndex0 = -1
-
-
-      // console.log(JSON.parse(currentUser.companies[index].categJson.categProject))
-      if(currentUser.ownerCompanies[index].categories.categProject)
-        this.itemSteps = currentUser.ownerCompanies[index].categories.categProject
-    })
-  }
+  // getItemSteps() {
+  //   let currentUser = this.authService.getCurrentUser()
+  //
+  //   currentUser.ownerCompanies.forEach((companie, index) => {
+  //
+  //     if(this.selectedIndex0 >= companie.categories.categProject.length)
+  //       this.selectedIndex0 = -1
+  //
+  //
+  //     // console.log(JSON.parse(currentUser.companies[index].categJson.categProject))
+  //     if(currentUser.ownerCompanies[index].categories.categProject)
+  //       this.itemSteps = currentUser.ownerCompanies[index].categories.categProject
+  //   })
+  // }
 
 
 
@@ -290,18 +290,18 @@ export class ProjectContentComponent implements OnInit {
 
     this.fetchedProject.dateProject.creationDate = this.authService.HTMLDatetoIsoDate(this.fetchedProject.dateProject.creationDateString)
 
-    let categName0 = ''
-    let categName1 = ''
-    let categName2 = ''
-
-    if(this.selectedIndex0>=0) {categName0 = this.itemSteps[this.selectedIndex0].categ}
-    if(this.selectedIndex1>=0) {categName1 = this.itemSteps[this.selectedIndex0].subCateg[this.selectedIndex1].categ}
-    if(this.selectedIndex2>=0) {categName2 = this.itemSteps[this.selectedIndex0].subCateg[this.selectedIndex1].subCateg[this.selectedIndex2].categ}
-
-
-    this.fetchedProject.categorie.categ0 = [{name: categName0}]
-    this.fetchedProject.categorie.categ1 = [{name: categName1}]
-    this.fetchedProject.categorie.categ2 = [{name: categName2}]
+    // let categName0 = ''
+    // let categName1 = ''
+    // let categName2 = ''
+    //
+    // if(this.selectedIndex0>=0) {categName0 = this.itemSteps[this.selectedIndex0].categ}
+    // if(this.selectedIndex1>=0) {categName1 = this.itemSteps[this.selectedIndex0].subCateg[this.selectedIndex1].categ}
+    // if(this.selectedIndex2>=0) {categName2 = this.itemSteps[this.selectedIndex0].subCateg[this.selectedIndex1].subCateg[this.selectedIndex2].categ}
+    //
+    //
+    // this.fetchedProject.categorie.categ0 = [{name: categName0}]
+    // this.fetchedProject.categorie.categ1 = [{name: categName1}]
+    // this.fetchedProject.categorie.categ2 = [{name: categName2}]
 
 
 
@@ -390,28 +390,28 @@ export class ProjectContentComponent implements OnInit {
           let categName2 = ''
           this.fetchedProject = <Project>res
           // console.log(this.fetchedProject.categorie)
-          if(this.fetchedProject.categorie.categ0.length)
-            categName0 = this.fetchedProject.categorie.categ0[0].name
-          if(this.fetchedProject.categorie.categ1.length)
-            categName1 = this.fetchedProject.categorie.categ1[0].name
-          if(this.fetchedProject.categorie.categ2.length)
-            categName2 = this.fetchedProject.categorie.categ2[0].name
-
-          this.itemSteps.forEach((categ0, index) => {
-            if(categ0.categ === categName0)
-              this.selectedIndex0 = index
-          })
-
-          if(this.selectedIndex0 >= 0)
-          this.itemSteps[this.selectedIndex0].subCateg.forEach((categ1,index) => {
-            if(categ1.categ === categName1)
-              this.selectedIndex1 = index
-          })
-          if(this.selectedIndex1 >= 0)
-          this.itemSteps[this.selectedIndex0].subCateg[this.selectedIndex1].subCateg.forEach((categ2,index) => {
-            if(categ2.categ === categName2)
-              this.selectedIndex2 = index
-          })
+          // if(this.fetchedProject.categorie.categ0.length)
+          //   categName0 = this.fetchedProject.categorie.categ0[0].name
+          // if(this.fetchedProject.categorie.categ1.length)
+          //   categName1 = this.fetchedProject.categorie.categ1[0].name
+          // if(this.fetchedProject.categorie.categ2.length)
+          //   categName2 = this.fetchedProject.categorie.categ2[0].name
+          //
+          // this.itemSteps.forEach((categ0, index) => {
+          //   if(categ0.categ === categName0)
+          //     this.selectedIndex0 = index
+          // })
+          //
+          // if(this.selectedIndex0 >= 0)
+          // this.itemSteps[this.selectedIndex0].subCateg.forEach((categ1,index) => {
+          //   if(categ1.categ === categName1)
+          //     this.selectedIndex1 = index
+          // })
+          // if(this.selectedIndex1 >= 0)
+          // this.itemSteps[this.selectedIndex0].subCateg[this.selectedIndex1].subCateg.forEach((categ2,index) => {
+          //   if(categ2.categ === categName2)
+          //     this.selectedIndex2 = index
+          // })
 
 
           this.fetchedProject.dateProject.creationDateString = this.authService.isoDateToHtmlDate(this.fetchedProject.dateProject.creationDate)

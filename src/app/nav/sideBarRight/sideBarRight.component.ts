@@ -15,17 +15,12 @@ export class SideBarRightComponent implements OnInit {
 
   showNavBarData: ShowNavBarData = new ShowNavBarData()
 
-  // search = {
-  //   typeObj:'',
-  //   userId: '',
-  // }
   constructor(
     private globalEventsManager: GlobalEventsManager,
   ) {
     // console.log(this.showNavBarData)
     this.globalEventsManager.showNavBarEmitterRight.subscribe((showNavBarData)=>{
         if (showNavBarData !== null) {
-          console.log(showNavBarData)
           this.showNavBarData = showNavBarData;
           if(this.showNavBarData.showNavBar) {
             this.sidenav.open()
@@ -37,16 +32,7 @@ export class SideBarRightComponent implements OnInit {
   }
 
 
-
-  ngOnInit() {
-
-  }
-
-  // ngOnDestroy() {
-  //   console.log('test')
-  //   // prevent memory leak when component destroyed
-  //   // this.subscription.unsubscribe();
-  // }
+  ngOnInit() {}
 
   sideNavAction(side: string, showNavBar: boolean, typeObj: string) {
     this.showNavBarData.showNavBar = showNavBar

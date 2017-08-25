@@ -78,14 +78,27 @@ export class NavbarComponent implements OnInit {
     let newShowNavBarData = new ShowNavBarData()
     newShowNavBarData.showNavBar = true
     newShowNavBarData.search.typeObj = ''
-    this.globalEventsManager.showNavBarLeft(newShowNavBarData);
+    this.globalEventsManager.showNavBarLeft(newShowNavBarData)
   }
   openMyProfile() {
     let newShowNavBarData = new ShowNavBarData()
     newShowNavBarData.showNavBar = true
     newShowNavBarData.search.typeObj = 'user'
     newShowNavBarData.search.userId = this.authService.getCurrentUser()._id
-    this.globalEventsManager.showNavBarRight(newShowNavBarData);
+    this.globalEventsManager.showNavBarRight(newShowNavBarData)
+  }
+  createUser() {
+    let newShowNavBarData = new ShowNavBarData()
+    newShowNavBarData.showNavBar = true
+    newShowNavBarData.search.typeObj = 'user'
+    newShowNavBarData.search.isExternalUser = false
+    this.globalEventsManager.showNavBarRight(newShowNavBarData)
+  }
+  createMission(){
+    let newShowNavBarData = new ShowNavBarData()
+    newShowNavBarData.showNavBar = true
+    newShowNavBarData.search.typeObj = 'mission'
+    this.globalEventsManager.showNavBarRight(newShowNavBarData)
   }
 
   // cleanNotifications() {

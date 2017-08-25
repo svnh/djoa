@@ -22,7 +22,7 @@ import { NavbarModule } from '../nav/navbar/navbar.module';
 import { LoadingInAppComponent } from '../nav/loadingInApp/loadingInApp.component';
 import { LoginInAppComponent } from '../nav/loginInApp/loginInApp.component';
 
-import {CommentModule} from '../comment/comment.module';
+import {MissionModule} from '../mission/mission.module';
 
 import {SharedModule} from './shared.module';
 import {UserModule} from '../user/user.module';
@@ -36,6 +36,7 @@ import {ProjectModule} from '../project/project.module';
     // CommonModule,
     // FormsModule,
     ProjectModule,
+    MissionModule,
     // CommonModule,
     // FormsModule,
     // AutocompleteModule,
@@ -66,6 +67,7 @@ import {ProjectModule} from '../project/project.module';
     // CommonModule,
     // FormsModule,
     ProjectModule,
+    MissionModule,
     // RoundPipe,
     // HeaderComponent,
     // NavbarModule,

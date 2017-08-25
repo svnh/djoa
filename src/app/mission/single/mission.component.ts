@@ -19,8 +19,7 @@ import { User } from '../../user/user.model';
 import { Quote } from '../../quote/quote.model';
 import { Product } from '../../product/product.model';
 import { Project } from '../../project/project.model';
-
-
+import {Search} from '../../mainPageHome/mainPageHome.model'
 
 
 
@@ -31,8 +30,9 @@ import { Project } from '../../project/project.model';
 })
 export class MissionComponent implements OnInit {
   @Output() newMissionSaved: EventEmitter<any> = new EventEmitter();
-  
+
   @Input() fetchedMission: Mission = new Mission()
+  @Input() search: Search
 
 
 
@@ -134,6 +134,7 @@ export class MissionComponent implements OnInit {
         .subscribe(
           res => {
             this.toastr.success('Great!', res.message)
+            this.getMission(res.obj._id)
             // this.fetchedMission = res.obj
             //this.router.navigate(['mission/edit/' + this.fetchedMission._id])
           },
@@ -146,6 +147,7 @@ export class MissionComponent implements OnInit {
         .subscribe(
           res => {
             this.toastr.success('Great!', res.message)
+            this.getMission(res.obj._id)
             // this.fetchedMission = res.obj
             // this.newMissionSaved.emit()
             // if(this.showHeader)
