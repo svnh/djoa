@@ -10,7 +10,7 @@
       <br> {{fetchedProject.details.name}}
       <br> {{fetchedProject.details.description}}
       <br>
-      
+
       <app-missions [productType]="'content'"></app-missions>
       <br>
       <app-missions [productType]="'research'"></app-missions>
@@ -30,7 +30,7 @@
               [color]="'primary'"
               [mode]="'determinate'"
               [value]="fetchedProject.dateProject.percentageProgress"
-              [bufferValue]="bufferValue">
+              >
             </md-progress-bar>
           </section>
 

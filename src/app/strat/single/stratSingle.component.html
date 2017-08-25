@@ -10,25 +10,6 @@
           </div>
         </div>
 
-        <div>
-          <div>
-            <button (click)="changeCascade(i, -1, -1)" *ngFor="let itemStep of itemSteps;let i=index;" type="button" class="btn" [ngClass]="{'btn-success': i==selectedIndex0, '': i!=selectedIndex0}">
-          {{itemStep.categ}}
-        </button>
-          </div>
-          <br>
-          <div *ngIf="selectedIndex0>=0">
-            <button (click)="changeCascade(selectedIndex0, i, -1)" *ngFor="let itemStep of itemSteps[selectedIndex0].subCateg;let i=index;" type="button" class="btn" [ngClass]="{'btn-success': i==selectedIndex1, '': i!=selectedIndex1}">
-          {{itemStep.categ}}
-        </button>
-          </div>
-          <br>
-          <div *ngIf="selectedIndex1>=0">
-            <button (click)="changeCascade(selectedIndex0, selectedIndex1, i)" *ngFor="let itemStep of itemSteps[selectedIndex0].subCateg[selectedIndex1].subCateg;let i=index;" type="button" class="btn" [ngClass]="{'btn-success': i==selectedIndex2, '': i!=selectedIndex2}">
-          {{itemStep.categ}}
-        </button>
-          </div>
-        </div>
 
 
         <br>
@@ -48,7 +29,7 @@
         </div>
 
 
-        <app-autocomplete class="col-md-4" [typeAutocomplete]="'user'" [title]="'Customer'" [singleChoice]="'true'" [arrayContent]="fetchedStrat.clients" (getResultAutocomplete)="selectUser($event[0])">
+        <app-autocomplete class="col-md-4" [typeAutocomplete]="'user'" [title]="'Customer'" [singleChoice]="'true'" [arrayContent]="fetchedStrat.clients">
         </app-autocomplete>
 
         <br>
@@ -79,7 +60,7 @@
         </div>
 
         <div class="form-group">
-          <app-autocomplete [typeAutocomplete]="'user'" [title]="'Assigned To'" [singleChoice]=true [search]="{isExternalUser:false}" [arrayContent]="fetchedStrat.assignedTos" (getResultAutocomplete)="selectAssignedTo($event[0])">
+          <app-autocomplete [typeAutocomplete]="'user'" [title]="'Assigned To'" [singleChoice]=true [search]="{isExternalUser:false}" [arrayContent]="fetchedStrat.assignedTos">
           </app-autocomplete>
         </div>
 

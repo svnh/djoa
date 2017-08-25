@@ -13,6 +13,9 @@ export class UserFormsUploadAndList {
 
   constructor() {}
 
+  onPassForm(){
+    
+  }
 
   onUploadFinisedChildToParent(){
     // Parent to child
