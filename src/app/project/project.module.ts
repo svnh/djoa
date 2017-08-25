@@ -6,7 +6,7 @@ import { MaterialModule } from '@angular/material';
 // import { ProjectDialogComponent } from './single/dialog/projectDialog.component';
 
 // import { ProjectTasksComponent} from './task/singleTask/projectTasks.component';
-import { ProjectsComponent} from './projects/projects.component';
+import { ProjectsComponent} from './list/projects.component';
 import { ProjectSingleComponent} from './single/projectSingle.component';
 import { ProjectContentComponent} from './single/projectContent.component';
 import { ProjectService} from './project.service';
