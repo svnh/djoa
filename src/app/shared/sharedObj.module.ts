@@ -27,7 +27,7 @@ import {MissionModule} from '../mission/mission.module';
 import {SharedModule} from './shared.module';
 import {UserModule} from '../user/user.module';
 import {ProjectModule} from '../project/project.module';
-import {NewObjModule} from '../nav/newObj/newObj.module';
+// import {NewObjModule} from '../nav/newObj/newObj.module';
 import {DocumentModule} from '../document/document.module';
 import {StratModule} from '../strat/strat.module';
 
@@ -37,7 +37,7 @@ import {StratModule} from '../strat/strat.module';
   imports:      [
     SharedModule,
     UserModule,
-    NewObjModule,
+    // NewObjModule,
     // CommonModule,
     // FormsModule,
     ProjectModule,
@@ -71,7 +71,7 @@ import {StratModule} from '../strat/strat.module';
     // TranslatePipe,
     SharedModule,
     UserModule,
-    NewObjModule,
+    // NewObjModule,
     // CommonModule,
     // FormsModule,
     ProjectModule,

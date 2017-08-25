@@ -13,6 +13,8 @@ import {SharedObjModule } from '../../shared/sharedObj.module';
 // import {NewUserComponent} from '../../user/singleUser/newUser.component';
 // import {QuoteModule} from '../../quote/quote.module'
 // import {SharedSmallModule } from '../../shared/sharedSmall.module';
+import {NewObjModule} from '../newObj/newObj.module';
+import {DeleteConfirmationModule} from '../deleteConfirmation/deleteConfirmation.module';
 
 
 
@@ -24,13 +26,15 @@ import {SharedObjModule } from '../../shared/sharedObj.module';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    DeleteConfirmationModule,
     // NewUserComponent,
     // QuoteModule,
     // SharedSmallModule
     SharedObjModule,
 
     //  FormsModule,
-    MaterialModule,
+    // MaterialModule,
+    NewObjModule,
     // ReactiveFormsModule,
 
   ],

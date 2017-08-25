@@ -4,7 +4,6 @@ import { GlobalEventsManager} from '../../globalEventsManager';
 import {MdSidenav} from '@angular/material';
 import {ShowNavBarData} from '../../mainPageHome/mainPageHome.model'
 
-
 @Component({
   selector: 'app-sideBarRight',
   templateUrl: './sideBarRight.component.html',

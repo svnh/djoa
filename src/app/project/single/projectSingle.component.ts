@@ -16,7 +16,8 @@ import { User } from '../../user/user.model';
 import { Quote } from '../../quote/quote.model';
 import { AuthService} from '../../auth/auth.service';
 import {Search} from '../../mainPageHome/mainPageHome.model'
-
+import {ShowNavBarData} from '../../mainPageHome/mainPageHome.model'
+import {GlobalEventsManager} from '../../globalEventsManager';
 
 @Component({
   selector: 'app-projectSingle',
@@ -59,16 +60,17 @@ export class ProjectSingleComponent implements OnInit {
   public myForm: FormGroup;
 
   constructor(
-    private sanitizer: DomSanitizer,
+    private globalEventsManager: GlobalEventsManager,
+    // private sanitizer: DomSanitizer,
     private projectService: ProjectService,
     private toastr: ToastsManager,
-    public dialog: MdDialog,
-    private router: Router,
-    private location: Location,
-    private activatedRoute: ActivatedRoute,
+    // public dialog: MdDialog,
+    // private router: Router,
+    // private location: Location,
+    // private activatedRoute: ActivatedRoute,
     private _fb: FormBuilder,
-    private userService: UserService,
-    private quoteService: QuoteService,
+    // private userService: UserService,
+    // private quoteService: QuoteService,
     private authService: AuthService,
   ) {
   }
@@ -295,18 +297,27 @@ export class ProjectSingleComponent implements OnInit {
     }
   }
 
-  openDialogDelete(){
-    let this2 = this
-    let dialogRefDelete = this.dialog.open(DeleteDialog)
-    dialogRefDelete.afterClosed().subscribe(result => {
-      if(result) {
-        this.onDelete(this.fetchedProject._id).then(function(){
-          // this2.router.navigate(['user']);
-          // this2.goBack();
-        })
+  openDeleteConfirmation(){
+      let newShowNavBarData = new ShowNavBarData()
+      newShowNavBarData.showNavBar = true
+      newShowNavBarData.search.typeObj = 'deleteConfirmation'
+      this.globalEventsManager.showNavBarRight(newShowNavBarData)
 
-      }
-    })
+    //   let newShowNavBarData = new ShowNavBarData()
+    //   newShowNavBarData.showNavBar = true
+    //   newShowNavBarData.search.typeObj = 'document'
+    //   this.globalEventsManager.showNavBarRight(newShowNavBarData)
+    // let this2 = this
+    // let dialogRefDelete = this.dialog.open(DeleteDialog)
+    // dialogRefDelete.afterClosed().subscribe(result => {
+    //   if(result) {
+    //     this.onDelete(this.fetchedProject._id).then(function(){
+    //       // this2.router.navigate(['user']);
+    //       // this2.goBack();
+    //     })
+    //
+    //   }
+    // })
   }
 
 
@@ -386,22 +397,22 @@ export class ProjectSingleComponent implements OnInit {
   }
 
 
-  onDelete(id: string) {
-    let this2 = this
-    return new Promise(function(resolve, reject) {
-      this2.projectService.deleteProject(id)
-        .subscribe(
-          res => {
-            this2.toastr.success('Great!', res.message);
-            resolve(res)
-          },
-          error => {
-            console.log(error);
-            reject(error)
-          }
-        )
-      })
-  }
+  // onDelete(id: string) {
+  //   let this2 = this
+  //   return new Promise(function(resolve, reject) {
+  //     this2.projectService.deleteProject(id)
+  //       .subscribe(
+  //         res => {
+  //           this2.toastr.success('Great!', res.message);
+  //           resolve(res)
+  //         },
+  //         error => {
+  //           console.log(error);
+  //           reject(error)
+  //         }
+  //       )
+  //     })
+  // }
 
 
 }
