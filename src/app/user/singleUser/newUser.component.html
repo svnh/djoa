@@ -1,8 +1,6 @@
-
 <div class="container">
-  <!-- <app-header [showHeader]="true" [showCreateButton]="false" [showBackButton]="true" [nameObject]="'user'"></app-header> -->
-
-  <div class="single-wrpr beigeback">
+  <div class="">
+    <h3>User</h3>
     <form [formGroup]="myForm" novalidate (ngSubmit)="save()">
       <div class="form-group col-sm-12">
         isExternalUser: {{fetchedUser.isExternalUser}}
