@@ -57,36 +57,34 @@ export class MissionsComponent implements OnInit {
   }
 
 
-  goBack() {
-    this.location.back();
-  }
-
-  searchMissions() {
-    this.getMissions(1, this.search)
-  }
-
-  onDelete(id: string) {
-    this.missionService.deleteMission(id)
-      .subscribe(
-        res => {
-          this.toastr.success('Great!', res.message);
-          console.log(res);
-        },
-        error => {
-          console.log(error);
-        }
-      );
-  }
-
-  getPage(page: number) {
-    this.getMissions(page, this.search);
-  }
 
 
-  loadMore(){
-    this.paginationData.currentPage = this.paginationData.currentPage+1
-    this.getMissions(this.paginationData.currentPage, this.search)
-  }
+  // searchMissions() {
+  //   this.getMissions(1, this.search)
+  // }
+
+  // onDelete(id: string) {
+  //   this.missionService.deleteMission(id)
+  //     .subscribe(
+  //       res => {
+  //         this.toastr.success('Great!', res.message);
+  //         console.log(res);
+  //       },
+  //       error => {
+  //         console.log(error);
+  //       }
+  //     );
+  // }
+
+  // getPage(page: number) {
+  //   this.getMissions(page, this.search);
+  // }
+
+
+  // loadMore(){
+  //   this.paginationData.currentPage = this.paginationData.currentPage+1
+  //   this.getMissions(this.paginationData.currentPage, this.search)
+  // }
 
   createNewObj(typeObj: string) {
     let newShowNavBarData = new ShowNavBarData()
@@ -94,7 +92,13 @@ export class MissionsComponent implements OnInit {
     newShowNavBarData.search.typeObj = typeObj
     this.globalEventsManager.showNavBarRight(newShowNavBarData)
   }
-  
+  openDeleteMission(){
+    let newShowNavBarData = new ShowNavBarData()
+    newShowNavBarData.showNavBar = true
+    newShowNavBarData.search.typeObj = 'deleteConfirmation'
+    this.globalEventsManager.showNavBarRight(newShowNavBarData)
+  }
+
   getMissions(page: number, search: any) {
     this.loading = true;
     this.missionService.getMissions(page, search)
