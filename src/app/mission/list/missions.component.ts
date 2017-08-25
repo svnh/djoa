@@ -76,9 +76,9 @@ export class MissionsComponent implements OnInit {
   //     );
   // }
 
-  // getPage(page: number) {
-  //   this.getMissions(page, this.search);
-  // }
+  getPage(page: number) {
+    this.getMissions(page, this.search);
+  }
 
 
   // loadMore(){
