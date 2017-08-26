@@ -24,7 +24,7 @@ import {Search} from '../../mainPageHome/mainPageHome.model'
 })
 export class MissionsComponent implements OnInit {
   @Input() userId = '';
-  @Input() missionType = '';
+  // @Input() missionType = '';
   @Input() search: Search = new Search()
 
   token: string = localStorage.getItem('id_token');
@@ -102,7 +102,7 @@ export class MissionsComponent implements OnInit {
     let newShowNavBarData = new ShowNavBarData()
     newShowNavBarData.showNavBar = true
     newShowNavBarData.search.typeObj = 'mission'
-    newShowNavBarData.search.missionType = this.missionType
+    newShowNavBarData.search.missionType = this.search.missionType
     this.globalEventsManager.showNavBarRight(newShowNavBarData)
   }
   openDeleteMission(){

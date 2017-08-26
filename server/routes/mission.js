@@ -142,27 +142,32 @@ router.get('/page/:page', function (req, res, next) {
   var pageNumber = currentPage - 1
   var skip = (itemsPerPage * pageNumber)
 
-  let searchQuery = {
-  //  createdAt:{"$lt": dateRef}
-//    categories: categoriesArray,
-  //  createdAt:{"$gt": dateRef},
-  }
+//   let searchQuery = {
+//   //  createdAt:{"$lt": dateRef}
+// //    categories: categoriesArray,
+//   //  createdAt:{"$gt": dateRef},
+//   }
+  let searchQuery = {}
+  searchQuery['ownerCompanies'] = req.user.ownerCompanies
 
 
-  if (req.query.myMissions === 'true')
-    searchQuery['assignedTos'] = mongoose.Types.ObjectId(req.user._id)
+  // if (req.query.myMissions === 'true')
+  //   searchQuery['assignedTos'] = mongoose.Types.ObjectId(req.user._id)
     // aggregate.push({
     //   $match: {
     //     'bucketMissions.missions.assignedTos': mongoose.Types.ObjectId(req.user._id)
     //   }
     // })
 
-  if(req.query.search)
-    searchQuery['details.name'] = new RegExp(req.query.search, 'i')
+  // if(req.query.search)
+  //   searchQuery['details.name'] = new RegExp(req.query.search, 'i')
 
 
-  if(req.query.userId)
-    searchQuery['clients'] = mongoose.Types.ObjectId(req.query.userId)
+  // if(req.query.userId)
+  //   searchQuery['clients'] = mongoose.Types.ObjectId(req.query.userId)
+  if(req.query.missionType)
+    searchQuery['missionType'] = req.query.missionType
+
 
 
   Mission

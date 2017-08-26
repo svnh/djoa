@@ -32,11 +32,11 @@ export class ProjectContentComponent implements OnInit {
 
   @Input() showBackButton: Boolean = true;
   @Output() saved: EventEmitter<any> = new EventEmitter();
-  @Input() search: Search = new Search()
+  @Input() search: Search = new Search();
 
-  searchMissionStrat: Search = new Search()
-  searchMissionContent: Search = new Search()
-  searchMissionResearch: Search = new Search()
+  searchMissionStrat: Search = new Search();
+  searchMissionContent: Search = new Search();
+  searchMissionResearch: Search = new Search();
 
   //
   // status = StatusProject
@@ -83,7 +83,7 @@ export class ProjectContentComponent implements OnInit {
   ngOnInit() {
     this.searchMissionStrat.missionType = 'strat'
     this.searchMissionResearch.missionType = 'research'
-    this.searchMissionContent.missionType = 'research'
+    this.searchMissionContent.missionType = 'content'
 
     this.myForm = this._fb.group({
       status: [''],
