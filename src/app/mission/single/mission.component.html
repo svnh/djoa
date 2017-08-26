@@ -20,7 +20,7 @@
 
 
         <input type="text" class="form-control" formControlName="title" [(ngModel)]="fetchedMission.title" placeholder="title">
-
+        type: {{fetchedMission.type}}
 
         <select class="form-control" formControlName="status" [(ngModel)]="fetchedMission.status">
           <option *ngFor="let n of statusTypes" [attr.value]="n.value">{{n.label}}</option>

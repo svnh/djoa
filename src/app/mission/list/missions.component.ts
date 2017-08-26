@@ -22,7 +22,7 @@ import {GlobalEventsManager} from '../../globalEventsManager';
 })
 export class MissionsComponent implements OnInit {
   @Input() userId = '';
-  @Input() productType = '';
+  @Input() missionType = '';
   token: string = localStorage.getItem('id_token');
   fetchedMissions: Mission[] = [];
   search: any = {
@@ -53,10 +53,18 @@ export class MissionsComponent implements OnInit {
     private authService: AuthService,
     private userService: UserService,
 
-  ) {
+  ) { }
+
+  ngOnInit() {
+    this.getMissions(1, this.search)
+
+    // let this2 = this
+    // setTimeout(function(){
+    //   this2.search.userId = this2.userId
+    //   this2.search.orderBy = 'name'
+    //   this2.getMissions(1, this2.search)
+    // }, 200);
   }
-
-
 
 
   // searchMissions() {
@@ -86,10 +94,11 @@ export class MissionsComponent implements OnInit {
   //   this.getMissions(this.paginationData.currentPage, this.search)
   // }
 
-  createNewObj(typeObj: string) {
+  createNewMission() {
     let newShowNavBarData = new ShowNavBarData()
     newShowNavBarData.showNavBar = true
-    newShowNavBarData.search.typeObj = typeObj
+    newShowNavBarData.search.typeObj = 'mission'
+    newShowNavBarData.search.missionType = this.missionType
     this.globalEventsManager.showNavBarRight(newShowNavBarData)
   }
   openDeleteMission(){
@@ -123,16 +132,9 @@ export class MissionsComponent implements OnInit {
       );
   }
 
-  ngOnInit() {
-    let this2 = this
-    setTimeout(function(){
-      this2.search.userId = this2.userId
-      this2.search.orderBy = 'name'
-      this2.getMissions(1, this2.search)
-    }, 200);
-  }
 
-  isAdmin() {
-    return this.authService.isAdmin();
-  }
+
+  // isAdmin() {
+  //   return this.authService.isAdmin();
+  // }
 }

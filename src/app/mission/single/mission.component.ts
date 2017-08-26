@@ -32,7 +32,7 @@ export class MissionComponent implements OnInit {
   @Output() newMissionSaved: EventEmitter<any> = new EventEmitter();
 
   @Input() fetchedMission: Mission = new Mission()
-  @Input() search: Search
+  @Input() search: Search = new Search()
 
 
   myForm: FormGroup;
@@ -76,13 +76,13 @@ export class MissionComponent implements OnInit {
     // .isoDateToHtmlDate(this.fetchedMission.datePaiement)
 
 
-    this.activatedRoute.params.subscribe((params: Params) => {
-      // console.log(params)
-      if(params['id'])
-        this.getMission(params['id'])
 
-    //  if(params['idProject'])
-    //   this.getProject(params['idProject'])
+    this.activatedRoute.params.subscribe((params: Params) => {
+      if (this.search.missionId) {
+        this.getMission(this.search.missionId)
+      } else if(params['id']) {
+        this.getMission(params['id'])
+      }
     })
   }
 

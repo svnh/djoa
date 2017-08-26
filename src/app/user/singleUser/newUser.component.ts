@@ -108,8 +108,6 @@ export class NewUserComponent implements OnInit {
         } else if(params['id']) {
             this.getUser(params['id'])
         }
-
-
       })
     }
 

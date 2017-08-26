@@ -11,7 +11,7 @@ export class Mission {
     title: string = '';
     editMode: boolean = false;
     description: string = '';
-    status: string = '';
+    missionType: string = '';
     dateMission: DateDjoa = new DateDjoa()
     users: User[] = [];
     // start: Date = new Date()

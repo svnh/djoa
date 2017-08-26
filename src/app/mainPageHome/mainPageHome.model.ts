@@ -14,11 +14,13 @@ export class ShowNavBarData {
 }
 
 export class Search {
-    userId: string = '';
     typeObj: string = '';
+    userId: string = '';
     projectId: string = '';
     documentId: string = '';
+    missionId: string = '';
     stratId: string = '';
+    missionType: string = '';
     isExternalUser: boolean = false;
 
 }

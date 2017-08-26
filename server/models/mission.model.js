@@ -8,7 +8,7 @@ var mission = new Schema({
     projects: [{type: Schema.Types.ObjectId, ref: 'Project'}],
 
     title: {type: String, default: ['']},
-    status: {type: String},
+    missionType: {type: String, default: ['']},
     description: {type: String},
     users: [{type: Schema.Types.ObjectId, ref: 'User'}],
     dateMission:{

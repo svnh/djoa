@@ -32,28 +32,16 @@ export class ProjectContentComponent implements OnInit {
 
   @Input() showBackButton: Boolean = true;
   @Output() saved: EventEmitter<any> = new EventEmitter();
-
   @Input() search: Search = new Search()
 
-  // selectedIndex0: number = -1
-  // selectedIndex1: number = -1
-  // selectedIndex2: number = -1
-  // // show1 = false
-  // // show2 = false
-  // // categ0: string = '';
-  // // categ1: string = '';
-  // // categ2: string = '';
   //
-  // itemSteps:any =[];
-
-
-  status = StatusProject
-  categ: string = 'Electricité';
-  subCateg: string = 'file';
+  // status = StatusProject
+  // categ: string = 'Electricité';
+  // subCateg: string = 'file';
   // autocompleteUser: string = '';
   // autocompleteQuote: string = '';
   fetchedUsers: User[] = [];
-  fetchedQuotes: Quote[] = [];
+  // fetchedQuotes: Quote[] = [];
   showNavBarData: ShowNavBarData = new ShowNavBarData()
 
   fetchedProject: Project = new Project();
