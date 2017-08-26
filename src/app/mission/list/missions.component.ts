@@ -11,6 +11,8 @@ import { ViewEncapsulation} from '@angular/core';
 import { UserService} from '../../user/user.service';
 import {ShowNavBarData} from '../../mainPageHome/mainPageHome.model'
 import {GlobalEventsManager} from '../../globalEventsManager';
+import {Search} from '../../mainPageHome/mainPageHome.model'
+
 
 
 @Component({
@@ -23,12 +25,14 @@ import {GlobalEventsManager} from '../../globalEventsManager';
 export class MissionsComponent implements OnInit {
   @Input() userId = '';
   @Input() missionType = '';
+  @Input() search: Search = new Search()
+
   token: string = localStorage.getItem('id_token');
   fetchedMissions: Mission[] = [];
-  search: any = {
-    categories : [],
-    search: ''
-  };
+  // search: any = {
+  //   categories : [],
+  //   search: ''
+  // };
   loading: boolean;
 
   paginationData = {

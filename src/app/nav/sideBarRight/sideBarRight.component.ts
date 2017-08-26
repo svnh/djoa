@@ -17,7 +17,7 @@ export class SideBarRightComponent implements OnInit {
   constructor(
     private globalEventsManager: GlobalEventsManager,
   ) {
-    // console.log(this.showNavBarData)
+
     this.globalEventsManager.showNavBarEmitterRight.subscribe((showNavBarData)=>{
         if (showNavBarData !== null) {
           this.showNavBarData = showNavBarData;

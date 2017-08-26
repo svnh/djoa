@@ -10,10 +10,11 @@
       <br> {{fetchedProject.details.name}}
       <br> {{fetchedProject.details.description}}
       <br>
-
-      <app-missions [missionType]="'content'"></app-missions>
+      <app-missions [search]="searchMissionStrat"></app-missions>
       <br>
-      <app-missions [missionType]="'research'"></app-missions>
+      <app-missions [search]="searchMissionContent"></app-missions>
+      <br>
+      <app-missions [search]="searchMissionResearch"></app-missions>
 
 
       <br>

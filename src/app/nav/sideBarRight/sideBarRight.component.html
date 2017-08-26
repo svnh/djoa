@@ -1,7 +1,6 @@
 <md-sidenav #sidenav align="end" class="example-sidenav">
   <!-- <button type="button" (click)="sidenavOpen('','')">SideBar</button> -->
   <i (click)="sideNavAction('rightSideBar', false, '')" class="fa fa-bars" aria-hidden="true"></i>
-
   <div>
     <app-deleteConfirmation *ngIf="showNavBarData.search.typeObj == 'deleteConfirmation'"></app-deleteConfirmation>
     <app-stratSingle *ngIf="showNavBarData.search.typeObj == 'strat'"></app-stratSingle>

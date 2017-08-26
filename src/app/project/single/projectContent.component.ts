@@ -34,6 +34,10 @@ export class ProjectContentComponent implements OnInit {
   @Output() saved: EventEmitter<any> = new EventEmitter();
   @Input() search: Search = new Search()
 
+  searchMissionStrat: Search = new Search()
+  searchMissionContent: Search = new Search()
+  searchMissionResearch: Search = new Search()
+
   //
   // status = StatusProject
   // categ: string = 'Electricité';
@@ -77,6 +81,10 @@ export class ProjectContentComponent implements OnInit {
 
 
   ngOnInit() {
+    this.searchMissionStrat.missionType = 'strat'
+    this.searchMissionResearch.missionType = 'research'
+    this.searchMissionContent.missionType = 'research'
+
     this.myForm = this._fb.group({
       status: [''],
       name: ['', [Validators.required, Validators.minLength(2)]],
