@@ -81,9 +81,7 @@ export class ProjectContentComponent implements OnInit {
 
 
   ngOnInit() {
-    this.searchMissionStrat.missionType = 'strat'
-    this.searchMissionResearch.missionType = 'research'
-    this.searchMissionContent.missionType = 'content'
+
 
     this.myForm = this._fb.group({
       status: [''],
@@ -100,6 +98,16 @@ export class ProjectContentComponent implements OnInit {
       if(params['id']) {
         // this.search.projectId = params['id']
         this.getProject(params['id'])
+
+        this.searchMissionStrat.missionType = 'strat'
+        this.searchMissionStrat.projectId = params['id']
+
+        this.searchMissionResearch.missionType = 'research'
+        this.searchMissionResearch.projectId = params['id']
+
+        this.searchMissionContent.missionType = 'content'
+        this.searchMissionContent.projectId = params['id']
+
       }
       // else {
       //   // if(params['idClient'])

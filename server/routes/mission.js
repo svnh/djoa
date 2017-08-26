@@ -163,8 +163,9 @@ router.get('/page/:page', function (req, res, next) {
   //   searchQuery['details.name'] = new RegExp(req.query.search, 'i')
 
 
-  // if(req.query.userId)
-  //   searchQuery['clients'] = mongoose.Types.ObjectId(req.query.userId)
+  if(req.query.projectId)
+    searchQuery['projects'] = mongoose.Types.ObjectId(req.query.projectId)
+
   if(req.query.missionType)
     searchQuery['missionType'] = req.query.missionType
 

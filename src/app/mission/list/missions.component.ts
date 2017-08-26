@@ -102,6 +102,7 @@ export class MissionsComponent implements OnInit {
     let newShowNavBarData = new ShowNavBarData()
     newShowNavBarData.showNavBar = true
     newShowNavBarData.search.typeObj = 'mission'
+    newShowNavBarData.search.projectId = this.search.projectId
     newShowNavBarData.search.missionType = this.search.missionType
     this.globalEventsManager.showNavBarRight(newShowNavBarData)
   }
