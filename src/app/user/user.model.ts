@@ -8,7 +8,7 @@ export const TypeUser = ['plombier', 'serrurier']
 export class User {
   _id: string = '';
   // canBeSeenByCompanies: Companie[] = [];
-  // ownerCompanies: Companie[] = [];
+  ownerCompanies: Companie[] = [];
   // dateSeeLatestNotif: Date= new Date()
   // isAdminOfHisCompanie: Boolean = false;
   isExternalUser: Boolean = true;

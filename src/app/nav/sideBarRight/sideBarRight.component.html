@@ -13,5 +13,11 @@
     <div *ngIf="showNavBarData.search.typeScreen == 'deleteConfirmation'">
       <app-deleteConfirmation [search]="showNavBarData.search"></app-deleteConfirmation>
     </div>
+    <div *ngIf="showNavBarData.search.typeScreen == 'team'">
+      <app-projectTeam *ngIf="showNavBarData.search.typeObj == 'project'" [search]="showNavBarData.search"></app-projectTeam>
+    </div>
+
+
+
   </div>
 </md-sidenav>

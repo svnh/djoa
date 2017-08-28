@@ -16,37 +16,43 @@ import { User } from '../../user/user.model';
 import { Quote } from '../../quote/quote.model';
 import { AuthService} from '../../auth/auth.service';
 import {Search} from '../../mainPageHome/mainPageHome.model'
-import {GlobalEventsManager} from '../../globalEventsManager';
 import {ShowNavBarData} from '../../mainPageHome/mainPageHome.model'
-
-
+import {GlobalEventsManager} from '../../globalEventsManager';
 
 @Component({
-  selector: 'app-projectContent',
-  templateUrl: './projectContent.component.html',
+  selector: 'app-projectTeam',
+  templateUrl: './projectTeam.component.html',
   styleUrls: ['../project.component.css'],
 
 })
 
-export class ProjectContentComponent implements OnInit {
+export class ProjectTeamComponent implements OnInit {
 
-  // @Input() showBackButton: Boolean = true;
-  // @Output() saved: EventEmitter<any> = new EventEmitter();
-  @Input() search: Search = new Search();
+  @Input() showBackButton: Boolean = true;
+  @Output() saved: EventEmitter<any> = new EventEmitter();
 
-  searchMissionStrat: Search = new Search();
-  searchMissionContent: Search = new Search();
-  searchMissionResearch: Search = new Search();
+  @Input() search: Search = new Search()
 
-  //
-  // status = StatusProject
-  // categ: string = 'Electricité';
-  // subCateg: string = 'file';
+  // selectedIndex0: number = -1
+  // selectedIndex1: number = -1
+  // selectedIndex2: number = -1
+  // show1 = false
+  // show2 = false
+  // categ0: string = '';
+  // categ1: string = '';
+  // categ2: string = '';
+
+  // itemSteps:any =[];
+
+
+  status = StatusProject
+  categ: string = 'Electricité';
+  subCateg: string = 'file';
   // autocompleteUser: string = '';
   // autocompleteQuote: string = '';
-  // fetchedUsers: User[] = [];
-  // fetchedQuotes: Quote[] = [];
-  // showNavBarData: ShowNavBarData = new ShowNavBarData()
+  fetchedUsers: User[] = [];
+  fetchedQuotes: Quote[] = [];
+
 
   fetchedProject: Project = new Project();
 
@@ -55,34 +61,18 @@ export class ProjectContentComponent implements OnInit {
 
   constructor(
     private globalEventsManager: GlobalEventsManager,
-    private sanitizer: DomSanitizer,
+    // private sanitizer: DomSanitizer,
     private projectService: ProjectService,
     private toastr: ToastsManager,
-    public dialog: MdDialog,
-    private router: Router,
-    private location: Location,
-    private activatedRoute: ActivatedRoute,
+    // public dialog: MdDialog,
+    // private router: Router,
+    // private location: Location,
+    // private activatedRoute: ActivatedRoute,
     private _fb: FormBuilder,
-    private userService: UserService,
-    private quoteService: QuoteService,
+    // private userService: UserService,
+    // private quoteService: QuoteService,
     private authService: AuthService,
   ) {
-    // this.globalEventsManager.showNavBarEmitterRight.subscribe((mode)=>{
-    //     // mode will be null the first time it is created, so you need to igonore it when null
-    //     if (mode !== null) {
-    //       this.showNavBarData = mode;
-    //       // this.fetchedUser = this.authService.getCurrentUser()
-    //     }
-    // });
-    // this.globalEventsManager.refreshCenterEmitter.subscribe((isRefresh)=>{
-    //     if (isRefresh !== null) {
-    //
-    //       if(isRefresh) {
-    //         console.log('refresh')
-    //         this.getProject(this.fetchedProject._id)
-    //       }
-    //     }
-    // })
   }
 
 
@@ -90,83 +80,30 @@ export class ProjectContentComponent implements OnInit {
 
 
   ngOnInit() {
-
-
     this.myForm = this._fb.group({
-      status: [''],
-      name: ['', [Validators.required, Validators.minLength(2)]],
-      description: [''],
     });
 
 
     this.fetchedProject.dateProject.startString = this.authService.isoDateToHtmlDate(this.fetchedProject.dateProject.start)
     this.fetchedProject.dateProject.endString = this.authService.isoDateToHtmlDate(this.fetchedProject.dateProject.end)
 
-
-    this.activatedRoute.params.subscribe((params: Params) => {
-      if(params['id']) {
-        // this.search.projectId = params['id']
-        this.getProject(params['id'])
-
-        this.searchMissionStrat.missionType = 'strat'
-        this.searchMissionStrat.projectId = params['id']
-
-        this.searchMissionResearch.missionType = 'research'
-        this.searchMissionResearch.projectId = params['id']
-
-        this.searchMissionContent.missionType = 'content'
-        this.searchMissionContent.projectId = params['id']
-
-      }
-      // else {
-      //   // if(params['idClient'])
-      //   //    this.getUser(params['idClient'])
-      //   if(params['selectedIndex'])
-      //     this.selectedIndex0 = params['selectedIndex']
-      //
-      //     this.getItemSteps()
-      // }
-    })
+    if(this.search.projectId)
+      this.getProject(this.search.projectId)
+    // this.activatedRoute.params.subscribe((params: Params) => {
+    //   if(params['id']) {
+    //     this.search.projectId = params['id']
+    //     this.getProject(params['id'])
+    //   } else {
+    //     if(params['idClient'])
+    //        this.getUser(params['idClient'])
+    //     if(params['selectedIndex'])
+    //       this.selectedIndex0 = params['selectedIndex']
+    //
+    //       this.getItemSteps()
+    //   }
+    // })
 
   }
-
-  // openSideBarLeft(){
-  //   let newShowNavBarData = new ShowNavBarData()
-  //   newShowNavBarData.showNavBar = true
-  //   newShowNavBarData.search.typeObj = ''
-  //   this.globalEventsManager.showNavBarLeft(newShowNavBarData);
-  // }
-
-  // sideNavAction(side: string, showNavBar: boolean, typeObj: string) {
-  //   // this.showNavBarData = new ShowNavBarData()
-  //   this.showNavBarData.showNavBar = showNavBar
-  //   this.showNavBarData.search.typeObj = typeObj
-  //   this.globalEventsManager.showNavBarRight(this.showNavBarData);
-  // }
-  // openMyProfile() {
-  //   this.showNavBarData = new ShowNavBarData()
-  //   this.showNavBarData.showNavBar = true
-  //   this.showNavBarData.search.typeObj = 'user'
-  //   this.showNavBarData.search.userId = this.authService.getCurrentUser()._id
-  //   this.globalEventsManager.showNavBarRight(this.showNavBarData);
-  // }
-
-  openDetails() {
-    let showNavBarData = new ShowNavBarData()
-    showNavBarData.showNavBar = true
-    showNavBarData.search.typeObj = 'project'
-    showNavBarData.search.projectId = this.fetchedProject._id
-    this.globalEventsManager.showNavBarRight(showNavBarData);
-  }
-  openProjectTeam() {
-    let showNavBarData = new ShowNavBarData()
-    showNavBarData.showNavBar = true
-    showNavBarData.search.typeScreen = 'team'
-    showNavBarData.search.typeObj = 'project'
-    showNavBarData.search.projectId = this.fetchedProject._id
-    this.globalEventsManager.showNavBarRight(showNavBarData);
-  }
-
 
   // getItemSteps() {
   //   let currentUser = this.authService.getCurrentUser()
@@ -212,7 +149,7 @@ export class ProjectContentComponent implements OnInit {
   //   // if(this.fetchedProject.clients.length)      {queryParams['idClientSearch'] = this.fetchedProject.clients[0]._id}
   //   this.router.navigate(['userCalendar/', queryParams])
   // }
-  //
+
   // newComment(comment: string) {
   //   // let newLog = new Log()
   //   // newLog.comment = comment
@@ -240,7 +177,7 @@ export class ProjectContentComponent implements OnInit {
   // }
 
 
-  // // autocomplete user
+  // autocomplete user
   // selectUser(user: User) {
   //   // this.autocompleteUser=''
   //   // this.fetchedUsers = []
@@ -268,7 +205,7 @@ export class ProjectContentComponent implements OnInit {
   //     );
   // }
 
-  //
+
   // removePic(i) {
   //   // this.fetchedProject.forms.splice(i, 1);
   // }
@@ -302,72 +239,92 @@ export class ProjectContentComponent implements OnInit {
   //   //   }
   //   // })
   // }
-  //
-  //
-  // save() {
-  //
-  //   this.fetchedProject.dateProject.start = this.authService.HTMLDatetoIsoDate(this.fetchedProject.dateProject.startString)
-  //   this.fetchedProject.dateProject.end = this.authService.HTMLDatetoIsoDate(this.fetchedProject.dateProject.endString)
-  //
-  //   // let categName0 = ''
-  //   // let categName1 = ''
-  //   // let categName2 = ''
-  //   //
-  //   // if(this.selectedIndex0>=0) {categName0 = this.itemSteps[this.selectedIndex0].categ}
-  //   // if(this.selectedIndex1>=0) {categName1 = this.itemSteps[this.selectedIndex0].subCateg[this.selectedIndex1].categ}
-  //   // if(this.selectedIndex2>=0) {categName2 = this.itemSteps[this.selectedIndex0].subCateg[this.selectedIndex1].subCateg[this.selectedIndex2].categ}
-  //   //
-  //   //
-  //   // this.fetchedProject.categorie.categ0 = [{name: categName0}]
-  //   // this.fetchedProject.categorie.categ1 = [{name: categName1}]
-  //   // this.fetchedProject.categorie.categ2 = [{name: categName2}]
-  //
-  //
-  //
-  //   if(this.fetchedProject._id) {
-  //     this.projectService.updateProject(this.fetchedProject)
-  //       .subscribe(
-  //         res => {
-  //
-  //           this.toastr.success('Great!', res.message)
-  //           // this.fetchedProject = res.obj
-  //           this.getProject(res.obj._id)
-  //           this.saved.emit(res.obj)
-  //           // this.router.navigate(['project/' + res.obj._id]);
-  //         },
-  //         error => {console.log(error)}
-  //       );
-  //   } else {
-  //     this.projectService.saveProject(this.fetchedProject)
-  //       .subscribe(
-  //         res => {
-  //           this.toastr.success('Great!', res.message)
-  //           // this.fetchedProject = res.obj
-  //           this.getProject(res.obj._id)
-  //           this.saved.emit(res.obj)
-  //           // this.router.navigate(['project/' + res.obj._id]);
-  //         },
-  //         error => {
-  //           this.toastr.error('Error!', error.message)
-  //           console.log(error)
-  //         }
-  //       );
-  //   }
-  // }
-  //
-  // openDialogDelete(){
-  //   let this2 = this
-  //   let dialogRefDelete = this.dialog.open(DeleteDialog)
-  //   dialogRefDelete.afterClosed().subscribe(result => {
-  //     if(result) {
-  //       this.onDelete(this.fetchedProject._id).then(function(){
-  //         // this2.router.navigate(['user']);
-  //         // this2.goBack();
-  //       })
-  //
-  //     }
-  //   })
-  // }
+
+
+  save() {
+
+    this.fetchedProject.dateProject.start = this.authService.HTMLDatetoIsoDate(this.fetchedProject.dateProject.startString)
+    this.fetchedProject.dateProject.end = this.authService.HTMLDatetoIsoDate(this.fetchedProject.dateProject.endString)
+    //
+    // let categName0 = ''
+    // let categName1 = ''
+    // let categName2 = ''
+    //
+    // if(this.selectedIndex0>=0) {categName0 = this.itemSteps[this.selectedIndex0].categ}
+    // if(this.selectedIndex1>=0) {categName1 = this.itemSteps[this.selectedIndex0].subCateg[this.selectedIndex1].categ}
+    // if(this.selectedIndex2>=0) {categName2 = this.itemSteps[this.selectedIndex0].subCateg[this.selectedIndex1].subCateg[this.selectedIndex2].categ}
+    //
+    //
+    // this.fetchedProject.categorie.categ0 = [{name: categName0}]
+    // this.fetchedProject.categorie.categ1 = [{name: categName1}]
+    // this.fetchedProject.categorie.categ2 = [{name: categName2}]
+    //
+
+
+    if(this.fetchedProject._id) {
+      this.projectService.updateProject(this.fetchedProject)
+        .subscribe(
+          res => {
+
+            this.toastr.success('Great!', res.message)
+            // this.fetchedProject = res.obj
+            this.getProject(res.obj._id)
+            // this.saved.emit(res.obj)
+
+
+
+
+
+              this.globalEventsManager.refreshCenter(true);
+
+
+            // this.router.navigate(['project/' + res.obj._id]);
+          },
+          error => {console.log(error)}
+        );
+    } else {
+      this.projectService.saveProject(this.fetchedProject)
+        .subscribe(
+          res => {
+            this.toastr.success('Great!', res.message)
+            // this.fetchedProject = res.obj
+            this.getProject(res.obj._id)
+            // this.saved.emit(res.obj)
+            this.globalEventsManager.refreshCenter(true);
+            // this.router.navigate(['project/' + res.obj._id]);
+          },
+          error => {
+            this.toastr.error('Error!', error.message)
+            console.log(error)
+          }
+        );
+    }
+  }
+
+  openDeleteConfirmation(){
+      let newShowNavBarData = new ShowNavBarData()
+      newShowNavBarData.showNavBar = true
+      newShowNavBarData.search.typeScreen = 'deleteConfirmation'
+      newShowNavBarData.search.typeObj = 'project'
+      newShowNavBarData.search.projectId = this.fetchedProject._id
+      this.globalEventsManager.showNavBarRight(newShowNavBarData)
+
+    //   let newShowNavBarData = new ShowNavBarData()
+    //   newShowNavBarData.showNavBar = true
+    //   newShowNavBarData.search.typeObj = 'document'
+    //   this.globalEventsManager.showNavBarRight(newShowNavBarData)
+    // let this2 = this
+    // let dialogRefDelete = this.dialog.open(DeleteDialog)
+    // dialogRefDelete.afterClosed().subscribe(result => {
+    //   if(result) {
+    //     this.onDelete(this.fetchedProject._id).then(function(){
+    //       // this2.router.navigate(['user']);
+    //       // this2.goBack();
+    //     })
+    //
+    //   }
+    // })
+  }
 
 
   //
@@ -400,13 +357,13 @@ export class ProjectContentComponent implements OnInit {
 
 
 
-  getProject(id : string) {
+  getProject(id: string) {
     this.projectService.getProject(id)
       .subscribe(
         res => {
-          let categName0 = ''
-          let categName1 = ''
-          let categName2 = ''
+          // let categName0 = ''
+          // let categName1 = ''
+          // let categName2 = ''
           this.fetchedProject = <Project>res
           // console.log(this.fetchedProject.categorie)
           // if(this.fetchedProject.categorie.categ0.length)
@@ -437,13 +394,6 @@ export class ProjectContentComponent implements OnInit {
           this.fetchedProject.dateProject.endString = this.authService.isoDateToHtmlDate(this.fetchedProject.dateProject.end)
 
 
-          // let durationProject = +new Date(this.fetchedProject.dateProject.end) - +new Date(this.fetchedProject.dateProject.start)
-          // let timeSpent = +new Date() - +new Date(this.fetchedProject.dateProject.start)
-          // this.fetchedProject.dateProject.percentageProgress = Math.round((timeSpent / durationProject) * 100)
-          // // console.log(this.fetchedProject.dateProject.percentageProgress)
-
-
-          this.fetchedProject.dateProject.percentageProgress = this.authService.getPourcentageProgress(this.fetchedProject.dateProject.start, this.fetchedProject.dateProject.end)
 
         },
         error => {
@@ -453,23 +403,22 @@ export class ProjectContentComponent implements OnInit {
   }
 
 
-
-  onDelete(id: string) {
-    let this2 = this
-    return new Promise(function(resolve, reject) {
-      this2.projectService.deleteProject(id)
-        .subscribe(
-          res => {
-            this2.toastr.success('Great!', res.message);
-            resolve(res)
-          },
-          error => {
-            console.log(error);
-            reject(error)
-          }
-        )
-      })
-  }
+  // onDelete(id: string) {
+  //   let this2 = this
+  //   return new Promise(function(resolve, reject) {
+  //     this2.projectService.deleteProject(id)
+  //       .subscribe(
+  //         res => {
+  //           this2.toastr.success('Great!', res.message);
+  //           resolve(res)
+  //         },
+  //         error => {
+  //           console.log(error);
+  //           reject(error)
+  //         }
+  //       )
+  //     })
+  // }
 
 
 }
