@@ -83,7 +83,7 @@ export class MissionsComponent implements OnInit {
   //
   // }
   // test() {
-  //   console.log('test77')
+  //   r77')
   // }
 
   // searchMissions() {
@@ -121,10 +121,12 @@ export class MissionsComponent implements OnInit {
     newShowNavBarData.search.missionType = this.search.missionType
     this.globalEventsManager.showNavBarRight(newShowNavBarData)
   }
-  openDeleteMission(){
+  openDeleteMission(missionId: string) {
     let newShowNavBarData = new ShowNavBarData()
     newShowNavBarData.showNavBar = true
-    newShowNavBarData.search.typeObj = 'deleteConfirmation'
+    newShowNavBarData.search.typeScreen = 'deleteConfirmation'
+    newShowNavBarData.search.typeObj = 'mission'
+    newShowNavBarData.search.missionId = missionId
     this.globalEventsManager.showNavBarRight(newShowNavBarData)
   }
 

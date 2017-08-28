@@ -111,46 +111,41 @@ export class NewUserComponent implements OnInit {
       })
     }
 
-  searchCompanies() {
-    if(!this.autocompleteCompanie) {
-      this.fetchedCompanies = []
-    } else {
-      let search = {
-          search: this.autocompleteCompanie,
-        };
-      this.getCompanies(1, search)
-    }
-  }
+  // searchCompanies() {
+  //   if(!this.autocompleteCompanie) {
+  //     this.fetchedCompanies = []
+  //   } else {
+  //     let search = {
+  //         search: this.autocompleteCompanie,
+  //       };
+  //     this.getCompanies(1, search)
+  //   }
+  // }
 
-  getCompanies(page: number, search: any) {
-    this.companieService.getCompanies(page, search)
-      .subscribe(
-        res => {
-          this.fetchedCompanies = res.data
-        },
-        error => {
-          console.log(error);
-        }
-      );
-  }
-  selectCompanie(companie: Companie) {
-    this.fetchedUser.ownerCompanies = [companie]
-  }
+  // getCompanies(page: number, search: any) {
+  //   this.companieService.getCompanies(page, search)
+  //     .subscribe(
+  //       res => {
+  //         this.fetchedCompanies = res.data
+  //       },
+  //       error => {
+  //         console.log(error);
+  //       }
+  //     );
+  // }
 
-  selectRight(right: Right) {
-    this.fetchedUser.rights = [right]
-  }
+  // selectRight(right: Right) {
+  //   this.fetchedUser.rights = [right]
+  // }
 
-  selectOwnerCompanies(companie: Companie) {
-    this.fetchedUser.ownerCompanies = [companie]
-  }
+  // selectOwnerCompanies(companie: Companie) {
+  //   this.fetchedUser.ownerCompanies = [companie]
+  // }
 
-  selectSalesMan(users) {
-    this.fetchedUser.salesMan = users
-  }
-  getPicture(result){
-    console.log(result)
-  }
+
+  // getPicture(result){
+  //   console.log(result)
+  // }
 
   // openDialog(positionImage: string) {
   //   // let dialogRef = this.dialog.open(EditOptionsComponentDialog);

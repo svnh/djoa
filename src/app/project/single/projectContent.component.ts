@@ -151,7 +151,7 @@ export class ProjectContentComponent implements OnInit {
   //   this.globalEventsManager.showNavBarRight(this.showNavBarData);
   // }
 
-  openDetailsProject() {
+  openDetails() {
     let showNavBarData = new ShowNavBarData()
     showNavBarData.showNavBar = true
     showNavBarData.search.typeObj = 'project'

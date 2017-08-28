@@ -7,6 +7,7 @@ import { MaterialModule } from '@angular/material';
 
 
 import { MissionComponent} from './single/mission.component';
+import { MissionContentComponent} from './single/missionContent.component';
 // import { MissionSingleComponent} from './missionSingle/missionSingle.component';
 import { MissionService} from './mission.service';
 import { MissionRouting} from './missionRouting.module';
@@ -38,6 +39,7 @@ import {SharedModule } from '../shared/shared.module';
   declarations: [
 
     MissionComponent,
+    MissionContentComponent,
     MissionsComponent,
     // ProjectMissionsComponent,
     // MissionDialogComponent,

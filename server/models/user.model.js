@@ -10,26 +10,26 @@ var user = new Schema({
 
     // isAdminOfHisCompanie:{type: Boolean, default: [false]},
     isExternalUser:{type: Boolean, default: [false]},
-    dateSeeLatestNotif: {type: Date, default: [Date()]},
+    // dateSeeLatestNotif: {type: Date, default: [Date()]},
     email: {type: String, unique: true, required: true, lowercase: true},
     password: {type: String, required: true},
     forms: [{type: Schema.Types.ObjectId, ref: 'Form'}],
-    paiement: {
-      stripe:[{
-        companies:[{type: Schema.Types.ObjectId, ref: 'Companie'}],
-        cusId:{type: String, default: ['']},
-        planDetail:{
-          plan:{type: String, default: ['']},
-          current_period_end: {type: Date, default: [Date()]},
-        }
-      }]
-    },
-    // salesMan: [{type: Schema.Types.ObjectId, ref: 'User'}],
+    // paiement: {
+    //   stripe:[{
+    //     companies:[{type: Schema.Types.ObjectId, ref: 'Companie'}],
+    //     cusId:{type: String, default: ['']},
+    //     planDetail:{
+    //       plan:{type: String, default: ['']},
+    //       current_period_end: {type: Date, default: [Date()]},
+    //     }
+    //   }]
+    // },
+
     resetPasswordToken: String,
     resetPasswordExpires: String,
-    role: {type: Array, default: ['client']},
+    // role: {type: Array, default: ['client']},
     rights: [{type: Schema.Types.ObjectId, ref: 'Right'}],
-    typeUsers: {type: Array},
+    // typeUsers: {type: Array},
     profile : {
       profilePicture : [{type: Schema.Types.ObjectId, ref: 'Form'}],
       language: {type: String, default: ['en']},
@@ -41,14 +41,14 @@ var user = new Schema({
       typeClient:{type: String, default: ['']},
       colorCalendar:{type: String, default: ['#ad2121']},
       statusHouse:{type: String, default: ['']},
-      otherData:{type: String, default: ['']},
-      detailHouse:{
-        typeHouse:{type: String, default: ['']},
-        surface:{type: Number, default: [0]},
-        accesCode:{type: String, default: ['']},
-        floor:{type: String, default: ['']},
-        accessType:{type: String, default: ['']},
-      },
+      // otherData:{type: String, default: ['']},
+      // detailHouse:{
+      //   typeHouse:{type: String, default: ['']},
+      //   surface:{type: Number, default: [0]},
+      //   accesCode:{type: String, default: ['']},
+      //   floor:{type: String, default: ['']},
+      //   accessType:{type: String, default: ['']},
+      // },
       address:{
         address : {type: String, default: ['']},
         city : {type: String, default: ['']},

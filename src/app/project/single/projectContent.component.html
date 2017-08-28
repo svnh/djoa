@@ -1,10 +1,6 @@
 <div class="container">
-
   <div class="row">
     <div class="col-md-12">
-
-
-
       <app-navbar></app-navbar>
       {{fetchedProject._id}}
       <br> {{fetchedProject.details.name}}
@@ -21,7 +17,7 @@
       <md-card>
         <md-card-content>
           <h2 class="example-h2">Project Information</h2>
-          <button type="button" (click)="openDetailsProject()">Edit</button>
+          <button type="button" (click)="openDetails()">Edit</button>
           <br>
           Start Date {{fetchedProject.dateProject.start | date:'yyyy-MM-dd' }} /
           End Date {{fetchedProject.dateProject.end | date:'yyyy-MM-dd' }} / {{fetchedProject.dateProject.percentageProgress}}%
@@ -42,7 +38,7 @@
       <md-card>
         <md-card-content>
           <h2>Team</h2>
-          <button type="button" (click)="opendetailsProject()">Edit</button>
+          <button type="button" (click)="openDetails()">Edit</button>
           <br>
           <div *ngFor="let user of fetchedProject.users">
             <app-picture [addPicture]=false [deletePicture]=false [forms]="user.forms"></app-picture>

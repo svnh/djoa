@@ -9,8 +9,8 @@
         <div class="card-block clearfix">
           <table class="table table-hover">
             <tbody class="clienttbl">
-              <tr *ngFor="let mission of fetchedMissions; let i = index;">
-                <td>{{mission.title}}</td>
+              <tr *ngFor="let mission of fetchedMissions">
+                <td [routerLink]="['/mission/' + mission._id]" routerLinkActive="active">{{mission.title}}</td>
                 <td>
                   <section class="example-section">
                     <md-progress-bar class="example-margin" [color]="'primary'" [mode]="'determinate'" [value]="mission.dateMission.percentageProgress">
@@ -18,7 +18,7 @@
                   </section>
                 </td>
                 <td>
-                  <button type="button" (click)="openDeleteMission(i)">X</button>
+                  <button type="button" (click)="openDeleteMission(mission._id)">X</button>
                 </td>
               </tr>
             </tbody>

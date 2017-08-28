@@ -15,6 +15,7 @@ import {ShowNavBarData} from '../../mainPageHome/mainPageHome.model'
 import {Search} from '../../mainPageHome/mainPageHome.model'
 import {GlobalEventsManager} from '../../globalEventsManager';
 import { ProjectService} from '../../project/project.service';
+import { MissionService} from '../../mission/mission.service';
 import { ToastsManager} from 'ng2-toastr';
 
 @Component({
@@ -36,6 +37,8 @@ export class DeleteConfirmationComponent implements OnInit {
 
   constructor(
     private projectService: ProjectService,
+    private missionService: MissionService,
+
     // private globalEventsManager: GlobalEventsManager,
     private authService: AuthService,
     private adminService: AdminService,
@@ -56,37 +59,34 @@ export class DeleteConfirmationComponent implements OnInit {
   }
   cancel() {
     let showNavBarData = new ShowNavBarData()
-    showNavBarData.showNavBar = true
-    showNavBarData.search.typeObj = 'project'
-    showNavBarData.search.projectId = this.search.projectId
+    showNavBarData.showNavBar = false
+    // showNavBarData.search.typeObj = 'project'
+    // showNavBarData.search.projectId = this.search.projectId
     this.globalEventsManager.showNavBarRight(showNavBarData);
   }
   deleteObject() {
     if(this.search.typeObj === 'project') {
       this.projectService.deleteProject(this.search.projectId)
         .subscribe(
-          res => {
-            this.toastr.success('Great!', res.message);
-
-            let newShowNavBarData = new ShowNavBarData()
-            newShowNavBarData.showNavBar = false
-            this.globalEventsManager.showNavBarRight(newShowNavBarData)
-
-            this.router.navigate(['/']);
-
-          },
-          error => {
-            console.log(error);
-          }
+          res => { this.successDeleted(res) },
+          error => { console.log(error) }
         )
-
     }
+    if(this.search.typeObj === 'mission') {
+      this.missionService.deleteMission(this.search.missionId)
+        .subscribe(
+          res => { this.successDeleted(res) },
+          error => { console.log(error) }
+        )
+    }
+  }
 
-
-    // let newShowNavBarData = new ShowNavBarData()
-    // newShowNavBarData.showNavBar = true
-    // newShowNavBarData.search.typeObj = typeObj
-    // this.globalEventsManager.showNavBarRight(newShowNavBarData)
+  successDeleted(res) {
+    this.toastr.success('Great!', res.message);
+    let newShowNavBarData = new ShowNavBarData()
+    newShowNavBarData.showNavBar = false
+    this.globalEventsManager.showNavBarRight(newShowNavBarData)
+    // this.router.navigate(['/']);
   }
 
   deleteObj(){
