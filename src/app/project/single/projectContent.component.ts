@@ -151,7 +151,7 @@ export class ProjectContentComponent implements OnInit {
   //   this.globalEventsManager.showNavBarRight(this.showNavBarData);
   // }
 
-  opendetailsProject() {
+  openDetailsProject() {
     let showNavBarData = new ShowNavBarData()
     showNavBarData.showNavBar = true
     showNavBarData.search.typeObj = 'project'
@@ -443,6 +443,7 @@ export class ProjectContentComponent implements OnInit {
         }
       )
   }
+
 
 
   onDelete(id: string) {

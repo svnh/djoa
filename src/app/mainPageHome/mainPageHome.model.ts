@@ -15,6 +15,7 @@ export class ShowNavBarData {
 
 export class Search {
     typeObj: string = '';
+    typeScreen: string = 'object';
     userId: string = '';
     projectId: string = '';
     documentId: string = '';

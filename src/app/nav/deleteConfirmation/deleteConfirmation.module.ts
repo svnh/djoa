@@ -10,7 +10,6 @@ import { DeleteConfirmationComponent} from './deleteConfirmation.component';
 // import {SharedModule } from '../../shared/shared.module';
 import { NotificationService} from '../../notification/notification.service';
 
-
 @NgModule({
   imports:      [
     // ProductRouting,

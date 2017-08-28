@@ -12,8 +12,10 @@ import { PaiementGuardService} from '../../user/paiement/paiementGuard.service'
 // import { Notification} from '../../notification/notification.model';
 // import {Observable} from 'rxjs/Rx';
 import {ShowNavBarData} from '../../mainPageHome/mainPageHome.model'
-
+import {Search} from '../../mainPageHome/mainPageHome.model'
 import {GlobalEventsManager} from '../../globalEventsManager';
+import { ProjectService} from '../../project/project.service';
+import { ToastsManager} from 'ng2-toastr';
 
 @Component({
   selector: 'app-deleteConfirmation',
@@ -22,6 +24,8 @@ import {GlobalEventsManager} from '../../globalEventsManager';
   styleUrls: ['./deleteConfirmation.component.css']
 })
 export class DeleteConfirmationComponent implements OnInit {
+  @Input() search: Search = new Search()
+
   // @Input() sidenav: any;
   // showNavBar: boolean = false;
  // private userId: string = localStorage.getItem('userId');
@@ -31,9 +35,11 @@ export class DeleteConfirmationComponent implements OnInit {
   notificationsNotRead: number=0;
 
   constructor(
+    private projectService: ProjectService,
     // private globalEventsManager: GlobalEventsManager,
     private authService: AuthService,
     private adminService: AdminService,
+    private toastr: ToastsManager,
     // private notificationService: NotificationService,
     // private userService: UserService,
     private globalEventsManager: GlobalEventsManager,
@@ -41,78 +47,51 @@ export class DeleteConfirmationComponent implements OnInit {
     // private companieGuardService: CompanieGuardService,
     // private paiementGuardService: PaiementGuardService,
   ) {
-    // this.globalEventsManager.showNavBarEmitter.subscribe((mode)=>{
-    //     // mode will be null the first time it is created, so you need to igonore it when null
-    //     if (mode !== null) {
-    //       this.showNavBar = mode;
-    //       this.fetchedUser = this.authService.getCurrentUser()
-    //     }
-    // });
+
   }
 
 
 
   ngOnInit() {
-    // if (this.authService.isLoggedIn()) {
-    //   //let userId = localStorage.getItem('userId');
-    //
-    //   this.getNotifications(1, {})
-    //   Observable.interval(1000 * 30).subscribe(x => {
-    //     this.getNotifications(1, {})
-    //   });
-    //
-    //   this.globalEventsManager.showNavBar(true);
-    //   this.showNavBar = true;
-    //   this.fetchedUser = this.authService.getCurrentUser()
-    // }
   }
-  //
-  // createProject() {
-  //   let newShowNavBarData = new ShowNavBarData()
-  //   newShowNavBarData.showNavBar = true
-  //   newShowNavBarData.search.typeObj = 'project'
-  //   newShowNavBarData.search.userId = ''
-  //   this.globalEventsManager.showNavBarRight(newShowNavBarData);
-  // }
-  // openSideBarLeft(){
-  //   let newShowNavBarData = new ShowNavBarData()
-  //   newShowNavBarData.showNavBar = true
-  //   newShowNavBarData.search.typeObj = ''
-  //   this.globalEventsManager.showNavBarLeft(newShowNavBarData)
-  // }
-  // openMyProfile() {
-  //   let newShowNavBarData = new ShowNavBarData()
-  //   newShowNavBarData.showNavBar = true
-  //   newShowNavBarData.search.typeObj = 'user'
-  //   newShowNavBarData.search.userId = this.authService.getCurrentUser()._id
-  //   this.globalEventsManager.showNavBarRight(newShowNavBarData)
-  // }
-  // createUser() {
-  //   let newShowNavBarData = new ShowNavBarData()
-  //   newShowNavBarData.showNavBar = true
-  //   newShowNavBarData.search.typeObj = 'user'
-  //   newShowNavBarData.search.isExternalUser = false
-  //   this.globalEventsManager.showNavBarRight(newShowNavBarData)
-  // }
-  // createMission(){
-  //   let newShowNavBarData = new ShowNavBarData()
-  //   newShowNavBarData.showNavBar = true
-  //   newShowNavBarData.search.typeObj = 'mission'
-  //   this.globalEventsManager.showNavBarRight(newShowNavBarData)
-  // }
-  // createDocument(){
-  //   let newShowNavBarData = new ShowNavBarData()
-  //   newShowNavBarData.showNavBar = true
-  //   newShowNavBarData.search.typeObj = 'document'
-  //   this.globalEventsManager.showNavBarRight(newShowNavBarData)
-  // }
-  createDeleteConfirmation(typeObj: string) {
-    let newShowNavBarData = new ShowNavBarData()
-    newShowNavBarData.showNavBar = true
-    newShowNavBarData.search.typeObj = typeObj
-    this.globalEventsManager.showNavBarRight(newShowNavBarData)
+  cancel() {
+    let showNavBarData = new ShowNavBarData()
+    showNavBarData.showNavBar = true
+    showNavBarData.search.typeObj = 'project'
+    showNavBarData.search.projectId = this.search.projectId
+    this.globalEventsManager.showNavBarRight(showNavBarData);
+  }
+  deleteObject() {
+    if(this.search.typeObj === 'project') {
+      this.projectService.deleteProject(this.search.projectId)
+        .subscribe(
+          res => {
+            this.toastr.success('Great!', res.message);
+
+            let newShowNavBarData = new ShowNavBarData()
+            newShowNavBarData.showNavBar = false
+            this.globalEventsManager.showNavBarRight(newShowNavBarData)
+
+            this.router.navigate(['/']);
+
+          },
+          error => {
+            console.log(error);
+          }
+        )
+
+    }
+
+
+    // let newShowNavBarData = new ShowNavBarData()
+    // newShowNavBarData.showNavBar = true
+    // newShowNavBarData.search.typeObj = typeObj
+    // this.globalEventsManager.showNavBarRight(newShowNavBarData)
   }
 
+  deleteObj(){
+
+  }
   // cleanNotifications() {
   //   // this.notificationsNotRead = 0
   // }

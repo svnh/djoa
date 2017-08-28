@@ -309,7 +309,9 @@ export class ProjectSingleComponent implements OnInit {
   openDeleteConfirmation(){
       let newShowNavBarData = new ShowNavBarData()
       newShowNavBarData.showNavBar = true
-      newShowNavBarData.search.typeObj = 'deleteConfirmation'
+      newShowNavBarData.search.typeScreen = 'deleteConfirmation'
+      newShowNavBarData.search.typeObj = 'project'
+      newShowNavBarData.search.projectId = this.fetchedProject._id
       this.globalEventsManager.showNavBarRight(newShowNavBarData)
 
     //   let newShowNavBarData = new ShowNavBarData()
@@ -360,7 +362,7 @@ export class ProjectSingleComponent implements OnInit {
 
 
 
-  getProject(id : string) {
+  getProject(id: string) {
     this.projectService.getProject(id)
       .subscribe(
         res => {
