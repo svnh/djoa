@@ -58,11 +58,16 @@ export class MissionsComponent implements OnInit {
     private userService: UserService,
     private activatedRoute: ActivatedRoute,
 
-  ) { }
+  ) {
+    this.globalEventsManager.refreshCenterEmitter.subscribe((isRefresh) => {
+        if(isRefresh) {
+          this.getMissions(1, this.search)
+        }
+    })
+  }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: Params) => {
-    console.log('test4')
     this.getMissions(1, this.search)
   })
 

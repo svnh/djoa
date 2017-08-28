@@ -20,7 +20,7 @@ import { Quote } from '../../quote/quote.model';
 import { Product } from '../../product/product.model';
 import { Project } from '../../project/project.model';
 import {Search} from '../../mainPageHome/mainPageHome.model'
-
+import {GlobalEventsManager} from '../../globalEventsManager';
 
 
 @Component({
@@ -41,6 +41,7 @@ export class MissionComponent implements OnInit {
   constructor(
     private missionService: MissionService,
     private quoteService: QuoteService,
+    private globalEventsManager: GlobalEventsManager,
 
     // private projectService: ProjectService,
     // private userService: UserService,
@@ -133,6 +134,7 @@ export class MissionComponent implements OnInit {
           res => {
             this.toastr.success('Great!', res.message)
             this.getMission(res.obj._id)
+            this.globalEventsManager.refreshCenter(true);
             // this.fetchedMission = res.obj
             // this.newMissionSaved.emit()
             // if(this.showHeader)

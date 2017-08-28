@@ -30,8 +30,8 @@ import {ShowNavBarData} from '../../mainPageHome/mainPageHome.model'
 
 export class ProjectContentComponent implements OnInit {
 
-  @Input() showBackButton: Boolean = true;
-  @Output() saved: EventEmitter<any> = new EventEmitter();
+  // @Input() showBackButton: Boolean = true;
+  // @Output() saved: EventEmitter<any> = new EventEmitter();
   @Input() search: Search = new Search();
 
   searchMissionStrat: Search = new Search();
@@ -44,7 +44,7 @@ export class ProjectContentComponent implements OnInit {
   // subCateg: string = 'file';
   // autocompleteUser: string = '';
   // autocompleteQuote: string = '';
-  fetchedUsers: User[] = [];
+  // fetchedUsers: User[] = [];
   // fetchedQuotes: Quote[] = [];
   // showNavBarData: ShowNavBarData = new ShowNavBarData()
 
@@ -74,6 +74,15 @@ export class ProjectContentComponent implements OnInit {
     //       // this.fetchedUser = this.authService.getCurrentUser()
     //     }
     // });
+    // this.globalEventsManager.refreshCenterEmitter.subscribe((isRefresh)=>{
+    //     if (isRefresh !== null) {
+    //
+    //       if(isRefresh) {
+    //         console.log('refresh')
+    //         this.getProject(this.fetchedProject._id)
+    //       }
+    //     }
+    // })
   }
 
 
@@ -261,11 +270,11 @@ export class ProjectContentComponent implements OnInit {
     // autocomplete AssignedTo
     // autocompleteAssignedTo: string = '';
     // fetchedAssignedTos: User[] = [];
-    selectAssignedTo(user: User) {
-      // this.autocompleteAssignedTo=''
-      // this.fetchedAssignedTos = []
-      // this.fetchedProject.assignedTos = [user]
-    }
+    // selectAssignedTo(user: User) {
+    //   // this.autocompleteAssignedTo=''
+    //   // this.fetchedAssignedTos = []
+    //   // this.fetchedProject.assignedTos = [user]
+    // }
 
 
 
