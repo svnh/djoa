@@ -1,6 +1,7 @@
 import { Form } from '../picture/form/form.model';
 import { User } from '../user/user.model';
 import { Quote } from '../quote/quote.model';
+import { Product } from '../product/product.model';
 
 import { Project, DateDjoa } from '../project/project.model';
 
@@ -14,6 +15,7 @@ export class Mission {
     missionType: string = '';
     dateMission: DateDjoa = new DateDjoa()
     users: User[] = [];
+    // products: Product[] = [];
     // start: Date = new Date()
     // startString: string = '';
     // end: Date = new Date()
@@ -27,3 +29,10 @@ export class Mission {
 //   end: Date = new Date()
 //   endString: string = '';
 // }
+
+// export const typeMissions = [
+//   'strat',
+//   'content',
+//   'research',
+//   'other',
+// ]

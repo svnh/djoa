@@ -13,8 +13,8 @@ export class Strat {
     // forms: Form[] = [];
     logs: Log[] = [];
     categorie: Categorie = new Categorie();
-    bucketTasks: BucketTasks[] = []
-    progressTasks: number = 0;
+    // bucketTasks: BucketTasks[] = []
+    // progressTasks: number = 0;
     dateStrat: DateStrat = new DateStrat()
 }
 

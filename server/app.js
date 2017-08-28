@@ -118,7 +118,7 @@ app.use('/comment', comment)
 app.use('/chat', chat)
 app.use('/mission', mission)
 app.use('/document', document)
-app.use('/start', strat)
+app.use('/strat', strat)
 
 
 

@@ -24,6 +24,7 @@ import { PaiementPipe } from './paiement/paiement.pipe';
 import { RegisterComponent} from './register/register.component';
 
 import { NewUserComponent} from './singleUser/newUser.component';
+import { ProfileComponent} from './singleUser/profile.component';
 // import { SingleUserComponent} from './singleUser/singleUser.component';
 // import { AddNoteComponent} from './singleUser/addNote.component';
 // import { ChooseDateComponent} from './singleUser/chooseDate.component';
@@ -78,6 +79,7 @@ import {SharedModule } from '../shared/shared.module';
 
     // AutocompleteComponent,
     NewUserComponent,
+    ProfileComponent,
     UserDialogComponent,
     // SingleUserComponent,
     // AddNoteComponent,
@@ -103,6 +105,7 @@ import {SharedModule } from '../shared/shared.module';
   ],
   exports:      [
     NewUserComponent,
+    ProfileComponent,
     // AutocompleteComponent
     // UsersComponent
    ],
