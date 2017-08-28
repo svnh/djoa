@@ -21,6 +21,7 @@ import { DragulaModule } from 'ng2-dragula';
 // import { AutocompleteModule } from '../autocomplete/autocomplete.module'
 import {SharedModule } from '../shared/shared.module';
 // import {UserModule} from '../user/user.module';
+import {DocumentModule} from '../document/document.module';
 
 @NgModule({
   imports:     [
@@ -32,7 +33,8 @@ import {SharedModule } from '../shared/shared.module';
     MaterialModule,
     ReactiveFormsModule,
     QuoteModule,
-    SharedModule
+    SharedModule,
+    DocumentModule,
 
     // AutocompleteModule,
   ],

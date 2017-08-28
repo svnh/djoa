@@ -15,7 +15,7 @@ import { DocumentRouting} from './documentRouting.module';
 // import { TasksComponent} from './task/tasks/tasks.component';
 
 import { TaskService} from '../task/task.service';
-import { MissionModule} from '../mission/mission.module';
+// import { MissionModule} from '../mission/mission.module';
 
 import { DragulaModule } from 'ng2-dragula';
 // import { AutocompleteComponent } from '../autocomplete/autocomplete.component'
@@ -31,13 +31,13 @@ import {SharedModule } from '../shared/shared.module';
 @NgModule({
   imports:     [
     // UserModule,
-    DragulaModule,
+    // DragulaModule,
     DocumentRouting,
     // CommonModule,
     // FormsModule,
     // MaterialModule,
     ReactiveFormsModule,
-    MissionModule,
+    // MissionModule,
     SharedModule,
     // CommentModule,
 
