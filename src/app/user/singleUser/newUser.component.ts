@@ -219,6 +219,19 @@ export class NewUserComponent implements OnInit {
     this.router.navigate(['project/new/' + this.fetchedUser._id])
   }
 
+  sendEmailToUserToJoinCompanie() {
+    this.userService.sendEmailToUserToJoinCompanie(this.fetchedUser)
+      .subscribe(
+        res => {
+          this.toastr.success('Great!', res.message)
+        },
+        error => {
+          console.log(error)
+          this.toastr.error('Error!')
+        }
+      );
+  }
+
   save() {
     // this.userService.cleanCurrentUserInSession()
     //console.log(this.typeUserDropDown)
@@ -245,7 +258,7 @@ export class NewUserComponent implements OnInit {
           res => {
             this.toastr.success('Great!', res.message)
             this.fetchedUser = res.obj
-            this.saved.emit(res.obj)
+            // this.saved.emit(res.obj)
             // if(redirect == 'profile')
             // this.router.navigate(['user/newuser/' + res.obj._id])
             // location.reload();

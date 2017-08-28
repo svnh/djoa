@@ -120,14 +120,27 @@ export class UserService {
   }
 
   saveUser(user: any) {
-    user.profile.parentUser=[]
+    // user.profile.parentUser=[]
   //  console.log(this.authService.currentUser.userId)
-    user.profile.parentUser.push(this.authService.currentUser.userId)
+    // user.profile.parentUser.push(this.authService.currentUser.userId)
     const body = JSON.stringify(user);
     const headers = new Headers({'Content-Type': 'application/json'});
   //  let headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.authService.currentUser.token);
-    return this.http.post(this.url + 'profile/',body, {headers: headers})
+    return this.http.post(this.url + 'profile/', body, {headers: headers})
+      .map(response => response.json())
+      .catch((error: Response) => {
+        this.errorService.handleError(error.json());
+        return Observable.throw(error.json());
+      });
+  }
+
+
+  sendEmailToUserToJoinCompanie(user: any) {
+    const body = JSON.stringify(user);
+    const headers = new Headers({'Content-Type': 'application/json'});
+    headers.append('Authorization', '' + this.authService.currentUser.token);
+    return this.http.post(this.url + 'profile/sendEmailToUserToJoinCompanie/', body, {headers: headers})
       .map(response => response.json())
       .catch((error: Response) => {
         this.errorService.handleError(error.json());

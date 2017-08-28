@@ -146,6 +146,11 @@
         </button> -->
         <!-- <div *ngIf="!isUserIsMyself()"> -->
           <button type="button" *ngIf="fetchedUser._id" class="delete" md-button (click)="openDialogDelete()">Delete</button>
+          <button type="button" *ngIf="fetchedUser._id" class="delete" md-button (click)="sendEmailToUserToJoinCompanie()">sendEmailToUserToJoinCompanie</button>
+
+
+
+
         <!-- </div> -->
         <br><br><br><br><br>
       </div>

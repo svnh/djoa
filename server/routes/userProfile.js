@@ -378,33 +378,9 @@ function makeid() {
         text += possible.charAt(Math.floor(Math.random() * possible.length));
     return text;
 }
-//
-// // user Create without email. See register
+
+
 router.post('/', function (req, res, next) {
-//  console.log(req.body)
-  // let uniqueString = makeid()
-  // let email = ''
-  // let role = ''
-  // if (req.body.email) {
-  //   email = req.body.email
-  // } else {
-  //   email = 'random_' + uniqueString + '@random.com'
-  // }
-
-  if (req.body.role) {
-    role = req.body.role
-  } else {
-    role = ['client']
-  }
-
-
-
-
-
-  // if(!req.body.companies.length)
-  //   req.body.companies = req.body.ownerCompanies
-
-  // req.body.isInOwnerCompanie = false
   if(!req.body.isExternalUser)
     req.body.ownerCompanies = req.user.ownerCompanies
 
@@ -416,7 +392,7 @@ router.post('/', function (req, res, next) {
 
 
   delete req.body._id
-  // var project = new Project(req.body)
+
   var user = new User(req.body)
 
   user.role = role
@@ -433,14 +409,37 @@ router.post('/', function (req, res, next) {
       message: 'Registration Successfull',
       obj: user
     })
-    sendEmailToUserToJoinCompanie(req, user)
+    sendEmailToUserToJoinCompanie(req, res, user)
   })
 });
 
 
+router.post('/sendEmailToUserToJoinCompanie', function (req, res, next) {
+  User
+  .findById(req.body._id)
+  .exec(function (err, user) {
+    if (err) {
+      return res.status(403).json({
+        title: 'There was a problem',
+        error: err
+      });
+    }
 
+    if (!user) {
+      return res.status(404).json({
+        title: 'No form found',
+        error: {message: 'Item not found!'}
+      });
+    }
+    sendEmailToUserToJoinCompanie(req, res, user)
+    // return res.status(200).json({
+    //   user: user
+    // })
+  })
 
-function sendEmailToUserToJoinCompanie(req, user) {
+})
+
+function sendEmailToUserToJoinCompanie(req, res, user) {
   async.waterfall([
     function (done) {
       crypto.randomBytes(20, function (err, buf) {
@@ -450,7 +449,7 @@ function sendEmailToUserToJoinCompanie(req, user) {
     },
     function (token, done) {
         user.resetPasswordToken   = token;
-        user.resetPasswordExpires = Date.now() + 3600000; // 1 hour
+        user.resetPasswordExpires = Date.now() + (3600000 * 24 * 10); // 1 hour *  24 * 10 days
         user.save(function (err) {
           done(err, token, user);
         });
