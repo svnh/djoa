@@ -3,7 +3,7 @@
   <i (click)="sideNavAction('rightSideBar', false, '')" class="fa fa-bars" aria-hidden="true"></i>
   <div>
     <div *ngIf="showNavBarData.search.typeScreen == 'object'">
-      <app-stratSingle *ngIf="showNavBarData.search.typeObj == 'strat'"></app-stratSingle>
+      <app-strat *ngIf="showNavBarData.search.typeObj == 'strat'"></app-strat>
       <app-document *ngIf="showNavBarData.search.typeObj == 'document'"></app-document>
       <app-newObj *ngIf="showNavBarData.search.typeObj == 'newObj'"></app-newObj>
       <app-mission *ngIf="showNavBarData.search.typeObj == 'mission'" [search]="showNavBarData.search"></app-mission>

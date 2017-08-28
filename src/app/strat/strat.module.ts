@@ -3,74 +3,62 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MaterialModule } from '@angular/material';
 
-// import { StratDialogComponent } from './single/dialog/stratDialog.component';
 
-// import { StratTasksComponent} from './task/singleTask/stratTasks.component';
-import { StratsComponent} from './list/strats.component';
-import { StratSingleComponent} from './single/stratSingle.component';
+
+
+import { StratComponent} from './single/strat.component';
+// import { StratTeamComponent} from './single/stratTeam.component';
 import { StratContentComponent} from './single/stratContent.component';
+// import { StratSingleComponent} from './stratSingle/stratSingle.component';
 import { StratService} from './strat.service';
 import { StratRouting} from './stratRouting.module';
+import { StratsComponent} from './list/strats.component';
 
-// import { TasksComponent} from './task/tasks/tasks.component';
-
-import { TaskService} from '../task/task.service';
-import { MissionModule} from '../mission/mission.module';
+// import { ProjectStratsComponent} from './project/projectStrats.component';
+import { QuoteModule} from '../quote/quote.module';
 
 import { DragulaModule } from 'ng2-dragula';
-// import { AutocompleteComponent } from '../autocomplete/autocomplete.component'
+// import { StratDialogComponent } from './single/dialog/stratDialog.component'
 // import { AutocompleteModule } from '../autocomplete/autocomplete.module'
 import {SharedModule } from '../shared/shared.module';
-// import {CommentModule} from '../comment/comment.module';
-// import { TaskDialogComponent } from '../task/single/dialog/taskDialog.component'
-
-// import { CommentComponent } from './single/comment/comment.component'
-// import { PictureComponent } from './single/picture/picture.component'
-
+// import {UserModule} from '../user/user.module';
+import {DocumentModule} from '../document/document.module';
 
 @NgModule({
   imports:     [
     // UserModule,
     DragulaModule,
     StratRouting,
-    // CommonModule,
-    // FormsModule,
-    // MaterialModule,
+    CommonModule,
+    FormsModule,
+    MaterialModule,
     ReactiveFormsModule,
-    MissionModule,
+    QuoteModule,
     SharedModule,
-    // CommentModule,
-
+    DocumentModule,
 
     // AutocompleteModule,
   ],
   declarations: [
-    // StratTasksComponent,
-    StratsComponent,
-    StratSingleComponent,
+
+    StratComponent,
+    // StratTeamComponent,
     StratContentComponent,
-    // TasksComponent,
+    StratsComponent,
+    // ProjectStratsComponent,
     // StratDialogComponent,
-    // CommentComponent,
-    // PictureComponent,
-    // TaskDialogComponent,
+    // StratSingleComponent,
     // AutocompleteComponent,
   ],
   exports:      [
-    StratSingleComponent,
+    StratComponent,
+    // StratTeamComponent,
     StratsComponent,
-    StratContentComponent,
-
-    // StratsComponent,
     // AutocompleteComponent,
   ],
-  providers:    [
-    StratService,
-    // TaskService
-  ],
+  providers:    [ StratService ],
   entryComponents: [
     // StratDialogComponent,
-    // TaskDialogComponent,
   ]
 })
 export class StratModule { }

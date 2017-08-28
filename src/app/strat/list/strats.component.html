@@ -1,3 +1,35 @@
-<div *ngFor="let strat of fetchedStrats" [routerLink]="['/strat/' + strat._id]" routerLinkActive="active">
-  <div class="centre">{{strat.details.name}}alan</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">{{search.stratType}}</h4> {{paginationData.totalItems}} strats
+          <button type="button" (click)="createNewStrat()">+Strat</button>
+        </div>
+        <div class="card-block clearfix">
+          <table class="table table-hover">
+            <tbody class="clienttbl">
+              <tr *ngFor="let strat of fetchedStrats">
+                <td [routerLink]="['/strat/' + strat._id]" routerLinkActive="active">{{strat.title}}</td>
+                <td>
+                  <section class="example-section">
+                    <md-progress-bar class="example-margin" [color]="'primary'" [mode]="'determinate'" [value]="strat.dateStrat.percentageProgress">
+                    </md-progress-bar>
+                  </section>
+                </td>
+                <td>
+                  <button type="button" (click)="openDeleteStrat(strat._id)">X</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="has-text-centered">
+            <md-paginator [length]="paginationData.totalItems" [pageSize]="paginationData.itemsPerPage" (page)="getPage($event.pageIndex*1+1)">
+            </md-paginator>
+            <app-loadingInApp *ngIf="loading"></app-loadingInApp>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

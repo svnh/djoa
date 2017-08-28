@@ -21,15 +21,14 @@ import { Product } from '../../product/product.model';
 import { Project } from '../../project/project.model';
 import {Search} from '../../mainPageHome/mainPageHome.model'
 import {GlobalEventsManager} from '../../globalEventsManager';
-import {ShowNavBarData} from '../../mainPageHome/mainPageHome.model'
 
 
 @Component({
-  selector: 'app-stratContent',
-  templateUrl: './stratContent.component.html',
+  selector: 'app-strat',
+  templateUrl: './strat.component.html',
   styleUrls: ['../strat.component.css'],
 })
-export class StratContentComponent implements OnInit {
+export class StratComponent implements OnInit {
   @Output() newStratSaved: EventEmitter<any> = new EventEmitter();
 
   @Input() fetchedStrat: Strat = new Strat()
@@ -97,23 +96,12 @@ export class StratContentComponent implements OnInit {
   }
 
 
-  openDetails() {
-    let showNavBarData = new ShowNavBarData()
-    showNavBarData.showNavBar = true
-    showNavBarData.search.typeObj = 'strat'
-    showNavBarData.search.stratId = this.fetchedStrat._id
-    this.globalEventsManager.showNavBarRight(showNavBarData);
-  }
 
 
-  openTeam() {
-    let showNavBarData = new ShowNavBarData()
-    showNavBarData.showNavBar = true
-    showNavBarData.search.typeScreen = 'team'
-    showNavBarData.search.typeObj = 'strat'
-    showNavBarData.search.stratId = this.fetchedStrat._id
-    this.globalEventsManager.showNavBarRight(showNavBarData);
-  }
+  // selectAssignedTo(event) {
+  //   this.fetchedStrat.users = [event]
+  // }
+
 
   save() {
 

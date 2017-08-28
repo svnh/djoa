@@ -44,42 +44,21 @@ export class StratService {
       });
   }
 
-
-  getTasks(page: number, search: any) {
-    let headers = new Headers({'Content-Type': 'application/json'});
-    headers.append('Authorization', '' + this.authService.currentUser.token);
-    let options = new RequestOptions({ headers: headers, search: search});
-    return this.http.get(this.url + 'strat/unwind/'  , options)
-      .timeout(9000)
-      .map((response: Response) => {
-
-        const strats = response.json();
-
-        return strats;
-      })
-      .catch((error: Response) => {
-        this.errorService.handleError(error.json());
-        return Observable.throw(error.json());
-      });
-  }
-
-
-
-  countNewItemForUser(){
-    let headers = new Headers({'Content-Type': 'application/json'});
-    headers.append('Authorization', '' + this.authService.currentUser.token);
-    let options = new RequestOptions({ headers: headers});
-    return this.http.get(this.url + 'strat/countNewItemForUser/' + this.authService.currentUser.userId, options)
-      .timeout(9000)
-      .map((response: Response) => {
-        const strats = response.json();
-        return strats;
-      })
-      .catch((error: Response) => {
-        this.errorService.handleError(error.json());
-        return Observable.throw(error.json());
-      });
-  }
+  // countNewItemForUser(){
+  //   let headers = new Headers({'Content-Type': 'application/json'});
+  //   headers.append('Authorization', '' + this.authService.currentUser.token);
+  //   let options = new RequestOptions({ headers: headers});
+  //   return this.http.get(this.url + 'strat/countNewItemForUser/' + this.authService.currentUser.userId, options)
+  //     .timeout(9000)
+  //     .map((response: Response) => {
+  //       const strats = response.json();
+  //       return strats;
+  //     })
+  //     .catch((error: Response) => {
+  //       this.errorService.handleError(error.json());
+  //       return Observable.throw(error.json());
+  //     });
+  // }
 
   //getStrat(id: string) : Observable<Strat> {
   getStrat(id: string) {
@@ -99,17 +78,7 @@ export class StratService {
   }
 
 
-  updateTask(newTaskData, strat) {
-    const body = JSON.stringify(newTaskData);
-    const headers = new Headers({'Content-Type': 'application/json'});
-    headers.append('Authorization', '' + this.authService.currentUser.token);
-    return this.http.put(this.url + 'strat/updateTask/' + strat._id, body, {headers: headers})
-      .map(response => response.json())
-      .catch((error: Response) => {
-        this.errorService.handleError(error.json());
-        return Observable.throw(error.json());
-      });
-  }
+
 
   deleteStrat(id: string) {
     let headers = new Headers({'Content-Type': 'application/json'});
@@ -127,7 +96,7 @@ export class StratService {
       });
   }
 
-  saveStrat(strat : Strat) {
+  saveStrat(strat: Strat) {
     //  console.log("this.authService.currentUser.token",this.authService.currentUser.token);
     //  delete strat._id;
     delete strat._id
@@ -143,21 +112,8 @@ export class StratService {
       });
   }
 
-  updateStrat(strat) {
-    let stratTemp = JSON.parse(JSON.stringify(strat))
-    stratTemp.bucketTasks.forEach((bucketTask, i) => {
-      bucketTask.tasks.forEach((task, j) => {
-        task.assignedTos.forEach((assignedTo, k) => {
-          let assignedToId = assignedTo._id
-          stratTemp.bucketTasks[i].tasks[j].assignedTos = []
-          stratTemp.bucketTasks[i].tasks[j].assignedTos.push({
-            _id: assignedToId
-          })
-        })
-      })
-    })
-    // console.log(stratTemp)
-    const body = JSON.stringify(stratTemp);
+  updateStrat(strat : Strat) {
+    const body = JSON.stringify(strat);
     const headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.authService.currentUser.token);
     return this.http.put(this.url + 'strat/' + strat._id, body, {headers: headers})
