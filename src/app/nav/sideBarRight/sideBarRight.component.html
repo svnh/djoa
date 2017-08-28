@@ -15,6 +15,7 @@
     </div>
     <div *ngIf="showNavBarData.search.typeScreen == 'team'">
       <app-projectTeam *ngIf="showNavBarData.search.typeObj == 'project'" [search]="showNavBarData.search"></app-projectTeam>
+      <app-missionTeam *ngIf="showNavBarData.search.typeObj == 'mission'" [search]="showNavBarData.search"></app-missionTeam>
     </div>
 
 

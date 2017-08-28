@@ -15,7 +15,7 @@
 
 
 
-        <app-autocomplete class="col-md-4" [typeAutocomplete]="'user'" [title]="'Customer'" [search]="{isExternalUser:false}" [singleChoice]=false [arrayContent]="fetchedProject.users" >
+        <app-autocomplete [typeAutocomplete]="'user'" [title]="'Customer'" [search]="{isExternalUser:false}" [singleChoice]=false [arrayContent]="fetchedProject.users" >
         </app-autocomplete>
 
         <br>
@@ -27,7 +27,7 @@
 
         <div class="valid-edit">
           <button type="submit" class="done btn btn-success" [disabled]="!myForm.valid">{{'Save' }}</button>
-    
+
         </div>
         <div class="clearfix"></div>
       </form>

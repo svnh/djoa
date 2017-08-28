@@ -158,7 +158,7 @@ export class ProjectContentComponent implements OnInit {
     showNavBarData.search.projectId = this.fetchedProject._id
     this.globalEventsManager.showNavBarRight(showNavBarData);
   }
-  openProjectTeam() {
+  openTeam() {
     let showNavBarData = new ShowNavBarData()
     showNavBarData.showNavBar = true
     showNavBarData.search.typeScreen = 'team'

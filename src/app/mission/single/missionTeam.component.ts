@@ -21,15 +21,14 @@ import { Product } from '../../product/product.model';
 import { Project } from '../../project/project.model';
 import {Search} from '../../mainPageHome/mainPageHome.model'
 import {GlobalEventsManager} from '../../globalEventsManager';
-import {ShowNavBarData} from '../../mainPageHome/mainPageHome.model'
 
 
 @Component({
-  selector: 'app-missionContent',
-  templateUrl: './missionContent.component.html',
+  selector: 'app-missionTeam',
+  templateUrl: './missionTeam.component.html',
   styleUrls: ['../mission.component.css'],
 })
-export class MissionContentComponent implements OnInit {
+export class MissionTeamComponent implements OnInit {
   @Output() newMissionSaved: EventEmitter<any> = new EventEmitter();
 
   @Input() fetchedMission: Mission = new Mission()
@@ -97,23 +96,12 @@ export class MissionContentComponent implements OnInit {
   }
 
 
-  openDetails() {
-    let showNavBarData = new ShowNavBarData()
-    showNavBarData.showNavBar = true
-    showNavBarData.search.typeObj = 'mission'
-    showNavBarData.search.missionId = this.fetchedMission._id
-    this.globalEventsManager.showNavBarRight(showNavBarData);
-  }
 
 
-  openTeam() {
-    let showNavBarData = new ShowNavBarData()
-    showNavBarData.showNavBar = true
-    showNavBarData.search.typeScreen = 'team'
-    showNavBarData.search.typeObj = 'mission'
-    showNavBarData.search.missionId = this.fetchedMission._id
-    this.globalEventsManager.showNavBarRight(showNavBarData);
-  }
+  // selectAssignedTo(event) {
+  //   this.fetchedMission.users = [event]
+  // }
+
 
   save() {
 

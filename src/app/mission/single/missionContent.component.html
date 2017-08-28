@@ -73,10 +73,20 @@
 
 
         <br>
+
+
+
+        <md-card>
+          <md-card-content>
+            <h2>Mission</h2>
+            <button type="button" (click)="openDetails()">Edit</button>
+          </md-card-content>
+        </md-card>
+        <br>
         <md-card>
           <md-card-content>
             <h2>Team</h2>
-            <button type="button" (click)="openDetails()">Edit</button>
+            <button type="button" (click)="openTeam()">edit team</button>
             <br>
             <div *ngFor="let user of fetchedMission.users">
               <app-picture [addPicture]=false [deletePicture]=false [forms]="user.forms"></app-picture>

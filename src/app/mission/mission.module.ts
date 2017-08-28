@@ -7,6 +7,7 @@ import { MaterialModule } from '@angular/material';
 
 
 import { MissionComponent} from './single/mission.component';
+import { MissionTeamComponent} from './single/missionTeam.component';
 import { MissionContentComponent} from './single/missionContent.component';
 // import { MissionSingleComponent} from './missionSingle/missionSingle.component';
 import { MissionService} from './mission.service';
@@ -41,6 +42,7 @@ import {DocumentModule} from '../document/document.module';
   declarations: [
 
     MissionComponent,
+    MissionTeamComponent,
     MissionContentComponent,
     MissionsComponent,
     // ProjectMissionsComponent,
@@ -50,6 +52,7 @@ import {DocumentModule} from '../document/document.module';
   ],
   exports:      [
     MissionComponent,
+    MissionTeamComponent,
     MissionsComponent,
     // AutocompleteComponent,
   ],
