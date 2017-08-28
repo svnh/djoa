@@ -15,10 +15,11 @@ import { ProjectRouting} from './projectRouting.module';
 
 // import { TasksComponent} from './task/tasks/tasks.component';
 
-import { TaskService} from '../task/task.service';
+// import { TaskService} from '../task/task.service';
+import { StratModule} from '../strat/strat.module';
 import { MissionModule} from '../mission/mission.module';
 
-import { DragulaModule } from 'ng2-dragula';
+// import { DragulaModule } from 'ng2-dragula';
 // import { AutocompleteComponent } from '../autocomplete/autocomplete.component'
 // import { AutocompleteModule } from '../autocomplete/autocomplete.module'
 import {SharedModule } from '../shared/shared.module';
@@ -32,7 +33,7 @@ import {SharedModule } from '../shared/shared.module';
 @NgModule({
   imports:     [
     // UserModule,
-    DragulaModule,
+    // DragulaModule,
     ProjectRouting,
     // CommonModule,
     // FormsModule,
@@ -40,6 +41,7 @@ import {SharedModule } from '../shared/shared.module';
     ReactiveFormsModule,
     MissionModule,
     SharedModule,
+    StratModule,
     // CommentModule,
 
 
