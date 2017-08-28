@@ -144,9 +144,10 @@
         <!-- <button *ngIf="fetchedUser._id" type="button" (click)="saveAndCreateProject()" [disabled]="!myForm.valid">
           Save & Create project
         </button> -->
-        <div *ngIf="!isUserIsMyself()">
+        <!-- <div *ngIf="!isUserIsMyself()"> -->
           <button type="button" *ngIf="fetchedUser._id" class="delete" md-button (click)="openDialogDelete()">Delete</button>
-        </div>
+        <!-- </div> -->
+        <br><br><br><br><br>
       </div>
       <div class="clearfix"></div>
     </form>
