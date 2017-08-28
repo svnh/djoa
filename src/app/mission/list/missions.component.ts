@@ -4,7 +4,7 @@ import { MissionService} from '../mission.service';
 import { Mission} from '../mission.model';
 import { ToastsManager} from 'ng2-toastr';
 import { MdDialog} from '@angular/material';
-import { Router} from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ViewEncapsulation} from '@angular/core';
@@ -56,11 +56,15 @@ export class MissionsComponent implements OnInit {
     private location: Location,
     private authService: AuthService,
     private userService: UserService,
+    private activatedRoute: ActivatedRoute,
 
   ) { }
 
   ngOnInit() {
+    this.activatedRoute.params.subscribe((params: Params) => {
+    console.log('test4')
     this.getMissions(1, this.search)
+  })
 
     // let this2 = this
     // setTimeout(function(){
@@ -70,6 +74,13 @@ export class MissionsComponent implements OnInit {
     // }, 200);
   }
 
+  ngOnChanges(changes: any){
+    console.log('test')
+
+  }
+  test() {
+    console.log('test77')
+  }
 
   // searchMissions() {
   //   this.getMissions(1, this.search)

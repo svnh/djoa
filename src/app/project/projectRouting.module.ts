@@ -17,7 +17,7 @@ export const routes: Routes = [
   // {path: 'projectSingle', component: ProjectSingleComponent},
   // {path: 'projectSingle/:id', component: ProjectSingleComponent},
   {path: 'new', component: ProjectSingleComponent},
-  {path: 'new/:selectedIndex', component: ProjectSingleComponent},
+  // {path: 'new/:selectedIndex', component: ProjectSingleComponent},
   // {path: ':id/edit', component: ProjectSingleComponent},
   {path: ':id', component: ProjectContentComponent},
 
