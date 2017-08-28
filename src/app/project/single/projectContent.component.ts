@@ -46,7 +46,7 @@ export class ProjectContentComponent implements OnInit {
   // autocompleteQuote: string = '';
   fetchedUsers: User[] = [];
   // fetchedQuotes: Quote[] = [];
-  showNavBarData: ShowNavBarData = new ShowNavBarData()
+  // showNavBarData: ShowNavBarData = new ShowNavBarData()
 
   fetchedProject: Project = new Project();
 
@@ -67,13 +67,13 @@ export class ProjectContentComponent implements OnInit {
     private quoteService: QuoteService,
     private authService: AuthService,
   ) {
-    this.globalEventsManager.showNavBarEmitterRight.subscribe((mode)=>{
-        // mode will be null the first time it is created, so you need to igonore it when null
-        if (mode !== null) {
-          this.showNavBarData = mode;
-          // this.fetchedUser = this.authService.getCurrentUser()
-        }
-    });
+    // this.globalEventsManager.showNavBarEmitterRight.subscribe((mode)=>{
+    //     // mode will be null the first time it is created, so you need to igonore it when null
+    //     if (mode !== null) {
+    //       this.showNavBarData = mode;
+    //       // this.fetchedUser = this.authService.getCurrentUser()
+    //     }
+    // });
   }
 
 
@@ -143,11 +143,11 @@ export class ProjectContentComponent implements OnInit {
   // }
 
   opendetailsProject() {
-    this.showNavBarData = new ShowNavBarData()
-    this.showNavBarData.showNavBar = true
-    this.showNavBarData.search.typeObj = 'project'
-    this.showNavBarData.search.projectId = this.fetchedProject._id
-    this.globalEventsManager.showNavBarRight(this.showNavBarData);
+    let showNavBarData = new ShowNavBarData()
+    showNavBarData.showNavBar = true
+    showNavBarData.search.typeObj = 'project'
+    showNavBarData.search.projectId = this.fetchedProject._id
+    this.globalEventsManager.showNavBarRight(showNavBarData);
   }
 
 
