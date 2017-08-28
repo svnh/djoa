@@ -9,6 +9,8 @@ import { Location } from '@angular/common';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ViewEncapsulation} from '@angular/core';
 import { UserService} from '../../user/user.service';
+import {GlobalEventsManager} from '../../globalEventsManager';
+
 
 @Component({
   selector: 'app-projects',
@@ -43,6 +45,7 @@ export class ProjectsComponent implements OnInit {
     // private sanitizer: DomSanitizer,
     private projectService: ProjectService,
     private toastr: ToastsManager,
+    private globalEventsManager: GlobalEventsManager,
     // public dialog: MdDialog,
     // private router: Router,
     // private location: Location,
@@ -50,15 +53,19 @@ export class ProjectsComponent implements OnInit {
     // private userService: UserService,
 
   ) {
+    this.globalEventsManager.refreshCenterEmitter.subscribe((isRefresh) => {
+        if(isRefresh)
+          this.getProjects(1, this.search)
+    })
   }
 
   ngOnInit() {
     let this2 = this
-    setTimeout(function(){
-      this2.search.userId = this2.userId
-      this2.search.orderBy = 'name'
+    // setTimeout(function(){
+    //   this2.search.userId = this2.userId
+    //   this2.search.orderBy = 'name'
       this2.getProjects(1, this2.search)
-    }, 200);
+    // }, 200);
   }
   // goBack() {
   //   this.location.back();

@@ -60,9 +60,8 @@ export class MissionsComponent implements OnInit {
 
   ) {
     this.globalEventsManager.refreshCenterEmitter.subscribe((isRefresh) => {
-        if(isRefresh) {
+        if(isRefresh)
           this.getMissions(1, this.search)
-        }
     })
   }
 
@@ -79,13 +78,13 @@ export class MissionsComponent implements OnInit {
     // }, 200);
   }
 
-  ngOnChanges(changes: any){
-    console.log('test')
-
-  }
-  test() {
-    console.log('test77')
-  }
+  // ngOnChanges(changes: any){
+  //   console.log('test')
+  //
+  // }
+  // test() {
+  //   console.log('test77')
+  // }
 
   // searchMissions() {
   //   this.getMissions(1, this.search)
