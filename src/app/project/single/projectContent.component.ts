@@ -13,7 +13,9 @@ import { UserService} from '../../user/user.service';
 import { QuoteService} from '../../quote/quote.service';
 
 import { User } from '../../user/user.model';
-import { Quote } from '../../quote/quote.model';
+import { Product } from '../../product/product.model';
+import {ProductService} from '../../product/product.service';
+
 import { AuthService} from '../../auth/auth.service';
 import {Search} from '../../mainPageHome/mainPageHome.model'
 import {GlobalEventsManager} from '../../globalEventsManager';
@@ -38,6 +40,7 @@ export class ProjectContentComponent implements OnInit {
   searchMissionContent: Search = new Search();
   searchMissionResearch: Search = new Search();
 
+  fetchedProducts: Product[] = []
   //
   // status = StatusProject
   // categ: string = 'Electricité';
@@ -63,7 +66,7 @@ export class ProjectContentComponent implements OnInit {
     private location: Location,
     private activatedRoute: ActivatedRoute,
     private _fb: FormBuilder,
-    // private userService: UserService,
+    private productService: ProductService,
     // private quoteService: QuoteService,
     private authService: AuthService,
   ) {
@@ -79,7 +82,7 @@ export class ProjectContentComponent implements OnInit {
 
   ngOnInit() {
 
-
+    this.getProducts(1, {})
     this.myForm = this._fb.group({
       status: [''],
       name: ['', [Validators.required, Validators.minLength(2)]],
@@ -118,26 +121,22 @@ export class ProjectContentComponent implements OnInit {
 
   }
 
-  // openSideBarLeft(){
-  //   let newShowNavBarData = new ShowNavBarData()
-  //   newShowNavBarData.showNavBar = true
-  //   newShowNavBarData.search.typeObj = ''
-  //   this.globalEventsManager.showNavBarLeft(newShowNavBarData);
-  // }
 
-  // sideNavAction(side: string, showNavBar: boolean, typeObj: string) {
-  //   // this.showNavBarData = new ShowNavBarData()
-  //   this.showNavBarData.showNavBar = showNavBar
-  //   this.showNavBarData.search.typeObj = typeObj
-  //   this.globalEventsManager.showNavBarRight(this.showNavBarData);
-  // }
-  // openMyProfile() {
-  //   this.showNavBarData = new ShowNavBarData()
-  //   this.showNavBarData.showNavBar = true
-  //   this.showNavBarData.search.typeObj = 'user'
-  //   this.showNavBarData.search.userId = this.authService.getCurrentUser()._id
-  //   this.globalEventsManager.showNavBarRight(this.showNavBarData);
-  // }
+  getProducts(page: number, search: any) {
+
+    this.productService.getProducts(page, search)
+      .subscribe(
+        res => {
+
+          this.fetchedProducts = res.data
+
+        },
+        error => {
+          console.log(error);
+        }
+      );
+  }
+
 
   openDetails() {
     let showNavBarData = new ShowNavBarData()
@@ -159,13 +158,13 @@ export class ProjectContentComponent implements OnInit {
 
 
 
-  getProject(id : string) {
+  getProject(id: string) {
     this.projectService.getProject(id)
       .subscribe(
         res => {
-          let categName0 = ''
-          let categName1 = ''
-          let categName2 = ''
+          // let categName0 = ''
+          // let categName1 = ''
+          // let categName2 = ''
           this.fetchedProject = <Project>res
 
           this.fetchedProject.dateProject.startString = this.authService.isoDateToHtmlDate(this.fetchedProject.dateProject.start)

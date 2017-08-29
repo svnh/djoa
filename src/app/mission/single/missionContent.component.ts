@@ -76,9 +76,9 @@ export class MissionContentComponent implements OnInit {
     // .datePaiementString =
     // this.authService
     // .isoDateToHtmlDate(this.fetchedMission.datePaiement)
-    if (this.search.missionType)
-      this.fetchedMission.missionType = this.search.missionType
-
+    // if (this.search.missionType)
+    //   this.fetchedMission.missionType = this.search.missionType
+    //
 
     if (this.search.projectId) {
       let newProject = new Project()

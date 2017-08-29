@@ -75,18 +75,8 @@ export class ProductSingleComponent implements OnInit {
 
   ngOnInit() {
     this.myForm = this._fb.group({
-
-
-        referenceName: ['', [Validators.required, Validators.minLength(2)]],
-        reference: ['', [Validators.required, Validators.minLength(2)]],
+        name: ['', [Validators.required, Validators.minLength(2)]],
         description: [''],
-
-        costPrice: [''],
-        sellingPrice: [''],
-
-        height: [''],
-        width: [''],
-        depth: [''],
 
 
     })
@@ -138,13 +128,7 @@ export class ProductSingleComponent implements OnInit {
   }
 
 
-  selectCompanie(companie: Companie) {
-    this.fetchedProduct.vendors = [companie]
-  }
 
-  removeCompanie(i: number) {
-    this.fetchedProduct.vendors.splice(i, 1);
-  }
 
   getCompanies(page: number, search: any) {
     this.companieService.getCompanies(page, search)
@@ -186,25 +170,25 @@ export class ProductSingleComponent implements OnInit {
   // }
 
   getPicture(result){
-    
+
   }
   save() {
     // this.fetchedProduct.categorie.categ1 = [{name: this.categ1}]
     // this.fetchedProduct.categorie.categ2 = [{name: this.categ2}]
     // this.fetchedProduct.categorie.categ3 = [{name: this.categ3}]
 
-    let categName0 = ''
-    let categName1 = ''
-    let categName2 = ''
-
-    if(this.selectedIndex0>=0) {categName0 = this.itemSteps[this.selectedIndex0].categ}
-    if(this.selectedIndex1>=0) {categName1 = this.itemSteps[this.selectedIndex0].subCateg[this.selectedIndex1].categ}
-    if(this.selectedIndex2>=0) {categName2 = this.itemSteps[this.selectedIndex0].subCateg[this.selectedIndex1].subCateg[this.selectedIndex2].categ}
-
-
-    this.fetchedProduct.categorie.categ0 = [{name: categName0}]
-    this.fetchedProduct.categorie.categ1 = [{name: categName1}]
-    this.fetchedProduct.categorie.categ2 = [{name: categName2}]
+    // let categName0 = ''
+    // let categName1 = ''
+    // let categName2 = ''
+    //
+    // if(this.selectedIndex0>=0) {categName0 = this.itemSteps[this.selectedIndex0].categ}
+    // if(this.selectedIndex1>=0) {categName1 = this.itemSteps[this.selectedIndex0].subCateg[this.selectedIndex1].categ}
+    // if(this.selectedIndex2>=0) {categName2 = this.itemSteps[this.selectedIndex0].subCateg[this.selectedIndex1].subCateg[this.selectedIndex2].categ}
+    //
+    //
+    // this.fetchedProduct.categorie.categ0 = [{name: categName0}]
+    // this.fetchedProduct.categorie.categ1 = [{name: categName1}]
+    // this.fetchedProduct.categorie.categ2 = [{name: categName2}]
 
 
 
@@ -244,33 +228,33 @@ export class ProductSingleComponent implements OnInit {
       .subscribe(
         res => {
           this.fetchedProduct = <Product>res
-
-          let categName0 = ''
-          let categName1 = ''
-          let categName2 = ''
-
-          if(this.fetchedProduct.categorie.categ0.length)
-            categName0 = this.fetchedProduct.categorie.categ0[0].name
-          if(this.fetchedProduct.categorie.categ1.length)
-            categName1 = this.fetchedProduct.categorie.categ1[0].name
-          if(this.fetchedProduct.categorie.categ2.length)
-            categName2 = this.fetchedProduct.categorie.categ2[0].name
-
-          this.itemSteps.forEach((categ0, index) => {
-            if(categ0.categ === categName0)
-              this.selectedIndex0 = index
-          })
-
-          if(this.selectedIndex0 >= 0)
-          this.itemSteps[this.selectedIndex0].subCateg.forEach((categ1,index) => {
-            if(categ1.categ === categName1)
-              this.selectedIndex1 = index
-          })
-          if(this.selectedIndex1 >= 0)
-          this.itemSteps[this.selectedIndex0].subCateg[this.selectedIndex1].subCateg.forEach((categ2,index) => {
-            if(categ2.categ === categName2)
-              this.selectedIndex2 = index
-          })
+          //
+          // let categName0 = ''
+          // let categName1 = ''
+          // let categName2 = ''
+          //
+          // if(this.fetchedProduct.categorie.categ0.length)
+          //   categName0 = this.fetchedProduct.categorie.categ0[0].name
+          // if(this.fetchedProduct.categorie.categ1.length)
+          //   categName1 = this.fetchedProduct.categorie.categ1[0].name
+          // if(this.fetchedProduct.categorie.categ2.length)
+          //   categName2 = this.fetchedProduct.categorie.categ2[0].name
+          //
+          // this.itemSteps.forEach((categ0, index) => {
+          //   if(categ0.categ === categName0)
+          //     this.selectedIndex0 = index
+          // })
+          //
+          // if(this.selectedIndex0 >= 0)
+          // this.itemSteps[this.selectedIndex0].subCateg.forEach((categ1,index) => {
+          //   if(categ1.categ === categName1)
+          //     this.selectedIndex1 = index
+          // })
+          // if(this.selectedIndex1 >= 0)
+          // this.itemSteps[this.selectedIndex0].subCateg[this.selectedIndex1].subCateg.forEach((categ2,index) => {
+          //   if(categ2.categ === categName2)
+          //     this.selectedIndex2 = index
+          // })
 
 
 

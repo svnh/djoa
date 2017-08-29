@@ -4,14 +4,14 @@ import { User } from '../user/user.model';
 
 export class Product {
     _id: string = '';
-    details: Details = new Details();
-    referenceName: string = '';
-    reference: string = '';
+    name: string = '';
+    description: string = '';
+
     forms: Form[] = [];
-    categorie: Categorie = new Categorie();
-    owner: User[] = [];
-    vendors: Companie[] = [];
+
 }
+
+
 
 export class Details {
   referenceName: string = '';

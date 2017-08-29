@@ -118,7 +118,7 @@ export class MissionsComponent implements OnInit {
     newShowNavBarData.showNavBar = true
     newShowNavBarData.search.typeObj = 'mission'
     newShowNavBarData.search.projectId = this.search.projectId
-    newShowNavBarData.search.missionType = this.search.missionType
+    newShowNavBarData.search.productId = this.search.productId
     this.globalEventsManager.showNavBarRight(newShowNavBarData)
   }
   openDeleteMission(missionId: string) {

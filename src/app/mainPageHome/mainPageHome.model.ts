@@ -22,7 +22,8 @@ export class Search {
     documentId: string = '';
     missionId: string = '';
     stratId: string = '';
-    missionType: string = '';
+    productId: string = '';
+    // missionType: string = '';
     isExternalUser: boolean = false;
 
 }

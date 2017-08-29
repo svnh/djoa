@@ -7,11 +7,17 @@
       <br> {{fetchedProject.details.description}}
       <br>
       <app-strats></app-strats>
-      <br>
+      <!-- <br>
       <app-missions [search]="searchMissionContent"></app-missions>
       <br>
-      <app-missions [search]="searchMissionResearch"></app-missions>
-
+      <app-missions [search]="searchMissionResearch"></app-missions> -->
+      <!-- {{fetchedProducts|json}} -->
+      <div *ngIf="fetchedProject._id">
+        <div *ngFor="let product of fetchedProducts">
+          {{product.name}}
+          <app-missions [search]="{projectId:fetchedProject._id, productId:product._id}"></app-missions>
+        </div>
+      </div>
 
       <br>
       <md-card>

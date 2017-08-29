@@ -8,20 +8,27 @@
 
     <form [formGroup]="myForm" novalidate (ngSubmit)="save()">
       <div>
-
-
-        <!-- <app-autocomplete
+        <app-autocomplete
           [typeAutocomplete]="'project'"
-          [canDelete]="false"
+          [canDelete]=true
           [title]="'Project'"
           [singleChoice]=true
           [arrayContent]="fetchedMission.projects">
-        </app-autocomplete> -->
+        </app-autocomplete>
+
+        <app-autocomplete
+          [typeAutocomplete]="'product'"
+          [canDelete]=true
+          [title]="'product'"
+          [singleChoice]=true
+          [arrayContent]="fetchedMission.products">
+        </app-autocomplete>
+
 
         type: {{fetchedMission.missionType}}
         <input type="text" class="form-control" formControlName="title" [(ngModel)]="fetchedMission.title" placeholder="title">
 
-<!-- 
+<!--
         <select class="form-control" formControlName="status" [(ngModel)]="fetchedMission.status">
           <option *ngFor="let n of statusTypes" [attr.value]="n.value">{{n.label}}</option>
         </select> -->
