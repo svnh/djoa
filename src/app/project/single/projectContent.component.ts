@@ -99,14 +99,14 @@ export class ProjectContentComponent implements OnInit {
         // this.search.projectId = params['id']
         this.getProject(params['id'])
 
-        this.searchMissionStrat.missionType = 'strat'
-        this.searchMissionStrat.projectId = params['id']
-
-        this.searchMissionResearch.missionType = 'research'
-        this.searchMissionResearch.projectId = params['id']
-
-        this.searchMissionContent.missionType = 'content'
-        this.searchMissionContent.projectId = params['id']
+        // this.searchMissionStrat.missionType = 'strat'
+        // this.searchMissionStrat.projectId = params['id']
+        //
+        // this.searchMissionResearch.missionType = 'research'
+        // this.searchMissionResearch.projectId = params['id']
+        //
+        // this.searchMissionContent.missionType = 'content'
+        // this.searchMissionContent.projectId = params['id']
 
       }
       // else {
