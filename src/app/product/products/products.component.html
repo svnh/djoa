@@ -26,7 +26,7 @@
                -->
 
                 <th class="centre">{{'Name' }}</th>
-    
+
               </tr>
             </thead>
             <tbody class="clienttbl">
@@ -51,7 +51,7 @@
               [pageSize]="paginationData.itemsPerPage"
               (page)="getPage($event.pageIndex*1+1)">
             </md-paginator>
-<app-loadingInApp *ngIf="loading"></app-loadingInApp>
+            <app-loadingInApp *ngIf="loading"></app-loadingInApp>
             <!-- <div [hidden]="!loading">Loading...</div>
             <pagination-controls (pageChange)="getPage($event)" id="server" class="change-page"></pagination-controls> -->
           </div>
