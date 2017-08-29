@@ -5,8 +5,10 @@
       <button type="button" (click)="delete(document._id)">X</button>
       <button type="button" (click)="openDetails(document._id)">Open</button>
       <br>
+      <img height="100px" src="assets/images/google_sheet.ico">
       <div class="centre">{{document.details.name}}</div>
-      <div class="centre">{{document.link}}</div>
+      <a target="_blank" href="{{document.link}}">open</a>
+
     </md-card-content>
   </md-card>
 </div>
