@@ -24,6 +24,7 @@ import {SharedModule } from '../shared/shared.module';
 // import {UserModule} from '../user/user.module';
 import {DocumentModule} from '../document/document.module';
 import {BriefModule} from '../brief/brief.module';
+import {ChatModule} from '../chat/chat.module';
 
 
 
@@ -40,6 +41,7 @@ import {BriefModule} from '../brief/brief.module';
     SharedModule,
     DocumentModule,
     BriefModule,
+    ChatModule,
 
     // AutocompleteModule,
   ],

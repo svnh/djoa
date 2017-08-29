@@ -23,6 +23,10 @@ import { DragulaModule } from 'ng2-dragula';
 import {SharedModule } from '../shared/shared.module';
 // import {UserModule} from '../user/user.module';
 import {DocumentModule} from '../document/document.module';
+import {ChatModule} from '../chat/chat.module';
+
+
+
 
 @NgModule({
   imports:     [
@@ -36,7 +40,7 @@ import {DocumentModule} from '../document/document.module';
     QuoteModule,
     SharedModule,
     DocumentModule,
-
+    ChatModule,
     // AutocompleteModule,
   ],
   declarations: [

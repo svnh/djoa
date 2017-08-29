@@ -54,6 +54,7 @@ import {SharedSmallModule } from '../shared/sharedSmall.module';
     // AutocompleteComponent,
   ],
   exports:      [
+    ChatComponent,
     // ChatsComponent,
     // AutocompleteComponent,
   ],

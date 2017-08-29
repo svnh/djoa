@@ -222,6 +222,8 @@ export class MissionContentComponent implements OnInit {
               .isoDateToHtmlDate(this.fetchedMission.dateMission.end)
 
 
+          this.fetchedMission.dateMission.percentageProgress = this.authService.getPourcentageProgress(this.fetchedMission.dateMission.start, this.fetchedMission.dateMission.end)
+
 
           // this.fetchedMission
           // .datePaiementString =

@@ -83,23 +83,12 @@
 
         <md-card>
           <md-card-content>
-            <h2>Strat</h2>
-            <button type="button" (click)="openDetails()">Edit</button>
+            <h2>Chat</h2>
+            <app-chat></app-chat>
           </md-card-content>
         </md-card>
         <br>
-        <md-card>
-          <md-card-content>
-            <h2>Team</h2>
-            <button type="button" (click)="openTeam()">edit team</button>
-            <br>
-            <div *ngFor="let user of fetchedStrat.users">
-              <app-picture [addPicture]=false [deletePicture]=false [forms]="user.forms"></app-picture>
-              {{user.profile.name}}
-              <br>
-            </div>
-          </md-card-content>
-        </md-card>
+
 
         <div class="valid-edit">
           <button type="submit" class="sln-edt done">{{'Save' }}</button>

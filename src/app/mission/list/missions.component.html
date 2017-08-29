@@ -12,7 +12,7 @@
               <tr *ngFor="let mission of fetchedMissions">
                 <td [routerLink]="['/mission/' + mission._id]" routerLinkActive="active">{{mission.title}}</td>
                 <td>
-                  <section class="example-section">
+                  <section class="">
                     <md-progress-bar class="example-margin" [color]="'primary'" [mode]="'determinate'" [value]="mission.dateMission.percentageProgress">
                     </md-progress-bar>
                   </section>

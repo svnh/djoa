@@ -7,66 +7,27 @@
       <h3>Mission</h3>
 
       <h4 class="dspl-nn">id: {{fetchedMission._id}}</h4>
+      <div>
+        type: {{fetchedMission.missionType}}
+        <br> title:{{fetchedMission.title}}
+        <br> description: {{fetchedMission.description}}
+      </div>
+      <md-card>
+        <md-card-content>
+          <h2>Chat</h2>
+          <app-chat></app-chat>
+        </md-card-content>
+      </md-card>
+      <br>
 
 
       <form [formGroup]="myForm" novalidate (ngSubmit)="save()">
-        <div>
 
-
-          <!-- <app-autocomplete
-          [typeAutocomplete]="'project'"
-          [canDelete]="false"
-          [title]="'Project'"
-          [singleChoice]=true
-          [arrayContent]="fetchedMission.projects">
-        </app-autocomplete> -->
-
-          type: {{fetchedMission.missionType}}
-          <input type="text" class="form-control" formControlName="title" [(ngModel)]="fetchedMission.title" placeholder="title">
-
-          <!--
-        <select class="form-control" formControlName="status" [(ngModel)]="fetchedMission.status">
-          <option *ngFor="let n of statusTypes" [attr.value]="n.value">{{n.label}}</option>
-        </select> -->
-
-          <textarea class="form-control" formControlName="description" [(ngModel)]="fetchedMission.description" placeholder="Description">
-        </textarea>
-          <app-autocomplete [typeAutocomplete]="'user'" [singleChoice]="'true'" [arrayContent]="fetchedMission.users" (getResultAutocomplete)="selectAssignedTo($event[0])">
-          </app-autocomplete>
-          <input type="date" class="form-control" formControlName="startString" [(ngModel)]="fetchedMission.dateMission.startString">
-          <input type="date" class="form-control" formControlName="endString" [(ngModel)]="fetchedMission.dateMission.endString">
-
-
-          <!--
-        <input type="number" class="form-control" formControlName="amount" [(ngModel)]="fetchedPaiementQuote.amount" placeholder="Amount">
-
-        <input type="date" class="form-control" [ngModelOptions]="{standalone: true}" class="form-control" [(ngModel)]="fetchedPaiementQuote.datePaiementString" > -->
-
-          <!-- <ngb-datepicker #dp [(ngModel)]="fetchedPaiementQuote.datePaiement" formControlName="datePaiement" (navigate)="date = $event.next"></ngb-datepicker> -->
-
-          <!-- <div class="form-group">
-          <div class="input-group">
-            <input
-            class="form-control"
-            placeholder="yyyy-mm-dd"
-            name="dp"
-            formControlName="datePaiement"
-            [(ngModel)]="fetchedPaiementQuote.datePaiement" ngbDatepicker #d="ngbDatepicker">
-            <div class="input-group-addon" (click)="d.toggle()" >
-              <img src="img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
-            </div>
-          </div>
-        </div>
-
-{{fetchedPaiementQuote.datePaiement|json}} -->
-          <!-- <div (click)="fetchedPaiementQuote.editModeDate = !fetchedPaiementQuote.editModeDate">{{fetchedPaiementQuote.datePaiement | date:'yyyy-MM-dd' }}</div> -->
-          <!-- <input *ngIf="fetchedPaiementQuote.editModeDate" type="date" (focusout)="fetchedPaiementQuote.editModeDate = !fetchedPaiementQuote.editModeDate" [ngModelOptions]="{standalone: true}" class="form-control" [(ngModel)]="fetchedPaiementQuote.datePaiement" placeholder="Amount"> -->
-        </div>
         <br>
         <md-card>
           <md-card-content>
             <h2>Links to documents</h2>
-            
+
             <app-documents></app-documents>
           </md-card-content>
         </md-card>
@@ -75,12 +36,29 @@
 
 
 
+
+
+        <br>
         <md-card>
           <md-card-content>
-            <h2>Mission</h2>
+            <h2 class="example-h2">Mission Information</h2>
             <button type="button" (click)="openDetails()">Edit</button>
+            <br>
+            Start Date {{fetchedMission.dateMission.start | date:'yyyy-MM-dd' }} /
+            End Date {{fetchedMission.dateMission.end | date:'yyyy-MM-dd' }} / {{fetchedMission.dateMission.percentageProgress}}%
+            <section class="">
+              <md-progress-bar
+                class="example-margin"
+                [color]="'primary'"
+                [mode]="'determinate'"
+                [value]="fetchedMission.dateMission.percentageProgress"
+                >
+              </md-progress-bar>
+            </section>
           </md-card-content>
         </md-card>
+
+
         <br>
         <md-card>
           <md-card-content>
