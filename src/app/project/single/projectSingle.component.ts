@@ -250,40 +250,14 @@ export class ProjectSingleComponent implements OnInit {
 
     this.fetchedProject.dateProject.start = this.authService.HTMLDatetoIsoDate(this.fetchedProject.dateProject.startString)
     this.fetchedProject.dateProject.end = this.authService.HTMLDatetoIsoDate(this.fetchedProject.dateProject.endString)
-    //
-    // let categName0 = ''
-    // let categName1 = ''
-    // let categName2 = ''
-    //
-    // if(this.selectedIndex0>=0) {categName0 = this.itemSteps[this.selectedIndex0].categ}
-    // if(this.selectedIndex1>=0) {categName1 = this.itemSteps[this.selectedIndex0].subCateg[this.selectedIndex1].categ}
-    // if(this.selectedIndex2>=0) {categName2 = this.itemSteps[this.selectedIndex0].subCateg[this.selectedIndex1].subCateg[this.selectedIndex2].categ}
-    //
-    //
-    // this.fetchedProject.categorie.categ0 = [{name: categName0}]
-    // this.fetchedProject.categorie.categ1 = [{name: categName1}]
-    // this.fetchedProject.categorie.categ2 = [{name: categName2}]
-    //
-
 
     if(this.fetchedProject._id) {
       this.projectService.updateProject(this.fetchedProject)
         .subscribe(
           res => {
-
             this.toastr.success('Great!', res.message)
-            // this.fetchedProject = res.obj
-            this.getProject(res.obj._id)
-            // this.saved.emit(res.obj)
-
-
-
-
-
-              this.globalEventsManager.refreshCenter(true);
-
-
-            // this.router.navigate(['project/' + res.obj._id]);
+            // this.getProject(res.obj._id)
+            this.globalEventsManager.refreshCenter(true);
           },
           error => {console.log(error)}
         );
@@ -293,7 +267,7 @@ export class ProjectSingleComponent implements OnInit {
           res => {
             this.toastr.success('Great!', res.message)
             // this.fetchedProject = res.obj
-            this.getProject(res.obj._id)
+            // this.getProject(res.obj._id)
             // this.saved.emit(res.obj)
             this.globalEventsManager.refreshCenter(true);
             // this.router.navigate(['project/' + res.obj._id]);

@@ -55,34 +55,22 @@ export class ProjectContentComponent implements OnInit {
 
   constructor(
     private globalEventsManager: GlobalEventsManager,
-    private sanitizer: DomSanitizer,
+    // private sanitizer: DomSanitizer,
     private projectService: ProjectService,
     private toastr: ToastsManager,
-    public dialog: MdDialog,
+    // public dialog: MdDialog,
     private router: Router,
     private location: Location,
     private activatedRoute: ActivatedRoute,
     private _fb: FormBuilder,
-    private userService: UserService,
-    private quoteService: QuoteService,
+    // private userService: UserService,
+    // private quoteService: QuoteService,
     private authService: AuthService,
   ) {
-    // this.globalEventsManager.showNavBarEmitterRight.subscribe((mode)=>{
-    //     // mode will be null the first time it is created, so you need to igonore it when null
-    //     if (mode !== null) {
-    //       this.showNavBarData = mode;
-    //       // this.fetchedUser = this.authService.getCurrentUser()
-    //     }
-    // });
-    // this.globalEventsManager.refreshCenterEmitter.subscribe((isRefresh)=>{
-    //     if (isRefresh !== null) {
-    //
-    //       if(isRefresh) {
-    //         console.log('refresh')
-    //         this.getProject(this.fetchedProject._id)
-    //       }
-    //     }
-    // })
+    this.globalEventsManager.refreshCenterEmitter.subscribe((isRefresh) => {
+        if(isRefresh)
+          this.getProject(this.fetchedProject._id)
+    })
   }
 
 
@@ -168,235 +156,6 @@ export class ProjectContentComponent implements OnInit {
   }
 
 
-  // getItemSteps() {
-  //   let currentUser = this.authService.getCurrentUser()
-  //
-  //   currentUser.ownerCompanies.forEach((companie, index) => {
-  //
-  //     if(this.selectedIndex0 >= companie.categories.categProject.length)
-  //       this.selectedIndex0 = -1
-  //
-  //
-  //     // console.log(JSON.parse(currentUser.companies[index].categJson.categProject))
-  //     if(currentUser.ownerCompanies[index].categories.categProject)
-  //       this.itemSteps = currentUser.ownerCompanies[index].categories.categProject
-  //   })
-  // }
-
-
-
-
-  //
-  // addCalendar() {
-  //   let queryParams = {}
-  //   // queryParams['new'] = true
-  //   queryParams['showCreateEvent'] = true
-  //   queryParams['showSearchEvent'] = false
-  //
-  //
-  //   // if(this.fetchedProject.assignedTos.length) {queryParams['idUserNew'] = this.fetchedProject.assignedTos[0]._id}
-  //   if(this.fetchedProject._id) {queryParams['idProjectNew'] = this.fetchedProject._id}
-  //   if(this.fetchedProject.clients.length) {queryParams['idClientNew'] = this.fetchedProject.clients[0]._id }
-  //   // if(this.fetchedProject.assignedTos.length)  {queryParams['idUserSearch'] = this.fetchedProject.assignedTos[0]._id }
-  //   if(this.fetchedProject._id) {queryParams['idProjectSearch'] = this.fetchedProject._id}
-  //
-  //   this.router.navigate(['userCalendar/', queryParams])
-  // }
-  // seeCalendar() {
-  //   let queryParams = {}
-  //   // queryParams['showCreateEvent'] = true
-  //   queryParams['showSearchEvent'] = false
-  //
-  //   // if(this.fetchedProject.assignedTos.length)  {queryParams['idUserSearch'] = this.fetchedProject.assignedTos[0]._id }
-  //   if(this.fetchedProject._id) {queryParams['idProjectSearch'] = this.fetchedProject._id}
-  //   // if(this.fetchedProject.clients.length)      {queryParams['idClientSearch'] = this.fetchedProject.clients[0]._id}
-  //   this.router.navigate(['userCalendar/', queryParams])
-  // }
-  //
-  // newComment(comment: string) {
-  //   // let newLog = new Log()
-  //   // newLog.comment = comment
-  //   // this.fetchedProject.logs.push(newLog)
-  // }
-  // getUser(id: string) {
-  //   this.userService.getUser(id)
-  //     .subscribe(
-  //       res => {
-  //         //this.fetchedUsers[0] = res.user
-  //         this.selectUser(res)
-  //       },
-  //       error => {
-  //         console.log(error);
-  //       }
-  //     );
-  // }
-
-  // changeCascade(selectedIndex0, selectedIndex1, selectedIndex2) {
-  //   this.selectedIndex0 = selectedIndex0
-  //   this.selectedIndex1 = selectedIndex1
-  //   this.selectedIndex2 = selectedIndex2
-  // }
-  // addQuote(){
-  // }
-
-
-  // // autocomplete user
-  // selectUser(user: User) {
-  //   // this.autocompleteUser=''
-  //   // this.fetchedUsers = []
-  //   this.fetchedProject.clients = [user]
-  // }
-  // searchUsers() {
-  //   if(!this.autocompleteUser) {
-  //      this.fetchedUsers = []
-  //   } else {
-  //     let search = {
-  //         search: this.autocompleteUser,
-  //       };
-  //     this.getUsers(1, search)
-  //   }
-  // }
-  // getUsers(page: number, search: any) {
-  //   this.userService.getUsers(page, search)
-  //     .subscribe(
-  //       res => {
-  //         this.fetchedUsers = res.data
-  //       },
-  //       error => {
-  //         console.log(error);
-  //       }
-  //     );
-  // }
-
-  //
-  // removePic(i) {
-  //   // this.fetchedProject.forms.splice(i, 1);
-  // }
-
-
-
-    // autocomplete AssignedTo
-    // autocompleteAssignedTo: string = '';
-    // fetchedAssignedTos: User[] = [];
-    // selectAssignedTo(user: User) {
-    //   // this.autocompleteAssignedTo=''
-    //   // this.fetchedAssignedTos = []
-    //   // this.fetchedProject.assignedTos = [user]
-    // }
-
-
-
-
-  //
-  // goBack() {
-  //   this.location.back();
-  // }
-
-  //
-  // openDialog(positionImage: string) {
-  //   // let dialogRef = this.dialog.open(EditOptionsComponentDialog);
-  //   // dialogRef.afterClosed().subscribe(result => {
-  //   //   if(result) {
-  //   //     console.log(result)
-  //   //     // this.fetchedProject.forms.push( result)
-  //   //   }
-  //   // })
-  // }
-  //
-  //
-  // save() {
-  //
-  //   this.fetchedProject.dateProject.start = this.authService.HTMLDatetoIsoDate(this.fetchedProject.dateProject.startString)
-  //   this.fetchedProject.dateProject.end = this.authService.HTMLDatetoIsoDate(this.fetchedProject.dateProject.endString)
-  //
-  //   // let categName0 = ''
-  //   // let categName1 = ''
-  //   // let categName2 = ''
-  //   //
-  //   // if(this.selectedIndex0>=0) {categName0 = this.itemSteps[this.selectedIndex0].categ}
-  //   // if(this.selectedIndex1>=0) {categName1 = this.itemSteps[this.selectedIndex0].subCateg[this.selectedIndex1].categ}
-  //   // if(this.selectedIndex2>=0) {categName2 = this.itemSteps[this.selectedIndex0].subCateg[this.selectedIndex1].subCateg[this.selectedIndex2].categ}
-  //   //
-  //   //
-  //   // this.fetchedProject.categorie.categ0 = [{name: categName0}]
-  //   // this.fetchedProject.categorie.categ1 = [{name: categName1}]
-  //   // this.fetchedProject.categorie.categ2 = [{name: categName2}]
-  //
-  //
-  //
-  //   if(this.fetchedProject._id) {
-  //     this.projectService.updateProject(this.fetchedProject)
-  //       .subscribe(
-  //         res => {
-  //
-  //           this.toastr.success('Great!', res.message)
-  //           // this.fetchedProject = res.obj
-  //           this.getProject(res.obj._id)
-  //           this.saved.emit(res.obj)
-  //           // this.router.navigate(['project/' + res.obj._id]);
-  //         },
-  //         error => {console.log(error)}
-  //       );
-  //   } else {
-  //     this.projectService.saveProject(this.fetchedProject)
-  //       .subscribe(
-  //         res => {
-  //           this.toastr.success('Great!', res.message)
-  //           // this.fetchedProject = res.obj
-  //           this.getProject(res.obj._id)
-  //           this.saved.emit(res.obj)
-  //           // this.router.navigate(['project/' + res.obj._id]);
-  //         },
-  //         error => {
-  //           this.toastr.error('Error!', error.message)
-  //           console.log(error)
-  //         }
-  //       );
-  //   }
-  // }
-  //
-  // openDialogDelete(){
-  //   let this2 = this
-  //   let dialogRefDelete = this.dialog.open(DeleteDialog)
-  //   dialogRefDelete.afterClosed().subscribe(result => {
-  //     if(result) {
-  //       this.onDelete(this.fetchedProject._id).then(function(){
-  //         // this2.router.navigate(['user']);
-  //         // this2.goBack();
-  //       })
-  //
-  //     }
-  //   })
-  // }
-
-
-  //
-  // refreshHardCategories(){
-  //   this.categoriesHard2.forEach((HardCategorie, indexHard) => {
-  //     this.categoriesHard2[indexHard].selected = false
-  //   })
-  //
-  //   this.categoriesHard2.forEach((HardCategorie, indexHard) => {
-  //     this.fetchedProject.categories.forEach((fetchedCategorie, indexFetched) => {
-  //       if(HardCategorie.name == fetchedCategorie.name) {
-  //         this.categoriesHard2[indexHard].selected = true
-  //       }
-  //     })
-  //   })
-  //
-  //   this.categoriesHard1.forEach((HardCategorie, indexHard) => {
-  //     this.categoriesHard1[indexHard].selected = false
-  //   })
-  //
-  //   this.categoriesHard1.forEach((HardCategorie, indexHard) => {
-  //     this.fetchedProject.categories.forEach((fetchedCategorie, indexFetched) => {
-  //       if(HardCategorie.name == fetchedCategorie.name) {
-  //         this.categoriesHard1[indexHard].selected = true
-  //       }
-  //     })
-  //   })
-  // }
-
 
 
 
@@ -408,40 +167,9 @@ export class ProjectContentComponent implements OnInit {
           let categName1 = ''
           let categName2 = ''
           this.fetchedProject = <Project>res
-          // console.log(this.fetchedProject.categorie)
-          // if(this.fetchedProject.categorie.categ0.length)
-          //   categName0 = this.fetchedProject.categorie.categ0[0].name
-          // if(this.fetchedProject.categorie.categ1.length)
-          //   categName1 = this.fetchedProject.categorie.categ1[0].name
-          // if(this.fetchedProject.categorie.categ2.length)
-          //   categName2 = this.fetchedProject.categorie.categ2[0].name
-          //
-          // this.itemSteps.forEach((categ0, index) => {
-          //   if(categ0.categ === categName0)
-          //     this.selectedIndex0 = index
-          // })
-          //
-          // if(this.selectedIndex0 >= 0)
-          // this.itemSteps[this.selectedIndex0].subCateg.forEach((categ1,index) => {
-          //   if(categ1.categ === categName1)
-          //     this.selectedIndex1 = index
-          // })
-          // if(this.selectedIndex1 >= 0)
-          // this.itemSteps[this.selectedIndex0].subCateg[this.selectedIndex1].subCateg.forEach((categ2,index) => {
-          //   if(categ2.categ === categName2)
-          //     this.selectedIndex2 = index
-          // })
-
 
           this.fetchedProject.dateProject.startString = this.authService.isoDateToHtmlDate(this.fetchedProject.dateProject.start)
           this.fetchedProject.dateProject.endString = this.authService.isoDateToHtmlDate(this.fetchedProject.dateProject.end)
-
-
-          // let durationProject = +new Date(this.fetchedProject.dateProject.end) - +new Date(this.fetchedProject.dateProject.start)
-          // let timeSpent = +new Date() - +new Date(this.fetchedProject.dateProject.start)
-          // this.fetchedProject.dateProject.percentageProgress = Math.round((timeSpent / durationProject) * 100)
-          // // console.log(this.fetchedProject.dateProject.percentageProgress)
-
 
           this.fetchedProject.dateProject.percentageProgress = this.authService.getPourcentageProgress(this.fetchedProject.dateProject.start, this.fetchedProject.dateProject.end)
 
