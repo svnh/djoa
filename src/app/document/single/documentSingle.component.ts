@@ -44,9 +44,9 @@ export class DocumentSingleComponent implements OnInit {
   itemSteps:any =[];
 
 
-  status = StatusDocument
-  categ: string = 'Electricité';
-  subCateg: string = 'file';
+  // status = StatusDocument
+  // categ: string = 'Electricité';
+  // subCateg: string = 'file';
   // autocompleteUser: string = '';
   // autocompleteQuote: string = '';
   fetchedUsers: User[] = [];
@@ -80,6 +80,7 @@ export class DocumentSingleComponent implements OnInit {
   ngOnInit() {
     this.myForm = this._fb.group({
       status: [''],
+      link: [''],
       start: [''],
       end: [''],
       name: ['', [Validators.required, Validators.minLength(2)]],

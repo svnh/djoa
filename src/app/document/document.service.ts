@@ -145,18 +145,18 @@ export class DocumentService {
 
   updateDocument(document) {
     let documentTemp = JSON.parse(JSON.stringify(document))
-    documentTemp.bucketTasks.forEach((bucketTask, i) => {
-      bucketTask.tasks.forEach((task, j) => {
-        task.assignedTos.forEach((assignedTo, k) => {
-          let assignedToId = assignedTo._id
-          documentTemp.bucketTasks[i].tasks[j].assignedTos = []
-          documentTemp.bucketTasks[i].tasks[j].assignedTos.push({
-            _id: assignedToId
-          })
-        })
-      })
-    })
-    // console.log(documentTemp)
+    // documentTemp.bucketTasks.forEach((bucketTask, i) => {
+    //   bucketTask.tasks.forEach((task, j) => {
+    //     task.assignedTos.forEach((assignedTo, k) => {
+    //       let assignedToId = assignedTo._id
+    //       documentTemp.bucketTasks[i].tasks[j].assignedTos = []
+    //       documentTemp.bucketTasks[i].tasks[j].assignedTos.push({
+    //         _id: assignedToId
+    //       })
+    //     })
+    //   })
+    // })
+    // // console.log(documentTemp)
     const body = JSON.stringify(documentTemp);
     const headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.authService.currentUser.token);

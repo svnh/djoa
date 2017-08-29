@@ -6,6 +6,7 @@ import { Task } from '../task/task.model';
 
 export class Document {
     _id: string = '';
+    link: string = '';
     details: Details = new Details()
     status: number = 0;
     clients: User[] = [];

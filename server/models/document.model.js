@@ -16,6 +16,7 @@ var document = new Schema({
     // clients: [{type: Schema.Types.ObjectId, ref: 'User'}],
     // assignedTos: [{type: Schema.Types.ObjectId, ref: 'User'}],
     status: {type: String, default: [0]},
+    link: {type: String, default: ['']},
     forms: [{type: Schema.Types.ObjectId, ref: 'Form'}],
     status: {type: Number},
     dateDocument:{

@@ -36,10 +36,16 @@
 
         <div class="form-group">
 
-          <div class="phyto-ctnr ttl-cde">
+          <div class="">
             <label>{{'Name' }}</label>
             <input class="form-control col-md-4" type="text" formControlName="name" [(ngModel)]="fetchedDocument.details.name" placeholder="Ref">
           </div>
+          <div class="">
+            <label>{{'Link' }}</label>
+            <input class="form-control col-md-4" type="text" formControlName="link" [(ngModel)]="fetchedDocument.link" placeholder="link">
+          </div>
+
+
         </div>
         <div class="form-group phyto-ctnr ttl-cde">
           <label>{{'Description' }}</label>
@@ -47,8 +53,8 @@
         </div>
 
 
-        <app-autocomplete class="col-md-4" [typeAutocomplete]="'user'" [title]="'Customer'" [singleChoice]="'true'" [arrayContent]="fetchedDocument.clients" (getResultAutocomplete)="selectUser($event[0])">
-        </app-autocomplete>
+        <!-- <app-autocomplete class="col-md-4" [typeAutocomplete]="'user'" [title]="'Customer'" [singleChoice]="'true'" [arrayContent]="fetchedDocument.clients" (getResultAutocomplete)="selectUser($event[0])">
+        </app-autocomplete> -->
 
         <br>
         <!-- <div *ngIf="fetchedDocument._id">
@@ -77,10 +83,10 @@
         </select>
         </div>
 
-        <div class="form-group">
+        <!-- <div class="form-group">
           <app-autocomplete [typeAutocomplete]="'user'" [title]="'Assigned To'" [singleChoice]=true [search]="{isExternalUser:false}" [arrayContent]="fetchedDocument.assignedTos" (getResultAutocomplete)="selectAssignedTo($event[0])">
           </app-autocomplete>
-        </div>
+        </div> -->
         <div class="form-group">
           <app-picture [forms]="fetchedDocument.forms"></app-picture>
         </div>
