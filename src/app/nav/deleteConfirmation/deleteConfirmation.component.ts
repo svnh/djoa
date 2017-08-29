@@ -127,6 +127,7 @@ export class DeleteConfirmationComponent implements OnInit {
   // }
 
 
+
   // isCurrentUserIsInSubPeriod(){
   //   return this.userService.isCurrentUserIsInSubPeriod()
   // }
