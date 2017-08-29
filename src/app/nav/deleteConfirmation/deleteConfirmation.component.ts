@@ -16,6 +16,7 @@ import {Search} from '../../mainPageHome/mainPageHome.model'
 import {GlobalEventsManager} from '../../globalEventsManager';
 import { ProjectService} from '../../project/project.service';
 import { MissionService} from '../../mission/mission.service';
+import { DocumentService} from '../../document/document.service';
 import { ToastsManager} from 'ng2-toastr';
 
 @Component({
@@ -38,6 +39,7 @@ export class DeleteConfirmationComponent implements OnInit {
   constructor(
     private projectService: ProjectService,
     private missionService: MissionService,
+    private documentService: DocumentService,
 
     // private globalEventsManager: GlobalEventsManager,
     private authService: AuthService,
@@ -57,6 +59,7 @@ export class DeleteConfirmationComponent implements OnInit {
 
   ngOnInit() {
   }
+
   cancel() {
     let showNavBarData = new ShowNavBarData()
     showNavBarData.showNavBar = false
@@ -65,20 +68,17 @@ export class DeleteConfirmationComponent implements OnInit {
     this.globalEventsManager.showNavBarRight(showNavBarData);
   }
   deleteObject() {
-    if(this.search.typeObj === 'project') {
+    if(this.search.typeObj === 'project')
       this.projectService.deleteProject(this.search.projectId)
-        .subscribe(
-          res => { this.successDeleted(res) },
-          error => { console.log(error) }
-        )
-    }
-    if(this.search.typeObj === 'mission') {
+      .subscribe( res => { this.successDeleted(res) }, error => { console.log(error) })
+
+    if(this.search.typeObj === 'mission')
       this.missionService.deleteMission(this.search.missionId)
-        .subscribe(
-          res => { this.successDeleted(res) },
-          error => { console.log(error) }
-        )
-    }
+      .subscribe( res => { this.successDeleted(res) }, error => { console.log(error) })
+
+    if(this.search.typeObj === 'document')
+      this.documentService.deleteDocument(this.search.documentId)
+      .subscribe( res => { this.successDeleted(res) }, error => { console.log(error) })
   }
 
   successDeleted(res) {

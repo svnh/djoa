@@ -9,6 +9,9 @@ import { Location } from '@angular/common';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ViewEncapsulation} from '@angular/core';
 import { UserService} from '../../user/user.service';
+import {ShowNavBarData} from '../../mainPageHome/mainPageHome.model'
+import {GlobalEventsManager} from '../../globalEventsManager';
+
 
 @Component({
   selector: 'app-documents',
@@ -43,6 +46,7 @@ export class DocumentsComponent implements OnInit {
     // private sanitizer: DomSanitizer,
     private documentService: DocumentService,
     private toastr: ToastsManager,
+    private globalEventsManager: GlobalEventsManager,
     // public dialog: MdDialog,
     // private router: Router,
     // private location: Location,
@@ -54,42 +58,68 @@ export class DocumentsComponent implements OnInit {
 
   ngOnInit() {
     let this2 = this
-    setTimeout(function(){
-      this2.search.userId = this2.userId
-      this2.search.orderBy = 'name'
+    // setTimeout(function(){
+    //   this2.search.userId = this2.userId
+    //   this2.search.orderBy = 'name'
       this2.getDocuments(1, this2.search)
-    }, 200);
+    // }, 200);
   }
+
+  addDocument() {
+    let showNavBarData = new ShowNavBarData()
+    showNavBarData.showNavBar = true
+    showNavBarData.search.typeScreen = 'object'
+    showNavBarData.search.typeObj = 'document'
+    this.globalEventsManager.showNavBarRight(showNavBarData);
+  }
+  openDetails(documentId: string) {
+    let showNavBarData = new ShowNavBarData()
+    showNavBarData.showNavBar = true
+    showNavBarData.search.typeScreen = 'object'
+    showNavBarData.search.typeObj = 'document'
+    showNavBarData.search.documentId = documentId
+    this.globalEventsManager.showNavBarRight(showNavBarData);
+  }
+  delete(documentId: string) {
+    let showNavBarData = new ShowNavBarData()
+    showNavBarData.showNavBar = true
+    showNavBarData.search.typeScreen = 'deleteConfirmation'
+    showNavBarData.search.typeObj = 'document'
+    showNavBarData.search.documentId = documentId
+    this.globalEventsManager.showNavBarRight(showNavBarData);
+  }
+
+
   // goBack() {
   //   this.location.back();
   // }
 
-  searchDocuments() {
-    this.getDocuments(1, this.search)
-  }
-
-  onDelete(id: string) {
-    this.documentService.deleteDocument(id)
-      .subscribe(
-        res => {
-          this.toastr.success('Great!', res.message);
-          console.log(res);
-        },
-        error => {
-          console.log(error);
-        }
-      );
-  }
+  // searchDocuments() {
+  //   this.getDocuments(1, this.search)
+  // }
+  //
+  // onDelete(id: string) {
+  //   this.documentService.deleteDocument(id)
+  //     .subscribe(
+  //       res => {
+  //         this.toastr.success('Great!', res.message);
+  //         console.log(res);
+  //       },
+  //       error => {
+  //         console.log(error);
+  //       }
+  //     );
+  // }
 
   getPage(page: number) {
     this.getDocuments(page, this.search);
   }
 
 
-  loadMore(){
-    this.paginationData.currentPage = this.paginationData.currentPage+1
-    this.getDocuments(this.paginationData.currentPage, this.search)
-  }
+  // loadMore(){
+  //   this.paginationData.currentPage = this.paginationData.currentPage+1
+  //   this.getDocuments(this.paginationData.currentPage, this.search)
+  // }
 
 
   getDocuments(page : number, search: any) {

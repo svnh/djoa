@@ -1,8 +1,9 @@
-<div *ngFor="let document of fetchedDocuments" [routerLink]="['/document/' + document._id]" routerLinkActive="active">
+<button type="button" (click)="addDocument()">+</button>
+<div *ngFor="let document of fetchedDocuments">
   <md-card>
     <md-card-content>
-      <button type="button" (click)="delete()">X</button>
-      <button type="button" (click)="openDetails()">Open</button>
+      <button type="button" (click)="delete(document._id)">X</button>
+      <button type="button" (click)="openDetails(document._id)">Open</button>
       <br>
       <div class="centre">{{document.details.name}}</div>
     </md-card-content>
