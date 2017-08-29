@@ -478,7 +478,7 @@ export class QuoteComponent implements OnInit {
 
     this.fetchedQuote.devisDetails[i].bucketProducts[j].productInit = [product],
       this.fetchedQuote.devisDetails[i].bucketProducts[j].vat = 20,
-      this.fetchedQuote.devisDetails[i].bucketProducts[j].priceWithoutTaxes = product.details.price.sellingPrice,
+      // this.fetchedQuote.devisDetails[i].bucketProducts[j].priceWithoutTaxes = product.details.price.sellingPrice,
       this.fetchedQuote.devisDetails[i].bucketProducts[j].priceWithTaxes = 0,
       this.fetchedQuote.devisDetails[i].bucketProducts[j].totalPriceWithTaxes = 0,
       this.fetchedQuote.devisDetails[i].bucketProducts[j].totalPriceWithoutTaxes = 0,
