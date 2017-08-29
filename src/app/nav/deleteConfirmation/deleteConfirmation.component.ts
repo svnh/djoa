@@ -16,6 +16,7 @@ import {Search} from '../../mainPageHome/mainPageHome.model'
 import {GlobalEventsManager} from '../../globalEventsManager';
 import { ProjectService} from '../../project/project.service';
 import { StratService} from '../../strat/strat.service';
+import { BriefService} from '../../brief/brief.service';
 import { MissionService} from '../../mission/mission.service';
 import { DocumentService} from '../../document/document.service';
 import { ToastsManager} from 'ng2-toastr';
@@ -42,6 +43,7 @@ export class DeleteConfirmationComponent implements OnInit {
     private missionService: MissionService,
     private documentService: DocumentService,
     private stratService: StratService,
+    private briefService: BriefService,
 
     // private globalEventsManager: GlobalEventsManager,
     private authService: AuthService,
@@ -85,6 +87,10 @@ export class DeleteConfirmationComponent implements OnInit {
     if(this.search.typeObj === 'strat')
       this.stratService.deleteStrat(this.search.stratId)
       .subscribe( res => { this.successDeleted(res) }, error => { console.log(error) })
+
+    if(this.search.typeObj === 'brief')
+      this.briefService.deleteBrief(this.search.briefId)
+      .subscribe( res => { this.successDeleted(res) }, error => { console.log(error) })
   }
 
   successDeleted(res) {
@@ -96,9 +102,9 @@ export class DeleteConfirmationComponent implements OnInit {
     // this.router.navigate(['/']);
   }
 
-  deleteObj(){
-
-  }
+  // deleteObj(){
+  //
+  // }
   // cleanNotifications() {
   //   // this.notificationsNotRead = 0
   // }
