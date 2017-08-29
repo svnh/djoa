@@ -7,7 +7,7 @@ import { Routes, RouterModule} from '@angular/router';
 import { MaterialModule } from '@angular/material';
 
 import { SideBarRightComponent} from './sideBarRight.component';
-import {SharedObjModule } from '../../shared/sharedObj.module';
+import { SharedObjModule } from '../../shared/sharedObj.module';
 // import { NotificationService} from '../../notification/notification.service';
 // import {UserModule} from '../../user/user.module';
 // import {NewUserComponent} from '../../user/singleUser/newUser.component';

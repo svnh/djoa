@@ -15,6 +15,7 @@ import {ShowNavBarData} from '../../mainPageHome/mainPageHome.model'
 import {Search} from '../../mainPageHome/mainPageHome.model'
 import {GlobalEventsManager} from '../../globalEventsManager';
 import { ProjectService} from '../../project/project.service';
+import { StratService} from '../../strat/strat.service';
 import { MissionService} from '../../mission/mission.service';
 import { DocumentService} from '../../document/document.service';
 import { ToastsManager} from 'ng2-toastr';
@@ -40,6 +41,7 @@ export class DeleteConfirmationComponent implements OnInit {
     private projectService: ProjectService,
     private missionService: MissionService,
     private documentService: DocumentService,
+    private stratService: StratService,
 
     // private globalEventsManager: GlobalEventsManager,
     private authService: AuthService,
@@ -79,6 +81,10 @@ export class DeleteConfirmationComponent implements OnInit {
     if(this.search.typeObj === 'document')
       this.documentService.deleteDocument(this.search.documentId)
       .subscribe( res => { this.successDeleted(res) }, error => { console.log(error) })
+
+    if(this.search.typeObj === 'strat')
+      this.stratService.deleteStrat(this.search.stratId)
+      .subscribe( res => { this.successDeleted(res) }, error => { console.log(error) })
   }
 
   successDeleted(res) {
@@ -86,6 +92,7 @@ export class DeleteConfirmationComponent implements OnInit {
     let newShowNavBarData = new ShowNavBarData()
     newShowNavBarData.showNavBar = false
     this.globalEventsManager.showNavBarRight(newShowNavBarData)
+    this.globalEventsManager.refreshCenter(true);
     // this.router.navigate(['/']);
   }
 

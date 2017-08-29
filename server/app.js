@@ -31,6 +31,8 @@ var chat    = require('./routes/chat')
 var mission    = require('./routes/mission')
 var document    = require('./routes/document')
 var strat    = require('./routes/strat')
+var brief    = require('./routes/brief')
+
 
 
 
@@ -119,6 +121,7 @@ app.use('/chat', chat)
 app.use('/mission', mission)
 app.use('/document', document)
 app.use('/strat', strat)
+app.use('/brief', brief)
 
 
 

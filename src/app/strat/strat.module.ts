@@ -17,17 +17,20 @@ import { StratsComponent} from './list/strats.component';
 // import { ProjectStratsComponent} from './project/projectStrats.component';
 import { QuoteModule} from '../quote/quote.module';
 
-import { DragulaModule } from 'ng2-dragula';
+// import { DragulaModule } from 'ng2-dragula';
 // import { StratDialogComponent } from './single/dialog/stratDialog.component'
 // import { AutocompleteModule } from '../autocomplete/autocomplete.module'
 import {SharedModule } from '../shared/shared.module';
 // import {UserModule} from '../user/user.module';
 import {DocumentModule} from '../document/document.module';
+import {BriefModule} from '../brief/brief.module';
+
+
 
 @NgModule({
   imports:     [
     // UserModule,
-    DragulaModule,
+    // DragulaModule,
     StratRouting,
     CommonModule,
     FormsModule,
@@ -36,6 +39,7 @@ import {DocumentModule} from '../document/document.module';
     QuoteModule,
     SharedModule,
     DocumentModule,
+    BriefModule,
 
     // AutocompleteModule,
   ],

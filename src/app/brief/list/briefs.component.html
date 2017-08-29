@@ -1,0 +1,11 @@
+<button type="button" (click)="addBrief()">+</button>
+<div *ngFor="let brief of fetchedBriefs">
+  <md-card>
+    <md-card-content>
+      <button type="button" (click)="delete(brief._id)">X</button>
+      <button type="button" (click)="openDetails(brief._id)">Open</button>
+      <br>
+      <div class="centre">{{brief.details.name}}</div>
+    </md-card-content>
+  </md-card>
+</div>

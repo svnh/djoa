@@ -17,6 +17,7 @@ export class Search {
     typeObj: string = '';
     typeScreen: string = 'object';
     userId: string = '';
+    briefId: string = '';
     projectId: string = '';
     documentId: string = '';
     missionId: string = '';
