@@ -69,7 +69,7 @@ export class LightMissionsComponent implements OnInit {
   ngOnChanges(changes) {
     this.getMissions(1, this.search)
   }
-  
+
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: Params) => {
       // console.log(this.search)
@@ -130,33 +130,33 @@ export class LightMissionsComponent implements OnInit {
     newShowNavBarData.search.projectId = this.search.projectId
     this.globalEventsManager.showNavBarLeft(newShowNavBarData)
   }
-  createNewMission() {
-    let newShowNavBarData = new ShowNavBarData()
-    newShowNavBarData.showNavBar = true
-    newShowNavBarData.search.typeObj = 'mission'
-    newShowNavBarData.search.projectId = this.search.projectId
-    newShowNavBarData.search.productId = this.search.productId
-    this.globalEventsManager.showNavBarRight(newShowNavBarData)
-  }
-  openDeleteMission(missionId: string) {
-    let newShowNavBarData = new ShowNavBarData()
-    newShowNavBarData.showNavBar = true
-    newShowNavBarData.search.typeScreen = 'deleteConfirmation'
-    newShowNavBarData.search.typeObj = 'mission'
-    newShowNavBarData.search.missionId = missionId
-    this.globalEventsManager.showNavBarRight(newShowNavBarData)
-  }
+  // createNewMission() {
+  //   let newShowNavBarData = new ShowNavBarData()
+  //   newShowNavBarData.showNavBar = true
+  //   newShowNavBarData.search.typeObj = 'mission'
+  //   newShowNavBarData.search.projectId = this.search.projectId
+  //   newShowNavBarData.search.productId = this.search.productId
+  //   this.globalEventsManager.showNavBarRight(newShowNavBarData)
+  // }
+  // openDeleteMission(missionId: string) {
+  //   let newShowNavBarData = new ShowNavBarData()
+  //   newShowNavBarData.showNavBar = true
+  //   newShowNavBarData.search.typeScreen = 'deleteConfirmation'
+  //   newShowNavBarData.search.typeObj = 'mission'
+  //   newShowNavBarData.search.missionId = missionId
+  //   this.globalEventsManager.showNavBarRight(newShowNavBarData)
+  // }
 
   getMissions(page: number, search: any) {
     this.loading = true;
     this.missionService.getMissions(page, search)
       .subscribe(
         res => {
-          this.paginationData = res.paginationData;
+          // this.paginationData = res.paginationData;
           this.fetchedMissions = res.data
-          this.fetchedMissions.forEach((mission, i) => {
-              this.fetchedMissions[i].dateMission.percentageProgress = this.authService.getPourcentageProgress(mission.dateMission.start, mission.dateMission.end)
-          });
+          // this.fetchedMissions.forEach((mission, i) => {
+          //     this.fetchedMissions[i].dateMission.percentageProgress = this.authService.getPourcentageProgress(mission.dateMission.start, mission.dateMission.end)
+          // });
 
 
           // let durationProject = +new Date(this.fetchedProject.dateProject.end) - +new Date(this.fetchedProject.dateProject.start)
