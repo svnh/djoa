@@ -33,7 +33,9 @@ import {SharedModule } from '../shared/shared.module';
     ProductDialogComponent,
 
   ],
-  exports:      [ ProductsComponent ],
+  exports:      [
+    ProductsComponent,
+   ],
   providers:    [
     ProductService,
   ],

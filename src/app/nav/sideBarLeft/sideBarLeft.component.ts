@@ -65,6 +65,7 @@ export class SideBarLeftComponent implements OnInit {
   ngOnInit() {
     if (this.authService.isLoggedIn()) {
       this.showNavBarData.showNavBar = true
+      this.showNavBarData.search.typeObj = 'project'
       this.globalEventsManager.showNavBarLeft(this.showNavBarData);
       // this.globalEventsManager.showNavBar(true);
       // this.showNavBar = true;

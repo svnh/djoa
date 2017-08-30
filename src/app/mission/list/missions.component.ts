@@ -77,6 +77,10 @@ export class MissionsComponent implements OnInit {
     //   this2.getMissions(1, this2.search)
     // }, 200);
   }
+  goToMission(missionId: string) {
+    this.openProductsSideBar()
+    this.router.navigate(['mission/' + missionId]);
+  }
 
   // ngOnChanges(changes: any){
   //   console.log('test')
@@ -112,7 +116,12 @@ export class MissionsComponent implements OnInit {
   //   this.paginationData.currentPage = this.paginationData.currentPage+1
   //   this.getMissions(this.paginationData.currentPage, this.search)
   // }
-
+  openProductsSideBar() {
+    let newShowNavBarData = new ShowNavBarData()
+    newShowNavBarData.showNavBar = true
+    newShowNavBarData.search.typeObj = 'product'
+    this.globalEventsManager.showNavBarLeft(newShowNavBarData)
+  }
   createNewMission() {
     let newShowNavBarData = new ShowNavBarData()
     newShowNavBarData.showNavBar = true

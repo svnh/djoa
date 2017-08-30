@@ -58,6 +58,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
         data => {
           let newShowNavBarData = new ShowNavBarData()
           newShowNavBarData.showNavBar = true
+          newShowNavBarData.search.typeObj = 'project'
           this.globalEventsManager.showNavBarLeft(newShowNavBarData);
           //console.log(data)
           // if the user credentials are correct, set the localStorage token and userId,

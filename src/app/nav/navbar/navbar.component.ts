@@ -74,10 +74,10 @@ export class NavbarComponent implements OnInit {
     newShowNavBarData.search.userId = ''
     this.globalEventsManager.showNavBarRight(newShowNavBarData);
   }
-  openSideBarLeft(){
+  openSideBarLeft() {
     let newShowNavBarData = new ShowNavBarData()
     newShowNavBarData.showNavBar = true
-    newShowNavBarData.search.typeObj = ''
+    newShowNavBarData.search.typeObj = 'project'
     this.globalEventsManager.showNavBarLeft(newShowNavBarData)
   }
   openMyProfile() {
