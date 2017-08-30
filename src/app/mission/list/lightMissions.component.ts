@@ -16,13 +16,13 @@ import {Search} from '../../mainPageHome/mainPageHome.model'
 
 
 @Component({
-  selector: 'app-missions',
-  templateUrl: './missions.component.html',
+  selector: 'app-lightMissions',
+  templateUrl: './lightMissions.component.html',
   styleUrls: ['../mission.component.css'],
   encapsulation: ViewEncapsulation.None
 
 })
-export class MissionsComponent implements OnInit {
+export class LightMissionsComponent implements OnInit {
   @Input() userId = '';
   // @Input() missionType = '';
   @Input() search: Search = new Search()

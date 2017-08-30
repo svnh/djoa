@@ -13,6 +13,7 @@ import { MissionContentComponent} from './single/missionContent.component';
 import { MissionService} from './mission.service';
 import { MissionRouting} from './missionRouting.module';
 import { MissionsComponent} from './list/missions.component';
+import { LightMissionsComponent} from './list/lightMissions.component';
 
 // import { ProjectMissionsComponent} from './project/projectMissions.component';
 import { QuoteModule} from '../quote/quote.module';
@@ -49,6 +50,7 @@ import {ChatModule} from '../chat/chat.module';
     MissionTeamComponent,
     MissionContentComponent,
     MissionsComponent,
+    LightMissionsComponent,
     // ProjectMissionsComponent,
     // MissionDialogComponent,
     // MissionSingleComponent,
@@ -58,6 +60,7 @@ import {ChatModule} from '../chat/chat.module';
     MissionComponent,
     MissionTeamComponent,
     MissionsComponent,
+    LightMissionsComponent,
     // AutocompleteComponent,
   ],
   providers:    [ MissionService ],

@@ -15,6 +15,7 @@
       <div *ngIf="fetchedProject._id">
         <div *ngFor="let product of fetchedProducts">
           {{product.name}}
+          {{fetchedProject._id}}
           <app-missions [search]="{projectId:fetchedProject._id, productId:product._id}"></app-missions>
         </div>
       </div>
