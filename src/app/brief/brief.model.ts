@@ -1,15 +1,15 @@
 import { Form } from '../picture/form/form.model';
 import { User } from '../user/user.model';
-import { Quote } from '../quote/quote.model';
+import { Document } from '../document/document.model';
 import { Task } from '../task/task.model';
 
 
 export class Brief {
     _id: string = '';
     details: Details = new Details()
-    status: number = 0;
+    documents: Document[] = []
     clients: User[] = [];
-    assignedTos: User[] = [];
+
     forms: Form[] = [];
     logs: Log[] = [];
     categorie: Categorie = new Categorie();

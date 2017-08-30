@@ -11,6 +11,7 @@ import { ViewEncapsulation} from '@angular/core';
 import { UserService} from '../../user/user.service';
 import {ShowNavBarData} from '../../mainPageHome/mainPageHome.model'
 import {GlobalEventsManager} from '../../globalEventsManager';
+import {Search} from '../../mainPageHome/mainPageHome.model'
 
 
 @Component({
@@ -23,12 +24,15 @@ import {GlobalEventsManager} from '../../globalEventsManager';
 export class DocumentsComponent implements OnInit {
   @Input() userId = '';
   @Input() showHeader = true;
+  @Input() search: Search = new Search()
+
+
   // token: string = localStorage.getItem('id_token');
   fetchedDocuments: Document[] = [];
-  search: any = {
-    categories : [],
-    search: ''
-  };
+  // search: any = {
+  //   categories : [],
+  //   search: ''
+  // };
   loading: boolean;
 
   paginationData = {

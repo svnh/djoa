@@ -13,7 +13,7 @@ import { BriefService} from './brief.service';
 import { BriefRouting} from './briefRouting.module';
 
 // import { TasksComponent} from './task/tasks/tasks.component';
-
+import { BriefContentComponent} from './single/briefContent.component';
 import { TaskService} from '../task/task.service';
 // import { MissionModule} from '../mission/mission.module';
 
@@ -26,7 +26,7 @@ import {SharedModule } from '../shared/shared.module';
 
 // import { CommentComponent } from './single/comment/comment.component'
 // import { PictureComponent } from './single/picture/picture.component'
-
+import {DocumentModule} from '../document/document.module';
 
 @NgModule({
   imports:     [
@@ -39,6 +39,7 @@ import {SharedModule } from '../shared/shared.module';
     ReactiveFormsModule,
     // MissionModule,
     SharedModule,
+    DocumentModule,
     // CommentModule,
 
 
@@ -48,6 +49,7 @@ import {SharedModule } from '../shared/shared.module';
     // BriefTasksComponent,
     BriefsComponent,
     BriefSingleComponent,
+    BriefContentComponent,
     // BriefContentComponent,
     // TasksComponent,
     // BriefDialogComponent,
@@ -58,6 +60,7 @@ import {SharedModule } from '../shared/shared.module';
   ],
   exports:      [
     BriefSingleComponent,
+    BriefContentComponent,
     BriefsComponent,
     // BriefContentComponent,
 

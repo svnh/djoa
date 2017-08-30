@@ -28,6 +28,7 @@ export const routes: Routes = [
   {path: 'mission', loadChildren: 'app/mission/mission.module#MissionModule', canActivate: [AuthGuardService]},
   {path: 'document', loadChildren: 'app/document/document.module#DocumentModule', canActivate: [AuthGuardService]},
   {path: 'strat', loadChildren: 'app/strat/strat.module#StratModule', canActivate: [AuthGuardService]},
+  {path: 'brief', loadChildren: 'app/brief/brief.module#BriefModule', canActivate: [AuthGuardService]},
   // {path: 'userCalendar', loadChildren: 'app/userCalendar/userCalendar.module#UserCalendarModule', canActivate: [AuthGuardService]},
   {path: 'companie', loadChildren: 'app/companie/companie.module#CompanieModule', canActivate: [AuthGuardService]},
   {path: 'right', loadChildren: 'app/right/right.module#RightModule', canActivate: [AuthGuardService]},

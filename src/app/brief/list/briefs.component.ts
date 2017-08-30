@@ -64,7 +64,7 @@ export class BriefsComponent implements OnInit {
       this2.getBriefs(1, this2.search)
     // }, 200);
   }
-
+  //
   addBrief() {
     let showNavBarData = new ShowNavBarData()
     showNavBarData.showNavBar = true
@@ -72,22 +72,7 @@ export class BriefsComponent implements OnInit {
     showNavBarData.search.typeObj = 'brief'
     this.globalEventsManager.showNavBarRight(showNavBarData);
   }
-  openDetails(briefId: string) {
-    let showNavBarData = new ShowNavBarData()
-    showNavBarData.showNavBar = true
-    showNavBarData.search.typeScreen = 'object'
-    showNavBarData.search.typeObj = 'brief'
-    showNavBarData.search.briefId = briefId
-    this.globalEventsManager.showNavBarRight(showNavBarData);
-  }
-  delete(briefId: string) {
-    let showNavBarData = new ShowNavBarData()
-    showNavBarData.showNavBar = true
-    showNavBarData.search.typeScreen = 'deleteConfirmation'
-    showNavBarData.search.typeObj = 'brief'
-    showNavBarData.search.briefId = briefId
-    this.globalEventsManager.showNavBarRight(showNavBarData);
-  }
+
 
 
   // goBack() {
