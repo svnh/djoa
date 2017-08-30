@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ProductDialogComponent } from './single/dialog/productDialog.component';
 
 import { ProductsComponent} from './products/products.component';
+import { AdminProductsComponent} from './products/adminProducts.component';
 import { ProductSingleComponent} from './single/productSingle.component';
 import { ProductService} from './product.service';
 import { CompanieModule } from '../companie/companie.module';
@@ -29,6 +30,7 @@ import {SharedModule } from '../shared/shared.module';
   declarations: [
 
     ProductsComponent,
+    AdminProductsComponent,
     ProductSingleComponent,
     ProductDialogComponent,
 
