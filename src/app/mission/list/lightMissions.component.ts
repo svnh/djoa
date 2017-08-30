@@ -65,10 +65,16 @@ export class LightMissionsComponent implements OnInit {
     })
   }
 
+
+  ngOnChanges(changes) {
+    this.getMissions(1, this.search)
+  }
+  
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: Params) => {
-    this.getMissions(1, this.search)
-  })
+      // console.log(this.search)
+      // this.getMissions(1, this.search)
+    })
 
     // let this2 = this
     // setTimeout(function(){
