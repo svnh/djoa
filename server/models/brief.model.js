@@ -9,7 +9,7 @@ var mongoose                = require('mongoose'),
 var brief = new Schema({
   ownerCompanies: [{type: Schema.Types.ObjectId, ref: 'Companie'}],
   documents: [{type: Schema.Types.ObjectId, ref: 'Document'}],
-  missions: [{type: Schema.Types.ObjectId, ref: 'Mission'}],
+  strats: [{type: Schema.Types.ObjectId, ref: 'Strat'}],
   details: {
     name: {type: String},
     description: {type: String},

@@ -7,6 +7,7 @@ import { TemplateQuoteService} from '../quote/templateQuote.service';
 
 import { RightService} from '../right/right.service';
 import { ProjectService} from '../project/project.service';
+import { StratService} from '../strat/strat.service';
 import { MdDialog } from '@angular/material';
 import {Search} from '../mainPageHome/mainPageHome.model'
 // import { UserDialogComponent } from '../user/singleUser/dialog/userDialog.component';
@@ -28,7 +29,7 @@ export class AutocompleteComponent implements OnInit {
   @Input() arrayContent = [];
   @Input() singleChoice: boolean = true;
   @Input() title: string = '';
-  @Input() search: Search = new Search()
+  @Input() search: Search = new Search();
   @Input() canDelete: boolean = true;
   @Input() enableLink: boolean = true;
   // createNewItem: boolean = false;
@@ -40,11 +41,12 @@ export class AutocompleteComponent implements OnInit {
 
 
   constructor(
-    public dialog: MdDialog,
+    // public dialog: MdDialog,
     private userService: UserService,
     private companieService: CompanieService,
     private productService: ProductService,
     private quoteService: QuoteService,
+    private stratService: StratService,
     private projectService: ProjectService,
     private templateQuoteService: TemplateQuoteService,
     private rightService: RightService,
@@ -53,16 +55,20 @@ export class AutocompleteComponent implements OnInit {
 
   ngOnInit() {}
   ngOnChanges() {
-    if(this.typeAutocomplete ==='project')
-      if(this.search.projectId)
+    if(this.typeAutocomplete ==='project' && this.search.projectId)
         this.projectService.getProject(this.search.projectId)
         .subscribe( res => { this.arrayContent = [res] }, error => { console.log(error); });
 
 
-    if(this.typeAutocomplete ==='product')
-      if(this.search.productId)
+    if(this.typeAutocomplete ==='product' && this.search.productId)
         this.productService.getProduct(this.search.productId)
         .subscribe( res => { this.arrayContent = [res] }, error => { console.log(error); });
+
+
+    if(this.typeAutocomplete ==='strat' && this.search.stratId)
+        this.stratService.getStrat(this.search.stratId)
+        .subscribe( res => { this.arrayContent = [res] }, error => { console.log(error); });
+
 
   }
 
@@ -95,6 +101,10 @@ export class AutocompleteComponent implements OnInit {
 
     if(this.typeAutocomplete ==='right')
       this.rightService.getRights(page, search)
+      .subscribe( res => { this.fetchedData = res.data }, error => { console.log(error); });
+
+    if(this.typeAutocomplete ==='strat')
+      this.stratService.getStrats(page, search)
       .subscribe( res => { this.fetchedData = res.data }, error => { console.log(error); });
 
   }

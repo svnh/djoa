@@ -12,6 +12,16 @@
 
         <br>
 
+        <app-autocomplete
+          [typeAutocomplete]="'strat'"
+          [search]="search"
+          [canDelete]=true
+          [title]="'strat'"
+          [singleChoice]=true
+          [arrayContent]="fetchedBrief.strats">
+        </app-autocomplete>
+
+
         <div class="form-group">
 
           <div class="">

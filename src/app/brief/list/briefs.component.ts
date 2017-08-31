@@ -11,6 +11,7 @@ import { ViewEncapsulation} from '@angular/core';
 import { UserService} from '../../user/user.service';
 import {ShowNavBarData} from '../../mainPageHome/mainPageHome.model'
 import {GlobalEventsManager} from '../../globalEventsManager';
+import {Search} from '../../mainPageHome/mainPageHome.model'
 
 
 @Component({
@@ -25,10 +26,7 @@ export class BriefsComponent implements OnInit {
   @Input() showHeader = true;
   // token: string = localStorage.getItem('id_token');
   fetchedBriefs: Brief[] = [];
-  search: any = {
-    categories : [],
-    search: ''
-  };
+  @Input() search: Search = new Search()
   loading: boolean;
 
   paginationData = {
@@ -70,6 +68,7 @@ export class BriefsComponent implements OnInit {
     showNavBarData.showNavBar = true
     showNavBarData.search.typeScreen = 'object'
     showNavBarData.search.typeObj = 'brief'
+    showNavBarData.search.stratId = this.search.stratId
     this.globalEventsManager.showNavBarRight(showNavBarData);
   }
 
