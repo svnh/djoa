@@ -59,14 +59,15 @@ export class LightMissionsComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
 
   ) {
-    this.globalEventsManager.refreshCenterEmitter.subscribe((isRefresh) => {
-        if(isRefresh)
-          this.getMissions(1, this.search)
-    })
+    // this.globalEventsManager.refreshCenterEmitter.subscribe((isRefresh) => {
+    //     if(isRefresh)
+    //       this.getMissions(1, this.search)
+    // })
   }
 
   ngOnChanges(changes) {
-    if(this.search.projectId && this.search.missionId)
+    // console.log(this.search)
+    if(this.search.projectId && this.search.productId)
       this.getMissions(1, this.search)
   }
 
