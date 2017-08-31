@@ -23,6 +23,7 @@ import { Project } from '../../project/project.model';
 
 import {Search} from '../../mainPageHome/mainPageHome.model'
 import {GlobalEventsManager} from '../../globalEventsManager';
+import {ShowNavBarData} from '../../mainPageHome/mainPageHome.model'
 
 
 @Component({
@@ -137,7 +138,10 @@ export class MissionComponent implements OnInit {
         .subscribe(
           res => {
             this.toastr.success('Great!', res.message)
-            this.getMission(res.obj._id)
+            // this.getMission(res.obj._id)
+            this.globalEventsManager.refreshCenter(true);
+            this.closeRight()
+
             // this.fetchedMission = res.obj
             //this.router.navigate(['mission/edit/' + this.fetchedMission._id])
           },
@@ -150,8 +154,10 @@ export class MissionComponent implements OnInit {
         .subscribe(
           res => {
             this.toastr.success('Great!', res.message)
-            this.getMission(res.obj._id)
             this.globalEventsManager.refreshCenter(true);
+            this.closeRight()
+            // this.getMission(res.obj._id)
+            // this.globalEventsManager.refreshCenter(true);
             // this.fetchedMission = res.obj
             // this.newMissionSaved.emit()
             // if(this.showHeader)
@@ -164,8 +170,14 @@ export class MissionComponent implements OnInit {
   }
 
 
-
-
+  getResultAutocomplete(result){
+    console.log(result)
+  }
+  closeRight() {
+    let showNavBarData = new ShowNavBarData()
+    showNavBarData.showNavBar = false
+    this.globalEventsManager.showNavBarRight(showNavBarData);
+  }
 
   //
   //

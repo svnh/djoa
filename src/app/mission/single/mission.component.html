@@ -8,14 +8,17 @@
 
     <form [formGroup]="myForm" novalidate (ngSubmit)="save()">
       <div>
+    
         <app-autocomplete
           [typeAutocomplete]="'project'"
           [canDelete]=true
           [search]="search"
           [title]="'Project'"
           [singleChoice]=true
+          (getResultAutocomplete)="getResultAutocomplete($event)"
           [arrayContent]="fetchedMission.projects">
         </app-autocomplete>
+
 
         <app-autocomplete
           [typeAutocomplete]="'product'"
