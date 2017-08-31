@@ -124,7 +124,6 @@ export class MissionsComponent implements OnInit {
   // }
   openProductsSideBar(missionId: string) {
     let newShowNavBarData = new ShowNavBarData()
-    newShowNavBarData.showNavBar = true
     newShowNavBarData.search.typeObj = 'product'
     newShowNavBarData.search.missionId = missionId
     newShowNavBarData.search.projectId = this.search.projectId
@@ -132,7 +131,6 @@ export class MissionsComponent implements OnInit {
   }
   createNewMission() {
     let newShowNavBarData = new ShowNavBarData()
-    newShowNavBarData.showNavBar = true
     newShowNavBarData.search.typeObj = 'mission'
     newShowNavBarData.search.projectId = this.search.projectId
     newShowNavBarData.search.productId = this.search.productId
@@ -140,7 +138,6 @@ export class MissionsComponent implements OnInit {
   }
   openDeleteMission(missionId: string) {
     let newShowNavBarData = new ShowNavBarData()
-    newShowNavBarData.showNavBar = true
     newShowNavBarData.search.typeScreen = 'deleteConfirmation'
     newShowNavBarData.search.typeObj = 'mission'
     newShowNavBarData.search.missionId = missionId

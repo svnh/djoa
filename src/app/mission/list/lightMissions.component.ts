@@ -84,7 +84,7 @@ export class LightMissionsComponent implements OnInit {
     //   this2.getMissions(1, this2.search)
     // }, 200);
   }
-  
+
   goToMission(missionId: string) {
     this.openProductsSideBar(missionId)
     this.router.navigate(['mission/' + missionId]);
@@ -126,7 +126,6 @@ export class LightMissionsComponent implements OnInit {
   // }
   openProductsSideBar(missionId: string) {
     let newShowNavBarData = new ShowNavBarData()
-    newShowNavBarData.showNavBar = true
     newShowNavBarData.search.typeObj = 'product'
     newShowNavBarData.search.missionId = missionId
     newShowNavBarData.search.projectId = this.search.projectId

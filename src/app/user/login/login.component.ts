@@ -57,7 +57,6 @@ export class LoginComponent implements OnInit, AfterViewInit {
       .subscribe(
         data => {
           let newShowNavBarData = new ShowNavBarData()
-          newShowNavBarData.showNavBar = true
           newShowNavBarData.search.typeObj = 'project'
           this.globalEventsManager.showNavBarLeft(newShowNavBarData);
           //console.log(data)

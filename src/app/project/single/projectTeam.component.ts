@@ -281,7 +281,6 @@ export class ProjectTeamComponent implements OnInit {
 
   openDeleteConfirmation(){
       let newShowNavBarData = new ShowNavBarData()
-      newShowNavBarData.showNavBar = true
       newShowNavBarData.search.typeScreen = 'deleteConfirmation'
       newShowNavBarData.search.typeObj = 'project'
       newShowNavBarData.search.projectId = this.fetchedProject._id

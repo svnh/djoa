@@ -9,7 +9,7 @@
 // }
 // export class SideBarData {
 export class ShowNavBarData {
-  showNavBar: boolean = false;
+  showNavBar: boolean = true;
   search: Search = new Search();
 }
 

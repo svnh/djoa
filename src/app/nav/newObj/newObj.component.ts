@@ -107,7 +107,6 @@ export class NewObjComponent implements OnInit {
   // }
   createNewObj(typeObj: string) {
     let newShowNavBarData = new ShowNavBarData()
-    newShowNavBarData.showNavBar = true
     newShowNavBarData.search.typeObj = typeObj
     this.globalEventsManager.showNavBarRight(newShowNavBarData)
   }

@@ -7,10 +7,14 @@
     <app-document *ngIf="showNavBarData.search.typeObj == 'document'" [search]="showNavBarData.search"></app-document>
     <app-newObj *ngIf="showNavBarData.search.typeObj == 'newObj'"></app-newObj>
     <app-mission *ngIf="showNavBarData.search.typeObj == 'mission'" [search]="showNavBarData.search"></app-mission>
-    <app-profile *ngIf="showNavBarData.search.typeObj == 'user'" [search]="showNavBarData.search"></app-profile>
+    <app-newUser *ngIf="showNavBarData.search.typeObj == 'user'" [search]="showNavBarData.search"></app-newUser>
     <app-projectSingle *ngIf="showNavBarData.search.typeObj == 'project'" [search]="showNavBarData.search"></app-projectSingle>
   </div>
 
+
+  <div *ngIf="showNavBarData.search.typeScreen == 'profile'">
+    <app-profile *ngIf="showNavBarData.search.typeObj == 'user'" [search]="showNavBarData.search"></app-profile>
+  </div>
 
   <!-- <div *ngIf="showNavBarData.search.typeScreen == 'edit'">
     <app-editUser *ngIf="showNavBarData.search.typeObj == 'user'" [search]="showNavBarData.search"></app-editUser>

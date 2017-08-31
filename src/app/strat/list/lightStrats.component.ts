@@ -112,7 +112,6 @@ export class LightStratsComponent implements OnInit {
   }
   openProductsSideBar(stratId: string) {
     let newShowNavBarData = new ShowNavBarData()
-    newShowNavBarData.showNavBar = true
     newShowNavBarData.search.typeObj = 'product'
     newShowNavBarData.search.stratId = stratId
     newShowNavBarData.search.projectId = this.search.projectId
@@ -125,9 +124,7 @@ export class LightStratsComponent implements OnInit {
   // }
 
   createNewStrat() {
-    console.log(this.search)
     let newShowNavBarData = new ShowNavBarData()
-    newShowNavBarData.showNavBar = true
     newShowNavBarData.search.typeObj = 'strat'
     newShowNavBarData.search.projectId = this.search.projectId
     // newShowNavBarData.search.stratType = this.search.stratType
@@ -135,7 +132,6 @@ export class LightStratsComponent implements OnInit {
   }
   openDeleteStrat(stratId: string) {
     let newShowNavBarData = new ShowNavBarData()
-    newShowNavBarData.showNavBar = true
     newShowNavBarData.search.typeScreen = 'deleteConfirmation'
     newShowNavBarData.search.typeObj = 'strat'
     newShowNavBarData.search.stratId = stratId

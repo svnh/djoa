@@ -69,40 +69,35 @@ export class NavbarComponent implements OnInit {
 
   createProject() {
     let newShowNavBarData = new ShowNavBarData()
-    newShowNavBarData.showNavBar = true
     newShowNavBarData.search.typeObj = 'project'
     newShowNavBarData.search.userId = ''
     this.globalEventsManager.showNavBarRight(newShowNavBarData);
   }
   openSideBarLeft() {
     let newShowNavBarData = new ShowNavBarData()
-    newShowNavBarData.showNavBar = true
     newShowNavBarData.search.typeObj = 'project'
     this.globalEventsManager.showNavBarLeft(newShowNavBarData)
   }
   openMyProfile() {
     let newShowNavBarData = new ShowNavBarData()
-    newShowNavBarData.showNavBar = true
     newShowNavBarData.search.typeObj = 'user'
+    newShowNavBarData.search.typeScreen = 'profile'
     newShowNavBarData.search.userId = this.authService.getCurrentUser()._id
     this.globalEventsManager.showNavBarRight(newShowNavBarData)
   }
   createUser() {
     let newShowNavBarData = new ShowNavBarData()
-    newShowNavBarData.showNavBar = true
     newShowNavBarData.search.typeObj = 'user'
     newShowNavBarData.search.isExternalUser = false
     this.globalEventsManager.showNavBarRight(newShowNavBarData)
   }
   createMission(){
     let newShowNavBarData = new ShowNavBarData()
-    newShowNavBarData.showNavBar = true
     newShowNavBarData.search.typeObj = 'mission'
     this.globalEventsManager.showNavBarRight(newShowNavBarData)
   }
   newObj(){
     let newShowNavBarData = new ShowNavBarData()
-    newShowNavBarData.showNavBar = true
     newShowNavBarData.search.typeObj = 'newObj'
     this.globalEventsManager.showNavBarRight(newShowNavBarData)
   }
