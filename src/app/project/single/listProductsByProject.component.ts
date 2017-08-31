@@ -40,6 +40,7 @@ export class ListProductsByProjectComponent implements OnInit {
   searchMissionContent: Search = new Search();
   searchMissionResearch: Search = new Search();
 
+
   fetchedProducts: Product[] = []
   //
   // status = StatusProject
