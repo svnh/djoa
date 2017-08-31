@@ -11,6 +11,7 @@
         <app-autocomplete
           [typeAutocomplete]="'project'"
           [canDelete]=true
+          [search]="search"
           [title]="'Project'"
           [singleChoice]=true
           [arrayContent]="fetchedMission.projects">
@@ -19,6 +20,7 @@
         <app-autocomplete
           [typeAutocomplete]="'product'"
           [canDelete]=true
+          [search]="search"
           [title]="'product'"
           [singleChoice]=true
           [arrayContent]="fetchedMission.products">

@@ -10,13 +10,14 @@
       <div>
 
 
-        <!-- <app-autocomplete
+        <app-autocomplete
           [typeAutocomplete]="'project'"
-          [canDelete]="false"
+          [search]="search"
+          [canDelete]=true
           [title]="'Project'"
           [singleChoice]=true
           [arrayContent]="fetchedStrat.projects">
-        </app-autocomplete> -->
+        </app-autocomplete>
 
         type: {{fetchedStrat.stratType}}
         <input type="text" class="form-control" formControlName="title" [(ngModel)]="fetchedStrat.title" placeholder="title">

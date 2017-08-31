@@ -27,7 +27,7 @@ export class StratsComponent implements OnInit {
   // @Input() stratType = '';
   @Input() search: Search = new Search()
 
-  token: string = localStorage.getItem('id_token');
+  // token: string = localStorage.getItem('id_token');
   fetchedStrats: Strat[] = [];
   // search: any = {
   //   categories : [],
@@ -114,6 +114,7 @@ export class StratsComponent implements OnInit {
   // }
 
   createNewStrat() {
+    console.log(this.search)
     let newShowNavBarData = new ShowNavBarData()
     newShowNavBarData.showNavBar = true
     newShowNavBarData.search.typeObj = 'strat'

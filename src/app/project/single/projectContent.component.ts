@@ -96,6 +96,7 @@ export class ProjectContentComponent implements OnInit {
 
     this.activatedRoute.params.subscribe((params: Params) => {
       if(params['id']) {
+        this.search.projectId = params['id']
         // this.search.projectId = params['id']
         this.getProject(params['id'])
 

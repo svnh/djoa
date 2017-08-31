@@ -44,10 +44,10 @@ export class MissionComponent implements OnInit {
     private missionService: MissionService,
     private quoteService: QuoteService,
     private globalEventsManager: GlobalEventsManager,
-    private projectService: ProjectService,
+    // private projectService: ProjectService,
     // private projectService: ProjectService,
     // private userService: UserService,
-    private productService: ProductService,
+    // private productService: ProductService,
 //    private modalService: NgbModal,
     private toastr: ToastsManager,
     public dialog: MdDialog,
@@ -81,11 +81,11 @@ export class MissionComponent implements OnInit {
     //   this.fetchedMission.missionType = this.search.missionType
 
 
-    if (this.search.projectId)
-      this.getProject(this.search.projectId)
-
-    if (this.search.productId)
-      this.getProduct(this.search.productId)
+    // if (this.search.projectId)
+    //   this.getProject(this.search.projectId)
+    //
+    // if (this.search.productId)
+    //   this.getProduct(this.search.productId)
 
 
     this.activatedRoute.params.subscribe((params: Params) => {
@@ -98,20 +98,20 @@ export class MissionComponent implements OnInit {
   }
 
 
-  getProject(id: string) {
-    this.projectService.getProject(id)
-      .subscribe(
-        res => { this.fetchedMission.projects.push(<Project>res) },
-        error => { console.log(error) }
-      )
-  }
-  getProduct(id: string) {
-    this.productService.getProduct(id)
-      .subscribe(
-        res => { this.fetchedMission.products.push(<Product>res) },
-        error => { console.log(error) }
-      )
-  }
+  // getProject(id: string) {
+  //   this.projectService.getProject(id)
+  //     .subscribe(
+  //       res => { this.fetchedMission.projects.push(<Project>res) },
+  //       error => { console.log(error) }
+  //     )
+  // }
+  // getProduct(id: string) {
+  //   this.productService.getProduct(id)
+  //     .subscribe(
+  //       res => { this.fetchedMission.products.push(<Product>res) },
+  //       error => { console.log(error) }
+  //     )
+  // }
 
 
 

@@ -23,6 +23,7 @@ export class Search {
     missionId: string = '';
     stratId: string = '';
     productId: string = '';
+    search: string = '';
     // missionType: string = '';
     isExternalUser: boolean = false;
 
