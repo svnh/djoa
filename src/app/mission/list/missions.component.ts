@@ -65,10 +65,15 @@ export class MissionsComponent implements OnInit {
     })
   }
 
+  ngOnChanges(changes) {
+    this.getMissions(1, this.search)
+  }
+
+
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: Params) => {
-    this.getMissions(1, this.search)
-  })
+      // this.getMissions(1, this.search)
+    })
 
     // let this2 = this
     // setTimeout(function(){

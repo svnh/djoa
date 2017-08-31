@@ -23,11 +23,11 @@ import {Search} from '../../mainPageHome/mainPageHome.model'
 
 })
 export class LightMissionsComponent implements OnInit {
-  @Input() userId = '';
+  // @Input() userId = '';
   // @Input() missionType = '';
   @Input() search: Search = new Search()
 
-  token: string = localStorage.getItem('id_token');
+  // token: string = localStorage.getItem('id_token');
   fetchedMissions: Mission[] = [];
   // search: any = {
   //   categories : [],
@@ -35,14 +35,14 @@ export class LightMissionsComponent implements OnInit {
   // };
   loading: boolean;
 
-  paginationData = {
-    currentPage: 1,
-    itemsPerPage: 0,
-    totalItems: 0
-  };
+  // paginationData = {
+  //   currentPage: 1,
+  //   itemsPerPage: 0,
+  //   totalItems: 0
+  // };
 
 
-  categories2 = '';
+  // categories2 = '';
 
 
 
@@ -51,7 +51,7 @@ export class LightMissionsComponent implements OnInit {
     private sanitizer: DomSanitizer,
     private missionService: MissionService,
     private toastr: ToastsManager,
-    public dialog: MdDialog,
+    // public dialog: MdDialog,
     private router: Router,
     private location: Location,
     private authService: AuthService,
