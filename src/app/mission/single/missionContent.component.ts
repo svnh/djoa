@@ -100,16 +100,20 @@ export class MissionContentComponent implements OnInit {
 
   openDetails() {
     let showNavBarData = new ShowNavBarData()
-    showNavBarData.showNavBar = true
     showNavBarData.search.typeObj = 'mission'
     showNavBarData.search.missionId = this.fetchedMission._id
     this.globalEventsManager.showNavBarRight(showNavBarData);
   }
 
-
+  openProfile(userId: string){
+    let showNavBarData = new ShowNavBarData()
+    showNavBarData.search.typeScreen = 'profile'
+    showNavBarData.search.typeObj = 'user'
+    showNavBarData.search.userId = userId
+    this.globalEventsManager.showNavBarRight(showNavBarData);
+  }
   openTeam() {
     let showNavBarData = new ShowNavBarData()
-    showNavBarData.showNavBar = true
     showNavBarData.search.typeScreen = 'team'
     showNavBarData.search.typeObj = 'mission'
     showNavBarData.search.missionId = this.fetchedMission._id

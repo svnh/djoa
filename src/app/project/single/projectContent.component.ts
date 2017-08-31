@@ -157,7 +157,14 @@ export class ProjectContentComponent implements OnInit {
 
 
 
-
+  openProfile(userId: string){
+    let showNavBarData = new ShowNavBarData()
+    showNavBarData.search.typeScreen = 'profile'
+    showNavBarData.search.typeObj = 'user'
+    showNavBarData.search.userId = userId
+    this.globalEventsManager.showNavBarRight(showNavBarData);
+  }
+  
 
   getProject(id: string) {
     this.projectService.getProject(id)
