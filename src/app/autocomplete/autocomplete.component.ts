@@ -8,6 +8,7 @@ import { TemplateQuoteService} from '../quote/templateQuote.service';
 import { RightService} from '../right/right.service';
 import { ProjectService} from '../project/project.service';
 import { StratService} from '../strat/strat.service';
+import { MissionService} from '../mission/mission.service';
 import { MdDialog } from '@angular/material';
 import {Search} from '../mainPageHome/mainPageHome.model'
 // import { UserDialogComponent } from '../user/singleUser/dialog/userDialog.component';
@@ -43,6 +44,7 @@ export class AutocompleteComponent implements OnInit {
   constructor(
     // public dialog: MdDialog,
     private userService: UserService,
+    private missionService: MissionService,
     private companieService: CompanieService,
     private productService: ProductService,
     private quoteService: QuoteService,
@@ -67,7 +69,12 @@ export class AutocompleteComponent implements OnInit {
 
     if(this.typeAutocomplete ==='strat' && this.search.stratId)
         this.stratService.getStrat(this.search.stratId)
-        .subscribe( res => { this.arrayContent = [res] }, error => { console.log(error); });
+        .subscribe( res => { console.log(res); this.arrayContent = [res] }, error => { console.log(error); });
+
+
+    if(this.typeAutocomplete ==='mission' && this.search.missionId)
+        this.missionService.getMission(this.search.missionId)
+        .subscribe( res => { console.log(res); this.arrayContent = [res] }, error => { console.log(error); });
 
 
   }
@@ -106,6 +113,12 @@ export class AutocompleteComponent implements OnInit {
     if(this.typeAutocomplete ==='strat')
       this.stratService.getStrats(page, search)
       .subscribe( res => { this.fetchedData = res.data }, error => { console.log(error); });
+
+
+    if(this.typeAutocomplete ==='mission')
+      this.missionService.getMissions(page, search)
+      .subscribe( res => { this.fetchedData = res.data }, error => { console.log(error); });
+
 
   }
 

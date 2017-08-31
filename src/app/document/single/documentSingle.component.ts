@@ -32,17 +32,6 @@ export class DocumentSingleComponent implements OnInit {
 
   @Input() search: Search = new Search()
 
-  selectedIndex0: number = -1
-  selectedIndex1: number = -1
-  selectedIndex2: number = -1
-  // show1 = false
-  // show2 = false
-  // categ0: string = '';
-  // categ1: string = '';
-  // categ2: string = '';
-
-  itemSteps:any =[];
-
 
   // status = StatusDocument
   // categ: string = 'Electricité';
@@ -87,9 +76,9 @@ export class DocumentSingleComponent implements OnInit {
       description: [''],
     });
 
-
-    this.fetchedDocument.dateDocument.startString = this.authService.isoDateToHtmlDate(this.fetchedDocument.dateDocument.start)
-    this.fetchedDocument.dateDocument.endString = this.authService.isoDateToHtmlDate(this.fetchedDocument.dateDocument.end)
+    //
+    // this.fetchedDocument.dateDocument.startString = this.authService.isoDateToHtmlDate(this.fetchedDocument.dateDocument.start)
+    // this.fetchedDocument.dateDocument.endString = this.authService.isoDateToHtmlDate(this.fetchedDocument.dateDocument.end)
 
 
 
@@ -257,8 +246,8 @@ export class DocumentSingleComponent implements OnInit {
 
   save() {
 
-    this.fetchedDocument.dateDocument.start = this.authService.HTMLDatetoIsoDate(this.fetchedDocument.dateDocument.startString)
-    this.fetchedDocument.dateDocument.end = this.authService.HTMLDatetoIsoDate(this.fetchedDocument.dateDocument.endString)
+    // this.fetchedDocument.dateDocument.start = this.authService.HTMLDatetoIsoDate(this.fetchedDocument.dateDocument.startString)
+    // this.fetchedDocument.dateDocument.end = this.authService.HTMLDatetoIsoDate(this.fetchedDocument.dateDocument.endString)
     //
     // let categName0 = ''
     // let categName1 = ''

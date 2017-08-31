@@ -1,7 +1,7 @@
 import { Form } from '../picture/form/form.model';
 import { User } from '../user/user.model';
-import { Quote } from '../quote/quote.model';
-import { Task } from '../task/task.model';
+import { Mission } from '../mission/mission.model';
+import { Strat } from '../strat/strat.model';
 
 
 export class Document {
@@ -12,9 +12,9 @@ export class Document {
     clients: User[] = [];
     assignedTos: User[] = [];
     forms: Form[] = [];
-    logs: Log[] = [];
+    strats: Strat[] = [];
+    missions: Mission[] = [];
     categorie: Categorie = new Categorie();
-    bucketTasks: BucketTasks[] = []
     progressTasks: number = 0;
     dateDocument: DateDocument = new DateDocument()
 }
@@ -32,11 +32,7 @@ export class DateDocument {
   endString: string = '';
   percentageProgress: number = 0;
 }
-export class BucketTasks {
-  bucketName: string = '';
-  openNewTask: boolean = false;
-  tasks: Task[] = []
-}
+
 //
 // export class Task {
 //   name: string = '';

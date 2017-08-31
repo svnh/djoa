@@ -80,17 +80,18 @@ export class MissionContentComponent implements OnInit {
     //   this.fetchedMission.missionType = this.search.missionType
     //
 
-    if (this.search.projectId) {
-      let newProject = new Project()
-      newProject._id = this.search.projectId
-      this.fetchedMission.projects.push(newProject)
-
-    }
+    // if (this.search.projectId) {
+    //   let newProject = new Project()
+    //   newProject._id = this.search.projectId
+    //   this.fetchedMission.projects.push(newProject)
+    //
+    // }
 
     this.activatedRoute.params.subscribe((params: Params) => {
       if (this.search.missionId) {
         this.getMission(this.search.missionId)
       } else if(params['id']) {
+        this.search.missionId = params['id']
         this.getMission(params['id'])
       }
     })
