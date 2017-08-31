@@ -80,12 +80,12 @@ export class StratComponent implements OnInit {
     //   this.fetchedStrat.stratType = this.search.stratType
 
 
-    if (this.search.projectId) {
-      let newProject = new Project()
-      newProject._id = this.search.projectId
-      this.fetchedStrat.projects.push(newProject)
-
-    }
+    // if (this.search.projectId) {
+    //   let newProject = new Project()
+    //   newProject._id = this.search.projectId
+    //   this.fetchedStrat.projects.push(newProject)
+    //
+    // }
 
     this.activatedRoute.params.subscribe((params: Params) => {
       if (this.search.stratId) {
