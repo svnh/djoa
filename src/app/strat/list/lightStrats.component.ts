@@ -16,13 +16,13 @@ import {Search} from '../../mainPageHome/mainPageHome.model'
 
 
 @Component({
-  selector: 'app-strats',
-  templateUrl: './strats.component.html',
+  selector: 'app-lightStrats',
+  templateUrl: './lightStrats.component.html',
   styleUrls: ['../strat.component.css'],
   encapsulation: ViewEncapsulation.None
 
 })
-export class StratsComponent implements OnInit {
+export class LightStratsComponent implements OnInit {
   @Input() userId = '';
   // @Input() stratType = '';
   @Input() search: Search = new Search()

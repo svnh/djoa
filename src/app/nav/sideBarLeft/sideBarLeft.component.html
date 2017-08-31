@@ -3,7 +3,11 @@
 
   <div *ngIf="showNavBarData.search.typeScreen == 'object'">
     <app-projects *ngIf="showNavBarData.search.typeObj == 'project'"></app-projects>
-    <app-listProductsByProject *ngIf="showNavBarData.search.typeObj == 'product'" [search]="showNavBarData.search"></app-listProductsByProject>
+
+    <div *ngIf="showNavBarData.search.typeObj == 'product'">
+      <app-lightStrats [search]="showNavBarData.search"></app-lightStrats>
+      <app-listProductsByProject [search]="showNavBarData.search"></app-listProductsByProject>
+    </div>
   </div>
 
 </md-sidenav>

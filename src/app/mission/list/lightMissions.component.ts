@@ -84,6 +84,7 @@ export class LightMissionsComponent implements OnInit {
     //   this2.getMissions(1, this2.search)
     // }, 200);
   }
+  
   goToMission(missionId: string) {
     this.openProductsSideBar(missionId)
     this.router.navigate(['mission/' + missionId]);
