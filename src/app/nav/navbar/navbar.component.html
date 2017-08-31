@@ -2,6 +2,9 @@
   <li class="nav-item">
     <button type="button" (click)="openSideBarLeft()">left</button>
   </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLinkActive="active" [routerLink]="['/']">Home</a>
+  </li>
 
   <li class="nav-item">
     <a class="nav-link" routerLinkActive="active" [routerLink]="['/user/list/false']">Admin Users</a>
