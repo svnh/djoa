@@ -27,11 +27,13 @@ export class ChatComponent implements OnInit, OnDestroy {
   constructor(private chatService: ChatService) { }
 
   sendMessage() {
-    let newStrat = new Strat()
-    newStrat._id = this.search.stratId
-    this.message.strats.push(newStrat)
-    this.chatService.sendMessage(this.message);
-    this.message.chatName = '';
+    if(this.message.chatName) {
+      let newStrat = new Strat()
+      newStrat._id = this.search.stratId
+      this.message.strats.push(newStrat)
+      this.chatService.sendMessage(this.message);
+      this.message.chatName = '';
+    }
   }
 
   ngOnInit() {

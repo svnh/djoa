@@ -1,18 +1,8 @@
 <div class="chat">
-
-
-
-
-  <!-- <div *ngFor="let message of fetchedOldChats">
-    <div *ngFor="let user of message.users">
-      {{user.profile.name}} | {{message.text}} | {{message.createdAt | date:'yMdjm'}}
-    </div>
-
-  </div> -->
-
-
   <div *ngFor="let message of messages">
-    {{message.chatName}} | {{message.createdAt | date:'yMdjm'}}
+    <div *ngFor="let user of message.users">
+      {{user.profile.name}} | {{message.chatName}} | {{message.createdAt | date:'yMdjm'}}
+    </div>
   </div>
   <input [(ngModel)]="message.chatName" /><button (click)="sendMessage()">Click</button>
 </div>

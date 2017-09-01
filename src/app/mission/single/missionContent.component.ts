@@ -55,7 +55,12 @@ export class MissionContentComponent implements OnInit {
     private location: Location,
     private _fb: FormBuilder,
     private authService: AuthService,
-  ) {}
+  ) {
+    this.globalEventsManager.refreshCenterEmitter.subscribe((isRefresh) => {
+        if(isRefresh)
+          this.getMission(this.fetchedMission._id)
+    })
+  }
 
   ngOnInit() {
     this.myForm = this._fb.group({

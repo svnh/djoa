@@ -78,8 +78,6 @@ export class ProjectContentComponent implements OnInit {
 
 
 
-
-
   ngOnInit() {
 
     this.getProducts(1, {})
@@ -164,7 +162,7 @@ export class ProjectContentComponent implements OnInit {
     showNavBarData.search.userId = userId
     this.globalEventsManager.showNavBarRight(showNavBarData);
   }
-  
+
 
   getProject(id: string) {
     this.projectService.getProject(id)
