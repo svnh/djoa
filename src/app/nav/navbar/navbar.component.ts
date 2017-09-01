@@ -29,6 +29,8 @@ export class NavbarComponent implements OnInit {
   fetchedUser: User = new User();
   fetchedNotifications: Notification[] = [];
   notificationsNotRead: number=0;
+  showNavBarData: ShowNavBarData = new ShowNavBarData()
+  topNavOpen: boolean = false
 
   constructor(
     // private globalEventsManager: GlobalEventsManager,
@@ -41,18 +43,27 @@ export class NavbarComponent implements OnInit {
     // private companieGuardService: CompanieGuardService,
     // private paiementGuardService: PaiementGuardService,
   ) {
-    // this.globalEventsManager.showNavBarEmitter.subscribe((mode)=>{
-    //     // mode will be null the first time it is created, so you need to igonore it when null
-    //     if (mode !== null) {
-    //       this.showNavBar = mode;
-    //       this.fetchedUser = this.authService.getCurrentUser()
-    //     }
-    // });
+    this.globalEventsManager.showNavBarEmitterTop.subscribe((showNavBarData)=>{
+        if (showNavBarData !== null) {
+          this.showNavBarData = showNavBarData;
+          if(this.showNavBarData.showNavBar) {
+            this.topNavOpen = true
+          } else {
+            this.topNavOpen = false
+          }
+        }
+    })
   }
 
 
 
   ngOnInit() {
+    if (this.authService.isLoggedIn()) {
+      this.showNavBarData.showNavBar = true
+      this.globalEventsManager.showNavBarTop(this.showNavBarData);
+
+    }
+
     // if (this.authService.isLoggedIn()) {
     //   //let userId = localStorage.getItem('userId');
     //

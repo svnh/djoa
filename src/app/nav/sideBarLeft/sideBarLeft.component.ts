@@ -32,8 +32,6 @@ export class SideBarLeftComponent implements OnInit {
     private adminService: AdminService,
     private userService: UserService,
     private router: Router,
-    // private companieGuardService: CompanieGuardService,
-    // private paiementGuardService: PaiementGuardService,
   ) {
     this.globalEventsManager.showNavBarEmitterLeft.subscribe((showNavBarData)=>{
         if (showNavBarData !== null) {
