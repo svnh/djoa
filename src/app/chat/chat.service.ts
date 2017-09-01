@@ -26,9 +26,11 @@ export class ChatService {
     this.socket.emit('add-message', message);
   }
 
-  getMessages() {
+  getMessages(id: string) {
     let observable = new Observable(observer => {
-      this.socket = io(this.urlSocket);
+      this.socket = io(this.urlSocket, {
+        query: 'r_var='+'room'+id
+    });
       this.socket.on('message', (data) => {
         observer.next(data);
       });
@@ -76,6 +78,26 @@ export class ChatService {
         return Observable.throw(error.json());
       });
   }
+
+
+  initChatSocket(page: number, search: any) {
+    let headers = new Headers({'Content-Type': 'application/json'});
+    headers.append('Authorization', '' + this.authService.currentUser.token);
+    let options = new RequestOptions({ headers: headers, search: search});
+    return this.http.get(this.url + 'chat/page/' + page , options)
+      .timeout(9000)
+      .map((response: Response) => {
+
+        const chats = response.json();
+
+        return chats;
+      })
+      .catch((error: Response) => {
+        this.errorService.handleError(error.json());
+        return Observable.throw(error.json());
+      });
+  }
+
 
 
   getTasks(page: number, search: any) {

@@ -13,10 +13,12 @@ export class Chat {
     chatName: string = '';
     writtenBy: User[] = [];
     forms: Form[] = [];
+    users: User[] = [];
     projects: Companie[] = [];
     strats: Strat[] = [];
     missions: Mission[] = [];
     createdAt: Date = new Date()
+    ownerCompanies: Companie[]=[]
 
     // dateChat: DateChat = new DateChat()
 }

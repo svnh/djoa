@@ -11,12 +11,55 @@ var express = require('express'),
 
 
 
+                    // SOCKET.io
+                    var app = express()
+                    const http = require('http').Server(app);
+                    const io = require('socket.io')(http);
+                    io.on('connection', (socket) => {
+
+
+
+                        var room = socket.handshake['query']['r_var'];
+
+                        // console.log(room)
+                        socket.join(room);
+                        console.log('user connected to ' + room);
+                        // getInitMessages()
+                        // io.emit('message', { type: 'new-message', text: 'alan' });
+                        // io.emit('message', { type: 'new-message', text: 'alan' });
+                        // io.emit('message', { type: 'new-message', text: 'alan' });
+                        // io.emit('message', { type: 'new-message', text: 'alan' });
+                        // io.emit('message', { type: 'new-message', text: 'alan' });
+
+
+                        socket.on('disconnect', function() {
+                            socket.leave(room)
+                            console.log('user disconnected');
+                        });
+
+                        socket.on('add-message', (message) => {
+                          // console.log(message)
+                            io.to(room).emit('message', {
+                              type: 'new-message',
+                              chatName: message.chatName,
+                              createdAt: Date(),
+                              users: message.users
+                            });
+                            // Function above that stores the message in the database
+                            // databaseStore(message)
+                            // console.log('here you must save' + message)
+
+                            saveChat(message)
+                        });
+                    });
+                    http.listen(5000, () => {
+                        console.log('Server SOCKET.io started on port 5000');
+                    });
+                    // SOCKET.io
 
 
 
 
-
-//
 
 
 
@@ -69,45 +112,6 @@ router.use('/', function (req, res, next) {
 
 
 
-
-
-                // SOCKET.io
-                var app = express()
-                const http = require('http').Server(app);
-                const io = require('socket.io')(http);
-                io.on('connection', (socket) => {
-
-                    console.log('user connected');
-                    // getInitMessages()
-                    // io.emit('message', { type: 'new-message', text: 'alan' });
-                    // io.emit('message', { type: 'new-message', text: 'alan' });
-                    // io.emit('message', { type: 'new-message', text: 'alan' });
-                    // io.emit('message', { type: 'new-message', text: 'alan' });
-                    // io.emit('message', { type: 'new-message', text: 'alan' });
-
-
-                    socket.on('disconnect', function() {
-                        console.log('user disconnected');
-                    });
-
-                    socket.on('add-message', (message) => {
-                        io.emit('message', {
-                          type: 'new-message',
-                          chatName: message.chatName,
-                          createdAt: Date(),
-                          users: [req.user]
-                        });
-                        // Function above that stores the message in the database
-                        // databaseStore(message)
-                        // console.log('here you must save' + message)
-
-                        saveChat(message, req)
-                    });
-                });
-                http.listen(5000, () => {
-                    console.log('Server SOCKET.io started on port 5000');
-                });
-                // SOCKET.io
 
 
 
@@ -212,8 +216,11 @@ router.get('/page/:page', function (req, res, next) {
   //   searchQuery['details.name'] = new RegExp(req.query.search, 'i')
   //
   //
-  // if(req.query.idQuote)
-  //   searchQuery['quotes'] = mongoose.Types.ObjectId(req.query.idQuote)
+  if(req.query.missionId)
+    searchQuery['missions'] = mongoose.Types.ObjectId(req.query.missionId)
+
+  if(req.query.stratId)
+    searchQuery['strats'] = mongoose.Types.ObjectId(req.query.stratId)
 
 
   Chat
@@ -391,12 +398,15 @@ router.get('/page/:page', function (req, res, next) {
 
 
 
-      function saveChat(message, req){
+      function saveChat(message) {
+        // console.log('saveChat')
+        console.log(message)
           var chat = new Chat()
           chat.chatName = message.chatName
-          chat.users = req.user._id
+          chat.users = message.users
           chat.strats = message.strats
-          chat.ownerCompanies = req.user.ownerCompanies
+          chat.missions = message.missions
+          chat.ownerCompanies = message.ownerCompanies
           chat.save(function (err, result) {
             if (err) {
               console.log(err)

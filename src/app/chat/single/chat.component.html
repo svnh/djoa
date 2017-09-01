@@ -4,5 +4,6 @@
       {{user.profile.name}} | {{message.chatName}} | {{message.createdAt | date:'yMdjm'}}
     </div>
   </div>
-  <input [(ngModel)]="message.chatName" /><button (click)="sendMessage()">Click</button>
+  <input [(ngModel)]="message.chatName" (keyup.enter)="sendMessage()"/>
+  <button (click)="sendMessage()">Click</button>
 </div>
