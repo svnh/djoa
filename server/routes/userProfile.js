@@ -395,7 +395,7 @@ router.post('/', function (req, res, next) {
 
   var user = new User(req.body)
 
-  user.role = role
+  // user.role = role
   user.password = passwordHash.generate(makeid()),
 
   user.save(function (err, user) {

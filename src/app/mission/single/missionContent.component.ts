@@ -93,9 +93,10 @@ export class MissionContentComponent implements OnInit {
     // }
 
     this.activatedRoute.params.subscribe((params: Params) => {
-      if (this.search.missionId) {
-        this.getMission(this.search.missionId)
-      } else if(params['id']) {
+      // if (this.search.missionId) {
+      //   this.getMission(this.search.missionId)
+      // } else
+      if(params['id']) {
         this.search.missionId = params['id']
         this.getMission(params['id'])
       }
