@@ -1,103 +1,29 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-
-
-
       <h3>Strat</h3>
-
-      <h4 class="dspl-nn">id: {{fetchedStrat._id}}</h4>
-
-
-      <form [formGroup]="myForm" novalidate (ngSubmit)="save()">
-        <div>
-
-
-          <!-- <app-autocomplete
-          [typeAutocomplete]="'project'"
-          [canDelete]="false"
-          [title]="'Project'"
-          [singleChoice]=true
-          [arrayContent]="fetchedStrat.projects">
-        </app-autocomplete> -->
-
-          type: {{fetchedStrat.stratType}}
-          <input type="text" class="form-control" formControlName="title" [(ngModel)]="fetchedStrat.title" placeholder="title">
-
-          <!--
-        <select class="form-control" formControlName="status" [(ngModel)]="fetchedStrat.status">
-          <option *ngFor="let n of statusTypes" [attr.value]="n.value">{{n.label}}</option>
-        </select> -->
-
-          <textarea class="form-control" formControlName="description" [(ngModel)]="fetchedStrat.description" placeholder="Description">
-        </textarea>
-          <app-autocomplete [typeAutocomplete]="'user'" [singleChoice]="'true'" [arrayContent]="fetchedStrat.users" (getResultAutocomplete)="selectAssignedTo($event[0])">
-          </app-autocomplete>
-          <input type="date" class="form-control" formControlName="startString" [(ngModel)]="fetchedStrat.dateStrat.startString">
-          <input type="date" class="form-control" formControlName="endString" [(ngModel)]="fetchedStrat.dateStrat.endString">
-
-
-          <!--
-        <input type="number" class="form-control" formControlName="amount" [(ngModel)]="fetchedPaiementQuote.amount" placeholder="Amount">
-
-        <input type="date" class="form-control" [ngModelOptions]="{standalone: true}" class="form-control" [(ngModel)]="fetchedPaiementQuote.datePaiementString" > -->
-
-          <!-- <ngb-datepicker #dp [(ngModel)]="fetchedPaiementQuote.datePaiement" formControlName="datePaiement" (navigate)="date = $event.next"></ngb-datepicker> -->
-
-          <!-- <div class="form-group">
-          <div class="input-group">
-            <input
-            class="form-control"
-            placeholder="yyyy-mm-dd"
-            name="dp"
-            formControlName="datePaiement"
-            [(ngModel)]="fetchedPaiementQuote.datePaiement" ngbDatepicker #d="ngbDatepicker">
-            <div class="input-group-addon" (click)="d.toggle()" >
-              <img src="img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
-            </div>
-          </div>
-        </div>
-
-{{fetchedPaiementQuote.datePaiement|json}} -->
-          <!-- <div (click)="fetchedPaiementQuote.editModeDate = !fetchedPaiementQuote.editModeDate">{{fetchedPaiementQuote.datePaiement | date:'yyyy-MM-dd' }}</div> -->
-          <!-- <input *ngIf="fetchedPaiementQuote.editModeDate" type="date" (focusout)="fetchedPaiementQuote.editModeDate = !fetchedPaiementQuote.editModeDate" [ngModelOptions]="{standalone: true}" class="form-control" [(ngModel)]="fetchedPaiementQuote.datePaiement" placeholder="Amount"> -->
-        </div>
-        <br>
-        <md-card>
-          <md-card-content>
-            <h2>Links to documents</h2>
-            <app-documents [search]="search"></app-documents>
-          </md-card-content>
-        </md-card>
-        <br>
-        <md-card>
-          <md-card-content>
-            <h2>Goal</h2>
-            <app-briefs [search]="search"></app-briefs>
-          </md-card-content>
-        </md-card>
-
-        <br>
-
-
-
-        <md-card>
-          <md-card-content>
-            <h2>Chat</h2>
-            <app-chat></app-chat>
-          </md-card-content>
-        </md-card>
-        <br>
-
-
-        <div class="valid-edit">
-          <button type="submit" class="sln-edt done">{{'Save' }}</button>
-          <button *ngIf="fetchedStrat._id" type="button" class="delete" md-button (click)="openDialogDelete()">
-            Delete
-          </button>
-          <br><br><br><br><br><br>
-        </div>
-      </form>
+      <h4>id: {{fetchedStrat._id}}</h4>
+      <md-card>
+        <md-card-content>
+          <h2>Links to documents</h2>
+          <app-documents [search]="search"></app-documents>
+        </md-card-content>
+      </md-card>
+      <br>
+      <md-card>
+        <md-card-content>
+          <h2>Goal</h2>
+          <app-briefs [search]="search"></app-briefs>
+        </md-card-content>
+      </md-card>
+      <br>
+      <md-card>
+        <md-card-content>
+          <h2>Chat</h2>
+          <app-chat></app-chat>
+        </md-card-content>
+      </md-card>
+      <br><br><br><br><br><br><br><br><br><br>
     </div>
   </div>
 </div>
