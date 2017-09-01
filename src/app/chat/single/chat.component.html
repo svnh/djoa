@@ -1,6 +1,6 @@
 <div class="chat">
   <div *ngFor="let message of messages">
-    {{message.text}}
+    {{message.text}} | {{message.createdAt | date:'yMdjm'}}
   </div>
   <input [(ngModel)]="message" /><button (click)="sendMessage()">Click</button>
 </div>

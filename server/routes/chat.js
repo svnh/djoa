@@ -16,8 +16,8 @@ var express = require('express'),
       io.on('connection', (socket) => {
 
           console.log('user connected');
-          getChat()
-          io.emit('message', { type: 'new-message', text: 'alan' });
+          getInitMessages()
+          // io.emit('message', { type: 'new-message', text: 'alan' });
           // io.emit('message', { type: 'new-message', text: 'alan' });
           // io.emit('message', { type: 'new-message', text: 'alan' });
           // io.emit('message', { type: 'new-message', text: 'alan' });
@@ -29,7 +29,7 @@ var express = require('express'),
           });
 
           socket.on('add-message', (message) => {
-              io.emit('message', { type: 'new-message', text: message });
+              io.emit('message', { type: 'new-message', text: message, createdAt: Date() });
               // Function above that stores the message in the database
               // databaseStore(message)
               // console.log('here you must save' + message)
@@ -46,8 +46,8 @@ var express = require('express'),
 
 
 
-      function getChat(){
-        var itemsPerPage = 6
+      function getInitMessages(){
+        var itemsPerPage = 20
         var currentPage = 1
         var pageNumber = currentPage - 1
         var skip = (itemsPerPage * pageNumber)
@@ -78,6 +78,7 @@ var express = require('express'),
             })
           } else {
             // return item
+            item.sort()
             item.forEach(chat=> {
               io.emit('message', chat);
             })

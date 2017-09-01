@@ -22,6 +22,8 @@ export class ChatComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.connection = this.chatService.getMessages().subscribe(message => {
       this.messages.push(message);
+      if(this.messages.length > 20)
+        this.messages.splice(0, 1);
     })
   }
 
