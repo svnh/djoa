@@ -127,7 +127,6 @@ export class DocumentsComponent implements OnInit {
   //   this.getDocuments(this.paginationData.currentPage, this.search)
   // }
 
-
   getDocuments(page : number, search: any) {
     //this.fetchedDocuments =[]
     this.loading = true;

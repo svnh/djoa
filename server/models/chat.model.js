@@ -12,7 +12,7 @@ var chat = new Schema({
     users : [{type: Schema.Types.ObjectId, ref: 'User'}],
     // isRead: {type: Boolean, default: [false]},
     // nameChat: {type: String, default: ['']},
-    text: {type: String, default: ['']},
+    chatName: {type: String, default: ['']},
 
 
 
