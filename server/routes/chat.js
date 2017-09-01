@@ -16,8 +16,8 @@ var express = require('express'),
       io.on('connection', (socket) => {
 
           console.log('user connected');
-          getChat()
-          // io.emit('message', { type: 'new-message', text: 'alan' });
+          // getChat()
+          io.emit('message', { type: 'new-message', text: 'alan' });
           // io.emit('message', { type: 'new-message', text: 'alan' });
           // io.emit('message', { type: 'new-message', text: 'alan' });
           // io.emit('message', { type: 'new-message', text: 'alan' });
