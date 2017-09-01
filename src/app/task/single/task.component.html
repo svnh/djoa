@@ -3,7 +3,7 @@
   <app-header [showBackButton]="true" [nameObject]="'task'" [showCreateButton]="false"></app-header>
 
   <div>
-    <h4 class="dspl-nn">id: {{fetchedTask._id}}</h4>
+    <h4 class="">id: {{fetchedTask._id}}</h4>
 
 
     <form [formGroup]="myForm" novalidate (ngSubmit)="save()">

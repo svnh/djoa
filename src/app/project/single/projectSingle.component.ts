@@ -256,6 +256,7 @@ export class ProjectSingleComponent implements OnInit {
         .subscribe(
           res => {
             this.toastr.success('Great!', res.message)
+            this.closeRight()
             // this.getProject(res.obj._id)
             this.globalEventsManager.refreshCenter(true);
           },
@@ -266,6 +267,7 @@ export class ProjectSingleComponent implements OnInit {
         .subscribe(
           res => {
             this.toastr.success('Great!', res.message)
+            this.closeRight()
             // this.fetchedProject = res.obj
             // this.getProject(res.obj._id)
             // this.saved.emit(res.obj)
@@ -278,6 +280,12 @@ export class ProjectSingleComponent implements OnInit {
           }
         );
     }
+  }
+
+  closeRight() {
+    let showNavBarData = new ShowNavBarData()
+    showNavBarData.showNavBar = false
+    this.globalEventsManager.showNavBarRight(showNavBarData);
   }
 
   openDeleteConfirmation(){
