@@ -3,32 +3,23 @@
     <button type="button" (click)="openSideBarLeft()">left</button>
   </li>
   <li class="nav-item">
-    <a class="nav-link" routerLinkActive="active" [routerLink]="['/']">Home</a>
+    <a class="nav-link" routerLinkActive="active" [routerLink]="['/']"><i class="fa fa-home"></i></a>
   </li>
-
-
-
   <button md-button [mdMenuTriggerFor]="menu">Admin</button>
   <md-menu #menu="mdMenu">
     <button md-menu-item routerLinkActive="active" [routerLink]="['/user/list/false']">Users</button>
     <button md-menu-item routerLinkActive="active" [routerLink]="['/product']">Products</button>
     <button md-menu-item routerLinkActive="active" [routerLink]="['/log']">Logs</button>
   </md-menu>
-
-
-
-  <li class="nav-item">
-    <button type="button" (click)="logout()">
-      {{'Logout' }}
-    </button>
-  </li>
-
-  <li class="nav-item">
-    <button type="button" (click)="openMyProfile()"> My profile</button>
-  </li>
-
-  <li class="nav-item">
-    <button type="button" (click)="newObj()">+</button>
-  </li>
-
+  <div class="right-menu">
+    <li class="nav-item">
+      <button type="button" (click)="logout()">{{'Logout' }}</button>
+    </li>
+    <li class="nav-item">
+      <button type="button" (click)="openMyProfile()">My profile</button>
+    </li>
+    <li class="nav-item">
+      <button type="button" (click)="newObj()"><i class="fa fa-plus"></i></button>
+    </li>
+  </div>
 </ul>
