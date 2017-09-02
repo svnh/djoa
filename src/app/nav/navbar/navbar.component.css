@@ -3,7 +3,7 @@
   padding: 15px;
 }
 .nav.leftmenu {
-  margin-left: 5%;
+  margin-left: 1%;
   float: left;
   z-index: 999;
   padding: 15px;
@@ -14,3 +14,13 @@
   padding: 10px !important;
   border: 1px solid !important;
   border-radius: 20px !important;}
+a.nav-link {
+  padding: 0 1em !important;
+}
+.fa-bars {
+  background: #4a148c;
+  background: -webkit-linear-gradient(left, #4a148c , #0d47a1);
+  background: -o-linear-gradient(right, #4a148c , #0d47a1);
+  background: -moz-linear-gradient(right, #4a148c , #0d47a1);
+  background: linear-gradient(to right, #4a148c , #0d47a1);
+}

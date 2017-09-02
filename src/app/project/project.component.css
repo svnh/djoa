@@ -1,7 +1,7 @@
 .djoa-container {
   float: none;
   margin: 0 auto;
-  height: 100vh !important;
+  height: 86vh !important;
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -12,5 +12,5 @@
     width: 70% !important;
     max-width: 70% !important;
   }
-  
+
 }

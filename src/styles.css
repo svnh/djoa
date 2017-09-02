@@ -18,16 +18,18 @@ html, body {
   background: -moz-linear-gradient(right, #4a148c , #0d47a1);
   background: linear-gradient(to right, #4a148c , #0d47a1);
 }
+.djoa-container {
+  float: none;
+  margin: 0 auto;
+  height: 86vh !important;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
 
 @media screen and (min-width: 768 px) {
   .djoa-container {
     width: 70% !important;
     max-width: 70% !important;
-    float: none;
-    margin: 0 auto;
-    height: 100vh !important;
-    overflow-y: auto;
-    overflow-x: hidden;
   }
 }
 
@@ -52,4 +54,11 @@ body, .mat-drawer-container {
     z-index: -999;
     padding-top: 70px;
   }
+  md-sidenav.mat-drawer.mat-sidenav.ng-tns-c7-1.ng-trigger.ng-trigger-transform.mat-drawer-end.mat-drawer-over {
+    z-index: -999999;
+    width: 250px;
+    padding: 60px 15px;
+  }
 }
+
+/*----------Navs---------*/
