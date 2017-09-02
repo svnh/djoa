@@ -14,8 +14,18 @@
   background: linear-gradient(to right, #4a148c , #0d47a1);
 }
 
-/*---------- Angular CSS Override---------*/
+@media screen and (min-width: 768 px) {
+  .djoa-container {
+    width: 70% !important;
+    max-width: 70% !important;
+  }
+}
 
-.mat-drawer-container {
+/*---------- Angular CSS and Bootstrap Override---------*/
+
+body, .mat-drawer-container {
   background-color: transparent !important;
+}
+.mat-drawer-container {
+  color: #ffffff;
 }
