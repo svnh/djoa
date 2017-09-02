@@ -40,7 +40,7 @@
         <br>
         <md-card>
           <md-card-content>
-            <h2 class="example-h2">Mission Information</h2>
+            <h2 class="">{{fetchedMission.title}}</h2>
             <button type="button" (click)="openDetails()">Edit</button>
             <br>
             Start Date {{fetchedMission.dateMission.start | date:'yyyy-MM-dd' }} /
@@ -62,7 +62,7 @@
         <md-card>
           <md-card-content>
             <h2>Team</h2>
-            <button type="button" (click)="openTeam()">edit team</button>
+            <button type="button" (click)="openTeam()">Edit</button>
             <br>
             <div *ngFor="let user of fetchedMission.users">
               <div (click)="openProfile(user._id)">

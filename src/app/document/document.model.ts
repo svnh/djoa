@@ -8,7 +8,7 @@ export class Document {
     _id: string = '';
     link: string = '';
     details: Details = new Details()
-    status: number = 0;
+    status: Status = new Status();
     clients: User[] = [];
     assignedTos: User[] = [];
     forms: Form[] = [];
@@ -19,11 +19,14 @@ export class Document {
     dateDocument: DateDocument = new DateDocument()
 }
 
-export class Log {
-  comment: string = '';
-  by: User[] = [];
-  forms: Form[] = [];
-  date: Date = new Date()
+export class Status {
+    global: string = 'WIP';
+    review: boolean = false;
+    approve: boolean = false;
+    changeRequest: boolean = false;
+    changeSent: boolean = false;
+
+
 }
 export class DateDocument {
   start: Date = new Date()

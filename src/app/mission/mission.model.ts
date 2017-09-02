@@ -10,9 +10,9 @@ export class Mission {
     _id: string = '';
     projects: Project[] = []
     title: string = '';
-    editMode: boolean = false;
+    // editMode: boolean = false;
     description: string = '';
-    missionType: string = '';
+    // missionType: string = '';
     dateMission: DateDjoa = new DateDjoa()
     users: User[] = [];
     products: Product[] = [];

@@ -33,6 +33,7 @@ var mission    = require('./routes/mission')
 var document    = require('./routes/document')
 var strat    = require('./routes/strat')
 var brief    = require('./routes/brief')
+var log    = require('./routes/log')
 
 
 
@@ -124,6 +125,7 @@ app.use('/mission', mission)
 app.use('/document', document)
 app.use('/strat', strat)
 app.use('/brief', brief)
+app.use('/log', log)
 
 
 

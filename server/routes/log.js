@@ -2,19 +2,18 @@ var express = require('express'),
     router  = express.Router(),
     config  = require('../config/config'),
     User    = require('../models/user.model'),
-    Strat    = require('../models/strat.model'),
     Log    = require('../models/log.model'),
     Form    = require('../models/form.model'),
     fs      = require('fs'),
     jwt     = require('jsonwebtoken'),
-    nameObject = 'strat'
+    nameObject = 'log'
 
 // this process does not hang the nodejs server on error
 process.on('uncaughtException', function (err) {
   console.log(err)
 })
 
-// Checking if user is authenticated or not, security middleware
+
 router.use('/', function (req, res, next) {
   var token = req.headers['authorization']
   jwt.verify(token, config.secret, function (err, decoded) {
@@ -33,7 +32,7 @@ router.use('/', function (req, res, next) {
     if (decoded) {
       User
       .findById(decoded.user._id)
-      .populate({path: 'rights', model: 'Right'})
+      .populate({ path: 'rights', model: 'Right'})
       .exec(function (err, doc) {
         if (err) {
           return res.status(500).json({
@@ -47,7 +46,7 @@ router.use('/', function (req, res, next) {
             error: {message: 'The user was not found'}
           })
         }
-        if(!shared.isCurentUserHasAccess(doc.rights, 'companie', 'strat')) {
+        if(!shared.isCurentUserHasAccess(doc, nameObject, 'read')) {
           return res.status(404).json({
             title: 'No rights',
             error: {message: 'No rights'}
@@ -64,25 +63,25 @@ router.use('/', function (req, res, next) {
 
 
 
-//update
+
 router.put('/:id', function (req, res, next) {
-  if(!shared.isCurentUserHasAccess(req.user.rights, nameObject, 'write')) {
+  if (!shared.isCurentUserHasAccess(req.user, nameObject, 'write')) {
     return res.status(404).json({ title: 'No rights', error: {message: 'No rights'} })
   }
-  Strat.findById(({_id: req.params.id}), function (err, item) {
+  Log.findById(({_id: req.params.id}), function (err, item) {
     if (err) {
       return res.status(404).json({
         message: '',
         err: err
       })
     } else {
-      //console.log(req.body)
-        item.users = req.body.users
-        item.dateStrat = req.body.dateStrat
-        item.description = req.body.description
+
         item.name = req.body.name
-        item.dateStrat = req.body.dateStrat
-        item.status = req.body.status
+        item.description = req.body.description
+        // item.vendors = req.body.vendors
+        item.forms = req.body.forms
+
+
 
 
         item.save(function (err, result) {
@@ -103,7 +102,7 @@ router.put('/:id', function (req, res, next) {
 })
 
 router.post('/', function (req, res, next) {
-  if(!shared.isCurentUserHasAccess(req.user.rights, nameObject, 'write')) {
+  if (!shared.isCurentUserHasAccess(req.user, nameObject, 'write')) {
     return res.status(404).json({ title: 'No rights', error: {message: 'No rights'} })
   }
   if(!req.user.ownerCompanies.length) {
@@ -112,18 +111,17 @@ router.post('/', function (req, res, next) {
       err: ''
     })
   }
-
-
-  var strat = new Strat(req.body)
-
-  strat.ownerCompanies = req.user.ownerCompanies
-
-  strat.save(function (err, result) {
+   console.log(req.user.companies)
+  //var Log = new Log(req.body)
+  var log = new Log(req.body)
+  log.ownerCompanies = req.user.ownerCompanies
+  log.owner = req.user._id
+  log.save(function (err, result) {
     if (err) {
-
+      console.log(err)
       return res.status(403).json({
         title: 'There was an issue',
-        error: err
+        error: {message: 'Error'}
       })
     }
     res.status(200).json({
@@ -143,47 +141,20 @@ router.get('/page/:page', function (req, res, next) {
   var pageNumber = currentPage - 1
   var skip = (itemsPerPage * pageNumber)
 
-//   let searchQuery = {
-//   //  createdAt:{"$lt": dateRef}
-// //    categories: categoriesArray,
-//   //  createdAt:{"$gt": dateRef},
-//   }
-  let searchQuery = {}
+  let searchQuery = {
+  //  createdAt:{"$lt": dateRef}
+//    categories: categoriesArray,
+  //  createdAt:{"$gt": dateRef},
+  }
   searchQuery['ownerCompanies'] = req.user.ownerCompanies
 
+  if(req.query.search)
+    searchQuery['name'] = new RegExp(req.query.search, 'i')
 
-  // if (req.query.myStrats === 'true')
-  //   searchQuery['assignedTos'] = mongoose.Types.ObjectId(req.user._id)
-    // aggregate.push({
-    //   $match: {
-    //     'bucketStrats.strats.assignedTos': mongoose.Types.ObjectId(req.user._id)
-    //   }
-    // })
-
-  // if(req.query.search)
-  //   searchQuery['details.name'] = new RegExp(req.query.search, 'i')
-
-
-  if(req.query.projectId)
-    searchQuery['projects'] = mongoose.Types.ObjectId(req.query.projectId)
-
-  if(req.query.stratType)
-    searchQuery['stratType'] = req.query.stratType
-
-
-
-  Strat
+  Log
   .find(searchQuery)
   .sort('-createdAt')
-  .populate({path: 'projects', model: 'Project'})
-  .populate({ path: 'users', model: 'User'})
-
-  // .populate({path: 'quotes', model: 'Quote'})
-  // .populate(
-  //   {
-  //     path: 'bucketStrats.strats.assignedTos',
-  //     model: 'User',
-  //   })
+  .populate({path: 'forms', model: 'Form'})
   .limit(itemsPerPage)
   .skip(skip)
   .exec(function (err, item) {
@@ -193,7 +164,7 @@ router.get('/page/:page', function (req, res, next) {
         err: err
       })
     } else {
-      Strat
+      Log
       .find(searchQuery)
       .count()
       .exec(function (err, count) {
@@ -213,36 +184,24 @@ router.get('/page/:page', function (req, res, next) {
 
 
 
-// getting user forms to display them on front end
 router.get('/:id', function (req, res, next) {
-
-
-  Strat.findById((req.params.id), function (err, obj) {
+  Log.findById((req.params.id), function(err, obj) {
     if (err) {
-      return res.status(500).json({
-        message: 'An error occured',
-        err: err
-      })
+      return res.status(500).json({message: 'An error occured', err: err})
     }
     if (!obj) {
       return res.status(404).json({
         title: 'No obj found',
-        error: {message: 'Obj not found!'}
+        error: {
+          message: 'Obj not found!'
+        }
       })
     }
 
-
-    Strat
+    Log
     .findById({_id: req.params.id})
-    .populate({path: 'projects', model: 'Project'})
-    .populate({ path: 'users', model: 'User'})
-    // .populate({path: 'forms', model: 'Form'})
-    // .populate({path: 'assignedTos', model: 'User'})
-    // .populate(
-    //   {
-    //     path: 'bucketStrats.strats.assignedTos',
-    //     model: 'User',
-    //   })
+    .populate('vendors')
+    .populate('forms')
     .exec(function (err, item) {
       if (err) {
         return res.status(404).json({
@@ -250,20 +209,6 @@ router.get('/:id', function (req, res, next) {
           err: err
         })
       } else {
-
-
-        var log = new Log()
-        log.ownerCompanies = req.user.ownerCompanies
-        log.strats = [item]
-        log.users = [req.user]
-        log.save(function (err, result) {
-          if (err) { console.log(err) } else { console.log(result) }
-        })
-
-
-
-
-
         res.status(200).json({
           message: 'Success',
           item: item
@@ -276,12 +221,11 @@ router.get('/:id', function (req, res, next) {
 
 
 
-
 router.delete('/:id', function (req, res, next) {
-  if(!shared.isCurentUserHasAccess(req.user.rights, nameObject, 'write')) {
+  if (!shared.isCurentUserHasAccess(req.user, nameObject, 'write')) {
     return res.status(404).json({ title: 'No rights', error: {message: 'No rights'} })
   }
-  Strat.findById((req.params.id), function (err, item) {
+  Log.findById((req.params.id), function (err, item) {
     if (err) {
       return res.status(500).json({
         message: 'An error occured',

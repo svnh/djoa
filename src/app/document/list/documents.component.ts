@@ -43,7 +43,7 @@ export class DocumentsComponent implements OnInit {
 
 
   categories2 = '';
-
+  isCrew: boolean = true
 
 
   constructor(
@@ -67,6 +67,26 @@ export class DocumentsComponent implements OnInit {
     //   this2.search.orderBy = 'name'
       this2.getDocuments(1, this2.search)
     // }, 200);
+  }
+  // changeCrew(result) {
+  //   result.checked ? this.isCrew = true : this.isCrew = false
+  // }
+  changeStatus(result, i, newStatus) {
+
+    this.fetchedDocuments[i].status.global = newStatus
+
+    if(newStatus === 'CHANGES SENT') {
+      this.fetchedDocuments[i].status.changeRequest = false
+      // this.fetchedDocuments[i].status.review = false
+      // this.fetchedDocuments[i].status.approve = false
+    }
+    if(newStatus === 'CHANGES REQUEST') {
+      // this.fetchedDocuments[i].status.changeSent = false
+    }
+
+
+
+    // result.checked ? this.fetchedDocuments[i].status.global = 'WIP' : this.fetchedDocuments[i].status.global  = ''
   }
 
   addDocument() {

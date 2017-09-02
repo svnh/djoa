@@ -1,14 +1,75 @@
 <button type="button" (click)="addDocument()">+</button>
-<div *ngFor="let document of fetchedDocuments">
+<div *ngFor="let document of fetchedDocuments; let i = index;">
   <md-card>
     <md-card-content>
+      <md-slide-toggle [(ngModel)]="isCrew">IS CREW? (just for testing purpose)</md-slide-toggle>
+      <br>
       <button type="button" (click)="delete(document._id)">X</button>
       <button type="button" (click)="openDetails(document._id)">Open</button>
       <br>
       <img height="100px" src="assets/images/google_sheet.ico">
-      <div class="centre">{{document.details.name}}</div>
+      <div class="">{{document.details.name}}</div>
       <a target="_blank" href="{{document.link}}">open</a>
+      <br><br>
 
+      <div *ngIf="document.status.global == 'WIP'">
+        <div *ngIf="isCrew">
+          <md-slide-toggle (change)="changeStatus($event, i, 'REVIEW')" [(ngModel)]="fetchedDocuments[i].status.review">SEND FOR REVIEW</md-slide-toggle>
+        </div>
+        <div *ngIf="!isCrew">
+          WORK IN PROGRESS NO ACTION REQUIRED
+        </div>
+      </div>
+
+      <div *ngIf="document.status.global == 'REVIEW'">
+        <div *ngIf="isCrew">
+          <md-slide-toggle (change)="changeStatus($event, i, '')" [(ngModel)]="fetchedDocuments[i].status.review">REVIEW REQUESTED</md-slide-toggle>
+        </div>
+        <div *ngIf="!isCrew">
+          <md-slide-toggle (change)="changeStatus($event, i, 'COMPLETE')" [(ngModel)]="fetchedDocuments[i].status.approve">APPROVE</md-slide-toggle>
+          <br>
+          <md-slide-toggle (change)="changeStatus($event, i, 'CHANGES REQUEST')" [(ngModel)]="fetchedDocuments[i].status.changeRequest">REQUEST CHANGES</md-slide-toggle>
+        </div>
+      </div>
+
+
+      <div *ngIf="document.status.global == 'CHANGES REQUEST'">
+        <div *ngIf="isCrew">
+          SEE DOCUMENT AND/OR CHAT FOR INSTRUCTIONS
+          <BR>
+          <md-slide-toggle (change)="changeStatus($event, i, 'CHANGES SENT')" [(ngModel)]="fetchedDocuments[i].status.changeSent">SEND APPLIED CHANGES</md-slide-toggle>
+        </div>
+        <div *ngIf="!isCrew">
+          <md-slide-toggle (change)="changeStatus($event, i, 'REVIEW')" [(ngModel)]="fetchedDocuments[i].status.changeRequest">CHANGE REQUESTED</md-slide-toggle>
+          <br>
+          NO ACTION REQUIRED
+        </div>
+      </div>
+
+
+      <div *ngIf="document.status.global == 'CHANGES SENT'">
+        <div *ngIf="isCrew">
+          <md-slide-toggle (change)="changeStatus($event, i, 'CHANGES REQUEST')" [(ngModel)]="fetchedDocuments[i].status.review">CHANGES SENT</md-slide-toggle>
+        </div>
+        <div *ngIf="!isCrew">
+          <md-slide-toggle (change)="changeStatus($event, i, 'COMPLETE')" [(ngModel)]="fetchedDocuments[i].status.approve">APPROVE</md-slide-toggle>
+          <br>
+          <md-slide-toggle (change)="changeStatus($event, i, 'CHANGES REQUEST')" [(ngModel)]="fetchedDocuments[i].status.changeRequest">REQUEST CHANGES</md-slide-toggle>
+        </div>
+      </div>
+
+
+      <div *ngIf="document.status.global == 'COMPLETE'">
+        <div *ngIf="isCrew">
+          THE DOCUMENT IS APPROVED
+        </div>
+        <div *ngIf="!isCrew">
+          APPROVED
+        </div>
+      </div>
+
+      <br>
+      <div class="">{{document.status.global}}</div>
     </md-card-content>
   </md-card>
 </div>

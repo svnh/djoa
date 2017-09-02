@@ -4,7 +4,7 @@ import { ToastsManager} from 'ng2-toastr';
 import { MdDialog } from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
-import { Document, StatusDocument, Log} from '../document.model';
+import { Document, StatusDocument} from '../document.model';
 // import { EditOptionsComponentDialog } from '../../form/modalLibrary/modalLibrary.component';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -373,8 +373,8 @@ export class DocumentSingleComponent implements OnInit {
           // })
 
 
-          this.fetchedDocument.dateDocument.startString = this.authService.isoDateToHtmlDate(this.fetchedDocument.dateDocument.start)
-          this.fetchedDocument.dateDocument.endString = this.authService.isoDateToHtmlDate(this.fetchedDocument.dateDocument.end)
+          // this.fetchedDocument.dateDocument.startString = this.authService.isoDateToHtmlDate(this.fetchedDocument.dateDocument.start)
+          // this.fetchedDocument.dateDocument.endString = this.authService.isoDateToHtmlDate(this.fetchedDocument.dateDocument.end)
 
 
 

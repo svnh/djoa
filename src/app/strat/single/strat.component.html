@@ -1,4 +1,3 @@
-
 <div class="container">
   <div>
     <h3>Strat</h3>
@@ -10,36 +9,26 @@
       <div>
 
 
-        <app-autocomplete
-          [typeAutocomplete]="'project'"
-          [search]="search"
-          [canDelete]=true
-          [title]="'Project'"
-          [singleChoice]=true
-          [arrayContent]="fetchedStrat.projects">
+        <app-autocomplete [typeAutocomplete]="'project'" [search]="search" [canDelete]=true [title]="'Project'" [singleChoice]=true [arrayContent]="fetchedStrat.projects">
         </app-autocomplete>
 
         type: {{fetchedStrat.stratType}}
         <input type="text" class="form-control" formControlName="title" [(ngModel)]="fetchedStrat.title" placeholder="title">
 
-<!--
+        <!--
         <select class="form-control" formControlName="status" [(ngModel)]="fetchedStrat.status">
           <option *ngFor="let n of statusTypes" [attr.value]="n.value">{{n.label}}</option>
         </select> -->
 
         <textarea class="form-control" formControlName="description" [(ngModel)]="fetchedStrat.description" placeholder="Description">
         </textarea>
-        <app-autocomplete
-          [typeAutocomplete]="'user'"
-          [singleChoice]="'true'"
-          [arrayContent]="fetchedStrat.users"
-          (getResultAutocomplete)="selectAssignedTo($event[0])">
+        <app-autocomplete [typeAutocomplete]="'user'" [singleChoice]="'true'" [arrayContent]="fetchedStrat.users" (getResultAutocomplete)="selectAssignedTo($event[0])">
         </app-autocomplete>
         <input type="date" class="form-control" formControlName="startString" [(ngModel)]="fetchedStrat.dateStrat.startString">
         <input type="date" class="form-control" formControlName="endString" [(ngModel)]="fetchedStrat.dateStrat.endString">
 
 
-<!--
+        <!--
         <input type="number" class="form-control" formControlName="amount" [(ngModel)]="fetchedPaiementQuote.amount" placeholder="Amount">
 
         <input type="date" class="form-control" [ngModelOptions]="{standalone: true}" class="form-control" [(ngModel)]="fetchedPaiementQuote.datePaiementString" > -->

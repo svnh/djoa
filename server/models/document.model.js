@@ -16,14 +16,20 @@ var document = new Schema({
     strats: [{type: Schema.Types.ObjectId, ref: 'Strat'}],
     missions: [{type: Schema.Types.ObjectId, ref: 'Mission'}],
     // assignedTos: [{type: Schema.Types.ObjectId, ref: 'User'}],
-    status: {type: String, default: [0]},
+    status: {
+      global: {type: String, default: ['WIP']},
+      review: {type: Boolean, default: [false]},
+      approve: {type: Boolean, default: [false]},
+      changeRequest: {type: Boolean, default: [false]},
+      changeSent: {type: Boolean, default: [false]},
+    },
     link: {type: String, default: ['']},
     forms: [{type: Schema.Types.ObjectId, ref: 'Form'}],
-    status: {type: Number},
-    dateDocument:{
-      start: {type: Date, default: [Date()]},
-      end: {type: Date, default: [Date()]},
-    },
+
+    // dateDocument:{
+    //   start: {type: Date, default: [Date()]},
+    //   end: {type: Date, default: [Date()]},
+    // },
     // categorie: {
     //   categ0:[{name: {type: String}}],
     //   categ1:[{name: {type: String}}],
