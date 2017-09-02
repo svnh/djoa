@@ -2,7 +2,7 @@
 <div *ngFor="let document of fetchedDocuments; let i = index;">
   <md-card>
     <md-card-content>
-      <md-slide-toggle [(ngModel)]="isCrew">IS CREW? (just for testing purpose)</md-slide-toggle>
+      <md-slide-toggle [(ngModel)]="isCrew">IS CREW? {{isCrew}} (just for testing purpose)</md-slide-toggle>
       <br>
       <button type="button" (click)="delete(document._id)">X</button>
       <button type="button" (click)="openDetails(document._id)">Open</button>
@@ -23,7 +23,7 @@
 
       <div *ngIf="document.status.global == 'REVIEW'">
         <div *ngIf="isCrew">
-          <md-slide-toggle (change)="changeStatus($event, i, '')" [(ngModel)]="fetchedDocuments[i].status.review">REVIEW REQUESTED</md-slide-toggle>
+          <md-slide-toggle (change)="changeStatus($event, i, 'WIP')" [(ngModel)]="fetchedDocuments[i].status.review">REVIEW REQUESTED</md-slide-toggle>
         </div>
         <div *ngIf="!isCrew">
           <md-slide-toggle (change)="changeStatus($event, i, 'COMPLETE')" [(ngModel)]="fetchedDocuments[i].status.approve">APPROVE</md-slide-toggle>
@@ -49,7 +49,9 @@
 
       <div *ngIf="document.status.global == 'CHANGES SENT'">
         <div *ngIf="isCrew">
-          <md-slide-toggle (change)="changeStatus($event, i, 'CHANGES REQUEST')" [(ngModel)]="fetchedDocuments[i].status.review">CHANGES SENT</md-slide-toggle>
+          <md-slide-toggle (change)="changeStatus($event, i, 'CHANGES REQUEST')" [(ngModel)]="fetchedDocuments[i].status.changeSent">CHANGES SENT</md-slide-toggle>
+          <br>
+          NO ACTION REQUIRED
         </div>
         <div *ngIf="!isCrew">
           <md-slide-toggle (change)="changeStatus($event, i, 'COMPLETE')" [(ngModel)]="fetchedDocuments[i].status.approve">APPROVE</md-slide-toggle>
@@ -64,7 +66,7 @@
           THE DOCUMENT IS APPROVED
         </div>
         <div *ngIf="!isCrew">
-          APPROVED
+          <md-slide-toggle (change)="changeStatus($event, i, 'CHANGES SENT')" [(ngModel)]="fetchedDocuments[i].status.approve">APPROVE</md-slide-toggle>
         </div>
       </div>
 

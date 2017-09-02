@@ -179,12 +179,7 @@ export class MissionComponent implements OnInit {
     this.globalEventsManager.showNavBarRight(showNavBarData);
   }
 
-  //
-  //
-  // goBack() {
-  //   this.location.back();
-  // }
-
+  
 
 
 

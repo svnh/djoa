@@ -15,7 +15,10 @@ import { QuoteService} from '../../quote/quote.service';
 import { User } from '../../user/user.model';
 import { Quote } from '../../quote/quote.model';
 import { AuthService} from '../../auth/auth.service';
+
 import {Search} from '../../mainPageHome/mainPageHome.model'
+import {GlobalEventsManager} from '../../globalEventsManager';
+import {ShowNavBarData} from '../../mainPageHome/mainPageHome.model'
 
 
 @Component({
@@ -59,6 +62,7 @@ export class DocumentSingleComponent implements OnInit {
     private userService: UserService,
     private quoteService: QuoteService,
     private authService: AuthService,
+    private globalEventsManager: GlobalEventsManager,
   ) {
   }
 
@@ -270,9 +274,11 @@ export class DocumentSingleComponent implements OnInit {
           res => {
 
             this.toastr.success('Great!', res.message)
+            this.globalEventsManager.refreshCenter(true);
+            this.closeRight()
             // this.fetchedDocument = res.obj
-            this.getDocument(res.obj._id)
-            this.saved.emit(res.obj)
+            // this.getDocument(res.obj._id)
+            // this.saved.emit(res.obj)
             // this.router.navigate(['document/' + res.obj._id]);
           },
           error => {console.log(error)}
@@ -282,9 +288,11 @@ export class DocumentSingleComponent implements OnInit {
         .subscribe(
           res => {
             this.toastr.success('Great!', res.message)
+            this.globalEventsManager.refreshCenter(true);
+            this.closeRight()
             // this.fetchedDocument = res.obj
-            this.getDocument(res.obj._id)
-            this.saved.emit(res.obj)
+            // this.getDocument(res.obj._id)
+            // this.saved.emit(res.obj)
             // this.router.navigate(['document/' + res.obj._id]);
           },
           error => {
@@ -293,6 +301,12 @@ export class DocumentSingleComponent implements OnInit {
           }
         );
     }
+  }
+
+  closeRight() {
+    let showNavBarData = new ShowNavBarData()
+    showNavBarData.showNavBar = false
+    this.globalEventsManager.showNavBarRight(showNavBarData);
   }
 
   // openDialogDelete(){

@@ -58,6 +58,10 @@ export class DocumentsComponent implements OnInit {
     // private userService: UserService,
 
   ) {
+    this.globalEventsManager.refreshCenterEmitter.subscribe((isRefresh) => {
+        if(isRefresh)
+          this.getDocuments(1, this.search)
+    })
   }
 
   ngOnInit() {
@@ -79,15 +83,36 @@ export class DocumentsComponent implements OnInit {
       this.fetchedDocuments[i].status.changeRequest = false
       // this.fetchedDocuments[i].status.review = false
       // this.fetchedDocuments[i].status.approve = false
-    }
-    if(newStatus === 'CHANGES REQUEST') {
       // this.fetchedDocuments[i].status.changeSent = false
     }
+    if(newStatus === 'CHANGES REQUEST' && this.isCrew == false) {
+      this.fetchedDocuments[i].status.changeSent = false
+    }
 
-
+    this.save(this.fetchedDocuments[i])
 
     // result.checked ? this.fetchedDocuments[i].status.global = 'WIP' : this.fetchedDocuments[i].status.global  = ''
   }
+
+
+
+
+
+    save(document) {
+
+        this.documentService.updateDocument(document)
+          .subscribe(
+            res => {
+
+              this.toastr.success('Great!', res.message)
+
+            },
+            error => {console.log(error)}
+          );
+
+    }
+
+
 
   addDocument() {
     let showNavBarData = new ShowNavBarData()
