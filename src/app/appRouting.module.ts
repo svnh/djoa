@@ -40,7 +40,7 @@ export const routes: Routes = [
   {path: 'chat', loadChildren: 'app/chat/chat.module#ChatModule', canActivate: [AuthGuardService]},
   {path: 'project', loadChildren: 'app/project/project.module#ProjectModule', canActivate: [AuthGuardService]},
   // {path: 'task', loadChildren: 'app/task/task.module#TaskModule', canActivate: [AuthGuardService]},
-  {path: 'notification', loadChildren: 'app/notification/notification.module#NotificationModule', canActivate: [AuthGuardService]},
+  // {path: 'notification', loadChildren: 'app/notification/notification.module#NotificationModule', canActivate: [AuthGuardService]},
   {path: 'user', loadChildren: 'app/user/user.module#UserModule'},
 
 

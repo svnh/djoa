@@ -8,7 +8,7 @@ var log = new Schema({
     projects: [{type: Schema.Types.ObjectId, ref: 'Project'}],
     users: [{type: Schema.Types.ObjectId, ref: 'User'}],
     strats: [{type: Schema.Types.ObjectId, ref: 'Strat'}],
-
+    type: {type: String, default: ['']},
   },
   {
     timestamps: true

@@ -252,14 +252,13 @@ router.get('/:id', function (req, res, next) {
       } else {
 
 
+
         var log = new Log()
         log.ownerCompanies = req.user.ownerCompanies
         log.strats = [item]
         log.users = [req.user]
-        log.save(function (err, result) {
-          if (err) { console.log(err) } else { console.log(result) }
-        })
-
+        log.type = 'view'
+        log.save(function (err, result) { if (err) { console.log(err) } else { console.log(result) } })
 
 
 
