@@ -43,7 +43,7 @@ export class ChatComponent implements OnInit, OnDestroy {
         newMission._id = this.search.missionId
         this.message.missions = [newMission]
       }
-      console.log(this.authService.getCurrentUser())
+      // console.log(this.authService.getCurrentUser())
       this.message.users = [this.authService.getCurrentUser()]
       this.message.ownerCompanies= [this.authService.getCurrentUser().ownerCompanies[0]]
       this.chatService.sendMessage(this.message);
@@ -52,7 +52,7 @@ export class ChatComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    console.log(this.search)
+    // console.log(this.search)
     this.getOldChats(1, this.search)
 
     this.connection = this.chatService.getMessages(this.search.stratId).subscribe(message => {
