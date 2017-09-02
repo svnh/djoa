@@ -1,1 +1,12 @@
 
+@media screen and (min-width: 768 px) {
+  .djoa-container {
+    width: 70% !important;
+    max-width: 70% !important;
+    float: none;
+    margin: 0 auto;
+    height: 100vh !important;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}

@@ -18,6 +18,8 @@
   .djoa-container {
     width: 70% !important;
     max-width: 70% !important;
+    float: none;
+    margin: 0 auto;
   }
 }
 
