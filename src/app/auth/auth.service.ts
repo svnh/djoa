@@ -235,6 +235,8 @@ export class AuthService {
     let newShowNavBarData = new ShowNavBarData()
     newShowNavBarData.showNavBar = false
     this.globalEventsManager.showNavBarLeft(newShowNavBarData);
+    this.globalEventsManager.showNavBarRight(newShowNavBarData);
+    this.globalEventsManager.showNavBarTop(newShowNavBarData);
 
     localStorage.clear();
     this.token = null;

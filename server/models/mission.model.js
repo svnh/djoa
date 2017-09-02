@@ -6,7 +6,7 @@ var mongoose                = require('mongoose'),
 var mission = new Schema({
     ownerCompanies: [{type: Schema.Types.ObjectId, ref: 'Companie'}],
     projects: [{type: Schema.Types.ObjectId, ref: 'Project'}],
-    // products: [{type: Schema.Types.ObjectId, ref: 'Product'}],
+    products: [{type: Schema.Types.ObjectId, ref: 'Product'}],
     title: {type: String, default: ['']},
     missionType: {type: String, default: ['']},
     description: {type: String},

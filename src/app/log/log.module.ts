@@ -6,18 +6,18 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 
-import { CommentComponent} from './single/comment.component';
-// import { CommentSingleComponent} from './commentSingle/commentSingle.component';
-import { CommentService} from './comment.service';
-import { CommentRouting} from './commentRouting.module';
-import { CommentsComponent} from './list/comments.component';
+import { LogComponent} from './single/log.component';
+// import { LogSingleComponent} from './logSingle/logSingle.component';
+import { LogService} from './log.service';
+import { LogRouting} from './logRouting.module';
+import { LogsComponent} from './list/logs.component';
 
 // import {PictureModule} from '../picture/picture.module';
 
 // import { QuoteModule} from '../quote/quote.module';
 
 // import { DragulaModule } from 'ng2-dragula';
-import { CommentDialogComponent } from './single/dialog/commentDialog.component'
+// import { LogDialogComponent } from './single/dialog/logDialog.component'
 // import { AutocompleteModule } from '../autocomplete/autocomplete.module'
 // import {SharedModule } from '../shared/shared.module';
 import {SharedSmallModule } from '../shared/sharedSmall.module';
@@ -32,7 +32,7 @@ import {SharedSmallModule } from '../shared/sharedSmall.module';
     // UserModule,
     // DragulaModule,
     SharedSmallModule,
-    CommentRouting,
+    LogRouting,
     // CommonModule,
     // FormsModule,
     // MaterialModule,
@@ -45,21 +45,21 @@ import {SharedSmallModule } from '../shared/sharedSmall.module';
   ],
   declarations: [
 
-    CommentComponent,
-    CommentsComponent,
+    LogComponent,
+    LogsComponent,
 
-    CommentDialogComponent,
+    // LogDialogComponent,
     // PictureComponent,
-    // CommentSingleComponent,
+    // LogSingleComponent,
     // AutocompleteComponent,
   ],
   exports:      [
-    CommentsComponent,
+    LogsComponent,
     // AutocompleteComponent,
   ],
-  providers:    [ CommentService ],
+  providers:    [ LogService ],
   entryComponents: [
-    CommentDialogComponent,
+    // LogDialogComponent,
   ]
 })
-export class CommentModule { }
+export class LogModule { }

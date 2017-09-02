@@ -41,28 +41,28 @@
             <thead>
               <tr>
 
-                <th class="centre">Project</th>
-                <th class="centre">Name Task</th>
-                <th class="centre">Assigned to</th>
+                <th class="">Project</th>
+                <th class="">Name Task</th>
+                <th class="">Assigned to</th>
 
               </tr>
             </thead>
-            <tbody class="clienttbl">
+            <tbody class="">
               <tr *ngFor="let task of fetchedTasks" [routerLink]="['/task/' + task._id]" routerLinkActive="active">
 
 
 
-                <td class="centre"></td>
-                <td class="centre">{{task.title}}</td>
-                <td class="centre">
+                <td class=""></td>
+                <td class="">{{task.title}}</td>
+                <td class="">
                   <!-- <div *ngFor="let assignedTo of project.bucketTasks.tasks.users">
                   {{assignedTo.profile.name}} {{assignedTo.profile.lastName}}
                 </div> -->
                 </td>
-                <!-- <td class="centre">{{project.details.customer}}</td>
-              <td class="centre">{{project.details.name}}</td>
-              <td class="centre">{{project.details.date}}</td>
-              <td class="centre">
+                <!-- <td class="">{{project.details.customer}}</td>
+              <td class="">{{project.details.name}}</td>
+              <td class="">{{project.details.date}}</td>
+              <td class="">
                 <div *ngFor="let assignedTo of project.users">
                   {{assignedTo.profile.name}} {{assignedTo.profile.lastName}}
                 </div>

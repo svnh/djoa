@@ -24,29 +24,30 @@ import { NgModule } from '@angular/core';
 
 export const routes: Routes = [
   {path: '', loadChildren: 'app/mainPageHome/mainPageHome.module#MainPageHomeModule', canActivate: [AuthGuardService], pathMatch: 'full'},
-  {path: 'comment', loadChildren: 'app/comment/comment.module#CommentModule', canActivate: [AuthGuardService]},
+  {path: 'log', loadChildren: 'app/log/log.module#LogModule', canActivate: [AuthGuardService]},
   {path: 'mission', loadChildren: 'app/mission/mission.module#MissionModule', canActivate: [AuthGuardService]},
   {path: 'document', loadChildren: 'app/document/document.module#DocumentModule', canActivate: [AuthGuardService]},
   {path: 'strat', loadChildren: 'app/strat/strat.module#StratModule', canActivate: [AuthGuardService]},
+  {path: 'brief', loadChildren: 'app/brief/brief.module#BriefModule', canActivate: [AuthGuardService]},
   // {path: 'userCalendar', loadChildren: 'app/userCalendar/userCalendar.module#UserCalendarModule', canActivate: [AuthGuardService]},
   {path: 'companie', loadChildren: 'app/companie/companie.module#CompanieModule', canActivate: [AuthGuardService]},
   {path: 'right', loadChildren: 'app/right/right.module#RightModule', canActivate: [AuthGuardService]},
   {path: 'quote', loadChildren: 'app/quote/quote.module#QuoteModule'},
-  {path: 'paiementQuote', loadChildren: 'app/paiementQuote/paiementQuote.module#PaiementQuoteModule', canActivate: [AuthGuardService]},
-  {path: 'userCalendar', loadChildren: 'app/userCalendar/userCalendar.module#UserCalendarModule', canActivate: [AuthGuardService]},
-  {path: 'reporting', loadChildren: 'app/reporting/reporting.module#ReportingModule', canActivate: [AuthGuardService]},
+  // {path: 'paiementQuote', loadChildren: 'app/paiementQuote/paiementQuote.module#PaiementQuoteModule', canActivate: [AuthGuardService]},
+  // {path: 'userCalendar', loadChildren: 'app/userCalendar/userCalendar.module#UserCalendarModule', canActivate: [AuthGuardService]},
+  // {path: 'reporting', loadChildren: 'app/reporting/reporting.module#ReportingModule', canActivate: [AuthGuardService]},
   {path: 'product', loadChildren: 'app/product/product.module#ProductModule', canActivate: [AuthGuardService]},
   {path: 'chat', loadChildren: 'app/chat/chat.module#ChatModule', canActivate: [AuthGuardService]},
   {path: 'project', loadChildren: 'app/project/project.module#ProjectModule', canActivate: [AuthGuardService]},
-  {path: 'task', loadChildren: 'app/task/task.module#TaskModule', canActivate: [AuthGuardService]},
-  {path: 'notification', loadChildren: 'app/notification/notification.module#NotificationModule', canActivate: [AuthGuardService]},
+  // {path: 'task', loadChildren: 'app/task/task.module#TaskModule', canActivate: [AuthGuardService]},
+  // {path: 'notification', loadChildren: 'app/notification/notification.module#NotificationModule', canActivate: [AuthGuardService]},
   {path: 'user', loadChildren: 'app/user/user.module#UserModule'},
 
 
   // {path: 'form', component: FormComponent, canActivate: [AuthGuardService]},
   // {path: 'userForms', component: UserFormsUploadAndList, canActivate: [AuthGuardService]},
 
-  {path: 'admin', component: AdminComponent, children: ADMIN_ROUTES},
+  // {path: 'admin', component: AdminComponent, children: ADMIN_ROUTES},
   {path: '404', component: ErrorPageComponent},
   {path: '**', redirectTo: '404'}
 ];

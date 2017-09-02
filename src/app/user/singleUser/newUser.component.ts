@@ -16,7 +16,7 @@ import { User, TypeUser } from '../user.model';
 
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { DeleteDialog } from '../../deleteDialog/deleteDialog.component'
-
+import {Search} from '../../mainPageHome/mainPageHome.model'
 
 @Component({
   selector: 'app-newUser',
@@ -27,10 +27,9 @@ import { DeleteDialog } from '../../deleteDialog/deleteDialog.component'
 
 export class NewUserComponent implements OnInit {
   @Output() saved: EventEmitter<any> = new EventEmitter();
-  @Input() search: any = {
-    isExternalUser: true,
-    userId:'',
-  };
+  @Input() search: Search = new Search();
+
+
   fetchedCompanies: Companie[] = []
   autocompleteCompanie: string = '';
 

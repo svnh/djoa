@@ -19,8 +19,11 @@ import { User } from '../../user/user.model';
 import { Quote } from '../../quote/quote.model';
 import { Product } from '../../product/product.model';
 import { Project } from '../../project/project.model';
+
+
 import {Search} from '../../mainPageHome/mainPageHome.model'
 import {GlobalEventsManager} from '../../globalEventsManager';
+import {ShowNavBarData} from '../../mainPageHome/mainPageHome.model'
 
 
 @Component({
@@ -42,7 +45,7 @@ export class MissionComponent implements OnInit {
     private missionService: MissionService,
     private quoteService: QuoteService,
     private globalEventsManager: GlobalEventsManager,
-
+    // private projectService: ProjectService,
     // private projectService: ProjectService,
     // private userService: UserService,
     // private productService: ProductService,
@@ -75,16 +78,16 @@ export class MissionComponent implements OnInit {
     // .datePaiementString =
     // this.authService
     // .isoDateToHtmlDate(this.fetchedMission.datePaiement)
-    if (this.search.missionType)
-      this.fetchedMission.missionType = this.search.missionType
+    // if (this.search.missionType)
+    //   this.fetchedMission.missionType = this.search.missionType
 
 
-    if (this.search.projectId) {
-      let newProject = new Project()
-      newProject._id = this.search.projectId
-      this.fetchedMission.projects.push(newProject)
+    // if (this.search.projectId)
+    //   this.getProject(this.search.projectId)
+    //
+    // if (this.search.productId)
+    //   this.getProduct(this.search.productId)
 
-    }
 
     this.activatedRoute.params.subscribe((params: Params) => {
       if (this.search.missionId) {
@@ -95,6 +98,21 @@ export class MissionComponent implements OnInit {
     })
   }
 
+
+  // getProject(id: string) {
+  //   this.projectService.getProject(id)
+  //     .subscribe(
+  //       res => { this.fetchedMission.projects.push(<Project>res) },
+  //       error => { console.log(error) }
+  //     )
+  // }
+  // getProduct(id: string) {
+  //   this.productService.getProduct(id)
+  //     .subscribe(
+  //       res => { this.fetchedMission.products.push(<Product>res) },
+  //       error => { console.log(error) }
+  //     )
+  // }
 
 
 
@@ -120,7 +138,10 @@ export class MissionComponent implements OnInit {
         .subscribe(
           res => {
             this.toastr.success('Great!', res.message)
-            this.getMission(res.obj._id)
+            // this.getMission(res.obj._id)
+            this.globalEventsManager.refreshCenter(true);
+            this.closeRight()
+
             // this.fetchedMission = res.obj
             //this.router.navigate(['mission/edit/' + this.fetchedMission._id])
           },
@@ -133,8 +154,10 @@ export class MissionComponent implements OnInit {
         .subscribe(
           res => {
             this.toastr.success('Great!', res.message)
-            this.getMission(res.obj._id)
             this.globalEventsManager.refreshCenter(true);
+            this.closeRight()
+            // this.getMission(res.obj._id)
+            // this.globalEventsManager.refreshCenter(true);
             // this.fetchedMission = res.obj
             // this.newMissionSaved.emit()
             // if(this.showHeader)
@@ -147,15 +170,16 @@ export class MissionComponent implements OnInit {
   }
 
 
-
-
-
-
-
-  goBack() {
-    this.location.back();
+  getResultAutocomplete(result){
+    console.log(result)
+  }
+  closeRight() {
+    let showNavBarData = new ShowNavBarData()
+    showNavBarData.showNavBar = false
+    this.globalEventsManager.showNavBarRight(showNavBarData);
   }
 
+  
 
 
 

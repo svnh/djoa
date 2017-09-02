@@ -28,10 +28,12 @@ var right    = require('./routes/right')
 var notification    = require('./routes/notification')
 var comment    = require('./routes/comment')
 var chat    = require('./routes/chat')
+// var chatSocket    = require('./routes/chatSocket')
 var mission    = require('./routes/mission')
 var document    = require('./routes/document')
 var strat    = require('./routes/strat')
 var brief    = require('./routes/brief')
+var log    = require('./routes/log')
 
 
 
@@ -118,10 +120,12 @@ app.use('/right', right)
 app.use('/notification', notification)
 app.use('/comment', comment)
 app.use('/chat', chat)
+// app.use('/chatSocket', chatSocket)
 app.use('/mission', mission)
 app.use('/document', document)
 app.use('/strat', strat)
 app.use('/brief', brief)
+app.use('/log', log)
 
 
 

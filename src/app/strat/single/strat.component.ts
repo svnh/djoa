@@ -21,6 +21,7 @@ import { Product } from '../../product/product.model';
 import { Project } from '../../project/project.model';
 import {Search} from '../../mainPageHome/mainPageHome.model'
 import {GlobalEventsManager} from '../../globalEventsManager';
+import {ShowNavBarData} from '../../mainPageHome/mainPageHome.model'
 
 
 @Component({
@@ -79,12 +80,12 @@ export class StratComponent implements OnInit {
     //   this.fetchedStrat.stratType = this.search.stratType
 
 
-    if (this.search.projectId) {
-      let newProject = new Project()
-      newProject._id = this.search.projectId
-      this.fetchedStrat.projects.push(newProject)
-
-    }
+    // if (this.search.projectId) {
+    //   let newProject = new Project()
+    //   newProject._id = this.search.projectId
+    //   this.fetchedStrat.projects.push(newProject)
+    //
+    // }
 
     this.activatedRoute.params.subscribe((params: Params) => {
       if (this.search.stratId) {
@@ -120,7 +121,9 @@ export class StratComponent implements OnInit {
         .subscribe(
           res => {
             this.toastr.success('Great!', res.message)
-            this.getStrat(res.obj._id)
+            // this.getStrat(res.obj._id)
+            this.globalEventsManager.refreshCenter(true);
+            this.closeRight()
             // this.fetchedStrat = res.obj
             //this.router.navigate(['strat/edit/' + this.fetchedStrat._id])
           },
@@ -133,8 +136,9 @@ export class StratComponent implements OnInit {
         .subscribe(
           res => {
             this.toastr.success('Great!', res.message)
-            this.getStrat(res.obj._id)
+            // this.getStrat(res.obj._id)
             this.globalEventsManager.refreshCenter(true);
+            this.closeRight()
             // this.fetchedStrat = res.obj
             // this.newStratSaved.emit()
             // if(this.showHeader)
@@ -147,6 +151,11 @@ export class StratComponent implements OnInit {
   }
 
 
+  closeRight() {
+    let showNavBarData = new ShowNavBarData()
+    showNavBarData.showNavBar = false
+    this.globalEventsManager.showNavBarRight(showNavBarData);
+  }
 
 
 

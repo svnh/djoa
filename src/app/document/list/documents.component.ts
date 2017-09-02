@@ -11,6 +11,7 @@ import { ViewEncapsulation} from '@angular/core';
 import { UserService} from '../../user/user.service';
 import {ShowNavBarData} from '../../mainPageHome/mainPageHome.model'
 import {GlobalEventsManager} from '../../globalEventsManager';
+import {Search} from '../../mainPageHome/mainPageHome.model'
 
 
 @Component({
@@ -23,12 +24,15 @@ import {GlobalEventsManager} from '../../globalEventsManager';
 export class DocumentsComponent implements OnInit {
   @Input() userId = '';
   @Input() showHeader = true;
+  @Input() search: Search = new Search()
+
+
   // token: string = localStorage.getItem('id_token');
   fetchedDocuments: Document[] = [];
-  search: any = {
-    categories : [],
-    search: ''
-  };
+  // search: any = {
+  //   categories : [],
+  //   search: ''
+  // };
   loading: boolean;
 
   paginationData = {
@@ -39,7 +43,7 @@ export class DocumentsComponent implements OnInit {
 
 
   categories2 = '';
-
+  isCrew: boolean = true
 
 
   constructor(
@@ -54,6 +58,10 @@ export class DocumentsComponent implements OnInit {
     // private userService: UserService,
 
   ) {
+    this.globalEventsManager.refreshCenterEmitter.subscribe((isRefresh) => {
+        if(isRefresh)
+          this.getDocuments(1, this.search)
+    })
   }
 
   ngOnInit() {
@@ -64,12 +72,55 @@ export class DocumentsComponent implements OnInit {
       this2.getDocuments(1, this2.search)
     // }, 200);
   }
+  // changeCrew(result) {
+  //   result.checked ? this.isCrew = true : this.isCrew = false
+  // }
+  changeStatus(result, i, newStatus) {
+
+    this.fetchedDocuments[i].status.global = newStatus
+
+    if(newStatus === 'CHANGES SENT') {
+      this.fetchedDocuments[i].status.changeRequest = false
+      // this.fetchedDocuments[i].status.review = false
+      // this.fetchedDocuments[i].status.approve = false
+      // this.fetchedDocuments[i].status.changeSent = false
+    }
+    if(newStatus === 'CHANGES REQUEST' && this.isCrew == false) {
+      this.fetchedDocuments[i].status.changeSent = false
+    }
+
+    this.save(this.fetchedDocuments[i])
+
+    // result.checked ? this.fetchedDocuments[i].status.global = 'WIP' : this.fetchedDocuments[i].status.global  = ''
+  }
+
+
+
+
+
+    save(document) {
+
+        this.documentService.updateDocument(document)
+          .subscribe(
+            res => {
+
+              this.toastr.success('Great!', res.message)
+
+            },
+            error => {console.log(error)}
+          );
+
+    }
+
+
 
   addDocument() {
     let showNavBarData = new ShowNavBarData()
     showNavBarData.showNavBar = true
     showNavBarData.search.typeScreen = 'object'
     showNavBarData.search.typeObj = 'document'
+    showNavBarData.search.stratId = this.search.stratId
+    showNavBarData.search.missionId = this.search.missionId
     this.globalEventsManager.showNavBarRight(showNavBarData);
   }
   openDetails(documentId: string) {
@@ -120,7 +171,6 @@ export class DocumentsComponent implements OnInit {
   //   this.paginationData.currentPage = this.paginationData.currentPage+1
   //   this.getDocuments(this.paginationData.currentPage, this.search)
   // }
-
 
   getDocuments(page : number, search: any) {
     //this.fetchedDocuments =[]

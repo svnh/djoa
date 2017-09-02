@@ -3,14 +3,14 @@
     <div class="col-md-10">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title">{{search.missionType}}</h4> {{paginationData.totalItems}} missions
+          {{paginationData.totalItems}} missions
           <button type="button" (click)="createNewMission()">+Mission</button>
         </div>
         <div class="card-block clearfix">
           <table class="table table-hover">
-            <tbody class="clienttbl">
+            <tbody class="">
               <tr *ngFor="let mission of fetchedMissions">
-                <td [routerLink]="['/mission/' + mission._id]" routerLinkActive="active">{{mission.title}}</td>
+                <td (click)="goTo(mission._id)" routerLinkActive="active">{{mission.title}}</td>
                 <td>
                   <section class="">
                     <md-progress-bar class="example-margin" [color]="'primary'" [mode]="'determinate'" [value]="mission.dateMission.percentageProgress">

@@ -9,7 +9,7 @@
 
 
   <div>
-    <h4 class="dspl-nn">id: {{fetchedQuote._id}}</h4>
+    <h4 class="">id: {{fetchedQuote._id}}</h4>
     <button class="btn btn-primary" (click)="downloadPDF()">
       download PDF
     </button>
@@ -37,9 +37,7 @@
            <span>{{'Show Comments' }}</span>
           </button>
 
-          <div *ngIf="showLogs">
-            <app-comments [search]="search"></app-comments>
-          </div>
+  
         </div>
 
       </div>

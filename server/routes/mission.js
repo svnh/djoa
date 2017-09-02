@@ -32,7 +32,7 @@ router.use('/', function (req, res, next) {
     if (decoded) {
       User
       .findById(decoded.user._id)
-      .populate({ path: 'rights', model: 'Right'})
+      .populate({path: 'rights', model: 'Right'})
       .exec(function (err, doc) {
         if (err) {
           return res.status(500).json({
@@ -63,7 +63,6 @@ router.use('/', function (req, res, next) {
 
 
 
-//update
 router.put('/:id', function (req, res, next) {
   if(!shared.isCurentUserHasAccess(req.user.rights, nameObject, 'write')) {
     return res.status(404).json({ title: 'No rights', error: {message: 'No rights'} })
@@ -79,9 +78,10 @@ router.put('/:id', function (req, res, next) {
         item.users = req.body.users
         item.dateMission = req.body.dateMission
         item.description = req.body.description
-        item.name = req.body.name
+        item.title = req.body.title
         item.dateMission = req.body.dateMission
         item.status = req.body.status
+        item.products = req.body.products
 
 
         item.save(function (err, result) {
@@ -166,8 +166,11 @@ router.get('/page/:page', function (req, res, next) {
   if(req.query.projectId)
     searchQuery['projects'] = mongoose.Types.ObjectId(req.query.projectId)
 
-  if(req.query.missionType)
-    searchQuery['missionType'] = req.query.missionType
+  if(req.query.productId)
+    searchQuery['products'] = mongoose.Types.ObjectId(req.query.productId)
+
+  // if(req.query.missionType)
+  //   searchQuery['missionType'] = req.query.missionType
 
 
 
@@ -176,6 +179,7 @@ router.get('/page/:page', function (req, res, next) {
   .sort('-createdAt')
   .populate({path: 'projects', model: 'Project'})
   .populate({ path: 'users', model: 'User'})
+  .populate({ path: 'products', model: 'Product'})
 
   // .populate({path: 'quotes', model: 'Quote'})
   // .populate(
@@ -234,7 +238,19 @@ router.get('/:id', function (req, res, next) {
     Mission
     .findById({_id: req.params.id})
     .populate({path: 'projects', model: 'Project'})
+
+    .populate({ path: 'products', model: 'Product'})
     .populate({ path: 'users', model: 'User'})
+    .populate({
+      path: 'users',
+      model: 'User',
+      populate: {
+        path: 'forms',
+        model: 'Form',
+      }
+    })
+
+
     // .populate({path: 'forms', model: 'Form'})
     // .populate({path: 'assignedTos', model: 'User'})
     // .populate(

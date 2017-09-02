@@ -89,156 +89,9 @@ export class ProjectTeamComponent implements OnInit {
 
     if(this.search.projectId)
       this.getProject(this.search.projectId)
-    // this.activatedRoute.params.subscribe((params: Params) => {
-    //   if(params['id']) {
-    //     this.search.projectId = params['id']
-    //     this.getProject(params['id'])
-    //   } else {
-    //     if(params['idClient'])
-    //        this.getUser(params['idClient'])
-    //     if(params['selectedIndex'])
-    //       this.selectedIndex0 = params['selectedIndex']
-    //
-    //       this.getItemSteps()
-    //   }
-    // })
 
   }
 
-  // getItemSteps() {
-  //   let currentUser = this.authService.getCurrentUser()
-  //
-  //   currentUser.ownerCompanies.forEach((companie, index) => {
-  //
-  //     if(this.selectedIndex0 >= companie.categories.categProject.length)
-  //       this.selectedIndex0 = -1
-  //
-  //
-  //     // console.log(JSON.parse(currentUser.companies[index].categJson.categProject))
-  //     if(currentUser.ownerCompanies[index].categories.categProject)
-  //       this.itemSteps = currentUser.ownerCompanies[index].categories.categProject
-  //   })
-  // }
-
-
-
-
-  //
-  // addCalendar() {
-  //   let queryParams = {}
-  //   // queryParams['new'] = true
-  //   queryParams['showCreateEvent'] = true
-  //   queryParams['showSearchEvent'] = false
-  //
-  //
-  //   // if(this.fetchedProject.assignedTos.length) {queryParams['idUserNew'] = this.fetchedProject.assignedTos[0]._id}
-  //   if(this.fetchedProject._id) {queryParams['idProjectNew'] = this.fetchedProject._id}
-  //   if(this.fetchedProject.clients.length) {queryParams['idClientNew'] = this.fetchedProject.clients[0]._id }
-  //   // if(this.fetchedProject.assignedTos.length)  {queryParams['idUserSearch'] = this.fetchedProject.assignedTos[0]._id }
-  //   if(this.fetchedProject._id) {queryParams['idProjectSearch'] = this.fetchedProject._id}
-  //
-  //   this.router.navigate(['userCalendar/', queryParams])
-  // }
-  // seeCalendar() {
-  //   let queryParams = {}
-  //   // queryParams['showCreateEvent'] = true
-  //   queryParams['showSearchEvent'] = false
-  //
-  //   // if(this.fetchedProject.assignedTos.length)  {queryParams['idUserSearch'] = this.fetchedProject.assignedTos[0]._id }
-  //   if(this.fetchedProject._id) {queryParams['idProjectSearch'] = this.fetchedProject._id}
-  //   // if(this.fetchedProject.clients.length)      {queryParams['idClientSearch'] = this.fetchedProject.clients[0]._id}
-  //   this.router.navigate(['userCalendar/', queryParams])
-  // }
-
-  // newComment(comment: string) {
-  //   // let newLog = new Log()
-  //   // newLog.comment = comment
-  //   // this.fetchedProject.logs.push(newLog)
-  // }
-  // getUser(id: string) {
-  //   this.userService.getUser(id)
-  //     .subscribe(
-  //       res => {
-  //         //this.fetchedUsers[0] = res.user
-  //         this.selectUser(res)
-  //       },
-  //       error => {
-  //         console.log(error);
-  //       }
-  //     );
-  // }
-
-  // changeCascade(selectedIndex0, selectedIndex1, selectedIndex2) {
-  //   this.selectedIndex0 = selectedIndex0
-  //   this.selectedIndex1 = selectedIndex1
-  //   this.selectedIndex2 = selectedIndex2
-  // }
-  // addQuote(){
-  // }
-
-
-  // autocomplete user
-  // selectUser(user: User) {
-  //   // this.autocompleteUser=''
-  //   // this.fetchedUsers = []
-  //   this.fetchedProject.clients = [user]
-  // }
-  // searchUsers() {
-  //   if(!this.autocompleteUser) {
-  //      this.fetchedUsers = []
-  //   } else {
-  //     let search = {
-  //         search: this.autocompleteUser,
-  //       };
-  //     this.getUsers(1, search)
-  //   }
-  // }
-  // getUsers(page: number, search: any) {
-  //   this.userService.getUsers(page, search)
-  //     .subscribe(
-  //       res => {
-  //         this.fetchedUsers = res.data
-  //       },
-  //       error => {
-  //         console.log(error);
-  //       }
-  //     );
-  // }
-
-
-  // removePic(i) {
-  //   // this.fetchedProject.forms.splice(i, 1);
-  // }
-
-
-
-    // autocomplete AssignedTo
-    // autocompleteAssignedTo: string = '';
-    // fetchedAssignedTos: User[] = [];
-    // selectAssignedTo(user: User) {
-    //   // this.autocompleteAssignedTo=''
-    //   // this.fetchedAssignedTos = []
-    //   // this.fetchedProject.assignedTos = [user]
-    // }
-
-
-
-
-  //
-  // goBack() {
-  //   this.location.back();
-  // }
-
-  //
-  // openDialog(positionImage: string) {
-  //   // let dialogRef = this.dialog.open(EditOptionsComponentDialog);
-  //   // dialogRef.afterClosed().subscribe(result => {
-  //   //   if(result) {
-  //   //     console.log(result)
-  //   //     // this.fetchedProject.forms.push( result)
-  //   //   }
-  //   // })
-  // }
 
 
   save() {
@@ -255,6 +108,7 @@ export class ProjectTeamComponent implements OnInit {
             this.toastr.success('Great!', res.message)
             // this.getProject(res.obj._id)
             // this.saved.emit(res.obj)
+            this.closeRight()
             this.globalEventsManager.refreshCenter(true);
             // this.router.navigate(['project/' + res.obj._id]);
           },
@@ -266,7 +120,8 @@ export class ProjectTeamComponent implements OnInit {
           res => {
             this.toastr.success('Great!', res.message)
             // this.fetchedProject = res.obj
-            this.getProject(res.obj._id)
+            // this.getProject(res.obj._id)
+            this.closeRight()
             // this.saved.emit(res.obj)
             this.globalEventsManager.refreshCenter(true);
             // this.router.navigate(['project/' + res.obj._id]);
@@ -279,9 +134,16 @@ export class ProjectTeamComponent implements OnInit {
     }
   }
 
+  closeRight() {
+    let showNavBarData = new ShowNavBarData()
+    showNavBarData.showNavBar = false
+    this.globalEventsManager.showNavBarRight(showNavBarData);
+  }
+
+
+
   openDeleteConfirmation(){
       let newShowNavBarData = new ShowNavBarData()
-      newShowNavBarData.showNavBar = true
       newShowNavBarData.search.typeScreen = 'deleteConfirmation'
       newShowNavBarData.search.typeObj = 'project'
       newShowNavBarData.search.projectId = this.fetchedProject._id

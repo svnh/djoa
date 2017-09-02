@@ -32,8 +32,6 @@ export class SideBarLeftComponent implements OnInit {
     private adminService: AdminService,
     private userService: UserService,
     private router: Router,
-    // private companieGuardService: CompanieGuardService,
-    // private paiementGuardService: PaiementGuardService,
   ) {
     this.globalEventsManager.showNavBarEmitterLeft.subscribe((showNavBarData)=>{
         if (showNavBarData !== null) {
@@ -65,6 +63,7 @@ export class SideBarLeftComponent implements OnInit {
   ngOnInit() {
     if (this.authService.isLoggedIn()) {
       this.showNavBarData.showNavBar = true
+      this.showNavBarData.search.typeObj = 'project'
       this.globalEventsManager.showNavBarLeft(this.showNavBarData);
       // this.globalEventsManager.showNavBar(true);
       // this.showNavBar = true;

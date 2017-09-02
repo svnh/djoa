@@ -22,7 +22,7 @@ import { NavbarModule } from '../nav/navbar/navbar.module';
 import { LoadingInAppComponent } from '../nav/loadingInApp/loadingInApp.component';
 import { LoginInAppComponent } from '../nav/loginInApp/loginInApp.component';
 
-import {CommentModule} from '../comment/comment.module';
+// import {CommentModule} from '../comment/comment.module';
 
 import {SharedSmallModule} from './sharedSmall.module'
 @NgModule({
@@ -32,7 +32,7 @@ import {SharedSmallModule} from './sharedSmall.module'
     FormsModule,
     AutocompleteModule,
     PictureModule,
-    CommentModule,
+    // CommentModule,
     NavbarModule,
 
     // CommentModule,
@@ -65,7 +65,7 @@ import {SharedSmallModule} from './sharedSmall.module'
     // LoadingInAppComponent,
     // LoginInAppComponent,
     // PictureModule,
-    CommentModule,
+    // CommentModule,
     // CommentModule,
     // AutocompleteComponent,
   ],

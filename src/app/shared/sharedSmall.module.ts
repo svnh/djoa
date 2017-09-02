@@ -22,7 +22,7 @@ import { LoginInAppComponent } from '../nav/loginInApp/loginInApp.component';
 // import { SideBarObjModule } from '../nav/sideBarObj/sideBarObj.module';
 
 
-import {CommentModule} from '../comment/comment.module';
+// import {CommentModule} from '../comment/comment.module';
 
 @NgModule({
   imports:      [

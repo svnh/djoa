@@ -1,24 +1,29 @@
 import { Form } from '../picture/form/form.model';
 import { User } from '../user/user.model';
-import { Quote } from '../quote/quote.model';
+import { Strat } from '../strat/strat.model';
 import { Project } from '../project/project.model';
 import { Companie } from '../companie/companie.model';
 
 
-export class Comment {
+export class Log {
     _id: string = '';
 
 
-    commentName: string = '';
-    writtenBy: User[] = [];
-    forms: Form[] = [];
+    type: string = '';
+
+
     projects: Companie[] = [];
-    quotes: Quote[] = [];
+    users: User[] = [];
+    strats: Strat[] = [];
+    documents: Document[] = [];
     createdAt: Date = new Date()
 
-    // dateComment: DateComment = new DateComment()
+
+
+
+    // dateLog: DateLog = new DateLog()
 }
-// export class DateComment {
+// export class DateLog {
 //   start: Date = new Date()
 //   startString: string = '';
 //   end: Date = new Date()

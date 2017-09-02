@@ -16,7 +16,7 @@ import { User, TypeUser } from '../user.model';
 
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { DeleteDialog } from '../../deleteDialog/deleteDialog.component'
-
+import {Search} from '../../mainPageHome/mainPageHome.model'
 
 @Component({
   selector: 'app-profile',
@@ -27,10 +27,8 @@ import { DeleteDialog } from '../../deleteDialog/deleteDialog.component'
 
 export class ProfileComponent implements OnInit {
   @Output() saved: EventEmitter<any> = new EventEmitter();
-  @Input() search: any = {
-    isExternalUser: true,
-    userId:'',
-  };
+  @Input() search: Search = new Search();
+
   fetchedCompanies: Companie[] = []
   autocompleteCompanie: string = '';
 
@@ -39,18 +37,8 @@ export class ProfileComponent implements OnInit {
 
   // fetchedRights: Right[] = []
 
-  titleArray=['Mr.', 'Mrs.']
-  languageArray=['fr','en']
-  typeClientArray=['Particulier','Societe','Administration']
-  statusHouseArray=['Propriétaire','Locataire']
-  typeHouseArray=['Pavillon','Immeuble']
-  companieIndexToSelect = ''
-  typeUserDropDown = ''
-  typeUser = TypeUser
 
   fetchedUser: User = new User();
-  currentUser: User = new User();
-
 
 
   public myForm: FormGroup;
@@ -70,7 +58,7 @@ export class ProfileComponent implements OnInit {
 
 
     ngOnInit() {
-      this.currentUser = this.authService.getCurrentUser()
+
       this.myForm = this._fb.group({
           email: [this.emailValidator],
           typeUsers: [''],
@@ -160,15 +148,15 @@ export class ProfileComponent implements OnInit {
   // }
 
   // autocolplete typeUser
-  searchTypeUser() {
-    if(!this.autocompleteTypeUser) {
-      this.fetchedTypeUsers = []
-    } else {
-      this.fetchedTypeUsers = this.typeUser.filter((el) =>
-        el.toLowerCase().indexOf(this.autocompleteTypeUser.toLowerCase()) > -1
-      );
-    }
-  }
+  // searchTypeUser() {
+  //   if(!this.autocompleteTypeUser) {
+  //     this.fetchedTypeUsers = []
+  //   } else {
+  //     this.fetchedTypeUsers = this.typeUser.filter((el) =>
+  //       el.toLowerCase().indexOf(this.autocompleteTypeUser.toLowerCase()) > -1
+  //     );
+  //   }
+  // }
   selectTypeUser(typeUser) {
     this.autocompleteTypeUser = '';
     this.fetchedTypeUsers = [];
@@ -192,40 +180,40 @@ export class ProfileComponent implements OnInit {
     }
   }
 
-  goBack() {
-    this.location.back();
-  }
+  // goBack() {
+  //   this.location.back();
+  // }
+  //
+  // openDialogDelete(){
+  //   let this2 = this
+  //   let dialogRefDelete = this.dialog.open(DeleteDialog)
+  //   dialogRefDelete.afterClosed().subscribe(result => {
+  //     if(result) {
+  //       this.onDelete(this.fetchedUser._id).then(function(){
+  //         this2.router.navigate(['user']);
+  //       })
+  //
+  //     }
+  //   })
+  // }
 
-  openDialogDelete(){
-    let this2 = this
-    let dialogRefDelete = this.dialog.open(DeleteDialog)
-    dialogRefDelete.afterClosed().subscribe(result => {
-      if(result) {
-        this.onDelete(this.fetchedUser._id).then(function(){
-          this2.router.navigate(['user']);
-        })
-
-      }
-    })
-  }
-
-  saveAndCreateProject() {
-    this.save()
-    this.router.navigate(['project/new/' + this.fetchedUser._id])
-  }
-
-  sendEmailToUserToJoinCompanie() {
-    this.userService.sendEmailToUserToJoinCompanie(this.fetchedUser)
-      .subscribe(
-        res => {
-          this.toastr.success('Great!', res.message)
-        },
-        error => {
-          console.log(error)
-          this.toastr.error('Error!')
-        }
-      );
-  }
+  // saveAndCreateProject() {
+  //   this.save()
+  //   this.router.navigate(['project/new/' + this.fetchedUser._id])
+  // }
+  //
+  // sendEmailToUserToJoinCompanie() {
+  //   this.userService.sendEmailToUserToJoinCompanie(this.fetchedUser)
+  //     .subscribe(
+  //       res => {
+  //         this.toastr.success('Great!', res.message)
+  //       },
+  //       error => {
+  //         console.log(error)
+  //         this.toastr.error('Error!')
+  //       }
+  //     );
+  // }
 
   save() {
     // this.userService.cleanCurrentUserInSession()
@@ -274,12 +262,12 @@ export class ProfileComponent implements OnInit {
   navigate(id: string){
     this.router.navigate(['user/' + id])
   }
-
-isUserIsMyself() {
-  if(this.currentUser._id === this.fetchedUser._id)
-    return true
-  return false
-}
+//
+// isUserIsMyself() {
+//   if(this.currentUser._id === this.fetchedUser._id)
+//     return true
+//   return false
+// }
 
 
   getUser(id: string) {
@@ -287,9 +275,7 @@ isUserIsMyself() {
       .subscribe(
         res => {
           this.fetchedUser = res
-          this.fetchedUser.typeUsers.forEach(type => {
-            this.typeUserDropDown = type
-          });
+
         },
         error => {
           console.log(error);

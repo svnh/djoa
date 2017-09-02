@@ -27,7 +27,7 @@ export class StratsComponent implements OnInit {
   // @Input() stratType = '';
   @Input() search: Search = new Search()
 
-  token: string = localStorage.getItem('id_token');
+  // token: string = localStorage.getItem('id_token');
   fetchedStrats: Strat[] = [];
   // search: any = {
   //   categories : [],
@@ -106,7 +106,17 @@ export class StratsComponent implements OnInit {
   getPage(page: number) {
     this.getStrats(page, this.search);
   }
-
+  goTo(stratId: string) {
+    this.openProductsSideBar(stratId)
+    this.router.navigate(['strat/' + stratId]);
+  }
+  openProductsSideBar(stratId: string) {
+    let newShowNavBarData = new ShowNavBarData()
+    newShowNavBarData.search.typeObj = 'product'
+    newShowNavBarData.search.stratId = stratId
+    newShowNavBarData.search.projectId = this.search.projectId
+    this.globalEventsManager.showNavBarLeft(newShowNavBarData)
+  }
 
   // loadMore(){
   //   this.paginationData.currentPage = this.paginationData.currentPage+1
@@ -115,7 +125,6 @@ export class StratsComponent implements OnInit {
 
   createNewStrat() {
     let newShowNavBarData = new ShowNavBarData()
-    newShowNavBarData.showNavBar = true
     newShowNavBarData.search.typeObj = 'strat'
     newShowNavBarData.search.projectId = this.search.projectId
     // newShowNavBarData.search.stratType = this.search.stratType
@@ -123,7 +132,6 @@ export class StratsComponent implements OnInit {
   }
   openDeleteStrat(stratId: string) {
     let newShowNavBarData = new ShowNavBarData()
-    newShowNavBarData.showNavBar = true
     newShowNavBarData.search.typeScreen = 'deleteConfirmation'
     newShowNavBarData.search.typeObj = 'strat'
     newShowNavBarData.search.stratId = stratId

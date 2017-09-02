@@ -9,6 +9,7 @@ import { MaterialModule } from '@angular/material';
 import { NavbarComponent} from './navbar.component';
 // import {SharedModule } from '../../shared/shared.module';
 import { NotificationService} from '../../notification/notification.service';
+import {SharedSmallModule } from '../../shared/sharedSmall.module';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { NotificationService} from '../../notification/notification.service';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    SharedSmallModule,
     // SharedModule,
     //  FormsModule,
     // MaterialModule,

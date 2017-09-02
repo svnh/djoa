@@ -8,9 +8,9 @@
         </div>
         <div class="card-block clearfix">
           <table class="table table-hover">
-            <tbody class="clienttbl">
+            <tbody class="">
               <tr *ngFor="let strat of fetchedStrats">
-                <td [routerLink]="['/strat/' + strat._id]" routerLinkActive="active">{{strat.title}}</td>
+                <td (click)="goTo(strat._id)">{{strat.title}}</td>
                 <td>
                   <section class="example-section">
                     <md-progress-bar class="example-margin" [color]="'primary'" [mode]="'determinate'" [value]="strat.dateStrat.percentageProgress">

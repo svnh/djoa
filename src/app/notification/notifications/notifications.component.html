@@ -36,7 +36,7 @@
                     <button class="updownbtn" (click)="orderBy('-profile.name')"><i class="fa fa-chevron-up"></i></button>
               </th>
                -->
-                <th class="centre">Name</th>
+                <th class="">Name</th>
             
               </tr>
             </thead>
@@ -47,15 +47,15 @@
                 [ngClass]="{'isRead':!notification.isRead, '': notification.isRead}"
                 routerLinkActive="active">
 
-                <td class="centre">{{notification.nameNotification}}</td>
+                <td class="">{{notification.nameNotification}}</td>
 
 
-                <!-- <td class="centre">{{notification.details.referenceName}}</td>
-              <td class="centre">{{notification.name}}</td>
-              <td class="centre">{{notification.details.price.costPrice}}</td>
-              <td class="centre">{{notification.details.referenceName}}</td>
-              <td class="centre">{{notification.details.price.costPrice}}</td>
-              <td class="centre">{{notification.details.price.costPrice}}</td> -->
+                <!-- <td class="">{{notification.details.referenceName}}</td>
+              <td class="">{{notification.name}}</td>
+              <td class="">{{notification.details.price.costPrice}}</td>
+              <td class="">{{notification.details.referenceName}}</td>
+              <td class="">{{notification.details.price.costPrice}}</td>
+              <td class="">{{notification.details.price.costPrice}}</td> -->
               </tr>
             </tbody>
           </table>

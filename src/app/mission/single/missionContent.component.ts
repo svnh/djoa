@@ -55,7 +55,12 @@ export class MissionContentComponent implements OnInit {
     private location: Location,
     private _fb: FormBuilder,
     private authService: AuthService,
-  ) {}
+  ) {
+    this.globalEventsManager.refreshCenterEmitter.subscribe((isRefresh) => {
+        if(isRefresh)
+          this.getMission(this.fetchedMission._id)
+    })
+  }
 
   ngOnInit() {
     this.myForm = this._fb.group({
@@ -76,21 +81,23 @@ export class MissionContentComponent implements OnInit {
     // .datePaiementString =
     // this.authService
     // .isoDateToHtmlDate(this.fetchedMission.datePaiement)
-    if (this.search.missionType)
-      this.fetchedMission.missionType = this.search.missionType
+    // if (this.search.missionType)
+    //   this.fetchedMission.missionType = this.search.missionType
+    //
 
-
-    if (this.search.projectId) {
-      let newProject = new Project()
-      newProject._id = this.search.projectId
-      this.fetchedMission.projects.push(newProject)
-
-    }
+    // if (this.search.projectId) {
+    //   let newProject = new Project()
+    //   newProject._id = this.search.projectId
+    //   this.fetchedMission.projects.push(newProject)
+    //
+    // }
 
     this.activatedRoute.params.subscribe((params: Params) => {
-      if (this.search.missionId) {
-        this.getMission(this.search.missionId)
-      } else if(params['id']) {
+      // if (this.search.missionId) {
+      //   this.getMission(this.search.missionId)
+      // } else
+      if(params['id']) {
+        this.search.missionId = params['id']
         this.getMission(params['id'])
       }
     })
@@ -99,16 +106,20 @@ export class MissionContentComponent implements OnInit {
 
   openDetails() {
     let showNavBarData = new ShowNavBarData()
-    showNavBarData.showNavBar = true
     showNavBarData.search.typeObj = 'mission'
     showNavBarData.search.missionId = this.fetchedMission._id
     this.globalEventsManager.showNavBarRight(showNavBarData);
   }
 
-
+  openProfile(userId: string){
+    let showNavBarData = new ShowNavBarData()
+    showNavBarData.search.typeScreen = 'profile'
+    showNavBarData.search.typeObj = 'user'
+    showNavBarData.search.userId = userId
+    this.globalEventsManager.showNavBarRight(showNavBarData);
+  }
   openTeam() {
     let showNavBarData = new ShowNavBarData()
-    showNavBarData.showNavBar = true
     showNavBarData.search.typeScreen = 'team'
     showNavBarData.search.typeObj = 'mission'
     showNavBarData.search.missionId = this.fetchedMission._id

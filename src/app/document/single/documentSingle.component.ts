@@ -4,7 +4,7 @@ import { ToastsManager} from 'ng2-toastr';
 import { MdDialog } from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
-import { Document, StatusDocument, Log} from '../document.model';
+import { Document, StatusDocument} from '../document.model';
 // import { EditOptionsComponentDialog } from '../../form/modalLibrary/modalLibrary.component';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -15,7 +15,10 @@ import { QuoteService} from '../../quote/quote.service';
 import { User } from '../../user/user.model';
 import { Quote } from '../../quote/quote.model';
 import { AuthService} from '../../auth/auth.service';
+
 import {Search} from '../../mainPageHome/mainPageHome.model'
+import {GlobalEventsManager} from '../../globalEventsManager';
+import {ShowNavBarData} from '../../mainPageHome/mainPageHome.model'
 
 
 @Component({
@@ -31,17 +34,6 @@ export class DocumentSingleComponent implements OnInit {
   @Output() saved: EventEmitter<any> = new EventEmitter();
 
   @Input() search: Search = new Search()
-
-  selectedIndex0: number = -1
-  selectedIndex1: number = -1
-  selectedIndex2: number = -1
-  // show1 = false
-  // show2 = false
-  // categ0: string = '';
-  // categ1: string = '';
-  // categ2: string = '';
-
-  itemSteps:any =[];
 
 
   // status = StatusDocument
@@ -70,6 +62,7 @@ export class DocumentSingleComponent implements OnInit {
     private userService: UserService,
     private quoteService: QuoteService,
     private authService: AuthService,
+    private globalEventsManager: GlobalEventsManager,
   ) {
   }
 
@@ -87,9 +80,9 @@ export class DocumentSingleComponent implements OnInit {
       description: [''],
     });
 
-
-    this.fetchedDocument.dateDocument.startString = this.authService.isoDateToHtmlDate(this.fetchedDocument.dateDocument.start)
-    this.fetchedDocument.dateDocument.endString = this.authService.isoDateToHtmlDate(this.fetchedDocument.dateDocument.end)
+    //
+    // this.fetchedDocument.dateDocument.startString = this.authService.isoDateToHtmlDate(this.fetchedDocument.dateDocument.start)
+    // this.fetchedDocument.dateDocument.endString = this.authService.isoDateToHtmlDate(this.fetchedDocument.dateDocument.end)
 
 
 
@@ -257,8 +250,8 @@ export class DocumentSingleComponent implements OnInit {
 
   save() {
 
-    this.fetchedDocument.dateDocument.start = this.authService.HTMLDatetoIsoDate(this.fetchedDocument.dateDocument.startString)
-    this.fetchedDocument.dateDocument.end = this.authService.HTMLDatetoIsoDate(this.fetchedDocument.dateDocument.endString)
+    // this.fetchedDocument.dateDocument.start = this.authService.HTMLDatetoIsoDate(this.fetchedDocument.dateDocument.startString)
+    // this.fetchedDocument.dateDocument.end = this.authService.HTMLDatetoIsoDate(this.fetchedDocument.dateDocument.endString)
     //
     // let categName0 = ''
     // let categName1 = ''
@@ -281,9 +274,11 @@ export class DocumentSingleComponent implements OnInit {
           res => {
 
             this.toastr.success('Great!', res.message)
+            this.globalEventsManager.refreshCenter(true);
+            this.closeRight()
             // this.fetchedDocument = res.obj
-            this.getDocument(res.obj._id)
-            this.saved.emit(res.obj)
+            // this.getDocument(res.obj._id)
+            // this.saved.emit(res.obj)
             // this.router.navigate(['document/' + res.obj._id]);
           },
           error => {console.log(error)}
@@ -293,9 +288,11 @@ export class DocumentSingleComponent implements OnInit {
         .subscribe(
           res => {
             this.toastr.success('Great!', res.message)
+            this.globalEventsManager.refreshCenter(true);
+            this.closeRight()
             // this.fetchedDocument = res.obj
-            this.getDocument(res.obj._id)
-            this.saved.emit(res.obj)
+            // this.getDocument(res.obj._id)
+            // this.saved.emit(res.obj)
             // this.router.navigate(['document/' + res.obj._id]);
           },
           error => {
@@ -304,6 +301,12 @@ export class DocumentSingleComponent implements OnInit {
           }
         );
     }
+  }
+
+  closeRight() {
+    let showNavBarData = new ShowNavBarData()
+    showNavBarData.showNavBar = false
+    this.globalEventsManager.showNavBarRight(showNavBarData);
   }
 
   // openDialogDelete(){
@@ -384,8 +387,8 @@ export class DocumentSingleComponent implements OnInit {
           // })
 
 
-          this.fetchedDocument.dateDocument.startString = this.authService.isoDateToHtmlDate(this.fetchedDocument.dateDocument.start)
-          this.fetchedDocument.dateDocument.endString = this.authService.isoDateToHtmlDate(this.fetchedDocument.dateDocument.end)
+          // this.fetchedDocument.dateDocument.startString = this.authService.isoDateToHtmlDate(this.fetchedDocument.dateDocument.start)
+          // this.fetchedDocument.dateDocument.endString = this.authService.isoDateToHtmlDate(this.fetchedDocument.dateDocument.end)
 
 
 

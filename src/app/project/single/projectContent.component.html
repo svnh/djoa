@@ -1,22 +1,29 @@
 <div class="container djoacont">
   <div class="row">
     <div class="col-md-12">
-      <app-navbar></app-navbar>
+
       {{fetchedProject._id}}
       <br> {{fetchedProject.details.name}}
       <br> {{fetchedProject.details.description}}
       <br>
-      <app-strats></app-strats>
-      <br>
+
+      <app-strats [search]="search"></app-strats>
+      <!-- <br>
       <app-missions [search]="searchMissionContent"></app-missions>
       <br>
-      <app-missions [search]="searchMissionResearch"></app-missions>
-
+      <app-missions [search]="searchMissionResearch"></app-missions> -->
+      <!-- {{fetchedProducts|json}} -->
+      <div *ngIf="fetchedProject._id">
+        <div *ngFor="let product of fetchedProducts">
+          {{product.name}}
+          <app-missions [search]="{projectId:fetchedProject._id, productId:product._id}"></app-missions>
+        </div>
+      </div>
 
       <br>
       <md-card>
         <md-card-content>
-          <h2 class="example-h2">Project Information</h2>
+          <h2 class="">Project Information</h2>
           <button type="button" (click)="openDetails()">Edit</button>
           <br>
           Start Date {{fetchedProject.dateProject.start | date:'yyyy-MM-dd' }} /
@@ -39,7 +46,9 @@
           <button type="button" (click)="openTeam()">Edit</button>
           <br>
           <div *ngFor="let user of fetchedProject.users">
-            <app-picture [addPicture]=false [deletePicture]=false [forms]="user.forms"></app-picture>
+            <div (click)="openProfile(user._id)">
+              <app-picture [addPicture]=false [deletePicture]=false [forms]="user.forms"></app-picture>
+            </div>
             {{user.profile.name}}
             <br>
           </div>

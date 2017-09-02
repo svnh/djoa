@@ -3,6 +3,7 @@ var express = require('express'),
     config  = require('../config/config'),
     User    = require('../models/user.model'),
     Strat    = require('../models/strat.model'),
+    Log    = require('../models/log.model'),
     Form    = require('../models/form.model'),
     fs      = require('fs'),
     jwt     = require('jsonwebtoken'),
@@ -32,7 +33,7 @@ router.use('/', function (req, res, next) {
     if (decoded) {
       User
       .findById(decoded.user._id)
-      .populate({ path: 'rights', model: 'Right'})
+      .populate({path: 'rights', model: 'Right'})
       .exec(function (err, doc) {
         if (err) {
           return res.status(500).json({
@@ -249,6 +250,19 @@ router.get('/:id', function (req, res, next) {
           err: err
         })
       } else {
+
+
+
+        var log = new Log()
+        log.ownerCompanies = req.user.ownerCompanies
+        log.strats = [item]
+        log.users = [req.user]
+        log.type = 'view'
+        log.save(function (err, result) { if (err) { console.log(err) } else { console.log(result) } })
+
+
+
+
         res.status(200).json({
           message: 'Success',
           item: item

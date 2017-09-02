@@ -1,34 +1,13 @@
 <md-sidenav #sidenav mode="side" class="">
-  <div *ngIf="showNavBarData.showNavBar">
+  <i (click)="sideNavAction('leftSideBar', false, '')" class="fa fa-bars" aria-hidden="true"></i>
 
-    <i (click)="sideNavAction('leftSideBar', false, '')" class="fa fa-bars" aria-hidden="true"></i>
+  <div *ngIf="showNavBarData.search.typeScreen == 'object'">
+    <app-projects *ngIf="showNavBarData.search.typeObj == 'project'"></app-projects>
 
-
-    <app-projects></app-projects>
+    <div *ngIf="showNavBarData.search.typeObj == 'product'">
+      <app-lightStrats [search]="showNavBarData.search"></app-lightStrats>
+      <app-listProductsByProject [search]="showNavBarData.search"></app-listProductsByProject>
+    </div>
   </div>
-  <!-- <button md-mini-fab class="example-fab" (click)="sidenav.toggle()">
-    <md-icon>Nav</md-icon>
-  </button> -->
-  <!-- <app-sideBarLeft [sidenav]="sidenav"></app-sideBarLeft> -->
+
 </md-sidenav>
-
-<!-- <div *ngIf="showNavBar"> -->
-  <!-- <button md-mini-fab class="example-fab" (click)="sidenav.toggle()">
-    NAV
-  </button> -->
-
-  <!-- <div class="sideBarLeft" id="accordion" role="tablist" aria-multiselectable="true">
-
-    <i (click)="sidenav.toggle()" class="fa fa-bars" aria-hidden="true"></i>
-
-    <div class="card">
-      Concert App
-    </div>
-    <div class="card">
-      Ongoing Studies
-    </div>
-    <div class="card">
-      Acquisition Efforts
-    </div>
-  </div> -->
-<!-- </div> -->

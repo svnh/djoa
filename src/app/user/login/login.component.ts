@@ -45,9 +45,9 @@ export class LoginComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    setTimeout(() => {
-      this.renderer.invokeElementMethod(this.userEmail.nativeElement, 'focus', []);
-    }, 50);
+    // setTimeout(() => {
+    //   this.renderer.invokeElementMethod(this.userEmail.nativeElement, 'focus', []);
+    // }, 50);
   }
 
   // submit the login form with the user credentials and navigate the user to the index page of our app
@@ -57,8 +57,9 @@ export class LoginComponent implements OnInit, AfterViewInit {
       .subscribe(
         data => {
           let newShowNavBarData = new ShowNavBarData()
-          newShowNavBarData.showNavBar = true
+          newShowNavBarData.search.typeObj = 'project'
           this.globalEventsManager.showNavBarLeft(newShowNavBarData);
+          this.globalEventsManager.showNavBarTop(newShowNavBarData);
           //console.log(data)
           // if the user credentials are correct, set the localStorage token and userId,
           // we need these info in order to do stuff later when the user is signed in and verified

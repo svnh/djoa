@@ -8,6 +8,9 @@ export class GlobalEventsManager {
     private _showNavBarLeft: BehaviorSubject<any> = new BehaviorSubject<any>(null);
     public showNavBarEmitterLeft: Observable<any> = this._showNavBarLeft.asObservable();
 
+    private _showNavBarTop: BehaviorSubject<any> = new BehaviorSubject<any>(null);
+    public showNavBarEmitterTop: Observable<any> = this._showNavBarTop.asObservable();
+
     private _showNavBarRight: BehaviorSubject<any> = new BehaviorSubject<any>(null);
     public showNavBarEmitterRight: Observable<any> = this._showNavBarRight.asObservable();
 
@@ -19,10 +22,13 @@ export class GlobalEventsManager {
     showNavBarLeft(ifShow: any) {
         this._showNavBarLeft.next(ifShow);
     }
+    showNavBarTop(ifShow: any) {
+        this._showNavBarTop.next(ifShow);
+    }
     showNavBarRight(ifShow: any) {
         this._showNavBarRight.next(ifShow);
     }
     refreshCenter(ifShow: boolean) {
-      this._refreshCenter.next(ifShow);
+        this._refreshCenter.next(ifShow);
     }
 }

@@ -3,25 +3,37 @@
   <div>
     <h3>Mission</h3>
 
-    <h4 class="dspl-nn">id: {{fetchedMission._id}}</h4>
+    <h4 class="">id: {{fetchedMission._id}}</h4>
 
 
     <form [formGroup]="myForm" novalidate (ngSubmit)="save()">
       <div>
-
-
-        <!-- <app-autocomplete
+    
+        <app-autocomplete
           [typeAutocomplete]="'project'"
-          [canDelete]="false"
+          [canDelete]=true
+          [search]="search"
           [title]="'Project'"
           [singleChoice]=true
+          (getResultAutocomplete)="getResultAutocomplete($event)"
           [arrayContent]="fetchedMission.projects">
-        </app-autocomplete> -->
+        </app-autocomplete>
+
+
+        <app-autocomplete
+          [typeAutocomplete]="'product'"
+          [canDelete]=true
+          [search]="search"
+          [title]="'product'"
+          [singleChoice]=true
+          [arrayContent]="fetchedMission.products">
+        </app-autocomplete>
+
 
         type: {{fetchedMission.missionType}}
         <input type="text" class="form-control" formControlName="title" [(ngModel)]="fetchedMission.title" placeholder="title">
 
-<!-- 
+<!--
         <select class="form-control" formControlName="status" [(ngModel)]="fetchedMission.status">
           <option *ngFor="let n of statusTypes" [attr.value]="n.value">{{n.label}}</option>
         </select> -->

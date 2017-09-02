@@ -1,6 +1,7 @@
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule }            from '@angular/core';
 import { BriefsComponent} from './list/briefs.component';
+import { BriefContentComponent} from './single/briefContent.component';
 import { BriefSingleComponent} from './single/briefSingle.component';
 // import { BriefContentComponent} from './single/briefContent.component';
 // import { BriefTasksComponent} from './task/singleTask/briefTasks.component';
@@ -18,7 +19,7 @@ export const routes: Routes = [
   {path: 'new', component: BriefSingleComponent},
   // {path: 'new/:selectedIndex', component: BriefSingleComponent},
   // {path: ':id/edit', component: BriefSingleComponent},
-  {path: ':id', component: BriefSingleComponent},
+  {path: ':id', component: BriefContentComponent},
 
 ];
 

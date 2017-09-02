@@ -1,29 +1,32 @@
 import { Form } from '../picture/form/form.model';
 import { User } from '../user/user.model';
-import { Quote } from '../quote/quote.model';
-import { Task } from '../task/task.model';
+import { Mission } from '../mission/mission.model';
+import { Strat } from '../strat/strat.model';
 
 
 export class Document {
     _id: string = '';
     link: string = '';
     details: Details = new Details()
-    status: number = 0;
+    status: Status = new Status();
     clients: User[] = [];
     assignedTos: User[] = [];
     forms: Form[] = [];
-    logs: Log[] = [];
+    strats: Strat[] = [];
+    missions: Mission[] = [];
     categorie: Categorie = new Categorie();
-    bucketTasks: BucketTasks[] = []
     progressTasks: number = 0;
     dateDocument: DateDocument = new DateDocument()
 }
 
-export class Log {
-  comment: string = '';
-  by: User[] = [];
-  forms: Form[] = [];
-  date: Date = new Date()
+export class Status {
+    global: string = 'WIP';
+    review: boolean = false;
+    approve: boolean = false;
+    changeRequest: boolean = false;
+    changeSent: boolean = false;
+
+
 }
 export class DateDocument {
   start: Date = new Date()
@@ -32,11 +35,7 @@ export class DateDocument {
   endString: string = '';
   percentageProgress: number = 0;
 }
-export class BucketTasks {
-  bucketName: string = '';
-  openNewTask: boolean = false;
-  tasks: Task[] = []
-}
+
 //
 // export class Task {
 //   name: string = '';

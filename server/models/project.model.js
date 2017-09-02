@@ -13,7 +13,8 @@ var project = new Schema({
       description: {type: String},
     },
     users: [{type: Schema.Types.ObjectId, ref: 'User'}],
-    assignedTos: [{type: Schema.Types.ObjectId, ref: 'User'}],
+    
+    // assignedTos: [{type: Schema.Types.ObjectId, ref: 'User'}],
     status: {type: String, default: [0]},
     // logs:[{
     //   comment: {type: String, default: ['']},

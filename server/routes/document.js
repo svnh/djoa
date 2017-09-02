@@ -8,7 +8,8 @@ var express = require('express'),
   fs = require('fs'),
   jwt = require('jsonwebtoken'),
   shared = require('./shared.js'),
-  nameObject = 'document'
+  nameObject = 'document',
+  Log    = require('../models/log.model')
 
 // this process does not hang the nodejs server on error
 process.on('uncaughtException', function(err) {
@@ -120,8 +121,8 @@ router.put('/:id', function(req, res, next) {
       item.quotes = req.body.quotes
       item.categorie = req.body.categorie
       item.assignedTos = req.body.assignedTos
-      item.bucketTasks = req.body.bucketTasks
-      item.progressTasks = req.body.progressTasks
+      // item.bucketTasks = req.body.bucketTasks
+      // item.progressTasks = req.body.progressTasks
       item.dateDocument = req.body.dateDocument
       item.link = req.body.link
 
@@ -129,6 +130,15 @@ router.put('/:id', function(req, res, next) {
         if (err) {
           return res.status(404).json({message: 'There was an error, please try again', err: err})
         }
+
+        var log = new Log()
+        log.ownerCompanies = req.user.ownerCompanies
+        log.users = [req.user]
+        log.documents = [req.params.id]
+        log.type = 'change'
+        log.save(function (err, result) { if (err) { console.log(err) } else { console.log(result) } })
+
+
         res.status(201).json({message: 'Updated successfully', obj: result})
       })
 

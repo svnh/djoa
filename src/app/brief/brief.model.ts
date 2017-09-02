@@ -1,19 +1,18 @@
 import { Form } from '../picture/form/form.model';
 import { User } from '../user/user.model';
-import { Quote } from '../quote/quote.model';
-import { Task } from '../task/task.model';
+import { Document } from '../document/document.model';
+import { Strat } from '../strat/strat.model';
 
 
 export class Brief {
     _id: string = '';
     details: Details = new Details()
-    status: number = 0;
+    documents: Document[] = []
     clients: User[] = [];
-    assignedTos: User[] = [];
+    strats: Strat[]=[]
     forms: Form[] = [];
     logs: Log[] = [];
     categorie: Categorie = new Categorie();
-    bucketTasks: BucketTasks[] = []
     progressTasks: number = 0;
     dateBrief: DateBrief = new DateBrief()
 }
@@ -31,11 +30,7 @@ export class DateBrief {
   endString: string = '';
   percentageProgress: number = 0;
 }
-export class BucketTasks {
-  bucketName: string = '';
-  openNewTask: boolean = false;
-  tasks: Task[] = []
-}
+
 //
 // export class Task {
 //   name: string = '';

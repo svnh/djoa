@@ -7,8 +7,10 @@ import { AppComponent} from './app.component';
 // import { MaterialModule } from '@angular/material';
 import {MdSidenavModule} from '@angular/material';
 
+
 import { SideBarRightModule} from './nav/sideBarRight/sideBarRight.module';
 import { SideBarLeftModule} from './nav/sideBarLeft/sideBarLeft.module';
+import { NavbarModule} from './nav/navbar/navbar.module';
 
 
 import { GlobalEventsManager } from './globalEventsManager';
@@ -237,6 +239,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
 
   SideBarRightModule,
   SideBarLeftModule,
+  NavbarModule,
 
 
   ],

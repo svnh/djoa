@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { UserService} from '../user/user.service';
 import { CompanieService} from '../companie/companie.service';
 import { ProductService} from '../product/product.service';
@@ -7,8 +7,10 @@ import { TemplateQuoteService} from '../quote/templateQuote.service';
 
 import { RightService} from '../right/right.service';
 import { ProjectService} from '../project/project.service';
+import { StratService} from '../strat/strat.service';
+import { MissionService} from '../mission/mission.service';
 import { MdDialog } from '@angular/material';
-
+import {Search} from '../mainPageHome/mainPageHome.model'
 // import { UserDialogComponent } from '../user/singleUser/dialog/userDialog.component';
 // import { CompanieDialogComponent } from '../companie/single/dialog/companieDialog.component';
 // import { ProjectDialogComponent } from '../project/single/dialog/projectDialog.component';
@@ -23,15 +25,12 @@ import { User } from '../user/user.model';
   templateUrl: './autocomplete.component.html',
   styleUrls: ['./autocomplete.component.css'],
 })
-export class AutocompleteComponent {
+export class AutocompleteComponent implements OnInit {
   @Input() typeAutocomplete: string;
   @Input() arrayContent = [];
   @Input() singleChoice: boolean = true;
   @Input() title: string = '';
-  @Input() search: any = {
-    isExternalUser: true,
-    search: ''
-  };
+  @Input() search: Search = new Search();
   @Input() canDelete: boolean = true;
   @Input() enableLink: boolean = true;
   // createNewItem: boolean = false;
@@ -43,17 +42,42 @@ export class AutocompleteComponent {
 
 
   constructor(
-    public dialog: MdDialog,
+    // public dialog: MdDialog,
     private userService: UserService,
+    private missionService: MissionService,
     private companieService: CompanieService,
     private productService: ProductService,
     private quoteService: QuoteService,
+    private stratService: StratService,
     private projectService: ProjectService,
     private templateQuoteService: TemplateQuoteService,
     private rightService: RightService,
     private router: Router,
   ) {}
 
+  ngOnInit() {}
+  ngOnChanges() {
+    if(this.typeAutocomplete ==='project' && this.search.projectId)
+        this.projectService.getProject(this.search.projectId)
+        .subscribe( res => { this.arrayContent.push(res) }, error => { console.log(error); });
+
+
+    if(this.typeAutocomplete ==='product' && this.search.productId)
+        this.productService.getProduct(this.search.productId)
+        .subscribe( res => { this.arrayContent.push(res) }, error => { console.log(error); });
+
+
+    if(this.typeAutocomplete ==='strat' && this.search.stratId)
+        this.stratService.getStrat(this.search.stratId)
+        .subscribe( res => { this.arrayContent.push(res) }, error => { console.log(error); });
+
+
+    if(this.typeAutocomplete ==='mission' && this.search.missionId)
+        this.missionService.getMission(this.search.missionId)
+        .subscribe( res => { this.arrayContent.push(res) }, error => { console.log(error); });
+
+
+  }
 
   getData(page: number, search: any) {
 
@@ -85,6 +109,16 @@ export class AutocompleteComponent {
     if(this.typeAutocomplete ==='right')
       this.rightService.getRights(page, search)
       .subscribe( res => { this.fetchedData = res.data }, error => { console.log(error); });
+
+    if(this.typeAutocomplete ==='strat')
+      this.stratService.getStrats(page, search)
+      .subscribe( res => { this.fetchedData = res.data }, error => { console.log(error); });
+
+
+    if(this.typeAutocomplete ==='mission')
+      this.missionService.getMissions(page, search)
+      .subscribe( res => { this.fetchedData = res.data }, error => { console.log(error); });
+
 
   }
 

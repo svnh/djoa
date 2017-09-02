@@ -65,10 +65,15 @@ export class MissionsComponent implements OnInit {
     })
   }
 
+  ngOnChanges(changes) {
+    this.getMissions(1, this.search)
+  }
+
+
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: Params) => {
-    this.getMissions(1, this.search)
-  })
+      // this.getMissions(1, this.search)
+    })
 
     // let this2 = this
     // setTimeout(function(){
@@ -76,6 +81,11 @@ export class MissionsComponent implements OnInit {
     //   this2.search.orderBy = 'name'
     //   this2.getMissions(1, this2.search)
     // }, 200);
+  }
+
+  goTo(missionId: string) {
+    this.openProductsSideBar(missionId)
+    this.router.navigate(['mission/' + missionId]);
   }
 
   // ngOnChanges(changes: any){
@@ -112,18 +122,22 @@ export class MissionsComponent implements OnInit {
   //   this.paginationData.currentPage = this.paginationData.currentPage+1
   //   this.getMissions(this.paginationData.currentPage, this.search)
   // }
-
+  openProductsSideBar(missionId: string) {
+    let newShowNavBarData = new ShowNavBarData()
+    newShowNavBarData.search.typeObj = 'product'
+    newShowNavBarData.search.missionId = missionId
+    newShowNavBarData.search.projectId = this.search.projectId
+    this.globalEventsManager.showNavBarLeft(newShowNavBarData)
+  }
   createNewMission() {
     let newShowNavBarData = new ShowNavBarData()
-    newShowNavBarData.showNavBar = true
     newShowNavBarData.search.typeObj = 'mission'
     newShowNavBarData.search.projectId = this.search.projectId
-    newShowNavBarData.search.missionType = this.search.missionType
+    newShowNavBarData.search.productId = this.search.productId
     this.globalEventsManager.showNavBarRight(newShowNavBarData)
   }
   openDeleteMission(missionId: string) {
     let newShowNavBarData = new ShowNavBarData()
-    newShowNavBarData.showNavBar = true
     newShowNavBarData.search.typeScreen = 'deleteConfirmation'
     newShowNavBarData.search.typeObj = 'mission'
     newShowNavBarData.search.missionId = missionId

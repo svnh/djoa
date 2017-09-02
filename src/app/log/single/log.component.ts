@@ -1,10 +1,10 @@
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {AuthService} from '../../auth/auth.service';
-import {CommentService} from '../comment.service';
+import {LogService} from '../log.service';
 // import {ProductService} from '../../product/product.service';
 // import { ProjectService} from '../../project/project.service';
 
-import {Comment} from '../comment.model';
+import {Log} from '../log.model';
 
 import {ToastsManager} from 'ng2-toastr';
 
@@ -25,14 +25,14 @@ import { User } from '../../user/user.model';
 
 
 @Component({
-  selector: 'app-comment',
-  templateUrl: './comment.component.html',
-  styleUrls: ['../comment.component.css'],
+  selector: 'app-log',
+  templateUrl: './log.component.html',
+  styleUrls: ['../log.component.css'],
 })
-export class CommentComponent implements OnInit {
+export class LogComponent implements OnInit {
   @Output() saved: EventEmitter<any> = new EventEmitter();
   @Input() showHeader = true;
-  @Input() fetchedComment: Comment = new Comment()
+  @Input() fetchedLog: Log = new Log()
   @Input() search: any = {
     search: '',
     companieId: '',
@@ -57,7 +57,7 @@ export class CommentComponent implements OnInit {
     { label: 'Espece', value: 'cash' }
 ]
   constructor(
-    private commentService: CommentService,
+    private logService: LogService,
     private quoteService: QuoteService,
     // private projectService: ProjectService,
     // private userService: UserService,
@@ -73,14 +73,14 @@ export class CommentComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.myForm = this._fb.group({
-      commentName: ['', [Validators.required, Validators.minLength(1)]],
-    })
+    // this.myForm = this._fb.group({
+    //   logName: ['', [Validators.required, Validators.minLength(1)]],
+    // })
 
     this.activatedRoute.params.subscribe((params: Params) => {
       // console.log(params)
-      if(params['idComment'])
-        this.getComment(params['idComment'])
+      if(params['idLog'])
+        this.getLog(params['idLog'])
 
     //  if(params['idProject'])
     //   this.getProject(params['idProject'])
@@ -89,7 +89,7 @@ export class CommentComponent implements OnInit {
 
   getPicture(picture) {
     console.log(picture)
-    // this.fetchedComment.forms.push(picture)
+    // this.fetchedLog.forms.push(picture)
   }
 
 
@@ -97,33 +97,33 @@ export class CommentComponent implements OnInit {
 
 
   save() {
-    if(!this.fetchedComment.commentName)
-      return
-    this.fetchedComment.quotes = this.search.quoteId
-    // this.fetchedComment.datePaiement = this.authService.HTMLDatetoIsoDate(this.fetchedComment.datePaiementString)
-    // if(this.fetchedComment._id) {
-    //   this.commentService.updateComment(this.fetchedComment)
+    // if(!this.fetchedLog.logName)
+    //   return
+    // this.fetchedLog.quotes = this.search.quoteId
+    // this.fetchedLog.datePaiement = this.authService.HTMLDatetoIsoDate(this.fetchedLog.datePaiementString)
+    // if(this.fetchedLog._id) {
+    //   this.logService.updateLog(this.fetchedLog)
     //     .subscribe(
     //       res => {
     //         this.toastr.success('Great!', res.message)
-    //         // this.fetchedComment = res.obj
-    //         //this.router.navigate(['comment/edit/' + this.fetchedComment._id])
+    //         // this.fetchedLog = res.obj
+    //         //this.router.navigate(['log/edit/' + this.fetchedLog._id])
     //       },
     //       error => {
     //         this.toastr.error('error!', error)
     //       }
     //     )
     // } else {
-      this.commentService.saveComment(this.fetchedComment)
+      this.logService.saveLog(this.fetchedLog)
         .subscribe(
           res => {
             this.toastr.success('Great!', res.message)
             this.saved.emit(res.obj)
-            this.fetchedComment = new Comment()
-            // this.fetchedComment = res.obj
-            // this.newCommentSaved.emit()
+            this.fetchedLog = new Log()
+            // this.fetchedLog = res.obj
+            // this.newLogSaved.emit()
             // if(this.showHeader)
-            //   this.router.navigate(['comment/edit/' + res.obj._id])
+            //   this.router.navigate(['log/edit/' + res.obj._id])
           },
           error => {console.log(error)}
         )
@@ -148,7 +148,7 @@ export class CommentComponent implements OnInit {
   onDelete(id: string) {
     let this2 = this
     return new Promise(function(resolve, reject) {
-      this2.commentService.deleteComment(id)
+      this2.logService.deleteLog(id)
         .subscribe(
           res => {
             this2.toastr.success('Great!', res.message);
@@ -168,8 +168,8 @@ export class CommentComponent implements OnInit {
     let dialogRefDelete = this.dialog.open(DeleteDialog)
     dialogRefDelete.afterClosed().subscribe(result => {
       if(result) {
-        this.onDelete(this.fetchedComment._id).then(function(){
-          this2.router.navigate(['comment']);
+        this.onDelete(this.fetchedLog._id).then(function(){
+          this2.router.navigate(['log']);
         })
 
       }
@@ -179,11 +179,11 @@ export class CommentComponent implements OnInit {
 
 
 
-  getComment(id: string) {
-    this.commentService.getComment(id)
+  getLog(id: string) {
+    this.logService.getLog(id)
       .subscribe(
         res => {
-          this.fetchedComment = res
+          this.fetchedLog = res
 
         },
         error => {

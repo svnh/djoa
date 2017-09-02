@@ -1,34 +1,33 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <app-navbar></app-navbar>
+
 
 
       <h3>Mission</h3>
 
-      <h4 class="dspl-nn">id: {{fetchedMission._id}}</h4>
+      <h4 class="">id: {{fetchedMission._id}}</h4>
       <div>
-        type: {{fetchedMission.missionType}}
         <br> title:{{fetchedMission.title}}
         <br> description: {{fetchedMission.description}}
       </div>
       <md-card>
         <md-card-content>
           <h2>Chat</h2>
-          <app-chat></app-chat>
+          <app-chat [search]="search"></app-chat>
         </md-card-content>
       </md-card>
       <br>
 
 
-      <form [formGroup]="myForm" novalidate (ngSubmit)="save()">
+      <!-- <form [formGroup]="myForm" novalidate (ngSubmit)="save()"> -->
 
         <br>
         <md-card>
           <md-card-content>
             <h2>Links to documents</h2>
 
-            <app-documents></app-documents>
+            <app-documents [search]="search"></app-documents>
           </md-card-content>
         </md-card>
 
@@ -41,7 +40,7 @@
         <br>
         <md-card>
           <md-card-content>
-            <h2 class="example-h2">Mission Information</h2>
+            <h2 class="">{{fetchedMission.title}}</h2>
             <button type="button" (click)="openDetails()">Edit</button>
             <br>
             Start Date {{fetchedMission.dateMission.start | date:'yyyy-MM-dd' }} /
@@ -63,24 +62,27 @@
         <md-card>
           <md-card-content>
             <h2>Team</h2>
-            <button type="button" (click)="openTeam()">edit team</button>
+            <button type="button" (click)="openTeam()">Edit</button>
             <br>
             <div *ngFor="let user of fetchedMission.users">
-              <app-picture [addPicture]=false [deletePicture]=false [forms]="user.forms"></app-picture>
-              {{user.profile.name}}
+              <div (click)="openProfile(user._id)">
+                <app-picture [addPicture]=false [deletePicture]=false [forms]="user.forms"></app-picture>
+                {{user.profile.name}}
+              </div>
               <br>
             </div>
           </md-card-content>
         </md-card>
 
-        <div class="valid-edit">
+        <!-- <div class="valid-edit">
           <button type="submit" class="sln-edt done">{{'Save' }}</button>
           <button *ngIf="fetchedMission._id" type="button" class="delete" md-button (click)="openDialogDelete()">
             Delete
           </button>
-          <br><br><br><br><br><br>
-        </div>
-      </form>
+
+        </div> -->
+        <br><br><br><br><br><br>
+      <!-- </form> -->
     </div>
   </div>
 </div>

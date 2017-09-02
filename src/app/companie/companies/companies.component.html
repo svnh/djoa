@@ -36,31 +36,31 @@
                     <button class="updownbtn" (click)="orderBy('-profile.name')"><i class="fa fa-chevron-up"></i></button>
               </th>
                -->
-                <th class="centre">{{'Logo' }}</th>
-                <th class="centre">{{'Name' }}</th>
-                <th class="centre">{{'City' }}</th>
-                <th class="centre">{{'Date' }}</th>
+                <th class="">{{'Logo' }}</th>
+                <th class="">{{'Name' }}</th>
+                <th class="">{{'City' }}</th>
+                <th class="">{{'Date' }}</th>
 
               </tr>
             </thead>
             <tbody class="">
               <tr *ngFor="let companie of fetchedCompanies" [routerLink]="['/companie/' + companie._id]" routerLinkActive="active">
-                <td class="centre">
+                <td class="">
                   <div *ngFor="let singleForm of companie.forms; let i=index">
                     <img class="promo-img" height="50px" src="./uploads/forms/{{singleForm.owner}}/{{singleForm.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
                   </div>
                 </td>
-                <td class="centre">{{companie.nameCompanie}}</td>
-                <td class="centre">{{companie.address.city}}</td>
-                <td class="centre">{{companie.createdAt | date:'yyyy-MM-dd' }}</td>
+                <td class="">{{companie.nameCompanie}}</td>
+                <td class="">{{companie.address.city}}</td>
+                <td class="">{{companie.createdAt | date:'yyyy-MM-dd' }}</td>
 
 
-                <!-- <td class="centre">{{companie.details.referenceName}}</td>
-              <td class="centre">{{companie.name}}</td>
-              <td class="centre">{{companie.details.price.costPrice}}</td>
-              <td class="centre">{{companie.details.referenceName}}</td>
-              <td class="centre">{{companie.details.price.costPrice}}</td>
-              <td class="centre">{{companie.details.price.costPrice}}</td> -->
+                <!-- <td class="">{{companie.details.referenceName}}</td>
+              <td class="">{{companie.name}}</td>
+              <td class="">{{companie.details.price.costPrice}}</td>
+              <td class="">{{companie.details.referenceName}}</td>
+              <td class="">{{companie.details.price.costPrice}}</td>
+              <td class="">{{companie.details.price.costPrice}}</td> -->
               </tr>
             </tbody>
           </table>

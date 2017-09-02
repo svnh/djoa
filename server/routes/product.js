@@ -76,9 +76,9 @@ router.put('/:id', function (req, res, next) {
       })
     } else {
 
-        item.details = req.body.details
-        item.categorie = req.body.categorie
-        item.vendors = req.body.vendors
+        item.name = req.body.name
+        item.description = req.body.description
+        // item.vendors = req.body.vendors
         item.forms = req.body.forms
 
 
@@ -149,7 +149,7 @@ router.get('/page/:page', function (req, res, next) {
   searchQuery['ownerCompanies'] = req.user.ownerCompanies
 
   if(req.query.search)
-    searchQuery['details.referenceName'] = new RegExp(req.query.search, 'i')
+    searchQuery['name'] = new RegExp(req.query.search, 'i')
 
   Product
   .find(searchQuery)

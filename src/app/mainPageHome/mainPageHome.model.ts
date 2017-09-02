@@ -9,7 +9,7 @@
 // }
 // export class SideBarData {
 export class ShowNavBarData {
-  showNavBar: boolean = false;
+  showNavBar: boolean = true;
   search: Search = new Search();
 }
 
@@ -22,7 +22,9 @@ export class Search {
     documentId: string = '';
     missionId: string = '';
     stratId: string = '';
-    missionType: string = '';
+    productId: string = '';
+    search: string = '';
+    // missionType: string = '';
     isExternalUser: boolean = false;
 
 }

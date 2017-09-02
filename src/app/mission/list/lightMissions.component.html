@@ -1,0 +1,3 @@
+<div *ngFor="let mission of fetchedMissions">
+  <div (click)="goToMission(mission._id)" routerLinkActive="active">- {{mission.title}}</div>
+</div>

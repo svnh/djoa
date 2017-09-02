@@ -13,6 +13,7 @@ import { StratContentComponent} from './single/stratContent.component';
 import { StratService} from './strat.service';
 import { StratRouting} from './stratRouting.module';
 import { StratsComponent} from './list/strats.component';
+import { LightStratsComponent} from './list/lightStrats.component';
 
 // import { ProjectStratsComponent} from './project/projectStrats.component';
 import { QuoteModule} from '../quote/quote.module';
@@ -51,6 +52,7 @@ import {ChatModule} from '../chat/chat.module';
     // StratTeamComponent,
     StratContentComponent,
     StratsComponent,
+    LightStratsComponent,
     // ProjectStratsComponent,
     // StratDialogComponent,
     // StratSingleComponent,
@@ -59,6 +61,7 @@ import {ChatModule} from '../chat/chat.module';
   exports:      [
     StratComponent,
     // StratTeamComponent,
+    LightStratsComponent,
     StratsComponent,
     // AutocompleteComponent,
   ],
