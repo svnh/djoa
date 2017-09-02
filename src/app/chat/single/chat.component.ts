@@ -43,6 +43,7 @@ export class ChatComponent implements OnInit, OnDestroy {
         newMission._id = this.search.missionId
         this.message.missions = [newMission]
       }
+      console.log(this.authService.getCurrentUser())
       this.message.users = [this.authService.getCurrentUser()]
       this.message.ownerCompanies= [this.authService.getCurrentUser().ownerCompanies[0]]
       this.chatService.sendMessage(this.message);

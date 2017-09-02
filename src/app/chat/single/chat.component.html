@@ -1,6 +1,7 @@
 <div class="chat">
   <div *ngFor="let message of messages">
     <div *ngFor="let user of message.users">
+      <app-picture [addPicture]=false [deletePicture]=false [forms]="user.forms"></app-picture>
       {{user.profile.name}} | {{message.chatName}} | {{message.createdAt | date:'yMdjm'}}
     </div>
   </div>

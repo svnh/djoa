@@ -238,6 +238,14 @@ router.get('/page/:page', function (req, res, next) {
 
 
   .populate({path: 'users', model: 'User'})
+  .populate({
+    path: 'users',
+    model: 'User',
+    populate: {
+      path: 'forms',
+      model: 'Form'
+    }
+  })
   // .populate(
   //   {
   //     path: 'bucketTasks.tasks.assignedTos',

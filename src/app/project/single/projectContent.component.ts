@@ -4,7 +4,7 @@ import { ToastsManager} from 'ng2-toastr';
 import { MdDialog } from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
-import { Project, StatusProject, Log} from '../project.model';
+import { Project} from '../project.model';
 // import { EditOptionsComponentDialog } from '../../form/modalLibrary/modalLibrary.component';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -62,10 +62,10 @@ export class ProjectContentComponent implements OnInit {
     private projectService: ProjectService,
     private toastr: ToastsManager,
     // public dialog: MdDialog,
-    private router: Router,
-    private location: Location,
+    // private router: Router,
+    // private location: Location,
     private activatedRoute: ActivatedRoute,
-    private _fb: FormBuilder,
+    // private _fb: FormBuilder,
     private productService: ProductService,
     // private quoteService: QuoteService,
     private authService: AuthService,
@@ -81,11 +81,11 @@ export class ProjectContentComponent implements OnInit {
   ngOnInit() {
 
     this.getProducts(1, {})
-    this.myForm = this._fb.group({
-      status: [''],
-      name: ['', [Validators.required, Validators.minLength(2)]],
-      description: [''],
-    });
+    // this.myForm = this._fb.group({
+    //   status: [''],
+    //   name: ['', [Validators.required, Validators.minLength(2)]],
+    //   description: [''],
+    // });
 
 
     this.fetchedProject.dateProject.startString = this.authService.isoDateToHtmlDate(this.fetchedProject.dateProject.start)

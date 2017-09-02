@@ -1,25 +1,21 @@
-import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { ProjectService} from '../project.service';
 import { ToastsManager} from 'ng2-toastr';
-import { MdDialog } from '@angular/material';
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Router } from '@angular/router';
 import { Location } from '@angular/common';
-import { Project, StatusProject, Log} from '../project.model';
+import { Project} from '../project.model';
 // import { EditOptionsComponentDialog } from '../../form/modalLibrary/modalLibrary.component';
-import { FormBuilder, FormGroup, Validators} from '@angular/forms';
-import { DomSanitizer } from '@angular/platform-browser';
-import { DeleteDialog } from '../../deleteDialog/deleteDialog.component'
-import { UserService} from '../../user/user.service';
-import { QuoteService} from '../../quote/quote.service';
+import { FormBuilder} from '@angular/forms';
 
-import { User } from '../../user/user.model';
+
+
 import { Product } from '../../product/product.model';
 import {ProductService} from '../../product/product.service';
 
 import { AuthService} from '../../auth/auth.service';
-import {Search} from '../../mainPageHome/mainPageHome.model'
+import {Search} from '../../mainPageHome/mainPageHome.model';
 import {GlobalEventsManager} from '../../globalEventsManager';
-import {ShowNavBarData} from '../../mainPageHome/mainPageHome.model'
+import {ShowNavBarData} from '../../mainPageHome/mainPageHome.model';
 
 
 
@@ -145,9 +141,6 @@ export class ListProductsByProjectComponent implements OnInit {
     this.projectService.getProject(id)
       .subscribe(
         res => {
-          // let categName0 = ''
-          // let categName1 = ''
-          // let categName2 = ''
           this.fetchedProject = <Project>res
 
           this.fetchedProject.dateProject.startString = this.authService.isoDateToHtmlDate(this.fetchedProject.dateProject.start)
