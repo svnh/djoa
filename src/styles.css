@@ -15,7 +15,7 @@
 }
 
 @media screen and (min-width: 768 px) {
-  .djoa-container {
+  .container.djoa-container {
     width: 70% !important;
     max-width: 70% !important;
   }
@@ -34,5 +34,10 @@ body, .mat-drawer-container {
   md-sidenav.mat-drawer.mat-sidenav.ng-tns-c7-0.ng-trigger.ng-trigger-transform.mat-drawer-side {
     background-color: transparent !important;
     background-image: url("/assets/images/left-sidenav-back.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top right;
+    width: 150px;
+    height: 100vh;
   }
 }
