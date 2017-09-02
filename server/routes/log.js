@@ -154,7 +154,7 @@ router.get('/page/:page', function (req, res, next) {
   Log
   .find(searchQuery)
   .sort('-createdAt')
-  .populate({path: 'forms', model: 'Form'})
+  .populate({path: 'users', model: 'User'})
   .limit(itemsPerPage)
   .skip(skip)
   .exec(function (err, item) {

@@ -1,9 +1,9 @@
 
 <div class="container">
-  <!-- <app-header [showBackButton]="true" [nameObject]="'comment'" [showCreateButton]="false"></app-header> -->
+  <!-- <app-header [showBackButton]="true" [nameObject]="'log'" [showCreateButton]="false"></app-header> -->
 
   <div>
-    <!-- <h4 class="">id: {{fetchedComment._id}}</h4> -->
+    <!-- <h4 class="">id: {{fetchedLog._id}}</h4> -->
 
 
     <form [formGroup]="myForm" novalidate (ngSubmit)="save()">
@@ -15,7 +15,7 @@
           [canDelete]=true
           [title]="'Project'"
           [singleChoice]=true
-          [arrayContent]="fetchedComment.projects">
+          [arrayContent]="fetchedLog.projects">
         </app-autocomplete>
 
         <app-autocomplete
@@ -23,18 +23,18 @@
           [canDelete]=true
           [title]="'Quote'"
           [singleChoice]=true
-          [arrayContent]="fetchedComment.quotes">
+          [arrayContent]="fetchedLog.quotes">
         </app-autocomplete> -->
 
         <input
           type="text"
           (keyup.enter)="save()"
           class="form-control"
-          formControlName="commentName" [(ngModel)]="fetchedComment.commentName" placeholder="commentName">
+          formControlName="logName" [(ngModel)]="fetchedLog.logName" placeholder="logName">
 
 
         <div class="col-md-4">
-          <app-picture [forms]="fetchedComment.forms" (getPicture)="getPicture($event)"></app-picture>
+          <app-picture [forms]="fetchedLog.forms" (getPicture)="getPicture($event)"></app-picture>
         </div>
       </div>
 
@@ -42,7 +42,7 @@
 
       <div class="valid-edit">
         <button type="submit" [disabled]="!myForm.valid" class="sln-edt done">{{'Save' }}</button>
-        <button *ngIf="fetchedComment._id" type="button" class="delete" md-button (click)="openDialogDelete()">
+        <button *ngIf="fetchedLog._id" type="button" class="delete" md-button (click)="openDialogDelete()">
           Delete
         </button>
       </div>

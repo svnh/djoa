@@ -5,20 +5,20 @@ import { Project } from '../project/project.model';
 import { Companie } from '../companie/companie.model';
 
 
-export class Comment {
+export class Log {
     _id: string = '';
 
 
-    commentName: string = '';
+    logName: string = '';
     writtenBy: User[] = [];
     forms: Form[] = [];
     projects: Companie[] = [];
     quotes: Quote[] = [];
     createdAt: Date = new Date()
 
-    // dateComment: DateComment = new DateComment()
+    // dateLog: DateLog = new DateLog()
 }
-// export class DateComment {
+// export class DateLog {
 //   start: Date = new Date()
 //   startString: string = '';
 //   end: Date = new Date()

@@ -25,18 +25,18 @@
               </th>
                -->
 
-                <th class="centre">{{'Name' }}</th>
+                <th class="">{{'Name' }}</th>
 
               </tr>
             </thead>
-            <tbody class="clienttbl">
+            <tbody class="">
               <tr *ngFor="let product of fetchedProducts" [routerLink]="['/product/' + product._id]" routerLinkActive="active">
-                <td class="centre">
+                <td class="">
                   <div *ngFor="let singleForm of product.forms; let i = index;">
                     <img *ngIf="i<=0" height="50px" class="img" src="./uploads/forms/{{singleForm.owner}}/{{singleForm.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
                   </div>
                 </td>
-                <td class="centre">
+                <td class="">
                   {{product.name}}
                 </td>
 

@@ -8,7 +8,7 @@
         </div>
         <div class="card-block clearfix">
           <table class="table table-hover">
-            <tbody class="clienttbl">
+            <tbody class="">
               <tr *ngFor="let mission of fetchedMissions">
                 <td (click)="goTo(mission._id)" routerLinkActive="active">{{mission.title}}</td>
                 <td>

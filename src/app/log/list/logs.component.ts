@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AuthService} from '../../auth/auth.service';
-import { CommentService} from '../comment.service';
-import { Comment} from '../comment.model';
+import { LogService} from '../log.service';
+import { Log} from '../log.model';
 import { ToastsManager} from 'ng2-toastr';
 import { MdDialog} from '@angular/material';
 import { Router} from '@angular/router';
@@ -13,16 +13,16 @@ import { DeleteDialog } from '../../deleteDialog/deleteDialog.component';
 
 
 @Component({
-  selector: 'app-comments',
-  templateUrl: './comments.component.html',
-  styleUrls: ['../comment.component.css'],
+  selector: 'app-logs',
+  templateUrl: './logs.component.html',
+  styleUrls: ['../log.component.css'],
   encapsulation: ViewEncapsulation.None
 
 })
-export class CommentsComponent implements OnInit {
+export class LogsComponent implements OnInit {
   @Input() userId: string = '';
   @Input() showHeader = true;
-  fetchedComments: Comment[] = [];
+  fetchedLogs: Log[] = [];
   @Input() search: any = {
     search: '',
     companieId: '',
@@ -43,7 +43,7 @@ export class CommentsComponent implements OnInit {
 
   constructor(
     private sanitizer: DomSanitizer,
-    private commentService: CommentService,
+    private logService: LogService,
     private toastr: ToastsManager,
     public dialog: MdDialog,
     private router: Router,
@@ -59,10 +59,10 @@ export class CommentsComponent implements OnInit {
   //   this.location.back();
   // }
   saved() {
-    this.getComments(1, this.search)
+    this.getLogs(1, this.search)
   }
-  // searchComments() {
-  //   this.getComments(1, this.search)
+  // searchLogs() {
+  //   this.getLogs(1, this.search)
   // }
 
   openDialogDelete(id: string){
@@ -76,11 +76,11 @@ export class CommentsComponent implements OnInit {
   }
 
   onDelete(id: string) {
-    this.commentService.deleteComment(id)
+    this.logService.deleteLog(id)
       .subscribe(
         res => {
           this.toastr.success('Great!', res.message);
-          this.getComments(this.paginationData.currentPage, this.search)
+          this.getLogs(this.paginationData.currentPage, this.search)
           console.log(res);
         },
         error => {
@@ -90,23 +90,23 @@ export class CommentsComponent implements OnInit {
   }
 
   getPage(page: number) {
-    this.getComments(page, this.search);
+    this.getLogs(page, this.search);
   }
 
 
   loadMore(){
     this.paginationData.currentPage = this.paginationData.currentPage+1
-    this.getComments(this.paginationData.currentPage, this.search)
+    this.getLogs(this.paginationData.currentPage, this.search)
   }
 
 
-  getComments(page: number, search: any) {
+  getLogs(page: number, search: any) {
     this.loading = true;
-    this.commentService.getComments(page, search)
+    this.logService.getLogs(page, search)
       .subscribe(
         res => {
           this.paginationData = res.paginationData;
-          this.fetchedComments = res.data
+          this.fetchedLogs = res.data
 
           this.loading = false;
         },
@@ -121,7 +121,7 @@ export class CommentsComponent implements OnInit {
     setTimeout(function(){
       this2.search.userId = this2.userId
       this2.search.orderBy = 'name'
-      this2.getComments(1, this2.search)
+      this2.getLogs(1, this2.search)
     }, 200);
   }
 

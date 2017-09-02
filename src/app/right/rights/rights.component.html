@@ -14,7 +14,7 @@
             <thead>
               <tr>
       
-                <th class="centre">Name</th>
+                <th class="">Name</th>
 
 
               </tr>
@@ -22,15 +22,15 @@
             <tbody class="">
               <tr *ngFor="let right of fetchedRights" [routerLink]="['/right/' + right._id]" routerLinkActive="active">
 
-                <td class="centre">{{right.detailRight.nameRight}}</td>
+                <td class="">{{right.detailRight.nameRight}}</td>
 
 
-                <!-- <td class="centre">{{right.details.referenceName}}</td>
-              <td class="centre">{{right.name}}</td>
-              <td class="centre">{{right.details.price.costPrice}}</td>
-              <td class="centre">{{right.details.referenceName}}</td>
-              <td class="centre">{{right.details.price.costPrice}}</td>
-              <td class="centre">{{right.details.price.costPrice}}</td> -->
+                <!-- <td class="">{{right.details.referenceName}}</td>
+              <td class="">{{right.name}}</td>
+              <td class="">{{right.details.price.costPrice}}</td>
+              <td class="">{{right.details.referenceName}}</td>
+              <td class="">{{right.details.price.costPrice}}</td>
+              <td class="">{{right.details.price.costPrice}}</td> -->
               </tr>
             </tbody>
           </table>

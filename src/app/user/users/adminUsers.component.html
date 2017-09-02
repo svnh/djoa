@@ -22,25 +22,25 @@
           <table class="table table-hover">
             <thead>
               <tr>
-                <th class="centre">Type</th>
-                <th class="centre">Client</th>
-                <th class="centre">Nom</th>
-                <th class="centre">Date</th>
-                <th class="centre">Company</th>
-                <th class="centre">Statut</th>
+                <th class="">Type</th>
+                <th class="">Client</th>
+                <th class="">Nom</th>
+                <th class="">Date</th>
+                <th class="">Company</th>
+                <th class="">Statut</th>
               </tr>
             </thead>
-            <tbody class="clienttbl">
+            <tbody class="">
               <tr *ngFor="let user of fetchedUsers" [routerLink]="['/user/' + user._id]" routerLinkActive="active">
-                <td class="centre">
+                <td class="">
                   <div *ngFor="let singleType of user.type">
                     {{singleType}}
                   </div>
                 </td>
-                <td class="centre">{{user.profile.name}}</td>
-                <td class="centre">{{user.profile.lastName}}</td>
-                <td class="centre">{{user.createdAt | date:'yyyy-MM-dd' }}</td>
-                <td class="centre">
+                <td class="">{{user.profile.name}}</td>
+                <td class="">{{user.profile.lastName}}</td>
+                <td class="">{{user.createdAt | date:'yyyy-MM-dd' }}</td>
+                <td class="">
                   <div *ngFor="let companie of user.companies">
                     {{companie.nameCompanie}}
                   </div>

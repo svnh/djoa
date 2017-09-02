@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {Response, Headers, Http, RequestOptions} from '@angular/http';
 import {ErrorService} from '../errorHandler/error.service';
-import {Comment} from './comment.model';
+import {Log} from './log.model';
 import {ToastsManager} from 'ng2-toastr';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -10,13 +10,13 @@ import { AuthService } from '../auth/auth.service';
 
 
 @Injectable()
-export class CommentService {
+export class LogService {
 
   private url: string = '/';
 //  private token: string = localStorage.getItem('id_token');
-//  private commentId: string = localStorage.getItem('commentId');
-  // private comments = [];
-  // private singleComment = Object;
+//  private logId: string = localStorage.getItem('logId');
+  // private logs = [];
+  // private singleLog = Object;
 
   constructor(
     private http: Http,
@@ -26,17 +26,17 @@ export class CommentService {
 
 
 
-  getComments(page: number, search: any) {
+  getLogs(page: number, search: any) {
     let headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.authService.currentUser.token);
     let options = new RequestOptions({ headers: headers, search: search});
-    return this.http.get(this.url + 'comment/page/' + page , options)
+    return this.http.get(this.url + 'log/page/' + page , options)
       .timeout(9000)
       .map((response: Response) => {
 
-        const comments = response.json();
+        const logs = response.json();
 
-        return comments;
+        return logs;
       })
       .catch((error: Response) => {
         this.errorService.handleError(error.json());
@@ -48,11 +48,11 @@ export class CommentService {
   //   let headers = new Headers({'Content-Type': 'application/json'});
   //   headers.append('Authorization', '' + this.authService.currentUser.token);
   //   let options = new RequestOptions({ headers: headers});
-  //   return this.http.get(this.url + 'comment/countNewItemForUser/' + this.authService.currentUser.userId, options)
+  //   return this.http.get(this.url + 'log/countNewItemForUser/' + this.authService.currentUser.userId, options)
   //     .timeout(9000)
   //     .map((response: Response) => {
-  //       const comments = response.json();
-  //       return comments;
+  //       const logs = response.json();
+  //       return logs;
   //     })
   //     .catch((error: Response) => {
   //       this.errorService.handleError(error.json());
@@ -60,11 +60,11 @@ export class CommentService {
   //     });
   // }
 
-  //getComment(id: string) : Observable<Comment> {
-  getComment(id: string) {
+  //getLog(id: string) : Observable<Log> {
+  getLog(id: string) {
     let headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.authService.currentUser.token);
-    return this.http.get(this.url + 'comment/' + id, {headers: headers})
+    return this.http.get(this.url + 'log/' + id, {headers: headers})
       .map((response: Response) => {
         //console.log(response.json().item)
         return response.json().item;
@@ -80,10 +80,10 @@ export class CommentService {
 
 
 
-  deleteComment(id: string) {
+  deleteLog(id: string) {
     let headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.authService.currentUser.token);
-    return this.http.delete(this.url + 'comment/' + id, {headers: headers})
+    return this.http.delete(this.url + 'log/' + id, {headers: headers})
       .map((response: Response) => {
       //  console.log("delete",response)
         return response.json();
@@ -96,15 +96,15 @@ export class CommentService {
       });
   }
 
-  saveComment(comment: Comment) {
+  saveLog(log: Log) {
     //  console.log("this.authService.currentUser.token",this.authService.currentUser.token);
-    //  delete comment._id;
-    delete comment._id
-    //console.log(comment)
-    const body = JSON.stringify(comment);
+    //  delete log._id;
+    delete log._id
+    //console.log(log)
+    const body = JSON.stringify(log);
     const headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.authService.currentUser.token);
-    return this.http.post(this.url + 'comment/',body, {headers: headers})
+    return this.http.post(this.url + 'log/',body, {headers: headers})
       .map(response => response.json())
       .catch((error: Response) => {
         // this.errorService.handleError(error.json());
@@ -112,11 +112,11 @@ export class CommentService {
       });
   }
 
-  updateComment(comment : Comment) {
-    const body = JSON.stringify(comment);
+  updateLog(log : Log) {
+    const body = JSON.stringify(log);
     const headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.authService.currentUser.token);
-    return this.http.put(this.url + 'comment/' + comment._id, body, {headers: headers})
+    return this.http.put(this.url + 'log/' + log._id, body, {headers: headers})
       .map(response => response.json())
       .catch((error: Response) => {
         this.errorService.handleError(error.json());
