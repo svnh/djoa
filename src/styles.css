@@ -14,7 +14,7 @@
   background: linear-gradient(to right, #4a148c , #0d47a1);
 }
 
-@media screen and (min-width: 768 px) {
+@media (min-width: 768 px) {
   .container.djoa-container {
     width: 70% !important;
     max-width: 70% !important;
