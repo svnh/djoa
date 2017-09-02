@@ -133,8 +133,8 @@ router.put('/:id', function(req, res, next) {
 
         var log = new Log()
         log.ownerCompanies = req.user.ownerCompanies
+        log.users = [req.user]
         log.documents = [req.params.id]
-        log.strats = [item]
         log.type = 'change'
         log.save(function (err, result) { if (err) { console.log(err) } else { console.log(result) } })
 

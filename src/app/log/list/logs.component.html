@@ -72,8 +72,13 @@
                   <div *ngFor="let strat of log.strats">
                     Strat: {{strat}}
                   </div>
+                  <div *ngFor="let document of log.documents">
+                    Document: {{document}}
+                  </div>
+
                 </td>
                 <td class="">
+                  {{log.type}}
                 </td>
 
                 <!-- <td class="">{{project.details.customer}}</td>
