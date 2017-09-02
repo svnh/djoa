@@ -3,6 +3,11 @@
 /*@import "~angular-calendar/dist/css/angular-calendar.css";*/
 /*@import "~@ng-bootstrap/ng-bootstrap/dist/css/bootstrap.min.css";*/
 
+/*----------Body---------*/
+
+html, body {
+  height: 100%;
+}
 
 /*----------Body---------*/
 
@@ -20,6 +25,9 @@
     max-width: 70% !important;
     float: none;
     margin: 0 auto;
+    height: 100vh !important;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 }
 
