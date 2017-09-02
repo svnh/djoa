@@ -73,9 +73,9 @@ export class LogComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.myForm = this._fb.group({
-      logName: ['', [Validators.required, Validators.minLength(1)]],
-    })
+    // this.myForm = this._fb.group({
+    //   logName: ['', [Validators.required, Validators.minLength(1)]],
+    // })
 
     this.activatedRoute.params.subscribe((params: Params) => {
       // console.log(params)
@@ -97,9 +97,9 @@ export class LogComponent implements OnInit {
 
 
   save() {
-    if(!this.fetchedLog.logName)
-      return
-    this.fetchedLog.quotes = this.search.quoteId
+    // if(!this.fetchedLog.logName)
+    //   return
+    // this.fetchedLog.quotes = this.search.quoteId
     // this.fetchedLog.datePaiement = this.authService.HTMLDatetoIsoDate(this.fetchedLog.datePaiementString)
     // if(this.fetchedLog._id) {
     //   this.logService.updateLog(this.fetchedLog)
