@@ -1,4 +1,16 @@
-.rightmenu {
-    float: right;
-    padding: 15px;
+.nav.rightmenu {
+  float: right;
+  padding: 15px;
 }
+.nav.leftmenu {
+  margin-left: 5%;
+  float: left;
+  z-index: 999;
+  padding: 15px;
+}
+.fa-home {
+  color: #ffffff !important;
+  background-color: #330066 !important;
+  padding: 10px !important;
+  border: 1px solid !important;
+  border-radius: 20px !important;}
