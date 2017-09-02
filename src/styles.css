@@ -41,24 +41,3 @@ body, .mat-drawer-container {
 .mat-drawer-container {
   color: #ffffff;
 }
-
-@media screen and (min-width: 768px) {
-  md-sidenav.mat-drawer.mat-sidenav.ng-tns-c7-0.ng-trigger.ng-trigger-transform.mat-drawer-side {
-    background-color: transparent !important;
-    background-image: url("/assets/images/left-sidenav-back.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: top right;
-    width: 150px;
-    height: 100vh;
-    z-index: -999;
-    padding-top: 70px;
-  }
-  md-sidenav.mat-drawer.mat-sidenav.ng-tns-c7-1.ng-trigger.ng-trigger-transform.mat-drawer-end.mat-drawer-over {
-    z-index: -999999;
-    width: 250px;
-    padding: 60px 15px;
-  }
-}
-
-/*----------Navs---------*/

@@ -1,6 +1,5 @@
-<md-sidenav #sidenav mode="side" class="">
-  <i (click)="sideNavAction('leftSideBar', false, '')" class="fa fa-bars" aria-hidden="true"></i>
-
+<md-sidenav #sidenav mode="side" class="sidebarleft">
+  <i (click)="sideNavAction('leftSideBar', false, '')" class="fa fa-times" aria-hidden="true"></i>
   <div *ngIf="showNavBarData.search.typeScreen == 'object'">
     <app-projects *ngIf="showNavBarData.search.typeObj == 'project'"></app-projects>
 
@@ -9,5 +8,5 @@
       <app-listProductsByProject [search]="showNavBarData.search"></app-listProductsByProject>
     </div>
   </div>
-
+  
 </md-sidenav>
