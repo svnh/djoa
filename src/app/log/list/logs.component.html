@@ -44,9 +44,9 @@
             <!-- <thead>
               <tr>
 
-                <th class="centre">Project</th>
-                <th class="centre">Name Log</th>
-                <th class="centre">Assigned to</th>
+                <th class="">Project</th>
+                <th class="">Name Log</th>
+                <th class="">Assigned to</th>
 
               </tr>
             </thead> -->
@@ -55,30 +55,31 @@
 
 
 
-                <td class="centre">
+                <td class="">
                   <div *ngFor="let user of log.users">
                     {{user.profile.name}}
                   </div>
                 </td>
-                <td class="centre">{{log.logName}}</td>
-                <td class="centre">{{log.createdAt | date:'yMdjm'}}
+                <td class="">{{log.logName}}</td>
+                <td class="">{{log.createdAt | date:'yMdjm'}}
                 </td>
-                <td class="centre">
+                <td class="">
                   <div *ngFor="let user of log.writtenBy">
                     By {{user.profile.name}}
                   </div>
                 </td>
-                <td class="centre">
-                  <app-picture [addPicture]=false [deletePicture]=false [forms]="log.forms"></app-picture>
+                <td class="">
+                  <div *ngFor="let strat of log.strats">
+                    Strat: {{strat}}
+                  </div>
                 </td>
-                <td class="centre">
-                  <button type="button" (click)="openDialogDelete(log._id)">X</button>
+                <td class="">
                 </td>
 
-                <!-- <td class="centre">{{project.details.customer}}</td>
-              <td class="centre">{{project.details.name}}</td>
-              <td class="centre">{{project.details.date}}</td>
-              <td class="centre">
+                <!-- <td class="">{{project.details.customer}}</td>
+              <td class="">{{project.details.name}}</td>
+              <td class="">{{project.details.date}}</td>
+              <td class="">
                 <div *ngFor="let assignedTo of project.users">
                   {{assignedTo.profile.name}} {{assignedTo.profile.lastName}}
                 </div>
