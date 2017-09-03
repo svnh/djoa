@@ -9,6 +9,13 @@ html, body {
   height: 100%;
   overflow-x: hidden;
 }
+::-webkit-scrollbar {
+  width: 4px;
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #330066;
+}
 
 /*----------Body---------*/
 
