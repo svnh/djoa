@@ -40,7 +40,6 @@ body, .mat-drawer-container {
   background-color: transparent !important;
 }
 .mat-drawer-container {
-  color: #ffffff;
   overflow: initial;
 }
 md-sidenav-container.mat-drawer-container.mat-sidenav-container {
