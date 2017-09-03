@@ -1,6 +1,6 @@
 <div class="djoa-container">
   <div class="row">
-    <div class="col-md-12 project-content">
+    <div class="col-md-12">
       <div class="page-title">
         <!--{{fetchedProject._id}}-->
         {{fetchedProject.details.name}}
@@ -10,10 +10,12 @@
       <!--<app-missions [search]="searchMissionContent"></app-missions>
       <app-missions [search]="searchMissionResearch"></app-missions>
       {{fetchedProducts|json}} -->
-      <div *ngIf="fetchedProject._id">
-        <div *ngFor="let product of fetchedProducts">
-          {{product.name}}
-          <app-missions [search]="{projectId:fetchedProject._id, productId:product._id}"></app-missions>
+      <div class="project-content">
+        <div *ngIf="fetchedProject._id">
+          <div *ngFor="let product of fetchedProducts">
+            {{product.name}}
+            <app-missions [search]="{projectId:fetchedProject._id, productId:product._id}"></app-missions>
+          </div>
         </div>
       </div>
 
