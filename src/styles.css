@@ -7,6 +7,7 @@
 
 html, body {
   height: 100%;
+  overflow-x: hidden;
 }
 
 /*----------Body---------*/
@@ -40,4 +41,8 @@ body, .mat-drawer-container {
 }
 .mat-drawer-container {
   color: #ffffff;
+  overflow: initial;
+}
+md-sidenav-container.mat-drawer-container.mat-sidenav-container {
+  height: 100%;
 }
