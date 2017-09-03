@@ -1,0 +1,11 @@
+.page-title {
+  text-align: center;
+  font-size: 22px;
+  padding: 30px;
+}
+.project-content {
+  background-image: url("/assets/images/page-title-back.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 0% 50%;
+}
