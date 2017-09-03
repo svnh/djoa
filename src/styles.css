@@ -25,6 +25,11 @@ html, body {
   height: 86vh !important;
   overflow-y: auto;
   overflow-x: hidden;
+  background-image: url(/assets/images/page-title-back.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 50% -8%;
+}
 }
 
 @media screen and (min-width: 768px) {
