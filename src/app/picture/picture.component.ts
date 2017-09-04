@@ -2,7 +2,7 @@ import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { MdDialogRef} from '@angular/material';
 // import { ProjectSingleComponent }  from '../projectSingle.component';
 import { Form } from './form/form.model';
-import { EditOptionsComponentDialog } from './form/single/modalLibrary/modalLibrary.component';
+// import { EditOptionsComponentDialog } from './form/single/modalLibrary/modalLibrary.component';
 // import { MdDialog } from '@angular/material';
 
 @Component({

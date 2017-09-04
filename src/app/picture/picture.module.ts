@@ -9,11 +9,11 @@ import { FormsModule }         from '@angular/forms';
 
 
 import { FormService} from './form/form.service';
-import { UserFormsComponent} from './form/list/userForms.component';
-import { UserFormsUploadAndList} from './form/both/userFormsUploadAndList.component';
+// import { UserFormsComponent} from './form/list/userForms.component';
+// import { UserFormsUploadAndList} from './form/both/userFormsUploadAndList.component';
 // import { SeePictureDialogComponent} from './form/seePictureDialog/seePictureDialog.component';
 
-import { EditOptionsComponentDialog} from './form/single/modalLibrary/modalLibrary.component';
+// import { EditOptionsComponentDialog} from './form/single/modalLibrary/modalLibrary.component';
 
 import { FormComponent} from './form/single/form.component';
 import { MaterialModule } from '@angular/material';
@@ -31,10 +31,10 @@ import { ProgressBarModule} from 'ng2-progress-bar';
   ],
   declarations: [
     PictureComponent,
-    UserFormsComponent,
-    UserFormsUploadAndList,
+    // UserFormsComponent,
+    // UserFormsUploadAndList,
     // SeePictureDialogComponent,
-    EditOptionsComponentDialog,
+    // EditOptionsComponentDialog,
     FormComponent,
     // NewUserComponent
   ],
@@ -47,7 +47,7 @@ import { ProgressBarModule} from 'ng2-progress-bar';
   ],
   entryComponents: [
     // SeePictureDialogComponent,
-    EditOptionsComponentDialog,
+    // EditOptionsComponentDialog,
   ]
 })
 export class PictureModule { }
