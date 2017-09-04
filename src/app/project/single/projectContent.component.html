@@ -45,9 +45,9 @@
           <button type="button" (click)="openTeam()">Edit</button>
           <br>
           <div *ngFor="let user of fetchedProject.users">
-            <div (click)="openProfile(user._id)">
-              <app-picture [addPicture]=false [deletePicture]=false [forms]="user.forms"></app-picture>
-            </div>
+            <!-- <div (click)="openProfile(user._id)"> -->
+              <app-picture [userIdToOpenProfile]="user._id" [addPicture]=false [deletePicture]=false [forms]="user.forms"></app-picture>
+            <!-- </div> -->
             {{user.profile.name}}
             <br>
           </div>

@@ -23,5 +23,10 @@
     <li class="nav-item">
       <button type="button" (click)="newObj()"><i class="fa fa-plus"></i></button>
     </li>
+    <li class="nav-item">
+      <app-picture [userIdToOpenProfile]="fetchedCurrentUser._id" [addPicture]=false [deletePicture]=false [forms]="fetchedCurrentUser.forms"></app-picture>
+    </li>
+
+
   </ul>
 </div>

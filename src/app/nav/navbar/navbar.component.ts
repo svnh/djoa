@@ -26,7 +26,7 @@ export class NavbarComponent implements OnInit {
   // showNavBar: boolean = false;
  // private userId: string = localStorage.getItem('userId');
   // private userId: string;
-  fetchedUser: User = new User();
+  fetchedCurrentUser: User = new User();
   fetchedNotifications: Notification[] = [];
   notificationsNotRead: number=0;
   showNavBarData: ShowNavBarData = new ShowNavBarData()
@@ -58,6 +58,7 @@ export class NavbarComponent implements OnInit {
 
 
   ngOnInit() {
+    this.fetchedCurrentUser = this.authService.getCurrentUser()
     if (this.authService.isLoggedIn()) {
       this.showNavBarData.showNavBar = true
       this.globalEventsManager.showNavBarTop(this.showNavBarData);
