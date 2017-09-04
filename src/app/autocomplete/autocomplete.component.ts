@@ -10,7 +10,7 @@ import { ProjectService} from '../project/project.service';
 import { StratService} from '../strat/strat.service';
 import { MissionService} from '../mission/mission.service';
 import { MdDialog } from '@angular/material';
-import {Search} from '../mainPageHome/mainPageHome.model'
+import {Search} from '../home/home.model'
 // import { UserDialogComponent } from '../user/singleUser/dialog/userDialog.component';
 // import { CompanieDialogComponent } from '../companie/single/dialog/companieDialog.component';
 // import { ProjectDialogComponent } from '../project/single/dialog/projectDialog.component';

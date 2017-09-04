@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 @Injectable()
-export class MainPageHomeService {
+export class HomeService {
 
   private url: string = '/';
   private token: string = localStorage.getItem('id_token');

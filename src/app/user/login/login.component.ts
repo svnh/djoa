@@ -5,7 +5,7 @@ import {Router} from '@angular/router';
 import {AuthService} from '../../auth/auth.service';
 import {UserAuth} from '../../auth/user.model';
 import {GlobalEventsManager} from '../../globalEventsManager';
-import {ShowNavBarData} from '../../mainPageHome/mainPageHome.model'
+import {ShowNavBarData} from '../../home/home.model'
 
 
 

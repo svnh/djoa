@@ -11,8 +11,8 @@ import { CompanieGuardService} from '../../companie/companieGuard.service'
 // // import { NotificationService} from '../../notification/notification.service';
 // import { Notification} from '../../notification/notification.model';
 // import {Observable} from 'rxjs/Rx';
-import {ShowNavBarData} from '../../mainPageHome/mainPageHome.model'
-import {Search} from '../../mainPageHome/mainPageHome.model'
+import {ShowNavBarData} from '../../home/home.model'
+import {Search} from '../../home/home.model'
 import {GlobalEventsManager} from '../../globalEventsManager';
 import { ProjectService} from '../../project/project.service';
 import { StratService} from '../../strat/strat.service';

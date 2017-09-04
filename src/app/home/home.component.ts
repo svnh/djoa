@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MainPageHomeService} from './mainPageHome.service';
+import { HomeService} from './home.service';
 import { FormGroup } from '@angular/forms';
 import { ToastsManager} from 'ng2-toastr';
 import { MdDialog} from '@angular/material';
@@ -8,7 +8,7 @@ import { AdminService} from '../admin/services/admin.service';
 // import { SideBarRightComponent} from '../nav/sideBarRight/sideBarRight.component';
 // import { SideBarLeftComponent} from '../nav/sideBarLeft/sideBarLeft.component';
 
-import {Search} from './mainPageHome.model'
+import {Search} from './home.model'
 // import { Options } from './options.model';
 import { Router} from '@angular/router';
 import { AuthService} from '../auth/auth.service';
@@ -16,10 +16,10 @@ import { User} from '../user/user.model';
 
 @Component({
   selector: 'app-admin',
-  templateUrl: './mainPageHome.component.html',
-  styleUrls: ['./mainPageHome.component.css']
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
-export class MainPageHomeComponent implements OnInit {
+export class HomeComponent implements OnInit {
   // @ViewChild(SideBarRightComponent) private sideBarRightComponent: SideBarRightComponent;
   // @ViewChild(SideBarLeftComponent) private sideBarLeftComponent: SideBarLeftComponent;
   fetchedUser: User = new User();
@@ -31,7 +31,7 @@ export class MainPageHomeComponent implements OnInit {
 
     private router:Router,
     private adminService: AdminService,
-    private mainPageHomeService: MainPageHomeService,
+    private homeService: HomeService,
     private toastr: ToastsManager,
     public dialog: MdDialog,
 

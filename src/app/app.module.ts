@@ -100,8 +100,8 @@ import { ErrorService} from './errorHandler/error.service';
 import { ErrorComponent} from './errorHandler/error.component';
 
 
-import { MainPageHomeComponent} from './mainPageHome/mainPageHome.component';
-import { MainPageHomeService} from './mainPageHome/mainPageHome.service';
+import { HomeComponent} from './home/home.component';
+import { HomeService} from './home/home.service';
 
 
 
@@ -181,7 +181,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
 
     ErrorComponent,
 
-    // MainPageHomeComponent,
+    // HomeComponent,
 
 
     // CompanieDetailUsersComponent,
@@ -254,7 +254,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     ErrorService,
 //    CompanieService,
     //ProductService,
-    MainPageHomeService,
+    HomeService,
   //  PressService,
     // FormService,
     AdminService,

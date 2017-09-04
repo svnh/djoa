@@ -16,7 +16,7 @@ import {Router} from '@angular/router';
 import {JwtHelper} from 'angular2-jwt';
 // import {UserService} from '../user/user.service'
 import {User} from '../user/user.model'
-import {ShowNavBarData} from '../mainPageHome/mainPageHome.model'
+import {ShowNavBarData} from '../home/home.model'
 import { GlobalEventsManager} from '../globalEventsManager';
 
 @Injectable()

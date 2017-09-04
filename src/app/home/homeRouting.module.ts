@@ -1,7 +1,7 @@
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 // import { CompanieDetailComponent} from './single/companieDetail.component';
-import { MainPageHomeComponent} from './mainPageHome.component';
+import { HomeComponent} from './home.component';
 // import { EditAddUserToCompanieComponent} from './addUser/editAddUserToCompanie.component';
 import { AdminGuardService} from '../admin/services/adminGuard';
 // import { CompanieDetailUsersComponent} from './companieDetailUsers.component';
@@ -9,7 +9,7 @@ import { AdminGuardService} from '../admin/services/adminGuard';
 
 
 export const routes: Routes = [
-  {path: '', component: MainPageHomeComponent},
+  {path: '', component: HomeComponent},
 ];
 
 
@@ -18,4 +18,4 @@ export const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class MainPageHomeRouting {}
+export class HomeRouting {}

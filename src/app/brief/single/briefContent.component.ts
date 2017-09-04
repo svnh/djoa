@@ -15,9 +15,9 @@ import { UserService} from '../../user/user.service';
 import { User } from '../../user/user.model';
 // import { Quote } from '../../quote/quote.model';
 import { AuthService} from '../../auth/auth.service';
-import {Search} from '../../mainPageHome/mainPageHome.model'
+import {Search} from '../../home/home.model'
 
-import {ShowNavBarData} from '../../mainPageHome/mainPageHome.model'
+import {ShowNavBarData} from '../../home/home.model'
 import {GlobalEventsManager} from '../../globalEventsManager';
 
 

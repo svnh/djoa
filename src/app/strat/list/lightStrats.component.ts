@@ -9,9 +9,9 @@ import { Location } from '@angular/common';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ViewEncapsulation} from '@angular/core';
 import { UserService} from '../../user/user.service';
-import {ShowNavBarData} from '../../mainPageHome/mainPageHome.model'
+import {ShowNavBarData} from '../../home/home.model'
 import {GlobalEventsManager} from '../../globalEventsManager';
-import {Search} from '../../mainPageHome/mainPageHome.model'
+import {Search} from '../../home/home.model'
 
 
 

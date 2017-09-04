@@ -19,7 +19,7 @@ import { User } from '../../user/user.model';
 // import { Quote } from '../../quote/quote.model';
 import { Product } from '../../product/product.model';
 import { Project } from '../../project/project.model';
-import {Search} from '../../mainPageHome/mainPageHome.model'
+import {Search} from '../../home/home.model'
 import {GlobalEventsManager} from '../../globalEventsManager';
 
 

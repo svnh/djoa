@@ -12,7 +12,7 @@ import { CompanieGuardService} from './companie/companieGuard.service';
 // import { PaiementGuardService} from './user/paiement/paiementGuard.service';
 import { AuthGuardService} from './auth/authguard.service';
 
-import { MainPageHomeComponent} from './mainPageHome/mainPageHome.component';
+import { HomeComponent} from './home/home.component';
 
 import {AdminComponent} from './admin/admin.component';
 import {ErrorPageComponent} from './errorPage/errorPage.component';
@@ -23,7 +23,7 @@ import { NgModule } from '@angular/core';
 
 
 export const routes: Routes = [
-  {path: '', loadChildren: 'app/mainPageHome/mainPageHome.module#MainPageHomeModule', canActivate: [AuthGuardService], pathMatch: 'full'},
+  {path: '', loadChildren: 'app/home/home.module#HomeModule', canActivate: [AuthGuardService], pathMatch: 'full'},
   {path: 'log', loadChildren: 'app/log/log.module#LogModule', canActivate: [AuthGuardService]},
   {path: 'mission', loadChildren: 'app/mission/mission.module#MissionModule', canActivate: [AuthGuardService]},
   {path: 'document', loadChildren: 'app/document/document.module#DocumentModule', canActivate: [AuthGuardService]},

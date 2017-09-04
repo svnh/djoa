@@ -11,7 +11,7 @@ import { ChangeDetectionStrategy} from '@angular/core';
 // // import { NotificationService} from '../../notification/notification.service';
 // import { Notification} from '../../notification/notification.model';
 // import {Observable} from 'rxjs/Rx';
-import {ShowNavBarData} from '../../mainPageHome/mainPageHome.model'
+import {ShowNavBarData} from '../../home/home.model'
 import {GlobalEventsManager} from '../../globalEventsManager';
 
 @Component({

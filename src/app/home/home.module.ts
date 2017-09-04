@@ -6,12 +6,12 @@ import { RouterModule} from '@angular/router';
 
 // import { ProjectModule} from '../project/project.module';
 
-import { MainPageHomeComponent} from './mainPageHome.component';
+import { HomeComponent} from './home.component';
 // import { EditReportingComponent} from './single/editReporting.component';
 
 
 // import { ReportingService} from './reporting.service';
-import { MainPageHomeRouting} from './mainPageHomeRouting.module';
+import { HomeRouting} from './homeRouting.module';
 // import { MaterialModule } from '@angular/material';
 
 // import { ProductModule } from '../product/product.module';
@@ -31,7 +31,7 @@ import {SharedModule } from '../shared/shared.module';
   imports:      [
     // ProjectModule,
 
-    MainPageHomeRouting,
+    HomeRouting,
     CommonModule,
     FormsModule,
     // MaterialModule,
@@ -46,14 +46,14 @@ import {SharedModule } from '../shared/shared.module';
     // AutocompleteComponent,
   ],
   declarations: [
-    MainPageHomeComponent,
+    HomeComponent,
 
 
 
     // AutocompleteComponent
   ],
   exports:      [
-    MainPageHomeComponent,
+    HomeComponent,
 
     // AutocompleteComponent,
   ],
@@ -61,4 +61,4 @@ import {SharedModule } from '../shared/shared.module';
    ],
   entryComponents: [ ]
 })
-export class MainPageHomeModule { }
+export class HomeModule { }

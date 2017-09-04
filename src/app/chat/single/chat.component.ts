@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 
 import { ChatService } from '../chat.service';
 import { Chat } from '../chat.model';
-import { Search } from '../../mainPageHome/mainPageHome.model'
+import { Search } from '../../home/home.model'
 import { Strat } from '../../strat/strat.model';
 import { Mission } from '../../mission/mission.model';
 import { AuthService} from '../../auth/auth.service';
