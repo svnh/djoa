@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
-import { ProductDialogComponent } from './single/dialog/productDialog.component';
+// import { ProductDialogComponent } from './single/dialog/productDialog.component';
 
 import { ProductsComponent} from './products/products.component';
 import { AdminProductsComponent} from './products/adminProducts.component';
@@ -32,7 +32,7 @@ import {SharedModule } from '../shared/shared.module';
     ProductsComponent,
     AdminProductsComponent,
     ProductSingleComponent,
-    ProductDialogComponent,
+    // ProductDialogComponent,
 
   ],
   exports:      [
@@ -42,7 +42,7 @@ import {SharedModule } from '../shared/shared.module';
     ProductService,
   ],
   entryComponents: [
-    ProductDialogComponent,
+    // ProductDialogComponent,
   ]
 })
 export class ProductModule { }

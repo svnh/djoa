@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit {
     private adminService: AdminService,
     private homeService: HomeService,
     private toastr: ToastsManager,
-    public dialog: MdDialog,
+    // public dialog: MdDialog,
 
     private authService: AuthService,
   ) {}

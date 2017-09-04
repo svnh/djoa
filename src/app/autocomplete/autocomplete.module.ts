@@ -5,7 +5,7 @@ import { FormsModule }         from '@angular/forms';
 // import { UserModule} from '../user/user.module'
 // import {NewUserComponent} from '../user/singleUser/newUser.component'
 // import {SharedModule } from '../shared/shared.module';
-import { newObjDialogComponent } from './newObjDialog/newObjDialog.component';
+// import { newObjDialogComponent } from './newObjDialog/newObjDialog.component';
 
 @NgModule({
   imports: [
@@ -17,12 +17,12 @@ import { newObjDialogComponent } from './newObjDialog/newObjDialog.component';
   ],
   declarations: [
     AutocompleteComponent,
-    newObjDialogComponent,
+    // newObjDialogComponent,
     // NewUserComponent
   ],
   exports: [
     AutocompleteComponent,
-    newObjDialogComponent,
+    // newObjDialogComponent,
   ],
   providers: [
 

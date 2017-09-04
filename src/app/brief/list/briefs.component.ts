@@ -45,7 +45,7 @@ export class BriefsComponent implements OnInit {
     private briefService: BriefService,
     private toastr: ToastsManager,
     private globalEventsManager: GlobalEventsManager,
-    // public dialog: MdDialog,
+    // // public dialog: MdDialog,
     // private router: Router,
     // private location: Location,
     // private authService: AuthService,

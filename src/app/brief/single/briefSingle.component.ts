@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { BriefService} from '../brief.service';
 import { ToastsManager} from 'ng2-toastr';
-import { MdDialog } from '@angular/material';
+// import { MdDialog } from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { Brief, StatusBrief, Log} from '../brief.model';
@@ -62,7 +62,7 @@ export class BriefSingleComponent implements OnInit {
     private sanitizer: DomSanitizer,
     private briefService: BriefService,
     private toastr: ToastsManager,
-    public dialog: MdDialog,
+    // public dialog: MdDialog,
     private router: Router,
     private location: Location,
     private activatedRoute: ActivatedRoute,

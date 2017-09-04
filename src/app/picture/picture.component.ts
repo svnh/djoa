@@ -3,7 +3,7 @@ import { MdDialogRef} from '@angular/material';
 // import { ProjectSingleComponent }  from '../projectSingle.component';
 import { Form } from './form/form.model';
 import { EditOptionsComponentDialog } from './form/single/modalLibrary/modalLibrary.component';
-import { MdDialog } from '@angular/material';
+// import { MdDialog } from '@angular/material';
 
 @Component({
   selector: 'app-picture',
@@ -20,18 +20,18 @@ export class PictureComponent {
 
 
   constructor(
-    public dialog: MdDialog,
+    // public dialog: MdDialog,
   ) {}
 
-  openDialog(positionImage: string) {
-    let dialogRef = this.dialog.open(EditOptionsComponentDialog);
-    dialogRef.afterClosed().subscribe(result => {
-      if(result) {
-        this.forms.push(result)
-        this.getPicture.emit(result)
-      }
-    })
-  }
+  // openDialog(positionImage: string) {
+  //   let dialogRef = this.dialog.open(EditOptionsComponentDialog);
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     if(result) {
+  //       this.forms.push(result)
+  //       this.getPicture.emit(result)
+  //     }
+  //   })
+  // }
   onPassForm(result) {
     this.forms.push(result)
     this.getPicture.emit(result)

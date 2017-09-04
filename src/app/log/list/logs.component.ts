@@ -45,7 +45,7 @@ export class LogsComponent implements OnInit {
     private sanitizer: DomSanitizer,
     private logService: LogService,
     private toastr: ToastsManager,
-    public dialog: MdDialog,
+    // public dialog: MdDialog,
     private router: Router,
     private location: Location,
     private authService: AuthService,

@@ -35,7 +35,7 @@ export class UserFormsComponent implements OnInit {
 
 
   constructor(
-    public dialog: MdDialog,
+    // public dialog: MdDialog,
     private formService: FormService,
     private activatedRoute: ActivatedRoute,
     private authService: AuthService,

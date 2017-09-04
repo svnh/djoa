@@ -50,7 +50,7 @@ export class EditCompanieComponent implements OnInit {
     private companieService: CompanieService,
 //    private modalService: NgbModal,
     private toastr: ToastsManager,
-    public dialog: MdDialog,
+    // public dialog: MdDialog,
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private location: Location,

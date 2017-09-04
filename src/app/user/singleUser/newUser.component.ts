@@ -57,7 +57,7 @@ export class NewUserComponent implements OnInit {
   constructor(
     private userService: UserService,
     private toastr: ToastsManager,
-    public dialog: MdDialog,
+    // public dialog: MdDialog,
     private router: Router,
     private location: Location,
     private activatedRoute: ActivatedRoute,

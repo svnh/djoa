@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { ProjectService} from '../project.service';
 import { ToastsManager} from 'ng2-toastr';
-import { MdDialog } from '@angular/material';
+// import { MdDialog } from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { Project} from '../project.model';
@@ -61,7 +61,7 @@ export class ProjectContentComponent implements OnInit {
     // private sanitizer: DomSanitizer,
     private projectService: ProjectService,
     private toastr: ToastsManager,
-    // public dialog: MdDialog,
+    // // public dialog: MdDialog,
     // private router: Router,
     // private location: Location,
     private activatedRoute: ActivatedRoute,

@@ -6,11 +6,11 @@
 
   <div class="input-group">
     <input class="form-control"  autofocus autocapitalize="none" autocomplete="off" spellcheck="false" autocorrect="none" type="text" name="Search" placeholder="🔎 {{typeAutocomplete}}" [(ngModel)]="autocompleteSearch" (ngModelChange)="searchData()">
-      <app-newObjDialog
+      <!-- <app-newObjDialog
         *ngIf="typeAutocomplete=='user' || typeAutocomplete=='companie' || typeAutocomplete=='project' || typeAutocomplete=='product'"
         (saved)="saved($event)"
         class="input-group-addon"
-        [typeObj]="typeAutocomplete"></app-newObjDialog>
+        [typeObj]="typeAutocomplete"></app-newObjDialog> -->
 
     <!-- <span
       *ngIf="typeAutocomplete=='user' || typeAutocomplete=='companie' || typeAutocomplete=='project'"
@@ -63,10 +63,10 @@
     <i class="fa fa-plus"></i> Add new one
   </button> -->
 
-  <app-newObjDialog
+  <!-- <app-newObjDialog
     class="btn btn-success"
     [search]="search"
-    [icone]="'fa fa-plus'" [title]="'Add new one'" [typeObj]="typeAutocomplete"></app-newObjDialog>
+    [icone]="'fa fa-plus'" [title]="'Add new one'" [typeObj]="typeAutocomplete"></app-newObjDialog> -->
 
 
 

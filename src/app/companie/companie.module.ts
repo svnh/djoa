@@ -12,7 +12,7 @@ import { EditCompanieComponent} from './single/editCompanie.component';
 import { CompanieService} from './companie.service';
 import { CompanieRouting} from './companieRouting.module';
 import { MaterialModule } from '@angular/material';
-import { CompanieDialogComponent } from './single/dialog/companieDialog.component';
+// import { CompanieDialogComponent } from './single/dialog/companieDialog.component';
 import {SharedModule } from '../shared/shared.module';
 
 
@@ -34,13 +34,13 @@ import {SharedModule } from '../shared/shared.module';
     EditCompanieComponent,
     // EditAddUserToCompanieComponent,
     // CompanieDetailComponent,
-    CompanieDialogComponent,
+    // CompanieDialogComponent,
     // AddUserByCompanieComponent,
   ],
   exports:      [ ],
   providers:    [ CompanieService ],
   entryComponents: [
-    CompanieDialogComponent
+    // CompanieDialogComponent
   ]
 })
 export class CompanieModule { }

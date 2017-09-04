@@ -51,7 +51,7 @@ export class MissionsComponent implements OnInit {
     private sanitizer: DomSanitizer,
     private missionService: MissionService,
     private toastr: ToastsManager,
-    public dialog: MdDialog,
+    // public dialog: MdDialog,
     private router: Router,
     private location: Location,
     private authService: AuthService,

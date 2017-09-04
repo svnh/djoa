@@ -51,7 +51,7 @@ export class DocumentsComponent implements OnInit {
     private documentService: DocumentService,
     private toastr: ToastsManager,
     private globalEventsManager: GlobalEventsManager,
-    // public dialog: MdDialog,
+    // // public dialog: MdDialog,
     // private router: Router,
     // private location: Location,
     // private authService: AuthService,

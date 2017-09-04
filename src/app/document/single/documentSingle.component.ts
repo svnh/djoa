@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { DocumentService} from '../document.service';
 import { ToastsManager} from 'ng2-toastr';
-import { MdDialog } from '@angular/material';
+// import { MdDialog } from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { Document, StatusDocument} from '../document.model';
@@ -54,7 +54,7 @@ export class DocumentSingleComponent implements OnInit {
     private sanitizer: DomSanitizer,
     private documentService: DocumentService,
     private toastr: ToastsManager,
-    public dialog: MdDialog,
+    // public dialog: MdDialog,
     private router: Router,
     private location: Location,
     private activatedRoute: ActivatedRoute,

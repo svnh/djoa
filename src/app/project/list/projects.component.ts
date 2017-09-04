@@ -46,7 +46,7 @@ export class ProjectsComponent implements OnInit {
     private projectService: ProjectService,
     private toastr: ToastsManager,
     private globalEventsManager: GlobalEventsManager,
-    // public dialog: MdDialog,
+    // // public dialog: MdDialog,
     // private router: Router,
     // private location: Location,
     // private authService: AuthService,

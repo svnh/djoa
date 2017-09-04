@@ -55,7 +55,7 @@ export class RightComponent implements OnInit {
     private rightService: RightService,
 //    private modalService: NgbModal,
     private toastr: ToastsManager,
-    public dialog: MdDialog,
+    // public dialog: MdDialog,
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private location: Location,

@@ -49,7 +49,7 @@ export class StratComponent implements OnInit {
     // private productService: ProductService,
 //    private modalService: NgbModal,
     private toastr: ToastsManager,
-    public dialog: MdDialog,
+    // public dialog: MdDialog,
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private location: Location,
