@@ -17,7 +17,7 @@ import { FormService} from './form/form.service';
 
 import { FormComponent} from './form/single/form.component';
 import { MaterialModule } from '@angular/material';
-import { ProgressBarModule} from 'ng2-progress-bar';
+// import { ProgressBarModule} from 'ng2-progress-bar';
 
 @NgModule({
   imports: [
@@ -26,7 +26,7 @@ import { ProgressBarModule} from 'ng2-progress-bar';
     // SharedModule,
     // UserModule,
     MaterialModule,
-    ProgressBarModule,
+    // ProgressBarModule,
 
   ],
   declarations: [
