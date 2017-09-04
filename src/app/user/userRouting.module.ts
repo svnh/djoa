@@ -13,7 +13,7 @@ import {AuthGuardService} from '../auth/authguard.service';
 //import {UserProfilePicturesComponent} from './singleUser/userProfilePictures.component';
 //import {UserProfileSettingsComponent} from './singleUser/userProfileSettings.component';
 
-import {ChangePasswordComponent} from './singleUser/changePassword/changePassword.component';
+import {ChangePasswordComponent} from './single/changePassword/changePassword.component';
 // import { PaiementComponent } from './paiement/paiement.component';
 //import {SingleUserComponent} from './singleUser/singleUser.component';
 //import {AddNoteComponent} from './singleUser/addNote.component';
@@ -21,7 +21,7 @@ import {ChangePasswordComponent} from './singleUser/changePassword/changePasswor
 //import {UserPicturesComponent} from './singleUser/userPictures.component';
 // import {AddProductsToUserComponent} from './singleUser/addProductsToUser.component';
 // import { UserProductsHistory} from './singleUser/userProductsHistory.component';
-import {NewUserComponent} from './singleUser/newUser.component';
+import {NewUserComponent} from './single/newUser.component';
 import{ AdminUsersComponent } from './users/adminUsers.component';
 
 

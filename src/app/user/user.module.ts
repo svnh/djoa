@@ -18,14 +18,14 @@ import { RightModule} from '../right/right.module';
 import { CompanieModule} from '../companie/companie.module';
 import { ProjectModule} from '../project/project.module';
 
-import { UserDialogComponent } from './singleUser/dialog/userDialog.component';
+import { UserDialogComponent } from './single/dialog/userDialog.component';
 // import { PaiementPipe } from './paiement/paiement.pipe';
 
 import { RegisterComponent} from './register/register.component';
 
-import { NewUserComponent} from './singleUser/newUser.component';
+import { NewUserComponent} from './single/newUser.component';
 // import { EditUserComponent} from './singleUser/editUser.component';
-import { ProfileComponent} from './singleUser/profile.component';
+import { ProfileComponent} from './single/profile.component';
 // import { SingleUserComponent} from './singleUser/singleUser.component';
 // import { AddNoteComponent} from './singleUser/addNote.component';
 // import { ChooseDateComponent} from './singleUser/chooseDate.component';
@@ -41,7 +41,7 @@ import { ProfileComponent} from './singleUser/profile.component';
 
 
 //import { ProfileService} from './singleUser/profile.service';
-import { ChangePasswordComponent } from './singleUser/changePassword/changePassword.component';
+import { ChangePasswordComponent } from './single/changePassword/changePassword.component';
 import { ResetPasswordComponent} from './accountRecover/resetPassword.component';
 import { ForgetPasswordComponent} from './accountRecover/forgetPassword.component';
 
