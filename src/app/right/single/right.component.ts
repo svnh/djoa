@@ -14,7 +14,7 @@ import {Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 
-import { DeleteDialog } from '../../deleteDialog/deleteDialog.component';
+// import { DeleteDialog } from '../../deleteDialog/deleteDialog.component';
 import { User } from '../../user/user.model';
 
 // import { EditOptionsComponentDialog } from '../../form/modalLibrary/modalLibrary.component';

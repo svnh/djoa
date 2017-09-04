@@ -15,7 +15,7 @@ import { User, TypeUser } from '../user.model';
 //import { Form } from '../../form/form.model';
 
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
-import { DeleteDialog } from '../../deleteDialog/deleteDialog.component'
+// import { DeleteDialog } from '../../deleteDialog/deleteDialog.component'
 import {Search} from '../../mainPageHome/mainPageHome.model'
 
 @Component({
@@ -195,18 +195,18 @@ export class NewUserComponent implements OnInit {
     this.location.back();
   }
 
-  openDialogDelete(){
-    let this2 = this
-    let dialogRefDelete = this.dialog.open(DeleteDialog)
-    dialogRefDelete.afterClosed().subscribe(result => {
-      if(result) {
-        this.onDelete(this.fetchedUser._id).then(function(){
-          this2.router.navigate(['user']);
-        })
-
-      }
-    })
-  }
+  // openDialogDelete(){
+  //   let this2 = this
+  //   let dialogRefDelete = this.dialog.open(DeleteDialog)
+  //   dialogRefDelete.afterClosed().subscribe(result => {
+  //     if(result) {
+  //       this.onDelete(this.fetchedUser._id).then(function(){
+  //         this2.router.navigate(['user']);
+  //       })
+  //
+  //     }
+  //   })
+  // }
 
   saveAndCreateProject() {
     this.save()

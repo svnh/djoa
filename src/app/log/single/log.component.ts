@@ -14,7 +14,7 @@ import { Location } from '@angular/common';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 // import { UserService} from '../../user/user.service';
 // import { QuoteService } from '../../quote/quote.service';
-import { DeleteDialog } from '../../deleteDialog/deleteDialog.component';
+// import { DeleteDialog } from '../../deleteDialog/deleteDialog.component';
 import { User } from '../../user/user.model';
 // // import { Quote } from '../../quote/quote.model';
 // import { Product } from '../../product/product.model';
@@ -163,18 +163,18 @@ export class LogComponent implements OnInit {
   }
 
 
-  openDialogDelete(){
-    let this2 = this
-    let dialogRefDelete = this.dialog.open(DeleteDialog)
-    dialogRefDelete.afterClosed().subscribe(result => {
-      if(result) {
-        this.onDelete(this.fetchedLog._id).then(function(){
-          this2.router.navigate(['log']);
-        })
-
-      }
-    })
-  }
+  // openDialogDelete(){
+  //   let this2 = this
+  //   let dialogRefDelete = this.dialog.open(DeleteDialog)
+  //   dialogRefDelete.afterClosed().subscribe(result => {
+  //     if(result) {
+  //       this.onDelete(this.fetchedLog._id).then(function(){
+  //         this2.router.navigate(['log']);
+  //       })
+  //
+  //     }
+  //   })
+  // }
 
 
 

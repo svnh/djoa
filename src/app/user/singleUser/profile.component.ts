@@ -15,7 +15,7 @@ import { User, TypeUser } from '../user.model';
 //import { Form } from '../../form/form.model';
 
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
-import { DeleteDialog } from '../../deleteDialog/deleteDialog.component'
+// import { DeleteDialog } from '../../deleteDialog/deleteDialog.component'
 import {Search} from '../../mainPageHome/mainPageHome.model'
 
 @Component({

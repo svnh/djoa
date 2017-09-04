@@ -11,7 +11,7 @@ import { Companie } from '../../companie/companie.model';
 // import { EditOptionsComponentDialog } from '../../form/modalLibrary/modalLibrary.component';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
-import { DeleteDialog } from '../../deleteDialog/deleteDialog.component'
+// import { DeleteDialog } from '../../deleteDialog/deleteDialog.component'
 import { UserService } from '../../user/user.service'
 import { User } from '../../user/user.model'
 import { AuthService} from '../../auth/auth.service';
@@ -142,18 +142,18 @@ export class ProductSingleComponent implements OnInit {
       );
   }
 
-  openDialogDelete(){
-    let this2 = this
-    let dialogRefDelete = this.dialog.open(DeleteDialog)
-    dialogRefDelete.afterClosed().subscribe(result => {
-      if(result) {
-        this.onDelete(this.fetchedProduct._id).then(function(){
-          this2.router.navigate(['user']);
-        })
-
-      }
-    })
-  }
+  // openDialogDelete(){
+  //   let this2 = this
+  //   let dialogRefDelete = this.dialog.open(DeleteDialog)
+  //   dialogRefDelete.afterClosed().subscribe(result => {
+  //     if(result) {
+  //       this.onDelete(this.fetchedProduct._id).then(function(){
+  //         this2.router.navigate(['user']);
+  //       })
+  //
+  //     }
+  //   })
+  // }
 
 
   // goBack() {

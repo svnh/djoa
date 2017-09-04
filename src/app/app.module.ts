@@ -61,7 +61,7 @@ import { LoadingComponent} from './nav/loading/loading.component';
 
 
 
-import { DeleteDialog} from './deleteDialog/deleteDialog.component';
+// import { DeleteDialog} from './deleteDialog/deleteDialog.component';
 // import { SeePictureDialogComponent} from './seePictureDialog/seePictureDialog.component';
 
 
@@ -152,7 +152,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     // NewProductComponent,
     // SingleProductComponent,
 
-    DeleteDialog,
+    // DeleteDialog,
     // SeePictureDialogComponent,
 
 
@@ -277,7 +277,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   ],
   entryComponents: [
   //  CompanieAddUserDialog,
-    DeleteDialog,
+    // DeleteDialog,
 
   //  PromotionDeleteDialog,
     // EditOptionsComponentDialog,

@@ -9,7 +9,7 @@ import { Location } from '@angular/common';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ViewEncapsulation} from '@angular/core';
 import { UserService} from '../../user/user.service';
-import { DeleteDialog } from '../../deleteDialog/deleteDialog.component';
+// import { DeleteDialog } from '../../deleteDialog/deleteDialog.component';
 
 
 @Component({
@@ -65,15 +65,15 @@ export class LogsComponent implements OnInit {
   //   this.getLogs(1, this.search)
   // }
 
-  openDialogDelete(id: string){
-    let this2 = this
-    let dialogRefDelete = this.dialog.open(DeleteDialog)
-    dialogRefDelete.afterClosed().subscribe(result => {
-      if(result) {
-        this.onDelete(id)
-      }
-    })
-  }
+  // openDialogDelete(id: string){
+  //   let this2 = this
+  //   let dialogRefDelete = this.dialog.open(DeleteDialog)
+  //   dialogRefDelete.afterClosed().subscribe(result => {
+  //     if(result) {
+  //       this.onDelete(id)
+  //     }
+  //   })
+  // }
 
   onDelete(id: string) {
     this.logService.deleteLog(id)
