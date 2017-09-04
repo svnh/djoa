@@ -14,7 +14,7 @@ import { LogsComponent} from './list/logs.component';
 
 // import {PictureModule} from '../picture/picture.module';
 
-// import { QuoteModule} from '../quote/quote.module';
+// // import { QuoteModule} from '../quote/quote.module';
 
 // import { DragulaModule } from 'ng2-dragula';
 // import { LogDialogComponent } from './single/dialog/logDialog.component'

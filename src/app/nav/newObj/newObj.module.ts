@@ -8,7 +8,7 @@ import { MaterialModule } from '@angular/material';
 
 import { NewObjComponent} from './newObj.component';
 // import {SharedModule } from '../../shared/shared.module';
-import { NotificationService} from '../../notification/notification.service';
+// import { NotificationService} from '../../notification/notification.service';
 
 
 @NgModule({

@@ -14,12 +14,12 @@ import { MaterialModule } from '@angular/material';
 import { RightModule} from '../right/right.module';
 
 
-import { QuoteModule} from '../quote/quote.module';
+// import { QuoteModule} from '../quote/quote.module';
 import { CompanieModule} from '../companie/companie.module';
 import { ProjectModule} from '../project/project.module';
 
 import { UserDialogComponent } from './singleUser/dialog/userDialog.component';
-import { PaiementPipe } from './paiement/paiement.pipe';
+// import { PaiementPipe } from './paiement/paiement.pipe';
 
 import { RegisterComponent} from './register/register.component';
 
@@ -37,7 +37,7 @@ import { ProfileComponent} from './singleUser/profile.component';
 // import { UserProfilePicturesComponent } from './profile/userProfilePictures.component';
 // import { UserProfileComponent } from './singleUser/userProfile.component';
 
-import { PaiementComponent } from './paiement/paiement.component';
+// import { PaiementComponent } from './paiement/paiement.component';
 
 
 //import { ProfileService} from './singleUser/profile.service';
@@ -46,7 +46,7 @@ import { ResetPasswordComponent} from './accountRecover/resetPassword.component'
 import { ForgetPasswordComponent} from './accountRecover/forgetPassword.component';
 
 import { UserService} from './user.service';
-import { PaiementService} from './paiement/paiement.service';
+// import { PaiementService} from './paiement/paiement.service';
 import { LoginComponent} from './login/login.component';
 
 
@@ -67,7 +67,7 @@ import {SharedModule } from '../shared/shared.module';
     // FormsModule,
     MaterialModule,
     ReactiveFormsModule,
-    QuoteModule,
+    // QuoteModule,
     ProjectModule,
     RightModule,
     CompanieModule,
@@ -95,13 +95,13 @@ import {SharedModule } from '../shared/shared.module';
     ForgetPasswordComponent,
 
     // UserProfileComponent,
-    PaiementComponent,
+    // PaiementComponent,
     // UserProfilePicturesComponent,
     // UserProfileSettingsComponent,
     ChangePasswordComponent,
 
     RegisterComponent,
-    PaiementPipe,
+    // PaiementPipe,
 
 
   ],
@@ -116,7 +116,7 @@ import {SharedModule } from '../shared/shared.module';
     // ProfileService,
 
     UserService,
-    PaiementService,
+    // PaiementService,
   ],
   entryComponents: [
     UserDialogComponent

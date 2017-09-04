@@ -64,7 +64,7 @@ export class ListProductsByProjectComponent implements OnInit {
     // private activatedRoute: ActivatedRoute,
     private _fb: FormBuilder,
     private productService: ProductService,
-    // private quoteService: QuoteService,
+    // // private quoteService: QuoteService,
     private authService: AuthService,
   ) {
     // this.globalEventsManager.refreshCenterEmitter.subscribe((isRefresh) => {

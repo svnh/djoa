@@ -32,7 +32,7 @@ export const routes: Routes = [
   // {path: 'userCalendar', loadChildren: 'app/userCalendar/userCalendar.module#UserCalendarModule', canActivate: [AuthGuardService]},
   {path: 'companie', loadChildren: 'app/companie/companie.module#CompanieModule', canActivate: [AuthGuardService]},
   {path: 'right', loadChildren: 'app/right/right.module#RightModule', canActivate: [AuthGuardService]},
-  {path: 'quote', loadChildren: 'app/quote/quote.module#QuoteModule'},
+  // {path: 'quote', loadChildren: 'app/quote/quote.module#QuoteModule'},
   // {path: 'paiementQuote', loadChildren: 'app/paiementQuote/paiementQuote.module#PaiementQuoteModule', canActivate: [AuthGuardService]},
   // {path: 'userCalendar', loadChildren: 'app/userCalendar/userCalendar.module#UserCalendarModule', canActivate: [AuthGuardService]},
   // {path: 'reporting', loadChildren: 'app/reporting/reporting.module#ReportingModule', canActivate: [AuthGuardService]},

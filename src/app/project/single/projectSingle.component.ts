@@ -10,10 +10,10 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 import { DeleteDialog } from '../../deleteDialog/deleteDialog.component'
 import { UserService} from '../../user/user.service';
-import { QuoteService} from '../../quote/quote.service';
+// import { QuoteService} from '../../quote/quote.service';
 
 import { User } from '../../user/user.model';
-import { Quote } from '../../quote/quote.model';
+// import { Quote } from '../../quote/quote.model';
 import { AuthService} from '../../auth/auth.service';
 import {Search} from '../../mainPageHome/mainPageHome.model'
 import {ShowNavBarData} from '../../mainPageHome/mainPageHome.model'
@@ -43,15 +43,15 @@ export class ProjectSingleComponent implements OnInit {
   // categ2: string = '';
 
   // itemSteps:any =[];
-
-
-  status = StatusProject
-  categ: string = 'Electricité';
-  subCateg: string = 'file';
+  // 
+  //
+  // status = StatusProject
+  // categ: string = 'Electricité';
+  // subCateg: string = 'file';
   // autocompleteUser: string = '';
   // autocompleteQuote: string = '';
   fetchedUsers: User[] = [];
-  fetchedQuotes: Quote[] = [];
+  // fetchedQuotes: Quote[] = [];
 
 
   fetchedProject: Project = new Project();
@@ -70,7 +70,7 @@ export class ProjectSingleComponent implements OnInit {
     // private activatedRoute: ActivatedRoute,
     private _fb: FormBuilder,
     // private userService: UserService,
-    // private quoteService: QuoteService,
+    // // private quoteService: QuoteService,
     private authService: AuthService,
   ) {
   }

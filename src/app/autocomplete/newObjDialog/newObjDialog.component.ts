@@ -9,7 +9,7 @@ import { CompanieDialogComponent } from '../../companie/single/dialog/companieDi
 import { ProductDialogComponent } from '../../product/single/dialog/productDialog.component';
 
 
-import { PaiementQuoteDialogComponent } from '../../paiementQuote/single/dialog/paiementQuoteDialog.component';
+// import { PaiementQuoteDialogComponent } from '../../paiementQuote/single/dialog/paiementQuoteDialog.component';
 
 
 import { MdDialog } from '@angular/material';
@@ -53,8 +53,8 @@ export class newObjDialogComponent implements OnInit {
     // if(typeObj == 'project')
     //   dialogComp = ProjectDialogComponent
 
-    if(typeObj == 'paiementQuote')
-      dialogComp = PaiementQuoteDialogComponent
+    // if(typeObj == 'paiementQuote')
+    //   dialogComp = PaiementQuoteDialogComponent
 
     if(typeObj == 'product')
       dialogComp = ProductDialogComponent

@@ -14,7 +14,7 @@ import { ChatRouting} from './chatRouting.module';
 
 // import {PictureModule} from '../picture/picture.module';
 
-// import { QuoteModule} from '../quote/quote.module';
+// // import { QuoteModule} from '../quote/quote.module';
 
 // import { DragulaModule } from 'ng2-dragula';
 // import { ChatDialogComponent } from './single/dialog/chatDialog.component'

@@ -2,8 +2,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { UserService} from '../user/user.service';
 import { CompanieService} from '../companie/companie.service';
 import { ProductService} from '../product/product.service';
-import { QuoteService} from '../quote/quote.service';
-import { TemplateQuoteService} from '../quote/templateQuote.service';
+// import { QuoteService} from '../quote/quote.service';
+// import { TemplateQuoteService} from '../quote/templateQuote.service';
 
 import { RightService} from '../right/right.service';
 import { ProjectService} from '../project/project.service';
@@ -17,7 +17,7 @@ import {Search} from '../mainPageHome/mainPageHome.model'
 
 import {Router} from '@angular/router';
 import { User } from '../user/user.model';
-// import { Quote } from '../quote/quote.model';
+// // import { Quote } from '../quote/quote.model';
 
 
 @Component({
@@ -47,10 +47,10 @@ export class AutocompleteComponent implements OnInit {
     private missionService: MissionService,
     private companieService: CompanieService,
     private productService: ProductService,
-    private quoteService: QuoteService,
+    // // private quoteService: QuoteService,
     private stratService: StratService,
     private projectService: ProjectService,
-    private templateQuoteService: TemplateQuoteService,
+    // private templateQuoteService: TemplateQuoteService,
     private rightService: RightService,
     private router: Router,
   ) {}
@@ -93,18 +93,18 @@ export class AutocompleteComponent implements OnInit {
       this.productService.getProducts(page, search)
       .subscribe( res => { this.fetchedData = res.data }, error => { console.log(error); });
 
-    if(this.typeAutocomplete ==='quote')
-      this.quoteService.getQuotes(page, search)
-      .subscribe( res => { this.fetchedData = res.data }, error => { console.log(error); });
+    // if(this.typeAutocomplete ==='quote')
+    //   this.quoteService.getQuotes(page, search)
+    //   .subscribe( res => { this.fetchedData = res.data }, error => { console.log(error); });
 
     if(this.typeAutocomplete ==='project')
       this.projectService.getProjects(page, search)
       .subscribe( res => { this.fetchedData = res.data }, error => { console.log(error); });
 
 
-    if(this.typeAutocomplete ==='templateQuote')
-      this.templateQuoteService.getTemplateQuotes(page, search)
-      .subscribe( res => { this.fetchedData = res.data }, error => { console.log(error); });
+    // if(this.typeAutocomplete ==='templateQuote')
+    //   this.templateQuoteService.getTemplateQuotes(page, search)
+    //   .subscribe( res => { this.fetchedData = res.data }, error => { console.log(error); });
 
     if(this.typeAutocomplete ==='right')
       this.rightService.getRights(page, search)

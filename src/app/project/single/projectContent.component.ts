@@ -10,7 +10,7 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 import { DeleteDialog } from '../../deleteDialog/deleteDialog.component'
 import { UserService} from '../../user/user.service';
-import { QuoteService} from '../../quote/quote.service';
+// import { QuoteService} from '../../quote/quote.service';
 
 import { User } from '../../user/user.model';
 import { Product } from '../../product/product.model';
@@ -67,7 +67,7 @@ export class ProjectContentComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     // private _fb: FormBuilder,
     private productService: ProductService,
-    // private quoteService: QuoteService,
+    // // private quoteService: QuoteService,
     private authService: AuthService,
   ) {
     this.globalEventsManager.refreshCenterEmitter.subscribe((isRefresh) => {

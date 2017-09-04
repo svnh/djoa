@@ -1,7 +1,7 @@
 import { Form } from '../picture/form/form.model';
 import { User } from '../user/user.model';
-import { Quote } from '../quote/quote.model';
-import { Task } from '../task/task.model';
+// import { Quote } from '../quote/quote.model';
+// import { Task } from '../task/task.model';
 
 
 export class Project {
@@ -13,7 +13,7 @@ export class Project {
     // forms: Form[] = [];
     logs: Log[] = [];
     categorie: Categorie = new Categorie();
-    bucketTasks: BucketTasks[] = []
+    // bucketTasks: BucketTasks[] = []
     progressTasks: number = 0;
     dateProject: DateDjoa = new DateDjoa()
 }
@@ -31,11 +31,11 @@ export class DateDjoa {
   endString: string = '';
   percentageProgress: number = 0;
 }
-export class BucketTasks {
-  bucketName: string = '';
-  openNewTask: boolean = false;
-  tasks: Task[] = []
-}
+// export class BucketTasks {
+//   bucketName: string = '';
+//   openNewTask: boolean = false;
+//   tasks: Task[] = []
+// }
 //
 // export class Task {
 //   name: string = '';

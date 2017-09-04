@@ -17,7 +17,7 @@ import { DeleteDialog } from '../../deleteDialog/deleteDialog.component';
 import { User } from '../../user/user.model';
 
 // import { EditOptionsComponentDialog } from '../../form/modalLibrary/modalLibrary.component';
-import { PaiementService} from '../../user/paiement/paiement.service';
+// import { PaiementService} from '../../user/paiement/paiement.service';
 
 
 @Component({
@@ -57,11 +57,11 @@ export class EditCompanieComponent implements OnInit {
     private _fb: FormBuilder,
     private authService:AuthService,
     private userService: UserService,
-    private paiementService: PaiementService,
+    // private paiementService: PaiementService,
   ) {}
 
   ngOnInit() {
-    this.getStripeAccountDetails()
+    // this.getStripeAccountDetails()
     this.myForm = this._fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
       phoneNumber: ['', [Validators.required, Validators.minLength(2)]],
@@ -104,15 +104,15 @@ export class EditCompanieComponent implements OnInit {
   addTypeUser() {
     this.fetchedCompanie.typeUsers.push({value: ''})
   }
-  getStripeAccountDetails() {
-    this.paiementService.getStripeCust()
-      .subscribe(
-        res => {
-          console.log(res)
-        },
-        error => { console.log(error) }
-      )
-  }
+  // getStripeAccountDetails() {
+  //   this.paiementService.getStripeCust()
+  //     .subscribe(
+  //       res => {
+  //         console.log(res)
+  //       },
+  //       error => { console.log(error) }
+  //     )
+  // }
 
   isMyCompanie() {
     let currentUser = this.authService.getCurrentUser()

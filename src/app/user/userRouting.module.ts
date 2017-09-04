@@ -14,7 +14,7 @@ import {AuthGuardService} from '../auth/authguard.service';
 //import {UserProfileSettingsComponent} from './singleUser/userProfileSettings.component';
 
 import {ChangePasswordComponent} from './singleUser/changePassword/changePassword.component';
-import { PaiementComponent } from './paiement/paiement.component';
+// import { PaiementComponent } from './paiement/paiement.component';
 //import {SingleUserComponent} from './singleUser/singleUser.component';
 //import {AddNoteComponent} from './singleUser/addNote.component';
 //import {ChooseDateComponent} from './singleUser/chooseDate.component';
@@ -37,7 +37,7 @@ export const routes: Routes = [
   //{path: 'forms', component: UserFormsComponent, canActivate: [AuthGuardService]},
   {path: 'profile/password', component: ChangePasswordComponent, canActivate: [AuthGuardService]},
   // {path: 'profile', component: UserProfileComponent, canActivate: [AuthGuardService]},
-  {path: 'paiement', component: PaiementComponent, canActivate: [AuthGuardService]},
+  // {path: 'paiement', component: PaiementComponent, canActivate: [AuthGuardService]},
   // {path: 'profile/:id', component: UserProfileComponent, canActivate: [AuthGuardService]},
   {path: ':id', component: NewUserComponent, canActivate: [AuthGuardService]},
   {path: 'list/:isExternalUser', component: AdminUsersComponent, canActivate: [AuthGuardService]},

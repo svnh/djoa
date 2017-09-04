@@ -8,7 +8,7 @@
             <img *ngIf="isFormPdf(form)" (click)="onSelectRow(form)" src="./assets/images/pdf_icon.png">
             <img *ngIf="!isFormPdf(form)" (click)="onSelectRow(form)" src="./uploads/forms/{{form.owner}}/{{form.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
             <p *ngIf="isFormPdf(form)" class="pdf-ttl">{{form.title}}</p>
-            <button class="dlt-btn" (click)="onDelete(form._id)"><i class="fa fa-trash"></i></button>
+            <button class="" (click)="onDelete(form._id)"><i class="fa fa-trash"></i></button>
           </div>
         </td>
       </tr>

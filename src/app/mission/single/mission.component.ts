@@ -13,10 +13,10 @@ import {Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { FormBuilder, FormGroup} from '@angular/forms';
 import { UserService} from '../../user/user.service';
-import { QuoteService } from '../../quote/quote.service';
+// import { QuoteService } from '../../quote/quote.service';
 import { DeleteDialog } from '../../deleteDialog/deleteDialog.component';
 import { User } from '../../user/user.model';
-import { Quote } from '../../quote/quote.model';
+// import { Quote } from '../../quote/quote.model';
 import { Product } from '../../product/product.model';
 import { Project } from '../../project/project.model';
 
@@ -43,7 +43,7 @@ export class MissionComponent implements OnInit {
 // ]
   constructor(
     private missionService: MissionService,
-    private quoteService: QuoteService,
+    // private quoteService: QuoteService,
     private globalEventsManager: GlobalEventsManager,
     // private projectService: ProjectService,
     // private projectService: ProjectService,
@@ -179,7 +179,7 @@ export class MissionComponent implements OnInit {
     this.globalEventsManager.showNavBarRight(showNavBarData);
   }
 
-  
+
 
 
 

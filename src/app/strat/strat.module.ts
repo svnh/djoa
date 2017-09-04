@@ -16,7 +16,7 @@ import { StratsComponent} from './list/strats.component';
 import { LightStratsComponent} from './list/lightStrats.component';
 
 // import { ProjectStratsComponent} from './project/projectStrats.component';
-import { QuoteModule} from '../quote/quote.module';
+// import { QuoteModule} from '../quote/quote.module';
 
 // import { DragulaModule } from 'ng2-dragula';
 // import { StratDialogComponent } from './single/dialog/stratDialog.component'
@@ -38,7 +38,7 @@ import {ChatModule} from '../chat/chat.module';
     FormsModule,
     MaterialModule,
     ReactiveFormsModule,
-    QuoteModule,
+    // QuoteModule,
     SharedModule,
     DocumentModule,
     BriefModule,

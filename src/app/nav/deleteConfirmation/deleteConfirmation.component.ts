@@ -5,10 +5,10 @@ import {Router} from '@angular/router';
 import { UserService} from '../../user/user.service';
 import { User} from '../../user/user.model';
 import { CompanieGuardService} from '../../companie/companieGuard.service'
-import { PaiementGuardService} from '../../user/paiement/paiementGuard.service'
+// import { PaiementGuardService} from '../../user/paiement/paiementGuard.service'
 // import { ChangeDetectionStrategy} from '@angular/core';
 // import { GlobalEventsManager} from '../../globalEventsManager';
-// import { NotificationService} from '../../notification/notification.service';
+// // import { NotificationService} from '../../notification/notification.service';
 // import { Notification} from '../../notification/notification.model';
 // import {Observable} from 'rxjs/Rx';
 import {ShowNavBarData} from '../../mainPageHome/mainPageHome.model'

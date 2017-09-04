@@ -8,7 +8,7 @@ import { MaterialModule } from '@angular/material';
 
 import { NavbarComponent} from './navbar.component';
 // import {SharedModule } from '../../shared/shared.module';
-import { NotificationService} from '../../notification/notification.service';
+// import { NotificationService} from '../../notification/notification.service';
 import {SharedSmallModule } from '../../shared/sharedSmall.module';
 
 
@@ -37,7 +37,7 @@ import {SharedSmallModule } from '../../shared/sharedSmall.module';
     // ProductsComponent
   ],
   providers:    [
-    NotificationService,
+    // NotificationService,
     // ProductService
   ],
   entryComponents: [ ]

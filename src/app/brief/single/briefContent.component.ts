@@ -10,10 +10,10 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 import { DeleteDialog } from '../../deleteDialog/deleteDialog.component'
 import { UserService} from '../../user/user.service';
-import { QuoteService} from '../../quote/quote.service';
+// import { QuoteService} from '../../quote/quote.service';
 
 import { User } from '../../user/user.model';
-import { Quote } from '../../quote/quote.model';
+// import { Quote } from '../../quote/quote.model';
 import { AuthService} from '../../auth/auth.service';
 import {Search} from '../../mainPageHome/mainPageHome.model'
 
@@ -71,7 +71,7 @@ export class BriefContentComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private _fb: FormBuilder,
     private userService: UserService,
-    private quoteService: QuoteService,
+    // private quoteService: QuoteService,
     private authService: AuthService,
   ) {
   }

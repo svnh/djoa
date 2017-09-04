@@ -16,9 +16,9 @@ import { MissionsComponent} from './list/missions.component';
 import { LightMissionsComponent} from './list/lightMissions.component';
 
 // import { ProjectMissionsComponent} from './project/projectMissions.component';
-import { QuoteModule} from '../quote/quote.module';
+// // import { QuoteModule} from '../quote/quote.module';
 
-import { DragulaModule } from 'ng2-dragula';
+
 // import { MissionDialogComponent } from './single/dialog/missionDialog.component'
 // import { AutocompleteModule } from '../autocomplete/autocomplete.module'
 import {SharedModule } from '../shared/shared.module';
@@ -32,13 +32,12 @@ import {ChatModule} from '../chat/chat.module';
 @NgModule({
   imports:     [
     // UserModule,
-    DragulaModule,
     MissionRouting,
     CommonModule,
     FormsModule,
     MaterialModule,
     ReactiveFormsModule,
-    QuoteModule,
+    // QuoteModule,
     SharedModule,
     DocumentModule,
     ChatModule,

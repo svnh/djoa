@@ -1,6 +1,6 @@
 import { Form } from '../picture/form/form.model';
 import { User } from '../user/user.model';
-import { Quote } from '../quote/quote.model';
+// import { Quote } from '../quote/quote.model';
 import { Product } from '../product/product.model';
 
 import { Project, DateDjoa } from '../project/project.model';

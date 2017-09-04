@@ -1,7 +1,6 @@
 
   <form  (ngSubmit)="onSubmit()" novalidate>
     <fieldset>
-      <div class="">
 
           <button type="button">
             <input #fileInput name="fileUp" type="file" (change)="onFileSelect($event)">
@@ -10,14 +9,14 @@
             <div *ngFor="let file of files" class="cho-filcnt">
               <img *ngIf="!isImagePure(file)" class="img-responsive" src="./assets/images/pdf_icon.png">
               <img [src]="file.objectURL" *ngIf="isImagePure(file)" class="img-responsive" onerror="this.src ='assets/images/no-image-found.jpg'"><br>
-              <button type="button" class="dlt-btn" (click)="remove(i)"><i class="fa fa-trash"></i></button>
+              <button type="button" class="" (click)="remove(i)"><i class="fa fa-trash"></i></button>
             </div>
           </div>
           <!-- <div>
             <i *ngIf="isAdmin()" class="rec-sze">Recommended size for Home Page pictures: 500 x 230 px (width x height)</i>
           </div> -->
 
-      </div>
+
 
 
       <!-- <button type="button" (click)="rotate()">roatate</button>

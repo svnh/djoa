@@ -5,8 +5,8 @@ import {Router} from '@angular/router';
 import { UserService} from '../../user/user.service';
 import { User} from '../../user/user.model';
 import { CompanieGuardService} from '../../companie/companieGuard.service'
-import { PaiementGuardService} from '../../user/paiement/paiementGuard.service'
-import { ChangeDetectionStrategy} from '@angular/core';
+// import { PaiementGuardService} from '../../user/paiement/paiementGuard.service'
+// import { ChangeDetectionStrategy} from '@angular/core';
 import {GlobalEventsManager} from '../../globalEventsManager';
 import {MdSidenav} from '@angular/material';
 import {ShowNavBarData} from '../../mainPageHome/mainPageHome.model'

@@ -121,7 +121,7 @@ import { AdminService} from './admin/services/admin.service';
 
 import { AdminGuardService} from './admin/services/adminGuard';
 import { CompanieGuardService} from './companie/companieGuard.service';
-import { PaiementGuardService} from './user/paiement/paiementGuard.service';
+// import { PaiementGuardService} from './user/paiement/paiementGuard.service';
 
 
 import { AdminComponent} from './admin/admin.component';
@@ -263,7 +263,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   //  PromotionService,
     AdminGuardService,
     CompanieGuardService,
-    PaiementGuardService,
+    // PaiementGuardService,
     GlobalEventsManager,
     // TRANSLATION_PROVIDERS,
     // TranslateService,
