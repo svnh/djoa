@@ -10,11 +10,11 @@ import { ProjectService} from '../project/project.service';
 import { StratService} from '../strat/strat.service';
 import { MissionService} from '../mission/mission.service';
 import { MdDialog } from '@angular/material';
-import {Search} from '../home/home.model'
+import { Search} from '../home/home.model'
 // import { UserDialogComponent } from '../user/singleUser/dialog/userDialog.component';
 // import { CompanieDialogComponent } from '../companie/single/dialog/companieDialog.component';
 // import { ProjectDialogComponent } from '../project/single/dialog/projectDialog.component';
-
+import { ToastsManager} from 'ng2-toastr';
 import {Router} from '@angular/router';
 import { User } from '../user/user.model';
 // // import { Quote } from '../quote/quote.model';
@@ -47,6 +47,7 @@ export class AutocompleteComponent implements OnInit {
     private missionService: MissionService,
     private companieService: CompanieService,
     private productService: ProductService,
+    private toastr: ToastsManager,
     // // private quoteService: QuoteService,
     private stratService: StratService,
     private projectService: ProjectService,
@@ -123,6 +124,40 @@ export class AutocompleteComponent implements OnInit {
   }
 
 
+  emailValidator(emailText: any) {
+    let EMAIL_REGEXP = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
+    if (EMAIL_REGEXP.test(emailText))
+      return true
+    return false
+  }
+
+
+  createObj(typeObj: string) {
+
+    if(typeObj === 'user') {
+
+      if(!this.emailValidator(this.autocompleteSearch)) {
+        this.toastr.error('Error! Not valid email')
+        return
+      }
+
+
+      let newUser = new User()
+      newUser.email = this.autocompleteSearch
+      this.userService.saveUser(newUser)
+        .subscribe(
+          res => {
+            this.toastr.success('Great!', res.message)
+            // this.fetchedUser = res.obj
+            this.selectData(res.obj)
+          },
+          error => {
+            console.log(error)
+            this.toastr.error('Error!')
+          }
+        );
+    }
+  }
 
   // removeDataFromDb(id: string) {
   //   if(this.typeAutocomplete ==='templateQuote')

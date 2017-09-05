@@ -4,7 +4,7 @@
 
 <div *ngIf="!arrayContent.length || !singleChoice">
 
-  <div class="input-group">
+  <div class="">
     <input class="form-control"  autofocus autocapitalize="none" autocomplete="off" spellcheck="false" autocorrect="none" type="text" name="Search" placeholder="🔎 {{typeAutocomplete}}" [(ngModel)]="autocompleteSearch" (ngModelChange)="searchData()">
       <!-- <app-newObjDialog
         *ngIf="typeAutocomplete=='user' || typeAutocomplete=='companie' || typeAutocomplete=='project' || typeAutocomplete=='product'"
@@ -33,8 +33,8 @@
 <div class="form-control" *ngFor="let data of fetchedData; let i=index">
   <table>
     <tr>
-      <td class="tdbtn1">
-        <div *ngIf="typeAutocomplete=='user'">{{data.profile.name}} {{data.profile.lastName}}</div>
+      <td class="">
+        <div *ngIf="typeAutocomplete=='user'">{{data.profile.name}} {{data.profile.lastName}} {{data.email}}</div>
         <div *ngIf="typeAutocomplete=='companie'">{{data.nameCompanie}}</div>
         <!-- <div *ngIf="typeAutocomplete=='quote'">{{data.name}}</div> -->
         <div *ngIf="typeAutocomplete=='project'">{{data.details.name}}</div>
@@ -44,8 +44,8 @@
         <div *ngIf="typeAutocomplete=='right'">{{data.detailRight.nameRight}}</div>
         <div *ngIf="typeAutocomplete=='templateQuote'">{{data.nameTemplate}}</div>
       </td>
-      <td class="tdbtn2">
-        <button class="btn btn-success" type="button" (click)="selectData(data)">select</button>
+      <td class="">
+        <button class="" type="button" (click)="selectData(data)">select</button>
       </td>
     </tr>
   </table>
@@ -55,13 +55,13 @@
 
 <div *ngIf="fetchedData.length == 0 && autocompleteSearch !=''">
   No results.
-  <!-- <button
-    class="btn btn-success"
-    *ngIf="typeAutocomplete=='user' || typeAutocomplete=='companie' || typeAutocomplete=='project'"
+  <button
+    class=""
+    *ngIf="typeAutocomplete=='user'"
     type="button" md-button
-    (click)="openDialog(typeAutocomplete)">
+    (click)="createObj(typeAutocomplete)">
     <i class="fa fa-plus"></i> Add new one
-  </button> -->
+  </button>
 
   <!-- <app-newObjDialog
     class="btn btn-success"
@@ -79,8 +79,8 @@
   <!-- <div *ngIf="typeAutocomplete=='user'" class="round" [style.background-color]="user.profile.colorCalendar"></div> -->
   <table>
     <tr>
-      <td class="tdbtn1" (click)="linkToObject(data)">
-        <div *ngIf="typeAutocomplete=='user'">{{data.profile.name}} {{data.profile.lastName}}</div>
+      <td class="" (click)="linkToObject(data)">
+        <div *ngIf="typeAutocomplete=='user'">{{data.profile.name}} {{data.profile.lastName}} {{data.email}}</div>
         <div *ngIf="typeAutocomplete=='companie'">{{data.nameCompanie}}</div>
         <div *ngIf="typeAutocomplete=='quote'">{{data.name}}</div>
         <div *ngIf="typeAutocomplete=='strat'">{{data.title}}</div>
@@ -89,9 +89,9 @@
         <div *ngIf="typeAutocomplete=='product'">{{data.name}}</div>
         <div *ngIf="typeAutocomplete=='right'">{{data.detailRight.nameRight}}</div>
       </td>
-      <td class="tdbtn2">
+      <td class="">
 
-        <button class="btn btn-danger btn-sm ferme" *ngIf="canDelete" type="button" (click)="removeData(i)"><i class="fa fa-times"></i></button>
+        <button class="" *ngIf="canDelete" type="button" (click)="removeData(i)"><i class="fa fa-times"></i></button>
       </td>
     </tr>
   </table>

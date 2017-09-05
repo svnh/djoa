@@ -23,7 +23,6 @@ export class AdminUsersComponent implements OnInit {
     orderBy : '',
     search: '',
     isExternalUser: true,
-    role: ''
   };
   paginationData = {
     currentPage: 1,
@@ -47,7 +46,6 @@ export class AdminUsersComponent implements OnInit {
       if(params['isExternalUser']) {
         this.search.isExternalUser = params['isExternalUser']
         this.search.orderBy = 'profile.name';
-        this.search.role = 'client';
         this.getUsers(this.paginationData.currentPage, this.search);
       }
     })

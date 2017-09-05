@@ -208,10 +208,10 @@ export class NewUserComponent implements OnInit {
   //   })
   // }
 
-  saveAndCreateProject() {
-    this.save()
-    this.router.navigate(['project/new/' + this.fetchedUser._id])
-  }
+  // saveAndCreateProject() {
+  //   this.save()
+  //   this.router.navigate(['project/new/' + this.fetchedUser._id])
+  // }
 
   sendEmailToUserToJoinCompanie() {
     this.userService.sendEmailToUserToJoinCompanie(this.fetchedUser)
@@ -270,15 +270,15 @@ export class NewUserComponent implements OnInit {
   }
 
 
-  navigate(id: string){
-    this.router.navigate(['user/' + id])
-  }
+  // navigate(id: string){
+  //   this.router.navigate(['user/' + id])
+  // }
 
-isUserIsMyself() {
-  if(this.currentUser._id === this.fetchedUser._id)
-    return true
-  return false
-}
+// isUserIsMyself() {
+//   if(this.currentUser._id === this.fetchedUser._id)
+//     return true
+//   return false
+// }
 
 
   getUser(id: string) {
@@ -286,9 +286,9 @@ isUserIsMyself() {
       .subscribe(
         res => {
           this.fetchedUser = res
-          this.fetchedUser.typeUsers.forEach(type => {
-            this.typeUserDropDown = type
-          });
+          // this.fetchedUser.typeUsers.forEach(type => {
+          //   this.typeUserDropDown = type
+          // });
         },
         error => {
           console.log(error);

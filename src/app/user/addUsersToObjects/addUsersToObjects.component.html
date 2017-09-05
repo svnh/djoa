@@ -6,19 +6,18 @@
 
 
 
-        <label>Projects</label>
         <app-autocomplete [typeAutocomplete]="'project'" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedUsersToObjects.projects">
         </app-autocomplete>
 
-        <label>Missions</label>
+
         <app-autocomplete [typeAutocomplete]="'mission'" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedUsersToObjects.missions">
         </app-autocomplete>
 
-        <label>Rights</label>
+
+        Alan:Right? this is for new user? What if user is created below and no right selected? what is user already exist anf have right. Rights will be changed for all app?I reocment to set a default right for all new users.
         <app-autocomplete [typeAutocomplete]="'right'" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedUsersToObjects.rights">
         </app-autocomplete>
 
-        <label>Users</label>
         <app-autocomplete [typeAutocomplete]="'user'" [canDelete]=true [title]="" [singleChoice]=false [arrayContent]="fetchedUsersToObjects.users">
         </app-autocomplete>
 

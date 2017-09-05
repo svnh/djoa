@@ -12,7 +12,7 @@ export class User {
   ownerCompanies: Companie[] = [];
   // dateSeeLatestNotif: Date= new Date()
   // isAdminOfHisCompanie: Boolean = false;
-  isExternalUser: Boolean = true;
+  isExternalUser: Boolean = false;
   email: string = '';
   // role: string[] = [];
   typeUsers: string[] = [];

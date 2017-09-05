@@ -72,26 +72,42 @@ router.get('/page/:page', function (req, res, next) {
 //  let parentUserToSearch = ''
   let roleToSearch = []
   let searchQuery = {}
+  let arrObj = []
 
+  // searchQuery['canBeSeenByCompanies'] = req.user.ownerCompanies
+//
+// if(req.query.isExternalUser === 'true') {
+//   // searchQuery['isExternalUser'] = true
+//   searchQuery['canBeSeenByCompanies'] = req.user.ownerCompanies
+//   searchQuery['ownerCompanies'] = {
+//     $ne: req.user.ownerCompanies
+//   }
+// }
 
-
-if(req.query.isExternalUser === 'true') {
-  // searchQuery['isExternalUser'] = true
-  searchQuery['canBeSeenByCompanies'] = req.user.ownerCompanies
-  searchQuery['ownerCompanies'] = {
-    $ne: req.user.ownerCompanies
-  }
-}
-
-if(req.query.isExternalUser === 'false') {
-  // searchQuery['isExternalUser'] = false
+// if(req.query.isExternalUser === 'false') {
+//   // searchQuery['isExternalUser'] = false
+//   searchQuery['ownerCompanies'] = req.user.ownerCompanies
+// }
   searchQuery['ownerCompanies'] = req.user.ownerCompanies
 
-}
+  // if(req.query.search)
+  //   searchQuery['profile.name'] = new RegExp(req.query.search, 'i')
+  //
 
 
-  if(req.query.search)
-    searchQuery['profile.name'] = new RegExp(req.query.search, 'i')
+
+      if (req.query.search) {
+        arrObj.push({
+          'profile.name': new RegExp(req.query.search, 'i')
+        })
+        arrObj.push({
+          'email': new RegExp(req.query.search, 'i')
+        })
+        searchQuery = {
+          $or: arrObj
+        }
+      }
+
 
 
 
