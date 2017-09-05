@@ -11,7 +11,7 @@ import { ToastsManager} from 'ng2-toastr';
 import { MdDialog} from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
-import { User, TypeUser } from '../user.model';
+import { User } from '../user.model';
 //import { Form } from '../../form/form.model';
 
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
@@ -45,7 +45,7 @@ export class NewUserComponent implements OnInit {
   typeHouseArray=['Pavillon','Immeuble']
   companieIndexToSelect = ''
   typeUserDropDown = ''
-  typeUser = TypeUser
+  // typeUser = TypeUser
 
   fetchedUser: User = new User();
   currentUser: User = new User();
@@ -159,23 +159,23 @@ export class NewUserComponent implements OnInit {
   // }
 
   // autocolplete typeUser
-  searchTypeUser() {
-    if(!this.autocompleteTypeUser) {
-      this.fetchedTypeUsers = []
-    } else {
-      this.fetchedTypeUsers = this.typeUser.filter((el) =>
-        el.toLowerCase().indexOf(this.autocompleteTypeUser.toLowerCase()) > -1
-      );
-    }
-  }
-  selectTypeUser(typeUser) {
-    this.autocompleteTypeUser = '';
-    this.fetchedTypeUsers = [];
-    this.fetchedUser.typeUsers.push(typeUser);
-  }
-  removeTypeUser(i: number) {
-    this.fetchedUser.typeUsers.splice(i, 1);
-  }
+  // searchTypeUser() {
+  //   if(!this.autocompleteTypeUser) {
+  //     this.fetchedTypeUsers = []
+  //   } else {
+  //     this.fetchedTypeUsers = this.typeUser.filter((el) =>
+  //       el.toLowerCase().indexOf(this.autocompleteTypeUser.toLowerCase()) > -1
+  //     );
+  //   }
+  // }
+  // selectTypeUser(typeUser) {
+  //   this.autocompleteTypeUser = '';
+  //   this.fetchedTypeUsers = [];
+  //   this.fetchedUser.typeUsers.push(typeUser);
+  // }
+  // removeTypeUser(i: number) {
+  //   this.fetchedUser.typeUsers.splice(i, 1);
+  // }
   // autocolplete typeUser
 
 

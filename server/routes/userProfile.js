@@ -13,8 +13,10 @@ var express = require('express'),
   gm = require('gm').subClass({imageMagick: true});
 
 var User = require('../models/user.model');
+var Project = require('../models/project.model');
+var Mission = require('../models/mission.model');
 
-var stripe = require("stripe")("sk_test_cg4vcpE5gV1ApywsErwoWL7u");
+// var stripe = require("stripe")("sk_test_cg4vcpE5gV1ApywsErwoWL7u");
 
 
 router.use('/', function (req, res, next) {
@@ -311,31 +313,31 @@ router.post('/password', function (req, res, next) {
 
 
 
-
-router.put('/:id/dateSeeLatestNotif', function (req, res, next) {
-  User.findById(({_id: req.params.id}), function (err, item) {
-    if (err) {
-      return res.status(404).json({
-        message: '',
-        err: err
-      })
-    } else {
-      item.dateSeeLatestNotif = new Date()
-      item.save(function (err, result) {
-        if (err) {
-          return res.status(404).json({
-            message: 'There was an error, please try again',
-            err: err
-          });
-        }
-        res.status(201).json({
-          message: '',
-          obj: result
-        });
-      });
-    }
-  })
-});
+//
+// router.put('/:id/dateSeeLatestNotif', function (req, res, next) {
+//   User.findById(({_id: req.params.id}), function (err, item) {
+//     if (err) {
+//       return res.status(404).json({
+//         message: '',
+//         err: err
+//       })
+//     } else {
+//       item.dateSeeLatestNotif = new Date()
+//       item.save(function (err, result) {
+//         if (err) {
+//           return res.status(404).json({
+//             message: 'There was an error, please try again',
+//             err: err
+//           });
+//         }
+//         res.status(201).json({
+//           message: '',
+//           obj: result
+//         });
+//       });
+//     }
+//   })
+// });
 
 router.put('/:id', function (req, res, next) {
   User.findById(({_id: req.params.id}), function (err, item) {
@@ -414,6 +416,7 @@ router.post('/', function (req, res, next) {
 });
 
 
+
 router.post('/sendEmailToUserToJoinCompanie', function (req, res, next) {
   User
   .findById(req.body._id)
@@ -436,6 +439,36 @@ router.post('/sendEmailToUserToJoinCompanie', function (req, res, next) {
     //   user: user
     // })
   })
+
+})
+
+router.post('/saveUsersToObjects', function (req, res, next) {
+
+      req.body.projects.forEach(project => {
+        Project.update({ _id: project._id }, { $set: { users: req.body.users}}, function (err, item) {
+          if (item) { console.log('Project Updated') } else {
+            return res.status(403).json({
+              title: 'There was a problem',
+              error: err
+            });
+          }
+        })
+      })
+
+      req.body.missions.forEach(mission => {
+        Mission.update({ _id: mission._id }, { $set: { users: req.body.users}}, function (err, item) {
+          if (item) { console.log('Mission Updated') } else {
+            return res.status(403).json({
+              title: 'There was a problem',
+              error: err
+            });
+          }
+        })
+      })
+      res.status(201).json({
+        message: 'ok',
+        obj: 'ok'
+      });
 
 })
 

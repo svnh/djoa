@@ -53,6 +53,7 @@ import { LoginComponent} from './login/login.component';
 //import { UserFormsComponent} from '../form/userForms.component';
 
 import{ AdminUsersComponent } from './users/adminUsers.component';
+import{ AddUsersToObjectsComponent } from './addUsersToObjects/addUsersToObjects.component';
 
 // import { AutocompleteComponent } from '../autocomplete/autocomplete.component'
 
@@ -90,6 +91,7 @@ import {SharedModule } from '../shared/shared.module';
 
 
     AdminUsersComponent,
+    AddUsersToObjectsComponent,
     LoginComponent,
     ResetPasswordComponent,
     ForgetPasswordComponent,
@@ -109,6 +111,7 @@ import {SharedModule } from '../shared/shared.module';
     NewUserComponent,
     // EditUserComponent,
     ProfileComponent,
+    AddUsersToObjectsComponent,
     // AutocompleteComponent
     // UsersComponent
    ],

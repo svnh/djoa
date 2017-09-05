@@ -136,6 +136,20 @@ export class UserService {
   }
 
 
+  saveUsersToObjects(usersToObjects: any) {
+
+    const body = JSON.stringify(usersToObjects);
+    const headers = new Headers({'Content-Type': 'application/json'});
+    headers.append('Authorization', '' + this.authService.currentUser.token);
+    return this.http.post(this.url + 'profile/saveUsersToObjects/', body, {headers: headers})
+      .map(response => response.json())
+      .catch((error: Response) => {
+        this.errorService.handleError(error.json());
+        return Observable.throw(error.json());
+      });
+  }
+
+
   sendEmailToUserToJoinCompanie(user: any) {
     const body = JSON.stringify(user);
     const headers = new Headers({'Content-Type': 'application/json'});

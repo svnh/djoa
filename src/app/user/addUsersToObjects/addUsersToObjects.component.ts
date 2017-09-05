@@ -11,34 +11,38 @@ import { ToastsManager} from 'ng2-toastr';
 import { MdDialog} from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
-import { User } from '../user.model';
+import { UsersToObjects } from '../user.model';
 //import { Form } from '../../form/form.model';
 
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 // import { DeleteDialog } from '../../deleteDialog/deleteDialog.component'
 import {Search} from '../../home/home.model'
 
+
+
+
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['../user.component.css'],
+  selector: 'app-addUsersToObjects',
+  templateUrl: './addUsersToObjects.component.html',
+  styleUrls: ['../../user/user.component.css'],
 
 })
+export class AddUsersToObjectsComponent implements OnInit {
+  // @Output() saved: EventEmitter<any> = new EventEmitter();
+  // @Input() search: Search = new Search();
 
-export class ProfileComponent implements OnInit {
-  @Output() saved: EventEmitter<any> = new EventEmitter();
-  @Input() search: Search = new Search();
 
-  fetchedCompanies: Companie[] = []
-  autocompleteCompanie: string = '';
+  // fetchedCompanies: Companie[] = []
+  // autocompleteCompanie: string = '';
 
-  fetchedTypeUsers = []
-  autocompleteTypeUser: string = '';
+  // fetchedTypeUsers = []
+  // autocompleteTypeUser: string = '';
 
   // fetchedRights: Right[] = []
 
 
-  fetchedUser: User = new User();
+  fetchedUsersToObjects: UsersToObjects = new UsersToObjects();
+
 
 
   public myForm: FormGroup;
@@ -58,45 +62,13 @@ export class ProfileComponent implements OnInit {
 
 
     ngOnInit() {
-
+      // this.currentUser = this.authService.getCurrentUser()
       this.myForm = this._fb.group({
           email: [this.emailValidator],
-          typeUsers: [''],
-          language: [''],
-          colorCalendar: [''],
-          otherData: [''],
-          name: ['', [Validators.required, Validators.minLength(3)]],
-          lastName: ['', [Validators.required, Validators.minLength(3)]],
-          phoneNumber: [''],
-          fax: [''],
-          title: [''],
-          typeClient: [''],
-          statusHouse: [''],
-          detailHouse: this._fb.group({
-            typeHouse: [''],
-            surface: [''],
-            accesCode: [''],
-            floor: [''],
-            accessType: [''],
-          }),
-          address: this._fb.group({
-            address: [''],
-            city: [''],
-            state: [''],
-            zip: [''],
-          })
+
 
       })
 
-      this.fetchedUser.isExternalUser = this.search.isExternalUser
-      // console.log(this.search.userId)
-      this.activatedRoute.params.subscribe((params: Params) => {
-        if (this.search.userId) {
-          this.getUser(this.search.userId)
-        } else if(params['id']) {
-            this.getUser(params['id'])
-        }
-      })
     }
 
   // searchCompanies() {
@@ -157,14 +129,14 @@ export class ProfileComponent implements OnInit {
   //     );
   //   }
   // }
-  selectTypeUser(typeUser) {
-    this.autocompleteTypeUser = '';
-    this.fetchedTypeUsers = [];
-    this.fetchedUser.typeUsers.push(typeUser);
-  }
-  removeTypeUser(i: number) {
-    this.fetchedUser.typeUsers.splice(i, 1);
-  }
+  // selectTypeUser(typeUser) {
+  //   this.autocompleteTypeUser = '';
+  //   this.fetchedTypeUsers = [];
+  //   this.fetchedUser.typeUsers.push(typeUser);
+  // }
+  // removeTypeUser(i: number) {
+  //   this.fetchedUser.typeUsers.splice(i, 1);
+  // }
   // autocolplete typeUser
 
 
@@ -183,7 +155,7 @@ export class ProfileComponent implements OnInit {
   // goBack() {
   //   this.location.back();
   // }
-  //
+
   // openDialogDelete(){
   //   let this2 = this
   //   let dialogRefDelete = this.dialog.open(DeleteDialog)
@@ -219,28 +191,12 @@ export class ProfileComponent implements OnInit {
     // this.userService.cleanCurrentUserInSession()
     //console.log(this.typeUserDropDown)
     //this.fetchedUser.type = [this.typeUserDropDown]
-    if(this.fetchedUser._id) {
-      this.userService.updateUser(this.fetchedUser)
+
+      this.userService.saveUsersToObjects(this.fetchedUsersToObjects)
         .subscribe(
           res => {
             this.toastr.success('Great!', res.message)
-            // location.reload();
-            // if(redirect == 'profile')
-            //   this.router.navigate(['user/profile/' + res.obj._id])
-            // if(redirect == 'project')
-            //   this.router.navigate(['project/new/' + res.obj._id])
-          },
-          error => {
-            this.toastr.error('Error!')
-            console.log(error)
-          }
-        )
-    } else {
-      this.userService.saveUser(this.fetchedUser)
-        .subscribe(
-          res => {
-            this.toastr.success('Great!', res.message)
-            this.fetchedUser = res.obj
+            // this.fetchedUsersToObjects = res.obj
             // this.saved.emit(res.obj)
             // if(redirect == 'profile')
             // this.router.navigate(['user/newuser/' + res.obj._id])
@@ -253,16 +209,16 @@ export class ProfileComponent implements OnInit {
           error => {
             console.log(error)
             this.toastr.error('Error!')
-          }
-        );
-    }
-  }
+          })
 
 
-  navigate(id: string){
-    this.router.navigate(['user/' + id])
   }
-//
+
+  //
+  // navigate(id: string){
+  //   this.router.navigate(['user/' + id])
+  // }
+
 // isUserIsMyself() {
 //   if(this.currentUser._id === this.fetchedUser._id)
 //     return true
@@ -270,39 +226,42 @@ export class ProfileComponent implements OnInit {
 // }
 
 
-  getUser(id: string) {
-    this.userService.getUser(id)
-      .subscribe(
-        res => {
-          this.fetchedUser = res
+  // getUser(id: string) {
+  //   this.userService.getUser(id)
+  //     .subscribe(
+  //       res => {
+  //         this.fetchedUser = res
+  //         this.fetchedUser.typeUsers.forEach(type => {
+  //           this.typeUserDropDown = type
+  //         });
+  //       },
+  //       error => {
+  //         console.log(error);
+  //       }
+  //     )
+  // }
 
-        },
-        error => {
-          console.log(error);
-        }
-      )
-  }
+  //
+  // onDelete(id: string) {
+  //   let this2 = this
+  //   return new Promise(function(resolve, reject) {
+  //     this2.userService.deleteUser(id)
+  //       .subscribe(
+  //         res => {
+  //           this2.toastr.success('Great!', res.message);
+  //           resolve(res)
+  //         },
+  //         error => {
+  //           console.log(error);
+  //           reject(error)
+  //         }
+  //       )
+  //     })
+  // }
+  // ngOnDestroy() {
+  //   console.log('destroy')
+  //   // prevent memory leak when component destroyed
+  //   // this.subscription.unsubscribe();
+  // }
 
-
-  onDelete(id: string) {
-    let this2 = this
-    return new Promise(function(resolve, reject) {
-      this2.userService.deleteUser(id)
-        .subscribe(
-          res => {
-            this2.toastr.success('Great!', res.message);
-            resolve(res)
-          },
-          error => {
-            console.log(error);
-            reject(error)
-          }
-        )
-      })
-  }
-  ngOnDestroy() {
-    console.log('destroy')
-    // prevent memory leak when component destroyed
-    // this.subscription.unsubscribe();
-  }
 }

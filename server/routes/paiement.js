@@ -5,8 +5,8 @@ var express = require('express'),
     Companie= require('../models/companie.model'),
     PaiementQuote=require('../models/paiementQuote.model'),
     fs      = require('fs'),
-    jwt     = require('jsonwebtoken'),
-    stripe  = require("stripe")("sk_test_cg4vcpE5gV1ApywsErwoWL7u");
+    jwt     = require('jsonwebtoken')
+    // stripe  = require("stripe")("sk_test_cg4vcpE5gV1ApywsErwoWL7u");
 
 router.use('/', function (req, res, next) {
   var token = req.headers['authorization'];
@@ -60,48 +60,48 @@ router.use('/', function (req, res, next) {
   });
 });
 
-
-router.get('/getStripeCust/:paiementQuoteId', function (req, res, next) {
-
-
-    PaiementQuote.findById((req.params.paiementQuoteId), function (err, obj) {
-      if (err) {
-        return res.status(500).json({
-          message: 'An error occured',
-          err: err
-        })
-      }
-      if (!obj) {
-        return res.status(404).json({
-          title: 'No obj found',
-          error: {message: 'Obj not found!'}
-        })
-      }
-
-
-                stripe.customers.retrieve(obj.stripe.cusId,
-                  function(err, customer) {
-                    if(err) {
-                      return res.status(404).json({
-                        title: 'No data in stripe',
-                        error: 'noData'
-                      });
-                    } else {
-                      if(customer.deleted) {
-                        return res.status(404).json({
-                          title: 'Deleted',
-                          error: customer
-                        });
-                      }
-                      return res.status(200).json({
-                        customer: customer
-                      })
-                    }
-                  }
-                );
-          })
-
-})
+//
+// router.get('/getStripeCust/:paiementQuoteId', function (req, res, next) {
+//
+//
+//     PaiementQuote.findById((req.params.paiementQuoteId), function (err, obj) {
+//       if (err) {
+//         return res.status(500).json({
+//           message: 'An error occured',
+//           err: err
+//         })
+//       }
+//       if (!obj) {
+//         return res.status(404).json({
+//           title: 'No obj found',
+//           error: {message: 'Obj not found!'}
+//         })
+//       }
+//
+//
+//                 stripe.customers.retrieve(obj.stripe.cusId,
+//                   function(err, customer) {
+//                     if(err) {
+//                       return res.status(404).json({
+//                         title: 'No data in stripe',
+//                         error: 'noData'
+//                       });
+//                     } else {
+//                       if(customer.deleted) {
+//                         return res.status(404).json({
+//                           title: 'Deleted',
+//                           error: customer
+//                         });
+//                       }
+//                       return res.status(200).json({
+//                         customer: customer
+//                       })
+//                     }
+//                   }
+//                 );
+//           })
+//
+// })
 
 
 router.get('/getStripeAccountDetails', function (req, res, next) {
