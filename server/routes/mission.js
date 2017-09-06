@@ -4,6 +4,7 @@ var express = require('express'),
     User    = require('../models/user.model'),
     Mission    = require('../models/mission.model'),
     Form    = require('../models/form.model'),
+    Log    = require('../models/log.model'),
     fs      = require('fs'),
     jwt     = require('jsonwebtoken'),
     nameObject = 'mission'
@@ -137,7 +138,7 @@ router.post('/', function (req, res, next) {
 
 // get all forms from database
 router.get('/page/:page', function (req, res, next) {
-  var itemsPerPage = 6
+  var itemsPerPage = 10
   var currentPage = Number(req.params.page)
   var pageNumber = currentPage - 1
   var skip = (itemsPerPage * pageNumber)
@@ -200,14 +201,16 @@ router.get('/page/:page', function (req, res, next) {
       .find(searchQuery)
       .count()
       .exec(function (err, count) {
-      res.status(200).json({
-          paginationData : {
-            totalItems: count,
-            currentPage : currentPage,
-            itemsPerPage : itemsPerPage
-          },
-          data: item
-        })
+
+
+        res.status(200).json({
+            paginationData : {
+              totalItems: count,
+              currentPage : currentPage,
+              itemsPerPage : itemsPerPage
+            },
+            data: item
+          })
       })
     }
   })
@@ -265,6 +268,16 @@ router.get('/:id', function (req, res, next) {
           err: err
         })
       } else {
+
+        var log = new Log()
+        log.ownerCompanies = req.user.ownerCompanies
+        log.missions = [item]
+        log.users = [req.user]
+        log.type = 'view'
+        log.save(function (err, result) { if (err) { console.log(err) } else { console.log(result) } })
+
+
+
         res.status(200).json({
           message: 'Success',
           item: item

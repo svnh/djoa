@@ -26,7 +26,33 @@ import { User } from '../../user/user.model';
 })
 export class RightComponent implements OnInit {
   fetchedRight: Right = new Right()
+  typesRights = [
+      {name : 'Project', value: 'project', typeAccess:
+        [{value:'read',name:'Read'},{value:'write',name:'Write'},{value:'notification',name:'Get notification'}]},
+      {name : 'Product', value: 'product', typeAccess:
+        [{value:'read',name:'Read'},{value:'write',name:'Write'},{value:'notification',name:'Get notification'}]},
+      {name : 'Quote', value: 'quote', typeAccess:
+        [{value:'read',name:'Read'},{value:'write',name:'Write'},{value:'notification',name:'Get notification'}]},
+      {name : 'Reporting', value: 'reporting', typeAccess:
+        [{value:'read',name:'Read'},{value:'write',name:'Write'},{value:'notification',name:'Get notification'}]},
+      {name : 'Companie', value: 'companie', typeAccess:
+        [{value:'read',name:'Read'},{value:'write',name:'Write'},{value:'notification',name:'Get notification'}]},
+      {name : 'User', value: 'user', typeAccess:
+        [{value:'read',name:'Read'},{value:'write',name:'Write'},{value:'notification',name:'Get notification'}]},
+      {name : 'Paiement', value: 'paiementQuote', typeAccess:
+        [{value:'read',name:'Read'},{value:'write',name:'Write'},{value:'notification',name:'Get notification'}]},
+      {name : 'Task', value: 'task', typeAccess:
+        [{value:'read',name:'Read'},{value:'write',name:'Write'},{value:'notification',name:'Get notification'}]},
+      {name : 'userCalendar', value: 'userCalendar', typeAccess:
+        [{value:'read',name:'Read'},{value:'write',name:'Write'},{value:'notification',name:'Get notification'}]},
+      {name : 'Plan', value: 'plan', typeAccess:
+        [{value:'read',name:'Read'},{value:'write',name:'Write'},{value:'notification',name:'Get notification'}]},
+      {name : 'Right', value: 'right', typeAccess:
+        [{value:'read',name:'Read'},{value:'write',name:'Write'},{value:'notification',name:'Get notification'}]},
+      {name : 'Expense', value: 'expense', typeAccess:
+        [{value:'read',name:'Read'},{value:'write',name:'Write'},{value:'notification',name:'Get notification'}]},
 
+    ]
   // userAdmins : User[] = []
   // userManagers : User[] = []
   // userClients : User[] = []
@@ -36,21 +62,7 @@ export class RightComponent implements OnInit {
   seeRights = false;
   seeCategProject = false;
   seeCategProduct = false;
-  typesRights = [
-    {name : 'Project', value: 'project'},
-    {name : 'Product', value: 'product'},
-    {name : 'Quote', value: 'quote'},
-    {name : 'Reporting', value: 'reporting'},
-    {name : 'Companie', value: 'companie'},
-    {name : 'User', value: 'user'},
-    {name : 'Paiement', value: 'paiementQuote'},
-    {name : 'Task', value: 'task'},
-    {name : 'userCalendar', value: 'userCalendar'},
-    {name : 'Plan', value: 'plan'},
-    {name : 'Right', value: 'right'},
-    {name : 'Expense', value: 'expense'},
 
-  ]
   constructor(
     private rightService: RightService,
 //    private modalService: NgbModal,
@@ -98,17 +110,16 @@ export class RightComponent implements OnInit {
       }
     })
   }
-  setAllRights(){
+  setAllRights() {
     this.fetchedRight.detailRight.permissions = []
     this.typesRights.forEach(typesRight => {
       let newPermission = new Permission()
-      let newAccess1 = new Access()
-      newAccess1.typeAccess = 'read'
-      let newAccess2 = new Access()
-      newAccess2.typeAccess = 'write'
       newPermission.namePermission = typesRight.value
-      newPermission.access.push(newAccess1)
-      newPermission.access.push(newAccess2)
+      typesRight.typeAccess.forEach(typeAccessSingle => {
+        let newAccess = new Access()
+        newAccess.typeAccess = typeAccessSingle.value
+        newPermission.access.push(newAccess)
+      })
       this.fetchedRight.detailRight.permissions.push(newPermission)
     })
   }

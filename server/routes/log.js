@@ -136,7 +136,7 @@ router.post('/', function (req, res, next) {
 
 // get all forms from database
 router.get('/page/:page', function (req, res, next) {
-  var itemsPerPage = 6
+  var itemsPerPage = 10
   var currentPage = Number(req.params.page)
   var pageNumber = currentPage - 1
   var skip = (itemsPerPage * pageNumber)
@@ -155,6 +155,9 @@ router.get('/page/:page', function (req, res, next) {
   .find(searchQuery)
   .sort('-createdAt')
   .populate({path: 'users', model: 'User'})
+  .populate({path: 'missions', model: 'Mission'})
+  .populate({path: 'strats', model: 'Strat'})
+  .populate({path: 'documents', model: 'Document'})
   .limit(itemsPerPage)
   .skip(skip)
   .exec(function (err, item) {

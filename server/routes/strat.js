@@ -138,7 +138,7 @@ router.post('/', function (req, res, next) {
 
 // get all forms from database
 router.get('/page/:page', function (req, res, next) {
-  var itemsPerPage = 6
+  var itemsPerPage = 10
   var currentPage = Number(req.params.page)
   var pageNumber = currentPage - 1
   var skip = (itemsPerPage * pageNumber)
@@ -235,7 +235,7 @@ router.get('/:id', function (req, res, next) {
     Strat
     .findById({_id: req.params.id})
     .populate({path: 'projects', model: 'Project'})
-    .populate({ path: 'users', model: 'User'})
+    .populate({path: 'users', model: 'User'})
     // .populate({path: 'forms', model: 'Form'})
     // .populate({path: 'assignedTos', model: 'User'})
     // .populate(
