@@ -141,16 +141,33 @@ router.get('/page/:page', function (req, res, next) {
   var pageNumber = currentPage - 1
   var skip = (itemsPerPage * pageNumber)
 
-  let searchQuery = {
-  //  createdAt:{"$lt": dateRef}
-//    categories: categoriesArray,
-  //  createdAt:{"$gt": dateRef},
-  }
+// let rights = new Date(JSON.parse(JSON.stringify(req.query.start)))
+
+  let searchQuery = {}
+
   searchQuery['ownerCompanies'] = req.user.ownerCompanies
+
+
+
+
+
+  if(req.query.start)
+    searchQuery['createdAt'] = {
+      "$gte":  new Date(JSON.parse(req.query.start)),
+      "$lt":  new Date(JSON.parse(req.query.end))
+    }
+
+
+
+
+
 
   if(req.query.search)
     searchQuery['name'] = new RegExp(req.query.search, 'i')
 
+
+  // if(req.query.start)
+  //   searchQuery['createdAt']['$lt'] = new Date(JSON.parse(req.query.start))
 
   if(req.query.projectId)
     searchQuery['projects'] = mongoose.Types.ObjectId(req.query.projectId)
@@ -165,7 +182,7 @@ router.get('/page/:page', function (req, res, next) {
   if(req.query.missionId)
     searchQuery['missions'] = mongoose.Types.ObjectId(req.query.missionId)
 
-
+    console.log(searchQuery)
 
   Log
   .find(searchQuery)

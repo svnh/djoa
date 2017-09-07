@@ -42,7 +42,8 @@ export class SearchComponent implements OnInit {
   searchMissions: Mission[] = [];
   searchStrats: Strat[] = [];
   searchProjects: Project[] = [];
-
+  startString: string = '';
+  endString: string = '';
 
   constructor(
     private logService: LogService,
@@ -66,6 +67,10 @@ export class SearchComponent implements OnInit {
 
   refreshSearch() {
     this.search = new Search()
+
+    this.search.start = this.authService.HTMLDatetoIsoDate(this.startString)
+    this.search.end = this.authService.HTMLDatetoIsoDate(this.endString)
+
     this.searchMissions.forEach(el => { this.search.missionId = el._id })
     this.searchUsers.forEach(el => { this.search.userId = el._id })
     this.searchStrats.forEach(el => { this.search.stratId = el._id })

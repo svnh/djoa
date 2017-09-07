@@ -25,6 +25,10 @@ export class Search {
     productId: string = '';
     search: string = '';
     orderBy: string = '';
+    start: Date;
+    // startString: string = '';
+    end: Date;
+    // endString: string = '';
     // missionType: string = '';
     isExternalUser: boolean = false;
 

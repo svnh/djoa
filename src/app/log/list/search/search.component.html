@@ -30,5 +30,10 @@
       [singleChoice]=true
       [arrayContent]="searchUsers">
     </app-autocomplete>
+
+    start
+    <input type="date" (change)="refreshSearch()" class="form-control" [(ngModel)]="startString">
+    end
+    <input type="date" (change)="refreshSearch()" class="form-control" [(ngModel)]="endString">
   </md-card-content>
 </md-card>
