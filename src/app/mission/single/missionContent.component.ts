@@ -246,10 +246,12 @@ export class MissionContentComponent implements OnInit {
         }
       )
   }
-  isAdmin() {
-    return this.authService.isAdmin();
+
+
+  ngOnDestroy() {
+    console.log('destroy')
+    // prevent memory leak when component destroyed
+    // this.subscription.unsubscribe();
   }
-
-
 
 }

@@ -55,7 +55,6 @@ export class NotifComponent implements OnInit {
       this.chatService.getChatUnread()
         .subscribe(
           res => {
-            console.log(res.data)
             this.notifChats = res.obj
           },
           error => {

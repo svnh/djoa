@@ -6,6 +6,8 @@ import { Search } from '../../home/home.model'
 import { Strat } from '../../strat/strat.model';
 import { Mission } from '../../mission/mission.model';
 import { AuthService} from '../../auth/auth.service';
+import {Router, ActivatedRoute, Params } from '@angular/router';
+
 
 @Component({
   selector: 'app-chat',
@@ -27,6 +29,7 @@ export class ChatComponent implements OnInit, OnDestroy {
 
 
   constructor(
+    private activatedRoute: ActivatedRoute,
     private chatService: ChatService,
     private authService: AuthService
   ) { }
@@ -52,15 +55,23 @@ export class ChatComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    // console.log(this.search)
-    this.getOldChats(1, this.search)
 
-    this.connection = this.chatService.getMessages(this.search.stratId).subscribe(message => {
-      this.messages.push(message);
-      // console.log(this.messages.length )
-      if (this.messages.length > this.paginationData.itemsPerPage)
-        this.messages.splice(0, 1);
+    this.activatedRoute.params.subscribe((params: Params) => {
+
+      this.getOldChats(1, this.search)
+      if(this.connection)
+        this.connection.unsubscribe();
+
+      this.connection = this.chatService.getMessages(this.search.stratId).subscribe(message => {
+        this.messages.push(message);
+        // console.log(this.messages.length )
+        if (this.messages.length > this.paginationData.itemsPerPage)
+          this.messages.splice(0, 1);
+      })
     })
+
+
+
   }
 
 

@@ -274,7 +274,7 @@ router.get('/:id', function (req, res, next) {
         log.missions = [item]
         log.users = [req.user]
         log.type = 'view'
-        log.save(function (err, result) { if (err) { console.log(err) } else { console.log(result) } })
+        log.save(function (err, result) { if (err) { console.log(err) } else { console.log('log saved') } })
 
 
 

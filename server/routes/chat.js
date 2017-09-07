@@ -238,21 +238,21 @@ router.get('/page/:page', function(req, res, next) {
 //
 //
 // // getting user forms to display them on front end
-router.get('/unread', function (req, res, next) {
+router.get('/unread', function(req, res, next) {
 
   let searchQuery = {}
   searchQuery['ownerCompanies'] = req.user.ownerCompanies
   searchQuery['users'] = mongoose.Types.ObjectId(req.user._id)
   let returnData = []
-  Mission.find(searchQuery).sort('-createdAt').exec(function (err, itemMissions) {
+  Mission.find(searchQuery).sort('-createdAt').exec(function(err, itemMissions) {
     if (err) {
       return res.status(404).json({message: 'No results', err: err})
     } else {
       let requests = itemMissions.map((singleMission) => {
-        return new Promise(function (resolve, reject) {
+        return new Promise(function(resolve, reject) {
           let searchQueryLog = {}
           searchQueryLog['missions'] = mongoose.Types.ObjectId(singleMission._id)
-          Log.findOne(searchQueryLog).sort('-createdAt').exec(function (err, itemLog) {
+          Log.findOne(searchQueryLog).sort('-createdAt').exec(function(err, itemLog) {
             if (err) {
               console.log(err)
               // return res.status(404).json({
@@ -275,15 +275,11 @@ router.get('/unread', function (req, res, next) {
                   // "$lt":  new Date(JSON.parse(req.query.end))
                 }
               }
-
-              Chat.find(searchQueryChat).count().exec(function (err, CountItemChat) {
+              Chat.find(searchQueryChat).count().exec(function(err, CountItemChat) {
                 if (err) {
                   console.log(err)
                 } else {
-                  returnData.push({
-                    mission: singleMission,
-                    countUnread: CountItemChat
-                  })
+                  returnData.push({mission: singleMission, countUnread: CountItemChat})
                   resolve()
                 }
               })
@@ -292,21 +288,8 @@ router.get('/unread', function (req, res, next) {
         })
       })
       Promise.all(requests).then(() => {
-        console.log(returnData)
-
-
-
-        res.status(200).json({
-          message: 'Successfull',
-          obj: returnData
-        })
-
-
-
-
-      }
-    );
-
+        res.status(200).json({message: 'Successfull', obj: returnData})
+      })
     }
   })
 
