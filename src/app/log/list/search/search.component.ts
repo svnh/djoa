@@ -65,6 +65,7 @@ export class SearchComponent implements OnInit {
   }
 
   refreshSearch() {
+    this.search = new Search()
     this.searchMissions.forEach(el => { this.search.missionId = el._id })
     this.searchUsers.forEach(el => { this.search.userId = el._id })
     this.searchStrats.forEach(el => { this.search.stratId = el._id })

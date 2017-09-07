@@ -151,6 +151,22 @@ router.get('/page/:page', function (req, res, next) {
   if(req.query.search)
     searchQuery['name'] = new RegExp(req.query.search, 'i')
 
+
+  if(req.query.projectId)
+    searchQuery['projects'] = mongoose.Types.ObjectId(req.query.projectId)
+  if(req.query.productId)
+    searchQuery['products'] = mongoose.Types.ObjectId(req.query.productId)
+  if(req.query.userId)
+    searchQuery['users'] = mongoose.Types.ObjectId(req.query.userId)
+  if(req.query.documentId)
+    searchQuery['documents'] = mongoose.Types.ObjectId(req.query.documentId)
+  if(req.query.stratId)
+    searchQuery['strats'] = mongoose.Types.ObjectId(req.query.stratId)
+  if(req.query.missionId)
+    searchQuery['missions'] = mongoose.Types.ObjectId(req.query.missionId)
+
+
+
   Log
   .find(searchQuery)
   .sort('-createdAt')
