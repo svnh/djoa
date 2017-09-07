@@ -6,6 +6,7 @@
       <form [formGroup]="myForm" novalidate (ngSubmit)="save()" (keydown.enter)="$event.preventDefault()">
         <app-autocomplete
           [typeAutocomplete]="'strat'"
+          [showIfNoDataInit]=false
           [search]="search"
           [canDelete]=true
           [title]="'Strat'"
@@ -14,6 +15,7 @@
         </app-autocomplete>
         <app-autocomplete
           [typeAutocomplete]="'mission'"
+          [showIfNoDataInit]=false
           [search]="search"
           [canDelete]=true
           [title]="'mission'"
@@ -22,6 +24,7 @@
         </app-autocomplete>
         <app-autocomplete
           [typeAutocomplete]="'brief'"
+          [showIfNoDataInit]=false
           [search]="search"
           [canDelete]=true
           [title]="'brief'"
