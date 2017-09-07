@@ -18,6 +18,7 @@ import { FormBuilder} from '@angular/forms';
 import { User } from '../../../user/user.model';
 import { Mission } from '../../../mission/mission.model';
 import { Strat } from '../../../strat/strat.model';
+import { Document } from '../../../document/document.model';
 // // import { Quote } from '../../quote/quote.model';
 // import { Product } from '../../product/product.model';
 import { Project } from '../../../project/project.model';
@@ -42,6 +43,7 @@ export class SearchComponent implements OnInit {
   searchMissions: Mission[] = [];
   searchStrats: Strat[] = [];
   searchProjects: Project[] = [];
+  searchDocuments: Document[] = [];
   startString: string = '';
   endString: string = '';
 
@@ -68,13 +70,14 @@ export class SearchComponent implements OnInit {
   refreshSearch() {
     this.search = new Search()
 
-    this.search.start = this.authService.HTMLDatetoIsoDate(this.startString)
-    this.search.end = this.authService.HTMLDatetoIsoDate(this.endString)
+    if(this.startString) this.search.start = this.authService.HTMLDatetoIsoDate(this.startString)
+    if(this.endString) this.search.end = this.authService.HTMLDatetoIsoDate(this.endString)
 
     this.searchMissions.forEach(el => { this.search.missionId = el._id })
     this.searchUsers.forEach(el => { this.search.userId = el._id })
     this.searchStrats.forEach(el => { this.search.stratId = el._id })
     this.searchProjects.forEach(el => { this.search.projectId = el._id })
+    this.searchDocuments.forEach(el => { this.search.documentId = el._id })
 
     this.getResultAutocomplete.emit(this.search)
   }
