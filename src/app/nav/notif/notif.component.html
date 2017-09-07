@@ -1,8 +1,7 @@
 
 <div *ngFor="let notifChat of notifChats">
   {{notifChat.mission.title}}
-  <div [routerLink]="['/mission/' + notifChat.mission._id]">
+  <div (click)="goToMission(notifChat.mission._id)">
     {{notifChat.countUnread}} New Messages
-    <br>
   </div>
 </div>

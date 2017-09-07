@@ -67,6 +67,15 @@ export class NotifComponent implements OnInit {
     this.getChatUnread()
 
   }
+
+  goToMission(missionId: string) {
+
+      let newShowNavBarData = new ShowNavBarData()
+      newShowNavBarData.showNavBar = false
+      this.globalEventsManager.showNavBarRight(newShowNavBarData)
+
+      this.router.navigate(['/mission/' + missionId]);
+  }
   //
   // createProject() {
   //   let newShowNavBarData = new ShowNavBarData()

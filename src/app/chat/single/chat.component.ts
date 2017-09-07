@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 
 import { ChatService } from '../chat.service';
 import { Chat } from '../chat.model';
-import { Search } from '../../home/home.model'
+import { Search, PaginationData } from '../../home/home.model'
 import { Strat } from '../../strat/strat.model';
 import { Mission } from '../../mission/mission.model';
 import { AuthService} from '../../auth/auth.service';
@@ -21,12 +21,8 @@ export class ChatComponent implements OnInit, OnDestroy {
   connection;
   message: Chat = new Chat();
 
-  paginationData = {
-    currentPage: 1,
-    itemsPerPage: 0,
-    totalItems: 0
-  };
-
+  paginationData: PaginationData = new PaginationData()
+  
 
   constructor(
     private activatedRoute: ActivatedRoute,
