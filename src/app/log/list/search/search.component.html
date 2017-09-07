@@ -1,0 +1,34 @@
+<md-card>
+  <md-card-title>
+    Search
+  </md-card-title>
+  <md-card-content>
+    <app-autocomplete
+      (getResultAutocomplete)="refreshSearch()"
+      (clearAutocomplete)="refreshSearch()"
+      [typeAutocomplete]="'strat'"
+      [canDelete]=true
+      [title]="'Strat'"
+      [singleChoice]=true
+      [arrayContent]="searchStrats">
+    </app-autocomplete>
+    <app-autocomplete
+      (getResultAutocomplete)="refreshSearch()"
+      (clearAutocomplete)="refreshSearch()"
+      [typeAutocomplete]="'mission'"
+      [canDelete]=true
+      [title]="'mission'"
+      [singleChoice]=true
+      [arrayContent]="searchMissions">
+    </app-autocomplete>
+    <app-autocomplete
+      (getResultAutocomplete)="refreshSearch()"
+      (clearAutocomplete)="refreshSearch()"
+      [typeAutocomplete]="'user'"
+      [canDelete]=true
+      [title]="'user'"
+      [singleChoice]=true
+      [arrayContent]="searchUsers">
+    </app-autocomplete>
+  </md-card-content>
+</md-card>

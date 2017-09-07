@@ -40,7 +40,6 @@ export class AutocompleteComponent implements OnInit {
   @Output() getResultAutocomplete: EventEmitter<any> = new EventEmitter();
   @Output() clearAutocomplete: EventEmitter<any> = new EventEmitter();
 
-
   constructor(
     // public dialog: MdDialog,
     private userService: UserService,

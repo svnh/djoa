@@ -24,7 +24,14 @@ export class Search {
     stratId: string = '';
     productId: string = '';
     search: string = '';
+    orderBy: string = '';
     // missionType: string = '';
     isExternalUser: boolean = false;
 
 }
+
+export class PaginationData {
+  currentPage: number = 1;
+  itemsPerPage: number = 0;
+  totalItems: number = 0;
+};

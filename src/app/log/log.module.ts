@@ -11,6 +11,7 @@ import { LogComponent} from './single/log.component';
 import { LogService} from './log.service';
 import { LogRouting} from './logRouting.module';
 import { LogsComponent} from './list/logs.component';
+import { SearchComponent} from './list/search/search.component';
 
 // import {PictureModule} from '../picture/picture.module';
 
@@ -20,7 +21,7 @@ import { LogsComponent} from './list/logs.component';
 // import { LogDialogComponent } from './single/dialog/logDialog.component'
 // import { AutocompleteModule } from '../autocomplete/autocomplete.module'
 // import {SharedModule } from '../shared/shared.module';
-import {SharedSmallModule } from '../shared/sharedSmall.module';
+import {SharedModule } from '../shared/shared.module';
 // import {UserModule} from '../user/user.module';
 // import { PictureComponent } from './picture/picture.component'
 
@@ -31,7 +32,7 @@ import {SharedSmallModule } from '../shared/sharedSmall.module';
   imports:     [
     // UserModule,
     // DragulaModule,
-    SharedSmallModule,
+    SharedModule,
     LogRouting,
     // CommonModule,
     // FormsModule,
@@ -47,6 +48,7 @@ import {SharedSmallModule } from '../shared/sharedSmall.module';
 
     LogComponent,
     LogsComponent,
+    SearchComponent,
 
     // LogDialogComponent,
     // PictureComponent,

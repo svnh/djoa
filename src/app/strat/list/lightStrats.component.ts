@@ -24,7 +24,7 @@ import {Search} from '../../home/home.model'
 })
 export class LightStratsComponent implements OnInit {
   @Input() userId = '';
-  // @Input() stratType = '';
+
   @Input() search: Search = new Search()
 
   // token: string = localStorage.getItem('id_token');

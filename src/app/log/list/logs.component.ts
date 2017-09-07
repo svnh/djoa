@@ -10,6 +10,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { ViewEncapsulation} from '@angular/core';
 import { UserService} from '../../user/user.service';
 // import { DeleteDialog } from '../../deleteDialog/deleteDialog.component';
+import {Search, PaginationData} from '../../home/home.model'
 
 
 @Component({
@@ -23,18 +24,10 @@ export class LogsComponent implements OnInit {
   @Input() userId: string = '';
   @Input() showHeader = true;
   fetchedLogs: Log[] = [];
-  @Input() search: any = {
-    search: '',
-    companieId: '',
-    projectId: '',
-  };
+  @Input() search: Search = new Search()
   loading: boolean;
 
-  paginationData = {
-    currentPage: 1,
-    itemsPerPage: 0,
-    totalItems: 0
-  };
+  paginationData: PaginationData = new PaginationData()
 
 
   categories2 = '';
@@ -74,7 +67,10 @@ export class LogsComponent implements OnInit {
   //     }
   //   })
   // }
-
+  getResultAutocomplete(result: Search) {
+    this.search = result
+    this.getLogs(1, this.search)
+  }
   onDelete(id: string) {
     this.logService.deleteLog(id)
       .subscribe(
@@ -120,7 +116,7 @@ export class LogsComponent implements OnInit {
     let this2 = this
     setTimeout(function(){
       this2.search.userId = this2.userId
-      this2.search.orderBy = 'name'
+      // this2.search.orderBy = 'name'
       this2.getLogs(1, this2.search)
     }, 200);
   }
