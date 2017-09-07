@@ -41,7 +41,7 @@ export class DocumentSingleComponent implements OnInit {
   // subCateg: string = 'file';
   // autocompleteUser: string = '';
   // autocompleteQuote: string = '';
-  fetchedUsers: User[] = [];
+  // fetchedUsers: User[] = [];
   // fetchedQuotes: Quote[] = [];
 
 
@@ -87,6 +87,7 @@ export class DocumentSingleComponent implements OnInit {
 
 
     this.activatedRoute.params.subscribe((params: Params) => {
+      console.log(this.search)
 
       if (this.search.documentId) {
         this.getDocument(this.search.documentId)
@@ -125,34 +126,34 @@ export class DocumentSingleComponent implements OnInit {
   // }
 
 
-
-
-
-  addCalendar() {
-    let queryParams = {}
-    // queryParams['new'] = true
-    queryParams['showCreateEvent'] = true
-    queryParams['showSearchEvent'] = false
-
-
-    // if(this.fetchedDocument.assignedTos.length) {queryParams['idUserNew'] = this.fetchedDocument.assignedTos[0]._id}
-    if(this.fetchedDocument._id) {queryParams['idDocumentNew'] = this.fetchedDocument._id}
-    if(this.fetchedDocument.clients.length) {queryParams['idClientNew'] = this.fetchedDocument.clients[0]._id }
-    // if(this.fetchedDocument.assignedTos.length)  {queryParams['idUserSearch'] = this.fetchedDocument.assignedTos[0]._id }
-    if(this.fetchedDocument._id) {queryParams['idDocumentSearch'] = this.fetchedDocument._id}
-
-    this.router.navigate(['userCalendar/', queryParams])
-  }
-  seeCalendar() {
-    let queryParams = {}
-    // queryParams['showCreateEvent'] = true
-    queryParams['showSearchEvent'] = false
-
-    // if(this.fetchedDocument.assignedTos.length)  {queryParams['idUserSearch'] = this.fetchedDocument.assignedTos[0]._id }
-    if(this.fetchedDocument._id) {queryParams['idDocumentSearch'] = this.fetchedDocument._id}
-    // if(this.fetchedDocument.clients.length)      {queryParams['idClientSearch'] = this.fetchedDocument.clients[0]._id}
-    this.router.navigate(['userCalendar/', queryParams])
-  }
+  //
+  //
+  //
+  // addCalendar() {
+  //   let queryParams = {}
+  //   // queryParams['new'] = true
+  //   queryParams['showCreateEvent'] = true
+  //   queryParams['showSearchEvent'] = false
+  //
+  //
+  //   // if(this.fetchedDocument.assignedTos.length) {queryParams['idUserNew'] = this.fetchedDocument.assignedTos[0]._id}
+  //   if(this.fetchedDocument._id) {queryParams['idDocumentNew'] = this.fetchedDocument._id}
+  //   if(this.fetchedDocument.clients.length) {queryParams['idClientNew'] = this.fetchedDocument.clients[0]._id }
+  //   // if(this.fetchedDocument.assignedTos.length)  {queryParams['idUserSearch'] = this.fetchedDocument.assignedTos[0]._id }
+  //   if(this.fetchedDocument._id) {queryParams['idDocumentSearch'] = this.fetchedDocument._id}
+  //
+  //   this.router.navigate(['userCalendar/', queryParams])
+  // }
+  // seeCalendar() {
+  //   let queryParams = {}
+  //   // queryParams['showCreateEvent'] = true
+  //   queryParams['showSearchEvent'] = false
+  //
+  //   // if(this.fetchedDocument.assignedTos.length)  {queryParams['idUserSearch'] = this.fetchedDocument.assignedTos[0]._id }
+  //   if(this.fetchedDocument._id) {queryParams['idDocumentSearch'] = this.fetchedDocument._id}
+  //   // if(this.fetchedDocument.clients.length)      {queryParams['idClientSearch'] = this.fetchedDocument.clients[0]._id}
+  //   this.router.navigate(['userCalendar/', queryParams])
+  // }
   //
   // newComment(comment: string) {
   //   // let newLog = new Log()
@@ -348,46 +349,16 @@ export class DocumentSingleComponent implements OnInit {
   //   })
   // }
 
-
+  ngOnChanges(){
+    console.log('changes')
+  }
 
 
   getDocument(id : string) {
     this.documentService.getDocument(id)
       .subscribe(
         res => {
-          let categName0 = ''
-          let categName1 = ''
-          let categName2 = ''
           this.fetchedDocument = <Document>res
-          // // console.log(this.fetchedDocument.categorie)
-          // if(this.fetchedDocument.categorie.categ0.length)
-          //   categName0 = this.fetchedDocument.categorie.categ0[0].name
-          // if(this.fetchedDocument.categorie.categ1.length)
-          //   categName1 = this.fetchedDocument.categorie.categ1[0].name
-          // if(this.fetchedDocument.categorie.categ2.length)
-          //   categName2 = this.fetchedDocument.categorie.categ2[0].name
-          //
-          // this.itemSteps.forEach((categ0, index) => {
-          //   if(categ0.categ === categName0)
-          //     this.selectedIndex0 = index
-          // })
-          //
-          // if(this.selectedIndex0 >= 0)
-          // this.itemSteps[this.selectedIndex0].subCateg.forEach((categ1,index) => {
-          //   if(categ1.categ === categName1)
-          //     this.selectedIndex1 = index
-          // })
-          // if(this.selectedIndex1 >= 0)
-          // this.itemSteps[this.selectedIndex0].subCateg[this.selectedIndex1].subCateg.forEach((categ2,index) => {
-          //   if(categ2.categ === categName2)
-          //     this.selectedIndex2 = index
-          // })
-
-
-          // this.fetchedDocument.dateDocument.startString = this.authService.isoDateToHtmlDate(this.fetchedDocument.dateDocument.start)
-          // this.fetchedDocument.dateDocument.endString = this.authService.isoDateToHtmlDate(this.fetchedDocument.dateDocument.end)
-
-
 
         },
         error => {

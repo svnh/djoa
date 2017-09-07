@@ -22,7 +22,7 @@ export class ChatComponent implements OnInit, OnDestroy {
   message: Chat = new Chat();
 
   paginationData: PaginationData = new PaginationData()
-  
+
 
   constructor(
     private activatedRoute: ActivatedRoute,
