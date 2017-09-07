@@ -193,6 +193,12 @@ router.get('/page/:page', function(req, res, next) {
   if (req.query.missionId)
     searchQuery['missions'] = mongoose.Types.ObjectId(req.query.missionId)
 
+  if (req.query.stratId)
+    searchQuery['strats'] = mongoose.Types.ObjectId(req.query.stratId)
+
+  if (req.query.briefId)
+    searchQuery['briefs'] = mongoose.Types.ObjectId(req.query.briefId)
+
     // console.log(hasWhatsNewCateg)
   // console.log(searchQuery)
 

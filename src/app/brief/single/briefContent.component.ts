@@ -89,14 +89,15 @@ export class BriefContentComponent implements OnInit {
 
 
 
-    if(this.search.briefId)
-      this.getBrief(this.search.briefId)
+    // if(this.search.briefId)
+    //   this.getBrief(this.search.briefId)
     this.activatedRoute.params.subscribe((params: Params) => {
 
       if (this.search.briefId) {
         this.getBrief(this.search.briefId)
       } else if(params['id']) {
           this.getBrief(params['id'])
+          this.search.briefId = params['id']
       }
 
     //   if(params['id']) {

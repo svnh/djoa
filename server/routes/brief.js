@@ -183,6 +183,9 @@ router.get('/page/:page', function(req, res, next) {
   if (req.query.userId)
     searchQuery['clients'] = mongoose.Types.ObjectId(req.query.userId)
 
+  if (req.query.stratId)
+    searchQuery['strats'] = mongoose.Types.ObjectId(req.query.stratId)
+
     // console.log(hasWhatsNewCateg)
   // console.log(searchQuery)
 

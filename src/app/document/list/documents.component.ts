@@ -119,8 +119,9 @@ export class DocumentsComponent implements OnInit {
     showNavBarData.showNavBar = true
     showNavBarData.search.typeScreen = 'object'
     showNavBarData.search.typeObj = 'document'
-    showNavBarData.search.stratId = this.search.stratId
     showNavBarData.search.missionId = this.search.missionId
+    showNavBarData.search.stratId = this.search.stratId
+    showNavBarData.search.briefId = this.search.briefId
     this.globalEventsManager.showNavBarRight(showNavBarData);
   }
   openDetails(documentId: string) {

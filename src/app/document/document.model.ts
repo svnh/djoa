@@ -2,6 +2,7 @@ import { Form } from '../picture/form/form.model';
 import { User } from '../user/user.model';
 import { Mission } from '../mission/mission.model';
 import { Strat } from '../strat/strat.model';
+import { Brief } from '../brief/brief.model';
 
 
 export class Document {
@@ -10,8 +11,9 @@ export class Document {
     details: Details = new Details()
     status: Status = new Status();
     clients: User[] = [];
-    assignedTos: User[] = [];
+    // assignedTos: User[] = [];
     forms: Form[] = [];
+    briefs: Brief[] = [];
     strats: Strat[] = [];
     missions: Mission[] = [];
     categorie: Categorie = new Categorie();

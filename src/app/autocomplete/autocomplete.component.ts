@@ -10,6 +10,7 @@ import { ProjectService} from '../project/project.service';
 import { StratService} from '../strat/strat.service';
 import { MissionService} from '../mission/mission.service';
 import { DocumentService} from '../document/document.service';
+import { BriefService} from '../brief/brief.service';
 import { MdDialog } from '@angular/material';
 import { Search} from '../home/home.model'
 // import { UserDialogComponent } from '../user/singleUser/dialog/userDialog.component';
@@ -47,6 +48,7 @@ export class AutocompleteComponent implements OnInit {
     private documentService: DocumentService,
     private missionService: MissionService,
     private companieService: CompanieService,
+    private briefService: BriefService,
     private productService: ProductService,
     private toastr: ToastsManager,
     // // private quoteService: QuoteService,
@@ -80,6 +82,10 @@ export class AutocompleteComponent implements OnInit {
 
     if(this.typeAutocomplete ==='document' && this.search.documentId)
         this.documentService.getDocument(this.search.documentId)
+        .subscribe( res => { this.arrayContent.push(res) }, error => { console.log(error); });
+
+    if(this.typeAutocomplete ==='brief' && this.search.briefId)
+        this.briefService.getBrief(this.search.briefId)
         .subscribe( res => { this.arrayContent.push(res) }, error => { console.log(error); });
 
 
@@ -123,6 +129,10 @@ export class AutocompleteComponent implements OnInit {
 
     if(this.typeAutocomplete ==='mission')
       this.missionService.getMissions(page, search)
+      .subscribe( res => { this.fetchedData = res.data }, error => { console.log(error); });
+
+    if(this.typeAutocomplete ==='brief')
+      this.briefService.getBriefs(page, search)
       .subscribe( res => { this.fetchedData = res.data }, error => { console.log(error); });
 
 

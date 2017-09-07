@@ -35,13 +35,14 @@
     <tr>
       <td class="">
         <button class="" type="button" (click)="selectData(data)">select</button>
-      </td>      
+      </td>
       <td class="">
         <div *ngIf="typeAutocomplete=='user'">{{data.profile.name}} {{data.profile.lastName}} {{data.email}}</div>
         <div *ngIf="typeAutocomplete=='companie'">{{data.nameCompanie}}</div>
         <!-- <div *ngIf="typeAutocomplete=='quote'">{{data.name}}</div> -->
         <div *ngIf="typeAutocomplete=='project'">{{data.details.name}}</div>
         <div *ngIf="typeAutocomplete=='product'">{{data.name}}</div>
+        <div *ngIf="typeAutocomplete=='brief'">{{data.details.name}}</div>
         <div *ngIf="typeAutocomplete=='strat'">{{data.title}}</div>
         <div *ngIf="typeAutocomplete=='mission'">{{data.title}}</div>
         <div *ngIf="typeAutocomplete=='document'">{{data.details.name}}</div>
@@ -87,6 +88,7 @@
         <div *ngIf="typeAutocomplete=='quote'">{{data.name}}</div>
         <div *ngIf="typeAutocomplete=='strat'">{{data.title}}</div>
         <div *ngIf="typeAutocomplete=='mission'">{{data.title}}</div>
+        <div *ngIf="typeAutocomplete=='brief'">{{data.details.name}}</div>
         <div *ngIf="typeAutocomplete=='project'">{{data.details.name}}</div>
         <div *ngIf="typeAutocomplete=='product'">{{data.name}}</div>
         <div *ngIf="typeAutocomplete=='document'">{{data.details.name}}</div>
