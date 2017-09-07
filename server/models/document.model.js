@@ -9,12 +9,14 @@ var mongoose                = require('mongoose'),
 var document = new Schema({
     ownerCompanies: [{type: Schema.Types.ObjectId, ref: 'Companie'}],
     missions: [{type: Schema.Types.ObjectId, ref: 'Mission'}],
+    strats: [{type: Schema.Types.ObjectId, ref: 'Strat'}],
+    briefs: [{type: Schema.Types.ObjectId, ref: 'Brief'}],
     details: {
       name: {type: String},
       description: {type: String},
     },
     strats: [{type: Schema.Types.ObjectId, ref: 'Strat'}],
-    missions: [{type: Schema.Types.ObjectId, ref: 'Mission'}],
+
     // assignedTos: [{type: Schema.Types.ObjectId, ref: 'User'}],
     status: {
       global: {type: String, default: ['WIP']},

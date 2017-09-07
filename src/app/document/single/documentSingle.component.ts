@@ -86,9 +86,6 @@ export class DocumentSingleComponent implements OnInit {
 
 
 
-
-    if(this.search.documentId)
-      this.getDocument(this.search.documentId)
     this.activatedRoute.params.subscribe((params: Params) => {
 
       if (this.search.documentId) {

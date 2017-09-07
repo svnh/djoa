@@ -9,7 +9,7 @@ var express = require('express'),
   jwt = require('jsonwebtoken'),
   shared = require('./shared.js'),
   nameObject = 'document',
-  Log    = require('../models/log.model')
+  Log = require('../models/log.model')
 
 // this process does not hang the nodejs server on error
 process.on('uncaughtException', function(err) {
@@ -31,10 +31,7 @@ router.use('/', function(req, res, next) {
       })
     }
     if (decoded) {
-      User
-      .findById(decoded.user._id)
-      .populate({path: 'rights', model: 'Right'})
-      .exec(function(err, doc) {
+      User.findById(decoded.user._id).populate({path: 'rights', model: 'Right'}).exec(function(err, doc) {
         if (err) {
           return res.status(500).json({message: 'Fetching user failed', err: err})
         }
@@ -96,7 +93,6 @@ router.use('/', function(req, res, next) {
 //   })
 // })
 
-
 router.put('/:id', function(req, res, next) {
   if (!shared.isCurentUserHasAccess(req.user, nameObject, 'write')) {
     return res.status(404).json({
@@ -136,8 +132,13 @@ router.put('/:id', function(req, res, next) {
         log.users = [req.user]
         log.documents = [req.params.id]
         log.type = 'change'
-        log.save(function (err, result) { if (err) { console.log(err) } else { console.log(result) } })
-
+        log.save(function(err, result) {
+          if (err) {
+            console.log(err)
+          } else {
+            console.log(result)
+          }
+        })
 
         res.status(201).json({message: 'Updated successfully', obj: result})
       })
@@ -202,13 +203,10 @@ router.get('/page/:page', function(req, res, next) {
     // console.log(hasWhatsNewCateg)
   // console.log(searchQuery)
 
-  Document.find(searchQuery)
-  .sort('-createdAt')
-  .populate({path: 'clients', model: 'User'})
-  .populate({path: 'assignedTos', model: 'User'})
+  Document.find(searchQuery).sort('-createdAt').populate({path: 'clients', model: 'User'}).populate({path: 'assignedTos', model: 'User'})
   // .populate({path: 'bucketTasks.tasks', model: 'Task'})
   // .populate({path: 'bucketTasks.tasks.assignedTos', model: 'User'})
-  .populate({
+    .populate({
     path: 'bucketTasks.tasks',
     model: 'Task',
     populate: {
@@ -240,50 +238,50 @@ router.get('/page/:page', function(req, res, next) {
   })
 })
 
-router.get('/unwind', function(req, res, next) {
-
-  let aggregate = []
-  aggregate.push({
-    $match: {
-      ownerCompanies: req.user.ownerCompanies
-    }
-  })
-
-
-
-  if (req.query.idDocument)
-    aggregate.push({
-      $match: {
-        _id: mongoose.Types.ObjectId(req.query.idDocument)
-      }
-    })
-
-  aggregate.push({$unwind: "$bucketTasks"})
-  aggregate.push({$unwind: "$bucketTasks.tasks"})
-
-  if (req.query.myTasks === 'true')
-    aggregate.push({
-      $match: {
-        'bucketTasks.tasks.assignedTos': mongoose.Types.ObjectId(req.user._id)
-      }
-    })
-  aggregate.push({
-    $lookup: {
-      from: 'users',
-      localField: 'bucketTasks.tasks.assignedTos',
-      foreignField: '_id',
-      as: 'bucketTasks.tasks.assignedTos'
-    }
-  })
-
-  Document.aggregate(aggregate).exec(function(err, item) {
-    if (err) {
-      return res.status(404).json({message: '', err: err})
-    } else {
-      res.status(200).json({message: 'Success', item: item})
-    }
-  })
-})
+// router.get('/unwind', function(req, res, next) {
+//
+//   let aggregate = []
+//   aggregate.push({
+//     $match: {
+//       ownerCompanies: req.user.ownerCompanies
+//     }
+//   })
+//
+//
+//
+//   if (req.query.idDocument)
+//     aggregate.push({
+//       $match: {
+//         _id: mongoose.Types.ObjectId(req.query.idDocument)
+//       }
+//     })
+//
+//   aggregate.push({$unwind: "$bucketTasks"})
+//   aggregate.push({$unwind: "$bucketTasks.tasks"})
+//
+//   if (req.query.myTasks === 'true')
+//     aggregate.push({
+//       $match: {
+//         'bucketTasks.tasks.assignedTos': mongoose.Types.ObjectId(req.user._id)
+//       }
+//     })
+//   aggregate.push({
+//     $lookup: {
+//       from: 'users',
+//       localField: 'bucketTasks.tasks.assignedTos',
+//       foreignField: '_id',
+//       as: 'bucketTasks.tasks.assignedTos'
+//     }
+//   })
+//
+//   Document.aggregate(aggregate).exec(function(err, item) {
+//     if (err) {
+//       return res.status(404).json({message: '', err: err})
+//     } else {
+//       res.status(200).json({message: 'Success', item: item})
+//     }
+//   })
+// })
 
 // getting user forms to display them on front end
 router.get('/:id', function(req, res, next) {
@@ -301,28 +299,29 @@ router.get('/:id', function(req, res, next) {
       })
     }
 
-    Document.findById({_id: req.params.id})
-    .populate({path: 'clients', model: 'User'})
-    .populate({path: 'logs.forms', model: 'Form'})
-    .populate({path: 'logs.by', model: 'User'})
-    .populate({path: 'assignedTos', model: 'User'})
-    .populate({
-      path: 'bucketTasks.tasks',
-      model: 'Task',
-      populate: {
-        path: 'users',
-        model: 'User'
-      },
-    })
-    .populate({
-      path: 'bucketTasks.tasks',
-      model: 'Task',
-      populate: {
-        path: 'documents',
-        model: 'Document'
-      }
-    })
-
+    Document
+    .findById({_id: req.params.id})
+    .populate({path: 'briefs', model: 'Brief'})
+    .populate({path: 'missions', model: 'Mission'})
+    .populate({path: 'strats', model: 'Strat'})
+    // .populate({path: 'clients', model: 'User'})
+    // .populate({path: 'logs.forms', model: 'Form'})
+    // .populate({path: 'logs.by', model: 'User'})
+    // .populate({path: 'assignedTos', model: 'User'})
+    // .populate({
+    //   path: 'bucketTasks.tasks',
+    //   model: 'Task',
+    //   populate: {
+    //     path: 'users',
+    //     model: 'User'
+    //   }
+    // }).populate({
+    //   path: 'bucketTasks.tasks',
+    //   model: 'Task',
+    //   populate: {
+    //     path: 'documents',
+    //     model: 'Document'
+    //   }
     .exec(function(err, item) {
       if (err) {
         return res.status(404).json({message: '', err: err})
