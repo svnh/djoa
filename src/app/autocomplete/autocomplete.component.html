@@ -34,6 +34,9 @@
   <table>
     <tr>
       <td class="">
+        <button class="" type="button" (click)="selectData(data)">select</button>
+      </td>      
+      <td class="">
         <div *ngIf="typeAutocomplete=='user'">{{data.profile.name}} {{data.profile.lastName}} {{data.email}}</div>
         <div *ngIf="typeAutocomplete=='companie'">{{data.nameCompanie}}</div>
         <!-- <div *ngIf="typeAutocomplete=='quote'">{{data.name}}</div> -->
@@ -45,9 +48,7 @@
         <div *ngIf="typeAutocomplete=='right'">{{data.detailRight.nameRight}}</div>
         <div *ngIf="typeAutocomplete=='templateQuote'">{{data.nameTemplate}}</div>
       </td>
-      <td class="">
-        <button class="" type="button" (click)="selectData(data)">select</button>
-      </td>
+
     </tr>
   </table>
 

@@ -4,6 +4,7 @@ import {AdminService} from '../../admin/services/admin.service';
 import {Router} from '@angular/router';
 import { UserService} from '../../user/user.service';
 import { User} from '../../user/user.model';
+import { NotifChat} from './notif.model';
 import { CompanieGuardService} from '../../companie/companieGuard.service'
 // import { PaiementGuardService} from '../../user/paiement/paiementGuard.service'
 import { ChangeDetectionStrategy} from '@angular/core';
@@ -25,9 +26,9 @@ export class NotifComponent implements OnInit {
   // showNavBar: boolean = false;
  // private userId: string = localStorage.getItem('userId');
   // private userId: string;
-  fetchedUser: User = new User();
-  fetchedNotifications: Notification[] = [];
-  notificationsNotRead: number=0;
+  notifChats: NotifChat[] = []
+  // fetchedNotifications: Notification[] = [];
+  // notificationsNotRead: number=0;
 
   constructor(
     // private globalEventsManager: GlobalEventsManager,
@@ -49,12 +50,13 @@ export class NotifComponent implements OnInit {
     // });
   }
 
-  getChatUnread(){
+  getChatUnread() {
 
       this.chatService.getChatUnread()
         .subscribe(
           res => {
             console.log(res.data)
+            this.notifChats = res.obj
           },
           error => {
             console.log(error);
@@ -64,18 +66,7 @@ export class NotifComponent implements OnInit {
 
   ngOnInit() {
     this.getChatUnread()
-    // if (this.authService.isLoggedIn()) {
-    //   //let userId = localStorage.getItem('userId');
-    //
-    //   this.getNotifications(1, {})
-    //   Observable.interval(1000 * 30).subscribe(x => {
-    //     this.getNotifications(1, {})
-    //   });
-    //
-    //   this.globalEventsManager.showNavBar(true);
-    //   this.showNavBar = true;
-    //   this.fetchedUser = this.authService.getCurrentUser()
-    // }
+
   }
   //
   // createProject() {
@@ -117,11 +108,11 @@ export class NotifComponent implements OnInit {
   //   newShowNavBarData.search.typeObj = 'document'
   //   this.globalEventsManager.showNavBarRight(newShowNavBarData)
   // }
-  createNotif(typeObj: string) {
-    let newShowNavBarData = new ShowNavBarData()
-    newShowNavBarData.search.typeObj = typeObj
-    this.globalEventsManager.showNavBarRight(newShowNavBarData)
-  }
+  // createNotif(typeObj: string) {
+  //   let newShowNavBarData = new ShowNavBarData()
+  //   newShowNavBarData.search.typeObj = typeObj
+  //   this.globalEventsManager.showNavBarRight(newShowNavBarData)
+  // }
 
   // cleanNotifications() {
   //   // this.notificationsNotRead = 0
@@ -188,29 +179,29 @@ export class NotifComponent implements OnInit {
   // }
 
   // check if user is logged in by asking our authentication service, we use this function in html file *ngIf directive
-  isLoggedIn() {
-
-    return this.authService.isLoggedIn();
-  }
-
-  // this calls the logout function from our authentication service, it's activated when user clicks logout in front end.
-  // It's called by the (click)='logout()' when the user presses the button
-  logout() {
-    // this.globalEventsManager.showNavBar(false);
-
-
-    this.authService.logout();
-    let this2 = this
-    setTimeout(function(){
-        this2.router.navigate(['/user/login']);
-    }, 150);
-
-  }
-  // sideNavOpen(){
-  //   //this.sidenav.open()
-  //   this.sidenav.toggle()
+  // isLoggedIn() {
+  //
+  //   return this.authService.isLoggedIn();
   // }
-  isAdmin() {
-    return this.adminService.isAdmin();
-  }
+  //
+  // // this calls the logout function from our authentication service, it's activated when user clicks logout in front end.
+  // // It's called by the (click)='logout()' when the user presses the button
+  // logout() {
+  //   // this.globalEventsManager.showNavBar(false);
+  //
+  //
+  //   this.authService.logout();
+  //   let this2 = this
+  //   setTimeout(function(){
+  //       this2.router.navigate(['/user/login']);
+  //   }, 150);
+  //
+  // }
+  // // sideNavOpen(){
+  // //   //this.sidenav.open()
+  // //   this.sidenav.toggle()
+  // // }
+  // isAdmin() {
+  //   return this.adminService.isAdmin();
+  // }
 }

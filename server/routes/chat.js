@@ -1,106 +1,88 @@
 var express = require('express'),
-    router  = express.Router(),
-    config  = require('../config/config'),
-    User    = require('../models/user.model'),
-    Chat    = require('../models/chat.model'),
-    Log    = require('../models/log.model'),
-    Mission    = require('../models/mission.model'),
-    Form    = require('../models/form.model'),
-    fs      = require('fs'),
-    jwt     = require('jsonwebtoken')
+  router = express.Router(),
+  config = require('../config/config'),
+  User = require('../models/user.model'),
+  Chat = require('../models/chat.model'),
+  Log = require('../models/log.model'),
+  Mission = require('../models/mission.model'),
+  Form = require('../models/form.model'),
+  fs = require('fs'),
+  jwt = require('jsonwebtoken')
 
+// SOCKET.io
+var app = express()
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
+io.on('connection', (socket) => {
 
+  var room = socket.handshake['query']['r_var'];
 
+  // console.log(room)
+  socket.join(room);
+  console.log('user connected to ' + room);
+  // getInitMessages()
+  // io.emit('message', { type: 'new-message', text: 'alan' });
+  // io.emit('message', { type: 'new-message', text: 'alan' });
+  // io.emit('message', { type: 'new-message', text: 'alan' });
+  // io.emit('message', { type: 'new-message', text: 'alan' });
+  // io.emit('message', { type: 'new-message', text: 'alan' });
 
+  socket.on('disconnect', function() {
+    socket.leave(room)
+    console.log('user disconnected');
+  });
 
-                    // SOCKET.io
-                    var app = express()
-                    const http = require('http').Server(app);
-                    const io = require('socket.io')(http);
-                    io.on('connection', (socket) => {
+  socket.on('add-message', (message) => {
+    // console.log(message)
+    io.to(room).emit('message', {
+      type: 'new-message',
+      chatName: message.chatName,
+      createdAt: Date(),
+      users: message.users
+    });
+    // Function above that stores the message in the database
+    // databaseStore(message)
+    // console.log('here you must save' + message)
 
-
-
-                        var room = socket.handshake['query']['r_var'];
-
-                        // console.log(room)
-                        socket.join(room);
-                        console.log('user connected to ' + room);
-                        // getInitMessages()
-                        // io.emit('message', { type: 'new-message', text: 'alan' });
-                        // io.emit('message', { type: 'new-message', text: 'alan' });
-                        // io.emit('message', { type: 'new-message', text: 'alan' });
-                        // io.emit('message', { type: 'new-message', text: 'alan' });
-                        // io.emit('message', { type: 'new-message', text: 'alan' });
-
-
-                        socket.on('disconnect', function() {
-                            socket.leave(room)
-                            console.log('user disconnected');
-                        });
-
-                        socket.on('add-message', (message) => {
-                          // console.log(message)
-                            io.to(room).emit('message', {
-                              type: 'new-message',
-                              chatName: message.chatName,
-                              createdAt: Date(),
-                              users: message.users
-                            });
-                            // Function above that stores the message in the database
-                            // databaseStore(message)
-                            // console.log('here you must save' + message)
-
-                            saveChat(message)
-                        });
-                    });
-                    http.listen(5000, () => {
-                        console.log('Server SOCKET.io started on port 5000');
-                    });
-                    // SOCKET.io
-
-
-
-
-
-
+    saveChat(message)
+  });
+});
+http.listen(5000, () => {
+  console.log('Server SOCKET.io started on port 5000');
+});
+// SOCKET.io
 
 // this process does not hang the nodejs server on error
-process.on('uncaughtException', function (err) {
+process.on('uncaughtException', function(err) {
   console.log(err)
 })
 
 // Checking if user is authenticated or not, security middleware
-router.use('/', function (req, res, next) {
+router.use('/', function(req, res, next) {
   var token = req.headers['authorization']
-  jwt.verify(token, config.secret, function (err, decoded) {
+  jwt.verify(token, config.secret, function(err, decoded) {
     if (err) {
-      return res.status(401).json({
-        message: 'Authentication failed',
-        error: err
-      })
+      return res.status(401).json({message: 'Authentication failed', error: err})
     }
     if (!decoded) {
       return res.status(404).json({
         title: 'Authentication Failed',
-        error: {message: 'Authentication failed, malformed jwt'}
+        error: {
+          message: 'Authentication failed, malformed jwt'
+        }
       })
     }
     if (decoded) {
-      User
-      .findById(decoded.user._id)
-      .populate({ path: 'rights', model: 'Right'})
-      .exec(function (err, doc) {
+      User.findById(decoded.user._id).populate({path: 'rights', model: 'Right'}).exec(function(err, doc) {
         if (err) {
-          return res.status(500).json({
-            message: 'Fetching user failed',
-            err: err
-          })
+          return res.status(500).json({message: 'Fetching user failed', err: err})
         }
         if (!doc) {
           return res.status(404).json({
             title: 'User not found',
-            error: {message: 'The user was not found'}
+            error: {
+              message: 'The user was not found'
+            }
           })
         }
         // if(!shared.isCurentUserHasAccess(doc, nameObject, 'read')) {
@@ -112,23 +94,12 @@ router.use('/', function (req, res, next) {
         if (doc) {
           req.user = doc
 
-
-
-
-
-
-
-
-
-
-
           next()
         }
       })
     }
   })
 })
-
 
 //
 // //update
@@ -201,10 +172,8 @@ router.use('/', function (req, res, next) {
 // })
 //
 
-
-
 // get all forms from database
-router.get('/page/:page', function (req, res, next) {
+router.get('/page/:page', function(req, res, next) {
   var itemsPerPage = 10
   var currentPage = Number(req.params.page)
   var pageNumber = currentPage - 1
@@ -218,16 +187,13 @@ router.get('/page/:page', function (req, res, next) {
   //   searchQuery['details.name'] = new RegExp(req.query.search, 'i')
   //
   //
-  if(req.query.missionId)
+  if (req.query.missionId)
     searchQuery['missions'] = mongoose.Types.ObjectId(req.query.missionId)
 
-  if(req.query.stratId)
+  if (req.query.stratId)
     searchQuery['strats'] = mongoose.Types.ObjectId(req.query.stratId)
 
-
-  Chat
-  .find(searchQuery)
-  .sort('-createdAt')
+  Chat.find(searchQuery).sort('-createdAt')
   // .populate({path: 'quotes', model: 'Quote'})
   // .populate({
   //   path: 'quotes',
@@ -237,10 +203,7 @@ router.get('/page/:page', function (req, res, next) {
   //     model: 'User'
   //   }
   // })
-
-
-  .populate({path: 'users', model: 'User'})
-  .populate({
+    .populate({path: 'users', model: 'User'}).populate({
     path: 'users',
     model: 'User',
     populate: {
@@ -253,35 +216,24 @@ router.get('/page/:page', function (req, res, next) {
   //     path: 'bucketTasks.tasks.assignedTos',
   //     model: 'User',
   //   })
-  .limit(itemsPerPage)
-  .skip(skip)
-  .exec(function (err, item) {
+    .limit(itemsPerPage).skip(skip).exec(function(err, item) {
     if (err) {
-      return res.status(404).json({
-        message: 'No results',
-        err: err
-      })
+      return res.status(404).json({message: 'No results', err: err})
     } else {
-      Chat
-      .find(searchQuery)
-      .count()
-      .exec(function (err, count) {
+      Chat.find(searchQuery).count().exec(function(err, count) {
         item.sort()
         res.status(200).json({
-            paginationData : {
-              totalItems: count,
-              currentPage : currentPage,
-              itemsPerPage : itemsPerPage
-            },
-            data: item
-          })
+          paginationData: {
+            totalItems: count,
+            currentPage: currentPage,
+            itemsPerPage: itemsPerPage
+          },
+          data: item
+        })
       })
     }
   })
 })
-
-
-
 
 //
 //
@@ -291,84 +243,72 @@ router.get('/unread', function (req, res, next) {
   let searchQuery = {}
   searchQuery['ownerCompanies'] = req.user.ownerCompanies
   searchQuery['users'] = mongoose.Types.ObjectId(req.user._id)
-
-  Mission
-  .find(searchQuery)
-  .sort('-createdAt')
-  .exec(function (err, item) {
+  let returnData = []
+  Mission.find(searchQuery).sort('-createdAt').exec(function (err, itemMissions) {
     if (err) {
-      return res.status(404).json({
-        message: 'No results',
-        err: err
-      })
+      return res.status(404).json({message: 'No results', err: err})
     } else {
+      let requests = itemMissions.map((singleMission) => {
+        return new Promise(function (resolve, reject) {
+          let searchQueryLog = {}
+          searchQueryLog['missions'] = mongoose.Types.ObjectId(singleMission._id)
+          Log.findOne(searchQueryLog).sort('-createdAt').exec(function (err, itemLog) {
+            if (err) {
+              console.log(err)
+              // return res.status(404).json({
+              //   message: 'No results',
+              //   err: err
+              // })
+            } else {
 
+              // console.log('mission: ' + singleMission._id)
+              // console.log('Log: ' + itemLog)
+              // console.log('////')
 
-      item.forEach(singleMission => {
-
-        let searchQueryLog = {}
-        searchQueryLog['missions'] = mongoose.Types.ObjectId(singleMission._id)
-
-
-        Log
-        .findOne(searchQueryLog)
-        .sort('-createdAt')
-        .exec(function (err, item) {
-          if (err) {
-            return res.status(404).json({
-              message: 'No results',
-              err: err
-            })
-          } else {
-
-            if(item) {
-              // console.log(item.createdAt)
-
+              // console.log(new Date(item.createdAt))
 
               let searchQueryChat = {}
               searchQueryChat['missions'] = mongoose.Types.ObjectId(singleMission._id)
+              if (itemLog) {
+                searchQueryChat['createdAt'] = {
+                  '$gte': itemLog.createdAt
+                  // "$lt":  new Date(JSON.parse(req.query.end))
+                }
+              }
 
-              // searchQueryChat['createdAt'] = {
-              //   "$gte":  item.createdAt
-              //   // "$lt":  new Date(JSON.parse(req.query.end))
-              // }
-
-
-              Chat
-              .findOne(searchQueryChat)
-              .exec(function (err, itemChat) {
+              Chat.find(searchQueryChat).count().exec(function (err, CountItemChat) {
                 if (err) {
-                  return res.status(404).json({
-                    message: 'No results',
-                    err: err
-                  })
+                  console.log(err)
                 } else {
-                  console.log(itemChat)
+                  returnData.push({
+                    mission: singleMission,
+                    countUnread: CountItemChat
+                  })
+                  resolve()
                 }
               })
             }
+          })
+        })
+      })
+      Promise.all(requests).then(() => {
+        console.log(returnData)
 
-          }
+
+
+        res.status(200).json({
+          message: 'Successfull',
+          obj: returnData
         })
 
 
 
 
-
-
-
-
-
-      })
-
-
-
-
+      }
+    );
 
     }
   })
-
-
 
   //
   //
@@ -444,75 +384,64 @@ router.get('/unread', function (req, res, next) {
 //   })
 // })
 
+//
+//
+// function getInitMessages(){
+//   var itemsPerPage = 20
+//   var currentPage = 1
+//   var pageNumber = currentPage - 1
+//   var skip = (itemsPerPage * pageNumber)
+//
+//   let searchQuery = {}
+//   // searchQuery['ownerCompanies'] = req.user.ownerCompanies
+//
+//
+//   // if(req.query.search)
+//   //   searchQuery['details.name'] = new RegExp(req.query.search, 'i')
+//   //
+//   //
+//   // if(req.query.idQuote)
+//   //   searchQuery['quotes'] = mongoose.Types.ObjectId(req.query.idQuote)
+//
+//
+//   Chat
+//   .find(searchQuery)
+//   .sort('-createdAt')
+//   // .populate({path: 'quotes', model: 'Quote'})
+//   .limit(itemsPerPage)
+//   .skip(skip)
+//   .exec(function (err, item) {
+//     if (err) {
+//       return res.status(404).json({
+//         message: 'No results',
+//         err: err
+//       })
+//     } else {
+//       // return item
+//       item.sort()
+//       item.forEach(chat=> {
+//         io.emit('message', chat);
+//       })
+//
+//     }
+//   })
+// }
 
+function saveChat(message) {
+  // console.log('saveChat')
+  // console.log(message)
+  var chat = new Chat()
+  chat.chatName = message.chatName
+  chat.users = message.users
+  chat.strats = message.strats
+  chat.missions = message.missions
+  chat.ownerCompanies = message.ownerCompanies
+  chat.save(function(err, result) {
+    if (err) {
+      console.log(err)
+    }
+    // console.log(result)
+  })
+}
 
-      //
-      //
-      // function getInitMessages(){
-      //   var itemsPerPage = 20
-      //   var currentPage = 1
-      //   var pageNumber = currentPage - 1
-      //   var skip = (itemsPerPage * pageNumber)
-      //
-      //   let searchQuery = {}
-      //   // searchQuery['ownerCompanies'] = req.user.ownerCompanies
-      //
-      //
-      //   // if(req.query.search)
-      //   //   searchQuery['details.name'] = new RegExp(req.query.search, 'i')
-      //   //
-      //   //
-      //   // if(req.query.idQuote)
-      //   //   searchQuery['quotes'] = mongoose.Types.ObjectId(req.query.idQuote)
-      //
-      //
-      //   Chat
-      //   .find(searchQuery)
-      //   .sort('-createdAt')
-      //   // .populate({path: 'quotes', model: 'Quote'})
-      //   .limit(itemsPerPage)
-      //   .skip(skip)
-      //   .exec(function (err, item) {
-      //     if (err) {
-      //       return res.status(404).json({
-      //         message: 'No results',
-      //         err: err
-      //       })
-      //     } else {
-      //       // return item
-      //       item.sort()
-      //       item.forEach(chat=> {
-      //         io.emit('message', chat);
-      //       })
-      //
-      //     }
-      //   })
-      // }
-
-
-
-      function saveChat(message) {
-        // console.log('saveChat')
-        console.log(message)
-          var chat = new Chat()
-          chat.chatName = message.chatName
-          chat.users = message.users
-          chat.strats = message.strats
-          chat.missions = message.missions
-          chat.ownerCompanies = message.ownerCompanies
-          chat.save(function (err, result) {
-            if (err) {
-              console.log(err)
-            }
-            // console.log(result)
-          })
-      }
-
-
-
-
-
-
-
-
-      module.exports = router
+module.exports = router
