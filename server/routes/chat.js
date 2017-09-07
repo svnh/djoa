@@ -3,6 +3,8 @@ var express = require('express'),
     config  = require('../config/config'),
     User    = require('../models/user.model'),
     Chat    = require('../models/chat.model'),
+    Log    = require('../models/log.model'),
+    Mission    = require('../models/mission.model'),
     Form    = require('../models/form.model'),
     fs      = require('fs'),
     jwt     = require('jsonwebtoken')
@@ -284,42 +286,125 @@ router.get('/page/:page', function (req, res, next) {
 //
 //
 // // getting user forms to display them on front end
-// router.get('/:id', function (req, res, next) {
-//
-//
-//   Chat.findById((req.params.id), function (err, obj) {
-//     if (err) {
-//       return res.status(500).json({
-//         message: 'An error occured',
-//         err: err
-//       })
-//     }
-//     if (!obj) {
-//       return res.status(404).json({
-//         title: 'No obj found',
-//         error: {message: 'Obj not found!'}
-//       })
-//     }
-//
-//
-//     Chat
-//     .findById({_id: req.params.id})
-//     .populate({path: 'projects', model: 'Project'})
-//     .exec(function (err, item) {
-//       if (err) {
-//         return res.status(404).json({
-//           message: '',
-//           err: err
-//         })
-//       } else {
-//         res.status(200).json({
-//           message: 'Success',
-//           item: item
-//         })
-//       }
-//     })
-//   })
-// })
+router.get('/unread', function (req, res, next) {
+
+  let searchQuery = {}
+  searchQuery['ownerCompanies'] = req.user.ownerCompanies
+  searchQuery['users'] = mongoose.Types.ObjectId(req.user._id)
+
+  Mission
+  .find(searchQuery)
+  .sort('-createdAt')
+  .exec(function (err, item) {
+    if (err) {
+      return res.status(404).json({
+        message: 'No results',
+        err: err
+      })
+    } else {
+
+
+      item.forEach(singleMission => {
+
+        let searchQueryLog = {}
+        searchQueryLog['missions'] = mongoose.Types.ObjectId(singleMission._id)
+
+
+        Log
+        .findOne(searchQueryLog)
+        .sort('-createdAt')
+        .exec(function (err, item) {
+          if (err) {
+            return res.status(404).json({
+              message: 'No results',
+              err: err
+            })
+          } else {
+
+            if(item) {
+              // console.log(item.createdAt)
+
+
+              let searchQueryChat = {}
+              searchQueryChat['missions'] = mongoose.Types.ObjectId(singleMission._id)
+
+              // searchQueryChat['createdAt'] = {
+              //   "$gte":  item.createdAt
+              //   // "$lt":  new Date(JSON.parse(req.query.end))
+              // }
+
+
+              Chat
+              .findOne(searchQueryChat)
+              .exec(function (err, itemChat) {
+                if (err) {
+                  return res.status(404).json({
+                    message: 'No results',
+                    err: err
+                  })
+                } else {
+                  console.log(itemChat)
+                }
+              })
+            }
+
+          }
+        })
+
+
+
+
+
+
+
+
+
+      })
+
+
+
+
+
+    }
+  })
+
+
+
+  //
+  //
+  // Chat.findById((req.params.id), function (err, obj) {
+  //   if (err) {
+  //     return res.status(500).json({
+  //       message: 'An error occured',
+  //       err: err
+  //     })
+  //   }
+  //   if (!obj) {
+  //     return res.status(404).json({
+  //       title: 'No obj found',
+  //       error: {message: 'Obj not found!'}
+  //     })
+  //   }
+  //
+  //
+  //   Chat
+  //   .findById({_id: req.params.id})
+  //   .populate({path: 'projects', model: 'Project'})
+  //   .exec(function (err, item) {
+  //     if (err) {
+  //       return res.status(404).json({
+  //         message: '',
+  //         err: err
+  //       })
+  //     } else {
+  //       res.status(200).json({
+  //         message: 'Success',
+  //         item: item
+  //       })
+  //     }
+  //   })
+  // })
+})
 //
 //
 //

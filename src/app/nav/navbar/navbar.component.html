@@ -1,33 +1,39 @@
-<div class="nav-container">
-  <ul *ngIf="topNavOpen" class="nav leftmenu">
-    <li class="nav-item">
-      <button type="button" (click)="openSideBarLeft()"><i class="fa fa-bars"></i></button>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLinkActive="active" [routerLink]="['/']"><i class="fa fa-home"></i></a>
-    </li>
-  </ul>
-  <ul class="nav rightmenu">
-    <button md-button [mdMenuTriggerFor]="menu">Admin</button>
-    <md-menu #menu="mdMenu">
-      <button md-menu-item routerLinkActive="active" [routerLink]="['/user/list/false']">Users</button>
-      <button md-menu-item routerLinkActive="active" [routerLink]="['/product']">Products</button>
-      <button md-menu-item routerLinkActive="active" [routerLink]="['/right']">Rights</button>
-      <button md-menu-item routerLinkActive="active" [routerLink]="['/log']">Logs</button>
-    </md-menu>
-    <li class="nav-item">
-      <button type="button" (click)="logout()">{{'Logout' }}</button>
-    </li>
-    <li class="nav-item">
-      <button type="button" (click)="openMyProfile()">My profile</button>
-    </li>
-    <li class="nav-item">
-      <button type="button" (click)="newObj()"><i class="fa fa-plus"></i></button>
-    </li>
-    <li class="nav-item">
-      <app-picture [userIdToOpenProfile]="fetchedCurrentUser._id" [addPicture]=false [deletePicture]=false [forms]="fetchedCurrentUser.forms"></app-picture>
-    </li>
+<div *ngIf="topNavOpen">
+  <div class="nav-container">
+    <ul *ngIf="topNavOpen" class="nav leftmenu">
+      <li class="nav-item">
+        <button type="button" (click)="openSideBarLeft()"><i class="fa fa-bars"></i></button>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" [routerLink]="['/']"><i class="fa fa-home"></i></a>
+      </li>
+    </ul>
+    <ul class="nav rightmenu">
+      <button md-button [mdMenuTriggerFor]="menu">Admin</button>
+      <md-menu #menu="mdMenu">
+        <button md-menu-item routerLinkActive="active" [routerLink]="['/user/list/false']">Users</button>
+        <button md-menu-item routerLinkActive="active" [routerLink]="['/product']">Products</button>
+        <button md-menu-item routerLinkActive="active" [routerLink]="['/right']">Rights</button>
+        <button md-menu-item routerLinkActive="active" [routerLink]="['/log']">Logs</button>
+      </md-menu>
+      <li class="nav-item">
+        <button type="button" (click)="logout()">{{'Logout' }}</button>
+      </li>
+      <li class="nav-item">
+        <button type="button" (click)="openMyProfile()">My profile</button>
+      </li>
+      <li class="nav-item">
+        <button type="button" (click)="newObj()"><i class="fa fa-plus"></i></button>
+      </li>
+      <li class="nav-item">
+        <button type="button" (click)="notif()"><i class="fa fa-plus"></i>Notif</button>
+      </li>
+
+      <li class="nav-item">
+        <app-picture [userIdToOpenProfile]="fetchedCurrentUser._id" [addPicture]=false [deletePicture]=false [forms]="fetchedCurrentUser.forms"></app-picture>
+      </li>
 
 
-  </ul>
+    </ul>
+  </div>
 </div>

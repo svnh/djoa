@@ -79,6 +79,24 @@ export class ChatService {
       });
   }
 
+  getChatUnread() {
+    let headers = new Headers({'Content-Type': 'application/json'});
+    headers.append('Authorization', '' + this.authService.currentUser.token);
+    let options = new RequestOptions({ headers: headers, search: {}});
+    return this.http.get(this.url + 'chat/unread/'  , options)
+      .timeout(9000)
+      .map((response: Response) => {
+
+        const chats = response.json();
+
+        return chats;
+      })
+      .catch((error: Response) => {
+        this.errorService.handleError(error.json());
+        return Observable.throw(error.json());
+      });
+  }
+
 
   initChatSocket(page: number, search: any) {
     let headers = new Headers({'Content-Type': 'application/json'});

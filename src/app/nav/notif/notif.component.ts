@@ -8,65 +8,62 @@ import { CompanieGuardService} from '../../companie/companieGuard.service'
 // import { PaiementGuardService} from '../../user/paiement/paiementGuard.service'
 import { ChangeDetectionStrategy} from '@angular/core';
 // import { GlobalEventsManager} from '../../globalEventsManager';
-// // import { NotificationService} from '../../notification/notification.service';
+import { ChatService} from '../../chat/chat.service';
 // import { Notification} from '../../notification/notification.model';
 // import {Observable} from 'rxjs/Rx';
 import {ShowNavBarData} from '../../home/home.model'
-
 import {GlobalEventsManager} from '../../globalEventsManager';
 
 @Component({
-  selector: 'app-navbar',
+  selector: 'app-notif',
   // changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  templateUrl: './notif.component.html',
+  styleUrls: ['./notif.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NotifComponent implements OnInit {
   // @Input() sidenav: any;
   // showNavBar: boolean = false;
  // private userId: string = localStorage.getItem('userId');
   // private userId: string;
-  fetchedCurrentUser: User = new User();
+  fetchedUser: User = new User();
   fetchedNotifications: Notification[] = [];
   notificationsNotRead: number=0;
-  showNavBarData: ShowNavBarData = new ShowNavBarData()
-  topNavOpen: boolean = false
 
   constructor(
     // private globalEventsManager: GlobalEventsManager,
     private authService: AuthService,
     private adminService: AdminService,
-    // private notificationService: NotificationService,
+    private chatService: ChatService,
     // private userService: UserService,
     private globalEventsManager: GlobalEventsManager,
     private router: Router,
     // private companieGuardService: CompanieGuardService,
     // private paiementGuardService: PaiementGuardService,
   ) {
-    this.globalEventsManager.showNavBarEmitterTop.subscribe((showNavBarData)=>{
-        if (showNavBarData !== null) {
-          this.showNavBarData = showNavBarData;
-          if(this.showNavBarData.showNavBar) {
-            this.topNavOpen = true
-            this.fetchedCurrentUser = this.authService.getCurrentUser()
-          } else {
-            this.topNavOpen = false
-          }
-        }
-    })
+    // this.globalEventsManager.showNavBarEmitter.subscribe((mode)=>{
+    //     // mode will be null the first time it is created, so you need to igonore it when null
+    //     if (mode !== null) {
+    //       this.showNavBar = mode;
+    //       this.fetchedUser = this.authService.getCurrentUser()
+    //     }
+    // });
   }
 
+  getChatUnread(){
 
+      this.chatService.getChatUnread()
+        .subscribe(
+          res => {
+            console.log(res.data)
+          },
+          error => {
+            console.log(error);
+          }
+        );
+  }
 
   ngOnInit() {
-
-    if (this.authService.isLoggedIn()) {
-      // this.fetchedCurrentUser = this.authService.getCurrentUser()
-      this.showNavBarData.showNavBar = true
-      this.globalEventsManager.showNavBarTop(this.showNavBarData);
-
-    }
-
+    this.getChatUnread()
     // if (this.authService.isLoggedIn()) {
     //   //let userId = localStorage.getItem('userId');
     //
@@ -80,44 +77,49 @@ export class NavbarComponent implements OnInit {
     //   this.fetchedUser = this.authService.getCurrentUser()
     // }
   }
-
-  createProject() {
+  //
+  // createProject() {
+  //   let newShowNavBarData = new ShowNavBarData()
+  //   newShowNavBarData.showNavBar = true
+  //   newShowNavBarData.search.typeObj = 'project'
+  //   newShowNavBarData.search.userId = ''
+  //   this.globalEventsManager.showNavBarRight(newShowNavBarData);
+  // }
+  // openSideBarLeft(){
+  //   let newShowNavBarData = new ShowNavBarData()
+  //   newShowNavBarData.showNavBar = true
+  //   newShowNavBarData.search.typeObj = ''
+  //   this.globalEventsManager.showNavBarLeft(newShowNavBarData)
+  // }
+  // openMyProfile() {
+  //   let newShowNavBarData = new ShowNavBarData()
+  //   newShowNavBarData.showNavBar = true
+  //   newShowNavBarData.search.typeObj = 'user'
+  //   newShowNavBarData.search.userId = this.authService.getCurrentUser()._id
+  //   this.globalEventsManager.showNavBarRight(newShowNavBarData)
+  // }
+  // createUser() {
+  //   let newShowNavBarData = new ShowNavBarData()
+  //   newShowNavBarData.showNavBar = true
+  //   newShowNavBarData.search.typeObj = 'user'
+  //   newShowNavBarData.search.isExternalUser = false
+  //   this.globalEventsManager.showNavBarRight(newShowNavBarData)
+  // }
+  // createMission(){
+  //   let newShowNavBarData = new ShowNavBarData()
+  //   newShowNavBarData.showNavBar = true
+  //   newShowNavBarData.search.typeObj = 'mission'
+  //   this.globalEventsManager.showNavBarRight(newShowNavBarData)
+  // }
+  // createDocument(){
+  //   let newShowNavBarData = new ShowNavBarData()
+  //   newShowNavBarData.showNavBar = true
+  //   newShowNavBarData.search.typeObj = 'document'
+  //   this.globalEventsManager.showNavBarRight(newShowNavBarData)
+  // }
+  createNotif(typeObj: string) {
     let newShowNavBarData = new ShowNavBarData()
-    newShowNavBarData.search.typeObj = 'project'
-    newShowNavBarData.search.userId = ''
-    this.globalEventsManager.showNavBarRight(newShowNavBarData);
-  }
-  openSideBarLeft() {
-    let newShowNavBarData = new ShowNavBarData()
-    newShowNavBarData.search.typeObj = 'project'
-    this.globalEventsManager.showNavBarLeft(newShowNavBarData)
-  }
-  openMyProfile() {
-    let newShowNavBarData = new ShowNavBarData()
-    newShowNavBarData.search.typeObj = 'user'
-    newShowNavBarData.search.typeScreen = 'profile'
-    newShowNavBarData.search.userId = this.authService.getCurrentUser()._id
-    this.globalEventsManager.showNavBarRight(newShowNavBarData)
-  }
-  createUser() {
-    let newShowNavBarData = new ShowNavBarData()
-    newShowNavBarData.search.typeObj = 'user'
-    newShowNavBarData.search.isExternalUser = false
-    this.globalEventsManager.showNavBarRight(newShowNavBarData)
-  }
-  createMission(){
-    let newShowNavBarData = new ShowNavBarData()
-    newShowNavBarData.search.typeObj = 'mission'
-    this.globalEventsManager.showNavBarRight(newShowNavBarData)
-  }
-  newObj(){
-    let newShowNavBarData = new ShowNavBarData()
-    newShowNavBarData.search.typeObj = 'newObj'
-    this.globalEventsManager.showNavBarRight(newShowNavBarData)
-  }
-  notif(){
-    let newShowNavBarData = new ShowNavBarData()
-    newShowNavBarData.search.typeObj = 'notif'
+    newShowNavBarData.search.typeObj = typeObj
     this.globalEventsManager.showNavBarRight(newShowNavBarData)
   }
 
