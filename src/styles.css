@@ -3,7 +3,7 @@
 /*@import "~angular-calendar/dist/css/angular-calendar.css";*/
 /*@import "~@ng-bootstrap/ng-bootstrap/dist/css/bootstrap.min.css";*/
 
-/*----------Body---------*/
+/*----------General---------*/
 
 html, body {
   height: 100%;
@@ -16,7 +16,9 @@ html, body {
 ::-webkit-scrollbar-thumb {
   background-color: #330066;
 }
-
+.dspl-nn{
+  display: none !important;
+}
 /*----------Body---------*/
 
 .djoa-background {
