@@ -64,6 +64,7 @@ export class SearchComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    
     this.search.start = new Date()
     this.search.end = new Date()
 
