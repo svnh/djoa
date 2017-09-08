@@ -27,7 +27,8 @@ export class NotifComponent implements OnInit {
   // showNavBar: boolean = false;
  // private userId: string = localStorage.getItem('userId');
   // private userId: string;
-  notifChats: NotifChat[] = []
+  notifChatsInStrats: NotifChat[] = []
+  notifChatsInMissions: NotifChat[] = []
   myDocuments: Document[] = []
   // fetchedNotifications: Notification[] = [];
   // notificationsNotRead: number=0;
@@ -52,11 +53,22 @@ export class NotifComponent implements OnInit {
     // });
   }
 
-  getChatUnread() {
-    this.chatService.getChatUnread()
+  getChatUnreadInMissions() {
+    this.chatService.getChatUnreadInMissions()
       .subscribe(
         res => {
-          this.notifChats = res.obj
+          this.notifChatsInMissions = res.obj
+        },
+        error => {
+          console.log(error);
+        }
+      );
+  }
+  getChatUnreadInStrats() {
+    this.chatService.getChatUnreadInStrats()
+      .subscribe(
+        res => {
+          this.notifChatsInStrats = res.obj
         },
         error => {
           console.log(error);
@@ -77,7 +89,8 @@ export class NotifComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getChatUnread()
+    this.getChatUnreadInMissions()
+    this.getChatUnreadInStrats()
     this.getMyDocuments()
 
   }

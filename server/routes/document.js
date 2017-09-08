@@ -80,6 +80,7 @@ router.get('/myDocuments', function(req, res, next) {
       // console.log(itemMissionsId)
 
 
+
       let searchQueryDoc = {
         missions: { '$in' : itemMissionsId}
       }

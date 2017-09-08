@@ -79,11 +79,28 @@ export class ChatService {
       });
   }
 
-  getChatUnread() {
+  getChatUnreadInMissions() {
     let headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.authService.currentUser.token);
     let options = new RequestOptions({ headers: headers, search: {}});
-    return this.http.get(this.url + 'chat/unread/'  , options)
+    return this.http.get(this.url + 'chat/unreadChatInMissions/'  , options)
+      .timeout(9000)
+      .map((response: Response) => {
+
+        const chats = response.json();
+
+        return chats;
+      })
+      .catch((error: Response) => {
+        this.errorService.handleError(error.json());
+        return Observable.throw(error.json());
+      });
+  }
+  getChatUnreadInStrats() {
+    let headers = new Headers({'Content-Type': 'application/json'});
+    headers.append('Authorization', '' + this.authService.currentUser.token);
+    let options = new RequestOptions({ headers: headers, search: {}});
+    return this.http.get(this.url + 'chat/unreadChatInStrats/'  , options)
       .timeout(9000)
       .map((response: Response) => {
 

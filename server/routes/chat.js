@@ -5,6 +5,7 @@ var express = require('express'),
   Chat = require('../models/chat.model'),
   Log = require('../models/log.model'),
   Mission = require('../models/mission.model'),
+  Strat = require('../models/strat.model'),
   Form = require('../models/form.model'),
   fs = require('fs'),
   jwt = require('jsonwebtoken')
@@ -237,8 +238,7 @@ router.get('/page/:page', function(req, res, next) {
 
 
 
-router.get('/unread', function(req, res, next) {
-
+router.get('/unreadChatInMissions', function(req, res, next) {
   let searchQuery = {}
   searchQuery['ownerCompanies'] = req.user.ownerCompanies
   searchQuery['users'] = mongoose.Types.ObjectId(req.user._id)
@@ -254,24 +254,13 @@ router.get('/unread', function(req, res, next) {
           Log.findOne(searchQueryLog).sort('-createdAt').exec(function(err, itemLog) {
             if (err) {
               console.log(err)
-              // return res.status(404).json({
-              //   message: 'No results',
-              //   err: err
-              // })
             } else {
-
-              // console.log('mission: ' + singleMission._id)
-              // console.log('Log: ' + itemLog)
-              // console.log('////')
-
-              // console.log(new Date(item.createdAt))
 
               let searchQueryChat = {}
               searchQueryChat['missions'] = mongoose.Types.ObjectId(singleMission._id)
               if (itemLog) {
                 searchQueryChat['createdAt'] = {
                   '$gte': itemLog.createdAt
-                  // "$lt":  new Date(JSON.parse(req.query.end))
                 }
               }
               Chat.find(searchQueryChat).count().exec(function(err, CountItemChat) {
@@ -291,42 +280,55 @@ router.get('/unread', function(req, res, next) {
       })
     }
   })
-
-  //
-  //
-  // Chat.findById((req.params.id), function (err, obj) {
-  //   if (err) {
-  //     return res.status(500).json({
-  //       message: 'An error occured',
-  //       err: err
-  //     })
-  //   }
-  //   if (!obj) {
-  //     return res.status(404).json({
-  //       title: 'No obj found',
-  //       error: {message: 'Obj not found!'}
-  //     })
-  //   }
-  //
-  //
-  //   Chat
-  //   .findById({_id: req.params.id})
-  //   .populate({path: 'projects', model: 'Project'})
-  //   .exec(function (err, item) {
-  //     if (err) {
-  //       return res.status(404).json({
-  //         message: '',
-  //         err: err
-  //       })
-  //     } else {
-  //       res.status(200).json({
-  //         message: 'Success',
-  //         item: item
-  //       })
-  //     }
-  //   })
-  // })
 })
+
+
+// ALAN QUi sont les personnes qui peucent voir les notifs du chat
+
+router.get('/unreadChatInStrats', function (req, res, next) {
+  let searchQuery = {}
+  searchQuery['ownerCompanies'] = req.user.ownerCompanies
+  searchQuery['users'] = mongoose.Types.ObjectId(req.user._id)
+  let returnData = []
+  Strat.find(searchQuery).sort('-createdAt').exec(function (err, itemStrats) {
+    if (err) {
+      return res.status(404).json({message: 'No results', err: err})
+    } else {
+      let requests = itemStrats.map((singleStrat) => {
+        return new Promise(function(resolve, reject) {
+          let searchQueryLog = {}
+          searchQueryLog['missions'] = mongoose.Types.ObjectId(singleStrat._id)
+          Log.findOne(searchQueryLog).sort('-createdAt').exec(function (err, itemLog) {
+            if (err) {
+              console.log(err)
+            } else {
+
+              let searchQueryChat = {}
+              searchQueryChat['missions'] = mongoose.Types.ObjectId(singleStrat._id)
+              if (itemLog) {
+                searchQueryChat['createdAt'] = {
+                  '$gte': itemLog.createdAt
+                }
+              }
+              Chat.find(searchQueryChat).count().exec(function(err, CountItemChat) {
+                if (err) {
+                  console.log(err)
+                } else {
+                  returnData.push({mission: singleStrat, countUnread: CountItemChat})
+                  resolve()
+                }
+              })
+            }
+          })
+        })
+      })
+      Promise.all(requests).then(() => {
+        res.status(200).json({message: 'Successfull', obj: returnData})
+      })
+    }
+  })
+})
+
 //
 //
 //
