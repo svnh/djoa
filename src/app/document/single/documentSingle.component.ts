@@ -70,6 +70,7 @@ export class DocumentSingleComponent implements OnInit {
 
   ngOnChanges() {
     // console.log(this.search)
+    // this.search = new Search()
   }
 
   ngOnInit() {
@@ -93,7 +94,7 @@ export class DocumentSingleComponent implements OnInit {
 
       if (this.search.documentId) {
         this.getDocument(this.search.documentId)
-      } else if(params['id']) {
+      } else if (params['id']) {
           this.getDocument(params['id'])
       }
 
