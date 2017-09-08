@@ -59,7 +59,7 @@ export class StratContentComponent implements OnInit {
     this.globalEventsManager.refreshCenterEmitter.subscribe((isRefresh) => {
         if(isRefresh)
           this.getStrat(this.search.stratId)
-    })    
+    })
   }
 
   ngOnInit() {

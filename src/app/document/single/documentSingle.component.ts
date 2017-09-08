@@ -68,7 +68,9 @@ export class DocumentSingleComponent implements OnInit {
 
 
 
-
+  ngOnChanges() {
+    console.log(this.search)
+  }
 
   ngOnInit() {
     this.myForm = this._fb.group({
@@ -87,7 +89,7 @@ export class DocumentSingleComponent implements OnInit {
 
 
     this.activatedRoute.params.subscribe((params: Params) => {
-      console.log(this.search)
+      // console.log(this.search)
 
       if (this.search.documentId) {
         this.getDocument(this.search.documentId)
@@ -349,9 +351,7 @@ export class DocumentSingleComponent implements OnInit {
   //   })
   // }
 
-  ngOnChanges() {
-    console.log('changes')
-  }
+
 
 
   getDocument(id : string) {

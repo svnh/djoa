@@ -44,7 +44,7 @@ export class DocumentsComponent implements OnInit {
 
   categories2 = '';
   isCrew: boolean = true
-
+  showNavBarData: any = new ShowNavBarData()
 
   constructor(
     // private sanitizer: DomSanitizer,
@@ -58,6 +58,19 @@ export class DocumentsComponent implements OnInit {
     // private userService: UserService,
 
   ) {
+
+    this.globalEventsManager.showNavBarEmitterRight.subscribe((showNavBarData)=>{
+        if (showNavBarData !== null) {
+          this.showNavBarData = showNavBarData;
+          // if(this.showNavBarData.showNavBar) {
+          //   this.sidenav.open()
+          // } else {
+          //   this.sidenav.close()
+          // }
+        }
+    })
+
+
     this.globalEventsManager.refreshCenterEmitter.subscribe((isRefresh) => {
         if(isRefresh)
           this.getDocuments(1, this.search)
@@ -115,14 +128,26 @@ export class DocumentsComponent implements OnInit {
 
 
   addDocument() {
-    let showNavBarData = new ShowNavBarData()
-    showNavBarData.showNavBar = true
-    showNavBarData.search.typeScreen = 'object'
-    showNavBarData.search.typeObj = 'document'
-    showNavBarData.search.missionId = this.search.missionId
-    showNavBarData.search.stratId = this.search.stratId
-    showNavBarData.search.briefId = this.search.briefId
-    this.globalEventsManager.showNavBarRight(showNavBarData);
+    console.log(this.showNavBarData.showNavBar)
+    if(!this.showNavBarData.showNavBar) {
+      let showNavBarData = new ShowNavBarData()
+      showNavBarData.showNavBar = true
+      showNavBarData.search.typeScreen = 'object'
+      showNavBarData.search.typeObj = 'document'
+      showNavBarData.search.stratId = this.search.stratId
+      showNavBarData.search.missionId = this.search.missionId
+      this.globalEventsManager.showNavBarRight(showNavBarData);
+    } else {
+      let showNavBarData = new ShowNavBarData()
+      showNavBarData.showNavBar = false
+      this.globalEventsManager.showNavBarRight(showNavBarData)
+    }
+
+  }
+  closeDocument() {
+
+
+    // console.log()
   }
   openDetails(documentId: string) {
     let showNavBarData = new ShowNavBarData()
