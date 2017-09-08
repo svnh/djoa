@@ -98,8 +98,15 @@ export class DeleteConfirmationComponent implements OnInit {
     let newShowNavBarData = new ShowNavBarData()
     newShowNavBarData.showNavBar = false
     this.globalEventsManager.showNavBarRight(newShowNavBarData)
-    this.globalEventsManager.refreshCenter(true);
-    // this.router.navigate(['/']);
+    if(this.search.typeObj === 'brief') this.router.navigate(['/']);
+    if(this.search.typeObj === 'mission') this.router.navigate(['/']);
+    if(this.search.typeObj === 'strat') this.router.navigate(['/']);
+    if(this.search.typeObj === 'brief') this.router.navigate(['/']);
+    if(this.search.typeObj === 'document') this.globalEventsManager.refreshCenter(true);
+
+
+
+
   }
 
   // deleteObj(){

@@ -184,7 +184,7 @@ export class MissionComponent implements OnInit {
       let newShowNavBarData = new ShowNavBarData()
       newShowNavBarData.search.typeScreen = 'deleteConfirmation'
       newShowNavBarData.search.typeObj = 'mission'
-      newShowNavBarData.search.documentId = this.fetchedMission._id
+      newShowNavBarData.search.missionId = this.fetchedMission._id
       this.globalEventsManager.showNavBarRight(newShowNavBarData)
   }
 
