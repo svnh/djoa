@@ -69,7 +69,9 @@ export class DocumentSingleComponent implements OnInit {
 
 
   ngOnChanges() {
-    // console.log(this.search)
+    if (this.search.documentId) {
+      this.getDocument(this.search.documentId)
+    }
     // this.search = new Search()
   }
 
@@ -92,23 +94,12 @@ export class DocumentSingleComponent implements OnInit {
     this.activatedRoute.params.subscribe((params: Params) => {
       // console.log(this.search)
 
-      if (this.search.documentId) {
-        this.getDocument(this.search.documentId)
-      } else if (params['id']) {
-          this.getDocument(params['id'])
-      }
+      // if (this.search.documentId) {
+      //   this.getDocument(this.search.documentId)
+      // } else if (params['id']) {
+      //     this.getDocument(params['id'])
+      // }
 
-    //   if(params['id']) {
-    //     this.search.documentId = params['id']
-    //     this.getDocument(params['id'])
-    //   } else {
-    //     if(params['idClient'])
-    //        this.getUser(params['idClient'])
-    //     if(params['selectedIndex'])
-    //       this.selectedIndex0 = params['selectedIndex']
-    //
-    //       this.getItemSteps()
-    //   }
     })
 
   }
