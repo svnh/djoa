@@ -1,17 +1,17 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { AuthService} from '../../auth/auth.service';
-import { DocumentService} from '../document.service';
-import { Document} from '../document.model';
-import { ToastsManager} from 'ng2-toastr';
-import { MdDialog} from '@angular/material';
-import { Router} from '@angular/router';
+import { AuthService } from '../../auth/auth.service';
+import { DocumentService } from '../document.service';
+import { Document } from '../document.model';
+import { ToastsManager } from 'ng2-toastr';
+import { MdDialog } from '@angular/material';
+import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { DomSanitizer } from '@angular/platform-browser';
-import { ViewEncapsulation} from '@angular/core';
-import { UserService} from '../../user/user.service';
-import {ShowNavBarData} from '../../home/home.model'
-import {GlobalEventsManager} from '../../globalEventsManager';
-import {Search} from '../../home/home.model'
+import { ViewEncapsulation } from '@angular/core';
+import { UserService } from '../../user/user.service';
+import { ShowNavBarData } from '../../home/home.model'
+import { GlobalEventsManager } from '../../globalEventsManager';
+import { Search } from '../../home/home.model'
 
 
 @Component({
@@ -23,7 +23,7 @@ import {Search} from '../../home/home.model'
 })
 export class DocumentsComponent implements OnInit {
   @Input() userId = '';
-  @Input() showHeader = true;
+  // @Input() showHeader = false;
   @Input() search: Search = new Search()
 
 
@@ -44,36 +44,27 @@ export class DocumentsComponent implements OnInit {
 
   categories2 = '';
   isCrew: boolean = true
-  showNavBarData: any = new ShowNavBarData()
+  showNavBarData: any
 
   constructor(
     // private sanitizer: DomSanitizer,
     private documentService: DocumentService,
     private toastr: ToastsManager,
     private globalEventsManager: GlobalEventsManager,
-    // // public dialog: MdDialog,
-    // private router: Router,
-    // private location: Location,
-    // private authService: AuthService,
-    // private userService: UserService,
+
 
   ) {
 
-    this.globalEventsManager.showNavBarEmitterRight.subscribe((showNavBarData)=>{
-        if (showNavBarData !== null) {
-          this.showNavBarData = showNavBarData;
-          // if(this.showNavBarData.showNavBar) {
-          //   this.sidenav.open()
-          // } else {
-          //   this.sidenav.close()
-          // }
-        }
-    })
+    // this.globalEventsManager.showNavBarEmitterRight.subscribe((showNavBarData) => {
+    //   if (showNavBarData !== null) {
+    //     this.showNavBarData = showNavBarData;
+    //   }
+    // })
 
 
     this.globalEventsManager.refreshCenterEmitter.subscribe((isRefresh) => {
-        if(isRefresh)
-          this.getDocuments(1, this.search)
+      if (isRefresh)
+        this.getDocuments(1, this.search)
     })
   }
 
@@ -82,7 +73,7 @@ export class DocumentsComponent implements OnInit {
     // setTimeout(function(){
     //   this2.search.userId = this2.userId
     //   this2.search.orderBy = 'name'
-      this2.getDocuments(1, this2.search)
+    this2.getDocuments(1, this2.search)
     // }, 200);
   }
   // changeCrew(result) {
@@ -92,13 +83,13 @@ export class DocumentsComponent implements OnInit {
 
     this.fetchedDocuments[i].status.global = newStatus
 
-    if(newStatus === 'CHANGES SENT') {
+    if (newStatus === 'CHANGES SENT') {
       this.fetchedDocuments[i].status.changeRequest = false
       // this.fetchedDocuments[i].status.review = false
       // this.fetchedDocuments[i].status.approve = false
       // this.fetchedDocuments[i].status.changeSent = false
     }
-    if(newStatus === 'CHANGES REQUEST' && this.isCrew == false) {
+    if (newStatus === 'CHANGES REQUEST' && this.isCrew === false) {
       this.fetchedDocuments[i].status.changeSent = false
     }
 
@@ -111,44 +102,43 @@ export class DocumentsComponent implements OnInit {
 
 
 
-    save(document) {
+  save(document) {
 
-        this.documentService.updateDocument(document)
-          .subscribe(
-            res => {
+    this.documentService.updateDocument(document)
+      .subscribe(
+      res => {
 
-              this.toastr.success('Great!', res.message)
+        this.toastr.success('Great!', res.message)
 
-            },
-            error => {console.log(error)}
-          );
+      },
+      error => { console.log(error) }
+      );
 
-    }
+  }
 
 
+
+  // toggleDocument() {
+  //   if (!this.showNavBarData) { this.addDocument() } else {
+  //     !this.showNavBarData.showNavBar ? this.addDocument() : this.closeRight()
+  //   }
+  // }
 
   addDocument() {
-    console.log(this.showNavBarData.showNavBar)
-    if(!this.showNavBarData.showNavBar) {
-      let showNavBarData = new ShowNavBarData()
-      showNavBarData.showNavBar = true
-      showNavBarData.search.typeScreen = 'object'
-      showNavBarData.search.typeObj = 'document'
-      showNavBarData.search.stratId = this.search.stratId
-      showNavBarData.search.missionId = this.search.missionId
-      this.globalEventsManager.showNavBarRight(showNavBarData);
-    } else {
-      let showNavBarData = new ShowNavBarData()
-      showNavBarData.showNavBar = false
-      this.globalEventsManager.showNavBarRight(showNavBarData)
-    }
-
+    let showNavBarData = new ShowNavBarData()
+    showNavBarData.showNavBar = true
+    showNavBarData.search.typeScreen = 'object'
+    showNavBarData.search.typeObj = 'document'
+    showNavBarData.search.stratId = this.search.stratId
+    showNavBarData.search.missionId = this.search.missionId
+    this.globalEventsManager.showNavBarRight(showNavBarData);
   }
-  closeDocument() {
-
-
-    // console.log()
-  }
+  // closeRight() {
+  //   let showNavBarData = new ShowNavBarData()
+  //   showNavBarData.showNavBar = false
+  //   this.globalEventsManager.showNavBarRight(showNavBarData)
+  //   // console.log()
+  // }
   openDetails(documentId: string) {
     let showNavBarData = new ShowNavBarData()
     showNavBarData.showNavBar = true
@@ -198,20 +188,20 @@ export class DocumentsComponent implements OnInit {
   //   this.getDocuments(this.paginationData.currentPage, this.search)
   // }
 
-  getDocuments(page : number, search: any) {
+  getDocuments(page: number, search: any) {
     //this.fetchedDocuments =[]
     this.loading = true;
     this.documentService.getDocuments(page, search)
       .subscribe(
-        res => {
-          this.paginationData = res.paginationData;
-          this.fetchedDocuments = res.data
+      res => {
+        this.paginationData = res.paginationData;
+        this.fetchedDocuments = res.data
 
-          this.loading = false;
-        },
-        error => {
-          console.log(error);
-        }
+        this.loading = false;
+      },
+      error => {
+        console.log(error);
+      }
       );
   }
 

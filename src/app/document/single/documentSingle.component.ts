@@ -69,7 +69,7 @@ export class DocumentSingleComponent implements OnInit {
 
 
   ngOnChanges() {
-    console.log(this.search)
+    // console.log(this.search)
   }
 
   ngOnInit() {
