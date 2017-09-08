@@ -16,6 +16,8 @@ import { User } from '../../user/user.model';
 // import { Quote } from '../../quote/quote.model';
 import { AuthService} from '../../auth/auth.service';
 import {Search} from '../../home/home.model'
+import {GlobalEventsManager} from '../../globalEventsManager';
+import {ShowNavBarData} from '../../home/home.model'
 
 
 @Component({
@@ -32,16 +34,16 @@ export class BriefSingleComponent implements OnInit {
 
   @Input() search: Search = new Search()
 
-  selectedIndex0: number = -1
-  selectedIndex1: number = -1
-  selectedIndex2: number = -1
+  // selectedIndex0: number = -1
+  // selectedIndex1: number = -1
+  // selectedIndex2: number = -1
   // show1 = false
   // show2 = false
   // categ0: string = '';
   // categ1: string = '';
   // categ2: string = '';
 
-  itemSteps:any =[];
+  // itemSteps:any =[];
 
 
   status = StatusBrief
@@ -59,6 +61,7 @@ export class BriefSingleComponent implements OnInit {
   public myForm: FormGroup;
 
   constructor(
+    private globalEventsManager: GlobalEventsManager,
     private sanitizer: DomSanitizer,
     private briefService: BriefService,
     private toastr: ToastsManager,
@@ -281,8 +284,9 @@ export class BriefSingleComponent implements OnInit {
 
             this.toastr.success('Great!', res.message)
             // this.fetchedBrief = res.obj
-            this.getBrief(res.obj._id)
-            this.saved.emit(res.obj)
+
+            this.globalEventsManager.refreshCenter(true);
+            this.closeRight()
             // this.router.navigate(['brief/' + res.obj._id]);
           },
           error => {console.log(error)}
@@ -292,9 +296,9 @@ export class BriefSingleComponent implements OnInit {
         .subscribe(
           res => {
             this.toastr.success('Great!', res.message)
-            // this.fetchedBrief = res.obj
-            this.getBrief(res.obj._id)
-            this.saved.emit(res.obj)
+
+            this.globalEventsManager.refreshCenter(true);
+            this.closeRight()
             // this.router.navigate(['brief/' + res.obj._id]);
           },
           error => {
@@ -303,6 +307,19 @@ export class BriefSingleComponent implements OnInit {
           }
         );
     }
+  }
+
+  closeRight() {
+    let showNavBarData = new ShowNavBarData()
+    showNavBarData.showNavBar = false
+    this.globalEventsManager.showNavBarRight(showNavBarData);
+  }
+  openDeleteConfirmation() {
+      let newShowNavBarData = new ShowNavBarData()
+      newShowNavBarData.search.typeScreen = 'deleteConfirmation'
+      newShowNavBarData.search.typeObj = 'brief'
+      newShowNavBarData.search.briefId = this.fetchedBrief._id
+      this.globalEventsManager.showNavBarRight(newShowNavBarData)
   }
 
   // openDialogDelete(){

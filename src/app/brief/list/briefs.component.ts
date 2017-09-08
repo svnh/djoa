@@ -52,6 +52,10 @@ export class BriefsComponent implements OnInit {
     // private userService: UserService,
 
   ) {
+    this.globalEventsManager.refreshCenterEmitter.subscribe((isRefresh) => {
+      if (isRefresh)
+        this.getBriefs(1, this.search)
+    })
   }
 
   ngOnInit() {
@@ -71,7 +75,6 @@ export class BriefsComponent implements OnInit {
     showNavBarData.search.stratId = this.search.stratId
     this.globalEventsManager.showNavBarRight(showNavBarData);
   }
-
 
 
 

@@ -93,9 +93,10 @@ export class StratContentComponent implements OnInit {
     // }
 
     this.activatedRoute.params.subscribe((params: Params) => {
-      if (this.search.stratId) {
-        this.getStrat(this.search.stratId)
-      } else if(params['id']) {
+      // if (this.search.stratId) {
+      //   this.getStrat(this.search.stratId)
+      // } else
+      if(params['id']) {
         this.search.stratId = params['id']
         this.getStrat(params['id'])
       }
