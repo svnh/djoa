@@ -43,7 +43,7 @@ export class ProjectSingleComponent implements OnInit {
   // categ2: string = '';
 
   // itemSteps:any =[];
-  // 
+  //
   //
   // status = StatusProject
   // categ: string = 'Electricité';
@@ -288,28 +288,13 @@ export class ProjectSingleComponent implements OnInit {
     this.globalEventsManager.showNavBarRight(showNavBarData);
   }
 
-  openDeleteConfirmation(){
+
+  openDeleteConfirmation() {
       let newShowNavBarData = new ShowNavBarData()
       newShowNavBarData.search.typeScreen = 'deleteConfirmation'
       newShowNavBarData.search.typeObj = 'project'
       newShowNavBarData.search.projectId = this.fetchedProject._id
       this.globalEventsManager.showNavBarRight(newShowNavBarData)
-
-    //   let newShowNavBarData = new ShowNavBarData()
-    //   newShowNavBarData.showNavBar = true
-    //   newShowNavBarData.search.typeObj = 'document'
-    //   this.globalEventsManager.showNavBarRight(newShowNavBarData)
-    // let this2 = this
-    // let dialogRefDelete = this.dialog.open(DeleteDialog)
-    // dialogRefDelete.afterClosed().subscribe(result => {
-    //   if(result) {
-    //     this.onDelete(this.fetchedProject._id).then(function(){
-    //       // this2.router.navigate(['user']);
-    //       // this2.goBack();
-    //     })
-    //
-    //   }
-    // })
   }
 
 

@@ -170,9 +170,9 @@ export class MissionComponent implements OnInit {
   }
 
 
-  getResultAutocomplete(result){
-    console.log(result)
-  }
+  // getResultAutocomplete(result){
+  //   console.log(result)
+  // }
   closeRight() {
     let showNavBarData = new ShowNavBarData()
     showNavBarData.showNavBar = false
@@ -180,26 +180,33 @@ export class MissionComponent implements OnInit {
   }
 
 
-
-
-
-
-  onDelete(id: string) {
-    let this2 = this
-    return new Promise(function(resolve, reject) {
-      this2.missionService.deleteMission(id)
-        .subscribe(
-          res => {
-            this2.toastr.success('Great!', res.message);
-            resolve(res)
-          },
-          error => {
-            console.log(error);
-            reject(error)
-          }
-        )
-      })
+  openDeleteConfirmation() {
+      let newShowNavBarData = new ShowNavBarData()
+      newShowNavBarData.search.typeScreen = 'deleteConfirmation'
+      newShowNavBarData.search.typeObj = 'mission'
+      newShowNavBarData.search.documentId = this.fetchedMission._id
+      this.globalEventsManager.showNavBarRight(newShowNavBarData)
   }
+
+
+
+
+  // onDelete(id: string) {
+  //   let this2 = this
+  //   return new Promise(function(resolve, reject) {
+  //     this2.missionService.deleteMission(id)
+  //       .subscribe(
+  //         res => {
+  //           this2.toastr.success('Great!', res.message);
+  //           resolve(res)
+  //         },
+  //         error => {
+  //           console.log(error);
+  //           reject(error)
+  //         }
+  //       )
+  //     })
+  // }
 
 
   // openDialogDelete(){
@@ -244,9 +251,6 @@ export class MissionComponent implements OnInit {
           console.log(error);
         }
       )
-  }
-  isAdmin() {
-    return this.authService.isAdmin();
   }
 
 

@@ -85,7 +85,7 @@
 
         <div class="valid-edit">
           <button type="submit" class="done btn btn-success" [disabled]="!myForm.valid">{{'Save' }}</button>
-          <button *ngIf="fetchedDocument._id" type="button" class="delete" md-button (click)="openDialogDelete()">
+          <button *ngIf="fetchedDocument._id" type="button" class="delete" md-button (click)="openDeleteConfirmation()">
         {{'Delete' }}
       </button>
         </div>

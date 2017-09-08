@@ -103,161 +103,9 @@ export class DocumentSingleComponent implements OnInit {
     })
 
   }
-  //
-  // getItemSteps() {
-  //   let currentUser = this.authService.getCurrentUser()
-  //
-  //   currentUser.ownerCompanies.forEach((companie, index) => {
-  //
-  //     if(this.selectedIndex0 >= companie.categories.categDocument.length)
-  //       this.selectedIndex0 = -1
-  //
-  //
-  //     // console.log(JSON.parse(currentUser.companies[index].categJson.categDocument))
-  //     if(currentUser.ownerCompanies[index].categories.categDocument)
-  //       this.itemSteps = currentUser.ownerCompanies[index].categories.categDocument
-  //   })
-  // }
-
-
-  //
-  //
-  //
-  // addCalendar() {
-  //   let queryParams = {}
-  //   // queryParams['new'] = true
-  //   queryParams['showCreateEvent'] = true
-  //   queryParams['showSearchEvent'] = false
-  //
-  //
-  //   // if(this.fetchedDocument.assignedTos.length) {queryParams['idUserNew'] = this.fetchedDocument.assignedTos[0]._id}
-  //   if(this.fetchedDocument._id) {queryParams['idDocumentNew'] = this.fetchedDocument._id}
-  //   if(this.fetchedDocument.clients.length) {queryParams['idClientNew'] = this.fetchedDocument.clients[0]._id }
-  //   // if(this.fetchedDocument.assignedTos.length)  {queryParams['idUserSearch'] = this.fetchedDocument.assignedTos[0]._id }
-  //   if(this.fetchedDocument._id) {queryParams['idDocumentSearch'] = this.fetchedDocument._id}
-  //
-  //   this.router.navigate(['userCalendar/', queryParams])
-  // }
-  // seeCalendar() {
-  //   let queryParams = {}
-  //   // queryParams['showCreateEvent'] = true
-  //   queryParams['showSearchEvent'] = false
-  //
-  //   // if(this.fetchedDocument.assignedTos.length)  {queryParams['idUserSearch'] = this.fetchedDocument.assignedTos[0]._id }
-  //   if(this.fetchedDocument._id) {queryParams['idDocumentSearch'] = this.fetchedDocument._id}
-  //   // if(this.fetchedDocument.clients.length)      {queryParams['idClientSearch'] = this.fetchedDocument.clients[0]._id}
-  //   this.router.navigate(['userCalendar/', queryParams])
-  // }
-  //
-  // newComment(comment: string) {
-  //   // let newLog = new Log()
-  //   // newLog.comment = comment
-  //   // this.fetchedDocument.logs.push(newLog)
-  // }
-  // getUser(id: string) {
-  //   this.userService.getUser(id)
-  //     .subscribe(
-  //       res => {
-  //         //this.fetchedUsers[0] = res.user
-  //         this.selectUser(res)
-  //       },
-  //       error => {
-  //         console.log(error);
-  //       }
-  //     );
-  // }
-  //
-  // changeCascade(selectedIndex0, selectedIndex1, selectedIndex2) {
-  //   this.selectedIndex0 = selectedIndex0
-  //   this.selectedIndex1 = selectedIndex1
-  //   this.selectedIndex2 = selectedIndex2
-  // }
-  // addQuote(){
-  // }
-
-
-  // // autocomplete user
-  // selectUser(user: User) {
-  //   // this.autocompleteUser=''
-  //   // this.fetchedUsers = []
-  //   this.fetchedDocument.clients = [user]
-  // }
-  // searchUsers() {
-  //   if(!this.autocompleteUser) {
-  //      this.fetchedUsers = []
-  //   } else {
-  //     let search = {
-  //         search: this.autocompleteUser,
-  //       };
-  //     this.getUsers(1, search)
-  //   }
-  // }
-  // getUsers(page: number, search: any) {
-  //   this.userService.getUsers(page, search)
-  //     .subscribe(
-  //       res => {
-  //         this.fetchedUsers = res.data
-  //       },
-  //       error => {
-  //         console.log(error);
-  //       }
-  //     );
-  // }
-
-
-  // removePic(i) {
-  //   // this.fetchedDocument.forms.splice(i, 1);
-  // }
-
-
-
-    // autocomplete AssignedTo
-    // autocompleteAssignedTo: string = '';
-    // fetchedAssignedTos: User[] = [];
-    // selectAssignedTo(user: User) {
-    //   // this.autocompleteAssignedTo=''
-    //   // this.fetchedAssignedTos = []
-    //   // this.fetchedDocument.assignedTos = [user]
-    // }
-
-
-
-
-  //
-  // goBack() {
-  //   this.location.back();
-  // }
-
-
-  // openDialog(positionImage: string) {
-  //   // let dialogRef = this.dialog.open(EditOptionsComponentDialog);
-  //   // dialogRef.afterClosed().subscribe(result => {
-  //   //   if(result) {
-  //   //     console.log(result)
-  //   //     // this.fetchedDocument.forms.push( result)
-  //   //   }
-  //   // })
-  // }
 
 
   save() {
-
-    // this.fetchedDocument.dateDocument.start = this.authService.HTMLDatetoIsoDate(this.fetchedDocument.dateDocument.startString)
-    // this.fetchedDocument.dateDocument.end = this.authService.HTMLDatetoIsoDate(this.fetchedDocument.dateDocument.endString)
-    //
-    // let categName0 = ''
-    // let categName1 = ''
-    // let categName2 = ''
-    //
-    // if(this.selectedIndex0>=0) {categName0 = this.itemSteps[this.selectedIndex0].categ}
-    // if(this.selectedIndex1>=0) {categName1 = this.itemSteps[this.selectedIndex0].subCateg[this.selectedIndex1].categ}
-    // if(this.selectedIndex2>=0) {categName2 = this.itemSteps[this.selectedIndex0].subCateg[this.selectedIndex1].subCateg[this.selectedIndex2].categ}
-    //
-    //
-    // this.fetchedDocument.categorie.categ0 = [{name: categName0}]
-    // this.fetchedDocument.categorie.categ1 = [{name: categName1}]
-    // this.fetchedDocument.categorie.categ2 = [{name: categName2}]
-    //
 
 
     if(this.fetchedDocument._id) {
@@ -359,23 +207,12 @@ export class DocumentSingleComponent implements OnInit {
       )
   }
 
-
-  // onDelete(id: string) {
-  //   let this2 = this
-  //   return new Promise(function(resolve, reject) {
-  //     this2.documentService.deleteDocument(id)
-  //       .subscribe(
-  //         res => {
-  //           this2.toastr.success('Great!', res.message);
-  //           resolve(res)
-  //         },
-  //         error => {
-  //           console.log(error);
-  //           reject(error)
-  //         }
-  //       )
-  //     })
-  // }
-
+  openDeleteConfirmation() {
+      let newShowNavBarData = new ShowNavBarData()
+      newShowNavBarData.search.typeScreen = 'deleteConfirmation'
+      newShowNavBarData.search.typeObj = 'document'
+      newShowNavBarData.search.documentId = this.fetchedDocument._id
+      this.globalEventsManager.showNavBarRight(newShowNavBarData)
+  }
 
 }
