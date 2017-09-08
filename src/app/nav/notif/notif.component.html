@@ -16,8 +16,14 @@
 <h4>Documents</h4>
 <div *ngFor="let document of myDocuments">
   <div *ngFor="let mission of document.missions">
-    {{mission.title}}
-    <div (click)="goToMission(mission._id)">
+    Mission: {{mission.title}}
+    <div (click)="goTo('mission', mission._id)">
+      {{document.details.name}}: {{document.status.global}}
+    </div>
+  </div>
+  <div *ngFor="let strat of document.strats">
+    Strat: {{strat.title}}
+    <div (click)="goTo('strat', mission._id)">
       {{document.details.name}}: {{document.status.global}}
     </div>
   </div>

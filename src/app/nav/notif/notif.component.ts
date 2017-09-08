@@ -97,13 +97,13 @@ export class NotifComponent implements OnInit {
 
   }
 
-  goToMission(missionId: string) {
+  goToMission(typeObj: string, missionId: string) {
 
       let newShowNavBarData = new ShowNavBarData()
       newShowNavBarData.showNavBar = false
       this.globalEventsManager.showNavBarRight(newShowNavBarData)
 
-      this.router.navigate(['/mission/' + missionId]);
+      this.router.navigate([typeObj + '/' + missionId]);
   }
   //
   // createProject() {

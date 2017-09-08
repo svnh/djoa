@@ -242,24 +242,15 @@ router.get('/page/:page', function(req, res, next) {
 
   if (req.query.myDocuments) {
     let arrObj = []
-    arrObj.push({
-      'crewMembers': mongoose.Types.ObjectId(req.user._id)
-    })
-    arrObj.push({
-      'reviewers': mongoose.Types.ObjectId(req.user._id)
-    })
-    searchQuery = {
-      $or: arrObj
-    }
+    arrObj.push({'crewMembers': mongoose.Types.ObjectId(req.user._id) })
+    arrObj.push({'reviewers': mongoose.Types.ObjectId(req.user._id) })
+    searchQuery = { $or: arrObj }
   }
 
   searchQuery['ownerCompanies'] = req.user.ownerCompanies
 
   if (req.query.search)
     searchQuery['details.name'] = new RegExp(req.query.search, 'i')
-
-
-
 
 
   if (req.query.missionId)
@@ -274,25 +265,20 @@ router.get('/page/:page', function(req, res, next) {
     // console.log(hasWhatsNewCateg)
   // console.log(searchQuery)
 
-  Document.find(searchQuery).sort('-createdAt').populate({path: 'clients', model: 'User'}).populate({path: 'assignedTos', model: 'User'})
-  // .populate({path: 'bucketTasks.tasks', model: 'Task'})
-  // .populate({path: 'bucketTasks.tasks.assignedTos', model: 'User'})
-    .populate({
-    path: 'bucketTasks.tasks',
-    model: 'Task',
-    populate: {
-      path: 'assignedTos',
-      model: 'User'
-    }
-  })
+  Document.find(searchQuery)
+  .sort('-createdAt')
+  .populate({path: 'clients', model: 'User'})
+  .populate({path: 'assignedTos', model: 'User'})
   .populate({path: 'missions', model: 'Mission'})
+  .populate({path: 'strats', model: 'Strat'})
+  .populate({path: 'briefs', model: 'Brief'})
   // .populate({path: 'quotes', model: 'Quote'})
   // .populate(
   //   {
   //     path: 'bucketTasks.tasks.assignedTos',
   //     model: 'User',
   //   })
-    .limit(itemsPerPage).skip(skip).exec(function(err, item) {
+  .limit(itemsPerPage).skip(skip).exec(function(err, item) {
     if (err) {
       return res.status(404).json({message: 'No results', err: err})
     } else {
