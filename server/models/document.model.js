@@ -15,7 +15,12 @@ var document = new Schema({
       name: {type: String},
       description: {type: String},
     },
-    strats: [{type: Schema.Types.ObjectId, ref: 'Strat'}],
+
+    owners: [{type: Schema.Types.ObjectId, ref: 'User'}],
+    crewMembers: [{type: Schema.Types.ObjectId, ref: 'User'}],
+    reviewers: [{type: Schema.Types.ObjectId, ref: 'User'}],
+
+    // strats: [{type: Schema.Types.ObjectId, ref: 'Strat'}],
 
     // assignedTos: [{type: Schema.Types.ObjectId, ref: 'User'}],
     status: {

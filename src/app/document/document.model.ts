@@ -10,8 +10,9 @@ export class Document {
     link: string = '';
     details: Details = new Details()
     status: Status = new Status();
-    clients: User[] = [];
-    // assignedTos: User[] = [];
+    crewMembers: User[] = [];
+    reviewers: User[] = [];
+    owners: User[] = [];
     forms: Form[] = [];
     briefs: Brief[] = [];
     strats: Strat[] = [];
@@ -20,6 +21,8 @@ export class Document {
     progressTasks: number = 0;
     dateDocument: DateDocument = new DateDocument()
 }
+
+
 
 export class Status {
     global: string = 'WIP';

@@ -29,7 +29,7 @@ import { User } from '../user/user.model';
 })
 export class AutocompleteComponent implements OnInit {
   @Input() typeAutocomplete: string;
-  @Input() showIfNoDataInit: boolean = true;
+  // @Input() showIfNoDataInit: boolean = true;
   @Input() arrayContent = [];
   @Input() singleChoice: boolean = true;
   @Input() title: string = '';

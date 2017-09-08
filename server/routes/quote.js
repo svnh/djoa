@@ -260,7 +260,7 @@ router.get('/page/:page', function(req, res, next) {
 
   let nameQuery = {}
   let cityQuery = {}
-  let arrObj = []
+
 
   let searchQuery = {}
 
@@ -275,6 +275,7 @@ router.get('/page/:page', function(req, res, next) {
 
 
   if (req.query.search) {
+    let arrObj = []
     //  nameQuery['name'] = new RegExp(req.query.search, 'i')
     //  cityQuery['address.city'] = new RegExp(req.query.search, 'i')
     arrObj.push({

@@ -64,93 +64,45 @@ router.use('/', function(req, res, next) {
 
 
 
-
-router.get('/myDocuments', function(req, res, next) {
-
-  let searchQuery = {}
-  searchQuery['ownerCompanies'] = req.user.ownerCompanies
-  searchQuery['users'] = mongoose.Types.ObjectId(req.user._id)
-  let returnData = []
-  Mission.find(searchQuery).sort('-createdAt').exec(function(err, itemMissions) {
-    if (err) {
-      return res.status(404).json({message: 'No results', err: err})
-    } else {
-      let itemMissionsId = []
-      itemMissions.forEach(itemMission => itemMissionsId.push(itemMission._id))
-      // console.log(itemMissionsId)
-
-
-
-      let searchQueryDoc = {
-        missions: { '$in' : itemMissionsId}
-      }
-      // searchQueryDoc['missions'] = mongoose.Types.ObjectId(singleMission._id)
-      Document
-      .find(searchQueryDoc)
-      .populate({path: 'missions', model: 'Mission'})
-      .exec(function(err, itemDocuments) {
-        if (err) {
-          console.log(err)
-          // return res.status(404).json({
-          //   message: 'No results',
-          //   err: err
-          // })
-        } else {
-          res.status(200).json({message: 'Successfull', obj: itemDocuments})
-        }
-      })
-
-
-      // let requests = itemMissions.map((singleMission) => {
-      //   return new Promise(function(resolve, reject) {
-      //     console.log('toto')
-      //
-      //
-      //     let searchQueryDoc = {}
-      //     searchQueryLog['missions'] = mongoose.Types.ObjectId(singleMission._id)
-      //     Log.findOne(searchQueryLog).sort('-createdAt').exec(function(err, itemLog) {
-      //       if (err) {
-      //         console.log(err)
-      //         // return res.status(404).json({
-      //         //   message: 'No results',
-      //         //   err: err
-      //         // })
-      //       } else {
-      //
-      //         // console.log('mission: ' + singleMission._id)
-      //         // console.log('Log: ' + itemLog)
-      //         // console.log('////')
-      //
-      //         // console.log(new Date(item.createdAt))
-      //
-      //         let searchQueryChat = {}
-      //         searchQueryChat['missions'] = mongoose.Types.ObjectId(singleMission._id)
-      //         if (itemLog) {
-      //           searchQueryChat['createdAt'] = {
-      //             '$gte': itemLog.createdAt
-      //             // "$lt":  new Date(JSON.parse(req.query.end))
-      //           }
-      //         }
-      //         Chat.find(searchQueryChat).count().exec(function(err, CountItemChat) {
-      //           if (err) {
-      //             console.log(err)
-      //           } else {
-      //             returnData.push({mission: singleMission, countUnread: CountItemChat})
-      //             resolve()
-      //           }
-      //         })
-      //       }
-      //     })
-      //   })
-      // })
-      // Promise.all(requests).then(() => {
-      //   res.status(200).json({message: 'Successfull', obj: returnData})
-      // })
-    }
-  })
-
-
-})
+//
+// router.get('/myDocuments', function(req, res, next) {
+//
+//   let searchQuery = {}
+//   searchQuery['ownerCompanies'] = req.user.ownerCompanies
+//   searchQuery['users'] = mongoose.Types.ObjectId(req.user._id)
+//   let returnData = []
+//   Mission.find(searchQuery).sort('-createdAt').exec(function(err, itemMissions) {
+//     if (err) {
+//       return res.status(404).json({message: 'No results', err: err})
+//     } else {
+//       let itemMissionsId = []
+//       itemMissions.forEach(itemMission => itemMissionsId.push(itemMission._id))
+//       // console.log(itemMissionsId)
+//
+//
+//
+//       let searchQueryDoc = {
+//         missions: { '$in' : itemMissionsId}
+//       }
+//       // searchQueryDoc['missions'] = mongoose.Types.ObjectId(singleMission._id)
+//       Document
+//       .find(searchQueryDoc)
+//       .populate({path: 'missions', model: 'Mission'})
+//       .exec(function(err, itemDocuments) {
+//         if (err) {
+//           console.log(err)
+//           // return res.status(404).json({
+//           //   message: 'No results',
+//           //   err: err
+//           // })
+//         } else {
+//           res.status(200).json({message: 'Successfull', obj: itemDocuments})
+//         }
+//       })
+//
+//     }
+//   })
+// })
 
 
 
@@ -207,15 +159,21 @@ router.put('/:id', function(req, res, next) {
       item.forms = req.body.forms
       item.status = req.body.status
       // item.embed = req.body.embed
-      item.categories = req.body.categories
-      item.clients = req.body.clients
-      item.quotes = req.body.quotes
-      item.categorie = req.body.categorie
-      item.assignedTos = req.body.assignedTos
+
+
       // item.bucketTasks = req.body.bucketTasks
       // item.progressTasks = req.body.progressTasks
       item.dateDocument = req.body.dateDocument
       item.link = req.body.link
+
+
+      item.crewMembers = req.body.crewMembers
+      item.reviewers = req.body.reviewers
+      item.quotes = req.body.quotes
+
+
+
+
 
       item.save(function(err, result) {
         if (err) {
@@ -256,7 +214,7 @@ router.post('/', function(req, res, next) {
   // }
   console.log(req.user.companies)
   req.body.ownerCompanies = req.user.ownerCompanies
-
+  req.body.owners = req.user._id
   // document.ownerCompanies = req.user.companies
   var document = new Document(req.body)
   document.save(function(err, result) {
@@ -281,10 +239,28 @@ router.get('/page/:page', function(req, res, next) {
   var skip = (itemsPerPage * pageNumber)
 
   let searchQuery = {}
+
+  if (req.query.myDocuments) {
+    let arrObj = []
+    arrObj.push({
+      'crewMembers': mongoose.Types.ObjectId(req.user._id)
+    })
+    arrObj.push({
+      'reviewers': mongoose.Types.ObjectId(req.user._id)
+    })
+    searchQuery = {
+      $or: arrObj
+    }
+  }
+
   searchQuery['ownerCompanies'] = req.user.ownerCompanies
 
   if (req.query.search)
     searchQuery['details.name'] = new RegExp(req.query.search, 'i')
+
+
+
+
 
   if (req.query.missionId)
     searchQuery['missions'] = mongoose.Types.ObjectId(req.query.missionId)
@@ -309,6 +285,7 @@ router.get('/page/:page', function(req, res, next) {
       model: 'User'
     }
   })
+  .populate({path: 'missions', model: 'Mission'})
   // .populate({path: 'quotes', model: 'Quote'})
   // .populate(
   //   {
@@ -394,12 +371,16 @@ router.get('/:id', function(req, res, next) {
       })
     }
 
+
+
     Document
     .findById({_id: req.params.id})
     .populate({path: 'briefs', model: 'Brief'})
     .populate({path: 'missions', model: 'Mission'})
     .populate({path: 'strats', model: 'Strat'})
-    // .populate({path: 'clients', model: 'User'})
+    .populate({path: 'crewMembers', model: 'User'})
+    .populate({path: 'reviewers', model: 'User'})
+    .populate({path: 'owners', model: 'User'})
     // .populate({path: 'logs.forms', model: 'Form'})
     // .populate({path: 'logs.by', model: 'User'})
     // .populate({path: 'assignedTos', model: 'User'})

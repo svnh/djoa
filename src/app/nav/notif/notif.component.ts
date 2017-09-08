@@ -15,6 +15,8 @@ import { ChatService} from '../../chat/chat.service';
 // import {Observable} from 'rxjs/Rx';
 import {ShowNavBarData} from '../../home/home.model'
 import {GlobalEventsManager} from '../../globalEventsManager';
+import {Search} from '../../home/home.model'
+
 
 @Component({
   selector: 'app-notif',
@@ -34,12 +36,11 @@ export class NotifComponent implements OnInit {
   // notificationsNotRead: number=0;
 
   constructor(
-    // private globalEventsManager: GlobalEventsManager,
+    private globalEventsManager: GlobalEventsManager,
     private authService: AuthService,
     private adminService: AdminService,
     private chatService: ChatService,
     private documentService: DocumentService,
-    private globalEventsManager: GlobalEventsManager,
     private router: Router,
     // private companieGuardService: CompanieGuardService,
     // private paiementGuardService: PaiementGuardService,
@@ -77,15 +78,16 @@ export class NotifComponent implements OnInit {
   }
 
   getMyDocuments() {
-      this.documentService.getMyDocuments()
-        .subscribe(
-          res => {
-            this.myDocuments = res.obj
-          },
-          error => {
-            console.log(error);
-          }
-        );
+    let search = { myDocuments: true }
+    this.documentService.getDocuments(1, search)
+      .subscribe(
+        res => {
+          this.myDocuments = res.data
+        },
+        error => {
+          console.log(error);
+        }
+      );
   }
 
   ngOnInit() {

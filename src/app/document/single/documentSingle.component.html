@@ -6,7 +6,6 @@
       <form [formGroup]="myForm" novalidate (ngSubmit)="save()" (keydown.enter)="$event.preventDefault()">
         <app-autocomplete
           [typeAutocomplete]="'strat'"
-          [showIfNoDataInit]=false
           [search]="search"
           [canDelete]=true
           [title]="'Strat'"
@@ -15,7 +14,6 @@
         </app-autocomplete>
         <app-autocomplete
           [typeAutocomplete]="'mission'"
-          [showIfNoDataInit]=false
           [search]="search"
           [canDelete]=true
           [title]="'mission'"
@@ -24,14 +22,12 @@
         </app-autocomplete>
         <app-autocomplete
           [typeAutocomplete]="'brief'"
-          [showIfNoDataInit]=false
           [search]="search"
           [canDelete]=true
           [title]="'brief'"
           [singleChoice]=true
           [arrayContent]="fetchedDocument.briefs">
         </app-autocomplete>
-
 
 
 
@@ -65,39 +61,26 @@
         <br>
 
 
-
-        <!-- <div class="form-group">
-          <app-autocomplete [typeAutocomplete]="'user'" [title]="'Assigned To'" [singleChoice]=true [search]="{isExternalUser:false}" [arrayContent]="fetchedDocument.assignedTos" (getResultAutocomplete)="selectAssignedTo($event[0])">
-          </app-autocomplete>
-        </div> -->
         <div class="form-group">
           <app-picture [forms]="fetchedDocument.forms"></app-picture>
         </div>
-        <!-- <div *ngIf="fetchedDocument._id">
-        <div class="FormGroup">
-          <button type="button" class="btn btn-warning" (click)="showLogs = !showLogs">
-           <i class="fa fa-calendar" aria-hidden="true"></i>
-           <span>{{'Show Comments' }}</span>
-          </button>
 
-          <div *ngIf="showLogs">
-            <app-comments [search]="search"></app-comments>
-          </div>
-        </div>
-
-        <div class="FormGroup whtxt">
-          <a class="btn btn-warning" [routerLink]="['/task/document/' + fetchedDocument._id]">
-         <i class="fa fa-calendar" aria-hidden="true"></i>
-         <span>{{'Tasks' }}</span>
-        </a>
-        </div>
-        <div class="FormGroup whtxt">
-          <button type="button" class="btn btn-warning" (click)="seeCalendar()">
-         <i class="fa fa-calendar" aria-hidden="true"></i>
-         <span>{{'See calendar' }}</span>
-       </button>
-        </div>
-      </div> -->
+        <app-autocomplete
+          [typeAutocomplete]="'user'"
+          [search]="search"
+          [canDelete]=true
+          [title]="'crewMembers'"
+          [singleChoice]=true
+          [arrayContent]="fetchedDocument.crewMembers">
+        </app-autocomplete>
+        <app-autocomplete
+          [typeAutocomplete]="'user'"
+          [search]="search"
+          [canDelete]=true
+          [title]="'reviewers'"
+          [singleChoice]=true
+          [arrayContent]="fetchedDocument.reviewers">
+        </app-autocomplete>
 
 
         <div class="valid-edit">
