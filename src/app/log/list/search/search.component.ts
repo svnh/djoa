@@ -64,7 +64,12 @@ export class SearchComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.search.start = new Date()
+    this.search.end = new Date()
 
+    this.startString = this.authService.isoDateToHtmlDate(this.search.start)
+    this.endString = this.authService.isoDateToHtmlDate(this.search.end)
+    this.refreshSearch()
   }
 
   refreshSearch() {

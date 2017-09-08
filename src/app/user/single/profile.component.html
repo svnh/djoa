@@ -2,7 +2,7 @@
   <div class="row">
 
     <div>
-      <app-picture [addPicture]=true [deletePicture]=true [forms]="fetchedUser.forms"></app-picture>
+      <app-picture [addPicture]=false [deletePicture]=false [forms]="fetchedUser.forms"></app-picture>
     </div>
     <div>
       {{fetchedUser.profile.name}} {{fetchedUser.profile.lastName}}
@@ -32,7 +32,7 @@
         <div class="form-group">
           <input type="text" class="form-control" formControlName="title" [(ngModel)]="fetchedUser.profile.title" placeholder="title">
         </div>
-
+        <app-picture [addPicture]=true [deletePicture]=true [forms]="fetchedUser.forms"></app-picture>
 
 
 

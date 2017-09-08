@@ -71,29 +71,29 @@ export class LogsComponent implements OnInit {
     this.search = result
     this.getLogs(1, this.search)
   }
-  onDelete(id: string) {
-    this.logService.deleteLog(id)
-      .subscribe(
-        res => {
-          this.toastr.success('Great!', res.message);
-          this.getLogs(this.paginationData.currentPage, this.search)
-          console.log(res);
-        },
-        error => {
-          console.log(error);
-        }
-      );
-  }
+  // onDelete(id: string) {
+  //   this.logService.deleteLog(id)
+  //     .subscribe(
+  //       res => {
+  //         this.toastr.success('Great!', res.message);
+  //         this.getLogs(this.paginationData.currentPage, this.search)
+  //         console.log(res);
+  //       },
+  //       error => {
+  //         console.log(error);
+  //       }
+  //     );
+  // }
 
   getPage(page: number) {
     this.getLogs(page, this.search);
   }
 
 
-  loadMore(){
-    this.paginationData.currentPage = this.paginationData.currentPage+1
-    this.getLogs(this.paginationData.currentPage, this.search)
-  }
+  // loadMore() {
+  //   this.paginationData.currentPage = this.paginationData.currentPage+1
+  //   this.getLogs(this.paginationData.currentPage, this.search)
+  // }
 
 
   getLogs(page: number, search: any) {
@@ -113,12 +113,12 @@ export class LogsComponent implements OnInit {
   }
 
   ngOnInit() {
-    let this2 = this
-    setTimeout(function(){
-      this2.search.userId = this2.userId
-      // this2.search.orderBy = 'name'
-      this2.getLogs(1, this2.search)
-    }, 200);
+    // let this2 = this
+    // setTimeout(function(){
+    //   this2.search.userId = this2.userId
+    //   // this2.search.orderBy = 'name'
+    //   this2.getLogs(1, this2.search)
+    // }, 200);
   }
 
   // isAdmin() {

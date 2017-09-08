@@ -18,7 +18,7 @@ import { RightModule} from '../right/right.module';
 import { CompanieModule} from '../companie/companie.module';
 import { ProjectModule} from '../project/project.module';
 
-import { UserDialogComponent } from './single/dialog/userDialog.component';
+// import { UserDialogComponent } from './single/dialog/userDialog.component';
 // import { PaiementPipe } from './paiement/paiement.pipe';
 
 import { RegisterComponent} from './register/register.component';
@@ -83,7 +83,7 @@ import {SharedModule } from '../shared/shared.module';
     NewUserComponent,
     // EditUserComponent,
     ProfileComponent,
-    UserDialogComponent,
+    // UserDialogComponent,
     // SingleUserComponent,
     // AddNoteComponent,
     // ChooseDateComponent,
@@ -122,7 +122,7 @@ import {SharedModule } from '../shared/shared.module';
     // PaiementService,
   ],
   entryComponents: [
-    UserDialogComponent
+    // UserDialogComponent
   //  UserDeleteDialog,
 //    UserWhereDialogComponent,
   ]

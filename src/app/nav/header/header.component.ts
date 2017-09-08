@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
   @Input() nameButton: String = '';
   @Input() option: String = '';
   @Input() showBackButton: Boolean = true;
-  @Input() openInDialog: Boolean = false;
+  // @Input() openInDialog: Boolean = false;
   @Input() showHeader: Boolean = true;
   @Input() showCreateButton: Boolean = true;
   @Input() idProject: string= '';
