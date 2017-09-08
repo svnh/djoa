@@ -12,13 +12,13 @@ var express = require('express'),
   nameObject = 'quote'
 
 // this process does not hang the nodejs server on error
-process.on('uncaughtException', function(err) {
+process.on('uncaughtException', function (err) {
   console.log(err);
 });
 
-router.get('/:id', function(req, res, next) {
+router.get('/:id', function (req, res, next) {
 
-  Quote.findById((req.params.id), function(err, obj) {
+  Quote.findById((req.params.id), function (err, obj) {
     if (err) {
       return res.status(500).json({message: 'An error occured', err: err})
     }
@@ -46,7 +46,7 @@ router.get('/:id', function(req, res, next) {
     .populate({path: 'signature.users', model: 'User'})
     .populate({path: 'clients', model: 'User'})
     .populate({path: 'devisDetails.bucketProducts.productInit', model: 'Product'})
-    .exec(function(err, item) {
+    .exec(function (err, item) {
       if (err) {
         return res.status(404).json({message: '', err: err})
       }
@@ -65,9 +65,9 @@ router.get('/:id', function(req, res, next) {
 })
 
 // Checking if user is authenticated or not, security middleware
-router.use('/', function(req, res, next) {
+router.use('/', function (req, res, next) {
   var token = req.headers['authorization'];
-  jwt.verify(token, config.secret, function(err, decoded) {
+  jwt.verify(token, config.secret, function (err, decoded) {
     if (err) {
       return res.status(401).json({message: 'Authentication failed', error: err})
     }
@@ -80,7 +80,7 @@ router.use('/', function(req, res, next) {
       });
     }
     if (decoded) {
-      User.findById(decoded.user._id).populate({path: 'rights', model: 'Right'}).exec(function(err, doc) {
+      User.findById(decoded.user._id).populate({path: 'rights', model: 'Right'}).exec(function (err, doc) {
         if (err) {
           return res.status(500).json({message: 'Fetching user failed', err: err});
         }
@@ -109,7 +109,7 @@ router.use('/', function(req, res, next) {
   })
 });
 
-router.get('/graph/:year', function(req, res, next) {
+router.get('/graph/:year', function (req, res, next) {
   // let searchQuery = {}
   // searchQuery['ownerCompanies'] = req.user.ownerCompanies
 
@@ -150,7 +150,7 @@ router.get('/graph/:year', function(req, res, next) {
         $sum: "$priceQuote.priceQuoteWithoutTaxes"
       }
     }
-  }).exec(function(err, item) {
+  }).exec(function (err, item) {
     if (err) {
       return res.status(404).json({message: '', err: err})
     } else {
@@ -161,7 +161,7 @@ router.get('/graph/:year', function(req, res, next) {
 })
 
 //update
-router.put('/:id', function(req, res, next) {
+router.put('/:id', function (req, res, next) {
   if (!shared.isCurentUserHasAccess(req.user, nameObject, 'write')) {
     return res.status(404).json({
       title: 'No rights',
@@ -170,7 +170,7 @@ router.put('/:id', function(req, res, next) {
       }
     })
   }
-  Quote.findById(({_id: req.params.id}), function(err, item) {
+  Quote.findById(({_id: req.params.id}), function (err, item) {
     if (err) {
       return res.status(404).json({message: '', err: err})
     }
@@ -189,7 +189,7 @@ router.put('/:id', function(req, res, next) {
     item.statusQuote = req.body.statusQuote
 
 
-    item.save(function(err, result) {
+    item.save(function (err, result) {
       if (err) {
         return res.status(404).json({message: 'There was an error, please try again', err: err});
       }
@@ -201,14 +201,14 @@ router.put('/:id', function(req, res, next) {
 
 
 //update
-router.put('/:id/signature', function(req, res, next) {
+router.put('/:id/signature', function (req, res, next) {
   if (!shared.isCurentUserHasAccess(req.user, nameObject, 'write'))
     return res.status(404).json({ title: 'No rights', error: { message: 'No rights' }})
 
-  Quote.findById(({_id: req.params.id}), function(err, item) {
+  Quote.findById(({_id: req.params.id}), function (err, item) {
     if (err) { return res.status(404).json({message: '', err: err}) }
     item.signature = req.body.signature
-    item.save(function(err, result) {
+    item.save(function (err, result) {
       if (err) { return res.status(404).json({message: 'There was an error, please try again', err: err}) }
       shared.postNotification(req, 'quote')
       .then(()=> {
@@ -223,7 +223,7 @@ router.put('/:id/signature', function(req, res, next) {
 
 
 
-router.post('/', function(req, res, next) {
+router.post('/', function (req, res, next) {
   if (!shared.isCurentUserHasAccess(req.user, nameObject, 'write')) {
     return res.status(404).json({
       title: 'No rights',
@@ -237,7 +237,7 @@ router.post('/', function(req, res, next) {
   }
   var quote = new Quote(req.body);
   quote.ownerCompanies = req.user.ownerCompanies
-  quote.save(function(err, result) {
+  quote.save(function (err, result) {
     if (err) {
       return res.status(403).json({
         title: 'There was an issue',
@@ -251,7 +251,7 @@ router.post('/', function(req, res, next) {
 });
 
 // get all forms from database
-router.get('/page/:page', function(req, res, next) {
+router.get('/page/:page', function (req, res, next) {
   var itemsPerPage = 5
   var currentPage = Number(req.params.page)
   var pageNumber = currentPage - 1
@@ -303,11 +303,11 @@ router.get('/page/:page', function(req, res, next) {
   .populate({path: 'clients', model: 'User'})
   // .populate({path: 'devisDetails.bucketProducts.productInit', model: 'Product'})
   .limit(itemsPerPage).skip(skip)
-  .sort(req.query.orderBy).exec(function(err, item) {
+  .sort(req.query.orderBy).exec(function (err, item) {
     if (err) {
       return res.status(404).json({message: 'No results', err: err})
     } else {
-      Quote.find(searchQuery).count().exec(function(err, count) {
+      Quote.find(searchQuery).count().exec(function (err, count) {
         res.status(200).json({
           paginationData: {
             totalItems: count,
@@ -321,7 +321,7 @@ router.get('/page/:page', function(req, res, next) {
   })
 })
 
-router.delete('/:id', function(req, res, next) {
+router.delete('/:id', function (req, res, next) {
   if (!shared.isCurentUserHasAccess(req.user, nameObject, 'write')) {
     return res.status(404).json({
       title: 'No rights',
@@ -330,7 +330,7 @@ router.delete('/:id', function(req, res, next) {
       }
     })
   }
-  Quote.findById((req.params.id), function(err, item) {
+  Quote.findById((req.params.id), function (err, item) {
 
     if (err) {
       return res.status(500).json({message: 'An error occured', err: err})
@@ -345,7 +345,7 @@ router.delete('/:id', function(req, res, next) {
     }
 
     // deleting the form from the database
-    item.remove(function(err, result) {
+    item.remove(function (err, result) {
       if (err) {
         return res.status(500).json({title: 'An error occured', error: err});
       }

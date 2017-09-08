@@ -36,7 +36,7 @@ module.exports = {
 
       let searchQuery = {}
       searchQuery['ownerCompanies'] = req.user.ownerCompanies
-      User.find(searchQuery).populate({path: 'rights', model: 'Right'}).exec(function(err, item) {
+      User.find(searchQuery).populate({path: 'rights', model: 'Right'}).exec(function (err, item) {
         if (err) {
           reject(err)
           // return res.status(404).json({message: 'No results', err: err})
@@ -65,7 +65,7 @@ module.exports = {
           notification.users = Array.from(new Set(JSON.parse(JSON.stringify(notification.users))))
 
           // save in DB
-          notification.save(function(err, result2) {
+          notification.save(function (err, result2) {
             if (err) {
               // console.log(err)
               // return res.status(403).json({

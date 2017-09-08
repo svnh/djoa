@@ -20,6 +20,7 @@ export class Document {
     categorie: Categorie = new Categorie();
     progressTasks: number = 0;
     dateDocument: DateDocument = new DateDocument()
+    isCrew:boolean = true;
 }
 
 

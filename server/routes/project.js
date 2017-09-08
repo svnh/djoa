@@ -11,13 +11,13 @@ var express = require('express'),
   nameObject = 'project'
 
 // this process does not hang the nodejs server on error
-process.on('uncaughtException', function(err) {
+process.on('uncaughtException', function (err) {
   console.log(err)
 })
 
-router.use('/', function(req, res, next) {
+router.use('/', function (req, res, next) {
   var token = req.headers['authorization']
-  jwt.verify(token, config.secret, function(err, decoded) {
+  jwt.verify(token, config.secret, function (err, decoded) {
     if (err) {
       return res.status(401).json({message: 'Authentication failed', error: err})
     }
@@ -33,7 +33,7 @@ router.use('/', function(req, res, next) {
       User
       .findById(decoded.user._id)
       .populate({path: 'rights', model: 'Right'})
-      .exec(function(err, doc) {
+      .exec(function (err, doc) {
         if (err) {
           return res.status(500).json({message: 'Fetching user failed', err: err})
         }
@@ -63,7 +63,7 @@ router.use('/', function(req, res, next) {
 })
 
 
-router.put('/updateTask/:id', function(req, res, next) {
+router.put('/updateTask/:id', function (req, res, next) {
   if (!shared.isCurentUserHasAccess(req.user, nameObject, 'write')) {
     return res.status(404).json({
       title: 'No rights',
@@ -72,7 +72,7 @@ router.put('/updateTask/:id', function(req, res, next) {
       }
     })
   }
-  Project.findById(({_id: req.params.id}), function(err, item) {
+  Project.findById(({_id: req.params.id}), function (err, item) {
     if (err) {
       return res.status(404).json({message: '', err: err})
     } else {
@@ -84,7 +84,7 @@ router.put('/updateTask/:id', function(req, res, next) {
       item.bucketTasks[req.body.bucketTaskIndex].tasks.push( task)
       // console.log(item)
 
-      item.save(function(err, result) {
+      item.save(function (err, result) {
         if (err) {
           return res.status(404).json({message: 'There was an error, please try again', err: err})
         }
@@ -96,7 +96,7 @@ router.put('/updateTask/:id', function(req, res, next) {
 })
 
 
-router.put('/:id', function(req, res, next) {
+router.put('/:id', function (req, res, next) {
   if (!shared.isCurentUserHasAccess(req.user, nameObject, 'write')) {
     return res.status(404).json({
       title: 'No rights',
@@ -105,7 +105,7 @@ router.put('/:id', function(req, res, next) {
       }
     })
   }
-  Project.findById(({_id: req.params.id}), function(err, item) {
+  Project.findById(({_id: req.params.id}), function (err, item) {
     if (err) {
       return res.status(404).json({message: '', err: err})
     } else {
@@ -125,7 +125,7 @@ router.put('/:id', function(req, res, next) {
       item.dateProject = req.body.dateProject
       item.logs = req.body.logs
 
-      item.save(function(err, result) {
+      item.save(function (err, result) {
         if (err) {
           return res.status(404).json({message: 'There was an error, please try again', err: err})
         }
@@ -136,7 +136,7 @@ router.put('/:id', function(req, res, next) {
   })
 })
 
-router.post('/', function(req, res, next) {
+router.post('/', function (req, res, next) {
   if (!shared.isCurentUserHasAccess(req.user, nameObject, 'write')) {
     return res.status(404).json({
       title: 'No rights',
@@ -153,7 +153,7 @@ router.post('/', function(req, res, next) {
 
   // project.ownerCompanies = req.user.companies
   var project = new Project(req.body)
-  project.save(function(err, result) {
+  project.save(function (err, result) {
     if (err) {
       console.log(err)
       return res.status(403).json({
@@ -168,7 +168,7 @@ router.post('/', function(req, res, next) {
 })
 
 // get all forms from database
-router.get('/page/:page', function(req, res, next) {
+router.get('/page/:page', function (req, res, next) {
   var itemsPerPage = 10
   var currentPage = Number(req.params.page)
   var pageNumber = currentPage - 1
@@ -206,11 +206,11 @@ router.get('/page/:page', function(req, res, next) {
   //     path: 'bucketTasks.tasks.assignedTos',
   //     model: 'User',
   //   })
-    .limit(itemsPerPage).skip(skip).exec(function(err, item) {
+    .limit(itemsPerPage).skip(skip).exec(function (err, item) {
     if (err) {
       return res.status(404).json({message: 'No results', err: err})
     } else {
-      Project.find(searchQuery).count().exec(function(err, count) {
+      Project.find(searchQuery).count().exec(function (err, count) {
         res.status(200).json({
           paginationData: {
             totalItems: count,
@@ -226,7 +226,7 @@ router.get('/page/:page', function(req, res, next) {
 
 
 
-// router.get('/unwind', function(req, res, next) {
+// router.get('/unwind', function (req, res, next) {
 //
 //   let aggregate = []
 //   aggregate.push({
@@ -262,7 +262,7 @@ router.get('/page/:page', function(req, res, next) {
 //     }
 //   })
 //
-//   Project.aggregate(aggregate).exec(function(err, item) {
+//   Project.aggregate(aggregate).exec(function (err, item) {
 //     if (err) {
 //       return res.status(404).json({message: '', err: err})
 //     } else {
@@ -272,9 +272,9 @@ router.get('/page/:page', function(req, res, next) {
 // })
 
 // getting user forms to display them on front end
-router.get('/:id', function(req, res, next) {
+router.get('/:id', function (req, res, next) {
 
-  Project.findById((req.params.id), function(err, obj) {
+  Project.findById((req.params.id), function (err, obj) {
     if (err) {
       return res.status(500).json({message: 'An error occured', err: err})
     }
@@ -307,7 +307,7 @@ router.get('/:id', function(req, res, next) {
       }
     })
 
-    .exec(function(err, item) {
+    .exec(function (err, item) {
       if (err) {
         return res.status(404).json({message: '', err: err})
       } else {
@@ -349,7 +349,7 @@ router.get('/:id', function(req, res, next) {
 //   })
 // })
 
-router.delete('/:id', function(req, res, next) {
+router.delete('/:id', function (req, res, next) {
   if (!shared.isCurentUserHasAccess(req.user, nameObject, 'write')) {
     return res.status(404).json({
       title: 'No rights',
@@ -358,7 +358,7 @@ router.delete('/:id', function(req, res, next) {
       }
     })
   }
-  Project.findById((req.params.id), function(err, item) {
+  Project.findById((req.params.id), function (err, item) {
     if (err) {
       return res.status(500).json({message: 'An error occured', err: err})
     }
@@ -372,7 +372,7 @@ router.delete('/:id', function(req, res, next) {
     }
 
     // deleting the form from the database
-    item.remove(function(err, result) {
+    item.remove(function (err, result) {
       if (err) {
         return res.status(500).json({title: 'An error occured', error: err})
       }

@@ -43,15 +43,15 @@ export class DocumentsComponent implements OnInit {
 
 
   categories2 = '';
-  isCrew: boolean = true
-  showNavBarData: any
+  // isCrew: boolean = true
+  // showNavBarData: any
 
   constructor(
     // private sanitizer: DomSanitizer,
     private documentService: DocumentService,
     private toastr: ToastsManager,
     private globalEventsManager: GlobalEventsManager,
-
+    private authService: AuthService,
 
   ) {
 
@@ -89,7 +89,7 @@ export class DocumentsComponent implements OnInit {
       // this.fetchedDocuments[i].status.approve = false
       // this.fetchedDocuments[i].status.changeSent = false
     }
-    if (newStatus === 'CHANGES REQUEST' && this.isCrew === false) {
+    if (newStatus === 'CHANGES REQUEST' && this.fetchedDocuments[i].isCrew === false) {
       this.fetchedDocuments[i].status.changeSent = false
     }
 
@@ -196,7 +196,16 @@ export class DocumentsComponent implements OnInit {
       res => {
         this.paginationData = res.paginationData;
         this.fetchedDocuments = res.data
+        this.fetchedDocuments.forEach((document, i) => {
+          this.fetchedDocuments[i].isCrew = true
+          document.reviewers.forEach(reviewer => {
+            console.log(this.authService.getCurrentUser()._id)
+            console.log(reviewer._id)
+            if(reviewer._id === this.authService.getCurrentUser()._id)
+              this.fetchedDocuments[i].isCrew = false
+          })
 
+        })
         this.loading = false;
       },
       error => {

@@ -9,14 +9,14 @@ var express = require('express'),
   nameObject = 'userCalendar'
 
 // this process does not hang the nodejs server on error
-process.on('uncaughtException', function(err) {
+process.on('uncaughtException', function (err) {
   console.log(err)
 })
 
 // Checking if user is authenticated or not, security middleware
-router.use('/', function(req, res, next) {
+router.use('/', function (req, res, next) {
   var token = req.headers['authorization']
-  jwt.verify(token, config.secret, function(err, decoded) {
+  jwt.verify(token, config.secret, function (err, decoded) {
     if (err) {
       return res.status(401).json({message: 'Authentication failed', error: err})
     }
@@ -29,7 +29,7 @@ router.use('/', function(req, res, next) {
       })
     }
     if (decoded) {
-      User.findById(decoded.user._id).populate({path: 'rights', model: 'Right'}).exec(function(err, doc) {
+      User.findById(decoded.user._id).populate({path: 'rights', model: 'Right'}).exec(function (err, doc) {
         if (err) {
           return res.status(500).json({message: 'Fetching user failed', err: err})
         }
@@ -59,7 +59,7 @@ router.use('/', function(req, res, next) {
 })
 
 //update
-router.put('/:id', function(req, res, next) {
+router.put('/:id', function (req, res, next) {
   if (!shared.isCurentUserHasAccess(req.user, nameObject, 'write')) {
     return res.status(404).json({
       title: 'No rights',
@@ -68,7 +68,7 @@ router.put('/:id', function(req, res, next) {
       }
     })
   }
-  UserCalendar.findById(({_id: req.params.id}), function(err, item) {
+  UserCalendar.findById(({_id: req.params.id}), function (err, item) {
     if (err) {
       return res.status(404).json({message: '', err: err})
     } else {
@@ -84,7 +84,7 @@ router.put('/:id', function(req, res, next) {
       item.users = req.body.users,
       item.projects = req.body.projects,
 
-      item.save(function(err, result) {
+      item.save(function (err, result) {
         if (err) {
           return res.status(404).json({message: 'There was an error, please try again', err: err})
         }
@@ -100,7 +100,7 @@ router.put('/:id', function(req, res, next) {
   })
 })
 
-router.post('/', function(req, res, next) {
+router.post('/', function (req, res, next) {
   if (!shared.isCurentUserHasAccess(req.user, nameObject, 'write')) {
     return res.status(404).json({
       title: 'No rights',
@@ -118,7 +118,7 @@ router.post('/', function(req, res, next) {
   userCalendar.ownerCompanies = req.user.ownerCompanies
   // console.log(userCalendar)
 
-  userCalendar.save(function(err, result) {
+  userCalendar.save(function (err, result) {
     if (err) {
       console.log(err)
       return res.status(403).json({
@@ -136,7 +136,7 @@ router.post('/', function(req, res, next) {
 })
 
 // get all forms from database
-router.get('/page/:page', function(req, res, next) {
+router.get('/page/:page', function (req, res, next) {
   var itemsPerPage = 10
   var currentPage = Number(req.params.page)
   var pageNumber = currentPage - 1
@@ -177,11 +177,11 @@ router.get('/page/:page', function(req, res, next) {
   // .where('users.type').in(req.query.userSearch)
   .populate({path: 'projects', model: 'Project'})
   .limit(itemsPerPage).skip(skip)
-  .exec(function(err, item) {
+  .exec(function (err, item) {
     if (err) {
       return res.status(404).json({message: 'No results', err: err})
     } else {
-      UserCalendar.find(searchQuery).count().exec(function(err, count) {
+      UserCalendar.find(searchQuery).count().exec(function (err, count) {
 
         if (req.query.typeUser) {
           var itemFiltered = []
@@ -212,8 +212,8 @@ router.get('/page/:page', function(req, res, next) {
 })
 
 // getting user forms to display them on front end
-router.get('/:id', function(req, res, next) {
-  UserCalendar.findById((req.params.id), function(err, obj) {
+router.get('/:id', function (req, res, next) {
+  UserCalendar.findById((req.params.id), function (err, obj) {
     if (err) {
       return res.status(500).json({message: 'An error occured', err: err})
     }
@@ -230,7 +230,7 @@ router.get('/:id', function(req, res, next) {
     .populate({path: 'users', model: 'User'})
     .populate({path: 'projects', model: 'Project'})
     // .populate({path: 'quotes', model: 'Quote'})
-    .exec(function(err, item) {
+    .exec(function (err, item) {
       if (err) {
         return res.status(404).json({message: '', err: err})
       } else {
@@ -240,7 +240,7 @@ router.get('/:id', function(req, res, next) {
   })
 })
 
-router.delete('/:id', function(req, res, next) {
+router.delete('/:id', function (req, res, next) {
   if (!shared.isCurentUserHasAccess(req.user, nameObject, 'write')) {
     return res.status(404).json({
       title: 'No rights',
@@ -249,7 +249,7 @@ router.delete('/:id', function(req, res, next) {
       }
     })
   }
-  UserCalendar.findById((req.params.id), function(err, item) {
+  UserCalendar.findById((req.params.id), function (err, item) {
     if (err) {
       return res.status(500).json({message: 'An error occured', err: err})
     }
@@ -263,7 +263,7 @@ router.delete('/:id', function(req, res, next) {
     }
 
     // deleting the form from the database
-    item.remove(function(err, result) {
+    item.remove(function (err, result) {
       if (err) {
         return res.status(500).json({title: 'An error occured', error: err})
       }

@@ -221,7 +221,7 @@ router.get('/page/:page', function (req, res, next) {
 
 
 router.get('/:id', function (req, res, next) {
-  Log.findById((req.params.id), function(err, obj) {
+  Log.findById((req.params.id), function (err, obj) {
     if (err) {
       return res.status(500).json({message: 'An error occured', err: err})
     }
