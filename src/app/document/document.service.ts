@@ -45,11 +45,11 @@ export class DocumentService {
   }
 
 
-  getTasks(page: number, search: any) {
+  getMyDocuments() {
     let headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.authService.currentUser.token);
-    let options = new RequestOptions({ headers: headers, search: search});
-    return this.http.get(this.url + 'document/unwind/'  , options)
+    let options = new RequestOptions({ headers: headers, search: {}});
+    return this.http.get(this.url + 'document/myDocuments'  , options)
       .timeout(9000)
       .map((response: Response) => {
 
@@ -63,23 +63,42 @@ export class DocumentService {
       });
   }
 
+  //
+  // getTasks(page: number, search: any) {
+  //   let headers = new Headers({'Content-Type': 'application/json'});
+  //   headers.append('Authorization', '' + this.authService.currentUser.token);
+  //   let options = new RequestOptions({ headers: headers, search: search});
+  //   return this.http.get(this.url + 'document/unwind/'  , options)
+  //     .timeout(9000)
+  //     .map((response: Response) => {
+  //
+  //       const documents = response.json();
+  //
+  //       return documents;
+  //     })
+  //     .catch((error: Response) => {
+  //       this.errorService.handleError(error.json());
+  //       return Observable.throw(error.json());
+  //     });
+  // }
 
 
-  countNewItemForUser(){
-    let headers = new Headers({'Content-Type': 'application/json'});
-    headers.append('Authorization', '' + this.authService.currentUser.token);
-    let options = new RequestOptions({ headers: headers});
-    return this.http.get(this.url + 'document/countNewItemForUser/' + this.authService.currentUser.userId, options)
-      .timeout(9000)
-      .map((response: Response) => {
-        const documents = response.json();
-        return documents;
-      })
-      .catch((error: Response) => {
-        this.errorService.handleError(error.json());
-        return Observable.throw(error.json());
-      });
-  }
+  //
+  // countNewItemForUser(){
+  //   let headers = new Headers({'Content-Type': 'application/json'});
+  //   headers.append('Authorization', '' + this.authService.currentUser.token);
+  //   let options = new RequestOptions({ headers: headers});
+  //   return this.http.get(this.url + 'document/countNewItemForUser/' + this.authService.currentUser.userId, options)
+  //     .timeout(9000)
+  //     .map((response: Response) => {
+  //       const documents = response.json();
+  //       return documents;
+  //     })
+  //     .catch((error: Response) => {
+  //       this.errorService.handleError(error.json());
+  //       return Observable.throw(error.json());
+  //     });
+  // }
 
   //getDocument(id: string) : Observable<Document> {
   getDocument(id: string) {

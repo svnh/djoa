@@ -1,7 +1,17 @@
-
+<h4>Chat</h4>
 <div *ngFor="let notifChat of notifChats">
   {{notifChat.mission.title}}
   <div (click)="goToMission(notifChat.mission._id)">
     {{notifChat.countUnread}} New Messages
+  </div>
+</div>
+<br>
+<h4>Documents</h4>
+<div *ngFor="let document of myDocuments">
+  <div *ngFor="let mission of document.missions">
+    {{mission.title}}
+    <div (click)="goToMission(mission._id)">
+      {{document.details.name}}: {{document.status.global}}
+    </div>
   </div>
 </div>

@@ -4,6 +4,7 @@ var express = require('express'),
   User = require('../models/user.model'),
   Task = require('../models/task.model'),
   Document = require('../models/document.model'),
+  Mission = require('../models/mission.model'),
   Form = require('../models/form.model'),
   fs = require('fs'),
   jwt = require('jsonwebtoken'),
@@ -59,6 +60,99 @@ router.use('/', function(req, res, next) {
     }
   })
 })
+
+
+
+
+
+router.get('/myDocuments', function(req, res, next) {
+
+  let searchQuery = {}
+  searchQuery['ownerCompanies'] = req.user.ownerCompanies
+  searchQuery['users'] = mongoose.Types.ObjectId(req.user._id)
+  let returnData = []
+  Mission.find(searchQuery).sort('-createdAt').exec(function(err, itemMissions) {
+    if (err) {
+      return res.status(404).json({message: 'No results', err: err})
+    } else {
+      let itemMissionsId = []
+      itemMissions.forEach(itemMission => itemMissionsId.push(itemMission._id))
+      // console.log(itemMissionsId)
+
+
+      let searchQueryDoc = {
+        missions: { '$in' : itemMissionsId}
+      }
+      // searchQueryDoc['missions'] = mongoose.Types.ObjectId(singleMission._id)
+      Document
+      .find(searchQueryDoc)
+      .populate({path: 'missions', model: 'Mission'})
+      .exec(function(err, itemDocuments) {
+        if (err) {
+          console.log(err)
+          // return res.status(404).json({
+          //   message: 'No results',
+          //   err: err
+          // })
+        } else {
+          res.status(200).json({message: 'Successfull', obj: itemDocuments})
+        }
+      })
+
+
+      // let requests = itemMissions.map((singleMission) => {
+      //   return new Promise(function(resolve, reject) {
+      //     console.log('toto')
+      //
+      //
+      //     let searchQueryDoc = {}
+      //     searchQueryLog['missions'] = mongoose.Types.ObjectId(singleMission._id)
+      //     Log.findOne(searchQueryLog).sort('-createdAt').exec(function(err, itemLog) {
+      //       if (err) {
+      //         console.log(err)
+      //         // return res.status(404).json({
+      //         //   message: 'No results',
+      //         //   err: err
+      //         // })
+      //       } else {
+      //
+      //         // console.log('mission: ' + singleMission._id)
+      //         // console.log('Log: ' + itemLog)
+      //         // console.log('////')
+      //
+      //         // console.log(new Date(item.createdAt))
+      //
+      //         let searchQueryChat = {}
+      //         searchQueryChat['missions'] = mongoose.Types.ObjectId(singleMission._id)
+      //         if (itemLog) {
+      //           searchQueryChat['createdAt'] = {
+      //             '$gte': itemLog.createdAt
+      //             // "$lt":  new Date(JSON.parse(req.query.end))
+      //           }
+      //         }
+      //         Chat.find(searchQueryChat).count().exec(function(err, CountItemChat) {
+      //           if (err) {
+      //             console.log(err)
+      //           } else {
+      //             returnData.push({mission: singleMission, countUnread: CountItemChat})
+      //             resolve()
+      //           }
+      //         })
+      //       }
+      //     })
+      //   })
+      // })
+      // Promise.all(requests).then(() => {
+      //   res.status(200).json({message: 'Successfull', obj: returnData})
+      // })
+    }
+  })
+
+
+})
+
+
+
 
 //
 // router.put('/updateTask/:id', function(req, res, next) {
@@ -363,6 +457,10 @@ router.get('/:id', function(req, res, next) {
 //     }
 //   })
 // })
+
+
+
+
 
 router.delete('/:id', function(req, res, next) {
   if (!shared.isCurentUserHasAccess(req.user, nameObject, 'write')) {

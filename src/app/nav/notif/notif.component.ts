@@ -3,6 +3,7 @@ import {AuthService} from '../../auth/auth.service';
 import {AdminService} from '../../admin/services/admin.service';
 import {Router} from '@angular/router';
 import { UserService} from '../../user/user.service';
+import { DocumentService} from '../../document/document.service';
 import { User} from '../../user/user.model';
 import { NotifChat} from './notif.model';
 import { CompanieGuardService} from '../../companie/companieGuard.service'
@@ -27,6 +28,7 @@ export class NotifComponent implements OnInit {
  // private userId: string = localStorage.getItem('userId');
   // private userId: string;
   notifChats: NotifChat[] = []
+  myDocuments: Document[] = []
   // fetchedNotifications: Notification[] = [];
   // notificationsNotRead: number=0;
 
@@ -35,7 +37,7 @@ export class NotifComponent implements OnInit {
     private authService: AuthService,
     private adminService: AdminService,
     private chatService: ChatService,
-    // private userService: UserService,
+    private documentService: DocumentService,
     private globalEventsManager: GlobalEventsManager,
     private router: Router,
     // private companieGuardService: CompanieGuardService,
@@ -51,11 +53,22 @@ export class NotifComponent implements OnInit {
   }
 
   getChatUnread() {
+    this.chatService.getChatUnread()
+      .subscribe(
+        res => {
+          this.notifChats = res.obj
+        },
+        error => {
+          console.log(error);
+        }
+      );
+  }
 
-      this.chatService.getChatUnread()
+  getMyDocuments() {
+      this.documentService.getMyDocuments()
         .subscribe(
           res => {
-            this.notifChats = res.obj
+            this.myDocuments = res.obj
           },
           error => {
             console.log(error);
@@ -65,6 +78,7 @@ export class NotifComponent implements OnInit {
 
   ngOnInit() {
     this.getChatUnread()
+    this.getMyDocuments()
 
   }
 
