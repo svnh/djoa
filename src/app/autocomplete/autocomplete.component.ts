@@ -64,30 +64,30 @@ export class AutocompleteComponent implements OnInit {
   ngOnChanges() {
     if(this.typeAutocomplete ==='project' && this.search.projectId)
         this.projectService.getProject(this.search.projectId)
-        .subscribe( res => { this.arrayContent = [res] }, error => { console.log(error); });
+        .subscribe( res => { this.arrayContent.push(res) }, error => { console.log(error); });
 
 
     if(this.typeAutocomplete ==='product' && this.search.productId)
         this.productService.getProduct(this.search.productId)
-        .subscribe( res => { this.arrayContent = [res] }, error => { console.log(error); });
+        .subscribe( res => { this.arrayContent.push(res) }, error => { console.log(error); });
 
 
     if(this.typeAutocomplete ==='strat' && this.search.stratId)
         this.stratService.getStrat(this.search.stratId)
-        .subscribe( res => { this.arrayContent = [res] }, error => { console.log(error); });
+        .subscribe( res => { this.arrayContent.push(res) }, error => { console.log(error); });
 
 
     if(this.typeAutocomplete ==='mission' && this.search.missionId)
         this.missionService.getMission(this.search.missionId)
-        .subscribe( res => { this.arrayContent = [res] }, error => { console.log(error); });
+        .subscribe( res => { this.arrayContent.push(res) }, error => { console.log(error); });
 
     if(this.typeAutocomplete ==='document' && this.search.documentId)
         this.documentService.getDocument(this.search.documentId)
-        .subscribe( res => { this.arrayContent = [res] }, error => { console.log(error); });
+        .subscribe( res => { this.arrayContent.push(res) }, error => { console.log(error); });
 
     if(this.typeAutocomplete ==='brief' && this.search.briefId)
         this.briefService.getBrief(this.search.briefId)
-        .subscribe( res => { this.arrayContent = [res] }, error => { console.log(error); });
+        .subscribe( res => { this.arrayContent.push(res) }, error => { console.log(error); });
 
 
   }

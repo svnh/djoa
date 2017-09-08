@@ -26,6 +26,7 @@ export class GlobalEventsManager {
         this._showNavBarTop.next(ifShow);
     }
     showNavBarRight(ifShow: any) {
+      console.log( ifShow)
         this._showNavBarRight.next(ifShow);
     }
     refreshCenter(ifShow: boolean) {

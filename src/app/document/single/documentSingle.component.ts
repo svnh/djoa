@@ -349,7 +349,7 @@ export class DocumentSingleComponent implements OnInit {
   //   })
   // }
 
-  ngOnChanges(){
+  ngOnChanges() {
     console.log('changes')
   }
 

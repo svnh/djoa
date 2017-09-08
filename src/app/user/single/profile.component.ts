@@ -58,7 +58,6 @@ export class ProfileComponent implements OnInit {
 
 
     ngOnInit() {
-
       this.myForm = this._fb.group({
           email: [this.emailValidator],
           typeUsers: [''],
@@ -91,12 +90,16 @@ export class ProfileComponent implements OnInit {
       this.fetchedUser.isExternalUser = this.search.isExternalUser
       // console.log(this.search.userId)
       this.activatedRoute.params.subscribe((params: Params) => {
-        if (this.search.userId) {
-          this.getUser(this.search.userId)
-        } else if(params['id']) {
+        if(params['id']) {
             this.getUser(params['id'])
         }
       })
+    }
+
+    ngOnChanges() {
+      if (this.search.userId) {
+        this.getUser(this.search.userId)
+      }
     }
 
   // searchCompanies() {
@@ -166,11 +169,6 @@ export class ProfileComponent implements OnInit {
     this.fetchedUser.typeUsers.splice(i, 1);
   }
   // autocolplete typeUser
-
-
-
-
-
 
   emailValidator(control: any) {
     let EMAIL_REGEXP = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
@@ -300,9 +298,9 @@ export class ProfileComponent implements OnInit {
         )
       })
   }
-  ngOnDestroy() {
-    console.log('destroy')
-    // prevent memory leak when component destroyed
-    // this.subscription.unsubscribe();
-  }
+  // ngOnDestroy() {
+  //   console.log('destroy')
+  //   // prevent memory leak when component destroyed
+  //   // this.subscription.unsubscribe();
+  // }
 }

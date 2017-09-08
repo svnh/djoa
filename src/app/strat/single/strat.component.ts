@@ -105,7 +105,7 @@ export class StratComponent implements OnInit {
 
 
   save() {
-
+      console.log(this.fetchedStrat)
       this.fetchedStrat.dateStrat
       .start = this.authService
       .HTMLDatetoIsoDate(this.fetchedStrat.dateStrat.startString)

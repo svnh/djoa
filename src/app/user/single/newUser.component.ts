@@ -38,13 +38,13 @@ export class NewUserComponent implements OnInit {
 
   // fetchedRights: Right[] = []
 
-  titleArray=['Mr.', 'Mrs.']
-  languageArray=['fr','en']
-  typeClientArray=['Particulier','Societe','Administration']
-  statusHouseArray=['Propriétaire','Locataire']
-  typeHouseArray=['Pavillon','Immeuble']
-  companieIndexToSelect = ''
-  typeUserDropDown = ''
+  // titleArray=['Mr.', 'Mrs.']
+  // languageArray=['fr','en']
+  // typeClientArray=['Particulier','Societe','Administration']
+  // statusHouseArray=['Propriétaire','Locataire']
+  // typeHouseArray=['Pavillon','Immeuble']
+  // companieIndexToSelect = ''
+  // typeUserDropDown = ''
   // typeUser = TypeUser
 
   fetchedUser: User = new User();
@@ -102,6 +102,7 @@ export class NewUserComponent implements OnInit {
       this.fetchedUser.isExternalUser = this.search.isExternalUser
       // console.log(this.search.userId)
       this.activatedRoute.params.subscribe((params: Params) => {
+
         if (this.search.userId) {
           this.getUser(this.search.userId)
         } else if(params['id']) {
@@ -191,9 +192,9 @@ export class NewUserComponent implements OnInit {
     }
   }
 
-  goBack() {
-    this.location.back();
-  }
+  // goBack() {
+  //   this.location.back();
+  // }
 
   // openDialogDelete(){
   //   let this2 = this
