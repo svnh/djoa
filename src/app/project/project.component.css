@@ -1,3 +1,10 @@
+.allmissions {
+  overflow-x: auto;
+  margin: 50px 0;
+}
+.allmissions-container {
+  width: 5000px;
+}
 .projectinfo {
   clear: both;
 }
