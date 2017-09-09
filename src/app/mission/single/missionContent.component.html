@@ -1,22 +1,13 @@
 <div class="djoa-container">
   <div class="row">
     <div class="col-md-12">
-
       <h3>Mission</h3>
       <h4 class="">id: {{fetchedMission._id}}</h4>
-
       <h1>Mission</h1>
-      <!--id: {{fetchedMission._id}}-->
-
       <div>
         <br> title:{{fetchedMission.title}}
         <br> description: {{fetchedMission.description}}
       </div>
-
-      <br>
-
-
-
 
       <md-card>
         <md-card-content>
@@ -24,25 +15,12 @@
           <app-chat [search]="search"></app-chat>
         </md-card-content>
       </md-card>
-      <br>
-
-
-      <br>
       <md-card>
         <md-card-content>
           <h2>Links to documents</h2>
-
           <app-documents [search]="search"></app-documents>
         </md-card-content>
       </md-card>
-
-      <br>
-
-
-
-
-
-      <br>
       <md-card>
         <md-card-content>
           <h2 class="">{{fetchedMission.title}}</h2>
@@ -54,9 +32,6 @@
           </section>
         </md-card-content>
       </md-card>
-
-
-      <br>
       <md-card>
         <md-card-content>
           <h2>Team</h2>
@@ -71,16 +46,6 @@
           </div>
         </md-card-content>
       </md-card>
-
-      <!-- <div class="valid-edit">
-          <button type="submit" class="sln-edt done">{{'Save' }}</button>
-          <button *ngIf="fetchedMission._id" type="button" class="delete" md-button (click)="openDialogDelete()">
-            Delete
-          </button>
-
-        </div> -->
-      <br><br><br><br><br><br>
-
     </div>
   </div>
 </div>
