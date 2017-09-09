@@ -1,14 +1,9 @@
-
 <div class="container">
   <div>
     <h3>Mission Team</h3>
-
     <h4 class="">id: {{fetchedMission._id}}</h4>
-
-
     <form [formGroup]="myForm" novalidate (ngSubmit)="save()">
       <div>
-
         <app-autocomplete
           [typeAutocomplete]="'user'"
           [singleChoice]=false
@@ -16,9 +11,6 @@
           [arrayContent]="fetchedMission.users">
         </app-autocomplete>
       </div>
-
-
-
       <div class="valid-edit">
         <button type="submit" class="sln-edt done">{{'Save' }}</button>
         <button *ngIf="fetchedMission._id" type="button" class="delete" md-button (click)="openDialogDelete()">

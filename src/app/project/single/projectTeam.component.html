@@ -1,5 +1,4 @@
 <div class="container">
-
   <div class="row">
     <div class="col-md-12">
       <h3>Project</h3>
@@ -9,25 +8,10 @@
             <label>Id</label> {{fetchedProject._id}}
           </div>
         </div>
-
-        <br>
-
-
-
-
         <app-autocomplete [typeAutocomplete]="'user'" [title]="'Customer'" [search]="{isExternalUser:false}" [singleChoice]=false [arrayContent]="fetchedProject.users" >
         </app-autocomplete>
-
-        <br>
-
-
-
-
-
-
         <div class="valid-edit">
           <button type="submit" class="done btn btn-success" [disabled]="!myForm.valid">{{'Save' }}</button>
-
         </div>
         <div class="clearfix"></div>
       </form>
