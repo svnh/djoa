@@ -24,12 +24,13 @@ export class Mission {
 
     // dateMission: DateMission = new DateMission()
 }
-// export class DateMission {
-//   start: Date = new Date()
-//   startString: string = '';
-//   end: Date = new Date()
-//   endString: string = '';
-// }
+
+
+
+export class ButtonDataMission {
+  left: Mission = new Mission()
+  right: Mission = new Mission()
+}
 
 // export const typeMissions = [
 //   'strat',

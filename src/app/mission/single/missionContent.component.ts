@@ -1,27 +1,27 @@
-import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
-import {AuthService} from '../../auth/auth.service';
-import {MissionService} from '../mission.service';
-import {ProductService} from '../../product/product.service';
-import { ProjectService} from '../../project/project.service';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { AuthService } from '../../auth/auth.service';
+import { MissionService } from '../mission.service';
+import { ProductService } from '../../product/product.service';
+import { ProjectService } from '../../project/project.service';
 
-import {Mission} from '../mission.model';
+import { Mission, ButtonDataMission } from '../mission.model';
 
-import {ToastsManager} from 'ng2-toastr';
+import { ToastsManager } from 'ng2-toastr';
 
-import {MdDialog } from '@angular/material';
-import {Router, ActivatedRoute, Params } from '@angular/router';
+import { MdDialog } from '@angular/material';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
-import { FormBuilder, FormGroup} from '@angular/forms';
-import { UserService} from '../../user/user.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { UserService } from '../../user/user.service';
 // import { QuoteService } from '../../quote/quote.service';
 // import { DeleteDialog } from '../../deleteDialog/deleteDialog.component';
 import { User } from '../../user/user.model';
 // import { Quote } from '../../quote/quote.model';
 import { Product } from '../../product/product.model';
 import { Project } from '../../project/project.model';
-import {Search} from '../../home/home.model'
-import {GlobalEventsManager} from '../../globalEventsManager';
-import {ShowNavBarData} from '../../home/home.model'
+import { Search } from '../../home/home.model'
+import { GlobalEventsManager } from '../../globalEventsManager';
+import { ShowNavBarData } from '../../home/home.model'
 
 
 @Component({
@@ -34,11 +34,12 @@ export class MissionContentComponent implements OnInit {
 
   @Input() fetchedMission: Mission = new Mission()
   @Input() search: Search = new Search()
-
-
+  fetchedMissions: Mission[] = [];
+  loading: boolean;
   myForm: FormGroup;
+  buttonDataMission: ButtonDataMission = new ButtonDataMission()
 
-// ]
+  // ]
   constructor(
     private missionService: MissionService,
     // private quoteService: QuoteService,
@@ -47,7 +48,7 @@ export class MissionContentComponent implements OnInit {
     // private projectService: ProjectService,
     // private userService: UserService,
     // private productService: ProductService,
-//    private modalService: NgbModal,
+    //    private modalService: NgbModal,
     private toastr: ToastsManager,
     // public dialog: MdDialog,
     private activatedRoute: ActivatedRoute,
@@ -57,8 +58,8 @@ export class MissionContentComponent implements OnInit {
     private authService: AuthService,
   ) {
     this.globalEventsManager.refreshCenterEmitter.subscribe((isRefresh) => {
-        if(isRefresh)
-          this.getMission(this.fetchedMission._id)
+      if (isRefresh)
+        this.getMission(this.fetchedMission._id)
     })
   }
 
@@ -96,7 +97,7 @@ export class MissionContentComponent implements OnInit {
       // if (this.search.missionId) {
       //   this.getMission(this.search.missionId)
       // } else
-      if(params['id']) {
+      if (params['id']) {
         this.search.missionId = params['id']
         this.getMission(params['id'])
       }
@@ -111,7 +112,7 @@ export class MissionContentComponent implements OnInit {
     this.globalEventsManager.showNavBarRight(showNavBarData);
   }
 
-  openProfile(userId: string){
+  openProfile(userId: string) {
     let showNavBarData = new ShowNavBarData()
     showNavBarData.search.typeScreen = 'profile'
     showNavBarData.search.typeObj = 'user'
@@ -128,42 +129,42 @@ export class MissionContentComponent implements OnInit {
 
   save() {
 
-      this.fetchedMission.dateMission
+    this.fetchedMission.dateMission
       .start = this.authService
-      .HTMLDatetoIsoDate(this.fetchedMission.dateMission.startString)
+        .HTMLDatetoIsoDate(this.fetchedMission.dateMission.startString)
 
-      this.fetchedMission.dateMission
+    this.fetchedMission.dateMission
       .end = this.authService
-      .HTMLDatetoIsoDate(this.fetchedMission.dateMission.endString)
+        .HTMLDatetoIsoDate(this.fetchedMission.dateMission.endString)
 
 
     // this.fetchedMission.datePaiement = this.authService.HTMLDatetoIsoDate(this.fetchedMission.datePaiementString)
-    if(this.fetchedMission._id) {
+    if (this.fetchedMission._id) {
       this.missionService.updateMission(this.fetchedMission)
         .subscribe(
-          res => {
-            this.toastr.success('Great!', res.message)
-            this.getMission(res.obj._id)
-            // this.fetchedMission = res.obj
-            //this.router.navigate(['mission/edit/' + this.fetchedMission._id])
-          },
-          error => {
-            this.toastr.error('error!', error)
-          }
+        res => {
+          this.toastr.success('Great!', res.message)
+          this.getMission(res.obj._id)
+          // this.fetchedMission = res.obj
+          //this.router.navigate(['mission/edit/' + this.fetchedMission._id])
+        },
+        error => {
+          this.toastr.error('error!', error)
+        }
         )
     } else {
       this.missionService.saveMission(this.fetchedMission)
         .subscribe(
-          res => {
-            this.toastr.success('Great!', res.message)
-            this.getMission(res.obj._id)
-            this.globalEventsManager.refreshCenter(true);
-            // this.fetchedMission = res.obj
-            // this.newMissionSaved.emit()
-            // if(this.showHeader)
-            //   this.router.navigate(['mission/edit/' + res.obj._id])
-          },
-          error => {console.log(error)}
+        res => {
+          this.toastr.success('Great!', res.message)
+          this.getMission(res.obj._id)
+          this.globalEventsManager.refreshCenter(true);
+          // this.fetchedMission = res.obj
+          // this.newMissionSaved.emit()
+          // if(this.showHeader)
+          //   this.router.navigate(['mission/edit/' + res.obj._id])
+        },
+        error => { console.log(error) }
         )
     }
 
@@ -172,33 +173,23 @@ export class MissionContentComponent implements OnInit {
 
 
 
-
-
-
-  goBack() {
-    this.location.back();
-  }
-
-
-
-
-
-  onDelete(id: string) {
-    let this2 = this
-    return new Promise(function(resolve, reject) {
-      this2.missionService.deleteMission(id)
-        .subscribe(
-          res => {
-            this2.toastr.success('Great!', res.message);
-            resolve(res)
-          },
-          error => {
-            console.log(error);
-            reject(error)
-          }
-        )
-      })
-  }
+  //
+  // onDelete(id: string) {
+  //   let this2 = this
+  //   return new Promise(function(resolve, reject) {
+  //     this2.missionService.deleteMission(id)
+  //       .subscribe(
+  //       res => {
+  //         this2.toastr.success('Great!', res.message);
+  //         resolve(res)
+  //       },
+  //       error => {
+  //         console.log(error);
+  //         reject(error)
+  //       }
+  //       )
+  //   })
+  // }
 
 
   // openDialogDelete(){
@@ -216,42 +207,67 @@ export class MissionContentComponent implements OnInit {
 
 
 
+  getMissionsButtons(page: number, search: any) {
+    this.loading = true;
+    this.missionService.getMissions(page, search)
+      .subscribe(
+      res => {
+        this.fetchedMissions = res.data
+        let positionObj: number = this.fetchedMissions.findIndex(mission => mission._id === this.fetchedMission._id)
+        let countMissions = this.fetchedMissions.length
+        if (positionObj === 0) {
+          this.buttonDataMission.left = new Mission()
+        } else {
+          this.buttonDataMission.left = this.fetchedMissions[positionObj - 1]
+        }
+
+        if (positionObj === countMissions) {
+          this.buttonDataMission.right = new Mission()
+        } else {
+          this.buttonDataMission.left = this.fetchedMissions[positionObj + 1]
+        }
+
+        this.loading = false;
+      },
+      error => {
+        console.log(error);
+      }
+      );
+  }
+
 
   getMission(id: string) {
     this.missionService.getMission(id)
       .subscribe(
-        res => {
-          this.fetchedMission = res
+      res => {
+        this.fetchedMission = res
 
 
-          this.fetchedMission.dateMission
-            .startString = this.authService
-              .isoDateToHtmlDate(this.fetchedMission.dateMission.start)
+        this.fetchedMission.dateMission.startString = this.authService
+          .isoDateToHtmlDate(this.fetchedMission.dateMission.start)
 
-          this.fetchedMission.dateMission
-            .endString = this.authService
-              .isoDateToHtmlDate(this.fetchedMission.dateMission.end)
+        this.fetchedMission.dateMission.endString = this.authService
+          .isoDateToHtmlDate(this.fetchedMission.dateMission.end)
 
 
-          this.fetchedMission.dateMission.percentageProgress = this.authService.getPourcentageProgress(this.fetchedMission.dateMission.start, this.fetchedMission.dateMission.end)
+        this.fetchedMission.dateMission.percentageProgress = this.authService.getPourcentageProgress(this.fetchedMission.dateMission.start, this.fetchedMission.dateMission.end)
+        let newSearch = new Search()
 
+        this.fetchedMission.projects.forEach(project => { newSearch.projectId = project._id })
+        this.fetchedMission.products.forEach(product => { newSearch.productId = product._id })
 
-          // this.fetchedMission
-          // .datePaiementString =
-          // this.authService
-          // .isoDateToHtmlDate(this.fetchedMission.datePaiement)
-        },
-        error => {
-          console.log(error);
-        }
+        this.getMissionsButtons(1, newSearch)
+
+      },
+      error => { console.log(error) }
       )
   }
 
 
-  ngOnDestroy() {
-    console.log('destroy')
-    // prevent memory leak when component destroyed
-    // this.subscription.unsubscribe();
-  }
+  // ngOnDestroy() {
+  //   console.log('destroy')
+  //   // prevent memory leak when component destroyed
+  //   // this.subscription.unsubscribe();
+  // }
 
 }

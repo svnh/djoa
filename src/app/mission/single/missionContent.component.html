@@ -1,11 +1,14 @@
 <div class="djoa-container">
   <div class="row">
     <div class="col-md-12">
-      <h1>Mission</h1>
+      <h3>Mission</h3>
+      <h4 class="">id: {{fetchedMission._id}}</h4>
+      <h1>Mission</h1><!--id: {{fetchedMission._id}}-->
       <div>
         <h2>title:{{fetchedMission.title}}</h2>
         <p>description: {{fetchedMission.description}}</p>
       </div>
+      {{buttonData|json}}
       <md-card>
         <md-card-content>
           <h2>Chat</h2>
