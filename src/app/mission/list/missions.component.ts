@@ -42,9 +42,6 @@ export class MissionsComponent implements OnInit {
   };
 
 
-  categories2 = '';
-
-
 
   constructor(
     private globalEventsManager: GlobalEventsManager,

@@ -199,8 +199,6 @@ export class DocumentsComponent implements OnInit {
         this.fetchedDocuments.forEach((document, i) => {
           this.fetchedDocuments[i].isCrew = true
           document.reviewers.forEach(reviewer => {
-            console.log(this.authService.getCurrentUser()._id)
-            console.log(reviewer._id)
             if(reviewer._id === this.authService.getCurrentUser()._id)
               this.fetchedDocuments[i].isCrew = false
           })
