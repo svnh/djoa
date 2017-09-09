@@ -42,6 +42,7 @@ h3 {
 }
 h4 {
   font-size: 18px;
+  display: inline-block;
 }
 .dspl-nn{
   display: none !important;
@@ -79,6 +80,8 @@ h4 {
   font-size: 12px;
   padding: 2px 10px;
   text-decoration: none;
+  background: none;
+  border: none;
 }
 .add-object {
   width: 100%;

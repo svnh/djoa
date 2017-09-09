@@ -9,3 +9,24 @@
 .projectinfo {
   clear: both;
 }
+.startdate p, .enddate p {
+  margin-bottom: 0;
+  color: #b3b3b3;
+}
+.projectsummary, .teaminfo {
+  display: inline-block;
+  position: absolute;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  height: 200px;
+}
+.project-progress .mat-progress-bar {
+  width: 85% !important;
+  display: inline-block;
+}
+
+@media screen and (min-width: 768px){
+  .projectsummary, .teaminfo {
+    width: 33.3333%;
+  }
+}

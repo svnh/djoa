@@ -17,13 +17,17 @@
           <h4>Project Information</h4>
           <button type="button" (click)="openDetails()" class="edit-btn">Edit</button>
           <div class="project-progress">
-            <p class="startdate">Start Date:</p>
-            {{fetchedProject.dateProject.start | date:'yyyy-MM-dd' }}
-            <p class="enddate">End Date</p>
-            {{fetchedProject.dateProject.end | date:'yyyy-MM-dd' }}
+            <div class="startdate">
+              <p>Start Date:</p>
+              {{fetchedProject.dateProject.start | date:'yyyy-MM-dd' }}
+            </div>
+            <div class="enddate">
+              <p>End Date</p>
+              {{fetchedProject.dateProject.end | date:'yyyy-MM-dd' }}
+            </div>
             <section>
               <md-progress-bar [color]="'primary'" [mode]="'determinate'" [value]="fetchedProject.dateProject.percentageProgress"></md-progress-bar>
-              {{fetchedProject.dateProject.percentageProgress}}%
+              <p class="percent">{{fetchedProject.dateProject.percentageProgress}}%</p>
             </section>
           </div>
         </md-card-content>
@@ -31,7 +35,7 @@
       <md-card class="teaminfo">
         <md-card-content>
           <h4>Team</h4>
-          <button type="button" (click)="openTeam()">Edit</button>
+          <button type="button" (click)="openTeam()" class="edit-btn">Edit</button>
           <div *ngFor="let user of fetchedProject.users">
             <app-picture [userIdToOpenProfile]="user._id" [addPicture]=false [deletePicture]=false [forms]="user.forms"></app-picture>
           </div>
