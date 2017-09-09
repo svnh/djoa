@@ -136,6 +136,119 @@ router.put('/:id', function (req, res, next) {
   })
 })
 
+
+
+// 
+// router.get('/missionsByProductsByProject/:id', function(req, res, next) {
+//   Project.findById((req.params.id), function(err, obj) {
+//     if (err) {
+//       return res.status(500).json({message: 'An error occured', err: err})
+//     }
+//     if (!obj) {
+//       return res.status(404).json({
+//         title: 'No obj found',
+//         error: {
+//           message: 'Obj not found!'
+//         }
+//       })
+//     }
+//
+//
+//
+//
+//       let searchQuery = {}
+//       searchQuery['ownerCompanies'] = req.user.ownerCompanies
+//       Product
+//       .find(searchQuery)
+//       .sort('-createdAt')
+//       .exec(function (err, products) {
+//         if (err) {
+//           return res.status(404).json({
+//             message: 'No results',
+//             err: err
+//           })
+//         } else {
+//           let itemProductsId = []
+//           products.forEach(itemProduct => itemProductsId.push(itemProduct._id))
+//           // console.log(itemProductsId)
+//
+//           let searchQueryMission = {
+//             products: {'$in': itemProductsId}
+//           }
+//           searchQueryMission['projects'] = mongoose.Types.ObjectId(req.params.id)
+//           Mission
+//           .find(searchQueryMission)
+//           // .populate({path: 'missions', model: 'Mission'})
+//           .exec(function (err, missions) {
+//             if (err) {
+//               return res.status(404).json({
+//                 message: 'No results',
+//                 err: err
+//               })
+//             } else {
+//               // console.log(missions)
+//               let returnData = []
+//               products.forEach(product => {
+//                 // console.log('/////////////////////')
+//                 let arrayMission=[]
+//                 missions.forEach(mission => {
+//                   mission.products.forEach(productMission => {
+//                     // console.log(productMission.toString() , product._id.toString())
+//                     if(productMission.toString() === product._id.toString()) {
+//                       arrayMission.push(mission)
+//                     }
+//
+//                   })
+//                 })
+//
+//
+//
+//                 returnData.push({
+//                   product: product,
+//                   missions: arrayMission
+//                 })
+//               })
+//               // console.log(returnData)
+//               res.status(200).json({message: 'Successfull', obj: returnData})
+//             }
+//           })
+//
+//
+//         }
+//       })
+//
+//
+//
+//
+//
+//     //
+//     // Project.findById({_id: req.params.id}).populate({path: 'users', model: 'User'}).populate({
+//     //   path: 'users',
+//     //   model: 'User',
+//     //   populate: {
+//     //     path: 'forms',
+//     //     model: 'Form'
+//     //   }
+//     // }).populate({
+//     //   path: 'bucketTasks.tasks',
+//     //   model: 'Task',
+//     //   populate: {
+//     //     path: 'projects',
+//     //     model: 'Project'
+//     //   }
+//     // }).exec(function(err, item) {
+//     //   if (err) {
+//     //     return res.status(404).json({message: '', err: err})
+//     //   } else {
+//     //     res.status(200).json({message: 'Success', item: item})
+//     //   }
+//     // })
+//   })
+// })
+//
+//
+//
+
 router.post('/', function (req, res, next) {
   if (!shared.isCurentUserHasAccess(req.user, nameObject, 'write')) {
     return res.status(404).json({
