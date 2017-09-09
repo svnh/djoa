@@ -1,3 +1,8 @@
+.sidebar-item {
+  background-color: #ffffff;
+  box-shadow: 0 0 5px #aaaaaa;
+  padding: 15px;
+}
 .allmissions {
   overflow-x: auto;
   margin: 50px 0;
@@ -49,7 +54,7 @@ md-progress-bar.mat-progress-bar.mat-primary, .project-progress {
   width: 80% !important;
   padding: 1px !important;
 }
-button.delete-x {
+.delete-x {
   position: absolute;
   top: 0%;
   right: 0%;
@@ -85,10 +90,10 @@ p.percent {
   border-radius: 20px;
   margin: 15px 0;
 }
-.activity .number, .activity h4 {
+.activity .number {
   background-color: #4a148c;
 }
-.your-activity .number, .your-activity h4 {
+.your-activity .number {
   background-color: #f44336;
 }
 .activity h4 {
