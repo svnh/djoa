@@ -13,48 +13,44 @@
       <div class="project-content">
         <div *ngIf="fetchedProject._id">
           <div *ngFor="let product of fetchedProducts">
-            {{product.name}}
             <app-missions [search]="{projectId:fetchedProject._id, productId:product._id}"></app-missions>
           </div>
         </div>
       </div>
-
-      <br>
-      <md-card>
-        <md-card-content>
-          <h2 class="">Project Information</h2>
-          <button type="button" (click)="openDetails()">Edit</button>
-          <br>
-          Start Date {{fetchedProject.dateProject.start | date:'yyyy-MM-dd' }} /
-          End Date {{fetchedProject.dateProject.end | date:'yyyy-MM-dd' }} / {{fetchedProject.dateProject.percentageProgress}}%
-          <section class="example-section">
-            <md-progress-bar
-              class="example-margin"
-              [color]="'primary'"
-              [mode]="'determinate'"
-              [value]="fetchedProject.dateProject.percentageProgress"
-              >
-            </md-progress-bar>
-          </section>
-        </md-card-content>
-      </md-card>
-      <br>
-      <md-card>
-        <md-card-content>
-          <h2>Team</h2>
-          <button type="button" (click)="openTeam()">Edit</button>
-          <br>
-          <div *ngFor="let user of fetchedProject.users">
-            <!-- <div (click)="openProfile(user._id)"> -->
-              <app-picture [userIdToOpenProfile]="user._id" [addPicture]=false [deletePicture]=false [forms]="user.forms"></app-picture>
-            <!-- </div> -->
-            {{user.profile.name}}
+      <div class="clearfix">
+        <md-card class="projectinfo">
+          <md-card-content>
+            <h4>Project Information</h4>
+            <button type="button" (click)="openDetails()">Edit</button>
             <br>
-          </div>
-        </md-card-content>
-      </md-card>
-
-      <br><br><br><br><br><br><br><br>
+            Start Date {{fetchedProject.dateProject.start | date:'yyyy-MM-dd' }} /
+            End Date {{fetchedProject.dateProject.end | date:'yyyy-MM-dd' }} / {{fetchedProject.dateProject.percentageProgress}}%
+            <section class="example-section">
+              <md-progress-bar
+                class="example-margin"
+                [color]="'primary'"
+                [mode]="'determinate'"
+                [value]="fetchedProject.dateProject.percentageProgress"
+                >
+              </md-progress-bar>
+            </section>
+          </md-card-content>
+        </md-card>
+        <md-card class="teaminfo">
+          <md-card-content>
+            <h4>Team</h4>
+            <button type="button" (click)="openTeam()">Edit</button>
+            <br>
+            <div *ngFor="let user of fetchedProject.users">
+              <!-- <div (click)="openProfile(user._id)"> -->
+                <app-picture [userIdToOpenProfile]="user._id" [addPicture]=false [deletePicture]=false [forms]="user.forms"></app-picture>
+              <!-- </div> -->
+              {{user.profile.name}}
+              <br>
+            </div>
+          </md-card-content>
+        </md-card>
+      </div>
     </div>
 
     <!--
