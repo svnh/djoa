@@ -6,7 +6,7 @@
         <app-strats [search]="search"></app-strats>
         <div *ngIf="fetchedProject._id">
           <div *ngFor="let product of fetchedProducts">
-            <app-missions [title]="product.name" [search]="{projectId:fetchedProject._id, productId:product._id}"></app-missions>
+            <app-missions (getResultMissions)="getResultMissions($event)" [title]="product.name" [search]="{projectId:fetchedProject._id, productId:product._id}"></app-missions>
           </div>
         </div>
       </div>
@@ -45,7 +45,7 @@
         <md-card-content>
           <h4>Activity</h4>
           <div>
-            <div class="number">2</div> Missions
+            <div class="number">{{fetchedMissions.length}}</div> Missions
           </div>
           <div>
             <div class="number">2</div> Pending Tasks
