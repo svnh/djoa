@@ -1,4 +1,8 @@
 
-<div *ngFor="let mission of fetchedMissions">
-  <div (click)="goToMission(mission._id)" routerLinkActive="active">{{mission.title}}</div>
+<div *ngFor="let mission of fetchedMissions; let i = index;">
+  <div *ngIf="i==0" (click)="goToMission(mission._id)" routerLinkActive="active">{{title}}</div>
+</div>
+
+<div *ngIf="!fetchedMissions.length">
+  <div style="color:red">{{title}}</div>
 </div>

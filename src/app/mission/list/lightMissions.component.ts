@@ -26,6 +26,7 @@ export class LightMissionsComponent implements OnInit {
   // @Input() userId = '';
   // @Input() missionType = '';
   @Input() search: Search = new Search()
+  @Input() title: string = ''
 
   // token: string = localStorage.getItem('id_token');
   fetchedMissions: Mission[] = [];
