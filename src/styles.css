@@ -44,8 +44,17 @@ h4 {
   font-size: 18px;
   display: inline-block;
 }
-.dspl-nn{
-  display: none !important;
+
+@media screen and (min-width: 768px) {
+  .dspl-nn-dsktp {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .dspl-nn-mbl {
+    display: none !important;
+  }
 }
 /*----------Body---------*/
 
@@ -58,7 +67,7 @@ h4 {
 }
 .djoa-container {
   float: none;
-  margin: 0 auto;
+  margin: 0 0 0 13%;
   height: 86vh !important;
   overflow-y: auto;
   overflow-x: hidden;
@@ -97,8 +106,8 @@ h4 {
 
 @media screen and (min-width: 768px) {
   .djoa-container {
-    width: 70% !important;
-    max-width: 70% !important;
+    width: 80% !important;
+    max-width: 80% !important;
   }
   .missionbox {
     margin-right: 20px;
@@ -107,6 +116,10 @@ h4 {
 
 /*---------- Angular CSS and Bootstrap Override---------*/
 
+button {
+  background: none;
+  border: none;
+}
 body, .mat-drawer-container {
   background-color: transparent !important;
 }

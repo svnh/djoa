@@ -21,10 +21,11 @@
   text-align: right;
 }
 .projectsummary, .teaminfo, .activity, .your-activity {
-  display: table-cell;
+  display: inline-grid;
   box-shadow: none !important;
   border-radius: 0 !important;
   height: 200px;
+  margin: 0 -6px 0 0;
 }
 .teaminfo, .your-activity {
   background-color: #f4f4f4;
@@ -58,6 +59,9 @@ button.delete-x {
   color: #fff;
   height: 100%;
 }
+.projectsummary section {
+  position: relative;
+}
 .projectsummary md-progress-bar.mat-progress-bar.mat-primary {
   border-left: 1px solid;
   border-right: 1px solid;
@@ -69,17 +73,17 @@ p.percent {
   margin: 0 !important;
   padding: 1px 10px 0;
   position: absolute;
-  top: 25%;
+  top: 6%;
   color: #009688;
   font-weight: 600;
 }
 .number {
   display: inline-block;
-  background-color: #000;
   color: #fff;
   font-weight: 500;
   padding: 5px 12px;
   border-radius: 20px;
+  margin: 15px 0;
 }
 .activity .number, .activity h4 {
   background-color: #4a148c;
@@ -87,15 +91,21 @@ p.percent {
 .your-activity .number, .your-activity h4 {
   background-color: #f44336;
 }
+.activity h4 {
+  color: #4a148c;
+}
+.your-activity h4 {
+  color: #f44336;
+}
 
 @media screen and (min-width: 768px){
   .projectsummary {
-    width: 55%;
+    width: 35%;
   }
   .teaminfo {
     width: 25%;
   }
   .activity, .your-activity {
-    width: 15%;
+    width: 20%;
   }
 }
