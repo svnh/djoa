@@ -15,18 +15,17 @@
       <md-card class="projectsummary">
         <md-card-content>
           <h4>Project Information</h4>
-          <button type="button" (click)="openDetails()">Edit</button>
-          Start Date {{fetchedProject.dateProject.start | date:'yyyy-MM-dd' }} /
-          End Date {{fetchedProject.dateProject.end | date:'yyyy-MM-dd' }} / {{fetchedProject.dateProject.percentageProgress}}%
-          <section class="example-section">
-            <md-progress-bar
-              class="example-margin"
-              [color]="'primary'"
-              [mode]="'determinate'"
-              [value]="fetchedProject.dateProject.percentageProgress"
-              >
-            </md-progress-bar>
-          </section>
+          <button type="button" (click)="openDetails()" class="edit-btn">Edit</button>
+          <div class="project-progress">
+            <p class="startdate">Start Date:</p>
+            {{fetchedProject.dateProject.start | date:'yyyy-MM-dd' }}
+            <p class="enddate">End Date</p>
+            {{fetchedProject.dateProject.end | date:'yyyy-MM-dd' }}
+            <section>
+              <md-progress-bar [color]="'primary'" [mode]="'determinate'" [value]="fetchedProject.dateProject.percentageProgress"></md-progress-bar>
+              {{fetchedProject.dateProject.percentageProgress}}%
+            </section>
+          </div>
         </md-card-content>
       </md-card>
       <md-card class="teaminfo">

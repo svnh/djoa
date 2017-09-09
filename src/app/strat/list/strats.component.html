@@ -1,8 +1,9 @@
 <div class="missionbox">
   <div class="card">
     <div class="card-header">
-      <h2 class="card-title"><i class="fa fa-tachometer"></i> Strategy</h2> {{paginationData.totalItems}} strats
-      <a class="edit-btn" (click)="editMode=!editMode">Edit</a>
+      <h2 class="card-title"><i class="fa fa-tachometer"></i> Strategy</h2>
+      <h3>{{paginationData.totalItems}} missions</h3>
+      <button type="button" (click)="editMode=!editMode" class="edit-btn">Edit</button>
     </div>
     <div class="card-block clearfix">
       <button *ngIf="editMode" type="button" (click)="createNewStrat()" class="add-object">Add Strategy</button>

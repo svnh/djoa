@@ -3,7 +3,7 @@
     <div class="card-header">
       <h2>{{title}}</h2>
       <h3>{{paginationData.totalItems}} missions</h3>
-      <a class="edit-btn" (click)="editMode=!editMode">Edit</a>
+      <button type="button" (click)="editMode=!editMode" class="edit-btn">Edit</button>
     </div>
     <div class="card-block clearfix">
       <button *ngIf="editMode" type="button" (click)="createNewMission()" class="add-object">Add Mission</button>
