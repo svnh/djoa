@@ -4,6 +4,15 @@
       <h3>Mission</h3>
       <h4 class="">id: {{fetchedMission._id}}</h4>
       <h1>Mission</h1>
+
+      <div *ngIf="buttonDataMission.left._id" (click)="goTo('mission', buttonDataMission.left._id)">
+        <<{{buttonDataMission.left.title}}
+      </div>
+      <div *ngIf="buttonDataMission.right._id" (click)="goTo('mission', buttonDataMission.right._id)">
+        {{buttonDataMission.right.title}}>>
+      </div>
+
+
       <div>
         <br> title:{{fetchedMission.title}}
         <br> description: {{fetchedMission.description}}

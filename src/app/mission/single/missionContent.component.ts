@@ -221,7 +221,7 @@ export class MissionContentComponent implements OnInit {
           this.buttonDataMission.left = this.fetchedMissions[positionObj - 1]
         }
         console.log(positionObj , countMissions)
-        if (positionObj === countMissions) {
+        if (positionObj === countMissions - 1) {
           this.buttonDataMission.right = new Mission()
         } else {
           this.buttonDataMission.right = this.fetchedMissions[positionObj + 1]
@@ -234,7 +234,9 @@ export class MissionContentComponent implements OnInit {
       }
       );
   }
-
+  goTo(typeObj: string, id: string) {
+    this.router.navigate([typeObj + '/' + id]);
+  }
 
   getMission(id: string) {
     this.missionService.getMission(id)
