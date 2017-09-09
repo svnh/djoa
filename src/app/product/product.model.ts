@@ -5,6 +5,7 @@ import { User } from '../user/user.model';
 export class Product {
     _id: string = '';
     name: string = '';
+    icone: string = '';
     description: string = '';
 
     forms: Form[] = [];

@@ -12,6 +12,7 @@ import { UserService} from '../../user/user.service';
 import {ShowNavBarData} from '../../home/home.model'
 import {GlobalEventsManager} from '../../globalEventsManager';
 import {Search} from '../../home/home.model'
+import {Product} from '../../product/product.model';
 
 
 
@@ -25,8 +26,8 @@ import {Search} from '../../home/home.model'
 export class LightMissionsComponent implements OnInit {
   // @Input() userId = '';
   // @Input() missionType = '';
-  @Input() search: Search = new Search()
-  @Input() title: string = ''
+  @Input() search: Search = new Search();
+  @Input() product: Product = new Product();
 
   // token: string = localStorage.getItem('id_token');
   fetchedMissions: Mission[] = [];

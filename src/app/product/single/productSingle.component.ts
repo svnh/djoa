@@ -25,14 +25,14 @@ import { AuthService} from '../../auth/auth.service';
 })
 
 export class ProductSingleComponent implements OnInit {
-  @Output() saved: EventEmitter<any> = new EventEmitter();
-  selectedIndex0: number = -1
-  selectedIndex1: number = -1
-  selectedIndex2: number = -1
+  // @Output() saved: EventEmitter<any> = new EventEmitter();
+  // selectedIndex0: number = -1
+  // selectedIndex1: number = -1
+  // selectedIndex2: number = -1
   // selectedIndex1 = 0
   // selectedIndex2 = 0
-  show1 = false
-  show2 = false
+  // show1 = false
+  // show2 = false
   // categ1: string = '';
   // categ2: string = '';
   // categ3: string = '';
@@ -77,11 +77,12 @@ export class ProductSingleComponent implements OnInit {
     this.myForm = this._fb.group({
         name: ['', [Validators.required, Validators.minLength(2)]],
         description: [''],
+        icone: [''],
 
 
     })
 
-    this.getItemSteps();
+    // this.getItemSteps();
 
     this.activatedRoute.params.subscribe((params: Params) => {
       if(params['id']) {
@@ -92,15 +93,15 @@ export class ProductSingleComponent implements OnInit {
   }
 
 
-  getItemSteps() {
-    let currentUser = this.authService.getCurrentUser()
-
-    for (let i in currentUser.ownerCompanies) {
-      if(currentUser.ownerCompanies[i].categories.categProduct)
-        this.itemSteps = currentUser.ownerCompanies[i].categories.categProduct
-    }
-
-  }
+  // getItemSteps() {
+  //   let currentUser = this.authService.getCurrentUser()
+  //
+  //   for (let i in currentUser.ownerCompanies) {
+  //     if(currentUser.ownerCompanies[i].categories.categProduct)
+  //       this.itemSteps = currentUser.ownerCompanies[i].categories.categProduct
+  //   }
+  //
+  // }
 
   // removePic(i) {
   //   this.fetchedProduct.forms.splice(i, 1);
@@ -109,38 +110,23 @@ export class ProductSingleComponent implements OnInit {
   //   this.selectedIndex1 = selectedIndex1
   //   this.selectedIndex2 = selectedIndex2
   // }
-  changeCascade(selectedIndex0, selectedIndex1, selectedIndex2) {
-    this.selectedIndex0 = selectedIndex0
-    this.selectedIndex1 = selectedIndex1
-    this.selectedIndex2 = selectedIndex2
-  }
-
-
-  searchCompanies() {
-    if(!this.autocompleteCompanie) {
-      this.fetchedCompanies = []
-    } else {
-      let search = {
-          search: this.autocompleteCompanie,
-        };
-      this.getCompanies(1, search)
-    }
-  }
 
 
 
 
-  getCompanies(page: number, search: any) {
-    this.companieService.getCompanies(page, search)
-      .subscribe(
-        res => {
-          this.fetchedCompanies = res.data
-        },
-        error => {
-          console.log(error);
-        }
-      );
-  }
+
+
+  // getCompanies(page: number, search: any) {
+  //   this.companieService.getCompanies(page, search)
+  //     .subscribe(
+  //       res => {
+  //         this.fetchedCompanies = res.data
+  //       },
+  //       error => {
+  //         console.log(error);
+  //       }
+  //     );
+  // }
 
   // openDialogDelete(){
   //   let this2 = this
@@ -169,9 +155,9 @@ export class ProductSingleComponent implements OnInit {
   //   // })
   // }
 
-  getPicture(result){
-
-  }
+  // getPicture(result){
+  //
+  // }
   save() {
     // this.fetchedProduct.categorie.categ1 = [{name: this.categ1}]
     // this.fetchedProduct.categorie.categ2 = [{name: this.categ2}]
@@ -199,7 +185,6 @@ export class ProductSingleComponent implements OnInit {
             this.toastr.success('Great!', res.message)
             // this.router.navigate(['product']);
             this.getProduct(res.obj._id)
-            this.saved.emit(res.obj)
           },
           error => {console.log(error)}
         );
@@ -210,7 +195,7 @@ export class ProductSingleComponent implements OnInit {
             this.toastr.success('Great!', res.message)
             this.getProduct(res.obj._id)
             // this.router.navigate(['product']);
-            this.saved.emit(res.obj)
+
           },
           error => {
             this.toastr.error('Error!', error.message)

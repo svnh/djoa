@@ -125,9 +125,6 @@ export class ProjectContentComponent implements OnInit {
     missions.forEach(mission => {
       this.fetchedMissions.push(mission)
     });
-
-    console.log(this.fetchedMissions)
-
   }
   getProducts(page: number, search: any) {
 

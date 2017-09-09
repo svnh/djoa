@@ -12,7 +12,7 @@ import { UserService} from '../../user/user.service';
 import {ShowNavBarData} from '../../home/home.model'
 import {GlobalEventsManager} from '../../globalEventsManager';
 import {Search, PaginationData} from '../../home/home.model'
-
+import {Product} from '../../product/product.model';
 
 
 @Component({
@@ -24,7 +24,7 @@ import {Search, PaginationData} from '../../home/home.model'
 })
 export class MissionsComponent implements OnInit {
   @Input() userId = '';
-  @Input() title = '';
+  @Input() product: Product = new Product();
   @Input() search: Search = new Search()
   @Output() getResultMissions: EventEmitter<any> = new EventEmitter();
 

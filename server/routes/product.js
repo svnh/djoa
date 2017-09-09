@@ -79,7 +79,7 @@ router.put('/:id', function (req, res, next) {
         item.name = req.body.name
         item.description = req.body.description
         // item.vendors = req.body.vendors
-        item.forms = req.body.forms
+        item.icone = req.body.icone
 
 
 
