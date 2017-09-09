@@ -14,12 +14,13 @@ import { UserService} from '../../user/user.service';
 
 import { User } from '../../user/user.model';
 import { Product } from '../../product/product.model';
+import { Mission } from '../../mission/mission.model';
 import {ProductService} from '../../product/product.service';
 
 import { AuthService} from '../../auth/auth.service';
-import {Search} from '../../home/home.model'
+import {Search} from '../../home/home.model';
 import {GlobalEventsManager} from '../../globalEventsManager';
-import {ShowNavBarData} from '../../home/home.model'
+import {ShowNavBarData} from '../../home/home.model';
 
 
 
@@ -36,10 +37,10 @@ export class ProjectContentComponent implements OnInit {
   // @Output() saved: EventEmitter<any> = new EventEmitter();
   @Input() search: Search = new Search();
 
-  searchMissionStrat: Search = new Search();
-  searchMissionContent: Search = new Search();
-  searchMissionResearch: Search = new Search();
-
+  // searchMissionStrat: Search = new Search();
+  // searchMissionContent: Search = new Search();
+  // searchMissionResearch: Search = new Search();
+  fetchedMissions: Mission[] = []
   fetchedProducts: Product[] = []
   //
   // status = StatusProject
@@ -120,7 +121,14 @@ export class ProjectContentComponent implements OnInit {
 
   }
 
+  getResultMissions(missions) {
+    missions.forEach(mission => {
+      this.fetchedMissions.push(mission)
+    });
 
+    console.log(this.fetchedMissions)
+
+  }
   getProducts(page: number, search: any) {
 
     this.productService.getProducts(page, search)

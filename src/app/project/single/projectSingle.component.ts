@@ -298,32 +298,6 @@ export class ProjectSingleComponent implements OnInit {
   }
 
 
-  //
-  // refreshHardCategories(){
-  //   this.categoriesHard2.forEach((HardCategorie, indexHard) => {
-  //     this.categoriesHard2[indexHard].selected = false
-  //   })
-  //
-  //   this.categoriesHard2.forEach((HardCategorie, indexHard) => {
-  //     this.fetchedProject.categories.forEach((fetchedCategorie, indexFetched) => {
-  //       if(HardCategorie.name == fetchedCategorie.name) {
-  //         this.categoriesHard2[indexHard].selected = true
-  //       }
-  //     })
-  //   })
-  //
-  //   this.categoriesHard1.forEach((HardCategorie, indexHard) => {
-  //     this.categoriesHard1[indexHard].selected = false
-  //   })
-  //
-  //   this.categoriesHard1.forEach((HardCategorie, indexHard) => {
-  //     this.fetchedProject.categories.forEach((fetchedCategorie, indexFetched) => {
-  //       if(HardCategorie.name == fetchedCategorie.name) {
-  //         this.categoriesHard1[indexHard].selected = true
-  //       }
-  //     })
-  //   })
-  // }
 
 
 
@@ -374,22 +348,6 @@ export class ProjectSingleComponent implements OnInit {
   }
 
 
-  // onDelete(id: string) {
-  //   let this2 = this
-  //   return new Promise(function(resolve, reject) {
-  //     this2.projectService.deleteProject(id)
-  //       .subscribe(
-  //         res => {
-  //           this2.toastr.success('Great!', res.message);
-  //           resolve(res)
-  //         },
-  //         error => {
-  //           console.log(error);
-  //           reject(error)
-  //         }
-  //       )
-  //     })
-  // }
 
 
 }

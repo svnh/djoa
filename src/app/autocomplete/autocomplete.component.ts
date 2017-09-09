@@ -40,6 +40,7 @@ export class AutocompleteComponent implements OnInit {
   autocompleteSearch = ''
   fetchedData: User[] = [];
 
+
   @Output() getResultAutocomplete: EventEmitter<any> = new EventEmitter();
   @Output() clearAutocomplete: EventEmitter<any> = new EventEmitter();
 

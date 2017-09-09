@@ -1,9 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { AuthService} from '../../auth/auth.service';
 import { MissionService} from '../mission.service';
 import { Mission} from '../mission.model';
 import { ToastsManager} from 'ng2-toastr';
-import { MdDialog} from '@angular/material';
+// import { MdDialog} from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -26,8 +26,9 @@ export class MissionsComponent implements OnInit {
   @Input() userId = '';
   @Input() title = '';
   @Input() search: Search = new Search()
+  @Output() getResultMissions: EventEmitter<any> = new EventEmitter();
 
-  token: string = localStorage.getItem('id_token');
+  // token: string = localStorage.getItem('id_token');
   fetchedMissions: Mission[] = [];
   // search: any = {
   //   categories : [],
@@ -147,6 +148,8 @@ export class MissionsComponent implements OnInit {
           this.fetchedMissions.forEach((mission, i) => {
               this.fetchedMissions[i].dateMission.percentageProgress = this.authService.getPourcentageProgress(mission.dateMission.start, mission.dateMission.end)
           });
+
+          this.getResultMissions.emit(this.fetchedMissions)
 
 
           // let durationProject = +new Date(this.fetchedProject.dateProject.end) - +new Date(this.fetchedProject.dateProject.start)
