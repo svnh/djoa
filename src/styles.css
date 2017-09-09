@@ -73,8 +73,8 @@ h4 {
   overflow-x: hidden;
   background-image: url(/assets/images/page-title-back.png);
   background-repeat: no-repeat;
-  background-size: contain;
-  background-position: 50% -8%;
+  background-size: 80%;
+  background-position: 50% -10%;
 }
 .missionbox {
   float: left;
@@ -146,4 +146,7 @@ md-sidenav-container.mat-drawer-container.mat-sidenav-container {
   background: none !important;
   border: none !important;
   padding: 20px !important;
+}
+.mat-drawer-content {
+  overflow: hidden !important;
 }

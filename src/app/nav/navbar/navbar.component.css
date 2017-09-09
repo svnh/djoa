@@ -29,3 +29,10 @@ a.nav-link {
   background: -moz-linear-gradient(right, #4a148c , #0d47a1);
   background: linear-gradient(to right, #4a148c , #0d47a1);
 }
+.imgList {
+  height: 46px;
+  border-radius: 30px;
+  border: 2px solid #4a148c;
+  padding: 1px;
+  background-color: #ffffff;
+}
