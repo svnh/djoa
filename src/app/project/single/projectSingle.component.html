@@ -8,11 +8,7 @@
             <label>Id</label> {{fetchedProject._id}}
           </div>
         </div>
-
-        <br>
-
         <div class="form-group">
-
           <div class="">
             <label>{{'Name' }}</label>
             <input class="form-control col-md-4" type="text" formControlName="name" [(ngModel)]="fetchedProject.details.name" placeholder="Ref">
@@ -22,75 +18,21 @@
           <label>{{'Description' }}</label>
           <input class="form-control col-md-4" type="text" formControlName="description" placeholder="description" [(ngModel)]="fetchedProject.details.description">
         </div>
-
-
         <app-autocomplete class="col-md-4" [typeAutocomplete]="'user'" [title]="'Customer'" [search]="{isExternalUser:false}" [singleChoice]=false [arrayContent]="fetchedProject.users" >
         </app-autocomplete>
-
-        <br>
-        <!-- <div *ngIf="fetchedProject._id">
-        <div *ngFor="let user of fetchedProject.clients">
-          <label>{{'Quote' }}</label>
-
-          <app-quotes [showHeader]=false [idProject]="fetchedProject._id" [idClient]="fetchedProject.clients[0]._id" [showBackButton]=false [userId]="user._id" [projectId]="fetchedProject._id">
-          </app-quotes>
-        </div>
-      </div> -->
-
-
         <input type="date" class="form-control" formControlName="start" [(ngModel)]="fetchedProject.dateProject.startString">
         <input type="date" class="form-control" formControlName="end" [(ngModel)]="fetchedProject.dateProject.endString">
-
-
-
-
-
-
-
         <div class="form-group">
           {{'Status' }}
           <select class="form-control col-md-3" formControlName="status" [(ngModel)]="fetchedProject.status">
           <option *ngFor="let n of status" [ngValue]="n.index">{{n.label}}</option>
         </select>
         </div>
-
         <div class="form-group">
-          <!-- <app-autocomplete [typeAutocomplete]="'user'" [title]="'Assigned To'" [singleChoice]=true [search]="{isExternalUser:false}" [arrayContent]="fetchedProject.assignedTos">
-          </app-autocomplete> -->
         </div>
-
-        <!-- <div *ngIf="fetchedProject._id">
-        <div class="FormGroup">
-          <button type="button" class="btn btn-warning" (click)="showLogs = !showLogs">
-           <i class="fa fa-calendar" aria-hidden="true"></i>
-           <span>{{'Show Comments' }}</span>
-          </button>
-
-          <div *ngIf="showLogs">
-            <app-comments [search]="search"></app-comments>
-          </div>
-        </div>
-
-        <div class="FormGroup whtxt">
-          <a class="btn btn-warning" [routerLink]="['/task/project/' + fetchedProject._id]">
-         <i class="fa fa-calendar" aria-hidden="true"></i>
-         <span>{{'Tasks' }}</span>
-        </a>
-        </div>
-        <div class="FormGroup whtxt">
-          <button type="button" class="btn btn-warning" (click)="seeCalendar()">
-         <i class="fa fa-calendar" aria-hidden="true"></i>
-         <span>{{'See calendar' }}</span>
-       </button>
-        </div>
-      </div> -->
-
-
         <div class="valid-edit">
           <button type="submit" class="done btn btn-success" [disabled]="!myForm.valid">{{'Save' }}</button>
-          <button *ngIf="fetchedProject._id" type="button" class="delete" md-button (click)="openDeleteConfirmation()">
-        {{'Delete' }}
-      </button>
+          <button *ngIf="fetchedProject._id" type="button" class="delete" md-button (click)="openDeleteConfirmation()">{{'Delete' }}</button>
         </div>
         <div class="clearfix"></div>
       </form>

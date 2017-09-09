@@ -3,16 +3,18 @@
     <div class="page-title">
       {{fetchedProject.details.name}}
     </div>
-    <app-strats [search]="search"></app-strats>
-    <div class="project-content">
-      <div *ngIf="fetchedProject._id">
-        <div *ngFor="let product of fetchedProducts">
-          <app-missions [search]="{projectId:fetchedProject._id, productId:product._id}"></app-missions>
+    <div class="allmissions">
+      <app-strats [search]="search"></app-strats>
+      <div class="project-content">
+        <div *ngIf="fetchedProject._id">
+          <div *ngFor="let product of fetchedProducts">
+            <app-missions [search]="{projectId:fetchedProject._id, productId:product._id}"></app-missions>
+          </div>
         </div>
       </div>
     </div>
-    <div>
-      <md-card class="projectinfo">
+    <div class="projectinfo">
+      <md-card class="projectsummary">
         <md-card-content>
           <h4>Project Information</h4>
           <button type="button" (click)="openDetails()">Edit</button>
