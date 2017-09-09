@@ -16,8 +16,8 @@ html, body {
 ::-webkit-scrollbar-thumb {
   background-color: #330066;
 }
-h1, h2, h3, h4, h5, a, p, td, th {
-  font-family: inherit;
+h1, h2, h3, h4, h5, a, p, td, th, .table td, .mat-card {
+  font-family: inherit !important;
 }
 h1, h2, h3 {
   text-transform: uppercase;
@@ -28,13 +28,13 @@ h1 {
   margin: 15px 0;
 }
 h2 {
-  font-size: 20px;
+  font-size: 17px;
   color: #4a148c;
   display: inline-block;
   margin-bottom: 10px !important;
 }
 h3 {
-  font-size: 15px;
+  font-size: 13px;
   background-color: #4a148c;
   color: #fff;
   padding: 2px 5px;
@@ -87,7 +87,7 @@ h4 {
   width: 100%;
   background: none;
   border: none;
-  padding: 15px;
+  padding: 20px 15px;
   background-color: #4a148c;
   color: #fff;
   text-align: left;
@@ -122,4 +122,15 @@ md-sidenav-container.mat-drawer-container.mat-sidenav-container {
 }
 .mat-paginator-page-size, .mat-paginator-range-label {
   display: none !important;
+}
+.mat-progress-bar-fill::after {
+  background-color: #009688 !important;
+}
+.mat-progress-bar-buffer {
+  background-color: #b2dfdb !important;
+}
+.card-header {
+  background: none !important;
+  border: none !important;
+  padding: 20px !important;
 }
