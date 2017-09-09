@@ -13,12 +13,12 @@
             <td (click)="goTo(mission._id)" routerLinkActive="active">{{mission.title}}</td>
             <td>
               <section class="">
-                <md-progress-bar class="example-margin" [color]="'primary'" [mode]="'determinate'" [value]="mission.dateMission.percentageProgress">
+                <md-progress-bar [color]="'primary'" [mode]="'determinate'" [value]="mission.dateMission.percentageProgress">
                 </md-progress-bar>
               </section>
             </td>
             <td>
-              <button *ngIf="editMode" type="button" (click)="openDeleteMission(mission._id)">X</button>
+              <button *ngIf="editMode" type="button" (click)="openDeleteMission(mission._id)" class="delete-x"><i class="fa fa-trash-o"></i></button>
             </td>
           </tr>
         </tbody>
