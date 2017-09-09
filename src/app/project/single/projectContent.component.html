@@ -1,61 +1,43 @@
 <div class="djoa-container">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="page-title">
-        <!--{{fetchedProject._id}}-->
-        {{fetchedProject.details.name}}
-        <!--{{fetchedProject.details.description}}-->
-      </div>
-      <app-strats [search]="search"></app-strats>
-      <!--<app-missions [search]="searchMissionContent"></app-missions>
-      <app-missions [search]="searchMissionResearch"></app-missions>
-      {{fetchedProducts|json}} -->
-      <div class="project-content">
-        <div *ngIf="fetchedProject._id">
-          <div *ngFor="let product of fetchedProducts">
-            <app-missions [search]="{projectId:fetchedProject._id, productId:product._id}"></app-missions>
-          </div>
+  <div class="col-md-12">
+    <div class="page-title">
+      {{fetchedProject.details.name}}
+    </div>
+    <app-strats [search]="search"></app-strats>
+    <div class="project-content">
+      <div *ngIf="fetchedProject._id">
+        <div *ngFor="let product of fetchedProducts">
+          <app-missions [search]="{projectId:fetchedProject._id, productId:product._id}"></app-missions>
         </div>
       </div>
-      <div class="clearfix">
-        <md-card class="projectinfo">
-          <md-card-content>
-            <h4>Project Information</h4>
-            <button type="button" (click)="openDetails()">Edit</button>
-            <br>
-            Start Date {{fetchedProject.dateProject.start | date:'yyyy-MM-dd' }} /
-            End Date {{fetchedProject.dateProject.end | date:'yyyy-MM-dd' }} / {{fetchedProject.dateProject.percentageProgress}}%
-            <section class="example-section">
-              <md-progress-bar
-                class="example-margin"
-                [color]="'primary'"
-                [mode]="'determinate'"
-                [value]="fetchedProject.dateProject.percentageProgress"
-                >
-              </md-progress-bar>
-            </section>
-          </md-card-content>
-        </md-card>
-        <md-card class="teaminfo">
-          <md-card-content>
-            <h4>Team</h4>
-            <button type="button" (click)="openTeam()">Edit</button>
-            <br>
-            <div *ngFor="let user of fetchedProject.users">
-              <!-- <div (click)="openProfile(user._id)"> -->
-                <app-picture [userIdToOpenProfile]="user._id" [addPicture]=false [deletePicture]=false [forms]="user.forms"></app-picture>
-              <!-- </div> -->
-              {{user.profile.name}}
-              <br>
-            </div>
-          </md-card-content>
-        </md-card>
-      </div>
     </div>
-
-    <!--
-    <app-autocomplete class="col-md-4" [typeAutocomplete]="'user'" [title]="'Customer'" [singleChoice]="'true'" [arrayContent]="fetchedProject.clients" (getResultAutocomplete)="selectUser($event[0])">
-    </app-autocomplete> -->
-
+    <div>
+      <md-card class="projectinfo">
+        <md-card-content>
+          <h4>Project Information</h4>
+          <button type="button" (click)="openDetails()">Edit</button>
+          Start Date {{fetchedProject.dateProject.start | date:'yyyy-MM-dd' }} /
+          End Date {{fetchedProject.dateProject.end | date:'yyyy-MM-dd' }} / {{fetchedProject.dateProject.percentageProgress}}%
+          <section class="example-section">
+            <md-progress-bar
+              class="example-margin"
+              [color]="'primary'"
+              [mode]="'determinate'"
+              [value]="fetchedProject.dateProject.percentageProgress"
+              >
+            </md-progress-bar>
+          </section>
+        </md-card-content>
+      </md-card>
+      <md-card class="teaminfo">
+        <md-card-content>
+          <h4>Team</h4>
+          <button type="button" (click)="openTeam()">Edit</button>
+          <div *ngFor="let user of fetchedProject.users">
+            <app-picture [userIdToOpenProfile]="user._id" [addPicture]=false [deletePicture]=false [forms]="user.forms"></app-picture>
+          </div>
+        </md-card-content>
+      </md-card>
+    </div>
   </div>
 </div>
