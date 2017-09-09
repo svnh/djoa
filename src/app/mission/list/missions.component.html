@@ -1,6 +1,10 @@
 <div class="missionbox">
   <div class="card">
     <div class="card-header">
+
+
+      <i [ngClass]="'fa fa-' + product.icone"></i>
+
       <h2>{{product.name}}</h2>
       <h3>{{paginationData.totalItems}} missions</h3>
       <button type="button" (click)="editMode=!editMode" class="edit-btn">Edit</button>

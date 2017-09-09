@@ -1,5 +1,8 @@
 <div *ngFor="let mission of fetchedMissions; let i = index;">
-  <div *ngIf="i==0" (click)="goToMission(mission._id)" routerLinkActive="active">{{product.name}}</div>
+  <div *ngIf="i==0" (click)="goToMission(mission._id)" routerLinkActive="active">
+    <i [ngClass]="'fa fa-' + product.icone"></i>
+    {{product.name}}
+  </div>
 </div>
 
 <div *ngIf="!fetchedMissions.length">
