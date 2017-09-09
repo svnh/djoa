@@ -6,7 +6,7 @@
         <app-strats [search]="search"></app-strats>
         <div *ngIf="fetchedProject._id">
           <div *ngFor="let product of fetchedProducts">
-            <app-missions [search]="{projectId:fetchedProject._id, productId:product._id}"></app-missions>
+            <app-missions [title]="product.name" [search]="{projectId:fetchedProject._id, productId:product._id}"></app-missions>
           </div>
         </div>
       </div>

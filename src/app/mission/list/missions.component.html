@@ -1,12 +1,12 @@
 <div class="missionbox">
   <div class="card">
     <div class="card-header">
-      <h2>Category Name</h2>
+      <h2>{{title}}</h2>
       <h3>{{paginationData.totalItems}} missions</h3>
-      <a class="edit-btn" href="#">Edit</a>
+      <a class="edit-btn" (click)="editMode=!editMode">Edit</a>
     </div>
     <div class="card-block clearfix">
-      <button type="button" (click)="createNewMission()" class="add-object">Add Mission</button>
+      <button *ngIf="editMode" type="button" (click)="createNewMission()" class="add-object">Add Mission</button>
       <table class="table table-hover">
         <tbody class="">
           <tr *ngFor="let mission of fetchedMissions">
@@ -18,7 +18,7 @@
               </section>
             </td>
             <td>
-              <button type="button" (click)="openDeleteMission(mission._id)">X</button>
+              <button *ngIf="editMode" type="button" (click)="openDeleteMission(mission._id)">X</button>
             </td>
           </tr>
         </tbody>

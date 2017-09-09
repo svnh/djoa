@@ -11,7 +11,7 @@ import { ViewEncapsulation} from '@angular/core';
 import { UserService} from '../../user/user.service';
 import {ShowNavBarData} from '../../home/home.model'
 import {GlobalEventsManager} from '../../globalEventsManager';
-import {Search} from '../../home/home.model'
+import {Search, PaginationData} from '../../home/home.model'
 
 
 
@@ -24,7 +24,7 @@ import {Search} from '../../home/home.model'
 })
 export class MissionsComponent implements OnInit {
   @Input() userId = '';
-  // @Input() missionType = '';
+  @Input() title = '';
   @Input() search: Search = new Search()
 
   token: string = localStorage.getItem('id_token');
@@ -35,11 +35,7 @@ export class MissionsComponent implements OnInit {
   // };
   loading: boolean;
 
-  paginationData = {
-    currentPage: 1,
-    itemsPerPage: 0,
-    totalItems: 0
-  };
+  paginationData: PaginationData = new PaginationData()
 
 
 
