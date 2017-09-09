@@ -16,6 +16,26 @@ html, body {
 ::-webkit-scrollbar-thumb {
   background-color: #330066;
 }
+h1, h2, h3 {
+  text-transform: uppercase;
+}
+h1 {
+  font-size: 25px;
+  text-align: center;
+  margin: 15px 0;
+}
+h2 {
+  font-size: 20px;
+  color: #4a148c;
+  display: inline-block;
+}
+h3 {
+  font-size: 15px;
+  background-color: #4a148c;
+  color: #fff;
+  padding: 2px 4px;
+  float: right;
+}
 .dspl-nn{
   display: none !important;
 }
@@ -45,7 +65,23 @@ html, body {
   max-width: 100%;
   display:inline-block;
 }
-
+a.edit-btn {
+  color: #ccc;
+  float: right;
+  text-transform: uppercase;
+  font-size: 12px;
+  padding: 0 5px;
+}
+.add-object {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 15px;
+  background-color: #4a148c;
+  color: #fff;
+  text-align: left;
+  cursor: pointer;
+}
 
 @media screen and (min-width: 768px) {
   .djoa-container {
@@ -67,4 +103,8 @@ body, .mat-drawer-container {
 }
 md-sidenav-container.mat-drawer-container.mat-sidenav-container {
   height: 100%;
+}
+.mat-progress-bar {
+    height: 25px !important;
+    min-width: 30px !important;
 }
