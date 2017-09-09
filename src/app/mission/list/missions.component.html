@@ -1,35 +1,33 @@
-<div class="container">
-  <div class="missionbox">
-    <div class="card">
-      <div class="card-header">
-        <div *ngFor="let mission of fetchedMissions">
-          <div (click)="goToMission(mission._id)" routerLinkActive="active">{{mission.title}}</div>
-        </div>
-        {{paginationData.totalItems}} missions
+<div class="missionbox">
+  <div class="card">
+    <div class="card-header">
+      <div *ngFor="let mission of fetchedMissions">
+        <h4 (click)="goToMission(mission._id)" routerLinkActive="active">{{mission.title}}</h4>
       </div>
-      <div class="card-block clearfix">
-        <button type="button" (click)="createNewMission()">+Mission</button>
-        <table class="table table-hover">
-          <tbody class="">
-            <tr *ngFor="let mission of fetchedMissions">
-              <td (click)="goTo(mission._id)" routerLinkActive="active">{{mission.title}}</td>
-              <td>
-                <section class="">
-                  <md-progress-bar class="example-margin" [color]="'primary'" [mode]="'determinate'" [value]="mission.dateMission.percentageProgress">
-                  </md-progress-bar>
-                </section>
-              </td>
-              <td>
-                <button type="button" (click)="openDeleteMission(mission._id)">X</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="has-text-centered">
-          <md-paginator [length]="paginationData.totalItems" [pageIndex]="paginationData.currentPage-1" [pageSize]="paginationData.itemsPerPage" (page)="getPage($event.pageIndex*1+1)">
-          </md-paginator>
-          <app-loadingInApp *ngIf="loading"></app-loadingInApp>
-        </div>
+      {{paginationData.totalItems}} missions
+    </div>
+    <div class="card-block clearfix">
+      <button type="button" (click)="createNewMission()">+Mission</button>
+      <table class="table table-hover">
+        <tbody class="">
+          <tr *ngFor="let mission of fetchedMissions">
+            <td (click)="goTo(mission._id)" routerLinkActive="active">{{mission.title}}</td>
+            <td>
+              <section class="">
+                <md-progress-bar class="example-margin" [color]="'primary'" [mode]="'determinate'" [value]="mission.dateMission.percentageProgress">
+                </md-progress-bar>
+              </section>
+            </td>
+            <td>
+              <button type="button" (click)="openDeleteMission(mission._id)">X</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="has-text-centered">
+        <md-paginator [length]="paginationData.totalItems" [pageIndex]="paginationData.currentPage-1" [pageSize]="paginationData.itemsPerPage" (page)="getPage($event.pageIndex*1+1)">
+        </md-paginator>
+        <app-loadingInApp *ngIf="loading"></app-loadingInApp>
       </div>
     </div>
   </div>
