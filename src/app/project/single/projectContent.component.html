@@ -25,11 +25,11 @@
               <p>End Date</p>
               {{fetchedProject.dateProject.end | date:'yyyy-MM-dd' }}
             </div>
-            <section>
-              <md-progress-bar [color]="'primary'" [mode]="'determinate'" [value]="fetchedProject.dateProject.percentageProgress"></md-progress-bar>
-              <p class="percent">{{fetchedProject.dateProject.percentageProgress}}%</p>
-            </section>
           </div>
+          <section>
+            <md-progress-bar [color]="'primary'" [mode]="'determinate'" [value]="fetchedProject.dateProject.percentageProgress"></md-progress-bar>
+            <p class="percent">{{fetchedProject.dateProject.percentageProgress}}%</p>
+          </section>
         </md-card-content>
       </md-card>
       <md-card class="teaminfo">
@@ -39,6 +39,20 @@
           <div *ngFor="let user of fetchedProject.users">
             <app-picture [userIdToOpenProfile]="user._id" [addPicture]=false [deletePicture]=false [forms]="user.forms"></app-picture>
           </div>
+        </md-card-content>
+      </md-card>
+      <md-card class="activity">
+        <md-card-content>
+          <h4>Activity</h4>
+          <div class="number">2</div> Missions
+          <div class="number">2</div> Pending Tasks
+        </md-card-content>
+      </md-card>
+      <md-card class="your-activity">
+        <md-card-content>
+          <h4>Your Activity</h4>
+          <div class="number">2</div> Missions
+          <div class="number">2</div> Pending Tasks
         </md-card-content>
       </md-card>
     </div>

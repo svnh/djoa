@@ -9,24 +9,36 @@
 .projectinfo {
   clear: both;
 }
+.startdate, .enddate {
+  display: inline-block;
+}
 .startdate p, .enddate p {
   margin-bottom: 0;
   color: #b3b3b3;
 }
-.projectsummary, .teaminfo {
+.enddate {
+  float: right;
+  text-align: right;
+}
+.projectsummary, .teaminfo, .activity, .your-activity {
   display: inline-block;
-  position: absolute;
   box-shadow: none !important;
   border-radius: 0 !important;
   height: 200px;
 }
-.project-progress .mat-progress-bar {
+.teaminfo, .activity, .your-activity {
+  position: absolute;
+}
+.project-progress .mat-progress-bar, .project-progress {
   width: 85% !important;
   display: inline-block;
 }
 
 @media screen and (min-width: 768px){
   .projectsummary, .teaminfo {
-    width: 33.3333%;
+    width: 30%;
+  }
+  .activity, .your-activity {
+    width: 20%;
   }
 }
