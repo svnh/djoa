@@ -3,12 +3,7 @@
     <div class="col-md-12">
       <h3>Project</h3>
       <form [formGroup]="myForm" novalidate (ngSubmit)="save()" (keydown.enter)="$event.preventDefault()">
-        <div>
-          <div>
-            <label>Id</label> {{fetchedProject._id}}
-          </div>
-        </div>
-        <app-autocomplete [typeAutocomplete]="'user'" [title]="'Customer'" [search]="{isExternalUser:false}" [singleChoice]=false [arrayContent]="fetchedProject.users" >
+        <app-autocomplete [typeAutocomplete]="'user'" [title]="" [search]="{isExternalUser:false}" [singleChoice]=false [arrayContent]="fetchedProject.users" >
         </app-autocomplete>
         <div class="valid-edit">
           <button type="submit" class="done btn btn-success" [disabled]="!myForm.valid">{{'Save' }}</button>
