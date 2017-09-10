@@ -1,5 +1,8 @@
 <div>
   <div class="read-chat">
+    <div *ngIf="!messages.length">
+      VIDE
+    </div>
     <div *ngFor="let message of messages">
       <div *ngFor="let user of message.users">
         <div class="pic-container">
