@@ -1,0 +1,25 @@
+.col-md-6 {
+  float: left;
+}
+.mission-nav {
+  margin-top: 50px;
+  padding: 15px;
+  color: #c9c9c9;
+  opacity: 0.5;
+}
+.previous {
+  float: left;
+}
+.next {
+  float: right;
+}
+.line-back {
+  background: -webkit-linear-gradient(left, transparent 5%, white 5%, white 5.1%,transparent 5.1%);
+}
+.card-margin {
+  margin-bottom: 30px;
+}
+.chat {
+  min-height:500px;
+  background-color: #f4f4f4;
+}

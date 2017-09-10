@@ -68,15 +68,6 @@ md-progress-bar.mat-progress-bar.mat-primary, .project-progress {
   height: 38px !important;
   padding-top: 10px;
 }
-p.percent {
-  display: inline-block;
-  margin: 0 !important;
-  padding: 1px 10px 0;
-  position: absolute;
-  top: 6%;
-  color: #009688;
-  font-weight: 600;
-}
 .number {
   display: inline-block;
   color: #fff;
