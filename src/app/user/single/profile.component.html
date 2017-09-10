@@ -1,8 +1,8 @@
 <div>
   <div class="profile-pic"><app-picture [addPicture]=false [deletePicture]=false [forms]="fetchedUser.forms"></app-picture></div>
-  <h2>{{fetchedUser.profile.name}} {{fetchedUser.profile.lastName}}</h2>
+  <h2 class="my-name">{{fetchedUser.profile.name}} {{fetchedUser.profile.lastName}}</h2>
   <h5>{{fetchedUser.profile.title}}</h5>
-  <button (click)="edit = !edit">Edit Profile</button>
+  <button (click)="edit = !edit" class="profile-button">Edit Profile</button>
   <div *ngIf="edit">
     <form [formGroup]="myForm" novalidate (ngSubmit)="save()">
       <div class="form-group">
@@ -23,6 +23,6 @@
       <div class="clearfix"></div>
     </form>
   </div>
-  <button type="button">Settings</button>
-  <button type="button" (click)="logout()">{{'Logout' }}</button>
+  <button type="button" class="profile-button">Settings</button>
+  <button type="button" (click)="logout()" class="profile-button">{{'Logout' }}</button>
 </div>
