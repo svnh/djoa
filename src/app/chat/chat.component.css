@@ -10,16 +10,15 @@
   overflow: auto;
   padding: 20px;
 }
+.write-chat, .write-chat textarea {
+  width: 100%;
+  height: 100px;
+}
 .write-chat {
   background-color: #ffffff;
   border-top: 1px solid #330066;
-  width: 107%;
-  height: 100px;
-  margin: 0 -24px -24px -24px;
 }
 .write-chat textarea {
-  width: 100%;
-  height: 100%;
   border: none;
   padding: 15px;
 }
