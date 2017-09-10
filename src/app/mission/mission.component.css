@@ -2,10 +2,11 @@
   float: left;
 }
 .mission-nav {
-  margin-top: 50px;
-  padding: 15px;
+  margin-top: 80px;
   color: #c9c9c9;
   opacity: 0.5;
+  padding: 0 15px;
+  height: 30px;
 }
 .previous {
   float: left;
@@ -13,7 +14,7 @@
 .next {
   float: right;
 }
-.line-back {
+.lineback {
   background: -webkit-linear-gradient(left, transparent 5%, white 5%, white 5.1%,transparent 5.1%);
 }
 .card-margin {
@@ -22,4 +23,7 @@
 .chat {
   min-height:500px;
   background-color: #f4f4f4;
+}
+.pic-container {
+  width: 65px;
 }

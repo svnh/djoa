@@ -13,3 +13,8 @@ h5 {
   background-color: #f4f4f4;
   margin: 0 -15px;
 }
+.pic-container {
+	width: 100px;
+	display: flex;
+	margin: 50px auto 10px;
+}
