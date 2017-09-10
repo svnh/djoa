@@ -1,5 +1,5 @@
 <div class="chat">
-  <div *ngFor="let message of messages">
+  <div *ngFor="let message of messages" class="read-chat">
     <div *ngFor="let user of message.users">
       <div class="pic-container">
         <app-picture [userIdToOpenProfile]="user._id" [addPicture]=false [deletePicture]=false [forms]="user.forms"></app-picture>
