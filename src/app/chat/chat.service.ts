@@ -23,7 +23,7 @@ export class ChatService {
   private socket;
 
   sendMessage(message){
-    this.socket.emit('add-message', message);
+    this.socket.emit('add-message', message)
   }
 
   getMessages(id: string) {

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input , ViewChild, ElementRef} from '@angular/core';
 
 import { ChatService } from '../chat.service';
 import { Chat } from '../chat.model';
@@ -16,6 +16,7 @@ import {Router, ActivatedRoute, Params } from '@angular/router';
 })
 export class ChatComponent implements OnInit, OnDestroy {
   @Input() search: Search = new Search()
+  @ViewChild('readChat', { read: ElementRef }) public readChat: ElementRef;
   loading: boolean;
   messages = [];
   fetchedOldChats: Chat[] = []
@@ -32,6 +33,7 @@ export class ChatComponent implements OnInit, OnDestroy {
   ) { }
 
   sendMessage() {
+
     if(this.message.chatName) {
       if(this.search.stratId) {
         let newStrat = new Strat()
@@ -48,6 +50,8 @@ export class ChatComponent implements OnInit, OnDestroy {
       this.message.ownerCompanies= [this.authService.getCurrentUser().ownerCompanies[0]]
       this.chatService.sendMessage(this.message);
       this.message.chatName = '';
+      setTimeout(()=>this.readChat.nativeElement.scrollTop += 10000 , 1);
+
     }
   }
 
