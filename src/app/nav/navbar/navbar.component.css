@@ -54,3 +54,10 @@ a.nav-link {
   margin: 10px 50px;
   height: 40px;
 }
+.pic-container {
+  border: 1px solid #4a148c;
+  padding: 1px;
+  background-color: #ffffff;
+  border-radius: 100px;
+  width: 65px;
+}
