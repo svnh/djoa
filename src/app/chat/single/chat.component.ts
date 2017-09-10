@@ -50,7 +50,14 @@ export class ChatComponent implements OnInit, OnDestroy {
       this.message.ownerCompanies= [this.authService.getCurrentUser().ownerCompanies[0]]
       this.chatService.sendMessage(this.message);
       this.message.chatName = '';
-      setTimeout(()=>this.readChat.nativeElement.scrollTop += 10000 , 1);
+      // setTimeout(()=>this.readChat.nativeElement.scrollTop += 10000 , 1);
+
+
+      // try {
+      //     this.readChat.nativeElement.scrollTop = this.readChat.nativeElement.scrollHeight;
+      // } catch(err) { }
+
+
 
     }
   }
@@ -74,6 +81,11 @@ export class ChatComponent implements OnInit, OnDestroy {
     })
   }
 
+  ngAfterViewChecked() {
+    this.readChat.nativeElement.scrollTop += 10000
+  }
+
+
 
 
   getOldChats(page: number, search: any) {
@@ -84,7 +96,7 @@ export class ChatComponent implements OnInit, OnDestroy {
         this.paginationData = res.paginationData;
         this.messages = res.data
         this.loading = false;
-        setTimeout(()=>this.readChat.nativeElement.scrollTop += 10000 , 1);
+        // setTimeout(()=>this.readChat.nativeElement.scrollTop += 10000 , 1);
       },
       error => {
         console.log(error);
