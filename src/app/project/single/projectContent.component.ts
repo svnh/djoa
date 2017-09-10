@@ -82,11 +82,6 @@ export class ProjectContentComponent implements OnInit {
   ngOnInit() {
 
     this.getProducts(1, {})
-    // this.myForm = this._fb.group({
-    //   status: [''],
-    //   name: ['', [Validators.required, Validators.minLength(2)]],
-    //   description: [''],
-    // });
 
 
     this.fetchedProject.dateProject.startString = this.authService.isoDateToHtmlDate(this.fetchedProject.dateProject.start)
@@ -94,29 +89,14 @@ export class ProjectContentComponent implements OnInit {
 
 
     this.activatedRoute.params.subscribe((params: Params) => {
+      this.fetchedMissions = []
       if(params['id']) {
         this.search.projectId = params['id']
-        // this.search.projectId = params['id']
         this.getProject(params['id'])
 
-        // this.searchMissionStrat.missionType = 'strat'
-        // this.searchMissionStrat.projectId = params['id']
-        //
-        // this.searchMissionResearch.missionType = 'research'
-        // this.searchMissionResearch.projectId = params['id']
-        //
-        // this.searchMissionContent.missionType = 'content'
-        // this.searchMissionContent.projectId = params['id']
 
       }
-      // else {
-      //   // if(params['idClient'])
-      //   //    this.getUser(params['idClient'])
-      //   if(params['selectedIndex'])
-      //     this.selectedIndex0 = params['selectedIndex']
-      //
-      //     this.getItemSteps()
-      // }
+
     })
 
   }
