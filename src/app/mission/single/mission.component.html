@@ -1,28 +1,25 @@
-<div class="container">
-  <div>
-    <h3>Mission</h3>
-    <h4 class="">id: {{fetchedMission._id}}</h4>
-    <form [formGroup]="myForm" novalidate (ngSubmit)="save()">
-      <div>
-        <app-autocomplete [typeAutocomplete]="'project'" [canDelete]=true [search]="search" [title]="'Project'" [singleChoice]=true (getResultAutocomplete)="getResultAutocomplete($event)" [arrayContent]="fetchedMission.projects">
-        </app-autocomplete>
-        <app-autocomplete [typeAutocomplete]="'product'" [canDelete]=true [search]="search" [title]="'product'" [singleChoice]=true [arrayContent]="fetchedMission.products">
-        </app-autocomplete>
-        type: {{fetchedMission.missionType}}
-        <input type="text" class="form-control" formControlName="title" [(ngModel)]="fetchedMission.title" placeholder="title">
-        <textarea class="form-control" formControlName="description" [(ngModel)]="fetchedMission.description" placeholder="Description">
-        </textarea>
-        <app-autocomplete [typeAutocomplete]="'user'" [singleChoice]="'true'" [arrayContent]="fetchedMission.users" (getResultAutocomplete)="selectAssignedTo($event[0])">
-        </app-autocomplete>
-        <input type="date" class="form-control" formControlName="startString" [(ngModel)]="fetchedMission.dateMission.startString">
-        <input type="date" class="form-control" formControlName="endString" [(ngModel)]="fetchedMission.dateMission.endString">
-        <div class="valid-edit">
-          <button type="submit" class="sln-edt done">{{'Save' }}</button>
-          <button *ngIf="fetchedMission._id" type="button" class="delete" md-button (click)="openDeleteConfirmation()">
-          Delete
-        </button>
-        </div>
+<div>
+  <!--<h4 class="">id: {{fetchedMission._id}}</h4>-->
+  <form [formGroup]="myForm" novalidate (ngSubmit)="save()">
+    <div>
+      <app-autocomplete [typeAutocomplete]="'project'" [canDelete]=true [search]="search" [title]="'Project'" [singleChoice]=true (getResultAutocomplete)="getResultAutocomplete($event)" [arrayContent]="fetchedMission.projects">
+      </app-autocomplete>
+      <app-autocomplete [typeAutocomplete]="'product'" [canDelete]=true [search]="search" [title]="'product'" [singleChoice]=true [arrayContent]="fetchedMission.products">
+      </app-autocomplete>
+      type: {{fetchedMission.missionType}}
+      <input type="text" class="form-control" formControlName="title" [(ngModel)]="fetchedMission.title" placeholder="title">
+      <textarea class="form-control" formControlName="description" [(ngModel)]="fetchedMission.description" placeholder="Description">
+      </textarea>
+      <app-autocomplete [typeAutocomplete]="'user'" [singleChoice]="'true'" [arrayContent]="fetchedMission.users" (getResultAutocomplete)="selectAssignedTo($event[0])">
+      </app-autocomplete>
+      <input type="date" class="form-control" formControlName="startString" [(ngModel)]="fetchedMission.dateMission.startString">
+      <input type="date" class="form-control" formControlName="endString" [(ngModel)]="fetchedMission.dateMission.endString">
+      <div class="valid-edit">
+        <button type="submit" class="sln-edt done">{{'Save' }}</button>
+        <button *ngIf="fetchedMission._id" type="button" class="delete" md-button (click)="openDeleteConfirmation()">
+        Delete
+      </button>
       </div>
-    </form>
-  </div>
+    </div>
+  </form>
 </div>

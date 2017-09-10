@@ -1,41 +1,33 @@
-<div class="djoa-container">
-  <div class="row">
-    <div class="col-md-12">
-      <h3>Project</h3>
-      <form [formGroup]="myForm" novalidate (ngSubmit)="save()" (keydown.enter)="$event.preventDefault()">
-        <div>
-          <div>
-            <label>Id</label> {{fetchedProject._id}}
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="">
-            <label>{{'Name' }}</label>
-            <input class="form-control col-md-4" type="text" formControlName="name" [(ngModel)]="fetchedProject.details.name" placeholder="Ref">
-          </div>
-        </div>
-        <div class="form-group">
-          <label>{{'Description' }}</label>
-          <input class="form-control col-md-4" type="text" formControlName="description" placeholder="description" [(ngModel)]="fetchedProject.details.description">
-        </div>
-        <app-autocomplete class="col-md-4" [typeAutocomplete]="'user'" [title]="'Customer'" [search]="{isExternalUser:false}" [singleChoice]=false [arrayContent]="fetchedProject.users" >
-        </app-autocomplete>
-        <input type="date" class="form-control" formControlName="start" [(ngModel)]="fetchedProject.dateProject.startString">
-        <input type="date" class="form-control" formControlName="end" [(ngModel)]="fetchedProject.dateProject.endString">
-        <div class="form-group">
-          {{'Status' }}
-          <select class="form-control col-md-3" formControlName="status" [(ngModel)]="fetchedProject.status">
-          <option *ngFor="let n of status" [ngValue]="n.index">{{n.label}}</option>
-        </select>
-        </div>
-        <div class="form-group">
-        </div>
-        <div class="valid-edit">
-          <button type="submit" class="done btn btn-success" [disabled]="!myForm.valid">{{'Save' }}</button>
-          <button *ngIf="fetchedProject._id" type="button" class="delete" md-button (click)="openDeleteConfirmation()">{{'Delete' }}</button>
-        </div>
-        <div class="clearfix"></div>
-      </form>
+<div class="col-md-12">
+  <h2>Project</h2>
+  <form [formGroup]="myForm" novalidate (ngSubmit)="save()" (keydown.enter)="$event.preventDefault()">
+    <!-- <div>{{fetchedProject._id}}</div> -->
+    <div class="form-group">
+      <label>{{'Title' }}</label>
+      <input class="form-control" type="text" formControlName="name" [(ngModel)]="fetchedProject.details.name" placeholder="Title">
     </div>
-  </div>
+    <!--<div class="form-group">
+      <label>{{'Description' }}</label>
+      <input class="form-control col-md-4" type="text" formControlName="description" placeholder="description" [(ngModel)]="fetchedProject.details.description">
+    </div>-->
+    <input type="date" class="form-control" formControlName="start" [(ngModel)]="fetchedProject.dateProject.startString">
+    <input type="date" class="form-control" formControlName="end" [(ngModel)]="fetchedProject.dateProject.endString">
+    <div class="form-group">
+      <label>Project Owners</label>
+      <app-autocomplete [typeAutocomplete]="'user'" [title]="'Customer'" [search]="{isExternalUser:false}" [singleChoice]=false [arrayContent]="fetchedProject.users" ></app-autocomplete>
+    </div>
+    <div class="form-group">
+      {{'Status' }}
+      <select class="form-control" formControlName="status" [(ngModel)]="fetchedProject.status">
+      <option *ngFor="let n of status" [ngValue]="n.index">{{n.label}}</option>
+    </select>
+    </div>
+    <div class="form-group">
+    </div>
+    <div class="valid-edit">
+      <button type="submit" class="save" [disabled]="!myForm.valid">{{'Save' }}</button>
+      <button *ngIf="fetchedProject._id" type="button" class="delete" md-button (click)="openDeleteConfirmation()">{{'Delete' }}</button>
+    </div>
+    <div class="clearfix"></div>
+  </form>
 </div>

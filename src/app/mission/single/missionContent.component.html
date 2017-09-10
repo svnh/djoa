@@ -1,59 +1,53 @@
 <div class="djoa-container">
-  <div class="row">
-    <div class="col-md-12">
-      <h3>Mission</h3>
-      <h4 class="">id: {{fetchedMission._id}}</h4>
-      <h1>Mission</h1>
-
-      <div *ngIf="buttonDataMission.left._id" (click)="goTo('mission', buttonDataMission.left._id)">
-        <<{{buttonDataMission.left.title}}
-      </div>
-      <div *ngIf="buttonDataMission.right._id" (click)="goTo('mission', buttonDataMission.right._id)">
-        {{buttonDataMission.right.title}}>>
-      </div>
-
-
-      <div>
-        <br> title:{{fetchedMission.title}}
-        <br> description: {{fetchedMission.description}}
-      </div>
-      <md-card>
-        <md-card-content>
-          <h2>Chat</h2>
-          <app-chat [search]="search"></app-chat>
-        </md-card-content>
-      </md-card>
-      <md-card>
-        <md-card-content>
-          <h2>Links to documents</h2>
-          <app-documents [search]="search"></app-documents>
-        </md-card-content>
-      </md-card>
-      <md-card>
-        <md-card-content>
-          <h2 class="">{{fetchedMission.title}}</h2>
-          <button type="button" (click)="openDetails()">Edit</button>
-          <br> Start Date {{fetchedMission.dateMission.start | date:'yyyy-MM-dd' }} / End Date {{fetchedMission.dateMission.end | date:'yyyy-MM-dd' }} / {{fetchedMission.dateMission.percentageProgress}}%
-          <section class="">
-            <md-progress-bar class="example-margin" [color]="'primary'" [mode]="'determinate'" [value]="fetchedMission.dateMission.percentageProgress">
-            </md-progress-bar>
-          </section>
-        </md-card-content>
-      </md-card>
-      <md-card>
-        <md-card-content>
-          <h2>Team</h2>
-          <button type="button" (click)="openTeam()">Edit</button>
-          <br>
-          <div *ngFor="let user of fetchedMission.users">
-            <div (click)="openProfile(user._id)">
-              <app-picture [addPicture]=false [deletePicture]=false [forms]="user.forms"></app-picture>
-              {{user.profile.name}}
-            </div>
-            <br>
-          </div>
-        </md-card-content>
-      </md-card>
+  <!--<h4 class="">id: {{fetchedMission._id}}</h4>-->
+  <h1>Title of Project here</h1>
+  <div class="mission-nav">
+    <div *ngIf="buttonDataMission.left._id" (click)="goTo('mission', buttonDataMission.left._id)">
+      <i class="fa fa-chevron-left"></i>{{buttonDataMission.left.title}}
     </div>
+    <div *ngIf="buttonDataMission.right._id" (click)="goTo('mission', buttonDataMission.right._id)">
+      {{buttonDataMission.right.title}}<i class="fa fa-chevron-right"></i>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <md-card>
+      <md-card-content>
+        <h4>{{fetchedMission.title}}</h4>
+        <button type="button" (click)="openDetails()" class="edit-btn">Edit</button>
+        <p>{{fetchedMission.description}}</p>
+        <!--Start Date {{fetchedMission.dateMission.start | date:'yyyy-MM-dd' }} / End Date {{fetchedMission.dateMission.end | date:'yyyy-MM-dd' }} / {{fetchedMission.dateMission.percentageProgress}}%-->
+        <section>
+          <md-progress-bar [color]="'primary'" [mode]="'determinate'" [value]="fetchedMission.dateMission.percentageProgress"></md-progress-bar>
+        </section>
+      </md-card-content>
+    </md-card>
+    <md-card>
+      <md-card-content>
+        <h2>Documents</h2>
+        <app-documents [search]="search"></app-documents>
+      </md-card-content>
+    </md-card>
+    <md-card>
+      <md-card-content>
+        <h2>Team</h2>
+        <button type="button" (click)="openTeam()">Edit</button>
+        <br>
+        <div *ngFor="let user of fetchedMission.users">
+          <div (click)="openProfile(user._id)">
+            <app-picture [addPicture]=false [deletePicture]=false [forms]="user.forms"></app-picture>
+            {{user.profile.name}}
+          </div>
+          <br>
+        </div>
+      </md-card-content>
+    </md-card>
+  </div>
+  <div class="col-md-6">
+    <md-card>
+      <md-card-content>
+        <h2>Chat</h2>
+        <app-chat [search]="search"></app-chat>
+      </md-card-content>
+    </md-card>
   </div>
 </div>
