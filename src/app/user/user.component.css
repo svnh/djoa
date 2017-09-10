@@ -1,13 +1,7 @@
-.profile-pic img.imgList {
-  border: none !important;
-  padding: 0 !important;
-  height: 100px !important;
-  display: flex !important;
-  margin: 50px auto 0 !important;
-}
 h2.my-name {
   text-align: center !important;
   text-transform: none !important;
+	display: block !important;
 }
 h5 {
   text-align: center;
