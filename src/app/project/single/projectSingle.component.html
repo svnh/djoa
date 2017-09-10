@@ -11,19 +11,15 @@
       <label>{{'Description' }}</label>
       <input class="form-control col-md-4" type="text" formControlName="description" placeholder="description" [(ngModel)]="fetchedProject.details.description">
     </div>-->
-    <input type="date" class="form-control" formControlName="start" [(ngModel)]="fetchedProject.dateProject.startString">
-    <input type="date" class="form-control" formControlName="end" [(ngModel)]="fetchedProject.dateProject.endString">
+    <md-form-field>
+      <input mdInput type="date" class="form-control" formControlName="start" [(ngModel)]="fetchedProject.dateProject.startString">
+    </md-form-field>
+    <md-form-field>
+      <input mdInput type="date" class="form-control" formControlName="end" [(ngModel)]="fetchedProject.dateProject.endString">
+    </md-form-field>
     <div class="form-group">
       <label>Project Owners</label>
-      <app-autocomplete [typeAutocomplete]="'user'" [title]="" [search]="{isExternalUser:false}" [singleChoice]=false [arrayContent]="fetchedProject.users" ></app-autocomplete>
-    </div>
-    <!-- <div class="form-group">
-      {{'Status' }}
-      <select class="form-control" formControlName="status" [(ngModel)]="fetchedProject.status">
-      <option *ngFor="let n of status" [ngValue]="n.index">{{n.label}}</option>
-    </select>
-    </div> -->
-    <div class="form-group">
+      <app-autocomplete [typeAutocomplete]="'user'" [title]="" [search]="{isExternalUser:false}" [singleChoice]=false [arrayContent]="fetchedProject.users"></app-autocomplete>
     </div>
     <div class="valid-edit">
       <button type="submit" class="save" [disabled]="!myForm.valid">{{'Save' }}</button>

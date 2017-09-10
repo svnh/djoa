@@ -23,7 +23,23 @@
           <app-chat [search]="search"></app-chat>
         </md-card-content>
       </md-card>
-      <br><br><br><br><br><br><br><br><br><br>
+
+      <md-card>
+        <md-card-content>
+          <h2>Team</h2>
+          <button type="button" (click)="openTeam()" class="edit-btn">Edit</button>
+          <br>
+          <div *ngFor="let user of fetchedStrat.users">
+            <div (click)="openProfile(user._id)">
+              <app-picture [addPicture]=false [deletePicture]=false [forms]="user.forms"></app-picture>
+              <p>{{user.profile.name}}</p>
+            </div>
+            <br>
+          </div>
+        </md-card-content>
+      </md-card>
+
+
     </div>
   </div>
 </div>

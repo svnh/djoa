@@ -4,90 +4,45 @@
     <div class="col-md-12">
       <h3>Document</h3>
       <form [formGroup]="myForm" novalidate (ngSubmit)="save()" (keydown.enter)="$event.preventDefault()">
-        <app-autocomplete
-          [typeAutocomplete]="'strat'"
-          [search]="search"
-          [canDelete]=true
-          [title]="'Strat'"
-          [singleChoice]=true
-          [arrayContent]="fetchedDocument.strats">
+        <app-autocomplete [typeAutocomplete]="'strat'" [search]="search" [canDelete]=true [title]="'Strat'" [singleChoice]=true [arrayContent]="fetchedDocument.strats">
         </app-autocomplete>
-        <app-autocomplete
-          [typeAutocomplete]="'mission'"
-          [search]="search"
-          [canDelete]=true
-          [title]="'mission'"
-          [singleChoice]=true
-          [arrayContent]="fetchedDocument.missions">
+        <app-autocomplete [typeAutocomplete]="'mission'" [search]="search" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedDocument.missions">
         </app-autocomplete>
-        <app-autocomplete
-          [typeAutocomplete]="'brief'"
-          [search]="search"
-          [canDelete]=true
-          [title]="'brief'"
-          [singleChoice]=true
-          [arrayContent]="fetchedDocument.briefs">
+        <app-autocomplete [typeAutocomplete]="'brief'" [search]="search" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedDocument.briefs">
         </app-autocomplete>
 
 
 
-
-        <br>
-
-
-
-        <div class="form-group">
-
-          <div class="">
-            <label>{{'Name' }}</label>
-            <input class="form-control col-md-4" type="text" formControlName="name" [(ngModel)]="fetchedDocument.details.name" placeholder="Ref">
-          </div>
-          <div class="">
-            <label>{{'Link' }}</label>
-            <input class="form-control col-md-4" type="text" formControlName="link" [(ngModel)]="fetchedDocument.link" placeholder="link">
-          </div>
+        <md-form-field>
+          <input mdInput type="text" formControlName="name" [(ngModel)]="fetchedDocument.details.name" placeholder="Name">
+        </md-form-field>
 
 
-        </div>
-        <div class="form-group">
-          <label>{{'Description' }}</label>
-          <input class="form-control col-md-4" type="text" formControlName="description" placeholder="description" [(ngModel)]="fetchedDocument.details.description">
-        </div>
+        <md-form-field>
+          <input mdInput type="text" formControlName="link" [(ngModel)]="fetchedDocument.link" placeholder="link">
+        </md-form-field>
 
 
-        <!-- <app-autocomplete class="col-md-4" [typeAutocomplete]="'user'" [title]="'Customer'" [singleChoice]="'true'" [arrayContent]="fetchedDocument.clients" (getResultAutocomplete)="selectUser($event[0])">
-        </app-autocomplete> -->
-
-        <br>
+        <md-form-field>
+          <input mdInput class="form-control col-md-4" type="text" formControlName="description" placeholder="description" [(ngModel)]="fetchedDocument.details.description">
+        </md-form-field>
 
 
         <div class="form-group">
           <app-picture [forms]="fetchedDocument.forms"></app-picture>
         </div>
 
-        <app-autocomplete
-          [typeAutocomplete]="'user'"
-          [search]="search"
-          [canDelete]=true
-          [title]="'crewMembers'"
-          [singleChoice]=true
-          [arrayContent]="fetchedDocument.crewMembers">
+        <app-autocomplete [typeAutocomplete]="'user'" [search]="search" [canDelete]=true [title]="'crewMembers'" [singleChoice]=true [arrayContent]="fetchedDocument.crewMembers">
         </app-autocomplete>
-        <app-autocomplete
-          [typeAutocomplete]="'user'"
-          [search]="search"
-          [canDelete]=true
-          [title]="'reviewers'"
-          [singleChoice]=true
-          [arrayContent]="fetchedDocument.reviewers">
+        <app-autocomplete [typeAutocomplete]="'user'" [search]="search" [canDelete]=true [title]="'reviewers'" [singleChoice]=true [arrayContent]="fetchedDocument.reviewers">
         </app-autocomplete>
 
 
         <div class="valid-edit">
           <button type="submit" class="done btn btn-success" [disabled]="!myForm.valid">{{'Save' }}</button>
           <button *ngIf="fetchedDocument._id" type="button" class="delete" md-button (click)="openDeleteConfirmation()">
-        {{'Delete' }}
-      </button>
+            {{'Delete' }}
+          </button>
         </div>
         <div class="clearfix"></div>
       </form>

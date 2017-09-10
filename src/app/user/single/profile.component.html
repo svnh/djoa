@@ -5,15 +5,15 @@
   <button (click)="edit = !edit" class="profile-button">Edit Profile</button>
   <div *ngIf="edit">
     <form [formGroup]="myForm" novalidate (ngSubmit)="save()">
-      <div class="form-group">
-        <input type="text" class="form-control" formControlName="name" [(ngModel)]="fetchedUser.profile.name" placeholder="name">
-      </div>
-      <div class="form-group">
-        <input type="text" class="form-control" formControlName="lastName" [(ngModel)]="fetchedUser.profile.lastName" placeholder="lastName">
-      </div>
-      <div class="form-group">
-        <input type="text" class="form-control" formControlName="title" [(ngModel)]="fetchedUser.profile.title" placeholder="title">
-      </div>
+      <md-form-field>
+        <input mdInput type="text" class="form-control" formControlName="name" [(ngModel)]="fetchedUser.profile.name" placeholder="name">
+      </md-form-field>
+      <md-form-field>
+        <input mdInput type="text" class="form-control" formControlName="lastName" [(ngModel)]="fetchedUser.profile.lastName" placeholder="lastName">
+      </md-form-field>
+      <md-form-field>
+        <input mdInput type="text" class="form-control" formControlName="title" [(ngModel)]="fetchedUser.profile.title" placeholder="title">
+      </md-form-field>
       <app-picture [addPicture]=true [deletePicture]=true [forms]="fetchedUser.forms"></app-picture>
       <div class="valid-edit">
         <button type="submit" [disabled]="!myForm.valid" [ngClass]="{'done':myForm.valid,'pas-done':!myForm.valid}">Done</button>
@@ -24,5 +24,5 @@
     </form>
   </div>
   <button type="button" class="profile-button">Settings</button>
-  <button type="button" (click)="logout()" class="profile-button">{{'Logout' }}</button>
+  <button type="button" (click)="logout()" class="profile-button">Logout</button>
 </div>

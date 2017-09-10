@@ -6,14 +6,21 @@
       </app-autocomplete>
       <app-autocomplete [typeAutocomplete]="'product'" [canDelete]=true [search]="search" [title]="'product'" [singleChoice]=true [arrayContent]="fetchedMission.products">
       </app-autocomplete>
-      type: {{fetchedMission.missionType}}
-      <input type="text" class="form-control" formControlName="title" [(ngModel)]="fetchedMission.title" placeholder="title">
-      <textarea class="form-control" formControlName="description" [(ngModel)]="fetchedMission.description" placeholder="Description">
+      <md-form-field>
+        <input mdInput type="text" class="form-control" formControlName="title" [(ngModel)]="fetchedMission.title" placeholder="title">
+      </md-form-field>
+      <md-form-field>
+        <textarea mdInput class="form-control" formControlName="description" [(ngModel)]="fetchedMission.description" placeholder="Description">
       </textarea>
+      </md-form-field>
       <app-autocomplete [typeAutocomplete]="'user'" [singleChoice]="'true'" [arrayContent]="fetchedMission.users" (getResultAutocomplete)="selectAssignedTo($event[0])">
       </app-autocomplete>
-      <input type="date" class="form-control" formControlName="startString" [(ngModel)]="fetchedMission.dateMission.startString">
-      <input type="date" class="form-control" formControlName="endString" [(ngModel)]="fetchedMission.dateMission.endString">
+      <md-form-field>
+        <input mdInput type="date" class="form-control" formControlName="startString" [(ngModel)]="fetchedMission.dateMission.startString">
+      </md-form-field>
+      <md-form-field>
+        <input mdInput type="date" class="form-control" formControlName="endString" [(ngModel)]="fetchedMission.dateMission.endString">
+      </md-form-field>
       <div class="valid-edit">
         <button type="submit" class="sln-edt done">{{'Save' }}</button>
         <button *ngIf="fetchedMission._id" type="button" class="delete" md-button (click)="openDeleteConfirmation()">

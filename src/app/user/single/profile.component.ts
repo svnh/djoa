@@ -102,6 +102,16 @@ export class ProfileComponent implements OnInit {
       }
     }
 
+    logout() {
+
+      this.authService.logout();
+      let this2 = this
+      // setTimeout(function(){
+          this2.router.navigate(['/user/login']);
+      // }, 150);
+
+    }
+
   // searchCompanies() {
   //   if(!this.autocompleteCompanie) {
   //     this.fetchedCompanies = []
