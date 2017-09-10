@@ -1,18 +1,20 @@
 <div class="chat">
-  <div *ngFor="let message of messages" class="read-chat">
-    <div *ngFor="let user of message.users">
-      <div class="pic-container">
-        <app-picture [userIdToOpenProfile]="user._id" [addPicture]=false [deletePicture]=false [forms]="user.forms"></app-picture>
-      </div>
-      <div class="chat-content">
-        <!--{{user.profile.name}}-->
-        <p>{{message.chatName}}</p>
-        <h5>{{message.createdAt | date:'yMdjm'}}</h5>
+  <div class="read-chat">
+    <div *ngFor="let message of messages">
+      <div *ngFor="let user of message.users">
+        <div class="pic-container">
+          <app-picture [userIdToOpenProfile]="user._id" [addPicture]=false [deletePicture]=false [forms]="user.forms"></app-picture>
+        </div>
+        <div class="chat-content">
+          <!--{{user.profile.name}}-->
+          <p>{{message.chatName}}</p>
+          <h5>{{message.createdAt | date:'yMdjm'}}</h5>
+        </div>
       </div>
     </div>
   </div>
   <div class="write-chat">
-    <input [(ngModel)]="message.chatName" (keyup.enter)="sendMessage()"/>
+    <textarea [(ngModel)]="message.chatName" (keyup.enter)="sendMessage()"/>
     <button (click)="sendMessage()" class="edit-btn">Send</button>
   </div>
 </div>
