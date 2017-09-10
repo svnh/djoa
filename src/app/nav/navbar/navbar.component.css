@@ -30,9 +30,32 @@ a.nav-link {
   background: linear-gradient(to right, #4a148c , #0d47a1);
 }
 .imgList {
-  height: 46px;
+  height: 65px;
   border-radius: 30px;
   border: 2px solid #4a148c;
   padding: 1px;
   background-color: #ffffff;
+}
+.navadd .fa.fa-plus, .navnotif button {
+  color: #fff;
+  border-radius: 30px;
+  width: 40px;
+  height: 40px;
+  font-weight: 500;
+}
+.navadd .fa.fa-plus {
+  background-color: #330066;
+  border: 1px solid #330066;
+  margin: 10px 20px;
+}
+.navnotif button {
+  background-color: #f44336;
+  border: 1px solid;
+  margin: 10px 0;
+}
+.adm-btn {
+  color: #ffffff;
+  background-color: #330066;
+  margin: 10px 37px;
+  height: 40px;
 }
