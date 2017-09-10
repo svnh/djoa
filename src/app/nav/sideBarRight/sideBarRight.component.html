@@ -1,26 +1,29 @@
 <md-sidenav #sidenav align="end" class="sidebarright-page">
+  <div class="sidebarright-back"></div>
   <div class="sidebarright">
-    <i (click)="sideNavAction('rightSideBar', false, '')" class="fa fa-bars" aria-hidden="true"></i>
-    <div *ngIf="showNavBarData.search.typeScreen == 'object'">
-      <app-strat *ngIf="showNavBarData.search.typeObj == 'strat'" [search]="showNavBarData.search"></app-strat>
-      <app-brief *ngIf="showNavBarData.search.typeObj == 'brief'" [search]="showNavBarData.search"></app-brief>
-      <app-document *ngIf="showNavBarData.search.typeObj == 'document'" [search]="showNavBarData.search"></app-document>
-      <app-newObj *ngIf="showNavBarData.search.typeObj == 'newObj'"></app-newObj>
-      <app-notif *ngIf="showNavBarData.search.typeObj == 'notif'"></app-notif>
-      <app-addUsersToObjects *ngIf="showNavBarData.search.typeObj == 'usersToObjects'"></app-addUsersToObjects>
-      <app-mission *ngIf="showNavBarData.search.typeObj == 'mission'" [search]="showNavBarData.search"></app-mission>
-      <app-newUser *ngIf="showNavBarData.search.typeObj == 'user'" [search]="showNavBarData.search"></app-newUser>
-      <app-projectSingle *ngIf="showNavBarData.search.typeObj == 'project'" [search]="showNavBarData.search"></app-projectSingle>
-    </div>
-    <div *ngIf="showNavBarData.search.typeScreen == 'profile'">
-      <app-profile *ngIf="showNavBarData.search.typeObj == 'user'" [search]="showNavBarData.search"></app-profile>
-    </div>
-    <div *ngIf="showNavBarData.search.typeScreen == 'deleteConfirmation'">
-      <app-deleteConfirmation [search]="showNavBarData.search"></app-deleteConfirmation>
-    </div>
-    <div *ngIf="showNavBarData.search.typeScreen == 'team'">
-      <app-projectTeam *ngIf="showNavBarData.search.typeObj == 'project'" [search]="showNavBarData.search"></app-projectTeam>
-      <app-missionTeam *ngIf="showNavBarData.search.typeObj == 'mission'" [search]="showNavBarData.search"></app-missionTeam>
+    <div class="sidebarright-content">
+      <i (click)="sideNavAction('rightSideBar', false, '')" class="fa fa-bars" aria-hidden="true"></i>
+      <div *ngIf="showNavBarData.search.typeScreen == 'object'">
+        <app-strat *ngIf="showNavBarData.search.typeObj == 'strat'" [search]="showNavBarData.search"></app-strat>
+        <app-brief *ngIf="showNavBarData.search.typeObj == 'brief'" [search]="showNavBarData.search"></app-brief>
+        <app-document *ngIf="showNavBarData.search.typeObj == 'document'" [search]="showNavBarData.search"></app-document>
+        <app-newObj *ngIf="showNavBarData.search.typeObj == 'newObj'"></app-newObj>
+        <app-notif *ngIf="showNavBarData.search.typeObj == 'notif'"></app-notif>
+        <app-addUsersToObjects *ngIf="showNavBarData.search.typeObj == 'usersToObjects'"></app-addUsersToObjects>
+        <app-mission *ngIf="showNavBarData.search.typeObj == 'mission'" [search]="showNavBarData.search"></app-mission>
+        <app-newUser *ngIf="showNavBarData.search.typeObj == 'user'" [search]="showNavBarData.search"></app-newUser>
+        <app-projectSingle *ngIf="showNavBarData.search.typeObj == 'project'" [search]="showNavBarData.search"></app-projectSingle>
+      </div>
+      <div *ngIf="showNavBarData.search.typeScreen == 'profile'">
+        <app-profile *ngIf="showNavBarData.search.typeObj == 'user'" [search]="showNavBarData.search"></app-profile>
+      </div>
+      <div *ngIf="showNavBarData.search.typeScreen == 'deleteConfirmation'">
+        <app-deleteConfirmation [search]="showNavBarData.search"></app-deleteConfirmation>
+      </div>
+      <div *ngIf="showNavBarData.search.typeScreen == 'team'">
+        <app-projectTeam *ngIf="showNavBarData.search.typeObj == 'project'" [search]="showNavBarData.search"></app-projectTeam>
+        <app-missionTeam *ngIf="showNavBarData.search.typeObj == 'mission'" [search]="showNavBarData.search"></app-missionTeam>
+      </div>
     </div>
   </div>
 </md-sidenav>
