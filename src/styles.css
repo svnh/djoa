@@ -73,8 +73,7 @@ h5 {
   float: none;
   margin: 0 0 0 13%;
   height: 86vh !important;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden;
   background-image: url(/assets/images/page-title-back.png);
   background-repeat: no-repeat;
   background-size: 80%;

@@ -1,4 +1,4 @@
-<div class="chat">
+<div>
   <div class="read-chat">
     <div *ngFor="let message of messages">
       <div *ngFor="let user of message.users">
@@ -13,7 +13,6 @@
       </div>
     </div>
   </div>
-
   <div class="write-chat">
     <textarea [(ngModel)]="message.chatName" (keyup.enter)="sendMessage()"></textarea>
     <button (click)="sendMessage()" class="edit-btn">Send</button>
