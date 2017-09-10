@@ -37,7 +37,7 @@
         <button type="button" (click)="openTeam()" class="edit-btn">Edit</button>
         <div *ngFor="let user of fetchedMission.users">
           <div (click)="openProfile(user._id)">
-            <div="pic-container"><app-picture [addPicture]=false [deletePicture]=false [forms]="user.forms"></app-picture>
+            <div class="pic-container"><app-picture [addPicture]=false [deletePicture]=false [forms]="user.forms"></app-picture></div>
           </div>
           <p>{{user.profile.name}}</p>
         </div>
