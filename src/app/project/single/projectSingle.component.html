@@ -3,8 +3,9 @@
   <form [formGroup]="myForm" novalidate (ngSubmit)="save()" (keydown.enter)="$event.preventDefault()">
     <!-- <div>{{fetchedProject._id}}</div> -->
     <div class="form-group">
-      <label>{{'Title' }}</label>
-      <input class="form-control" type="text" formControlName="name" [(ngModel)]="fetchedProject.details.name" placeholder="Title">
+      <md-form-field>
+        <input mdInput class="form-control" type="text" formControlName="name" [(ngModel)]="fetchedProject.details.name" placeholder="Title">
+      </md-form-field>
     </div>
     <!--<div class="form-group">
       <label>{{'Description' }}</label>
@@ -14,14 +15,14 @@
     <input type="date" class="form-control" formControlName="end" [(ngModel)]="fetchedProject.dateProject.endString">
     <div class="form-group">
       <label>Project Owners</label>
-      <app-autocomplete [typeAutocomplete]="'user'" [title]="'Customer'" [search]="{isExternalUser:false}" [singleChoice]=false [arrayContent]="fetchedProject.users" ></app-autocomplete>
+      <app-autocomplete [typeAutocomplete]="'user'" [title]="" [search]="{isExternalUser:false}" [singleChoice]=false [arrayContent]="fetchedProject.users" ></app-autocomplete>
     </div>
-    <div class="form-group">
+    <!-- <div class="form-group">
       {{'Status' }}
       <select class="form-control" formControlName="status" [(ngModel)]="fetchedProject.status">
       <option *ngFor="let n of status" [ngValue]="n.index">{{n.label}}</option>
     </select>
-    </div>
+    </div> -->
     <div class="form-group">
     </div>
     <div class="valid-edit">
