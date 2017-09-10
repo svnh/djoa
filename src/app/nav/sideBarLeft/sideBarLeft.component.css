@@ -4,8 +4,8 @@
     background-image: url("/assets/images/left-sidenav-back.png");
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: top right;
-    width: 150px;
+    background-position: 125% 0%;
+    width: 160px;
     height: 100vh;
     padding-top: 90px;
   }

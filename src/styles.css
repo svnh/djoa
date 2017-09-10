@@ -16,7 +16,7 @@ html, body {
 ::-webkit-scrollbar-thumb {
   background-color: #330066;
 }
-h1, h2, h3, h4, h5, a, p, td, th, .table td, .mat-card {
+h1, h2, h3, h4, h5, a, p, td, th, button, input, .table td, .mat-card {
   font-family: inherit !important;
 }
 h1, h2, h3 {

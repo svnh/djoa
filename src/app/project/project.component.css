@@ -102,6 +102,20 @@ p.percent {
 .your-activity h4 {
   color: #f44336;
 }
+.leftside-title {
+  background-color: #ffffff;
+  padding: 15px;
+  display: table-cell;
+  box-shadow: 0 0 5px #aaaaaa;
+}
+.triangle {
+  display: table-cell;
+  width: 0;
+  height: 0;
+  border-top: 27px solid transparent;
+  border-left: 14px solid #ffffff;
+  border-bottom: 27px solid transparent;
+}
 
 @media screen and (min-width: 768px){
   .projectsummary {
