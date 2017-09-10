@@ -1,8 +1,7 @@
 <md-sidenav #sidenav align="end" class="sidebarright-page">
-  <div class="sidebarright-back"></div>
+  <div (click)="sideNavAction('rightSideBar', false, '')" class="sidebarright-back"></div>
   <div class="sidebarright">
     <div class="sidebarright-content">
-      <i (click)="sideNavAction('rightSideBar', false, '')" class="fa fa-bars" aria-hidden="true"></i>
       <div *ngIf="showNavBarData.search.typeScreen == 'object'">
         <app-strat *ngIf="showNavBarData.search.typeObj == 'strat'" [search]="showNavBarData.search"></app-strat>
         <app-brief *ngIf="showNavBarData.search.typeObj == 'brief'" [search]="showNavBarData.search"></app-brief>
@@ -24,6 +23,7 @@
         <app-projectTeam *ngIf="showNavBarData.search.typeObj == 'project'" [search]="showNavBarData.search"></app-projectTeam>
         <app-missionTeam *ngIf="showNavBarData.search.typeObj == 'mission'" [search]="showNavBarData.search"></app-missionTeam>
       </div>
+      <button (click)="sideNavAction('rightSideBar', false, '')" class="done">DONE</button>
     </div>
   </div>
 </md-sidenav>

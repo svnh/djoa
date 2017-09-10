@@ -1,6 +1,25 @@
 @media screen and (min-width: 768px) {
-  md-sidenav.sidebarright {
+  .sidebarright-page {
+    width: 100%;
+    background: none;
+  }
+  .sidebarright-back {
+    width: 5000px;
+    display: inline-block;
+    background-color: #000000;
+    height: 100%;
+    opacity: 0.5;
+    position: absolute;
+  }
+  .sidebarright {
+    display: inline-block;
     width: 250px;
-    padding: 85px 15px;
+    position: absolute;
+    right: 0;
+    background-color: #fff;
+    height: 100%;
+  }
+  .sidebarright-content {
+    padding: 100px 15px 15px 15px;
   }
 }

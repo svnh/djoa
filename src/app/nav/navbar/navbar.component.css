@@ -29,13 +29,6 @@ a.nav-link {
   background: -moz-linear-gradient(right, #4a148c , #0d47a1);
   background: linear-gradient(to right, #4a148c , #0d47a1);
 }
-.imgList {
-  height: 65px;
-  border-radius: 30px;
-  border: 2px solid #4a148c;
-  padding: 1px;
-  background-color: #ffffff;
-}
 .navadd .fa.fa-plus, .navnotif button {
   color: #fff;
   border-radius: 30px;
@@ -56,6 +49,6 @@ a.nav-link {
 .adm-btn {
   color: #ffffff;
   background-color: #330066;
-  margin: 10px 37px;
+  margin: 10px 51px;
   height: 40px;
 }

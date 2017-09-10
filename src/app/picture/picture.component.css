@@ -1,7 +1,7 @@
 .imgList {
-  height: 46px;
+  height: 65px;
   border-radius: 30px;
-  border: 2px solid #4a148c;
+  border: 1px solid #4a148c;
   padding: 1px;
   background-color: #ffffff;
 }
