@@ -6,14 +6,21 @@
       <div>
         <app-autocomplete [typeAutocomplete]="'project'" [search]="search" [canDelete]=true [title]="'Project'" [singleChoice]=true [arrayContent]="fetchedStrat.projects">
         </app-autocomplete>
-        type: {{fetchedStrat.stratType}}
-        <input type="text" class="form-control" formControlName="title" [(ngModel)]="fetchedStrat.title" placeholder="title">
-        <textarea class="form-control" formControlName="description" [(ngModel)]="fetchedStrat.description" placeholder="Description">
+        <md-form-field>
+          <input mdInput type="text" class="form-control" formControlName="title" [(ngModel)]="fetchedStrat.title" placeholder="title">
+        </md-form-field>
+        <md-form-field>
+          <textarea mdInput class="form-control" formControlName="description" [(ngModel)]="fetchedStrat.description" placeholder="Description">
         </textarea>
+        </md-form-field>
         <app-autocomplete [typeAutocomplete]="'user'" [singleChoice]="'true'" [arrayContent]="fetchedStrat.users" (getResultAutocomplete)="selectAssignedTo($event[0])">
         </app-autocomplete>
-        <input type="date" class="form-control" formControlName="startString" [(ngModel)]="fetchedStrat.dateStrat.startString">
-        <input type="date" class="form-control" formControlName="endString" [(ngModel)]="fetchedStrat.dateStrat.endString">
+        <md-form-field>
+          <input mdInput type="date" class="form-control" formControlName="startString" [(ngModel)]="fetchedStrat.dateStrat.startString">
+        </md-form-field>
+        <md-form-field>
+          <input mdInput type="date" class="form-control" formControlName="endString" [(ngModel)]="fetchedStrat.dateStrat.endString">
+        </md-form-field>
       </div>
       <div class="valid-edit">
         <button type="submit" class="sln-edt done">{{'Save' }}</button>
