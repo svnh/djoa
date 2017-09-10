@@ -45,6 +45,7 @@ export class PictureComponent {
   removePic(i) {
     this.forms.splice(i, 1);
   }
+  //might be deprecated
   openProfile() {
     if(this.userIdToOpenProfile) {
       let showNavBarData = new ShowNavBarData()

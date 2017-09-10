@@ -12,7 +12,7 @@ import {PictureModule} from '../picture/picture.module';
 // import { TRANSLATION_PROVIDERS, TranslatePipe, TranslateService }   from '../translate';
 
 import { RoundPipe} from './round.pipe';
-import { HeaderComponent } from '../nav/header/header.component';
+
 import { NavbarModule } from '../nav/navbar/navbar.module';
 
 

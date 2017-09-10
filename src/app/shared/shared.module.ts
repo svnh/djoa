@@ -12,7 +12,7 @@ import {PictureModule} from '../picture/picture.module';
 // import { TRANSLATION_PROVIDERS, TranslatePipe, TranslateService }   from '../translate';
 
 import { RoundPipe} from './round.pipe';
-import { HeaderComponent } from '../nav/header/header.component';
+
 import { NavbarModule } from '../nav/navbar/navbar.module';
 
 
@@ -43,7 +43,7 @@ import {SharedSmallModule} from './sharedSmall.module'
     // RoundPipe,
     // AutocompleteComponent,
     // TranslatePipe,
-    HeaderComponent,
+
 
     // newObjDialogComponent,
     // LoadingInAppComponent,
@@ -58,7 +58,7 @@ import {SharedSmallModule} from './sharedSmall.module'
     CommonModule,
     FormsModule,
     // RoundPipe,
-    HeaderComponent,
+
     NavbarModule,
     // newObjDialogComponent,
     // LoadingComponent,

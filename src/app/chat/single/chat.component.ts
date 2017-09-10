@@ -66,22 +66,17 @@ export class ChatComponent implements OnInit, OnDestroy {
           this.messages.splice(0, 1);
       })
     })
-
-
-
   }
 
 
 
   getOldChats(page: number, search: any) {
-    //this.fetchedDocuments =[]
     this.loading = true;
     this.chatService.getChats(page, search)
       .subscribe(
       res => {
         this.paginationData = res.paginationData;
         this.messages = res.data
-
         this.loading = false;
       },
       error => {

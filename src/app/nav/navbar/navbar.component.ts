@@ -198,6 +198,14 @@ export class NavbarComponent implements OnInit {
     this.globalEventsManager.showNavBarLeft(newShowNavBarData);
   }
 
+  openProfile() {
+    let showNavBarData = new ShowNavBarData()
+    showNavBarData.search.typeScreen = 'profile'
+    showNavBarData.search.typeObj = 'user'
+    showNavBarData.search.userId = this.authService.getCurrentUser()._id
+    this.globalEventsManager.showNavBarRight(showNavBarData);
+  }
+
   // logout() {
   //   // this.globalEventsManager.showNavBar(false);
   //
