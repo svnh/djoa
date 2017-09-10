@@ -1,7 +1,19 @@
+.save {
+  width: 87%;
+  height: 35px;
+  background-color: #009688;
+  color: #fff;
+  font-weight: 600;
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+}
+
 @media screen and (min-width: 768px) {
   .sidebarright-page {
     width: 100%;
     background: none;
+    overflow: hidden;
   }
   .sidebarright-back {
     width: 5000px;
