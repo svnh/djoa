@@ -1,6 +1,6 @@
 <div *ngFor="let project of fetchedProjects" [routerLink]="['/project/' + project._id]" routerLinkActive="active">
   <div class="sidebar-item">
-    <div class="leftside-title">{{project.details.name}}</div>
+    <div class="list-on">{{project.details.name}}</div>
     <div class="triangle"></div>
   </div>
 </div>

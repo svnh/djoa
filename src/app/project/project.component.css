@@ -68,13 +68,23 @@ md-progress-bar.mat-progress-bar.mat-primary, .project-progress {
   height: 38px !important;
   padding-top: 10px;
 }
+.pic-container {
+  width: 60px;
+  float: left;
+  padding-right: 15px;
+  padding-top: 15px;
+}
 .number {
   display: inline-block;
   color: #fff;
   font-weight: 500;
-  padding: 5px 12px;
-  border-radius: 20px;
-  margin: 15px 0;
+  font-size: 18px;
+  border-radius: 120px;
+  margin: 15px 5px 0 0;
+  height: 45px;
+  width: 45px;
+  text-align: center;
+  padding-top: 8px;
 }
 .activity .number {
   background-color: #4a148c;
@@ -88,19 +98,27 @@ md-progress-bar.mat-progress-bar.mat-primary, .project-progress {
 .your-activity h4 {
   color: #f44336;
 }
-.leftside-title {
+.sidebar-item {
+  -webkit-filter: drop-shadow(0 0 5px #aaaaaa);
+  -moz-filter: drop-shadow(0 0 5px #aaaaaa);
+  -ms-filter: drop-shadow(0 0 5px #aaaaaa);
+  -o-filter: drop-shadow(0 0 5px #aaaaaa);
+  filter: drop-shadow(0 0 5px #aaaaaa);
+}
+.list-on {
   background-color: #ffffff;
-  padding: 15px;
+  padding: 5px;
   display: table-cell;
-  box-shadow: 0 0 5px #aaaaaa;
+  width: 160px;
+  vertical-align: middle;
 }
 .triangle {
   display: table-cell;
   width: 0;
   height: 0;
-  border-top: 27px solid transparent;
-  border-left: 14px solid #ffffff;
-  border-bottom: 27px solid transparent;
+  border-top: 40px solid transparent;
+  border-left: 18px solid #ffffff;
+  border-bottom: 40px solid transparent;
 }
 
 @media screen and (min-width: 768px){

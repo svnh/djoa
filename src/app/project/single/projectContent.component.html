@@ -35,7 +35,7 @@
       <md-card-content>
         <h4>Team</h4>
         <button type="button" (click)="openTeam()" class="edit-btn">Edit</button>
-        <div *ngFor="let user of fetchedProject.users">
+        <div *ngFor="let user of fetchedProject.users" class="pic-container">
           <app-picture [userIdToOpenProfile]="user._id" [addPicture]=false [deletePicture]=false [forms]="user.forms"></app-picture>
         </div>
       </md-card-content>
