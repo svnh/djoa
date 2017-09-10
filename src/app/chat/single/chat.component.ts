@@ -68,6 +68,8 @@ export class ChatComponent implements OnInit, OnDestroy {
         // console.log(this.messages.length )
         if (this.messages.length > this.paginationData.itemsPerPage)
           this.messages.splice(0, 1);
+
+
       })
     })
   }
@@ -82,6 +84,7 @@ export class ChatComponent implements OnInit, OnDestroy {
         this.paginationData = res.paginationData;
         this.messages = res.data
         this.loading = false;
+        setTimeout(()=>this.readChat.nativeElement.scrollTop += 10000 , 1);
       },
       error => {
         console.log(error);
