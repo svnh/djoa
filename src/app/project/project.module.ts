@@ -8,7 +8,7 @@ import { MaterialModule } from '@angular/material';
 // import { ProjectTasksComponent} from './task/singleTask/projectTasks.component';
 import { ProjectsComponent} from './list/projects.component';
 import { ProjectSingleComponent} from './single/projectSingle.component';
-import { ListProductsByProjectComponent} from './single/listProductsByProject.component';
+import { ListCategoriesByProjectComponent} from './single/listCategoriesByProject.component';
 import { ProjectTeamComponent} from './single/projectTeam.component';
 import { ProjectContentComponent} from './single/projectContent.component';
 import { ProjectService} from './project.service';
@@ -52,7 +52,7 @@ import {SharedModule } from '../shared/shared.module';
     // ProjectTasksComponent,
     ProjectsComponent,
     ProjectSingleComponent,
-    ListProductsByProjectComponent,
+    ListCategoriesByProjectComponent,
     ProjectTeamComponent,
     ProjectContentComponent,
     // TasksComponent,
@@ -64,7 +64,7 @@ import {SharedModule } from '../shared/shared.module';
   ],
   exports:      [
     ProjectSingleComponent,
-    ListProductsByProjectComponent,
+    ListCategoriesByProjectComponent,
     ProjectTeamComponent,
     ProjectsComponent,
     ProjectContentComponent,

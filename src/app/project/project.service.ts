@@ -63,10 +63,10 @@ export class ProjectService {
   }
 
 
-  getMissionsByProductsByProject(id: string) {
+  getMissionsByCategoriesByProject(id: string) {
     let headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.authService.currentUser.token);
-    return this.http.get(this.url + 'project/missionsByProductsByProject/' + id, {headers: headers})
+    return this.http.get(this.url + 'project/missionsByCategoriesByProject/' + id, {headers: headers})
       .map((response: Response) => {
         return response.json().item;
       })

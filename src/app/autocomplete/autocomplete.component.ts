@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { UserService} from '../user/user.service';
 import { CompanieService} from '../companie/companie.service';
-import { ProductService} from '../product/product.service';
+import { CategorieService} from '../categorie/categorie.service';
 // import { QuoteService} from '../quote/quote.service';
 // import { TemplateQuoteService} from '../quote/templateQuote.service';
 
@@ -51,7 +51,7 @@ export class AutocompleteComponent implements OnInit {
     private missionService: MissionService,
     private companieService: CompanieService,
     private briefService: BriefService,
-    private productService: ProductService,
+    private categorieService: CategorieService,
     private toastr: ToastsManager,
     // // private quoteService: QuoteService,
     private stratService: StratService,
@@ -68,8 +68,8 @@ export class AutocompleteComponent implements OnInit {
         .subscribe( res => { if(this.arrayContent.length) this.arrayContent.splice(0, 1);
           this.arrayContent.push(res) }, error => { console.log(error); });
 
-    if(this.typeAutocomplete ==='product' && this.search.productId)
-        this.productService.getProduct(this.search.productId)
+    if(this.typeAutocomplete ==='categorie' && this.search.categorieId)
+        this.categorieService.getCategorie(this.search.categorieId)
         .subscribe( res => { if(this.arrayContent.length) this.arrayContent.splice(0, 1);
           this.arrayContent.push(res) }, error => { console.log(error); });
 
@@ -108,8 +108,8 @@ export class AutocompleteComponent implements OnInit {
       this.companieService.getCompanies(page, search)
       .subscribe( res => { this.fetchedData = res.data }, error => { console.log(error); });
 
-    if(this.typeAutocomplete ==='product')
-      this.productService.getProducts(page, search)
+    if(this.typeAutocomplete ==='categorie')
+      this.categorieService.getCategories(page, search)
       .subscribe( res => { this.fetchedData = res.data }, error => { console.log(error); });
 
     if(this.typeAutocomplete ==='document')

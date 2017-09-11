@@ -14,7 +14,7 @@ import {SharedSmallModule } from '../../shared/sharedSmall.module';
 
 @NgModule({
   imports:      [
-    // ProductRouting,
+    // CategorieRouting,
     RouterModule,
     CommonModule,
     FormsModule,
@@ -29,16 +29,16 @@ import {SharedSmallModule } from '../../shared/sharedSmall.module';
   declarations: [
 
     NavbarComponent,
-    // ProductsComponent,
-    // ProductSingleComponent,
+    // CategoriesComponent,
+    // CategorieSingleComponent,
   ],
   exports:      [
     NavbarComponent
-    // ProductsComponent
+    // CategoriesComponent
   ],
   providers:    [
     // NotificationService,
-    // ProductService
+    // CategorieService
   ],
   entryComponents: [ ]
 })

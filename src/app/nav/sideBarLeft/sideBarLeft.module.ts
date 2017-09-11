@@ -10,7 +10,7 @@ import { SideBarLeftComponent} from './sideBarLeft.component';
 import { SharedObjModule } from '../../shared/sharedObj.module';
 @NgModule({
   imports:      [
-    // ProductRouting,
+    // CategorieRouting,
     RouterModule,
     CommonModule,
     FormsModule,
@@ -24,15 +24,15 @@ import { SharedObjModule } from '../../shared/sharedObj.module';
   declarations: [
 
     SideBarLeftComponent,
-    // ProductsComponent,
-    // ProductSingleComponent,
+    // CategoriesComponent,
+    // CategorieSingleComponent,
   ],
   exports:      [
     SideBarLeftComponent
-    // ProductsComponent
+    // CategoriesComponent
   ],
   providers:    [
-    // ProductService
+    // CategorieService
   ],
   entryComponents: [ ]
 })

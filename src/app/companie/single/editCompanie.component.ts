@@ -38,7 +38,7 @@ export class EditCompanieComponent implements OnInit {
   myForm: FormGroup;
   // seeRights = false;
   seeCategProject = false;
-  seeCategProduct = false;
+  seeCategCategorie = false;
   isMyCompanyRoute: Boolean = false
   servicesBancks = ['stripe', 'paypal']
   // typesRights = [
@@ -66,7 +66,7 @@ export class EditCompanieComponent implements OnInit {
       name: ['', [Validators.required, Validators.minLength(2)]],
       phoneNumber: ['', [Validators.required, Validators.minLength(2)]],
       categJson: this._fb.group({
-        categProduct: [''],
+        categCategorie: [''],
         categProject: ['']
       }),
       option: this._fb.group({
@@ -209,7 +209,7 @@ export class EditCompanieComponent implements OnInit {
   // }
 
   initDataToRemove(){
-        this.fetchedCompanie.categories.categProduct = [
+        this.fetchedCompanie.categories.categCategorie = [
           {
             "categ":"Serrurerie",
             "isFlagged" : false,
@@ -718,7 +718,7 @@ export class EditCompanieComponent implements OnInit {
 
   save() {
 
-    //this.fetchedCompanie.categJson.categProduct = JSON.stringify(JSON.parse(this.fetchedCompanie.categJson.categProduct))
+    //this.fetchedCompanie.categJson.categCategorie = JSON.stringify(JSON.parse(this.fetchedCompanie.categJson.categCategorie))
     if(this.fetchedCompanie._id) {
       this.companieService.updateCompanie(this.fetchedCompanie)
         .subscribe(

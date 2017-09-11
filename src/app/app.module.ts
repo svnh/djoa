@@ -54,8 +54,8 @@ import { LoadingComponent} from './nav/loading/loading.component';
 // import { SingleUserComponent} from './user/users/singleUser.component';
 // import { AddNoteComponent} from './user/users/addNote.component';
 // import { ChooseDateComponent} from './user/users/chooseDate.component';
-// import { AddProductsToUserComponent} from './user/users/addProductsToUser.component';
-// import { UserProductsHistory} from './user/users/userProductsHistory.component';
+// import { AddCategoriesToUserComponent} from './user/users/addCategoriesToUser.component';
+// import { UserCategoriesHistory} from './user/users/userCategoriesHistory.component';
 //
 
 
@@ -73,10 +73,10 @@ import { LoadingComponent} from './nav/loading/loading.component';
 //
 
 
-//import { ProductModule} from './product/product.module';
+//import { CategorieModule} from './categorie/categorie.module';
 //import { ProjectModule} from './project/project.module';
 import { UserModule} from './user/user.module';
-// import { ProductModule} from './product/product.module';
+// import { CategorieModule} from './categorie/categorie.module';
 //import { CompanieModule} from './companie/companie.module';
 
 //import { QuoteModule} from './quote/quote.module';
@@ -147,10 +147,10 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   //  CalendarComponent,
 
     // AutocompleteComponent,
-    // ProductComponent,
-    // ProductsComponent,
-    // NewProductComponent,
-    // SingleProductComponent,
+    // CategorieComponent,
+    // CategoriesComponent,
+    // NewCategorieComponent,
+    // SingleCategorieComponent,
 
     // DeleteDialog,
     // SeePictureDialogComponent,
@@ -169,8 +169,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     // AddNoteComponent,
     // ChooseDateComponent,
     // UserPicturesComponent,
-    // AddProductsToUserComponent,
-    // UserProductsHistory,
+    // AddCategoriesToUserComponent,
+    // UserCategoriesHistory,
     //
     //
     // RegisterComponent,
@@ -233,7 +233,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     // AutocompleteComponent,
 
   //  ProjectModule,
-//    ProductModule,
+//    CategorieModule,
   //  CompanieModule,
   //  QuoteModule,
 
@@ -253,13 +253,13 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     AuthService,
     ErrorService,
 //    CompanieService,
-    //ProductService,
+    //CategorieService,
     HomeService,
   //  PressService,
     // FormService,
     AdminService,
   //  UserService,
-  //  ProductService,
+  //  CategorieService,
   //  PromotionService,
     AdminGuardService,
     CompanieGuardService,
@@ -281,8 +281,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
 
   //  PromotionDeleteDialog,
     // EditOptionsComponentDialog,
-    // ProductDeleteDialog,
-    // ProductWhereDialogComponent,
+    // CategorieDeleteDialog,
+    // CategorieWhereDialogComponent,
 
   ],
 

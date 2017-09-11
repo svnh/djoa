@@ -13,7 +13,7 @@ import { NotifComponent} from './notif.component';
 
 @NgModule({
   imports:      [
-    // ProductRouting,
+    // CategorieRouting,
     RouterModule,
     CommonModule,
     FormsModule,
@@ -27,16 +27,16 @@ import { NotifComponent} from './notif.component';
   declarations: [
 
     NotifComponent,
-    // ProductsComponent,
-    // ProductSingleComponent,
+    // CategoriesComponent,
+    // CategorieSingleComponent,
   ],
   exports:      [
     NotifComponent
-    // ProductsComponent
+    // CategoriesComponent
   ],
   providers:    [
     // NotificationService,
-    // ProductService
+    // CategorieService
   ],
   entryComponents: [ ]
 })

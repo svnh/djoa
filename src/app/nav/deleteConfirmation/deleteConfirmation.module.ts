@@ -12,7 +12,7 @@ import { DeleteConfirmationComponent} from './deleteConfirmation.component';
 
 @NgModule({
   imports:      [
-    // ProductRouting,
+    // CategorieRouting,
     RouterModule,
     CommonModule,
     FormsModule,
@@ -26,16 +26,16 @@ import { DeleteConfirmationComponent} from './deleteConfirmation.component';
   declarations: [
 
     DeleteConfirmationComponent,
-    // ProductsComponent,
-    // ProductSingleComponent,
+    // CategoriesComponent,
+    // CategorieSingleComponent,
   ],
   exports:      [
     DeleteConfirmationComponent
-    // ProductsComponent
+    // CategoriesComponent
   ],
   providers:    [
     // NotificationService,
-    // ProductService
+    // CategorieService
   ],
   entryComponents: [ ]
 })

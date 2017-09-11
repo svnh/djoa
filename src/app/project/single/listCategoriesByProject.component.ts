@@ -9,8 +9,8 @@ import { FormBuilder} from '@angular/forms';
 
 
 
-import { Product } from '../../product/product.model';
-import {ProductService} from '../../product/product.service';
+import { Categorie } from '../../categorie/categorie.model';
+import {CategorieService} from '../../categorie/categorie.service';
 
 import { AuthService} from '../../auth/auth.service';
 import {Search} from '../../home/home.model';
@@ -20,13 +20,13 @@ import {ShowNavBarData} from '../../home/home.model';
 
 
 @Component({
-  selector: 'app-listProductsByProject',
-  templateUrl: './listProductsByProject.component.html',
+  selector: 'app-listCategoriesByProject',
+  templateUrl: './listCategoriesByProject.component.html',
   styleUrls: ['../project.component.css'],
 
 })
 
-export class ListProductsByProjectComponent implements OnInit {
+export class ListCategoriesByProjectComponent implements OnInit {
 
   // @Input() showBackButton: Boolean = true;
   // @Output() saved: EventEmitter<any> = new EventEmitter();
@@ -37,7 +37,7 @@ export class ListProductsByProjectComponent implements OnInit {
   searchMissionResearch: Search = new Search();
 
 
-  fetchedProducts: Product[] = []
+  fetchedCategories: Categorie[] = []
   //
   // status = StatusProject
   // categ: string = 'Electricité';
@@ -63,7 +63,7 @@ export class ListProductsByProjectComponent implements OnInit {
     private location: Location,
     // private activatedRoute: ActivatedRoute,
     private _fb: FormBuilder,
-    private productService: ProductService,
+    private categorieService: CategorieService,
     // // private quoteService: QuoteService,
     private authService: AuthService,
   ) {
@@ -79,7 +79,7 @@ export class ListProductsByProjectComponent implements OnInit {
 
   ngOnInit() {
 
-    this.getProducts(1, {})
+    this.getCategories(1, {})
     // this.myForm = this._fb.group({
     //   status: [''],
     //   name: ['', [Validators.required, Validators.minLength(2)]],
@@ -101,13 +101,13 @@ export class ListProductsByProjectComponent implements OnInit {
   }
 
 
-  getProducts(page: number, search: any) {
+  getCategories(page: number, search: any) {
 
-    this.productService.getProducts(page, search)
+    this.categorieService.getCategories(page, search)
       .subscribe(
         res => {
 
-          this.fetchedProducts = res.data
+          this.fetchedCategories = res.data
 
         },
         error => {

@@ -1,7 +1,7 @@
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {AuthService} from '../../auth/auth.service';
 import {LogService} from '../log.service';
-// import {ProductService} from '../../product/product.service';
+// import {CategorieService} from '../../categorie/categorie.service';
 // import { ProjectService} from '../../project/project.service';
 
 import {Log} from '../log.model';
@@ -17,7 +17,7 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 // import { DeleteDialog } from '../../deleteDialog/deleteDialog.component';
 import { User } from '../../user/user.model';
 // // import { Quote } from '../../quote/quote.model';
-// import { Product } from '../../product/product.model';
+// import { Categorie } from '../../categorie/categorie.model';
 // import { Project } from '../../project/project.model';
 
 
@@ -48,7 +48,7 @@ export class LogComponent implements OnInit {
 
 
   myForm: FormGroup;
-  autocompleteProduct: String = ''
+  autocompleteCategorie: String = ''
   fetchedUsers: User[] = [];
   arrayContentToSearch =[]
 
@@ -61,7 +61,7 @@ export class LogComponent implements OnInit {
     // private quoteService: QuoteService,
     // private projectService: ProjectService,
     // private userService: UserService,
-    // private productService: ProductService,
+    // private categorieService: CategorieService,
 //    private modalService: NgbModal,
     private toastr: ToastsManager,
     // public dialog: MdDialog,

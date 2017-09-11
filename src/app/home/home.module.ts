@@ -14,7 +14,7 @@ import { HomeComponent} from './home.component';
 import { HomeRouting} from './homeRouting.module';
 // import { MaterialModule } from '@angular/material';
 
-// import { ProductModule } from '../product/product.module';
+// import { CategorieModule } from '../categorie/categorie.module';
 // import { AutocompleteComponent } from '../autocomplete/autocomplete.component'
 
 import {SharedModule } from '../shared/shared.module';
@@ -37,7 +37,7 @@ import {SharedModule } from '../shared/shared.module';
     // MaterialModule,
     ReactiveFormsModule,
     RouterModule,
-    // ProductModule,
+    // CategorieModule,
     SharedModule,
     // SideBarRightModule,
     // SideBarLeftModule,

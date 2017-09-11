@@ -4,7 +4,7 @@ var express = require('express'),
   User = require('../models/user.model'),
   Task = require('../models/task.model'),
   Project = require('../models/project.model'),
-  Product = require('../models/product.model'),
+  Categorie = require('../models/categorie.model'),
   Mission = require('../models/mission.model'),
   Form = require('../models/form.model'),
   fs = require('fs'),
@@ -141,7 +141,7 @@ router.put('/:id', function (req, res, next) {
 
 
 // should not use is
-router.get('/missionsByProductsByProject/:id', function(req, res, next) {
+router.get('/missionsByCategoriesByProject/:id', function(req, res, next) {
   Project.findById((req.params.id), function(err, obj) {
     if (err) {
       return res.status(500).json({message: 'An error occured', err: err})
@@ -157,22 +157,22 @@ router.get('/missionsByProductsByProject/:id', function(req, res, next) {
 
       let searchQuery = {}
       searchQuery['ownerCompanies'] = req.user.ownerCompanies
-      Product
+      Categorie
       .find(searchQuery)
       .sort('-createdAt')
-      .exec(function (err, products) {
+      .exec(function (err, categories) {
         if (err) {
           return res.status(404).json({
             message: 'No results',
             err: err
           })
         } else {
-          let itemProductsId = []
-          products.forEach(itemProduct => itemProductsId.push(itemProduct._id))
-          console.log(itemProductsId)
+          let itemCategoriesId = []
+          categories.forEach(itemCategorie => itemCategoriesId.push(itemCategorie._id))
+          console.log(itemCategoriesId)
 
           let searchQueryMission = {
-            products: {'$in': itemProductsId}
+            categories: {'$in': itemCategoriesId}
           }
           searchQueryMission['projects'] = mongoose.Types.ObjectId(req.params.id)
 
@@ -187,18 +187,18 @@ router.get('/missionsByProductsByProject/:id', function(req, res, next) {
             } else {
               // console.log(missions)
               let returnData = []
-              products.forEach(product => {
+              categories.forEach(categorie => {
                 let arrayMission=[]
                 missions.forEach(mission => {
-                  mission.products.forEach(productMission => {
-                    // console.log(productMission.toString() , product._id.toString())
-                    if(productMission.toString() === product._id.toString()) {
+                  mission.categories.forEach(categorieMission => {
+                    // console.log(categorieMission.toString() , categorie._id.toString())
+                    if(categorieMission.toString() === categorie._id.toString()) {
                       arrayMission.push(mission)
                     }
                   })
                 })
                 returnData.push({
-                  product: product,
+                  categorie: categorie,
                   missions: arrayMission
                 })
               })

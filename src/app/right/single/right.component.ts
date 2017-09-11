@@ -29,7 +29,7 @@ export class RightComponent implements OnInit {
   typesRights = [
       {name : 'Project', value: 'project', typeAccess:
         [{value:'read',name:'Read'},{value:'write',name:'Write'},{value:'notification',name:'Get notification'}]},
-      {name : 'Product', value: 'product', typeAccess:
+      {name : 'Categorie', value: 'categorie', typeAccess:
         [{value:'read',name:'Read'},{value:'write',name:'Write'},{value:'notification',name:'Get notification'}]},
       {name : 'Quote', value: 'quote', typeAccess:
         [{value:'read',name:'Read'},{value:'write',name:'Write'},{value:'notification',name:'Get notification'}]},
@@ -61,7 +61,7 @@ export class RightComponent implements OnInit {
   myForm: FormGroup;
   seeRights = false;
   seeCategProject = false;
-  seeCategProduct = false;
+  seeCategCategorie = false;
 
   constructor(
     private rightService: RightService,
@@ -81,7 +81,7 @@ export class RightComponent implements OnInit {
       name: ['', [Validators.required, Validators.minLength(2)]],
       phoneNumber: ['', [Validators.required, Validators.minLength(2)]],
       categJson: this._fb.group({
-        categProduct: [''],
+        categCategorie: [''],
         categProject: ['']
       }),
       option: this._fb.group({
@@ -184,7 +184,7 @@ export class RightComponent implements OnInit {
 
   save() {
 
-    //this.fetchedRight.categJson.categProduct = JSON.stringify(JSON.parse(this.fetchedRight.categJson.categProduct))
+    //this.fetchedRight.categJson.categCategorie = JSON.stringify(JSON.parse(this.fetchedRight.categJson.categCategorie))
     if(this.fetchedRight._id) {
       this.rightService.updateRight(this.fetchedRight)
         .subscribe(

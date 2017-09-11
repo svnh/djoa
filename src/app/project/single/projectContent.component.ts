@@ -13,9 +13,9 @@ import { UserService} from '../../user/user.service';
 import { DocumentService} from '../../document/document.service';
 
 import { User } from '../../user/user.model';
-import { Product } from '../../product/product.model';
+import { Categorie } from '../../categorie/categorie.model';
 import { Mission } from '../../mission/mission.model';
-import {ProductService} from '../../product/product.service';
+import {CategorieService} from '../../categorie/categorie.service';
 
 import { AuthService} from '../../auth/auth.service';
 import {Search} from '../../home/home.model';
@@ -41,7 +41,7 @@ export class ProjectContentComponent implements OnInit {
   // searchMissionContent: Search = new Search();
   // searchMissionResearch: Search = new Search();
   // fetchedMissions: Mission[] = []
-  fetchedProducts: Product[] = []
+  fetchedCategories: Categorie[] = []
   // fetchedDocumentsInProject: Document[] = []
   activityPendingTasks: number = 0
   activityMissions: number = 0
@@ -71,7 +71,7 @@ export class ProjectContentComponent implements OnInit {
     // private location: Location,
     private activatedRoute: ActivatedRoute,
     // private _fb: FormBuilder,
-    private productService: ProductService,
+    private categorieService: CategorieService,
     private documentService: DocumentService,
     private authService: AuthService,
   ) {
@@ -85,7 +85,7 @@ export class ProjectContentComponent implements OnInit {
 
   ngOnInit() {
 
-    this.getProducts(1, {})
+    this.getCategories(1, {})
 
 
     this.fetchedProject.dateProject.startString = this.authService.isoDateToHtmlDate(this.fetchedProject.dateProject.start)
@@ -103,7 +103,7 @@ export class ProjectContentComponent implements OnInit {
         this.getProject(this.search.projectId)
         this.getDocumentsInMissionsByProject(this.search.projectId)
         this.getDocumentsInStratsByProject(this.search.projectId)
-        // this.getMissionsByProductsByProject(params['id'])
+        // this.getMissionsByCategoriesByProject(params['id'])
 
 
       }
@@ -122,12 +122,12 @@ export class ProjectContentComponent implements OnInit {
 
     })
   }
-  getProducts(page: number, search: any) {
+  getCategories(page: number, search: any) {
 
-    this.productService.getProducts(page, search)
+    this.categorieService.getCategories(page, search)
       .subscribe(
         res => {
-          this.fetchedProducts = res.data
+          this.fetchedCategories = res.data
         },
         error => {
           console.log(error);
@@ -182,8 +182,8 @@ export class ProjectContentComponent implements OnInit {
   }
 
 
-  // getMissionsByProductsByProject(id: string) {
-  //   this.projectService.getMissionsByProductsByProject(id)
+  // getMissionsByCategoriesByProject(id: string) {
+  //   this.projectService.getMissionsByCategoriesByProject(id)
   //     .subscribe(
   //       res => {
   //         console.log(res)

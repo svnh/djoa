@@ -1,6 +1,6 @@
 var mongoose                = require('mongoose'),
     Schema                  = mongoose.Schema,
-    //Product                    = require('../models/product.model'),
+    //Categorie                    = require('../models/categorie.model'),
   //  Form                    = require('../models/form.model'),
   //  User                    = require('../models/user.model'),
     mongooseUniqueValidator = require('mongoose-unique-validator');
@@ -10,10 +10,10 @@ var templateQuote = new Schema({
     nameTemplate:{type: String, default: ['']},
     devisDetails: [
       {
-        nameBucketProducts :{type: String},
-        bucketProducts:[
+        nameBucketCategories :{type: String},
+        bucketCategories:[
           {
-            productInit: {
+            categorieInit: {
               _id:{type: String},
               details: {
                 referenceName: {type: String},

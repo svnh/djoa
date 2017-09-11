@@ -107,12 +107,12 @@ export class LightStratsComponent implements OnInit {
     this.getStrats(page, this.search);
   }
   goTo(stratId: string) {
-    this.openProductsSideBar(stratId)
+    this.openCategoriesSideBar(stratId)
     this.router.navigate(['strat/' + stratId]);
   }
-  openProductsSideBar(stratId: string) {
+  openCategoriesSideBar(stratId: string) {
     let newShowNavBarData = new ShowNavBarData()
-    newShowNavBarData.search.typeObj = 'product'
+    newShowNavBarData.search.typeObj = 'categorie'
     newShowNavBarData.search.stratId = stratId
     newShowNavBarData.search.projectId = this.search.projectId
     this.globalEventsManager.showNavBarLeft(newShowNavBarData)

@@ -1,7 +1,7 @@
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {AuthService} from '../../../auth/auth.service';
 import {LogService} from '../../log.service';
-// import {ProductService} from '../../product/product.service';
+// import {CategorieService} from '../../categorie/categorie.service';
 // import { ProjectService} from '../../project/project.service';
 
 import {Log} from '../../log.model';
@@ -20,7 +20,7 @@ import { Mission } from '../../../mission/mission.model';
 import { Strat } from '../../../strat/strat.model';
 import { Document } from '../../../document/document.model';
 // // import { Quote } from '../../quote/quote.model';
-// import { Product } from '../../product/product.model';
+// import { Categorie } from '../../categorie/categorie.model';
 import { Project } from '../../../project/project.model';
 // import { Project } from '../../project/project.model';
 import {Search} from '../../../home/home.model'
@@ -52,7 +52,7 @@ export class SearchComponent implements OnInit {
     // private quoteService: QuoteService,
     // private projectService: ProjectService,
     // private userService: UserService,
-    // private productService: ProductService,
+    // private categorieService: CategorieService,
 //    private modalService: NgbModal,
     private toastr: ToastsManager,
     // public dialog: MdDialog,

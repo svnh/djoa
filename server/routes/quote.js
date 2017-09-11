@@ -45,7 +45,7 @@ router.get('/:id', function (req, res, next) {
     })
     .populate({path: 'signature.users', model: 'User'})
     .populate({path: 'clients', model: 'User'})
-    .populate({path: 'devisDetails.bucketProducts.productInit', model: 'Product'})
+    .populate({path: 'devisDetails.bucketCategories.categorieInit', model: 'Categorie'})
     .exec(function (err, item) {
       if (err) {
         return res.status(404).json({message: '', err: err})
@@ -180,7 +180,7 @@ router.put('/:id', function (req, res, next) {
     item.typeQuote = req.body.typeQuote
     // item.ownerQuotes = req.body.ownerQuotes
     item.forms = req.body.forms
-    item.products = req.body.products
+    item.categories = req.body.categories
     item.projects = req.body.projects
     item.devisDetails = req.body.devisDetails
     item.priceQuote = req.body.priceQuote
@@ -301,7 +301,7 @@ router.get('/page/:page', function (req, res, next) {
 
   Quote.find(searchQuery)
   .populate({path: 'clients', model: 'User'})
-  // .populate({path: 'devisDetails.bucketProducts.productInit', model: 'Product'})
+  // .populate({path: 'devisDetails.bucketCategories.categorieInit', model: 'Categorie'})
   .limit(itemsPerPage).skip(skip)
   .sort(req.query.orderBy).exec(function (err, item) {
     if (err) {

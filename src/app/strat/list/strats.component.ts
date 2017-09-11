@@ -24,7 +24,7 @@ import {Search} from '../../home/home.model'
 })
 export class StratsComponent implements OnInit {
   @Input() userId = '';
-  // @Input() stratType = '';
+  editMode: boolean = false;
   @Input() search: Search = new Search()
 
   // token: string = localStorage.getItem('id_token');
@@ -107,12 +107,12 @@ export class StratsComponent implements OnInit {
     this.getStrats(page, this.search);
   }
   goTo(stratId: string) {
-    this.openProductsSideBar(stratId)
+    this.openCategoriesSideBar(stratId)
     this.router.navigate(['strat/' + stratId]);
   }
-  openProductsSideBar(stratId: string) {
+  openCategoriesSideBar(stratId: string) {
     let newShowNavBarData = new ShowNavBarData()
-    newShowNavBarData.search.typeObj = 'product'
+    newShowNavBarData.search.typeObj = 'categorie'
     newShowNavBarData.search.stratId = stratId
     newShowNavBarData.search.projectId = this.search.projectId
     this.globalEventsManager.showNavBarLeft(newShowNavBarData)

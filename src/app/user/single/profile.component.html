@@ -2,8 +2,8 @@
   <div class="pic-container"><app-picture [addPicture]=false [deletePicture]=false [forms]="fetchedUser.forms"></app-picture></div>
   <h2 class="my-name">{{fetchedUser.profile.name}} {{fetchedUser.profile.lastName}}</h2>
   <h5>{{fetchedUser.profile.title}}</h5>
-  <button (click)="edit = !edit" class="profile-button">Edit Profile</button>
-  <div *ngIf="edit">
+  <button (click)="editMode = !editMode" class="profile-button">Edit Profile</button>
+  <div *ngIf="editMode">
     <form [formGroup]="myForm" novalidate (ngSubmit)="save()">
       <md-form-field>
         <input mdInput type="text" class="form-control" formControlName="name" [(ngModel)]="fetchedUser.profile.name" placeholder="name">

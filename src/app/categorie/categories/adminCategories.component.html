@@ -2,8 +2,8 @@
 
   <div class="row">
     <div id="wrapper" class="subsubnav-clients float-left">
-      <input class="form-control margebasse col-md-12" type="text" name="Search" placeholder="Rechercher" [(ngModel)]="search.search" (ngModelChange)="searchProducts()">
-      <!-- <app-newObjDialog icone="fa fa-plus-square fa-2x ml" [search]="search" (saved)="saved($event)" [typeObj]="'product'"></app-newObjDialog> -->
+      <input class="form-control margebasse col-md-12" type="text" name="Search" placeholder="Rechercher" [(ngModel)]="search.search" (ngModelChange)="searchCategories()">
+      <!-- <app-newObjDialog icone="fa fa-plus-square fa-2x ml" [search]="search" (saved)="saved($event)" [typeObj]="'categorie'"></app-newObjDialog> -->
       <!-- <i class="fa fa-plus-square fa-2x ml" aria-hidden="true" (click)="redirectCreateObj()" routerLinkActive="active"></i> -->
     </div>
 
@@ -30,14 +30,14 @@
               </tr>
             </thead>
             <tbody class="">
-              <tr *ngFor="let product of fetchedProducts" [routerLink]="['/product/' + product._id]" routerLinkActive="active">
+              <tr *ngFor="let categorie of fetchedCategories" [routerLink]="['/categorie/' + categorie._id]" routerLinkActive="active">
                 <td class="">
-                  <div *ngFor="let singleForm of product.forms; let i = index;">
+                  <div *ngFor="let singleForm of categorie.forms; let i = index;">
                     <img *ngIf="i<=0" height="50px" class="img" src="./uploads/forms/{{singleForm.owner}}/{{singleForm.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
                   </div>
                 </td>
                 <td class="">
-                  {{product.name}}
+                  {{categorie.name}}
                 </td>
 
 

@@ -1,12 +1,12 @@
 import { Component, OnInit, Output, EventEmitter} from '@angular/core';
-import { ProductService} from '../product.service';
+import { CategorieService} from '../categorie.service';
 import { CompanieService} from '../../companie/companie.service';
 
 import { ToastsManager} from 'ng2-toastr';
 // import { MdDialog } from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
-import { Product, ItemSteps } from '../product.model';
+import { Categorie } from '../categorie.model';
 import { Companie } from '../../companie/companie.model';
 // import { EditOptionsComponentDialog } from '../../form/modalLibrary/modalLibrary.component';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
@@ -18,13 +18,13 @@ import { AuthService} from '../../auth/auth.service';
 
 
 @Component({
-  selector: 'app-productSingle',
-  templateUrl: './productSingle.component.html',
-  styleUrls: ['../product.component.css'],
+  selector: 'app-categorieSingle',
+  templateUrl: './categorieSingle.component.html',
+  styleUrls: ['../categorie.component.css'],
 
 })
 
-export class ProductSingleComponent implements OnInit {
+export class CategorieSingleComponent implements OnInit {
   // @Output() saved: EventEmitter<any> = new EventEmitter();
   // selectedIndex0: number = -1
   // selectedIndex1: number = -1
@@ -36,7 +36,7 @@ export class ProductSingleComponent implements OnInit {
   // categ1: string = '';
   // categ2: string = '';
   // categ3: string = '';
-  itemSteps = ItemSteps;
+  // itemSteps = ItemSteps;
 
 
   autocompleteCompanie: string = '';
@@ -45,7 +45,7 @@ export class ProductSingleComponent implements OnInit {
 
 
 
-  fetchedProduct: Product = new Product();
+  fetchedCategorie: Categorie = new Categorie();
   fetchedCompanies: Companie[] = []
 
   //
@@ -58,7 +58,7 @@ export class ProductSingleComponent implements OnInit {
   constructor(
     private userService: UserService,
     private sanitizer: DomSanitizer,
-    private productService: ProductService,
+    private categorieService: CategorieService,
     private toastr: ToastsManager,
     // public dialog: MdDialog,
     private router: Router,
@@ -86,7 +86,7 @@ export class ProductSingleComponent implements OnInit {
 
     this.activatedRoute.params.subscribe((params: Params) => {
       if(params['id']) {
-        this.getProduct(params['id'])
+        this.getCategorie(params['id'])
       }
     })
 
@@ -97,14 +97,14 @@ export class ProductSingleComponent implements OnInit {
   //   let currentUser = this.authService.getCurrentUser()
   //
   //   for (let i in currentUser.ownerCompanies) {
-  //     if(currentUser.ownerCompanies[i].categories.categProduct)
-  //       this.itemSteps = currentUser.ownerCompanies[i].categories.categProduct
+  //     if(currentUser.ownerCompanies[i].categories.categCategorie)
+  //       this.itemSteps = currentUser.ownerCompanies[i].categories.categCategorie
   //   }
   //
   // }
 
   // removePic(i) {
-  //   this.fetchedProduct.forms.splice(i, 1);
+  //   this.fetchedCategorie.forms.splice(i, 1);
   // }
   // changeCascade(selectedIndex1, selectedIndex2) {
   //   this.selectedIndex1 = selectedIndex1
@@ -133,7 +133,7 @@ export class ProductSingleComponent implements OnInit {
   //   let dialogRefDelete = this.dialog.open(DeleteDialog)
   //   dialogRefDelete.afterClosed().subscribe(result => {
   //     if(result) {
-  //       this.onDelete(this.fetchedProduct._id).then(function(){
+  //       this.onDelete(this.fetchedCategorie._id).then(function(){
   //         this2.router.navigate(['user']);
   //       })
   //
@@ -150,7 +150,7 @@ export class ProductSingleComponent implements OnInit {
   //   // let dialogRef = this.dialog.open(EditOptionsComponentDialog);
   //   // dialogRef.afterClosed().subscribe(result => {
   //   //   if(result) {
-  //   //     this.fetchedProduct.forms.push( result)
+  //   //     this.fetchedCategorie.forms.push( result)
   //   //   }
   //   // })
   // }
@@ -159,9 +159,9 @@ export class ProductSingleComponent implements OnInit {
   //
   // }
   save() {
-    // this.fetchedProduct.categorie.categ1 = [{name: this.categ1}]
-    // this.fetchedProduct.categorie.categ2 = [{name: this.categ2}]
-    // this.fetchedProduct.categorie.categ3 = [{name: this.categ3}]
+    // this.fetchedCategorie.categorie.categ1 = [{name: this.categ1}]
+    // this.fetchedCategorie.categorie.categ2 = [{name: this.categ2}]
+    // this.fetchedCategorie.categorie.categ3 = [{name: this.categ3}]
 
     // let categName0 = ''
     // let categName1 = ''
@@ -172,29 +172,29 @@ export class ProductSingleComponent implements OnInit {
     // if(this.selectedIndex2>=0) {categName2 = this.itemSteps[this.selectedIndex0].subCateg[this.selectedIndex1].subCateg[this.selectedIndex2].categ}
     //
     //
-    // this.fetchedProduct.categorie.categ0 = [{name: categName0}]
-    // this.fetchedProduct.categorie.categ1 = [{name: categName1}]
-    // this.fetchedProduct.categorie.categ2 = [{name: categName2}]
+    // this.fetchedCategorie.categorie.categ0 = [{name: categName0}]
+    // this.fetchedCategorie.categorie.categ1 = [{name: categName1}]
+    // this.fetchedCategorie.categorie.categ2 = [{name: categName2}]
 
 
 
-    if(this.fetchedProduct._id) {
-      this.productService.updateProduct(this.fetchedProduct)
+    if(this.fetchedCategorie._id) {
+      this.categorieService.updateCategorie(this.fetchedCategorie)
         .subscribe(
           res => {
             this.toastr.success('Great!', res.message)
-            // this.router.navigate(['product']);
-            this.getProduct(res.obj._id)
+            // this.router.navigate(['categorie']);
+            this.getCategorie(res.obj._id)
           },
           error => {console.log(error)}
         );
     } else {
-      this.productService.saveProduct(this.fetchedProduct)
+      this.categorieService.saveCategorie(this.fetchedCategorie)
         .subscribe(
           res => {
             this.toastr.success('Great!', res.message)
-            this.getProduct(res.obj._id)
-            // this.router.navigate(['product']);
+            this.getCategorie(res.obj._id)
+            // this.router.navigate(['categorie']);
 
           },
           error => {
@@ -208,22 +208,22 @@ export class ProductSingleComponent implements OnInit {
 
 
 
-  getProduct(id: string) {
-    this.productService.getProduct(id)
+  getCategorie(id: string) {
+    this.categorieService.getCategorie(id)
       .subscribe(
         res => {
-          this.fetchedProduct = <Product>res
+          this.fetchedCategorie = <Categorie>res
           //
           // let categName0 = ''
           // let categName1 = ''
           // let categName2 = ''
           //
-          // if(this.fetchedProduct.categorie.categ0.length)
-          //   categName0 = this.fetchedProduct.categorie.categ0[0].name
-          // if(this.fetchedProduct.categorie.categ1.length)
-          //   categName1 = this.fetchedProduct.categorie.categ1[0].name
-          // if(this.fetchedProduct.categorie.categ2.length)
-          //   categName2 = this.fetchedProduct.categorie.categ2[0].name
+          // if(this.fetchedCategorie.categorie.categ0.length)
+          //   categName0 = this.fetchedCategorie.categorie.categ0[0].name
+          // if(this.fetchedCategorie.categorie.categ1.length)
+          //   categName1 = this.fetchedCategorie.categorie.categ1[0].name
+          // if(this.fetchedCategorie.categorie.categ2.length)
+          //   categName2 = this.fetchedCategorie.categorie.categ2[0].name
           //
           // this.itemSteps.forEach((categ0, index) => {
           //   if(categ0.categ === categName0)
@@ -243,9 +243,9 @@ export class ProductSingleComponent implements OnInit {
 
 
 
-          // this.categ1 = this.fetchedProduct.categorie.categ1[0].name
-          // this.categ2 = this.fetchedProduct.categorie.categ2[0].name
-          // this.categ3 = this.fetchedProduct.categorie.categ3[0].name
+          // this.categ1 = this.fetchedCategorie.categorie.categ1[0].name
+          // this.categ2 = this.fetchedCategorie.categorie.categ2[0].name
+          // this.categ3 = this.fetchedCategorie.categorie.categ3[0].name
           //
           // let categ1Index:number = 0
           // let categ2Index:number = 0
@@ -269,7 +269,7 @@ export class ProductSingleComponent implements OnInit {
   onDelete(id: string) {
     let this2 = this
     return new Promise(function(resolve, reject) {
-      this2.productService.deleteProduct(id)
+      this2.categorieService.deleteCategorie(id)
         .subscribe(
           res => {
             this2.toastr.success('Great!', res.message);

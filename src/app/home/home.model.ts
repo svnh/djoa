@@ -22,7 +22,7 @@ export class Search {
     documentId: string = '';
     missionId: string = '';
     stratId: string = '';
-    productId: string = '';
+    categorieId: string = '';
     search: string = '';
     orderBy: string = '';
     start: Date;

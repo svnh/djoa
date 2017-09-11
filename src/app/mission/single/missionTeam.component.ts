@@ -1,7 +1,7 @@
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {AuthService} from '../../auth/auth.service';
 import {MissionService} from '../mission.service';
-import {ProductService} from '../../product/product.service';
+import {CategorieService} from '../../categorie/categorie.service';
 import { ProjectService} from '../../project/project.service';
 
 import {Mission} from '../mission.model';
@@ -17,7 +17,7 @@ import { UserService} from '../../user/user.service';
 // import { DeleteDialog } from '../../deleteDialog/deleteDialog.component';
 import { User } from '../../user/user.model';
 // import { Quote } from '../../quote/quote.model';
-import { Product } from '../../product/product.model';
+import { Categorie } from '../../categorie/categorie.model';
 import { Project } from '../../project/project.model';
 import {Search} from '../../home/home.model'
 import {GlobalEventsManager} from '../../globalEventsManager';
@@ -45,7 +45,7 @@ export class MissionTeamComponent implements OnInit {
 
     // private projectService: ProjectService,
     // private userService: UserService,
-    // private productService: ProductService,
+    // private categorieService: CategorieService,
 //    private modalService: NgbModal,
     private toastr: ToastsManager,
     // public dialog: MdDialog,

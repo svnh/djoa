@@ -29,6 +29,7 @@ export class ProfileComponent implements OnInit {
   @Output() saved: EventEmitter<any> = new EventEmitter();
   @Input() search: Search = new Search();
 
+  editMode: boolean = false;
   fetchedCompanies: Companie[] = []
   autocompleteCompanie: string = '';
 

@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {Response, Headers, Http, RequestOptions} from '@angular/http';
 import {ErrorService} from '../errorHandler/error.service';
-import {Product} from './product.model';
+import {Categorie} from './categorie.model';
 import {ToastsManager} from 'ng2-toastr';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -10,13 +10,13 @@ import { AuthService } from '../auth/auth.service';
 
 
 @Injectable()
-export class ProductService {
+export class CategorieService {
 
   private url: string = '/';
 //  private token: string = localStorage.getItem('id_token');
-//  private productId: string = localStorage.getItem('productId');
-  // private products = [];
-  // private singleProduct = Object;
+//  private categorieId: string = localStorage.getItem('categorieId');
+  // private categories = [];
+  // private singleCategorie = Object;
 
   constructor(
     private http: Http,
@@ -26,17 +26,17 @@ export class ProductService {
 
 
 
-  getProducts(page: number, search: any) {
+  getCategories(page: number, search: any) {
     let headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.authService.currentUser.token);
     let options = new RequestOptions({ headers: headers, search: search});
-    return this.http.get(this.url + 'product/page/' + page , options)
+    return this.http.get(this.url + 'categorie/page/' + page , options)
       .timeout(9000)
       .map((response: Response) => {
 
-        const products = response.json();
+        const categories = response.json();
 
-        return products;
+        return categories;
       })
       .catch((error: Response) => {
         this.errorService.handleError(error.json());
@@ -48,11 +48,11 @@ export class ProductService {
     let headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.authService.currentUser.token);
     let options = new RequestOptions({ headers: headers});
-    return this.http.get(this.url + 'product/countNewItemForUser/' + this.authService.currentUser.userId, options)
+    return this.http.get(this.url + 'categorie/countNewItemForUser/' + this.authService.currentUser.userId, options)
       .timeout(9000)
       .map((response: Response) => {
-        const products = response.json();
-        return products;
+        const categories = response.json();
+        return categories;
       })
       .catch((error: Response) => {
         this.errorService.handleError(error.json());
@@ -60,11 +60,11 @@ export class ProductService {
       });
   }
 
-  //getProduct(id: string) : Observable<Product> {
-  getProduct(id: string) {
+  //getCategorie(id: string) : Observable<Categorie> {
+  getCategorie(id: string) {
     let headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.authService.currentUser.token);
-    return this.http.get(this.url + 'product/' + id, {headers: headers})
+    return this.http.get(this.url + 'categorie/' + id, {headers: headers})
       .map((response: Response) => {
         //console.log(response.json().item)
         return response.json().item;
@@ -80,10 +80,10 @@ export class ProductService {
 
 
 
-  deleteProduct(id: string) {
+  deleteCategorie(id: string) {
     let headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.authService.currentUser.token);
-    return this.http.delete(this.url + 'product/' + id, {headers: headers})
+    return this.http.delete(this.url + 'categorie/' + id, {headers: headers})
       .map((response: Response) => {
       //  console.log("delete",response)
         return response.json();
@@ -96,15 +96,15 @@ export class ProductService {
       });
   }
 
-  saveProduct(product : Product) {
+  saveCategorie(categorie : Categorie) {
     //  console.log("this.authService.currentUser.token",this.authService.currentUser.token);
-    //  delete product._id;
-    delete product._id
-    //console.log(product)
-    const body = JSON.stringify(product);
+    //  delete categorie._id;
+    delete categorie._id
+    //console.log(categorie)
+    const body = JSON.stringify(categorie);
     const headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.authService.currentUser.token);
-    return this.http.post(this.url + 'product/',body, {headers: headers})
+    return this.http.post(this.url + 'categorie/',body, {headers: headers})
       .map(response => response.json())
       .catch((error: Response) => {
         // console.log(error.json())
@@ -113,11 +113,11 @@ export class ProductService {
       });
   }
 
-  updateProduct(product : Product) {
-    const body = JSON.stringify(product);
+  updateCategorie(categorie : Categorie) {
+    const body = JSON.stringify(categorie);
     const headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.authService.currentUser.token);
-    return this.http.put(this.url + 'product/' + product._id, body, {headers: headers})
+    return this.http.put(this.url + 'categorie/' + categorie._id, body, {headers: headers})
       .map(response => response.json())
       .catch((error: Response) => {
         this.errorService.handleError(error.json());

@@ -13,7 +13,7 @@
           <textarea mdInput class="form-control" formControlName="description" [(ngModel)]="fetchedStrat.description" placeholder="Description">
         </textarea>
         </md-form-field>
-        <app-autocomplete [typeAutocomplete]="'user'" [singleChoice]="'true'" [arrayContent]="fetchedStrat.users" (getResultAutocomplete)="selectAssignedTo($event[0])">
+        <app-autocomplete [typeAutocomplete]="'user'" [singleChoice]="'true'" [arrayContent]="fetchedStrat.users">
         </app-autocomplete>
         <md-form-field>
           <input mdInput type="date" class="form-control" formControlName="startString" [(ngModel)]="fetchedStrat.dateStrat.startString">

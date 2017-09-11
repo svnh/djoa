@@ -12,7 +12,7 @@ import { UserService} from '../../user/user.service';
 import {ShowNavBarData} from '../../home/home.model'
 import {GlobalEventsManager} from '../../globalEventsManager';
 import {Search} from '../../home/home.model'
-import {Product} from '../../product/product.model';
+import {Categorie} from '../../categorie/categorie.model';
 
 
 
@@ -27,7 +27,7 @@ export class LightMissionsComponent implements OnInit {
   // @Input() userId = '';
   // @Input() missionType = '';
   @Input() search: Search = new Search();
-  @Input() product: Product = new Product();
+  @Input() categorie: Categorie = new Categorie();
 
   // token: string = localStorage.getItem('id_token');
   fetchedMissions: Mission[] = [];
@@ -69,7 +69,7 @@ export class LightMissionsComponent implements OnInit {
 
   ngOnChanges(changes) {
     // console.log(this.search)
-    if(this.search.projectId && this.search.productId)
+    if(this.search.projectId && this.search.categorieId)
       this.getMissions(1, this.search)
   }
 
@@ -88,7 +88,7 @@ export class LightMissionsComponent implements OnInit {
   }
 
   goToMission(missionId: string) {
-    this.openProductsSideBar(missionId)
+    this.openCategoriesSideBar(missionId)
     this.router.navigate(['mission/' + missionId]);
   }
 
@@ -126,9 +126,9 @@ export class LightMissionsComponent implements OnInit {
   //   this.paginationData.currentPage = this.paginationData.currentPage+1
   //   this.getMissions(this.paginationData.currentPage, this.search)
   // }
-  openProductsSideBar(missionId: string) {
+  openCategoriesSideBar(missionId: string) {
     let newShowNavBarData = new ShowNavBarData()
-    newShowNavBarData.search.typeObj = 'product'
+    newShowNavBarData.search.typeObj = 'categorie'
     newShowNavBarData.search.missionId = missionId
     newShowNavBarData.search.projectId = this.search.projectId
     this.globalEventsManager.showNavBarLeft(newShowNavBarData)
@@ -138,7 +138,7 @@ export class LightMissionsComponent implements OnInit {
   //   newShowNavBarData.showNavBar = true
   //   newShowNavBarData.search.typeObj = 'mission'
   //   newShowNavBarData.search.projectId = this.search.projectId
-  //   newShowNavBarData.search.productId = this.search.productId
+  //   newShowNavBarData.search.categorieId = this.search.categorieId
   //   this.globalEventsManager.showNavBarRight(newShowNavBarData)
   // }
   // openDeleteMission(missionId: string) {

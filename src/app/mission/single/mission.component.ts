@@ -1,7 +1,7 @@
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {AuthService} from '../../auth/auth.service';
 import {MissionService} from '../mission.service';
-import {ProductService} from '../../product/product.service';
+import {CategorieService} from '../../categorie/categorie.service';
 import { ProjectService} from '../../project/project.service';
 
 import {Mission} from '../mission.model';
@@ -17,7 +17,7 @@ import { UserService} from '../../user/user.service';
 // import { DeleteDialog } from '../../deleteDialog/deleteDialog.component';
 import { User } from '../../user/user.model';
 // import { Quote } from '../../quote/quote.model';
-import { Product } from '../../product/product.model';
+import { Categorie } from '../../categorie/categorie.model';
 import { Project } from '../../project/project.model';
 
 
@@ -48,7 +48,7 @@ export class MissionComponent implements OnInit {
     // private projectService: ProjectService,
     // private projectService: ProjectService,
     // private userService: UserService,
-    // private productService: ProductService,
+    // private categorieService: CategorieService,
 //    private modalService: NgbModal,
     private toastr: ToastsManager,
     // public dialog: MdDialog,
@@ -85,8 +85,8 @@ export class MissionComponent implements OnInit {
     // if (this.search.projectId)
     //   this.getProject(this.search.projectId)
     //
-    // if (this.search.productId)
-    //   this.getProduct(this.search.productId)
+    // if (this.search.categorieId)
+    //   this.getCategorie(this.search.categorieId)
 
 
     this.activatedRoute.params.subscribe((params: Params) => {
@@ -106,10 +106,10 @@ export class MissionComponent implements OnInit {
   //       error => { console.log(error) }
   //     )
   // }
-  // getProduct(id: string) {
-  //   this.productService.getProduct(id)
+  // getCategorie(id: string) {
+  //   this.categorieService.getCategorie(id)
   //     .subscribe(
-  //       res => { this.fetchedMission.products.push(<Product>res) },
+  //       res => { this.fetchedMission.categories.push(<Categorie>res) },
   //       error => { console.log(error) }
   //     )
   // }

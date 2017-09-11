@@ -23,7 +23,7 @@ import { Search } from '../../home/home.model'
 })
 export class DocumentsComponent implements OnInit {
   @Input() userId = '';
-  // @Input() showHeader = false;
+  editMode: boolean = false;
   @Input() search: Search = new Search()
 
 

@@ -2,11 +2,11 @@ var express = require('express'),
     router  = express.Router(),
     config  = require('../config/config'),
     User    = require('../models/user.model'),
-    Product    = require('../models/product.model'),
+    Categorie    = require('../models/categorie.model'),
     Form    = require('../models/form.model'),
     fs      = require('fs'),
     jwt     = require('jsonwebtoken'),
-    nameObject = 'product'
+    nameObject = 'categorie'
 
 // this process does not hang the nodejs server on error
 process.on('uncaughtException', function (err) {
@@ -68,7 +68,7 @@ router.put('/:id', function (req, res, next) {
   if (!shared.isCurentUserHasAccess(req.user, nameObject, 'write')) {
     return res.status(404).json({ title: 'No rights', error: {message: 'No rights'} })
   }
-  Product.findById(({_id: req.params.id}), function (err, item) {
+  Categorie.findById(({_id: req.params.id}), function (err, item) {
     if (err) {
       return res.status(404).json({
         message: '',
@@ -112,11 +112,11 @@ router.post('/', function (req, res, next) {
     })
   }
    console.log(req.user.companies)
-  //var Product = new Product(req.body)
-  var product = new Product(req.body)
-  product.ownerCompanies = req.user.ownerCompanies
-  product.owner = req.user._id
-  product.save(function (err, result) {
+  //var Categorie = new Categorie(req.body)
+  var categorie = new Categorie(req.body)
+  categorie.ownerCompanies = req.user.ownerCompanies
+  categorie.owner = req.user._id
+  categorie.save(function (err, result) {
     if (err) {
       console.log(err)
       return res.status(403).json({
@@ -151,7 +151,7 @@ router.get('/page/:page', function (req, res, next) {
   if(req.query.search)
     searchQuery['name'] = new RegExp(req.query.search, 'i')
 
-  Product
+  Categorie
   .find(searchQuery)
   .sort('-createdAt')
   .populate({path: 'forms', model: 'Form'})
@@ -164,7 +164,7 @@ router.get('/page/:page', function (req, res, next) {
         err: err
       })
     } else {
-      Product
+      Categorie
       .find(searchQuery)
       .count()
       .exec(function (err, count) {
@@ -185,7 +185,7 @@ router.get('/page/:page', function (req, res, next) {
 
 
 router.get('/:id', function (req, res, next) {
-  Product.findById((req.params.id), function (err, obj) {
+  Categorie.findById((req.params.id), function (err, obj) {
     if (err) {
       return res.status(500).json({message: 'An error occured', err: err})
     }
@@ -198,7 +198,7 @@ router.get('/:id', function (req, res, next) {
       })
     }
 
-    Product
+    Categorie
     .findById({_id: req.params.id})
     .populate('vendors')
     .populate('forms')
@@ -225,7 +225,7 @@ router.delete('/:id', function (req, res, next) {
   if (!shared.isCurentUserHasAccess(req.user, nameObject, 'write')) {
     return res.status(404).json({ title: 'No rights', error: {message: 'No rights'} })
   }
-  Product.findById((req.params.id), function (err, item) {
+  Categorie.findById((req.params.id), function (err, item) {
     if (err) {
       return res.status(500).json({
         message: 'An error occured',

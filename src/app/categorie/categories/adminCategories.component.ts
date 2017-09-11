@@ -1,7 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { AuthService} from '../../auth/auth.service';
-import { ProductService} from '../product.service';
-import { Product} from '../product.model';
+import { CategorieService} from '../categorie.service';
+import { Categorie} from '../categorie.model';
 import { ToastsManager} from 'ng2-toastr';
 import { MdDialog} from '@angular/material';
 import { Router} from '@angular/router';
@@ -11,15 +11,15 @@ import { UserService} from '../../user/user.service';
 
 
 @Component({
-  selector: 'app-products',
-  templateUrl: './products.component.html',
-  styleUrls: ['../product.component.css'],
+  selector: 'app-adminCategories',
+  templateUrl: './adminCategories.component.html',
+  styleUrls: ['../categorie.component.css'],
   encapsulation: ViewEncapsulation.None
 
 })
-export class ProductsComponent implements OnInit {
+export class AdminCategoriesComponent implements OnInit {
   token: string = localStorage.getItem('id_token');
-  fetchedProducts: Product[] = [];
+  fetchedCategories: Categorie[] = [];
   search: any = {
     categories : [],
     search: ''
@@ -34,12 +34,12 @@ export class ProductsComponent implements OnInit {
 
   trackinPage : any = {
     lastVisitPagePressCount:[],
-    lastVisitPageProductCount:[]
+    lastVisitPageCategorieCount:[]
   }
 
   constructor(
     private sanitizer: DomSanitizer,
-    private productService: ProductService,
+    private categorieService: CategorieService,
     private toastr: ToastsManager,
     // public dialog: MdDialog,
     private router: Router,
@@ -55,15 +55,15 @@ export class ProductsComponent implements OnInit {
 
 
 
-  searchProducts() {
-    this.getProducts(1, this.search)
+  searchCategories() {
+    this.getCategories(1, this.search)
   }
 
 
 
 
   onDelete(id: string) {
-    this.productService.deleteProduct(id)
+    this.categorieService.deleteCategorie(id)
       .subscribe(
         res => {
           this.toastr.success('Great!', res.message);
@@ -76,25 +76,25 @@ export class ProductsComponent implements OnInit {
   }
 
   getPage(page: number) {
-    this.getProducts(page, this.search);
+    this.getCategories(page, this.search);
   }
   saved(result) {
     if(result)
-      this.getProducts(1, this.search)
+      this.getCategories(1, this.search)
   }
 
   // loadMore(){
   //   this.paginationData.currentPage = this.paginationData.currentPage+1
-  //   this.getProducts(this.paginationData.currentPage, this.search)
+  //   this.getCategories(this.paginationData.currentPage, this.search)
   // }
 
-  getProducts(page: number, search: any) {
+  getCategories(page: number, search: any) {
     this.loading = true;
-    this.productService.getProducts(page, search)
+    this.categorieService.getCategories(page, search)
       .subscribe(
         res => {
           this.paginationData = res.paginationData;
-          this.fetchedProducts = res.data
+          this.fetchedCategories = res.data
           this.loading = false;
         },
         error => {
@@ -106,8 +106,8 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit() {
     // this.translateService.use('fr');
-    // console.log(this.translateService.instant('Add a product'))
-    this.getProducts(1, this.search)
+    // console.log(this.translateService.instant('Add a categorie'))
+    this.getCategories(1, this.search)
   }
 
   isAdmin() {

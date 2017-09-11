@@ -51,7 +51,7 @@ export class PlanDetail {
 }
 
 export class Categorie {
-  categProduct: Categorie0[] = []
+  categCategorie: Categorie0[] = []
   categProject: Categorie0[] = []
 }
 
@@ -73,7 +73,7 @@ export class Categorie2 {
 }
 
 // export class CategJson {
-//   categProduct: string= '';
+//   categCategorie: string= '';
 //   categProject: string= '';
 // }
 export class Option {

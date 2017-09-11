@@ -13,7 +13,7 @@ import { NewObjComponent} from './newObj.component';
 
 @NgModule({
   imports:      [
-    // ProductRouting,
+    // CategorieRouting,
     RouterModule,
     CommonModule,
     FormsModule,
@@ -27,16 +27,16 @@ import { NewObjComponent} from './newObj.component';
   declarations: [
 
     NewObjComponent,
-    // ProductsComponent,
-    // ProductSingleComponent,
+    // CategoriesComponent,
+    // CategorieSingleComponent,
   ],
   exports:      [
     NewObjComponent
-    // ProductsComponent
+    // CategoriesComponent
   ],
   providers:    [
     // NotificationService,
-    // ProductService
+    // CategorieService
   ],
   entryComponents: [ ]
 })

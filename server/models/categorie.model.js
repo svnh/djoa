@@ -5,7 +5,7 @@ var mongoose                = require('mongoose'),
     Companie                    = require('../models/companie.model'),
     mongooseUniqueValidator = require('mongoose-unique-validator')
 
-var product = new Schema({
+var categorie = new Schema({
     ownerCompanies: [{type: Schema.Types.ObjectId, ref: 'Companie'}],
     name: {type: String, default: ['']},
     icone: {type: String, default: ['']},
@@ -18,6 +18,6 @@ var product = new Schema({
     timestamps: true
   })
 
-product.plugin(mongooseUniqueValidator)
+categorie.plugin(mongooseUniqueValidator)
 
-module.exports = mongoose.model('Product', product)
+module.exports = mongoose.model('Categorie', categorie)

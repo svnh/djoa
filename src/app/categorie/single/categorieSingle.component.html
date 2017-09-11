@@ -3,22 +3,22 @@
   <div class="col-4">
 
     <div>
-      <label>{{'Product Name' }}</label>
-      <input type="text" class="form-control col-md-8" formControlName="name" placeholder="name" [(ngModel)]="fetchedProduct.name">
+      <label>{{'Categorie Name' }}</label>
+      <input type="text" class="form-control col-md-8" formControlName="name" placeholder="name" [(ngModel)]="fetchedCategorie.name">
     </div>
 
     <div>
       <label>{{'description' }}</label>
-      <input type="text" class="form-control col-md-10" formControlName="description" placeholder="description" [(ngModel)]="fetchedProduct.description">
+      <input type="text" class="form-control col-md-10" formControlName="description" placeholder="description" [(ngModel)]="fetchedCategorie.description">
     </div>
     <div>
       <label>{{'Icone' }} Example: eraser</label>
-      <input type="text" class="form-control col-md-10" formControlName="icone" placeholder="description" [(ngModel)]="fetchedProduct.icone">
+      <input type="text" class="form-control col-md-10" formControlName="icone" placeholder="description" [(ngModel)]="fetchedCategorie.icone">
     </div>
-    <!-- <app-autocomplete [typeAutocomplete]="'companie'" [title]="'Companie'" [singleChoice]="'true'" [arrayContent]="fetchedProduct.vendors" (getResultAutocomplete)="selectCompanie($event[0])">
+    <!-- <app-autocomplete [typeAutocomplete]="'companie'" [title]="'Companie'" [singleChoice]="'true'" [arrayContent]="fetchedCategorie.vendors" (getResultAutocomplete)="selectCompanie($event[0])">
             </app-autocomplete> -->
     <!-- <div class="form-group prmimg-cnt">
-              <div *ngFor="let singleForm of fetchedProduct.forms">
+              <div *ngFor="let singleForm of fetchedCategorie.forms">
                 <img height="100px" class="promo-img" src="./uploads/forms/{{singleForm.owner}}/{{singleForm.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
                 <button type="button" md-button (click)="removePic(i)">
               <i class="fa fa-times"></i>
@@ -28,7 +28,7 @@
                 <button type="button" md-button (click)="openDialog('img')" class="addpic-squr">Ajouter une image<br><i class="fa fa-plus"></i></button>
               </div>
             </div> -->
-    <!-- <app-picture [forms]="fetchedProduct.forms" (getPicture)="getPicture($event)"></app-picture> -->
+    <!-- <app-picture [forms]="fetchedCategorie.forms" (getPicture)="getPicture($event)"></app-picture> -->
   </div>
 
   <div class="container">
@@ -36,7 +36,7 @@
     </div>
     <div class="valid-edit">
       <button type="submit" class="done btn btn-success" [disabled]="!myForm.valid">{{'Save' }}</button>
-      <button *ngIf="fetchedProduct._id" type="button" class="delete btn btn-danger" md-button (click)="openDialogDelete()">Effacer produit</button>
+      <button *ngIf="fetchedCategorie._id" type="button" class="delete btn btn-danger" md-button (click)="openDialogDelete()">Effacer produit</button>
 
     </div>
   </div>

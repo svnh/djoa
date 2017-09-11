@@ -1,7 +1,7 @@
 import { Form } from '../picture/form/form.model';
 import { User } from '../user/user.model';
 // import { Quote } from '../quote/quote.model';
-import { Product } from '../product/product.model';
+import { Categorie } from '../categorie/categorie.model';
 
 import { Project, DateDjoa } from '../project/project.model';
 
@@ -15,8 +15,8 @@ export class Mission {
     // missionType: string = '';
     dateMission: DateDjoa = new DateDjoa()
     users: User[] = [];
-    products: Product[] = [];
-    // products: Product[] = [];
+    categories: Categorie[] = [];
+    // categories: Categorie[] = [];
     // start: Date = new Date()
     // startString: string = '';
     // end: Date = new Date()

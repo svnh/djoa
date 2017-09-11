@@ -22,7 +22,7 @@ import {DeleteConfirmationModule} from '../deleteConfirmation/deleteConfirmation
 @NgModule({
   imports:      [
     // UserModule,
-    // ProductRouting,
+    // CategorieRouting,
     RouterModule,
     CommonModule,
     FormsModule,
@@ -44,16 +44,16 @@ import {DeleteConfirmationModule} from '../deleteConfirmation/deleteConfirmation
 
     SideBarRightComponent,
     // NewUserComponent,
-    // ProductsComponent,
-    // ProductSingleComponent,
+    // CategoriesComponent,
+    // CategorieSingleComponent,
   ],
   exports:      [
     SideBarRightComponent
-    // ProductsComponent
+    // CategoriesComponent
   ],
   providers:    [
     // NotificationService,
-    // ProductService
+    // CategorieService
   ],
   entryComponents: [ ]
 })

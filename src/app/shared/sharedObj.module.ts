@@ -28,7 +28,7 @@ import {SharedModule} from './shared.module';
 import {UserModule} from '../user/user.module';
 import {ProjectModule} from '../project/project.module';
 import {BriefModule} from '../brief/brief.module';
-import {ProductModule} from '../product/product.module';
+import {CategorieModule} from '../categorie/categorie.module';
 // import {NewObjModule} from '../nav/newObj/newObj.module';
 import {DocumentModule} from '../document/document.module';
 import {StratModule} from '../strat/strat.module';
@@ -47,7 +47,7 @@ import {StratModule} from '../strat/strat.module';
     DocumentModule,
     StratModule,
     BriefModule,
-    ProductModule,
+    CategorieModule,
     // CommonModule,
     // FormsModule,
     // AutocompleteModule,
@@ -76,7 +76,7 @@ import {StratModule} from '../strat/strat.module';
     SharedModule,
     UserModule,
     BriefModule,
-    ProductModule,
+    CategorieModule,
     // NewObjModule,
     // CommonModule,
     // FormsModule,

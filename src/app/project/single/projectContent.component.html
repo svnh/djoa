@@ -4,8 +4,8 @@
     <div class="allmissions-container">
       <app-strats [search]="search"></app-strats>
       <div *ngIf="fetchedProject._id">
-        <div *ngFor="let product of fetchedProducts">
-          <app-missions (getResultMissions)="getResultMissions($event)" [product]="product" [search]="{projectId:fetchedProject._id, productId:product._id}"></app-missions>
+        <div *ngFor="let categorie of fetchedCategories">
+          <app-missions (getResultMissions)="getResultMissions($event)" [categorie]="categorie" [search]="{projectId:fetchedProject._id, categorieId:categorie._id}"></app-missions>
         </div>
       </div>
     </div>

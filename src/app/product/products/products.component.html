@@ -1,9 +1,0 @@
-<div *ngFor="let product of fetchedProducts" [routerLink]="['/product/' + product._id]" routerLinkActive="active">
-  <div *ngFor="let singleForm of product.forms; let i = index;">
-    <img *ngIf="i<=0" height="50px" class="img" src="./uploads/forms/{{singleForm.owner}}/{{singleForm.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
-  </div>
-
-  <div>
-    {{product.name}}
-  </div>
-</div>

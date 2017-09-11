@@ -82,7 +82,7 @@ router.put('/:id', function (req, res, next) {
         item.title = req.body.title
         item.dateMission = req.body.dateMission
         item.status = req.body.status
-        item.products = req.body.products
+        item.categories = req.body.categories
 
 
         item.save(function (err, result) {
@@ -167,8 +167,8 @@ router.get('/page/:page', function (req, res, next) {
   if(req.query.projectId)
     searchQuery['projects'] = mongoose.Types.ObjectId(req.query.projectId)
 
-  if(req.query.productId)
-    searchQuery['products'] = mongoose.Types.ObjectId(req.query.productId)
+  if(req.query.categorieId)
+    searchQuery['categories'] = mongoose.Types.ObjectId(req.query.categorieId)
 
   // if(req.query.missionType)
   //   searchQuery['missionType'] = req.query.missionType
@@ -180,7 +180,7 @@ router.get('/page/:page', function (req, res, next) {
   .sort('-createdAt')
   .populate({path: 'projects', model: 'Project'})
   .populate({ path: 'users', model: 'User'})
-  .populate({ path: 'products', model: 'Product'})
+  .populate({ path: 'categories', model: 'Categorie'})
 
   // .populate({path: 'quotes', model: 'Quote'})
   // .populate(
@@ -242,7 +242,7 @@ router.get('/:id', function (req, res, next) {
     .findById({_id: req.params.id})
     .populate({path: 'projects', model: 'Project'})
 
-    .populate({ path: 'products', model: 'Product'})
+    .populate({ path: 'categories', model: 'Categorie'})
     .populate({ path: 'users', model: 'User'})
     .populate({
       path: 'users',

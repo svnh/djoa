@@ -1,6 +1,6 @@
 var mongoose                = require('mongoose'),
     Schema                  = mongoose.Schema,
-    //Product                    = require('../models/product.model'),
+    //Categorie                    = require('../models/categorie.model'),
   //  Form                    = require('../models/form.model'),
   //  User                    = require('../models/user.model'),
     mongooseUniqueValidator = require('mongoose-unique-validator');
@@ -27,12 +27,12 @@ var quote = new Schema({
     forms: [{type: Schema.Types.ObjectId, ref: 'Form'}],
     devisDetails: [
       {
-        nameBucketProducts :{type: String},
-        bucketProducts:[
+        nameBucketCategories :{type: String},
+        bucketCategories:[
           {
             typeRow:{type: String},
             title:{type: String, default: ['']},
-            // isProduct: {type: Boolean, default: [true]},
+            // isCategorie: {type: Boolean, default: [true]},
             title: {type: String},
             priceWithoutTaxes: {type: Number},
             priceWithTaxes: {type: Number},
@@ -41,7 +41,7 @@ var quote = new Schema({
             vat: {type: Number},
             quantity: {type: Number},
             discount: {type: Number},
-            productInit: [{type: Schema.Types.ObjectId, ref: 'User'}],
+            categorieInit: [{type: Schema.Types.ObjectId, ref: 'User'}],
 
           }
         ]

@@ -12,7 +12,7 @@ import { UserService} from '../../user/user.service';
 import {ShowNavBarData} from '../../home/home.model'
 import {GlobalEventsManager} from '../../globalEventsManager';
 import {Search, PaginationData} from '../../home/home.model'
-import {Product} from '../../product/product.model';
+import {Categorie} from '../../categorie/categorie.model';
 
 
 @Component({
@@ -24,10 +24,10 @@ import {Product} from '../../product/product.model';
 })
 export class MissionsComponent implements OnInit {
   @Input() userId = '';
-  @Input() product: Product = new Product();
+  @Input() categorie: Categorie = new Categorie();
   @Input() search: Search = new Search()
   @Output() getResultMissions: EventEmitter<any> = new EventEmitter();
-
+  editMode: boolean = false;
   // token: string = localStorage.getItem('id_token');
   fetchedMissions: Mission[] = [];
   // search: any = {
@@ -78,7 +78,7 @@ export class MissionsComponent implements OnInit {
   }
 
   goTo(missionId: string) {
-    this.openProductsSideBar(missionId)
+    this.openCategoriesSideBar(missionId)
     this.router.navigate(['mission/' + missionId]);
   }
 
@@ -116,9 +116,9 @@ export class MissionsComponent implements OnInit {
   //   this.paginationData.currentPage = this.paginationData.currentPage+1
   //   this.getMissions(this.paginationData.currentPage, this.search)
   // }
-  openProductsSideBar(missionId: string) {
+  openCategoriesSideBar(missionId: string) {
     let newShowNavBarData = new ShowNavBarData()
-    newShowNavBarData.search.typeObj = 'product'
+    newShowNavBarData.search.typeObj = 'categorie'
     newShowNavBarData.search.missionId = missionId
     newShowNavBarData.search.projectId = this.search.projectId
     this.globalEventsManager.showNavBarLeft(newShowNavBarData)
@@ -127,7 +127,7 @@ export class MissionsComponent implements OnInit {
     let newShowNavBarData = new ShowNavBarData()
     newShowNavBarData.search.typeObj = 'mission'
     newShowNavBarData.search.projectId = this.search.projectId
-    newShowNavBarData.search.productId = this.search.productId
+    newShowNavBarData.search.categorieId = this.search.categorieId
     this.globalEventsManager.showNavBarRight(newShowNavBarData)
   }
   openDeleteMission(missionId: string) {

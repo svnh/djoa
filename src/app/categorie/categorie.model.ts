@@ -2,7 +2,7 @@ import { Form } from '../picture/form/form.model';
 import { Companie } from '../companie/companie.model';
 import { User } from '../user/user.model';
 
-export class Product {
+export class Categorie {
     _id: string = '';
     name: string = '';
     icone: string = '';
@@ -12,58 +12,58 @@ export class Product {
 
 }
 
-
-
-export class Details {
-  referenceName: string = '';
-  reference: string = '';
-  price: Price = new Price();
-  description: string = '';
-  dimension: Dimension = new Dimension();
-  stock: Stock = new Stock();
-}
-
-export class Categorie {
-  categ0: Categ[] = [];
-  categ1: Categ[] = [];
-  categ2: Categ[] = [];
-}
-
-
-export class Categ {
-  name: string = '';
-}
-
-
-
-export class Price {
-  costPrice: number = 0;
-  sellingPrice: number = 0;
-}
-export class Dimension {
-  height: number = 0;
-  width: number = 0;
-  depth: number = 0;
-}
-export class Stock {
-  quantity: number = 0;
-}
-
-
-export const ItemSteps =
-[
-  {
-    'categ':'',
-    'subCateg': [
-      {
-        'categ':'',
-        'subCateg': [
-          {categ: ''},
-        ]
-      }
-    ]
-  }
-]
+//
+//
+// export class Details {
+//   referenceName: string = '';
+//   reference: string = '';
+//   price: Price = new Price();
+//   description: string = '';
+//   dimension: Dimension = new Dimension();
+//   stock: Stock = new Stock();
+// }
+//
+// // export class Categorie {
+// //   categ0: Categ[] = [];
+// //   categ1: Categ[] = [];
+// //   categ2: Categ[] = [];
+// // }
+//
+//
+// export class Categ {
+//   name: string = '';
+// }
+//
+//
+//
+// export class Price {
+//   costPrice: number = 0;
+//   sellingPrice: number = 0;
+// }
+// export class Dimension {
+//   height: number = 0;
+//   width: number = 0;
+//   depth: number = 0;
+// }
+// export class Stock {
+//   quantity: number = 0;
+// }
+//
+//
+// export const ItemSteps =
+// [
+//   {
+//     'categ':'',
+//     'subCateg': [
+//       {
+//         'categ':'',
+//         'subCateg': [
+//           {categ: ''},
+//         ]
+//       }
+//     ]
+//   }
+// ]
 //
 // [
 //   {

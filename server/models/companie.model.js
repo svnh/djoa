@@ -37,12 +37,12 @@ var companie = new Schema({
     //users : [{type: Schema.Types.ObjectId, ref: 'User'}],
     forms: [{type: Schema.Types.ObjectId, ref: 'Form'}],
     // categJson: {
-    //   categProduct:{type: String, default: ['']},
+    //   categCategorie:{type: String, default: ['']},
     //   categProject:{type: String, default: ['']}
     // },
     typeUsers:[{value:{type: String}}],
     categories: {
-      categProduct:[{
+      categCategorie:[{
         categ: {type: String, default: ['']},
         isFlagged: {type: Boolean, default: [false]},
         subCateg:[{
