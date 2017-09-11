@@ -1,16 +1,16 @@
-<button type="button" (click)="addDocument()">+</button>
+<button type="button" class="edit-btn">Edit</button>
+<button type="button" (click)="addDocument()" class="add-object">Add Document</button>
 <div *ngFor="let document of fetchedDocuments; let i = index;">
-  <md-card>
+  <md-card class="single-doc">
     <md-card-content>
       <md-slide-toggle disabled [(ngModel)]="fetchedDocuments[i].isCrew">IS CREW: {{fetchedDocuments[i].isCrew}}</md-slide-toggle>
-      <br>
-      <button type="button" (click)="delete(document._id)">X</button>
-      <button type="button" (click)="openDetails(document._id)">Open</button>
-      <br>
-      <img height="100px" src="assets/images/google_sheet.ico">
-      <div class="">{{document.details.name}}</div>
-      <a target="_blank" href="{{document.link}}">open</a>
-      <br><br>
+      <button type="button" (click)="delete(document._id)" class="delete-x"><i class="fa fa-trash-o"></i></button>
+      <button type="button" (click)="openDetails(document._id)" class="edit-btn">Edit</button>
+      <div class="doc-title">
+        <img class="doc-icon" src="assets/images/google_sheet.ico">
+        <p class="">{{document.details.name}}</p>
+      </div>
+      <a target="_blank" href="{{document.link}}" class="open">open</a>
 
       <div *ngIf="document.status.global == 'WIP'">
         <div *ngIf="fetchedDocuments[i].isCrew">
@@ -32,7 +32,6 @@
         </div>
       </div>
 
-
       <div *ngIf="document.status.global == 'CHANGES REQUEST'">
         <div *ngIf="fetchedDocuments[i].isCrew">
           SEE DOCUMENT AND/OR CHAT FOR INSTRUCTIONS
@@ -45,7 +44,6 @@
           NO ACTION REQUIRED
         </div>
       </div>
-
 
       <div *ngIf="document.status.global == 'CHANGES SENT'">
         <div *ngIf="fetchedDocuments[i].isCrew">
@@ -60,7 +58,6 @@
         </div>
       </div>
 
-
       <div *ngIf="document.status.global == 'COMPLETE'">
         <div *ngIf="fetchedDocuments[i].isCrew">
           THE DOCUMENT IS APPROVED
@@ -70,8 +67,7 @@
         </div>
       </div>
 
-      <br>
-      <div class="">{{document.status.global}}</div>
+      <div class="doc-state-bottom">{{document.status.global}}</div>
     </md-card-content>
   </md-card>
 </div>

@@ -1,0 +1,10 @@
+.single-doc {
+  box-shadow: none !important;
+  background-color: #f4f4f4 !important;
+}
+.open {
+  float: right;
+  text-transform: uppercase;
+  border: 1px solid;
+  padding: 10px 40px;
+}
