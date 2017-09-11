@@ -170,9 +170,6 @@ export class MissionComponent implements OnInit {
   }
 
 
-  // getResultAutocomplete(result){
-  //   console.log(result)
-  // }
   closeRight() {
     let showNavBarData = new ShowNavBarData()
     showNavBarData.showNavBar = false
