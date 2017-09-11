@@ -1,5 +1,6 @@
 .col-md-6 {
   float: left;
+  height: 75vh;
 }
 .mission-nav {
   margin-top: 80px;
@@ -22,14 +23,16 @@
 }
 .lineback {
   background: -webkit-linear-gradient(left, transparent 5%, white 5%, white 5.1%,transparent 5.1%);
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 .card-margin {
   margin-bottom: 30px;
 }
 .chat {
-  min-height: 500px;
   background-color: #f4f4f4;
   padding: 0;
+  height: 100%;
 }
 .pic-container {
   width: 50px;

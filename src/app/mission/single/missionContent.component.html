@@ -39,10 +39,11 @@
           <div (click)="openProfile(user._id)">
             <div class="pic-container"><app-picture [addPicture]=false [deletePicture]=false [forms]="user.forms"></app-picture></div>
           </div>
-          <p>{{user.profile.name}}</p>
+          <p>{{user.profile.name}} {{fetchedUser.profile.lastName}}</p>
         </div>
       </md-card-content>
     </md-card>
+    <div class="bottom-shadow"></div>
   </div>
   <div class="col-md-6">
     <md-card class="chat">

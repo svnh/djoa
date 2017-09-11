@@ -1,6 +1,9 @@
+.chat-wrapper {
+  height: 75vh;
+}
 .indiv-chat {
   clear: both;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 .pic-container {
   border: 1px solid #4a148c;
@@ -11,9 +14,9 @@
   margin-right: 15px;
 }
 .read-chat {
-  height: 58vh;
   overflow: auto;
   padding: 20px;
+  height: 86%;
 }
 .write-chat, .write-chat textarea {
   width: 100%;
@@ -22,6 +25,8 @@
 .write-chat {
   background-color: #ffffff;
   border-top: 1px solid #330066;
+  position: absolute;
+  bottom: 0;
 }
 .write-chat textarea {
   border: none;
