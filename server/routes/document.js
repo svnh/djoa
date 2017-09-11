@@ -272,7 +272,15 @@ router.get('/page/:page', function(req, res, next) {
     if (err) {
       return res.status(404).json({message: 'No results', err: err})
     } else {
-      Document.find(searchQuery).count().exec(function(err, count) {
+      item.forEach((document, i) => {
+        item[i].isCrew = true
+        document.reviewers.forEach(reviewer => {
+          if(reviewer._id.toString() === req.user._id.toString())
+            item[i].isCrew = false
+        })
+      })
+      Document.find(searchQuery).count().exec(function (err, count) {
+
         res.status(200).json({
           paginationData: {
             totalItems: count,

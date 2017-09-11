@@ -4,7 +4,7 @@ import { DocumentService } from '../document.service';
 import { Document } from '../document.model';
 import { ToastsManager } from 'ng2-toastr';
 import { MdDialog } from '@angular/material';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Params} from '@angular/router';
 import { Location } from '@angular/common';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ViewEncapsulation } from '@angular/core';
@@ -52,6 +52,7 @@ export class DocumentsComponent implements OnInit {
     private toastr: ToastsManager,
     private globalEventsManager: GlobalEventsManager,
     private authService: AuthService,
+    private activatedRoute: ActivatedRoute,
 
   ) {
 
@@ -69,12 +70,16 @@ export class DocumentsComponent implements OnInit {
   }
 
   ngOnInit() {
-    let this2 = this
-    // setTimeout(function(){
-    //   this2.search.userId = this2.userId
-    //   this2.search.orderBy = 'name'
-    this2.getDocuments(1, this2.search)
+    // let this2 = this
+    // // setTimeout(function(){
+    // //   this2.search.userId = this2.userId
+    // //   this2.search.orderBy = 'name'
+    // this2.getDocuments(1, this2.search)
     // }, 200);
+
+    this.activatedRoute.params.subscribe((params: Params) => {
+      this.getDocuments(1, this.search)
+    })
   }
   // changeCrew(result) {
   //   result.checked ? this.isCrew = true : this.isCrew = false
@@ -197,14 +202,14 @@ export class DocumentsComponent implements OnInit {
       res => {
         this.paginationData = res.paginationData;
         this.fetchedDocuments = res.data
-        this.fetchedDocuments.forEach((document, i) => {
-          this.fetchedDocuments[i].isCrew = true
-          document.reviewers.forEach(reviewer => {
-            if(reviewer._id === this.authService.getCurrentUser()._id)
-              this.fetchedDocuments[i].isCrew = false
-          })
-
-        })
+        // this.fetchedDocuments.forEach((document, i) => {
+        //   this.fetchedDocuments[i].isCrew = true
+        //   document.reviewers.forEach(reviewer => {
+        //     if(reviewer._id === this.authService.getCurrentUser()._id)
+        //       this.fetchedDocuments[i].isCrew = false
+        //   })
+        //
+        // })
         this.loading = false;
       },
       error => {

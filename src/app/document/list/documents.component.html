@@ -1,11 +1,11 @@
-<button type="button" class="edit-btn">Edit</button>
-<button type="button" (click)="addDocument()" class="add-object">Add Document</button>
+<button type="button" (click)="editMode=!editMode" class="edit-btn">Edit</button>
+<button *ngIf="editMode" type="button" (click)="addDocument()" class="add-object">Add Document</button>
 <div *ngFor="let document of fetchedDocuments; let i = index;">
   <md-card class="single-doc">
     <md-card-content>
       <md-slide-toggle disabled [(ngModel)]="fetchedDocuments[i].isCrew">IS CREW: {{fetchedDocuments[i].isCrew}}</md-slide-toggle>
       pendingActionFrom:{{fetchedDocuments[i].status.pendingActionFrom}}
-      <button type="button" (click)="delete(document._id)" class="delete-x"><i class="fa fa-trash-o"></i></button>
+      <button type="button" *ngIf="editMode" (click)="delete(document._id)" class="delete-x"><i class="fa fa-trash-o"></i></button>
       <button type="button" (click)="openDetails(document._id)" class="edit-btn">Edit</button>
       <div class="doc-info">
         <div class="doc-title">

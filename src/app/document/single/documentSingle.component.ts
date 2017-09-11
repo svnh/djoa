@@ -51,7 +51,7 @@ export class DocumentSingleComponent implements OnInit {
   public myForm: FormGroup;
 
   constructor(
-    private sanitizer: DomSanitizer,
+    // private sanitizer: DomSanitizer,
     private documentService: DocumentService,
     private toastr: ToastsManager,
     // public dialog: MdDialog,
