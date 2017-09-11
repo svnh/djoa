@@ -8,6 +8,12 @@
   padding: 0 15px;
   height: 30px;
 }
+.lineback section {
+  position: relative;
+}
+.lineback md-progress-bar.mat-progress-bar.mat-primary {
+  height: 38px !important;
+}
 .previous {
   float: left;
 }
@@ -26,5 +32,16 @@
   padding: 0;
 }
 .pic-container {
-  width: 65px;
+  width: 50px;
+  padding: 0 !important;
+  margin-right: 15px;
+}
+.indiv-team {
+  clear: both;
+  margin-bottom: 15px
+  height: 50px;
+}
+.indiv-team p {
+  margin: 0;
+  padding:15px 0;
 }

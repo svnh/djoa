@@ -35,7 +35,7 @@
       <md-card-content>
         <h2>Crew Members for This Mission</h2>
         <button type="button" (click)="openTeam()" class="edit-btn">Edit</button>
-        <div *ngFor="let user of fetchedMission.users">
+        <div *ngFor="let user of fetchedMission.users" class="indiv-team">
           <div (click)="openProfile(user._id)">
             <div class="pic-container"><app-picture [addPicture]=false [deletePicture]=false [forms]="user.forms"></app-picture></div>
           </div>

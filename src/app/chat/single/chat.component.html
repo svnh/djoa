@@ -1,9 +1,9 @@
 <div>
   <div #readChat class="read-chat" >
     <div *ngIf="!messages.length">
-      VIDE
+      Write your first message to start the discussion...
     </div>
-    <div *ngFor="let message of messages">
+    <div *ngFor="let message of messages" class="indiv-chat">
       <div *ngFor="let user of message.users">
         <div class="pic-container">
           <app-picture [userIdToOpenProfile]="user._id" [addPicture]=false [deletePicture]=false [forms]="user.forms"></app-picture>
