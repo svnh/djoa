@@ -4,7 +4,7 @@
     <!-- <div>{{fetchedProject._id}}</div> -->
     <div class="form-group">
       <md-form-field>
-        <input mdInput class="form-control" type="text" formControlName="name" [(ngModel)]="fetchedProject.details.name" placeholder="Title">
+        <input [maxlength]="30" mdInput class="form-control" type="text" formControlName="name" [(ngModel)]="fetchedProject.details.name" placeholder="Title">
       </md-form-field>
     </div>
     <!--<div class="form-group">
