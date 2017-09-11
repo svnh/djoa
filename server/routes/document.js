@@ -2,7 +2,7 @@ var express = require('express'),
   router = express.Router(),
   config = require('../config/config'),
   User = require('../models/user.model'),
-  Task = require('../models/task.model'),
+  Strat = require('../models/strat.model'),
   Document = require('../models/document.model'),
   Mission = require('../models/mission.model'),
   Form = require('../models/form.model'),
@@ -13,13 +13,13 @@ var express = require('express'),
   Log = require('../models/log.model')
 
 // this process does not hang the nodejs server on error
-process.on('uncaughtException', function (err) {
+process.on('uncaughtException', function(err) {
   console.log(err)
 })
 
-router.use('/', function (req, res, next) {
+router.use('/', function(req, res, next) {
   var token = req.headers['authorization']
-  jwt.verify(token, config.secret, function (err, decoded) {
+  jwt.verify(token, config.secret, function(err, decoded) {
     if (err) {
       return res.status(401).json({message: 'Authentication failed', error: err})
     }
@@ -32,7 +32,7 @@ router.use('/', function (req, res, next) {
       })
     }
     if (decoded) {
-      User.findById(decoded.user._id).populate({path: 'rights', model: 'Right'}).exec(function (err, doc) {
+      User.findById(decoded.user._id).populate({path: 'rights', model: 'Right'}).exec(function(err, doc) {
         if (err) {
           return res.status(500).json({message: 'Fetching user failed', err: err})
         }
@@ -60,9 +60,6 @@ router.use('/', function (req, res, next) {
     }
   })
 })
-
-
-
 
 //
 // router.get('/myDocuments', function (req, res, next) {
@@ -104,9 +101,6 @@ router.use('/', function (req, res, next) {
 //   })
 // })
 
-
-
-
 //
 // router.put('/updateTask/:id', function (req, res, next) {
 //   if (!shared.isCurentUserHasAccess(req.user, nameObject, 'write')) {
@@ -140,7 +134,7 @@ router.use('/', function (req, res, next) {
 //   })
 // })
 
-router.put('/:id', function (req, res, next) {
+router.put('/:id', function(req, res, next) {
   if (!shared.isCurentUserHasAccess(req.user, nameObject, 'write')) {
     return res.status(404).json({
       title: 'No rights',
@@ -149,7 +143,7 @@ router.put('/:id', function (req, res, next) {
       }
     })
   }
-  Document.findById(({_id: req.params.id}), function (err, item) {
+  Document.findById(({_id: req.params.id}), function(err, item) {
     if (err) {
       return res.status(404).json({message: '', err: err})
     } else {
@@ -160,22 +154,16 @@ router.put('/:id', function (req, res, next) {
       item.status = req.body.status
       // item.embed = req.body.embed
 
-
       // item.bucketTasks = req.body.bucketTasks
       // item.progressTasks = req.body.progressTasks
       item.dateDocument = req.body.dateDocument
       item.link = req.body.link
 
-
       item.crewMembers = req.body.crewMembers
       item.reviewers = req.body.reviewers
       item.quotes = req.body.quotes
 
-
-
-
-
-      item.save(function (err, result) {
+      item.save(function(err, result) {
         if (err) {
           return res.status(404).json({message: 'There was an error, please try again', err: err})
         }
@@ -185,7 +173,7 @@ router.put('/:id', function (req, res, next) {
         log.users = [req.user]
         log.documents = [req.params.id]
         log.type = 'change'
-        log.save(function (err, result) {
+        log.save(function(err, result) {
           if (err) {
             console.log(err)
           } else {
@@ -200,7 +188,7 @@ router.put('/:id', function (req, res, next) {
   })
 })
 
-router.post('/', function (req, res, next) {
+router.post('/', function(req, res, next) {
   if (!shared.isCurentUserHasAccess(req.user, nameObject, 'write')) {
     return res.status(404).json({
       title: 'No rights',
@@ -217,7 +205,7 @@ router.post('/', function (req, res, next) {
   req.body.owners = req.user._id
   // document.ownerCompanies = req.user.companies
   var document = new Document(req.body)
-  document.save(function (err, result) {
+  document.save(function(err, result) {
     if (err) {
       console.log(err)
       return res.status(403).json({
@@ -232,7 +220,7 @@ router.post('/', function (req, res, next) {
 })
 
 // get all forms from database
-router.get('/page/:page', function (req, res, next) {
+router.get('/page/:page', function(req, res, next) {
   var itemsPerPage = 10
   var currentPage = Number(req.params.page)
   var pageNumber = currentPage - 1
@@ -242,16 +230,21 @@ router.get('/page/:page', function (req, res, next) {
 
   if (req.query.myDocuments) {
     let arrObj = []
-    arrObj.push({'crewMembers': mongoose.Types.ObjectId(req.user._id) })
-    arrObj.push({'reviewers': mongoose.Types.ObjectId(req.user._id) })
-    searchQuery = { $or: arrObj }
+    arrObj.push({
+      'crewMembers': mongoose.Types.ObjectId(req.user._id)
+    })
+    arrObj.push({
+      'reviewers': mongoose.Types.ObjectId(req.user._id)
+    })
+    searchQuery = {
+      $or: arrObj
+    }
   }
 
   searchQuery['ownerCompanies'] = req.user.ownerCompanies
 
   if (req.query.search)
     searchQuery['details.name'] = new RegExp(req.query.search, 'i')
-
 
   if (req.query.missionId)
     searchQuery['missions'] = mongoose.Types.ObjectId(req.query.missionId)
@@ -265,27 +258,21 @@ router.get('/page/:page', function (req, res, next) {
     // console.log(hasWhatsNewCateg)
   // console.log(searchQuery)
 
-  Document.find(searchQuery)
-  .sort('-createdAt')
+  Document.find(searchQuery).sort('-createdAt')
   // .populate({path: 'clients', model: 'User'})
   // .populate({path: 'assignedTos', model: 'User'})
-  .populate({path: 'missions', model: 'Mission'})
-  .populate({path: 'strats', model: 'Strat'})
-  .populate({path: 'briefs', model: 'Brief'})
-  .populate({path: 'crewMembers', model: 'User'})
-  .populate({path: 'reviewers', model: 'User'})
-  .populate({path: 'owners', model: 'User'})
+    .populate({path: 'missions', model: 'Mission'}).populate({path: 'strats', model: 'Strat'}).populate({path: 'briefs', model: 'Brief'}).populate({path: 'crewMembers', model: 'User'}).populate({path: 'reviewers', model: 'User'}).populate({path: 'owners', model: 'User'})
   // .populate({path: 'quotes', model: 'Quote'})
   // .populate(
   //   {
   //     path: 'bucketTasks.tasks.assignedTos',
   //     model: 'User',
   //   })
-  .limit(itemsPerPage).skip(skip).exec(function (err, item) {
+    .limit(itemsPerPage).skip(skip).exec(function(err, item) {
     if (err) {
       return res.status(404).json({message: 'No results', err: err})
     } else {
-      Document.find(searchQuery).count().exec(function (err, count) {
+      Document.find(searchQuery).count().exec(function(err, count) {
         res.status(200).json({
           paginationData: {
             totalItems: count,
@@ -294,6 +281,53 @@ router.get('/page/:page', function (req, res, next) {
           },
           data: item
         })
+      })
+    }
+  })
+})
+
+// get all forms from database
+router.get('/documentsInMissionsByProject/:projectId', function(req, res, next) {
+  let searchQuery = {}
+  searchQuery['ownerCompanies'] = req.user.ownerCompanies
+  searchQuery['projects'] = mongoose.Types.ObjectId(req.params.projectId)
+  let missionIds = []
+  Mission.find(searchQuery).exec(function(err, missionItems) {
+    if (err) { return res.status(404).json({message: 'No results', err: err}) } else {
+      missionItems.forEach(mission => missionIds.push(mission._id))
+      let searchQueryDocument = {
+        missions: {
+          '$in': missionIds
+        }
+      }
+      searchQueryDocument['ownerCompanies'] = req.user.ownerCompanies
+      Document.find(searchQueryDocument).exec(function(err, items) {
+        if (err) { return res.status(404).json({message: 'No results', err: err}) } else {
+          res.status(200).json({message: 'Success', item: items})
+        }
+      })
+    }
+  })
+})
+
+router.get('/documentsInStratsByProject/:projectId', function(req, res, next) {
+  let searchQuery = {}
+  searchQuery['ownerCompanies'] = req.user.ownerCompanies
+  searchQuery['projects'] = mongoose.Types.ObjectId(req.params.projectId)
+  let stratIds = []
+  Strat.find(searchQuery).exec(function(err, missionItems) {
+    if (err) { return res.status(404).json({message: 'No results', err: err}) } else {
+      missionItems.forEach(mission => stratIds.push(mission._id))
+      let searchQueryDocument = {
+        strats: {
+          '$in': stratIds
+        }
+      }
+      searchQueryDocument['ownerCompanies'] = req.user.ownerCompanies
+      Document.find(searchQueryDocument).exec(function(err, items) {
+        if (err) { return res.status(404).json({message: 'No results', err: err}) } else {
+          res.status(200).json({message: 'Success', item: items})
+        }
       })
     }
   })
@@ -345,9 +379,9 @@ router.get('/page/:page', function (req, res, next) {
 // })
 
 // getting user forms to display them on front end
-router.get('/:id', function (req, res, next) {
+router.get('/:id', function(req, res, next) {
 
-  Document.findById((req.params.id), function (err, obj) {
+  Document.findById((req.params.id), function(err, obj) {
     if (err) {
       return res.status(500).json({message: 'An error occured', err: err})
     }
@@ -360,16 +394,7 @@ router.get('/:id', function (req, res, next) {
       })
     }
 
-
-
-    Document
-    .findById({_id: req.params.id})
-    .populate({path: 'briefs', model: 'Brief'})
-    .populate({path: 'missions', model: 'Mission'})
-    .populate({path: 'strats', model: 'Strat'})
-    .populate({path: 'crewMembers', model: 'User'})
-    .populate({path: 'reviewers', model: 'User'})
-    .populate({path: 'owners', model: 'User'})
+    Document.findById({_id: req.params.id}).populate({path: 'briefs', model: 'Brief'}).populate({path: 'missions', model: 'Mission'}).populate({path: 'strats', model: 'Strat'}).populate({path: 'crewMembers', model: 'User'}).populate({path: 'reviewers', model: 'User'}).populate({path: 'owners', model: 'User'})
     // .populate({path: 'logs.forms', model: 'Form'})
     // .populate({path: 'logs.by', model: 'User'})
     // .populate({path: 'assignedTos', model: 'User'})
@@ -387,7 +412,7 @@ router.get('/:id', function (req, res, next) {
     //     path: 'documents',
     //     model: 'Document'
     //   }
-    .exec(function (err, item) {
+      .exec(function(err, item) {
       if (err) {
         return res.status(404).json({message: '', err: err})
       } else {
@@ -429,11 +454,7 @@ router.get('/:id', function (req, res, next) {
 //   })
 // })
 
-
-
-
-
-router.delete('/:id', function (req, res, next) {
+router.delete('/:id', function(req, res, next) {
   if (!shared.isCurentUserHasAccess(req.user, nameObject, 'write')) {
     return res.status(404).json({
       title: 'No rights',
@@ -442,7 +463,7 @@ router.delete('/:id', function (req, res, next) {
       }
     })
   }
-  Document.findById((req.params.id), function (err, item) {
+  Document.findById((req.params.id), function(err, item) {
     if (err) {
       return res.status(500).json({message: 'An error occured', err: err})
     }
@@ -456,7 +477,7 @@ router.delete('/:id', function (req, res, next) {
     }
 
     // deleting the form from the database
-    item.remove(function (err, result) {
+    item.remove(function(err, result) {
       if (err) {
         return res.status(500).json({title: 'An error occured', error: err})
       }

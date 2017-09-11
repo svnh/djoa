@@ -29,6 +29,7 @@ var document = new Schema({
       approve: {type: Boolean, default: [false]},
       changeRequest: {type: Boolean, default: [false]},
       changeSent: {type: Boolean, default: [false]},
+      pendingActionFrom: {type: String, default: ['']},
     },
     link: {type: String, default: ['']},
     forms: [{type: Schema.Types.ObjectId, ref: 'Form'}],

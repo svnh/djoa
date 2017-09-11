@@ -82,6 +82,32 @@ export class DocumentService {
   }
 
 
+  getDocumentsInMissionsByProject(id: string) {
+    let headers = new Headers({'Content-Type': 'application/json'});
+    headers.append('Authorization', '' + this.authService.currentUser.token);
+    return this.http.get(this.url + 'document/documentsInMissionsByProject/' + id, {headers: headers})
+      .map((response: Response) => {
+        return response.json().item;
+      })
+      .catch((error: Response) => {
+        this.errorService.handleError(error.json());
+        return Observable.throw(error.json());
+      });
+  }
+  getDocumentsInStratsByProject(id: string) {
+    let headers = new Headers({'Content-Type': 'application/json'});
+    headers.append('Authorization', '' + this.authService.currentUser.token);
+    return this.http.get(this.url + 'document/documentsInStratsByProject/' + id, {headers: headers})
+      .map((response: Response) => {
+        return response.json().item;
+      })
+      .catch((error: Response) => {
+        this.errorService.handleError(error.json());
+        return Observable.throw(error.json());
+      });
+  }
+
+
   updateTask(newTaskData, document) {
     const body = JSON.stringify(newTaskData);
     const headers = new Headers({'Content-Type': 'application/json'});

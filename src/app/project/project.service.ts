@@ -45,42 +45,6 @@ export class ProjectService {
   }
 
 
-  getTasks(page: number, search: any) {
-    let headers = new Headers({'Content-Type': 'application/json'});
-    headers.append('Authorization', '' + this.authService.currentUser.token);
-    let options = new RequestOptions({ headers: headers, search: search});
-    return this.http.get(this.url + 'project/unwind/'  , options)
-      .timeout(9000)
-      .map((response: Response) => {
-
-        const projects = response.json();
-
-        return projects;
-      })
-      .catch((error: Response) => {
-        this.errorService.handleError(error.json());
-        return Observable.throw(error.json());
-      });
-  }
-
-
-
-  countNewItemForUser(){
-    let headers = new Headers({'Content-Type': 'application/json'});
-    headers.append('Authorization', '' + this.authService.currentUser.token);
-    let options = new RequestOptions({ headers: headers});
-    return this.http.get(this.url + 'project/countNewItemForUser/' + this.authService.currentUser.userId, options)
-      .timeout(9000)
-      .map((response: Response) => {
-        const projects = response.json();
-        return projects;
-      })
-      .catch((error: Response) => {
-        this.errorService.handleError(error.json());
-        return Observable.throw(error.json());
-      });
-  }
-
   //getProject(id: string) : Observable<Project> {
   getProject(id: string) {
     let headers = new Headers({'Content-Type': 'application/json'});
@@ -91,6 +55,20 @@ export class ProjectService {
         return response.json().item;
       //  this.singleForm = response.json();
         //return this.singleForm;
+      })
+      .catch((error: Response) => {
+        this.errorService.handleError(error.json());
+        return Observable.throw(error.json());
+      });
+  }
+
+
+  getMissionsByProductsByProject(id: string) {
+    let headers = new Headers({'Content-Type': 'application/json'});
+    headers.append('Authorization', '' + this.authService.currentUser.token);
+    return this.http.get(this.url + 'project/missionsByProductsByProject/' + id, {headers: headers})
+      .map((response: Response) => {
+        return response.json().item;
       })
       .catch((error: Response) => {
         this.errorService.handleError(error.json());

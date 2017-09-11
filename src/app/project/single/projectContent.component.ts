@@ -10,7 +10,7 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 // import { DeleteDialog } from '../../deleteDialog/deleteDialog.component'
 import { UserService} from '../../user/user.service';
-// import { QuoteService} from '../../quote/quote.service';
+import { DocumentService} from '../../document/document.service';
 
 import { User } from '../../user/user.model';
 import { Product } from '../../product/product.model';
@@ -40,8 +40,12 @@ export class ProjectContentComponent implements OnInit {
   // searchMissionStrat: Search = new Search();
   // searchMissionContent: Search = new Search();
   // searchMissionResearch: Search = new Search();
-  fetchedMissions: Mission[] = []
+  // fetchedMissions: Mission[] = []
   fetchedProducts: Product[] = []
+  // fetchedDocumentsInProject: Document[] = []
+  activityPendingTasks: number = 0
+  activityMissions: number = 0
+  myActivityMissions: number = 0
   //
   // status = StatusProject
   // categ: string = 'Electricité';
@@ -68,7 +72,7 @@ export class ProjectContentComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     // private _fb: FormBuilder,
     private productService: ProductService,
-    // // private quoteService: QuoteService,
+    private documentService: DocumentService,
     private authService: AuthService,
   ) {
     this.globalEventsManager.refreshCenterEmitter.subscribe((isRefresh) => {
@@ -89,10 +93,17 @@ export class ProjectContentComponent implements OnInit {
 
 
     this.activatedRoute.params.subscribe((params: Params) => {
-      this.fetchedMissions = []
+      // this.fetchedMissions = []
+      this.activityMissions = 0
+      this.activityPendingTasks = 0
+      this.myActivityMissions = 0
+
       if(params['id']) {
         this.search.projectId = params['id']
-        this.getProject(params['id'])
+        this.getProject(this.search.projectId)
+        this.getDocumentsInMissionsByProject(this.search.projectId)
+        this.getDocumentsInStratsByProject(this.search.projectId)
+        // this.getMissionsByProductsByProject(params['id'])
 
 
       }
@@ -103,17 +114,20 @@ export class ProjectContentComponent implements OnInit {
 
   getResultMissions(missions) {
     missions.forEach(mission => {
-      this.fetchedMissions.push(mission)
-    });
+      this.activityMissions++
+
+      if(mission.users.some(user => user._id === this.authService.getCurrentUser()._id))
+        this.myActivityMissions++
+
+
+    })
   }
   getProducts(page: number, search: any) {
 
     this.productService.getProducts(page, search)
       .subscribe(
         res => {
-
           this.fetchedProducts = res.data
-
         },
         error => {
           console.log(error);
@@ -153,9 +167,6 @@ export class ProjectContentComponent implements OnInit {
     this.projectService.getProject(id)
       .subscribe(
         res => {
-          // let categName0 = ''
-          // let categName1 = ''
-          // let categName2 = ''
           this.fetchedProject = <Project>res
 
           this.fetchedProject.dateProject.startString = this.authService.isoDateToHtmlDate(this.fetchedProject.dateProject.start)
@@ -163,6 +174,50 @@ export class ProjectContentComponent implements OnInit {
 
           this.fetchedProject.dateProject.percentageProgress = this.authService.getPourcentageProgress(this.fetchedProject.dateProject.start, this.fetchedProject.dateProject.end)
 
+        },
+        error => {
+          console.log(error);
+        }
+      )
+  }
+
+
+  // getMissionsByProductsByProject(id: string) {
+  //   this.projectService.getMissionsByProductsByProject(id)
+  //     .subscribe(
+  //       res => {
+  //         console.log(res)
+  //       },
+  //       error => {
+  //         console.log(error);
+  //       }
+  //     )
+  // }
+  getDocumentsInMissionsByProject(projectId: string) {
+    this.documentService.getDocumentsInMissionsByProject(projectId)
+      .subscribe(
+        res => {
+          res.forEach(document => {
+            // this.fetchedDocumentsInProject.push(document)
+            if (document.status.global !== 'COMPLETE') {
+              this.activityPendingTasks++
+
+              if (document.crewMembers.some(user => user._id === this.authService.getCurrentUser()._id)) {
+                // if( document.status.global === 'REVIEW' && )
+              }
+            }
+          })
+        },
+        error => {
+          console.log(error);
+        }
+      )
+  }
+  getDocumentsInStratsByProject(projectId: string) {
+    this.documentService.getDocumentsInStratsByProject(projectId)
+      .subscribe(
+        res => {
+          console.log(res)
         },
         error => {
           console.log(error);

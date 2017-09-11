@@ -79,10 +79,11 @@ export class DocumentsComponent implements OnInit {
   // changeCrew(result) {
   //   result.checked ? this.isCrew = true : this.isCrew = false
   // }
-  changeStatus(result, i, newStatus) {
-
+  changeStatus(result, i, newStatus, pendingActionFrom: string) {
+    console.log(pendingActionFrom)
     this.fetchedDocuments[i].status.global = newStatus
-
+    this.fetchedDocuments[i].status.pendingActionFrom = pendingActionFrom
+    // console.log(this.fetchedDocuments[i].status.pendingActionFrom)
     if (newStatus === 'CHANGES SENT') {
       this.fetchedDocuments[i].status.changeRequest = false
       // this.fetchedDocuments[i].status.review = false

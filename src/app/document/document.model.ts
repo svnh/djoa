@@ -31,6 +31,7 @@ export class Status {
     approve: boolean = false;
     changeRequest: boolean = false;
     changeSent: boolean = false;
+    pendingActionFrom: string = ''
 
 
 }
