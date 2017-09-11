@@ -6,13 +6,15 @@
       <md-slide-toggle disabled [(ngModel)]="fetchedDocuments[i].isCrew">IS CREW: {{fetchedDocuments[i].isCrew}}</md-slide-toggle>
       <button type="button" (click)="delete(document._id)" class="delete-x"><i class="fa fa-trash-o"></i></button>
       <button type="button" (click)="openDetails(document._id)" class="edit-btn">Edit</button>
-      <div class="doc-title">
-        <img class="doc-icon" src="assets/images/google_sheet.ico">
-        <p class="">{{document.details.name}}</p>
+      <div class="doc-info">
+        <div class="doc-title">
+          <img class="doc-icon" src="assets/images/doc-icon.png">
+          <p class="">{{document.details.name}}</p>
+        </div>
+        <a target="_blank" href="{{document.link}}" class="open">open</a>
       </div>
-      <a target="_blank" href="{{document.link}}" class="open">open</a>
 
-      <div *ngIf="document.status.global == 'WIP'">
+      <div *ngIf="document.status.global == 'WIP'" class="doc-status">
         <div *ngIf="fetchedDocuments[i].isCrew">
           <md-slide-toggle (change)="changeStatus($event, i, 'REVIEW')" [(ngModel)]="fetchedDocuments[i].status.review">SEND FOR REVIEW</md-slide-toggle>
         </div>
@@ -21,7 +23,7 @@
         </div>
       </div>
 
-      <div *ngIf="document.status.global == 'REVIEW'">
+      <div *ngIf="document.status.global == 'REVIEW'" class="doc-status">
         <div *ngIf="fetchedDocuments[i].isCrew">
           <md-slide-toggle (change)="changeStatus($event, i, 'WIP')" [(ngModel)]="fetchedDocuments[i].status.review">REVIEW REQUESTED</md-slide-toggle>
         </div>
@@ -32,7 +34,7 @@
         </div>
       </div>
 
-      <div *ngIf="document.status.global == 'CHANGES REQUEST'">
+      <div *ngIf="document.status.global == 'CHANGES REQUEST'" class="doc-status">
         <div *ngIf="fetchedDocuments[i].isCrew">
           SEE DOCUMENT AND/OR CHAT FOR INSTRUCTIONS
           <BR>
@@ -45,7 +47,7 @@
         </div>
       </div>
 
-      <div *ngIf="document.status.global == 'CHANGES SENT'">
+      <div *ngIf="document.status.global == 'CHANGES SENT'" class="doc-status">
         <div *ngIf="fetchedDocuments[i].isCrew">
           <md-slide-toggle (change)="changeStatus($event, i, 'CHANGES REQUEST')" [(ngModel)]="fetchedDocuments[i].status.changeSent">CHANGES SENT</md-slide-toggle>
           <br>
@@ -58,7 +60,7 @@
         </div>
       </div>
 
-      <div *ngIf="document.status.global == 'COMPLETE'">
+      <div *ngIf="document.status.global == 'COMPLETE'" class="doc-status">
         <div *ngIf="fetchedDocuments[i].isCrew">
           THE DOCUMENT IS APPROVED
         </div>
