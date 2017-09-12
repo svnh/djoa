@@ -33,7 +33,7 @@ var document = new Schema({
     },
     link: {type: String, default: ['']},
     forms: [{type: Schema.Types.ObjectId, ref: 'Form'}],
-    isCrew: {type: Boolean, default: [false]},
+    currentUserIsCrew: {type: Boolean, default: [false]},
 
     // dateDocument:{
     //   start: {type: Date, default: [Date()]},

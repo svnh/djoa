@@ -273,10 +273,10 @@ router.get('/page/:page', function(req, res, next) {
       return res.status(404).json({message: 'No results', err: err})
     } else {
       item.forEach((document, i) => {
-        item[i].isCrew = true
+        item[i].currentUserIsCrew = true
         document.reviewers.forEach(reviewer => {
           if(reviewer._id.toString() === req.user._id.toString())
-            item[i].isCrew = false
+            item[i].currentUserIsCrew = false
         })
       })
       Document.find(searchQuery).count().exec(function (err, count) {
@@ -311,10 +311,10 @@ router.get('/documentsInMissionsByProject/:projectId', function(req, res, next) 
       searchQueryDocument['ownerCompanies'] = req.user.ownerCompanies
       Document.find(searchQueryDocument).exec(function (err, items) {
         items.forEach((document, i) => {
-          items[i].isCrew = true
+          items[i].currentUserIsCrew = true
           document.reviewers.forEach(reviewer => {
             if(reviewer.toString() === req.user._id.toString())
-              items[i].isCrew = false
+              items[i].currentUserIsCrew = false
           })
         })
 
