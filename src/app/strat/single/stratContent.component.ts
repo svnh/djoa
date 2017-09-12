@@ -57,8 +57,10 @@ export class StratContentComponent implements OnInit {
     private authService: AuthService,
   ) {
     this.globalEventsManager.refreshCenterEmitter.subscribe((isRefresh) => {
-        if(isRefresh)
+        if(isRefresh) {
           this.getStrat(this.search.stratId)
+          this.globalEventsManager.refreshCenter(false);
+        }
     })
   }
 

@@ -1,65 +1,38 @@
-<div class="container">
+<button type="button" [routerLink]="['/categorie/new']">Add</button>
 
-  <div class="row">
-    <div id="wrapper" class="subsubnav-clients float-left">
-      <input class="form-control margebasse col-md-12" type="text" name="Search" placeholder="Rechercher" [(ngModel)]="search.search" (ngModelChange)="searchCategories()">
-      <!-- <app-newObjDialog icone="fa fa-plus-square fa-2x ml" [search]="search" (saved)="saved($event)" [typeObj]="'categorie'"></app-newObjDialog> -->
-      <!-- <i class="fa fa-plus-square fa-2x ml" aria-hidden="true" (click)="redirectCreateObj()" routerLinkActive="active"></i> -->
+<input class="form-control margebasse col-md-12" type="text" name="Search" placeholder="Rechercher" [(ngModel)]="search.search" (ngModelChange)="searchCategories()">
+
+<div class="card">
+  <div class="card-block clearfix">
+    <table class="table table-hover table-striped table-responsive">
+      <thead class="thead-inverse">
+        <tr>
+
+          <th class="">{{'Name' }}</th>
+
+        </tr>
+      </thead>
+      <tbody class="">
+        <tr *ngFor="let categorie of fetchedCategories" [routerLink]="['/categorie/' + categorie._id]" routerLinkActive="active">
+          <td class="">
+            <div *ngFor="let singleForm of categorie.forms; let i = index;">
+              <img *ngIf="i<=0" height="50px" class="img" src="./uploads/forms/{{singleForm.owner}}/{{singleForm.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+            </div>
+          </td>
+          <td class="">
+            {{categorie.name}}
+          </td>
+
+
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="has-text-centered">
+      <md-paginator [length]="paginationData.totalItems" [pageSize]="paginationData.itemsPerPage" (page)="getPage($event.pageIndex*1+1)">
+      </md-paginator>
+      <app-loadingInApp *ngIf="loading"></app-loadingInApp>
     </div>
-
-    <div class="col-md-12">
-
-      <div class="card">
-
-
-        <div class="card-block clearfix">
-
-          <table class="table table-hover table-striped table-responsive">
-            <thead class="thead-inverse">
-              <tr>
-                <!--
-              <th class="tbl-left">
-
-                <!-- <button class="updownbtn" (click)="orderBy('profile.name')"><i class="fa fa-chevron-down"></i></button>
-                    <button class="updownbtn" (click)="orderBy('-profile.name')"><i class="fa fa-chevron-up"></i></button>
-              </th>
-               -->
-
-                <th class="">{{'Name' }}</th>
-
-              </tr>
-            </thead>
-            <tbody class="">
-              <tr *ngFor="let categorie of fetchedCategories" [routerLink]="['/categorie/' + categorie._id]" routerLinkActive="active">
-                <td class="">
-                  <div *ngFor="let singleForm of categorie.forms; let i = index;">
-                    <img *ngIf="i<=0" height="50px" class="img" src="./uploads/forms/{{singleForm.owner}}/{{singleForm.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
-                  </div>
-                </td>
-                <td class="">
-                  {{categorie.name}}
-                </td>
-
-
-              </tr>
-            </tbody>
-          </table>
-
-          <div class="has-text-centered">
-            <md-paginator
-              [length]="paginationData.totalItems"
-              [pageSize]="paginationData.itemsPerPage"
-              (page)="getPage($event.pageIndex*1+1)">
-            </md-paginator>
-            <app-loadingInApp *ngIf="loading"></app-loadingInApp>
-            <!-- <div [hidden]="!loading">Loading...</div>
-            <pagination-controls (pageChange)="getPage($event)" id="server" class="change-page"></pagination-controls> -->
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-
   </div>
+
 </div>

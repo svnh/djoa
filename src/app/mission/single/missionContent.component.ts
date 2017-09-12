@@ -58,8 +58,11 @@ export class MissionContentComponent implements OnInit {
     private authService: AuthService,
   ) {
     this.globalEventsManager.refreshCenterEmitter.subscribe((isRefresh) => {
-      if (isRefresh)
+      if (isRefresh) {
         this.getMission(this.fetchedMission._id)
+        this.globalEventsManager.refreshCenter(false);
+      }
+
     })
   }
 

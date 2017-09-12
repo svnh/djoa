@@ -54,8 +54,11 @@ export class MissionsComponent implements OnInit {
 
   ) {
     this.globalEventsManager.refreshCenterEmitter.subscribe((isRefresh) => {
-        if(isRefresh)
+        if(isRefresh) {
           this.getMissions(1, this.search)
+          this.globalEventsManager.refreshCenter(false);
+        }
+
     })
   }
 
@@ -165,6 +168,11 @@ export class MissionsComponent implements OnInit {
   }
 
 
+    ngOnDestroy() {
+      console.log('destroy Missions')
+      // prevent memory leak when component destroyed
+      // this.subscription.unsubscribe();
+    }
 
   // isAdmin() {
   //   return this.authService.isAdmin();

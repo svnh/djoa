@@ -53,8 +53,10 @@ export class BriefsComponent implements OnInit {
 
   ) {
     this.globalEventsManager.refreshCenterEmitter.subscribe((isRefresh) => {
-      if (isRefresh)
+      if (isRefresh) {
+        this.globalEventsManager.refreshCenter(false);
         this.getBriefs(1, this.search)
+      }
     })
   }
 

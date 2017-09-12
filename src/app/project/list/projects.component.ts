@@ -50,8 +50,11 @@ export class ProjectsComponent implements OnInit {
 
   ) {
     this.globalEventsManager.refreshCenterEmitter.subscribe((isRefresh) => {
-        if(isRefresh)
+        if(isRefresh) {
           this.getProjects(1, this.search)
+          this.globalEventsManager.refreshCenter(false);
+        }
+
     })
   }
   ngOnChanges() {
@@ -93,7 +96,7 @@ export class ProjectsComponent implements OnInit {
       .subscribe(
         res => {
           this.toastr.success('Great!', res.message);
-          console.log(res);
+          // console.log(res);
         },
         error => {
           console.log(error);

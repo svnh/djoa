@@ -96,7 +96,7 @@ export class CategorieSingleComponent implements OnInit {
     // this.getItemSteps();
 
     this.activatedRoute.params.subscribe((params: Params) => {
-      if(params['id']) {
+      if(params['id'] !== 'new') {
         this.getCategorie(params['id'])
       }
     })

@@ -77,15 +77,18 @@ export class ProjectContentComponent implements OnInit {
     private authService: AuthService,
   ) {
     this.globalEventsManager.refreshCenterEmitter.subscribe((isRefresh) => {
-        if(isRefresh)
+        if(isRefresh) {
           this.getProject(this.fetchedProject._id)
+          this.globalEventsManager.refreshCenter(false);
+
+        }
+
     })
   }
 
 
 
   ngOnInit() {
-
     this.getCategories(1, {})
 
 
@@ -156,6 +159,12 @@ export class ProjectContentComponent implements OnInit {
     showNavBarData.search.projectId = this.fetchedProject._id
     this.globalEventsManager.showNavBarRight(showNavBarData);
   }
+  openNotif() {
+    let showNavBarData = new ShowNavBarData()
+    showNavBarData.showNavBar = true
+    showNavBarData.search.typeObj = 'notif'
+    this.globalEventsManager.showNavBarRight(showNavBarData);
+  }
 
 
 
@@ -216,7 +225,8 @@ export class ProjectContentComponent implements OnInit {
     this.documentService.getDocumentsInStratsByProject(projectId)
       .subscribe(
         res => {
-          console.log(res)
+          //job to do
+          // console.log(res)
         },
         error => {
           console.log(error);

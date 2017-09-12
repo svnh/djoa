@@ -54,10 +54,10 @@
     <md-card class="your-activity">
       <md-card-content>
         <h4>Your Activity</h4>
-        <div>
+        <div (click)="openNotif()">
           <div class="number">{{myActivityMissions}}</div> Missions
         </div>
-        <div>
+        <div (click)="openNotif()">
           <div class="number">{{myActivityPendingTasks}}</div> Pending Tasks
         </div>
       </md-card-content>

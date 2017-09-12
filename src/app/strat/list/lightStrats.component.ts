@@ -60,8 +60,11 @@ export class LightStratsComponent implements OnInit {
 
   ) {
     this.globalEventsManager.refreshCenterEmitter.subscribe((isRefresh) => {
-        if(isRefresh)
+        if(isRefresh) {
           this.getStrats(1, this.search)
+          this.globalEventsManager.refreshCenter(false);
+        }
+
     })
   }
 

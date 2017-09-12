@@ -75,8 +75,10 @@ export class BriefContentComponent implements OnInit {
     private authService: AuthService,
   ) {
     this.globalEventsManager.refreshCenterEmitter.subscribe((isRefresh) => {
-        if(isRefresh)
+        if(isRefresh) {
+          this.globalEventsManager.refreshCenter(false);
           this.getBrief(this.fetchedBrief._id)
+        }
     })
   }
 

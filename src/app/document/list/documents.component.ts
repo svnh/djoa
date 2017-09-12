@@ -64,8 +64,10 @@ export class DocumentsComponent implements OnInit {
 
 
     this.globalEventsManager.refreshCenterEmitter.subscribe((isRefresh) => {
-      if (isRefresh)
+      if (isRefresh) {
         this.getDocuments(1, this.search)
+        this.globalEventsManager.refreshCenter(false);
+      }
     })
   }
 
