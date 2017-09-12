@@ -220,13 +220,11 @@ export class MissionContentComponent implements OnInit {
         } else {
           this.buttonDataMission.left = this.fetchedMissions[positionObj - 1]
         }
-        console.log(positionObj , countMissions)
         if (positionObj === countMissions - 1) {
           this.buttonDataMission.right = new Mission()
         } else {
           this.buttonDataMission.right = this.fetchedMissions[positionObj + 1]
         }
-
         this.loading = false;
       },
       error => {

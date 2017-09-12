@@ -44,6 +44,7 @@ export class ProjectContentComponent implements OnInit {
   fetchedCategories: Categorie[] = []
   // fetchedDocumentsInProject: Document[] = []
   activityPendingTasks: number = 0
+  mYctivityPendingTasks: number = 0
   activityMissions: number = 0
   myActivityMissions: number = 0
   //
@@ -97,6 +98,9 @@ export class ProjectContentComponent implements OnInit {
       this.activityMissions = 0
       this.activityPendingTasks = 0
       this.myActivityMissions = 0
+      this.mYctivityPendingTasks = 0
+
+
 
       if(params['id']) {
         this.search.projectId = params['id']
@@ -197,11 +201,12 @@ export class ProjectContentComponent implements OnInit {
     this.documentService.getDocumentsInMissionsByProject(projectId)
       .subscribe(
         res => {
+          console.log(res)
           res.forEach(document => {
             // this.fetchedDocumentsInProject.push(document)
             if (document.status.global !== 'COMPLETE') {
               this.activityPendingTasks++
-
+              // console.log(document)
               if (document.crewMembers.some(user => user._id === this.authService.getCurrentUser()._id)) {
                 // if( document.status.global === 'REVIEW' && )
               }

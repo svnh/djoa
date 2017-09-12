@@ -309,7 +309,15 @@ router.get('/documentsInMissionsByProject/:projectId', function(req, res, next) 
         }
       }
       searchQueryDocument['ownerCompanies'] = req.user.ownerCompanies
-      Document.find(searchQueryDocument).exec(function(err, items) {
+      Document.find(searchQueryDocument).exec(function (err, items) {
+        items.forEach((document, i) => {
+          items[i].isCrew = true
+          document.reviewers.forEach(reviewer => {
+            if(reviewer.toString() === req.user._id.toString())
+              items[i].isCrew = false
+          })
+        })
+
         if (err) { return res.status(404).json({message: 'No results', err: err}) } else {
           res.status(200).json({message: 'Success', item: items})
         }
