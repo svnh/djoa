@@ -203,6 +203,7 @@ export class ProjectContentComponent implements OnInit {
         res => {
           console.log(res)
           res.forEach(document => {
+            console.log(document)
             // this.fetchedDocumentsInProject.push(document)
             if (document.status.global !== 'COMPLETE') {
               this.activityPendingTasks++

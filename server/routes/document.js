@@ -324,7 +324,7 @@ router.get('/documentsInMissionsByProject/:projectId', function(req, res, next) 
 
         items.forEach((document, i) => {
           document.reviewers.forEach(reviewer => {
-            if(reviewer._id.toString() === req.user._id.toString())
+            if(reviewer.toString() === req.user._id.toString())
               items[i].currentUserBelongsTo = 'client'
           })
           document.crewMembers.forEach(crewMember => {
