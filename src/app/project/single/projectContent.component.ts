@@ -118,6 +118,7 @@ export class ProjectContentComponent implements OnInit {
 
   getResultMissions(missions) {
     missions.forEach(mission => {
+      // console.log(mission)
       this.activityMissions++
 
       if(mission.users.some(user => user._id === this.authService.getCurrentUser()._id))
@@ -186,24 +187,14 @@ export class ProjectContentComponent implements OnInit {
   }
 
 
-  // getMissionsByCategoriesByProject(id: string) {
-  //   this.projectService.getMissionsByCategoriesByProject(id)
-  //     .subscribe(
-  //       res => {
-  //         console.log(res)
-  //       },
-  //       error => {
-  //         console.log(error);
-  //       }
-  //     )
-  // }
+
   getDocumentsInMissionsByProject(projectId: string) {
     this.documentService.getDocumentsInMissionsByProject(projectId)
       .subscribe(
         res => {
-          console.log(res)
+
           res.forEach(document => {
-            console.log(document)
+
             // this.fetchedDocumentsInProject.push(document)
             if (document.status.global !== 'COMPLETE') {
               this.activityPendingTasks++
