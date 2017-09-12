@@ -132,3 +132,7 @@ md-progress-bar.mat-progress-bar.mat-primary, .project-progress {
     width: 20%;
   }
 }
+
+.selected {
+  color: red;
+}

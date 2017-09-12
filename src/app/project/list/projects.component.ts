@@ -4,12 +4,15 @@ import { ProjectService} from '../project.service';
 import { Project} from '../project.model';
 import { ToastsManager} from 'ng2-toastr';
 import { MdDialog} from '@angular/material';
-import { Router} from '@angular/router';
+import { Router, ActivatedRoute, Params} from '@angular/router';
 import { Location } from '@angular/common';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ViewEncapsulation} from '@angular/core';
 import { UserService} from '../../user/user.service';
 import {GlobalEventsManager} from '../../globalEventsManager';
+import {Search, PaginationData} from '../../home/home.model';
+import {ShowNavBarData} from '../../home/home.model';
+
 
 
 @Component({
@@ -24,20 +27,12 @@ export class ProjectsComponent implements OnInit {
   @Input() showHeader = true;
   // token: string = localStorage.getItem('id_token');
   fetchedProjects: Project[] = [];
-  search: any = {
-    categories : [],
-    search: ''
-  };
+  @Input() search: Search = new Search
   loading: boolean;
 
-  paginationData = {
-    currentPage: 1,
-    itemsPerPage: 0,
-    totalItems: 0
-  };
+  paginationData: PaginationData = new PaginationData()
 
-
-  categories2 = '';
+  // categories2 = '';
 
 
 
@@ -46,8 +41,9 @@ export class ProjectsComponent implements OnInit {
     private projectService: ProjectService,
     private toastr: ToastsManager,
     private globalEventsManager: GlobalEventsManager,
+    private activatedRoute: ActivatedRoute,
     // // public dialog: MdDialog,
-    // private router: Router,
+    private router: Router,
     // private location: Location,
     // private authService: AuthService,
     // private userService: UserService,
@@ -58,18 +54,35 @@ export class ProjectsComponent implements OnInit {
           this.getProjects(1, this.search)
     })
   }
+  ngOnChanges() {
+  }
+
+
 
   ngOnInit() {
-    let this2 = this
-    // setTimeout(function(){
-    //   this2.search.userId = this2.userId
-    //   this2.search.orderBy = 'name'
-      this2.getProjects(1, this2.search)
+    this.getProjects(1, this.search)
+    //might be change into ngOnCVHanges
+    // this.activatedRoute.params.subscribe((params: Params) => {
+    //   console.log(params)
+    //   console.log('ddd')
+    //   this.getProjects(1, this.search)
+    // })
     // }, 200);
   }
   // goBack() {
   //   this.location.back();
   // }
+  goToProject(projectId: string){
+    this.router.navigate(['project/' + projectId]);
+    this.openProjects(projectId)
+  }
+  openProjects(projectId: string) {
+    let showNavBarData = new ShowNavBarData()
+    showNavBarData.showNavBar = true
+    showNavBarData.search.typeObj = 'project'
+    showNavBarData.search.projectId = projectId
+    this.globalEventsManager.showNavBarLeft(showNavBarData);
+  }
 
   searchProjects() {
     this.getProjects(1, this.search)
@@ -92,11 +105,11 @@ export class ProjectsComponent implements OnInit {
     this.getProjects(page, this.search);
   }
 
-
-  loadMore(){
-    this.paginationData.currentPage = this.paginationData.currentPage+1
-    this.getProjects(this.paginationData.currentPage, this.search)
-  }
+  //
+  // loadMore(){
+  //   this.paginationData.currentPage = this.paginationData.currentPage+1
+  //   this.getProjects(this.paginationData.currentPage, this.search)
+  // }
 
 
   getProjects(page : number, search: any) {

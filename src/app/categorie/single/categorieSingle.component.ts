@@ -39,7 +39,7 @@ export class CategorieSingleComponent implements OnInit {
   // itemSteps = ItemSteps;
 
 
-  autocompleteCompanie: string = '';
+  // autocompleteCompanie: string = '';
 
   // fetchedCurrentUser: User = new User()
 
