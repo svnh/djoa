@@ -18,6 +18,7 @@ import { ProjectService} from '../../project/project.service';
 import { StratService} from '../../strat/strat.service';
 import { BriefService} from '../../brief/brief.service';
 import { MissionService} from '../../mission/mission.service';
+import { CategorieService} from '../../categorie/categorie.service';
 import { DocumentService} from '../../document/document.service';
 import { ToastsManager} from 'ng2-toastr';
 
@@ -34,15 +35,16 @@ export class DeleteConfirmationComponent implements OnInit {
   // showNavBar: boolean = false;
  // private userId: string = localStorage.getItem('userId');
   // private userId: string;
-  fetchedUser: User = new User();
-  fetchedNotifications: Notification[] = [];
-  notificationsNotRead: number=0;
+  // fetchedUser: User = new User();
+  // fetchedNotifications: Notification[] = [];
+  // notificationsNotRead: number=0;
 
   constructor(
     private projectService: ProjectService,
     private missionService: MissionService,
     private documentService: DocumentService,
     private stratService: StratService,
+    private categorieService: CategorieService,
     private briefService: BriefService,
 
     // private globalEventsManager: GlobalEventsManager,
@@ -90,6 +92,10 @@ export class DeleteConfirmationComponent implements OnInit {
 
     if(this.search.typeObj === 'brief')
       this.briefService.deleteBrief(this.search.briefId)
+      .subscribe( res => { this.successDeleted(res) }, error => { console.log(error) })
+
+    if(this.search.typeObj === 'categorie')
+      this.categorieService.deleteCategorie(this.search.categorieId)
       .subscribe( res => { this.successDeleted(res) }, error => { console.log(error) })
   }
 

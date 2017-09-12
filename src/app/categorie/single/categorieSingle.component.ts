@@ -15,6 +15,9 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { UserService } from '../../user/user.service'
 import { User } from '../../user/user.model'
 import { AuthService} from '../../auth/auth.service';
+import {GlobalEventsManager} from '../../globalEventsManager';
+import {ShowNavBarData} from '../../home/home.model'
+
 
 
 @Component({
@@ -67,10 +70,18 @@ export class CategorieSingleComponent implements OnInit {
     private _fb: FormBuilder,
     private companieService: CompanieService,
     private authService: AuthService,
+    private globalEventsManager: GlobalEventsManager,
   ) {
   }
 
 
+  openDeleteConfirmation() {
+      let newShowNavBarData = new ShowNavBarData()
+      newShowNavBarData.search.typeScreen = 'deleteConfirmation'
+      newShowNavBarData.search.typeObj = 'categorie'
+      newShowNavBarData.search.categorieId = this.fetchedCategorie._id
+      this.globalEventsManager.showNavBarRight(newShowNavBarData)
+  }
 
 
   ngOnInit() {

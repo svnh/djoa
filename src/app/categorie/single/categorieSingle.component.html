@@ -36,7 +36,7 @@
     </div>
     <div class="valid-edit">
       <button type="submit" class="done btn btn-success" [disabled]="!myForm.valid">{{'Save' }}</button>
-      <button *ngIf="fetchedCategorie._id" type="button" class="delete btn btn-danger" md-button (click)="openDialogDelete()">Effacer produit</button>
+      <button *ngIf="fetchedCategorie._id" type="button" class="delete btn btn-danger" md-button (click)="openDeleteConfirmation()">Effacer produit</button>
 
     </div>
   </div>
