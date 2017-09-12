@@ -44,7 +44,7 @@ export class ProjectContentComponent implements OnInit {
   fetchedCategories: Categorie[] = []
   // fetchedDocumentsInProject: Document[] = []
   activityPendingTasks: number = 0
-  mYctivityPendingTasks: number = 0
+  myActivityPendingTasks: number = 0
   activityMissions: number = 0
   myActivityMissions: number = 0
   //
@@ -98,7 +98,7 @@ export class ProjectContentComponent implements OnInit {
       this.activityMissions = 0
       this.activityPendingTasks = 0
       this.myActivityMissions = 0
-      this.mYctivityPendingTasks = 0
+      this.myActivityPendingTasks = 0
 
 
 
@@ -207,9 +207,11 @@ export class ProjectContentComponent implements OnInit {
             if (document.status.global !== 'COMPLETE') {
               this.activityPendingTasks++
               // console.log(document)
-              if (document.crewMembers.some(user => user._id === this.authService.getCurrentUser()._id)) {
-                // if( document.status.global === 'REVIEW' && )
-              }
+              if(document.currentUserBelongsTo === document.status.pendingActionFrom )
+                this.myActivityPendingTasks++
+              // if (document.crewMembers.some(user => user._id === this.authService.getCurrentUser()._id)) {
+              //   // if( document.status.global === 'REVIEW' && )
+              // }
             }
           })
         },

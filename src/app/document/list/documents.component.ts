@@ -43,7 +43,7 @@ export class DocumentsComponent implements OnInit {
 
 
   categories2 = '';
-  // currentUserIsCrew: boolean = true
+
   // showNavBarData: any
 
   constructor(
@@ -82,7 +82,7 @@ export class DocumentsComponent implements OnInit {
     })
   }
   // changeCrew(result) {
-  //   result.checked ? this.currentUserIsCrew = true : this.currentUserIsCrew = false
+  //   result.checked ? this.currentUserBelongsTo = true : this.currentUserBelongsTo = false
   // }
   changeStatus(result, i, newStatus, pendingActionFrom: string) {
     console.log(pendingActionFrom)
@@ -95,7 +95,7 @@ export class DocumentsComponent implements OnInit {
       // this.fetchedDocuments[i].status.approve = false
       // this.fetchedDocuments[i].status.changeSent = false
     }
-    if (newStatus === 'CHANGES REQUEST' && this.fetchedDocuments[i].currentUserIsCrew === false) {
+    if (newStatus === 'CHANGES REQUEST' && this.fetchedDocuments[i].currentUserBelongsTo === 'client') {
       this.fetchedDocuments[i].status.changeSent = false
     }
 
@@ -202,14 +202,7 @@ export class DocumentsComponent implements OnInit {
       res => {
         this.paginationData = res.paginationData;
         this.fetchedDocuments = res.data
-        // this.fetchedDocuments.forEach((document, i) => {
-        //   this.fetchedDocuments[i].currentUserIsCrew = true
-        //   document.reviewers.forEach(reviewer => {
-        //     if(reviewer._id === this.authService.getCurrentUser()._id)
-        //       this.fetchedDocuments[i].currentUserIsCrew = false
-        //   })
-        //
-        // })
+
         this.loading = false;
       },
       error => {

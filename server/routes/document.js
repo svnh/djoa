@@ -273,10 +273,14 @@ router.get('/page/:page', function(req, res, next) {
       return res.status(404).json({message: 'No results', err: err})
     } else {
       item.forEach((document, i) => {
-        item[i].currentUserIsCrew = true
+        // item[i].currentUserBelongsTo = true
         document.reviewers.forEach(reviewer => {
           if(reviewer._id.toString() === req.user._id.toString())
-            item[i].currentUserIsCrew = false
+            item[i].currentUserBelongsTo = 'client'
+        })
+        document.crewMembers.forEach(crewMember => {
+          if(crewMember._id.toString() === req.user._id.toString())
+            item[i].currentUserBelongsTo = 'crew'
         })
       })
       Document.find(searchQuery).count().exec(function (err, count) {
@@ -310,13 +314,25 @@ router.get('/documentsInMissionsByProject/:projectId', function(req, res, next) 
       }
       searchQueryDocument['ownerCompanies'] = req.user.ownerCompanies
       Document.find(searchQueryDocument).exec(function (err, items) {
+        // items.forEach((document, i) => {
+        //   items[i].currentUserBelongsTo = true
+        //   document.reviewers.forEach(reviewer => {
+        //     if(reviewer.toString() === req.user._id.toString())
+        //       items[i].currentUserBelongsTo = false
+        //   })
+        // })
+
         items.forEach((document, i) => {
-          items[i].currentUserIsCrew = true
           document.reviewers.forEach(reviewer => {
-            if(reviewer.toString() === req.user._id.toString())
-              items[i].currentUserIsCrew = false
+            if(reviewer._id.toString() === req.user._id.toString())
+              items[i].currentUserBelongsTo = 'client'
+          })
+          document.crewMembers.forEach(crewMember => {
+            if(crewMember.toString() === req.user._id.toString())
+              items[i].currentUserBelongsTo = 'crew'
           })
         })
+
 
         if (err) { return res.status(404).json({message: 'No results', err: err}) } else {
           res.status(200).json({message: 'Success', item: items})
