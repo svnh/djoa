@@ -108,6 +108,7 @@ export class DeleteConfirmationComponent implements OnInit {
     if(this.search.typeObj === 'mission') this.router.navigate(['/']);
     if(this.search.typeObj === 'strat') this.router.navigate(['/']);
     if(this.search.typeObj === 'brief') this.router.navigate(['/']);
+    if(this.search.typeObj === 'categorie') this.router.navigate(['/']);
     if(this.search.typeObj === 'document') this.globalEventsManager.refreshCenter(true);
 
 
