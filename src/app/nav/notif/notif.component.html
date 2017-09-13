@@ -23,7 +23,7 @@
   </div>
   <div *ngFor="let strat of document.strats">
     Strategy: {{strat.title}}
-    <div (click)="goTo('strat', mission._id)" class="sidebar-notif">
+    <div (click)="goTo('strat', strat._id)" class="sidebar-notif">
       {{document.details.name}}: {{document.status.global}}
     </div>
   </div>

@@ -108,8 +108,8 @@ export class ProjectContentComponent implements OnInit {
       if(params['id']) {
         this.search.projectId = params['id']
         this.getProject(this.search.projectId)
-        this.getDocumentsInMissionsByProject(this.search)
-        this.getDocumentsInStratsByProject(this.search.projectId)
+        this.getDocumentsInMissions(this.search)
+        this.getDocumentsInStrats(this.search)
         // this.getMissionsByCategoriesByProject(params['id'])
 
 
@@ -168,13 +168,6 @@ export class ProjectContentComponent implements OnInit {
 
 
 
-  // openProfile(userId: string){
-  //   let showNavBarData = new ShowNavBarData()
-  //   showNavBarData.search.typeScreen = 'profile'
-  //   showNavBarData.search.typeObj = 'user'
-  //   showNavBarData.search.userId = userId
-  //   this.globalEventsManager.showNavBarRight(showNavBarData);
-  // }
 
 
   getProject(id: string) {
@@ -197,40 +190,35 @@ export class ProjectContentComponent implements OnInit {
 
 
 
-  getDocumentsInMissionsByProject(search: Search) {
+
+  getDocumentsInMissions(search: Search) {
     this.documentService.getDocumentsInMissions(search)
       .subscribe(
         res => {
-
           res.forEach(document => {
-
-            // this.fetchedDocumentsInProject.push(document)
             if (document.status.global !== 'COMPLETE') {
               this.activityPendingTasks++
-              // console.log(document)
               if(document.currentUserBelongsTo === document.status.pendingActionFrom )
                 this.myActivityPendingTasks++
-              // if (document.crewMembers.some(user => user._id === this.authService.getCurrentUser()._id)) {
-              //   // if( document.status.global === 'REVIEW' && )
-              // }
             }
           })
         },
-        error => {
-          console.log(error);
-        }
+        error => { console.log(error) }
       )
   }
-  getDocumentsInStratsByProject(projectId: string) {
-    this.documentService.getDocumentsInStratsByProject(projectId)
+  getDocumentsInStrats(search: Search) {
+    this.documentService.getDocumentsInStrats(search)
       .subscribe(
         res => {
-          //job to do
-          // console.log(res)
+          res.forEach(document => {
+            if (document.status.global !== 'COMPLETE') {
+              this.activityPendingTasks++
+              if(document.currentUserBelongsTo === document.status.pendingActionFrom )
+                this.myActivityPendingTasks++
+            }
+          })
         },
-        error => {
-          console.log(error);
-        }
+        error => { console.log(error) }
       )
   }
 

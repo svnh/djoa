@@ -273,17 +273,17 @@ router.get('/page/:page', function(req, res, next) {
       return res.status(404).json({message: 'No results', err: err})
     } else {
       item.forEach((document, i) => {
-        // item[i].currentUserBelongsTo = true
         document.reviewers.forEach(reviewer => {
-          if(reviewer._id.toString() === req.user._id.toString())
+          if (reviewer._id.toString() === req.user._id.toString())
             item[i].currentUserBelongsTo = 'client'
         })
         document.crewMembers.forEach(crewMember => {
-          if(crewMember._id.toString() === req.user._id.toString())
+          if (crewMember._id.toString() === req.user._id.toString())
             item[i].currentUserBelongsTo = 'crew'
         })
       })
-      Document.find(searchQuery).count().exec(function (err, count) {
+
+      Document.find(searchQuery).count().exec(function(err, count) {
 
         res.status(200).json({
           paginationData: {
@@ -302,11 +302,13 @@ router.get('/page/:page', function(req, res, next) {
 router.get('/documentsInMissions', function(req, res, next) {
   let searchQuery = {}
   searchQuery['ownerCompanies'] = req.user.ownerCompanies
-  if(req.query.projectId)
+  if (req.query.projectId)
     searchQuery['projects'] = mongoose.Types.ObjectId(req.query.projectId)
   let missionIds = []
   Mission.find(searchQuery).exec(function(err, missionItems) {
-    if (err) { return res.status(404).json({message: 'No results', err: err}) } else {
+    if (err) {
+      return res.status(404).json({message: 'No results', err: err})
+    } else {
       missionItems.forEach(mission => missionIds.push(mission._id))
       let searchQueryDocument = {
         missions: {
@@ -314,28 +316,20 @@ router.get('/documentsInMissions', function(req, res, next) {
         }
       }
       searchQueryDocument['ownerCompanies'] = req.user.ownerCompanies
-      Document.find(searchQueryDocument).exec(function (err, items) {
-        // items.forEach((document, i) => {
-        //   items[i].currentUserBelongsTo = true
-        //   document.reviewers.forEach(reviewer => {
-        //     if(reviewer.toString() === req.user._id.toString())
-        //       items[i].currentUserBelongsTo = false
-        //   })
-        // })
-
+      Document.find(searchQueryDocument).exec(function(err, items) {
         items.forEach((document, i) => {
           document.reviewers.forEach(reviewer => {
-            if(reviewer.toString() === req.user._id.toString())
+            if (reviewer.toString() === req.user._id.toString())
               items[i].currentUserBelongsTo = 'client'
           })
           document.crewMembers.forEach(crewMember => {
-            if(crewMember.toString() === req.user._id.toString())
+            if (crewMember.toString() === req.user._id.toString())
               items[i].currentUserBelongsTo = 'crew'
           })
         })
-
-
-        if (err) { return res.status(404).json({message: 'No results', err: err}) } else {
+        if (err) {
+          return res.status(404).json({message: 'No results', err: err})
+        } else {
           res.status(200).json({message: 'Success', item: items})
         }
       })
@@ -343,13 +337,16 @@ router.get('/documentsInMissions', function(req, res, next) {
   })
 })
 
-router.get('/documentsInStratsByProject/:projectId', function(req, res, next) {
+router.get('/documentsInStrats', function(req, res, next) {
   let searchQuery = {}
   searchQuery['ownerCompanies'] = req.user.ownerCompanies
-  searchQuery['projects'] = mongoose.Types.ObjectId(req.params.projectId)
+  if (req.query.projectId)
+    searchQuery['projects'] = mongoose.Types.ObjectId(req.query.projectId)
   let stratIds = []
   Strat.find(searchQuery).exec(function(err, missionItems) {
-    if (err) { return res.status(404).json({message: 'No results', err: err}) } else {
+    if (err) {
+      return res.status(404).json({message: 'No results', err: err})
+    } else {
       missionItems.forEach(mission => stratIds.push(mission._id))
       let searchQueryDocument = {
         strats: {
@@ -358,7 +355,19 @@ router.get('/documentsInStratsByProject/:projectId', function(req, res, next) {
       }
       searchQueryDocument['ownerCompanies'] = req.user.ownerCompanies
       Document.find(searchQueryDocument).exec(function(err, items) {
-        if (err) { return res.status(404).json({message: 'No results', err: err}) } else {
+        items.forEach((document, i) => {
+          document.reviewers.forEach(reviewer => {
+            if (reviewer.toString() === req.user._id.toString())
+              items[i].currentUserBelongsTo = 'client'
+          })
+          document.crewMembers.forEach(crewMember => {
+            if (crewMember.toString() === req.user._id.toString())
+              items[i].currentUserBelongsTo = 'crew'
+          })
+        })
+        if (err) {
+          return res.status(404).json({message: 'No results', err: err})
+        } else {
           res.status(200).json({message: 'Success', item: items})
         }
       })

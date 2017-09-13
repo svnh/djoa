@@ -78,10 +78,11 @@ export class DocumentService {
         return Observable.throw(error.json());
       });
   }
-  getDocumentsInStratsByProject(id: string) {
+  getDocumentsInStrats(search: any) {
     let headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.authService.currentUser.token);
-    return this.http.get(this.url + 'document/documentsInStratsByProject/' + id, {headers: headers})
+    let options = new RequestOptions({ headers: headers, search: search});
+    return this.http.get(this.url + 'document/documentsInStrats/', options)
       .map((response: Response) => {
         return response.json().item;
       })
@@ -90,6 +91,18 @@ export class DocumentService {
         return Observable.throw(error.json());
       });
   }
+  // getDocumentsInStratsByProject(id: string) {
+  //   let headers = new Headers({'Content-Type': 'application/json'});
+  //   headers.append('Authorization', '' + this.authService.currentUser.token);
+  //   return this.http.get(this.url + 'document/documentsInStratsByProject/' + id, {headers: headers})
+  //     .map((response: Response) => {
+  //       return response.json().item;
+  //     })
+  //     .catch((error: Response) => {
+  //       this.errorService.handleError(error.json());
+  //       return Observable.throw(error.json());
+  //     });
+  // }
 
 
   updateTask(newTaskData, document) {

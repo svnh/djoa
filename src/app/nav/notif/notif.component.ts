@@ -83,6 +83,16 @@ export class NotifComponent implements OnInit {
       .subscribe(
         res => {
           this.myDocuments = res.data
+          // 
+          //
+          // res.myDocuments.forEach(document => {
+          //   if (document.status.global !== 'COMPLETE') {
+          //     this.activityPendingTasks++
+          //     if(document.currentUserBelongsTo === document.status.pendingActionFrom )
+          //       this.myActivityPendingTasks++
+          //   }
+          // })
+
         },
         error => {
           console.log(error);
