@@ -108,7 +108,7 @@ export class ProjectContentComponent implements OnInit {
       if(params['id']) {
         this.search.projectId = params['id']
         this.getProject(this.search.projectId)
-        this.getDocumentsInMissionsByProject(this.search.projectId)
+        this.getDocumentsInMissionsByProject(this.search)
         this.getDocumentsInStratsByProject(this.search.projectId)
         // this.getMissionsByCategoriesByProject(params['id'])
 
@@ -197,8 +197,8 @@ export class ProjectContentComponent implements OnInit {
 
 
 
-  getDocumentsInMissionsByProject(projectId: string) {
-    this.documentService.getDocumentsInMissionsByProject(projectId)
+  getDocumentsInMissionsByProject(search: Search) {
+    this.documentService.getDocumentsInMissions(search)
       .subscribe(
         res => {
 

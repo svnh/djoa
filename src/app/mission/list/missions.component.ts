@@ -55,8 +55,8 @@ export class MissionsComponent implements OnInit {
   ) {
     this.globalEventsManager.refreshCenterEmitter.subscribe((isRefresh) => {
         if(isRefresh) {
-          this.getMissions(1, this.search)
           this.globalEventsManager.refreshCenter(false);
+          this.getMissions(1, this.search)
         }
 
     })

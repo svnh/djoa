@@ -299,10 +299,11 @@ router.get('/page/:page', function(req, res, next) {
 })
 
 // get all forms from database
-router.get('/documentsInMissionsByProject/:projectId', function(req, res, next) {
+router.get('/documentsInMissions', function(req, res, next) {
   let searchQuery = {}
   searchQuery['ownerCompanies'] = req.user.ownerCompanies
-  searchQuery['projects'] = mongoose.Types.ObjectId(req.params.projectId)
+  if(req.query.projectId)
+    searchQuery['projects'] = mongoose.Types.ObjectId(req.query.projectId)
   let missionIds = []
   Mission.find(searchQuery).exec(function(err, missionItems) {
     if (err) { return res.status(404).json({message: 'No results', err: err}) } else {

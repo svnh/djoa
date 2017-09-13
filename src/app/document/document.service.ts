@@ -26,42 +26,6 @@ export class DocumentService {
 
 
 
-  getDocuments(page: number, search: any) {
-    let headers = new Headers({'Content-Type': 'application/json'});
-    headers.append('Authorization', '' + this.authService.currentUser.token);
-    let options = new RequestOptions({ headers: headers, search: search});
-    return this.http.get(this.url + 'document/page/' + page , options)
-      .timeout(9000)
-      .map((response: Response) => {
-
-        const documents = response.json();
-
-        return documents;
-      })
-      .catch((error: Response) => {
-        this.errorService.handleError(error.json());
-        return Observable.throw(error.json());
-      });
-  }
-
-
-  // getMyDocuments() {
-  //   let headers = new Headers({'Content-Type': 'application/json'});
-  //   headers.append('Authorization', '' + this.authService.currentUser.token);
-  //   let options = new RequestOptions({ headers: headers, search: {}});
-  //   return this.http.get(this.url + 'document/myDocuments'  , options)
-  //     .timeout(9000)
-  //     .map((response: Response) => {
-  //
-  //       const documents = response.json();
-  //
-  //       return documents;
-  //     })
-  //     .catch((error: Response) => {
-  //       this.errorService.handleError(error.json());
-  //       return Observable.throw(error.json());
-  //     });
-  // }
 
 
   //getDocument(id: string) : Observable<Document> {
@@ -82,10 +46,30 @@ export class DocumentService {
   }
 
 
-  getDocumentsInMissionsByProject(id: string) {
+
+    getDocuments(page: number, search: any) {
+      let headers = new Headers({'Content-Type': 'application/json'});
+      headers.append('Authorization', '' + this.authService.currentUser.token);
+      let options = new RequestOptions({ headers: headers, search: search});
+      return this.http.get(this.url + 'document/page/' + page , options)
+        .timeout(9000)
+        .map((response: Response) => {
+
+          const documents = response.json();
+
+          return documents;
+        })
+        .catch((error: Response) => {
+          this.errorService.handleError(error.json());
+          return Observable.throw(error.json());
+        });
+    }
+
+  getDocumentsInMissions(search: any) {
     let headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.authService.currentUser.token);
-    return this.http.get(this.url + 'document/documentsInMissionsByProject/' + id, {headers: headers})
+    let options = new RequestOptions({ headers: headers, search: search});
+    return this.http.get(this.url + 'document/documentsInMissions/', options)
       .map((response: Response) => {
         return response.json().item;
       })

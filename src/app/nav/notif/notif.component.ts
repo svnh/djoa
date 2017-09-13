@@ -97,7 +97,7 @@ export class NotifComponent implements OnInit {
 
   }
 
-  goToMission(typeObj: string, missionId: string) {
+  goTo(typeObj: string, missionId: string) {
 
       let newShowNavBarData = new ShowNavBarData()
       newShowNavBarData.showNavBar = false
