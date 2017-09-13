@@ -219,7 +219,10 @@ router.post('/', function(req, res, next) {
   })
 })
 
-// get all forms from database
+
+
+
+
 router.get('/page/:page', function(req, res, next) {
   var itemsPerPage = 10
   var currentPage = Number(req.params.page)
@@ -268,20 +271,27 @@ router.get('/page/:page', function(req, res, next) {
   //     path: 'bucketTasks.tasks.assignedTos',
   //     model: 'User',
   //   })
-    .limit(itemsPerPage).skip(skip).exec(function(err, item) {
+    .limit(itemsPerPage).skip(skip).exec(function(err, items) {
     if (err) {
       return res.status(404).json({message: 'No results', err: err})
     } else {
-      item.forEach((document, i) => {
+      items.forEach((document, i) => {
         document.reviewers.forEach(reviewer => {
           if (reviewer._id.toString() === req.user._id.toString())
-            item[i].currentUserBelongsTo = 'client'
+            items[i].currentUserBelongsTo = 'client'
         })
         document.crewMembers.forEach(crewMember => {
           if (crewMember._id.toString() === req.user._id.toString())
-            item[i].currentUserBelongsTo = 'crew'
+            items[i].currentUserBelongsTo = 'crew'
         })
+        if (document.status.global !== 'COMPLETE') {
+          items[i].activityPendingTasks++
+          if(document.currentUserBelongsTo === document.status.pendingActionFrom )
+            items[i].myActivityPendingTasks++
+        }
       })
+
+
 
       Document.find(searchQuery).count().exec(function(err, count) {
 
@@ -291,7 +301,7 @@ router.get('/page/:page', function(req, res, next) {
             currentPage: currentPage,
             itemsPerPage: itemsPerPage
           },
-          data: item
+          data: items
         })
       })
     }
@@ -326,6 +336,11 @@ router.get('/documentsInMissions', function(req, res, next) {
             if (crewMember.toString() === req.user._id.toString())
               items[i].currentUserBelongsTo = 'crew'
           })
+          if (document.status.global !== 'COMPLETE') {
+            items[i].activityPendingTasks++
+            if(document.currentUserBelongsTo === document.status.pendingActionFrom )
+              items[i].myActivityPendingTasks++
+          }
         })
         if (err) {
           return res.status(404).json({message: 'No results', err: err})
@@ -364,6 +379,11 @@ router.get('/documentsInStrats', function(req, res, next) {
             if (crewMember.toString() === req.user._id.toString())
               items[i].currentUserBelongsTo = 'crew'
           })
+          if (document.status.global !== 'COMPLETE') {
+            items[i].activityPendingTasks++
+            if(document.currentUserBelongsTo === document.status.pendingActionFrom )
+              items[i].myActivityPendingTasks++
+          }          
         })
         if (err) {
           return res.status(404).json({message: 'No results', err: err})

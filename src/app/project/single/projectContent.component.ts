@@ -196,11 +196,13 @@ export class ProjectContentComponent implements OnInit {
       .subscribe(
         res => {
           res.forEach(document => {
-            if (document.status.global !== 'COMPLETE') {
-              this.activityPendingTasks++
-              if(document.currentUserBelongsTo === document.status.pendingActionFrom )
-                this.myActivityPendingTasks++
-            }
+            this.activityPendingTasks += document.activityPendingTasks
+            this.myActivityPendingTasks += document.myActivityPendingTasks
+            // if (document.status.global !== 'COMPLETE') {
+            //   this.activityPendingTasks++
+            //   if(document.currentUserBelongsTo === document.status.pendingActionFrom )
+            //     this.myActivityPendingTasks++
+            // }
           })
         },
         error => { console.log(error) }
@@ -211,11 +213,13 @@ export class ProjectContentComponent implements OnInit {
       .subscribe(
         res => {
           res.forEach(document => {
-            if (document.status.global !== 'COMPLETE') {
-              this.activityPendingTasks++
-              if(document.currentUserBelongsTo === document.status.pendingActionFrom )
-                this.myActivityPendingTasks++
-            }
+            this.activityPendingTasks += document.activityPendingTasks
+            this.myActivityPendingTasks += document.myActivityPendingTasks            
+            // if (document.status.global !== 'COMPLETE') {
+            //   this.activityPendingTasks++
+            //   if(document.currentUserBelongsTo === document.status.pendingActionFrom )
+            //     this.myActivityPendingTasks++
+            // }
           })
         },
         error => { console.log(error) }

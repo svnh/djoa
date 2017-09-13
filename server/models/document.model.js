@@ -34,7 +34,8 @@ var document = new Schema({
     link: {type: String, default: ['']},
     forms: [{type: Schema.Types.ObjectId, ref: 'Form'}],
     currentUserBelongsTo: {type: String, default: ['']},
-
+    activityPendingTasks: {type: Number, default: 0},
+    myActivityPendingTasks: {type: Number, default: 0},
     // dateDocument:{
     //   start: {type: Date, default: [Date()]},
     //   end: {type: Date, default: [Date()]},
