@@ -1,21 +1,22 @@
-import {Component, OnInit, Input} from '@angular/core';
-import {AuthService} from '../../auth/auth.service';
-import {AdminService} from '../../admin/services/admin.service';
-import {Router} from '@angular/router';
-import { UserService} from '../../user/user.service';
-import { DocumentService} from '../../document/document.service';
-import { User} from '../../user/user.model';
-import { NotifChat} from './notif.model';
-import { CompanieGuardService} from '../../companie/companieGuard.service'
+import { Component, OnInit, Input } from '@angular/core';
+import { AuthService } from '../../auth/auth.service';
+import { AdminService } from '../../admin/services/admin.service';
+import { Router } from '@angular/router';
+import { UserService } from '../../user/user.service';
+import { DocumentService } from '../../document/document.service';
+import { User } from '../../user/user.model';
+import { Document } from '../../document/document.model';
+import { NotifChat } from './notif.model';
+import { CompanieGuardService } from '../../companie/companieGuard.service'
 // import { PaiementGuardService} from '../../user/paiement/paiementGuard.service'
-import { ChangeDetectionStrategy} from '@angular/core';
+import { ChangeDetectionStrategy } from '@angular/core';
 // import { GlobalEventsManager} from '../../globalEventsManager';
-import { ChatService} from '../../chat/chat.service';
+import { ChatService } from '../../chat/chat.service';
 // import { Notification} from '../../notification/notification.model';
 // import {Observable} from 'rxjs/Rx';
-import {ShowNavBarData} from '../../home/home.model'
-import {GlobalEventsManager} from '../../globalEventsManager';
-import {Search} from '../../home/home.model'
+import { ShowNavBarData } from '../../home/home.model'
+import { GlobalEventsManager } from '../../globalEventsManager';
+import { Search } from '../../home/home.model'
 
 
 @Component({
@@ -27,11 +28,13 @@ import {Search} from '../../home/home.model'
 export class NotifComponent implements OnInit {
   // @Input() sidenav: any;
   // showNavBar: boolean = false;
- // private userId: string = localStorage.getItem('userId');
+  // private userId: string = localStorage.getItem('userId');
   // private userId: string;
   notifChatsInStrats: NotifChat[] = []
   notifChatsInMissions: NotifChat[] = []
   myDocuments: Document[] = []
+  newMissionDocs = []
+
   // fetchedNotifications: Notification[] = [];
   // notificationsNotRead: number=0;
 
@@ -57,46 +60,70 @@ export class NotifComponent implements OnInit {
   getChatUnreadInMissions() {
     this.chatService.getChatUnreadInMissions()
       .subscribe(
-        res => {
-          this.notifChatsInMissions = res.obj
-        },
-        error => {
-          console.log(error);
-        }
+      res => {
+        this.notifChatsInMissions = res.obj
+      },
+      error => {
+        console.log(error);
+      }
       );
   }
   getChatUnreadInStrats() {
     this.chatService.getChatUnreadInStrats()
       .subscribe(
-        res => {
-          this.notifChatsInStrats = res.obj
-        },
-        error => {
-          console.log(error);
-        }
+      res => {
+        this.notifChatsInStrats = res.obj
+      },
+      error => {
+        console.log(error);
+      }
       );
   }
+
+  groupBy(list, keyGetter) {
+    const map = new Map();
+    list.forEach((item) => {
+      const key = keyGetter(item);
+      const collection = map.get(key);
+      if (!collection) {
+        map.set(key, [item]);
+      } else {
+        collection.push(item);
+      }
+    });
+    return map;
+  }
+
 
   getMyDocuments() {
     let search = { myDocuments: true }
     this.documentService.getDocuments(1, search)
       .subscribe(
-        res => {
-          this.myDocuments = res.data
-          // 
-          //
-          // res.myDocuments.forEach(document => {
-          //   if (document.status.global !== 'COMPLETE') {
-          //     this.activityPendingTasks++
-          //     if(document.currentUserBelongsTo === document.status.pendingActionFrom )
-          //       this.myActivityPendingTasks++
-          //   }
-          // })
-
-        },
-        error => {
-          console.log(error);
-        }
+      res => {
+        this.myDocuments = res.data
+        this.myDocuments.forEach(document => {
+          document.missions.forEach(mission => {
+            if (!(this.newMissionDocs.some((newMissionDoc, i) => {
+              if (newMissionDoc.mission._id === mission._id) {
+                this.newMissionDocs[i].documents.push(document)
+                return true
+              }
+              return false
+            }
+            ))) {
+              let newMissionDoc = {
+                mission: mission,
+                documents: [document]
+              }
+              this.newMissionDocs.push(newMissionDoc)
+            }
+          })
+        })
+        console.log(this.newMissionDocs)
+      },
+      error => {
+        console.log(error);
+      }
       );
   }
 
@@ -109,11 +136,11 @@ export class NotifComponent implements OnInit {
 
   goTo(typeObj: string, missionId: string) {
 
-      let newShowNavBarData = new ShowNavBarData()
-      newShowNavBarData.showNavBar = false
-      this.globalEventsManager.showNavBarRight(newShowNavBarData)
+    let newShowNavBarData = new ShowNavBarData()
+    newShowNavBarData.showNavBar = false
+    this.globalEventsManager.showNavBarRight(newShowNavBarData)
 
-      this.router.navigate([typeObj + '/' + missionId]);
+    this.router.navigate([typeObj + '/' + missionId]);
   }
   //
   // createProject() {

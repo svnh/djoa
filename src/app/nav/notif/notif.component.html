@@ -14,17 +14,33 @@
 </div>
 <br>
 <h4>Documents</h4>
+
+<div *ngFor="let newMissionDocSingle of newMissionDocs">
+  Mission: {{newMissionDocSingle.mission.title}}
+  <div (click)="goTo('mission', newMissionDocSingle.mission._id)" class="sidebar-notif">
+
+    <div *ngFor="let document of newMissionDocSingle.documents">
+      {{document.details.name}}: {{document.status.global}}
+      <div>{{document.myActivityPendingTasks}} pendingTasks</div>
+    </div>
+  </div>
+</div>
+
 <div *ngFor="let document of myDocuments">
-  <div *ngFor="let mission of document.missions">
+
+
+  <!-- <div *ngFor="let mission of document.missions">
     Mission: {{mission.title}}
     <div (click)="goTo('mission', mission._id)" class="sidebar-notif">
       {{document.details.name}}: {{document.status.global}}
+      <div>{{document.myActivityPendingTasks}} pendingTasks</div>
     </div>
-  </div>
+  </div> -->
   <div *ngFor="let strat of document.strats">
     Strategy: {{strat.title}}
     <div (click)="goTo('strat', strat._id)" class="sidebar-notif">
       {{document.details.name}}: {{document.status.global}}
+      <div>{{document.myActivityPendingTasks}} pendingTasks</div>
     </div>
   </div>
 </div>
