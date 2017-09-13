@@ -43,10 +43,10 @@ export class ProjectContentComponent implements OnInit {
   // fetchedMissions: Mission[] = []
   fetchedCategories: Categorie[] = []
   // fetchedDocumentsInProject: Document[] = []
-  activityPendingTasks: number = 0
-  myActivityPendingTasks: number = 0
-  activityMissions: number = 0
-  myActivityMissions: number = 0
+  activityPendingTasksInProject: number = 0
+  myActivityPendingTasksInProject: number = 0
+  activityMissionsInProject: number = 0
+  myActivityMissionsInProject: number = 0
   //
   // status = StatusProject
   // categ: string = 'Electricité';
@@ -98,10 +98,10 @@ export class ProjectContentComponent implements OnInit {
 
     this.activatedRoute.params.subscribe((params: Params) => {
       // this.fetchedMissions = []
-      this.activityMissions = 0
-      this.activityPendingTasks = 0
-      this.myActivityMissions = 0
-      this.myActivityPendingTasks = 0
+      this.activityMissionsInProject = 0
+      this.activityPendingTasksInProject = 0
+      this.myActivityMissionsInProject = 0
+      this.myActivityPendingTasksInProject = 0
 
 
 
@@ -122,10 +122,10 @@ export class ProjectContentComponent implements OnInit {
   getResultMissions(missions) {
     missions.forEach(mission => {
       // console.log(mission)
-      this.activityMissions++
+      this.activityMissionsInProject++
 
       if(mission.users.some(user => user._id === this.authService.getCurrentUser()._id))
-        this.myActivityMissions++
+        this.myActivityMissionsInProject++
 
 
     })
@@ -196,8 +196,8 @@ export class ProjectContentComponent implements OnInit {
       .subscribe(
         res => {
           res.forEach(document => {
-            this.activityPendingTasks += document.activityPendingTasks
-            this.myActivityPendingTasks += document.myActivityPendingTasks
+            this.activityPendingTasksInProject += document.activityPendingTasks
+            this.myActivityPendingTasksInProject += document.myActivityPendingTasks
             // if (document.status.global !== 'COMPLETE') {
             //   this.activityPendingTasks++
             //   if(document.currentUserBelongsTo === document.status.pendingActionFrom )
@@ -213,8 +213,8 @@ export class ProjectContentComponent implements OnInit {
       .subscribe(
         res => {
           res.forEach(document => {
-            this.activityPendingTasks += document.activityPendingTasks
-            this.myActivityPendingTasks += document.myActivityPendingTasks            
+            this.activityPendingTasksInProject += document.activityPendingTasks
+            this.myActivityPendingTasksInProject += document.myActivityPendingTasks
             // if (document.status.global !== 'COMPLETE') {
             //   this.activityPendingTasks++
             //   if(document.currentUserBelongsTo === document.status.pendingActionFrom )
@@ -227,23 +227,6 @@ export class ProjectContentComponent implements OnInit {
   }
 
 
-
-  // onDelete(id: string) {
-  //   let this2 = this
-  //   return new Promise(function(resolve, reject) {
-  //     this2.projectService.deleteProject(id)
-  //       .subscribe(
-  //         res => {
-  //           this2.toastr.success('Great!', res.message);
-  //           resolve(res)
-  //         },
-  //         error => {
-  //           console.log(error);
-  //           reject(error)
-  //         }
-  //       )
-  //     })
-  // }
 
 
 }
