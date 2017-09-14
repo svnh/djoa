@@ -15,11 +15,11 @@
 <br>
 <h4>Documents</h4>
 
-<div *ngFor="let newMissionDocSingle of documentsByMissions">
-  Mission: {{newMissionDocSingle.mission.title}}
-  <div (click)="goTo('mission', newMissionDocSingle.mission._id)" class="sidebar-notif">
+<div *ngFor="let documentsByMission of documentsByMissions">
+  Mission: {{documentsByMission.mission.title}}
+  <div (click)="goTo('mission', documentsByMission.mission._id)" class="sidebar-notif">
 
-    <div *ngFor="let document of newMissionDocSingle.documents">
+    <div *ngFor="let document of documentsByMission.documents">
       {{document.details.name}}: {{document.status.global}}
       <div>{{document.myActivityPendingTasks}} pendingTasks</div>
     </div>

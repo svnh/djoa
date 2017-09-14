@@ -83,10 +83,13 @@ export class NotifComponent implements OnInit {
 
 
 
-getDocumentsByMissions(search: Search){
+getDocumentsByMissions() {
+  let search = new Search()
+  search.myDocuments = true
   this.documentService.getDocumentsByMissions(search)
     .subscribe(
       res => {
+        console.log(res)
         this.documentsByMissions = res
       },
       error => { console.log(error) }
@@ -95,31 +98,45 @@ getDocumentsByMissions(search: Search){
 }
 
 
+getDocumentsInStrats() {
+  let search = new Search()
+  this.documentService.getDocumentsInStrats(search)
+    .subscribe(
+      res => {
+        console.log(res)
+      },
+      error => { console.log(error) }
+    )
+}
+
+
+
   getMyDocuments() {
     let search = { myDocuments: true }
     this.documentService.getDocuments(1, search)
       .subscribe(
       res => {
+        console.log(res)
         this.myDocuments = res.data
-        this.myDocuments.forEach(document => {
-          document.missions.forEach(mission => {
-            if (!(this.newMissionDocs.some((newMissionDoc, i) => {
-              if (newMissionDoc.mission._id === mission._id) {
-                this.newMissionDocs[i].documents.push(document)
-                return true
-              }
-              return false
-            }
-            ))) {
-              let newMissionDoc = {
-                mission: mission,
-                documents: [document]
-              }
-              this.newMissionDocs.push(newMissionDoc)
-            }
-          })
-        })
-        console.log(this.newMissionDocs)
+        // this.myDocuments.forEach(document => {
+        //   document.missions.forEach(mission => {
+        //     if (!(this.newMissionDocs.some((newMissionDoc, i) => {
+        //       if (newMissionDoc.mission._id === mission._id) {
+        //         this.newMissionDocs[i].documents.push(document)
+        //         return true
+        //       }
+        //       return false
+        //     }
+        //     ))) {
+        //       let newMissionDoc = {
+        //         mission: mission,
+        //         documents: [document]
+        //       }
+        //       this.newMissionDocs.push(newMissionDoc)
+        //     }
+        //   })
+        // })
+        // console.log(this.newMissionDocs)
       },
       error => {
         console.log(error);
@@ -131,7 +148,8 @@ getDocumentsByMissions(search: Search){
     this.getChatUnreadInMissions()
     this.getChatUnreadInStrats()
     this.getMyDocuments()
-    this.getDocumentsByMissions(this.search)
+    this.getDocumentsInStrats()
+    this.getDocumentsByMissions()
 
   }
 

@@ -303,48 +303,48 @@ router.get('/page/:page', function(req, res, next) {
 })
 
 //must be deprecated by documentsByMissions
-router.get('/documentsInMissions', function(req, res, next) {
-  let searchQuery = {}
-  searchQuery['ownerCompanies'] = req.user.ownerCompanies
-  if (req.query.projectId)
-    searchQuery['projects'] = mongoose.Types.ObjectId(req.query.projectId)
-  let missionIds = []
-  Mission.find(searchQuery).exec(function(err, missionItems) {
-    if (err) {
-      return res.status(404).json({message: 'No results', err: err})
-    } else {
-      missionItems.forEach(mission => missionIds.push(mission._id))
-      let searchQueryDocument = {
-        missions: {
-          '$in': missionIds
-        }
-      }
-      searchQueryDocument['ownerCompanies'] = req.user.ownerCompanies
-      Document.find(searchQueryDocument).exec(function(err, items) {
-        items.forEach((document, i) => {
-          document.reviewers.forEach(reviewer => {
-            if (reviewer.toString() === req.user._id.toString())
-              items[i].currentUserBelongsTo = 'client'
-          })
-          document.crewMembers.forEach(crewMember => {
-            if (crewMember.toString() === req.user._id.toString())
-              items[i].currentUserBelongsTo = 'crew'
-          })
-          if (document.status.global !== 'COMPLETE') {
-            items[i].activityPendingTasks++
-            if (document.currentUserBelongsTo === document.status.pendingActionFrom)
-              items[i].myActivityPendingTasks++
-            }
-          })
-        if (err) {
-          return res.status(404).json({message: 'No results', err: err})
-        } else {
-          res.status(200).json({message: 'Success', item: items})
-        }
-      })
-    }
-  })
-})
+// router.get('/documentsInMissions', function(req, res, next) {
+//   let searchQuery = {}
+//   searchQuery['ownerCompanies'] = req.user.ownerCompanies
+//   if (req.query.projectId)
+//     searchQuery['projects'] = mongoose.Types.ObjectId(req.query.projectId)
+//   let missionIds = []
+//   Mission.find(searchQuery).exec(function(err, missionItems) {
+//     if (err) {
+//       return res.status(404).json({message: 'No results', err: err})
+//     } else {
+//       missionItems.forEach(mission => missionIds.push(mission._id))
+//       let searchQueryDocument = {
+//         missions: {
+//           '$in': missionIds
+//         }
+//       }
+//       searchQueryDocument['ownerCompanies'] = req.user.ownerCompanies
+//       Document.find(searchQueryDocument).exec(function(err, items) {
+//         items.forEach((document, i) => {
+//           document.reviewers.forEach(reviewer => {
+//             if (reviewer.toString() === req.user._id.toString())
+//               items[i].currentUserBelongsTo = 'client'
+//           })
+//           document.crewMembers.forEach(crewMember => {
+//             if (crewMember.toString() === req.user._id.toString())
+//               items[i].currentUserBelongsTo = 'crew'
+//           })
+//           if (document.status.global !== 'COMPLETE') {
+//             items[i].activityPendingTasks++
+//             if (document.currentUserBelongsTo === document.status.pendingActionFrom)
+//               items[i].myActivityPendingTasks++
+//             }
+//           })
+//         if (err) {
+//           return res.status(404).json({message: 'No results', err: err})
+//         } else {
+//           res.status(200).json({message: 'Success', item: items})
+//         }
+//       })
+//     }
+//   })
+// })
 
 router.get('/documentsByMissions', function(req, res, next) {
   let returnData = []
@@ -357,12 +357,25 @@ router.get('/documentsByMissions', function(req, res, next) {
     if (err) {
       return res.status(404).json({message: 'No results', err: err})
     } else {
-
       let requests = missionItems.map((mission) => {
         return new Promise(function(resolve, reject) {
           let searchQueryDocument = {}
+          if (req.query.myDocuments) {
+            let arrObj = []
+            arrObj.push({
+              'crewMembers': mongoose.Types.ObjectId(req.user._id)
+            })
+            arrObj.push({
+              'reviewers': mongoose.Types.ObjectId(req.user._id)
+            })
+            searchQueryDocument = {
+              $or: arrObj
+            }
+          }
+
           searchQueryDocument['missions'] = mission._id
           searchQueryDocument['ownerCompanies'] = req.user.ownerCompanies
+
           Document.find(searchQueryDocument).exec(function(err, documents) {
             documents.forEach((document, i) => {
               document.reviewers.forEach(reviewer => {

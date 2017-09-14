@@ -31,6 +31,7 @@ export class Search {
     // endString: string = '';
     // missionType: string = '';
     isExternalUser: boolean = false;
+    myDocuments: boolean = true;
 
 }
 
