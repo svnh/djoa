@@ -34,6 +34,7 @@ export class NotifComponent implements OnInit {
   notifChatsInMissions: NotifChat[] = []
   myDocuments: Document[] = []
   newMissionDocs = []
+  documentsByMissions = []
   search: Search = new Search()
   // fetchedNotifications: Notification[] = [];
   // notificationsNotRead: number=0;
@@ -86,7 +87,7 @@ getDocumentsByMissions(search: Search){
   this.documentService.getDocumentsByMissions(search)
     .subscribe(
       res => {
-        console.log(res)
+        this.documentsByMissions = res
       },
       error => { console.log(error) }
     )

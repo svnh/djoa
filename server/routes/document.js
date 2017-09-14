@@ -360,8 +360,6 @@ router.get('/documentsByMissions', function(req, res, next) {
 
       let requests = missionItems.map((mission) => {
         return new Promise(function(resolve, reject) {
-
-          // missionItems.forEach(mission => {
           let searchQueryDocument = {}
           searchQueryDocument['missions'] = mission._id
           searchQueryDocument['ownerCompanies'] = req.user.ownerCompanies
@@ -384,9 +382,10 @@ router.get('/documentsByMissions', function(req, res, next) {
 
               returnData.push({mission: mission, documents: documents})
               resolve()
-            // if (err) {
-            //   return res.status(404).json({message: 'No results', err: err})
-            // } else {
+              if (err) {
+                reject()
+              }
+            // else {
             //   res.status(200).json({message: 'Success', item: documents})
             // }
           })

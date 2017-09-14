@@ -108,7 +108,7 @@ export class ProjectContentComponent implements OnInit {
       if(params['id']) {
         this.search.projectId = params['id']
         this.getProject(this.search.projectId)
-        this.getDocumentsInMissions(this.search)
+        this.getDocumentsByMissions(this.search)
         this.getDocumentsInStrats(this.search)
         // this.getMissionsByCategoriesByProject(params['id'])
 
@@ -191,18 +191,21 @@ export class ProjectContentComponent implements OnInit {
 
 
 
-  getDocumentsInMissions(search: Search) {
-    this.documentService.getDocumentsInMissions(search)
+  getDocumentsByMissions(search: Search) {
+    this.documentService.getDocumentsByMissions(search)
       .subscribe(
         res => {
-          res.forEach(document => {
-            this.activityPendingTasksInProject += document.activityPendingTasks
-            this.myActivityPendingTasksInProject += document.myActivityPendingTasks
-            // if (document.status.global !== 'COMPLETE') {
-            //   this.activityPendingTasks++
-            //   if(document.currentUserBelongsTo === document.status.pendingActionFrom )
-            //     this.myActivityPendingTasks++
-            // }
+          console.log(res)
+          res.forEach(missionsDoc => {
+            missionsDoc.documents.forEach(document => {
+              this.activityPendingTasksInProject += document.activityPendingTasks
+              this.myActivityPendingTasksInProject += document.myActivityPendingTasks
+              // if (document.status.global !== 'COMPLETE') {
+              //   this.activityPendingTasks++
+              //   if(document.currentUserBelongsTo === document.status.pendingActionFrom )
+              //     this.myActivityPendingTasks++
+              // }
+            })
           })
         },
         error => { console.log(error) }

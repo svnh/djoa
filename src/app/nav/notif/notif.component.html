@@ -15,7 +15,7 @@
 <br>
 <h4>Documents</h4>
 
-<div *ngFor="let newMissionDocSingle of newMissionDocs">
+<div *ngFor="let newMissionDocSingle of documentsByMissions">
   Mission: {{newMissionDocSingle.mission.title}}
   <div (click)="goTo('mission', newMissionDocSingle.mission._id)" class="sidebar-notif">
 
