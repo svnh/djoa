@@ -21,6 +21,9 @@ export class Document {
     progressTasks: number = 0;
     dateDocument: DateDocument = new DateDocument()
     currentUserBelongsTo: string = '';
+    activityPendingTasks: number =0;
+    myActivityPendingTasks: number=0;
+
 }
 
 

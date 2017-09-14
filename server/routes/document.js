@@ -219,10 +219,6 @@ router.post('/', function(req, res, next) {
   })
 })
 
-
-
-
-
 router.get('/page/:page', function(req, res, next) {
   var itemsPerPage = 10
   var currentPage = Number(req.params.page)
@@ -286,12 +282,10 @@ router.get('/page/:page', function(req, res, next) {
         })
         if (document.status.global !== 'COMPLETE') {
           items[i].activityPendingTasks++
-          if(document.currentUserBelongsTo === document.status.pendingActionFrom )
+          if (document.currentUserBelongsTo === document.status.pendingActionFrom)
             items[i].myActivityPendingTasks++
-        }
-      })
-
-
+          }
+        })
 
       Document.find(searchQuery).count().exec(function(err, count) {
 
@@ -308,7 +302,7 @@ router.get('/page/:page', function(req, res, next) {
   })
 })
 
-// get all forms from database
+//must be deprecated by documentsByMissions
 router.get('/documentsInMissions', function(req, res, next) {
   let searchQuery = {}
   searchQuery['ownerCompanies'] = req.user.ownerCompanies
@@ -338,16 +332,71 @@ router.get('/documentsInMissions', function(req, res, next) {
           })
           if (document.status.global !== 'COMPLETE') {
             items[i].activityPendingTasks++
-            if(document.currentUserBelongsTo === document.status.pendingActionFrom )
+            if (document.currentUserBelongsTo === document.status.pendingActionFrom)
               items[i].myActivityPendingTasks++
-          }
-        })
+            }
+          })
         if (err) {
           return res.status(404).json({message: 'No results', err: err})
         } else {
           res.status(200).json({message: 'Success', item: items})
         }
       })
+    }
+  })
+})
+
+router.get('/documentsByMissions', function(req, res, next) {
+  let returnData = []
+  let searchQuery = {}
+  searchQuery['ownerCompanies'] = req.user.ownerCompanies
+  if (req.query.projectId)
+    searchQuery['projects'] = mongoose.Types.ObjectId(req.query.projectId)
+
+  Mission.find(searchQuery).exec(function(err, missionItems) {
+    if (err) {
+      return res.status(404).json({message: 'No results', err: err})
+    } else {
+
+      let requests = missionItems.map((mission) => {
+        return new Promise(function(resolve, reject) {
+
+          // missionItems.forEach(mission => {
+          let searchQueryDocument = {}
+          searchQueryDocument['missions'] = mission._id
+          searchQueryDocument['ownerCompanies'] = req.user.ownerCompanies
+          Document.find(searchQueryDocument).exec(function(err, documents) {
+            documents.forEach((document, i) => {
+              document.reviewers.forEach(reviewer => {
+                if (reviewer.toString() === req.user._id.toString())
+                  documents[i].currentUserBelongsTo = 'client'
+              })
+              document.crewMembers.forEach(crewMember => {
+                if (crewMember.toString() === req.user._id.toString())
+                  documents[i].currentUserBelongsTo = 'crew'
+              })
+              if (document.status.global !== 'COMPLETE') {
+                documents[i].activityPendingTasks++
+                if (document.currentUserBelongsTo === document.status.pendingActionFrom)
+                  documents[i].myActivityPendingTasks++
+                }
+              })
+
+              returnData.push({mission: mission, documents: documents})
+              resolve()
+            // if (err) {
+            //   return res.status(404).json({message: 'No results', err: err})
+            // } else {
+            //   res.status(200).json({message: 'Success', item: documents})
+            // }
+          })
+        })
+
+      })
+      Promise.all(requests).then(() => {
+        res.status(200).json({message: 'Successfull', data: returnData})
+      })
+
     }
   })
 })
@@ -381,10 +430,10 @@ router.get('/documentsInStrats', function(req, res, next) {
           })
           if (document.status.global !== 'COMPLETE') {
             items[i].activityPendingTasks++
-            if(document.currentUserBelongsTo === document.status.pendingActionFrom )
+            if (document.currentUserBelongsTo === document.status.pendingActionFrom)
               items[i].myActivityPendingTasks++
-          }          
-        })
+            }
+          })
         if (err) {
           return res.status(404).json({message: 'No results', err: err})
         } else {

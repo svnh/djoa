@@ -34,7 +34,7 @@ export class NotifComponent implements OnInit {
   notifChatsInMissions: NotifChat[] = []
   myDocuments: Document[] = []
   newMissionDocs = []
-
+  search: Search = new Search()
   // fetchedNotifications: Notification[] = [];
   // notificationsNotRead: number=0;
 
@@ -80,19 +80,18 @@ export class NotifComponent implements OnInit {
       );
   }
 
-  groupBy(list, keyGetter) {
-    const map = new Map();
-    list.forEach((item) => {
-      const key = keyGetter(item);
-      const collection = map.get(key);
-      if (!collection) {
-        map.set(key, [item]);
-      } else {
-        collection.push(item);
-      }
-    });
-    return map;
-  }
+
+
+getDocumentsByMissions(search: Search){
+  this.documentService.getDocumentsByMissions(search)
+    .subscribe(
+      res => {
+        console.log(res)
+      },
+      error => { console.log(error) }
+    )
+
+}
 
 
   getMyDocuments() {
@@ -131,6 +130,7 @@ export class NotifComponent implements OnInit {
     this.getChatUnreadInMissions()
     this.getChatUnreadInStrats()
     this.getMyDocuments()
+    this.getDocumentsByMissions(this.search)
 
   }
 

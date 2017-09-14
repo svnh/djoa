@@ -78,6 +78,19 @@ export class DocumentService {
         return Observable.throw(error.json());
       });
   }
+  getDocumentsByMissions(search: any) {
+    let headers = new Headers({'Content-Type': 'application/json'});
+    headers.append('Authorization', '' + this.authService.currentUser.token);
+    let options = new RequestOptions({ headers: headers, search: search});
+    return this.http.get(this.url + 'document/documentsByMissions/', options)
+      .map((response: Response) => {
+        return response.json().data;
+      })
+      .catch((error: Response) => {
+        this.errorService.handleError(error.json());
+        return Observable.throw(error.json());
+      });
+  }
   getDocumentsInStrats(search: any) {
     let headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', '' + this.authService.currentUser.token);
