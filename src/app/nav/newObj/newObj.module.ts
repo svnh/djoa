@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { Routes, RouterModule} from '@angular/router';
 
-import { MaterialModule } from '@angular/material';
+
 
 import { NewObjComponent} from './newObj.component';
 // import {SharedModule } from '../../shared/shared.module';
@@ -20,7 +20,7 @@ import { NewObjComponent} from './newObj.component';
     ReactiveFormsModule,
     // SharedModule,
     //  FormsModule,
-    // MaterialModule,
+    
     // ReactiveFormsModule,
 
   ],

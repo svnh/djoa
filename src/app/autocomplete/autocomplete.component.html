@@ -5,13 +5,12 @@
 {{title}}
 
 
-
 <div *ngIf="!arrayContent.length || !singleChoice">
 
   <div class="">
-    <md-form-field>
-    <input mdInput class="form-control" autofocus autocapitalize="none" autocomplete="off" spellcheck="false" autocorrect="none" type="text" name="Search" placeholder="🔎 {{typeAutocomplete}}" [(ngModel)]="autocompleteSearch" (ngModelChange)="searchData()">
-    </md-form-field>
+    <mat-form-field>
+    <input matInput class="form-control" autofocus autocapitalize="none" autocomplete="off" spellcheck="false" autocorrect="none" type="text" name="Search" placeholder="🔎 {{typeAutocomplete}}" [(ngModel)]="autocompleteSearch" (ngModelChange)="searchData()">
+    </mat-form-field>
       <!-- <app-newObjDialog
         *ngIf="typeAutocomplete=='user' || typeAutocomplete=='companie' || typeAutocomplete=='project' || typeAutocomplete=='categorie'"
         (saved)="saved($event)"

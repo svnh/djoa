@@ -13,8 +13,8 @@
             <td (click)="goTo(strat._id)">{{strat.title}}</td>
             <td>
               <section class="example-section">
-                <md-progress-bar class="example-margin" [color]="'primary'" [mode]="'determinate'" [value]="strat.dateStrat.percentageProgress">
-                </md-progress-bar>
+                <mat-progress-bar class="example-margin" [value]="strat.dateStrat.percentageProgress">
+                </mat-progress-bar>
               </section>
             </td>
             <td>
@@ -24,8 +24,8 @@
         </tbody>
       </table>
       <div class="has-text-centered">
-        <md-paginator [length]="paginationData.totalItems" [pageIndex]="paginationData.currentPage-1" [pageSize]="paginationData.itemsPerPage" (page)="getPage($event.pageIndex*1+1)">
-        </md-paginator>
+        <mat-paginator [length]="paginationData.totalItems" [pageIndex]="paginationData.currentPage-1" [pageSize]="paginationData.itemsPerPage" (page)="getPage($event.pageIndex*1+1)">
+        </mat-paginator>
         <app-loadingInApp *ngIf="loading"></app-loadingInApp>
       </div>
     </div>

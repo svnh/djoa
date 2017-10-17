@@ -11,7 +11,7 @@ import { StratService} from '../strat/strat.service';
 import { MissionService} from '../mission/mission.service';
 import { DocumentService} from '../document/document.service';
 import { BriefService} from '../brief/brief.service';
-import { MdDialog } from '@angular/material';
+import { MatDialog } from '@angular/material';
 import { Search} from '../home/home.model'
 // import { UserDialogComponent } from '../user/singleUser/dialog/userDialog.component';
 // import { CompanieDialogComponent } from '../companie/single/dialog/companieDialog.component';
@@ -45,7 +45,7 @@ export class AutocompleteComponent implements OnInit {
   @Output() clearAutocomplete: EventEmitter<any> = new EventEmitter();
 
   constructor(
-    // public dialog: MdDialog,
+    // public dialog: MatDialog,
     private userService: UserService,
     private documentService: DocumentService,
     private missionService: MissionService,

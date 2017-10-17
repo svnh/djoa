@@ -12,7 +12,7 @@ import { HomeComponent} from './home.component';
 
 // import { ReportingService} from './reporting.service';
 import { HomeRouting} from './homeRouting.module';
-// import { MaterialModule } from '@angular/material';
+
 
 // import { CategorieModule } from '../categorie/categorie.module';
 // import { AutocompleteComponent } from '../autocomplete/autocomplete.component'
@@ -34,7 +34,7 @@ import {SharedModule } from '../shared/shared.module';
     HomeRouting,
     CommonModule,
     FormsModule,
-    // MaterialModule,
+    
     ReactiveFormsModule,
     RouterModule,
     // CategorieModule,

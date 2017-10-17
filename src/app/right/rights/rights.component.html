@@ -36,8 +36,8 @@
           </table>
 
           <div class="has-text-centered">
-            <md-paginator [length]="paginationData.totalItems" [pageIndex]="paginationData.currentPage-1" [pageSize]="paginationData.itemsPerPage" (page)="getPage($event.pageIndex*1+1)">
-            </md-paginator>
+            <mat-paginator [length]="paginationData.totalItems" [pageIndex]="paginationData.currentPage-1" [pageSize]="paginationData.itemsPerPage" (page)="getPage($event.pageIndex*1+1)">
+            </mat-paginator>
             <app-loadingInApp *ngIf="loading"></app-loadingInApp>
             <!-- <div [hidden]="!loading">Loading...</div>
           <pagination-controls (pageChange)="getPage($event)" id="server" class="change-page"></pagination-controls> -->

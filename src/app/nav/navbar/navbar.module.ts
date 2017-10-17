@@ -4,12 +4,13 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { Routes, RouterModule} from '@angular/router';
 
-import { MaterialModule } from '@angular/material';
+
 
 import { NavbarComponent} from './navbar.component';
 // import {SharedModule } from '../../shared/shared.module';
 // import { NotificationService} from '../../notification/notification.service';
 import {SharedSmallModule } from '../../shared/sharedSmall.module';
+import {MatMenuModule} from '@angular/material';
 
 
 @NgModule({
@@ -20,9 +21,10 @@ import {SharedSmallModule } from '../../shared/sharedSmall.module';
     FormsModule,
     ReactiveFormsModule,
     SharedSmallModule,
+    MatMenuModule,
     // SharedModule,
     //  FormsModule,
-    // MaterialModule,
+
     // ReactiveFormsModule,
 
   ],

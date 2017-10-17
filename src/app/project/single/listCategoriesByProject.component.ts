@@ -58,7 +58,7 @@ export class ListCategoriesByProjectComponent implements OnInit {
     // private sanitizer: DomSanitizer,
     private projectService: ProjectService,
     private toastr: ToastsManager,
-    // // public dialog: MdDialog,
+    // // public dialog: MatDialog,
     private router: Router,
     private location: Location,
     // private activatedRoute: ActivatedRoute,

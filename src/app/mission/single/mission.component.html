@@ -6,21 +6,21 @@
       </app-autocomplete>
       <app-autocomplete [typeAutocomplete]="'categorie'" [canDelete]=true [search]="search" [title]="'categorie'" [singleChoice]=true [arrayContent]="fetchedMission.categories">
       </app-autocomplete>
-      <md-form-field>
-        <input mdInput type="text" class="form-control" formControlName="title" [(ngModel)]="fetchedMission.title" placeholder="title">
-      </md-form-field>
-      <md-form-field>
-        <textarea mdInput class="form-control" formControlName="description" [(ngModel)]="fetchedMission.description" placeholder="Description">
+      <mat-form-field>
+        <input matInput type="text" class="form-control" formControlName="title" [(ngModel)]="fetchedMission.title" placeholder="title">
+      </mat-form-field>
+      <mat-form-field>
+        <textarea matInput class="form-control" formControlName="description" [(ngModel)]="fetchedMission.description" placeholder="Description">
       </textarea>
-      </md-form-field>
+      </mat-form-field>
       <app-autocomplete [typeAutocomplete]="'user'" [singleChoice]="'true'" [arrayContent]="fetchedMission.users">
       </app-autocomplete>
-      <md-form-field>
-        <input mdInput type="date" class="form-control" formControlName="startString" [(ngModel)]="fetchedMission.dateMission.startString">
-      </md-form-field>
-      <md-form-field>
-        <input mdInput type="date" class="form-control" formControlName="endString" [(ngModel)]="fetchedMission.dateMission.endString">
-      </md-form-field>
+      <mat-form-field>
+        <input matInput type="date" class="form-control" formControlName="startString" [(ngModel)]="fetchedMission.dateMission.startString">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="date" class="form-control" formControlName="endString" [(ngModel)]="fetchedMission.dateMission.endString">
+      </mat-form-field>
       <div class="valid-edit">
         <button type="submit" class="sln-edt done">{{'Save' }}</button>
         <button *ngIf="fetchedMission._id" type="button" class="delete" md-button (click)="openDeleteConfirmation()">

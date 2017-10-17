@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 // import {AuthService} from '../../auth/auth.service';
 import { GlobalEventsManager} from '../../globalEventsManager';
-import {MdSidenav} from '@angular/material';
+import {MatSidenav} from '@angular/material';
 import {ShowNavBarData} from '../../home/home.model'
 
 @Component({
@@ -10,7 +10,7 @@ import {ShowNavBarData} from '../../home/home.model'
   styleUrls: ['./sideBarRight.component.css']
 })
 export class SideBarRightComponent implements OnInit {
-  @ViewChild('sidenav') public sidenav: MdSidenav;
+  @ViewChild('sidenav') public sidenav: MatSidenav;
 
   showNavBarData: ShowNavBarData = new ShowNavBarData()
 

@@ -11,10 +11,10 @@ import { EditCompanieComponent} from './single/editCompanie.component';
 // import { CompanieDetailComponent} from './single/companieDetail.component';
 import { CompanieService} from './companie.service';
 import { CompanieRouting} from './companieRouting.module';
-import { MaterialModule } from '@angular/material';
+
 // import { CompanieDialogComponent } from './single/dialog/companieDialog.component';
 import {SharedModule } from '../shared/shared.module';
-
+import {MatRadioModule} from '@angular/material';
 
 @NgModule({
   imports:      [
@@ -22,9 +22,10 @@ import {SharedModule } from '../shared/shared.module';
     CompanieRouting,
     // CommonModule,
     // FormsModule,
-    // MaterialModule,
+
     ReactiveFormsModule,
     RouterModule,
+    MatRadioModule,
     SharedModule,
 
   ],

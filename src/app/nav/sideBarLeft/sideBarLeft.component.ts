@@ -8,7 +8,7 @@ import { CompanieGuardService} from '../../companie/companieGuard.service'
 // import { PaiementGuardService} from '../../user/paiement/paiementGuard.service'
 // import { ChangeDetectionStrategy} from '@angular/core';
 import {GlobalEventsManager} from '../../globalEventsManager';
-import {MdSidenav} from '@angular/material';
+import {MatSidenav} from '@angular/material';
 import {ShowNavBarData} from '../../home/home.model'
 
 
@@ -19,7 +19,7 @@ import {ShowNavBarData} from '../../home/home.model'
   styleUrls: ['./sideBarLeft.component.css']
 })
 export class SideBarLeftComponent implements OnInit {
-  @ViewChild('sidenav') public sidenav: MdSidenav;
+  @ViewChild('sidenav') public sidenav: MatSidenav;
   // @Input() sidenav: any;
   showNavBarData: ShowNavBarData = new ShowNavBarData()
  // private userId: string = localStorage.getItem('userId');

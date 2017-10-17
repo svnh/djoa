@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { MaterialModule } from '@angular/material';
+
 
 // import { DocumentDialogComponent } from './single/dialog/documentDialog.component';
 
@@ -11,7 +11,7 @@ import { DocumentSingleComponent} from './single/documentSingle.component';
 // import { DocumentContentComponent} from './single/documentContent.component';
 import { DocumentService} from './document.service';
 import { DocumentRouting} from './documentRouting.module';
-
+import {MatSlideToggleModule} from '@angular/material';
 // import { TasksComponent} from './task/tasks/tasks.component';
 
 //import { TaskService} from '../task/task.service';
@@ -35,10 +35,11 @@ import {SharedModule } from '../shared/shared.module';
     DocumentRouting,
     // CommonModule,
     // FormsModule,
-    // MaterialModule,
+
     ReactiveFormsModule,
     // MissionModule,
     SharedModule,
+    MatSlideToggleModule,
     // CommentModule,
 
 

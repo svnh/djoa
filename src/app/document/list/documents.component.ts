@@ -3,7 +3,7 @@ import { AuthService } from '../../auth/auth.service';
 import { DocumentService } from '../document.service';
 import { Document } from '../document.model';
 import { ToastsManager } from 'ng2-toastr';
-import { MdDialog } from '@angular/material';
+import { MatDialog } from '@angular/material';
 import { Router, ActivatedRoute, Params} from '@angular/router';
 import { Location } from '@angular/common';
 import { DomSanitizer } from '@angular/platform-browser';

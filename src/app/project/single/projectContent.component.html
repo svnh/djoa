@@ -26,7 +26,7 @@
           </div>
         </div>
         <section>
-          <md-progress-bar [color]="'primary'" [mode]="'determinate'" [value]="fetchedProject.dateProject.percentageProgress"></md-progress-bar>
+          <mat-progress-bar  [value]="fetchedProject.dateProject.percentageProgress"></mat-progress-bar>
           <p class="percent">{{fetchedProject.dateProject.percentageProgress}}%</p>
         </section>
       </md-card-content>

@@ -20,7 +20,7 @@
         <p>{{fetchedMission.description}}</p>
         <!--Start Date {{fetchedMission.dateMission.start | date:'yyyy-MM-dd' }} / End Date {{fetchedMission.dateMission.end | date:'yyyy-MM-dd' }} /-->
         <section>
-          <md-progress-bar [color]="'primary'" [mode]="'determinate'" [value]="fetchedMission.dateMission.percentageProgress"></md-progress-bar>
+          <mat-progress-bar [value]="fetchedMission.dateMission.percentageProgress"></mat-progress-bar>
           <p class="percent">{{fetchedMission.dateMission.percentageProgress}}%</p>
         </section>
       </md-card-content>

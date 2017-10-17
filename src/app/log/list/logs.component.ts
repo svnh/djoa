@@ -3,7 +3,7 @@ import { AuthService} from '../../auth/auth.service';
 import { LogService} from '../log.service';
 import { Log} from '../log.model';
 import { ToastsManager} from 'ng2-toastr';
-import { MdDialog} from '@angular/material';
+import { MatDialog} from '@angular/material';
 import { Router} from '@angular/router';
 import { Location } from '@angular/common';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -38,7 +38,7 @@ export class LogsComponent implements OnInit {
     private sanitizer: DomSanitizer,
     private logService: LogService,
     private toastr: ToastsManager,
-    // public dialog: MdDialog,
+    // public dialog: MatDialog,
     private router: Router,
     private location: Location,
     private authService: AuthService,

@@ -1,4 +1,4 @@
-<md-sidenav #sidenav mode="side" class="sidebarleft">
+<mat-sidenav #sidenav mode="side" class="sidebarleft">
   <i (click)="sideNavAction('leftSideBar', false, '')" class="fa fa-times dspl-nn-dsktp" aria-hidden="true"></i>
   <div *ngIf="showNavBarData.search.typeScreen == 'object'">
     <app-projects *ngIf="showNavBarData.search.typeObj == 'project'" [search]="showNavBarData.search" ></app-projects>
@@ -7,4 +7,4 @@
       <app-listCategoriesByProject [search]="showNavBarData.search"></app-listCategoriesByProject>
     </div>
   </div>
-</md-sidenav>
+</mat-sidenav>

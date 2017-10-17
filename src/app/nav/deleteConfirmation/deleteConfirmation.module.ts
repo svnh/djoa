@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { Routes, RouterModule} from '@angular/router';
 
-import { MaterialModule } from '@angular/material';
+
 
 import { DeleteConfirmationComponent} from './deleteConfirmation.component';
 // import {SharedModule } from '../../shared/shared.module';
@@ -19,7 +19,7 @@ import { DeleteConfirmationComponent} from './deleteConfirmation.component';
     ReactiveFormsModule,
     // SharedModule,
     //  FormsModule,
-    // MaterialModule,
+    
     // ReactiveFormsModule,
 
   ],

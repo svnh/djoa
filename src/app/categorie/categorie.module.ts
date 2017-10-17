@@ -11,7 +11,7 @@ import { CategorieSingleComponent} from './single/categorieSingle.component';
 import { CategorieService} from './categorie.service';
 import { CompanieModule } from '../companie/companie.module';
 import { CategorieRouting} from './categorieRouting.module';
-import { MaterialModule } from '@angular/material';
+
 
 
 import {SharedModule } from '../shared/shared.module';
@@ -22,7 +22,7 @@ import {SharedModule } from '../shared/shared.module';
     CategorieRouting,
     CommonModule,
     FormsModule,
-    MaterialModule,
+
     ReactiveFormsModule,
     CompanieModule,
     SharedModule,

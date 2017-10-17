@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule} from '@angular/forms';
 
 import { UserRouting } from './userRouting.module';
-import { MaterialModule } from '@angular/material';
+
 
 
 //import { UserDeleteDialog} from './userDeleteDialog.component';
@@ -13,7 +13,7 @@ import { MaterialModule } from '@angular/material';
 // import { UserService} from './user.service';
 import { RightModule} from '../right/right.module';
 
-
+import {MatSelectModule} from '@angular/material';
 // import { QuoteModule} from '../quote/quote.module';
 import { CompanieModule} from '../companie/companie.module';
 import { ProjectModule} from '../project/project.module';
@@ -66,7 +66,7 @@ import {SharedModule } from '../shared/shared.module';
     UserRouting,
     // CommonModule,
     // FormsModule,
-    MaterialModule,
+
     ReactiveFormsModule,
     // QuoteModule,
     ProjectModule,
@@ -74,6 +74,7 @@ import {SharedModule } from '../shared/shared.module';
     CompanieModule,
     SharedModule,
     RightModule,
+    MatSelectModule,
   ],
   declarations: [
 //    UserDeleteDialog,

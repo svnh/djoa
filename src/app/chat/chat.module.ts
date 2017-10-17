@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 // import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
-// import { MaterialModule } from '@angular/material';
+
 
 
 
@@ -35,7 +35,7 @@ import {SharedSmallModule } from '../shared/sharedSmall.module';
     ChatRouting,
     // CommonModule,
     // FormsModule,
-    // MaterialModule,
+    
     ReactiveFormsModule,
     // PictureModule,
     // QuoteModule,
