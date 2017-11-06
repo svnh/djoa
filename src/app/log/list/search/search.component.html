@@ -1,8 +1,8 @@
-<md-card>
-  <md-card-title>
+<mat-card>
+  <mat-card-title>
     Search
-  </md-card-title>
-  <md-card-content>
+  </mat-card-title>
+  <mat-card-content>
     <app-autocomplete
       (getResultAutocomplete)="refreshSearch()"
       (clearAutocomplete)="refreshSearch()"
@@ -44,5 +44,5 @@
     <input type="date" (change)="refreshSearch()" class="form-control" [(ngModel)]="startString">
     end
     <input type="date" (change)="refreshSearch()" class="form-control" [(ngModel)]="endString">
-  </md-card-content>
-</md-card>
+  </mat-card-content>
+</mat-card>

@@ -11,8 +11,8 @@
     </div>
   </div>
   <div class="projectinfo">
-    <md-card class="projectsummary">
-      <md-card-content>
+    <mat-card class="projectsummary">
+      <mat-card-content>
         <h4>Project Information</h4>
         <button type="button" (click)="openDetails()" class="edit-btn">Edit</button>
         <div class="project-progress">
@@ -29,19 +29,19 @@
           <mat-progress-bar  [value]="fetchedProject.dateProject.percentageProgress"></mat-progress-bar>
           <p class="percent">{{fetchedProject.dateProject.percentageProgress}}%</p>
         </section>
-      </md-card-content>
-    </md-card>
-    <md-card class="teaminfo">
-      <md-card-content>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="teaminfo">
+      <mat-card-content>
         <h4>Team</h4>
         <button type="button" (click)="openTeam()" class="edit-btn">Edit</button>
         <div *ngFor="let user of fetchedProject.users" class="pic-container">
           <app-picture [userIdToOpenProfile]="user._id" [addPicture]=false [deletePicture]=false [forms]="user.forms"></app-picture>
         </div>
-      </md-card-content>
-    </md-card>
-    <md-card class="activity">
-      <md-card-content>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="activity">
+      <mat-card-content>
         <h4>Activity</h4>
         <div>
           <div class="number">{{activityMissionsInProject}}</div> Missions
@@ -49,10 +49,10 @@
         <div>
           <div class="number">{{activityPendingTasksInProject}}</div> Pending Tasks
         </div>
-      </md-card-content>
-    </md-card>
-    <md-card class="your-activity">
-      <md-card-content>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="your-activity">
+      <mat-card-content>
         <h4>Your Activity</h4>
         <div (click)="openNotif()">
           <div class="number">{{myActivityMissionsInProject}}</div> Missions
@@ -60,7 +60,7 @@
         <div (click)="openNotif()">
           <div class="number">{{myActivityPendingTasksInProject}}</div> Pending Tasks
         </div>
-      </md-card-content>
-    </md-card>
+      </mat-card-content>
+    </mat-card>
   </div>
 </div>

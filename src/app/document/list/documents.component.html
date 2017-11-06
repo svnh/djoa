@@ -1,8 +1,8 @@
 <button type="button" (click)="editMode=!editMode" class="edit-btn">Edit</button>
 <button *ngIf="editMode" type="button" (click)="addDocument()" class="add-object">Add Document</button>
 <div *ngFor="let document of fetchedDocuments; let i = index;">
-  <md-card class="single-doc">
-    <md-card-content>
+  <mat-card class="single-doc">
+    <mat-card-content>
       currentUserBelongsTo: {{fetchedDocuments[i].currentUserBelongsTo}}
       pendingActionFrom:{{fetchedDocuments[i].status.pendingActionFrom}}
       <button type="button" *ngIf="editMode" (click)="delete(document._id)" class="delete-x"><i class="fa fa-trash-o"></i></button>
@@ -70,6 +70,6 @@
       </div>
 
       <div class="doc-state-bottom">{{document.status.global}}</div>
-    </md-card-content>
-  </md-card>
+    </mat-card-content>
+  </mat-card>
 </div>

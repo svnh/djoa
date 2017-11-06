@@ -13,8 +13,8 @@
     </div>
   </div>
   <div class="col-md-6 lineback">
-    <md-card class="card-margin">
-      <md-card-content>
+    <mat-card class="card-margin">
+      <mat-card-content>
         <h4>{{fetchedMission.title}}</h4>
         <button type="button" (click)="openDetails()" class="edit-btn">Edit</button>
         <p>{{fetchedMission.description}}</p>
@@ -23,16 +23,16 @@
           <mat-progress-bar  [value]="fetchedMission.dateMission.percentageProgress"></mat-progress-bar>
           <p class="percent">{{fetchedMission.dateMission.percentageProgress}}%</p>
         </section>
-      </md-card-content>
-    </md-card>
-    <md-card class="card-margin">
-      <md-card-content>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="card-margin">
+      <mat-card-content>
         <h2>Documents for This Mission</h2>
         <app-documents [search]="search"></app-documents>
-      </md-card-content>
-    </md-card>
-    <md-card>
-      <md-card-content>
+      </mat-card-content>
+    </mat-card>
+    <mat-card>
+      <mat-card-content>
         <h2>Crew Members for This Mission</h2>
         <button type="button" (click)="openTeam()" class="edit-btn">Edit</button>
         <div *ngFor="let user of fetchedMission.users" class="indiv-team">
@@ -41,15 +41,15 @@
           </div>
           <p>{{user.profile.name}}</p>
         </div>
-      </md-card-content>
-    </md-card>
+      </mat-card-content>
+    </mat-card>
     <div class="bottom-shadow"></div>
   </div>
   <div class="col-md-6">
-    <md-card class="chat">
-      <md-card-content>
+    <mat-card class="chat">
+      <mat-card-content>
         <app-chat [search]="search"></app-chat>
-      </md-card-content>
-    </md-card>
+      </mat-card-content>
+    </mat-card>
   </div>
 </div>
