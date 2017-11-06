@@ -1,5 +1,4 @@
 <div class="col-md-12">
-<<<<<<< HEAD
   <div class="greyback">
     <h2>Project</h2>
     <form [formGroup]="myForm" novalidate (ngSubmit)="save()" (keydown.enter)="$event.preventDefault()">
@@ -20,7 +19,6 @@
         <input mdInput type="date" class="form-control" formControlName="end" [(ngModel)]="fetchedProject.dateProject.endString">
       </md-form-field>
     </div>
-=======
   <h2>Project</h2>
   <form [formGroup]="myForm" novalidate (ngSubmit)="save()" (keydown.enter)="$event.preventDefault()">
     <!-- <div>{{fetchedProject._id}}</div> -->
@@ -39,7 +37,6 @@
     <mat-form-field>
       <input matInput type="date" class="form-control" formControlName="end" [(ngModel)]="fetchedProject.dateProject.endString">
     </mat-form-field>
->>>>>>> a7d2986db2a4c9669b604eab9c1006f74528bcc7
     <div class="form-group">
       <label>Project Owners</label>
       <app-autocomplete [typeAutocomplete]="'user'" [title]="" [search]="{isExternalUser:false}" [singleChoice]=false [arrayContent]="fetchedProject.users"></app-autocomplete>
