@@ -1,13 +1,16 @@
-import { NgModule }            from '@angular/core';
-import { CommonModule }        from '@angular/common';
-import { FormsModule }         from '@angular/forms';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 // import { AutocompleteComponent } from '../autocomplete/autocomplete.component'
-import { AutocompleteModule } from '../autocomplete/autocomplete.module'
+import { AutocompleteModule } from '../autocomplete/autocomplete.module';
 import {PictureModule} from '../picture/picture.module';
-
+import {MatProgressBarModule} from '@angular/material';
+import {MatPaginatorModule} from '@angular/material';
+import {MatInputModule} from '@angular/material';
 // import {CommentModule} from '../comment/comment.module';
-
+import {MatSidenavModule} from '@angular/material';
+import {MatCardModule} from '@angular/material';
 
 
 
@@ -15,7 +18,7 @@ import { RoundPipe} from './round.pipe';
 
 // import { newObjDialogComponent } from '../nav/newObjDialog/newObjDialog.component';
 
-import { MaterialModule } from '@angular/material';
+
 
 import { LoadingInAppComponent } from '../nav/loadingInApp/loadingInApp.component';
 import { LoginInAppComponent } from '../nav/loginInApp/loginInApp.component';
@@ -30,8 +33,13 @@ import { LoginInAppComponent } from '../nav/loginInApp/loginInApp.component';
     FormsModule,
     // AutocompleteModule,
     PictureModule,
+    MatProgressBarModule,
+    MatInputModule,
+    MatPaginatorModule,
+    MatSidenavModule,
+    MatCardModule,
     // CommentModule,
-    MaterialModule,
+
     // SideBarObjModule,
 
 
@@ -50,11 +58,17 @@ import { LoginInAppComponent } from '../nav/loginInApp/loginInApp.component';
 
   ],
   exports: [
+
     // TranslatePipe,
     // AutocompleteModule,
     CommonModule,
     FormsModule,
     RoundPipe,
+    MatProgressBarModule,
+    MatPaginatorModule,
+    MatInputModule,
+    MatSidenavModule,
+    MatCardModule,
     // SideBarObjModule,
     // HeaderComponent,
     // newObjDialogComponent,
@@ -63,7 +77,7 @@ import { LoginInAppComponent } from '../nav/loginInApp/loginInApp.component';
     LoginInAppComponent,
     // SideBarObjComponent,
     PictureModule,
-    MaterialModule,
+
     // CommentModule,
     // CommentModule,
     // AutocompleteComponent,

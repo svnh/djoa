@@ -13,11 +13,11 @@
 
         <div *ngFor="let ownerCompanie of currentUser.ownerCompanies">
           <label>Type User</label>
-          <md-select formControlName="typeUsers" placeholder="typeUser" [(ngModel)]="fetchedUser.typeUsers" name="typeUsers">
-            <md-option *ngFor="let typeUser of ownerCompanie.typeUsers" [value]="typeUser.value">
+          <mat-select formControlName="typeUsers" placeholder="typeUser" [(ngModel)]="fetchedUser.typeUsers" name="typeUsers">
+            <mat-option *ngFor="let typeUser of ownerCompanie.typeUsers" [value]="typeUser.value">
               {{typeUser.value}}
-            </md-option>
-          </md-select>
+            </mat-option>
+          </mat-select>
           <button type="button" (click)="fetchedUser.typeUsers = undefined;"><i class="fa fa-times" aria-hidden="true"></i></button>
         </div>
 

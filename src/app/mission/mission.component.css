@@ -12,7 +12,7 @@
 .lineback section {
   position: relative;
 }
-.lineback md-progress-bar.mat-progress-bar.mat-primary {
+.lineback mat-progress-bar.mat-progress-bar.mat-primary {
   height: 38px !important;
 }
 .previous {

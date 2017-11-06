@@ -117,11 +117,11 @@
 
       <h4>{{'Stripe' }}</h4>
 
-      <md-radio-group class="example-radio-group" formControlName="serviceSelected" [(ngModel)]="fetchedCompanie.banck.serviceSelected">
-        <md-radio-button class="example-radio-button" *ngFor="let servicesBank of servicesBanks" [value]="servicesBank">
+      <mat-radio-group class="example-radio-group" formControlName="serviceSelected" [(ngModel)]="fetchedCompanie.banck.serviceSelected">
+        <mat-radio-button class="example-radio-button" *ngFor="let servicesBank of servicesBanks" [value]="servicesBank">
           {{servicesBank}}
-        </md-radio-button>
-      </md-radio-group>
+        </mat-radio-button>
+      </mat-radio-group>
 
       <input type="text"
         class="form-control"

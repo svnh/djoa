@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { HomeService} from './home.service';
 import { FormGroup } from '@angular/forms';
 import { ToastsManager} from 'ng2-toastr';
-import { MdDialog} from '@angular/material';
+import { MatDialog} from '@angular/material';
 // import { EditOptionsComponentDialog }  from '../form/modalLibrary/modalLibrary.component';
 import { AdminService} from '../admin/services/admin.service';
 // import { SideBarRightComponent} from '../nav/sideBarRight/sideBarRight.component';
@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit {
     private adminService: AdminService,
     private homeService: HomeService,
     private toastr: ToastsManager,
-    // public dialog: MdDialog,
+    // public dialog: MatDialog,
 
     private authService: AuthService,
   ) {}

@@ -3,7 +3,7 @@ import { AuthService} from '../../auth/auth.service';
 import { ProjectService} from '../project.service';
 import { Project} from '../project.model';
 import { ToastsManager} from 'ng2-toastr';
-import { MdDialog} from '@angular/material';
+import { MatDialog} from '@angular/material';
 import { Router, ActivatedRoute, Params} from '@angular/router';
 import { Location } from '@angular/common';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -42,7 +42,7 @@ export class ProjectsComponent implements OnInit {
     private toastr: ToastsManager,
     private globalEventsManager: GlobalEventsManager,
     private activatedRoute: ActivatedRoute,
-    // // public dialog: MdDialog,
+    // // public dialog: MatDialog,
     private router: Router,
     // private location: Location,
     // private authService: AuthService,

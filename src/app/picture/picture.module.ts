@@ -16,7 +16,7 @@ import { FormService} from './form/form.service';
 // import { EditOptionsComponentDialog} from './form/single/modalLibrary/modalLibrary.component';
 
 import { FormComponent} from './form/single/form.component';
-import { MaterialModule } from '@angular/material';
+
 // import { ProgressBarModule} from 'ng2-progress-bar';
 
 @NgModule({
@@ -25,7 +25,7 @@ import { MaterialModule } from '@angular/material';
     FormsModule,
     // SharedModule,
     // UserModule,
-    MaterialModule,
+    
     // ProgressBarModule,
 
   ],

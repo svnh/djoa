@@ -4,8 +4,8 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpModule, RequestOptions, Http} from '@angular/http';
 import { AppComponent} from './app.component';
 // import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
-// import { MaterialModule } from '@angular/material';
-import {MdSidenavModule} from '@angular/material';
+
+import {MatSidenavModule} from '@angular/material';
 
 
 import { SideBarRightModule} from './nav/sideBarRight/sideBarRight.module';
@@ -102,7 +102,6 @@ import { ErrorComponent} from './errorHandler/error.component';
 
 import { HomeComponent} from './home/home.component';
 import { HomeService} from './home/home.service';
-
 
 
 
@@ -223,10 +222,10 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     ToastModule.forRoot(),
     // ProgressBarModule,
     FormsModule,
-    // MaterialModule,
+
     // NavbarModule,
     // SidebarModule,
-    MdSidenavModule,
+    MatSidenavModule,
     // CKEditorModule,
     // NgbModule.forRoot(),
     UserModule,
@@ -245,7 +244,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   ],
   exports: [
     UserModule,
-    MdSidenavModule
+    MatSidenavModule
    ],
   providers: [
     AuthGuardService,

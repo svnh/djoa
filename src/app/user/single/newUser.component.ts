@@ -8,7 +8,7 @@ import { CompanieService } from '../../companie/companie.service';
 // import { EditOptionsComponentDialog } from '../../form/modalLibrary/modalLibrary.component';
 import { ToastsManager} from 'ng2-toastr';
 
-import { MdDialog} from '@angular/material';
+import { MatDialog} from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
 import { User } from '../user.model';
@@ -57,7 +57,7 @@ export class NewUserComponent implements OnInit {
   constructor(
     private userService: UserService,
     private toastr: ToastsManager,
-    // public dialog: MdDialog,
+    // public dialog: MatDialog,
     private router: Router,
     private location: Location,
     private activatedRoute: ActivatedRoute,

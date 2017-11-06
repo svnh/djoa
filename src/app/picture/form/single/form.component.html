@@ -27,14 +27,12 @@
         <button type="submit" [disabled]="!myForm.valid || !hasFiles()" id="submitForm" name="sumbitForm" [ngClass]="{'done':hasFiles(),'pas-done':!hasFiles()}">Submit</button>
         <!-- <progress-bar [value]="progress" [max]="100" *ngIf="hasFiles() && submitStarted"></progress-bar> -->
 
-        <md-progress-bar
+        <!-- <mat-progress-bar
           *ngIf="hasFiles() && submitStarted"
           class=""
-          [color]="'primary'"
-          [mode]="'determinate'"
           [value]="progress"
           >
-        </md-progress-bar>
+        </mat-progress-bar> -->
       </div>
     </fieldset>
   </form>

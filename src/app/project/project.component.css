@@ -30,7 +30,7 @@
 .teaminfo, .your-activity {
   background-color: #f4f4f4;
 }
-md-progress-bar.mat-progress-bar.mat-primary, .project-progress {
+mat-progress-bar.mat-progress-bar.mat-primary, .project-progress {
   width: 88% !important;
   display: inline-block;
 }
@@ -62,7 +62,7 @@ md-progress-bar.mat-progress-bar.mat-primary, .project-progress {
 .projectsummary section {
   position: relative;
 }
-.projectsummary md-progress-bar.mat-progress-bar.mat-primary {
+.projectsummary mat-progress-bar.mat-progress-bar.mat-primary {
   border-left: 1px solid;
   border-right: 1px solid;
   height: 38px !important;

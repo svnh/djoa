@@ -3,7 +3,7 @@ import { AuthService} from '../../auth/auth.service';
 import { BriefService} from '../brief.service';
 import { Brief} from '../brief.model';
 import { ToastsManager} from 'ng2-toastr';
-import { MdDialog} from '@angular/material';
+import { MatDialog} from '@angular/material';
 import { Router} from '@angular/router';
 import { Location } from '@angular/common';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -45,7 +45,7 @@ export class BriefsComponent implements OnInit {
     private briefService: BriefService,
     private toastr: ToastsManager,
     private globalEventsManager: GlobalEventsManager,
-    // // public dialog: MdDialog,
+    // // public dialog: MatDialog,
     // private router: Router,
     // private location: Location,
     // private authService: AuthService,

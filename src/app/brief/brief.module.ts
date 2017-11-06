@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { MaterialModule } from '@angular/material';
+
 
 // import { BriefDialogComponent } from './single/dialog/briefDialog.component';
 
@@ -35,7 +35,7 @@ import {DocumentModule} from '../document/document.module';
     BriefRouting,
     // CommonModule,
     // FormsModule,
-    // MaterialModule,
+
     ReactiveFormsModule,
     // MissionModule,
     SharedModule,

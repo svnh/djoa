@@ -8,7 +8,7 @@ import {Log} from '../../log.model';
 
 import {ToastsManager} from 'ng2-toastr';
 
-import {MdDialog } from '@angular/material';
+import {MatDialog } from '@angular/material';
 import {Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { FormBuilder} from '@angular/forms';
@@ -55,7 +55,7 @@ export class SearchComponent implements OnInit {
     // private categorieService: CategorieService,
 //    private modalService: NgbModal,
     private toastr: ToastsManager,
-    // public dialog: MdDialog,
+    // public dialog: MatDialog,
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private location: Location,

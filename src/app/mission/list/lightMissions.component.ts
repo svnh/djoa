@@ -3,7 +3,7 @@ import { AuthService} from '../../auth/auth.service';
 import { MissionService} from '../mission.service';
 import { Mission} from '../mission.model';
 import { ToastsManager} from 'ng2-toastr';
-import { MdDialog} from '@angular/material';
+import { MatDialog} from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -53,7 +53,7 @@ export class LightMissionsComponent implements OnInit {
     private sanitizer: DomSanitizer,
     private missionService: MissionService,
     private toastr: ToastsManager,
-    // // public dialog: MdDialog,
+    // // public dialog: MatDialog,
     private router: Router,
     private location: Location,
     private authService: AuthService,

@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { Routes, RouterModule} from '@angular/router';
 
-import { MaterialModule } from '@angular/material';
+
 
 import { SideBarRightComponent} from './sideBarRight.component';
 import { SharedObjModule } from '../../shared/sharedObj.module';
@@ -34,7 +34,7 @@ import {DeleteConfirmationModule} from '../deleteConfirmation/deleteConfirmation
     SharedObjModule,
 
     //  FormsModule,
-    // MaterialModule,
+    
     NewObjModule,
     NotifModule,
     // ReactiveFormsModule,

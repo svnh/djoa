@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { Routes, RouterModule} from '@angular/router';
 
-import { MaterialModule } from '@angular/material';
+
 
 import { SideBarLeftComponent} from './sideBarLeft.component';
 import { SharedObjModule } from '../../shared/sharedObj.module';
@@ -17,7 +17,7 @@ import { SharedObjModule } from '../../shared/sharedObj.module';
     ReactiveFormsModule,
     SharedObjModule,
     //  FormsModule,
-    // MaterialModule,
+    
     // ReactiveFormsModule,
 
   ],

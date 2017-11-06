@@ -3,7 +3,7 @@ import { CategorieService} from '../categorie.service';
 import { CompanieService} from '../../companie/companie.service';
 
 import { ToastsManager} from 'ng2-toastr';
-// import { MdDialog } from '@angular/material';
+// import { MatDialog } from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { Categorie } from '../categorie.model';
@@ -63,7 +63,7 @@ export class CategorieSingleComponent implements OnInit {
     private sanitizer: DomSanitizer,
     private categorieService: CategorieService,
     private toastr: ToastsManager,
-    // public dialog: MdDialog,
+    // public dialog: MatDialog,
     private router: Router,
     private location: Location,
     private activatedRoute: ActivatedRoute,

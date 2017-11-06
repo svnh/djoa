@@ -6,21 +6,21 @@
       <div>
         <app-autocomplete [typeAutocomplete]="'project'" [search]="search" [canDelete]=true [title]="'Project'" [singleChoice]=true [arrayContent]="fetchedStrat.projects">
         </app-autocomplete>
-        <md-form-field>
-          <input mdInput type="text" class="form-control" formControlName="title" [(ngModel)]="fetchedStrat.title" placeholder="title">
-        </md-form-field>
-        <md-form-field>
-          <textarea mdInput class="form-control" formControlName="description" [(ngModel)]="fetchedStrat.description" placeholder="Description">
+        <mat-form-field>
+          <input matInput type="text" class="form-control" formControlName="title" [(ngModel)]="fetchedStrat.title" placeholder="title">
+        </mat-form-field>
+        <mat-form-field>
+          <textarea matInput class="form-control" formControlName="description" [(ngModel)]="fetchedStrat.description" placeholder="Description">
         </textarea>
-        </md-form-field>
+        </mat-form-field>
         <app-autocomplete [typeAutocomplete]="'user'" [singleChoice]="'true'" [arrayContent]="fetchedStrat.users">
         </app-autocomplete>
-        <md-form-field>
-          <input mdInput type="date" class="form-control" formControlName="startString" [(ngModel)]="fetchedStrat.dateStrat.startString">
-        </md-form-field>
-        <md-form-field>
-          <input mdInput type="date" class="form-control" formControlName="endString" [(ngModel)]="fetchedStrat.dateStrat.endString">
-        </md-form-field>
+        <mat-form-field>
+          <input matInput type="date" class="form-control" formControlName="startString" [(ngModel)]="fetchedStrat.dateStrat.startString">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="date" class="form-control" formControlName="endString" [(ngModel)]="fetchedStrat.dateStrat.endString">
+        </mat-form-field>
       </div>
       <div class="valid-edit">
         <button type="submit" class="sln-edt done">{{'Save' }}</button>
