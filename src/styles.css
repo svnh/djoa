@@ -142,6 +142,10 @@ p.percent {
   -moz-box-shadow: 0 0 4px 3px rgba(0, 0, 0, 0.5);
   box-shadow: 0 0 4px 3px rgba(0, 0, 0, 0.5);
 }
+.greyback {
+  background-color: #f4f4f4;
+}
+
 @media screen and (min-width: 768px) {
   .djoa-container {
     width: 80% !important;
