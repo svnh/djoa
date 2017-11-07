@@ -1,5 +1,5 @@
 <div>
-  <h3 class="sidewrapper greyback">ADD CREW MEMBERS</h3>
+  <h2 class="sidewrapper">Add Crew Member</h2>
   <form [formGroup]="myForm" novalidate (ngSubmit)="save()">
     <div class="sidewrapper greyback">
       <app-autocomplete [typeAutocomplete]="'project'" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedUsersToObjects.projects">

@@ -1,6 +1,7 @@
 .col-md-6 {
   float: left;
-  height: 75vh;
+  max-height: 75vh;
+  height: auto;
 }
 .mission-nav {
   margin-top: 80px;

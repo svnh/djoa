@@ -1,6 +1,5 @@
 .result {
   margin-bottom: 5px;
-  padding: 5px;
   position: relative;
   min-height: 40px;
 }
@@ -33,5 +32,5 @@
   color: #f44336;
 }
 .listname {
-  width:70%;
+  width:155px !important;
 }

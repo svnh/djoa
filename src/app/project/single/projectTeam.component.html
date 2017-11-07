@@ -1,15 +1,13 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <h3>Project</h3>
-      <form [formGroup]="myForm" novalidate (ngSubmit)="save()" (keydown.enter)="$event.preventDefault()">
-        <app-autocomplete [typeAutocomplete]="'user'" [title]="" [search]="{isExternalUser:false}" [singleChoice]=false [arrayContent]="fetchedProject.users" >
-        </app-autocomplete>
-        <div class="valid-edit">
-          <button type="submit" class="done btn btn-success" [disabled]="!myForm.valid">{{'Save' }}</button>
-        </div>
-        <div class="clearfix"></div>
-      </form>
+<div>
+  <h2 class="sidewrapper">Project Crew</h2>
+  <form [formGroup]="myForm" novalidate (ngSubmit)="save()" (keydown.enter)="$event.preventDefault()">
+    <div class="sidewrapper">
+      <app-autocomplete [typeAutocomplete]="'user'" [title]="" [search]="{isExternalUser:false}" [singleChoice]=false [arrayContent]="fetchedProject.users" >
+      </app-autocomplete>
     </div>
-  </div>
+    <div class="sidewrapper valid-edit">
+      <button type="submit" class="save" [disabled]="!myForm.valid">{{'Save' }}</button>
+    </div>
+    <div class="clearfix"></div>
+  </form>
 </div>
