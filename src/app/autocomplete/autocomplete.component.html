@@ -6,37 +6,16 @@
 
   <div class="">
     <mat-form-field>
-    <input matInput class="form-control" autofocus autocapitalize="none" autocomplete="off" spellcheck="false" autocorrect="none" type="text" name="Search" placeholder="{{typeAutocomplete}}" [(ngModel)]="autocompleteSearch" (ngModelChange)="searchData()">
+    <input matInput autofocus autocapitalize="none" autocomplete="off" spellcheck="false" autocorrect="none" type="text" name="Search" placeholder="{{typeAutocomplete}}" [(ngModel)]="autocompleteSearch" (ngModelChange)="searchData()">
     </mat-form-field>
-      <!-- <app-newObjDialog
-        *ngIf="typeAutocomplete=='user' || typeAutocomplete=='companie' || typeAutocomplete=='project' || typeAutocomplete=='categorie'"
-        (saved)="saved($event)"
-        class="input-group-addon"
-        [typeObj]="typeAutocomplete"></app-newObjDialog> -->
-
-    <!-- <span
-      *ngIf="typeAutocomplete=='user' || typeAutocomplete=='companie' || typeAutocomplete=='project'"
-      class="input-group-addon"
-      (click)="openDialog(typeAutocomplete)"
-      id="basic-addon2">
-      <i class="fa fa-plus"></i>
-    </span> -->
   </div>
-
-  <!-- <button
-    class="btn btn-success"
-    *ngIf="typeAutocomplete=='user' || typeAutocomplete=='companie' || typeAutocomplete=='project'"
-    type="button" md-button
-    (click)="openDialog(typeAutocomplete)">
-    <i class="fa fa-plus"></i> Add new one
-  </button> -->
 </div>
 
 <div class="result" *ngFor="let data of fetchedData; let i=index">
   <table>
     <tr>
-      <td class="resultleft">
-        <button class="" type="button" (click)="selectData(data)"><i class="fa fa-plus"></i></button>
+      <td class="resultleft" (click)="selectData(data)">
+        <i class="fa fa-plus"></i>
       </td>
       <td class="resultright">
         <div *ngIf="typeAutocomplete=='user'"><div class="resultname">{{data.profile.name}} {{data.profile.lastName}}</div><div class="resultemail">{{data.email}}</div></div>
@@ -69,7 +48,10 @@
   <table>
     <tr>
       <td class="" (click)="linkToObject(data)">
-        <div *ngIf="typeAutocomplete=='user'">{{data.profile.name}} {{data.profile.lastName}}</div>
+        <div *ngIf="typeAutocomplete=='user'">
+          <app-picture [addPicture]=false [deletePicture]=false [forms]="data.profile.profilePicture"></app-picture>
+          {{data.profile.name}} {{data.profile.lastName}}
+        </div>
         <div *ngIf="typeAutocomplete=='companie'">{{data.nameCompanie}}</div>
         <div *ngIf="typeAutocomplete=='quote'">{{data.name}}</div>
         <div *ngIf="typeAutocomplete=='strat'">{{data.title}}</div>
