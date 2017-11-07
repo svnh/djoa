@@ -148,7 +148,11 @@ p.percent {
 .card-header i {
   color: #4a148c !important;
 }
-
+.sidewrapper {
+  width: 100%;
+  margin: 0 !important;
+  padding: 15px;
+}
 @media screen and (min-width: 768px) {
   .djoa-container {
     width: 80% !important;
