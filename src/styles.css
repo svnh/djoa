@@ -158,16 +158,6 @@ p.percent {
   font-weight: 500;
   font-size: 18px;
 }
-.resultleft {
-  padding: 0 5px;
-  background-color: #330066;
-}
-.resultleft button {
-  color: #ffffff;
-}
-.resultright {
-  padding: 5px;
-}
 
 @media screen and (min-width: 768px) {
   .djoa-container {

@@ -1,0 +1,37 @@
+.result {
+  margin-bottom: 5px;
+  padding: 5px;
+  position: relative;
+  min-height: 40px;
+}
+.resultleft {
+  padding: 0 5px;
+  background-color: #330066;
+}
+.resultleft button {
+  color: #ffffff;
+  height: 15px;
+}
+.resultright {
+  padding: 5px;
+  background-color: #f4f4f4;
+  width: 100%;
+}
+p.resultemail {
+  font-size: 12px;
+  color: #aaaaaa !important;
+}
+p.resultemail, p.resultname {
+  margin: 0 !important;
+}
+.remove {
+  position: absolute;
+  right: 0;
+}
+.remove button {
+  font-size: 12px;
+  padding: 5px 7px;
+  border: 1px solid;
+  border-radius: 3px;
+  color: #f44336;
+}
