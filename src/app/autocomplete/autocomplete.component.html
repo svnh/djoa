@@ -1,15 +1,12 @@
-
-
 <div>
 
 {{title}}
-
 
 <div *ngIf="!arrayContent.length || !singleChoice">
 
   <div class="">
     <mat-form-field>
-    <input matInput class="form-control" autofocus autocapitalize="none" autocomplete="off" spellcheck="false" autocorrect="none" type="text" name="Search" placeholder="🔎 {{typeAutocomplete}}" [(ngModel)]="autocompleteSearch" (ngModelChange)="searchData()">
+    <input matInput class="form-control" autofocus autocapitalize="none" autocomplete="off" spellcheck="false" autocorrect="none" type="text" name="Search" placeholder="{{typeAutocomplete}}" [(ngModel)]="autocompleteSearch" (ngModelChange)="searchData()">
     </mat-form-field>
       <!-- <app-newObjDialog
         *ngIf="typeAutocomplete=='user' || typeAutocomplete=='companie' || typeAutocomplete=='project' || typeAutocomplete=='categorie'"
@@ -35,14 +32,14 @@
   </button> -->
 
 </div>
-<div class="form-control" *ngFor="let data of fetchedData; let i=index">
+<div *ngFor="let data of fetchedData; let i=index">
   <table>
     <tr>
-      <td class="">
-        <button class="" type="button" (click)="selectData(data)">select</button>
+      <td class="resultleft">
+        <button class="" type="button" (click)="selectData(data)"><i class="fa fa-plus"></i></button>
       </td>
-      <td class="">
-        <div *ngIf="typeAutocomplete=='user'">{{data.profile.name}} {{data.profile.lastName}} {{data.email}}</div>
+      <td class="resultright">
+        <div *ngIf="typeAutocomplete=='user'"><p class="resultname">{{data.profile.name}} {{data.profile.lastName}}</p><p class="resultemail">{{data.email}}</p></div>
         <div *ngIf="typeAutocomplete=='companie'">{{data.nameCompanie}}</div>
         <!-- <div *ngIf="typeAutocomplete=='quote'">{{data.name}}</div> -->
         <div *ngIf="typeAutocomplete=='project'">{{data.details.name}}</div>

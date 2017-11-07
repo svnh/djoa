@@ -153,6 +153,22 @@ p.percent {
   margin: 0 !important;
   padding: 15px;
 }
+.label-title {
+  color: #000000;
+  font-weight: 500;
+  font-size: 18px;
+}
+.resultleft {
+  padding: 0 5px;
+  background-color: #330066;
+}
+.resultleft button {
+  color: #ffffff;
+}
+.resultright {
+  padding: 5px;
+}
+
 @media screen and (min-width: 768px) {
   .djoa-container {
     width: 80% !important;

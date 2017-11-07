@@ -15,10 +15,10 @@
       </mat-form-field>
     </div>
     <div class="form-group sidewrapper">
-      <label>Project Owners</label>
-      <app-autocomplete [typeAutocomplete]="'user'" [title]="" [search]="{isExternalUser:false}" [singleChoice]=false [arrayContent]="fetchedProject.users"></app-autocomplete>
+      <label class="label-title">Project Owners</label>
+      <app-autocomplete [typeAutocomplete]="'Add Project Owner'" [title]="" [search]="{isExternalUser:false}" [singleChoice]=false [arrayContent]="fetchedProject.users"></app-autocomplete>
     </div>
-    <div class="valid-edit">
+    <div class="sidewrapper valid-edit">
       <button type="submit" class="save" [disabled]="!myForm.valid">{{'Save' }}</button>
       <button *ngIf="fetchedProject._id" type="button" class="delete" md-button (click)="openDeleteConfirmation()">{{'Delete' }}</button>
     </div>
