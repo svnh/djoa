@@ -167,6 +167,7 @@ button {
 }
 body, .mat-drawer-container {
   background-color: transparent !important;
+  height: 100% !important;
 }
 .mat-drawer-container {
   overflow: initial;

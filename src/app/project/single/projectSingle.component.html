@@ -1,17 +1,22 @@
 <div class="col-md-12">
   <h2>Project</h2>
   <form [formGroup]="myForm" novalidate (ngSubmit)="save()" (keydown.enter)="$event.preventDefault()">
+    <!-- <div>{{fetchedProject._id}}</div> -->
     <div class="form-group">
-      <md-form-field>
-        <input [maxlength]="30" mdInput class="form-control" type="text" formControlName="name" [(ngModel)]="fetchedProject.details.name" placeholder="Title">
-      </md-form-field>
+      <mat-form-field>
+        <input [maxlength]="30" matInput class="form-control" type="text" formControlName="name" [(ngModel)]="fetchedProject.details.name" placeholder="Title">
+      </mat-form-field>
     </div>
-    <md-form-field>
-      <input mdInput type="date" class="form-control" formControlName="start" [(ngModel)]="fetchedProject.dateProject.startString">
-    </md-form-field>
-    <md-form-field>
-      <input mdInput type="date" class="form-control" formControlName="end" [(ngModel)]="fetchedProject.dateProject.endString">
-    </md-form-field>
+    <!--<div class="form-group">
+      <label>{{'Description' }}</label>
+      <input class="form-control col-md-4" type="text" formControlName="description" placeholder="description" [(ngModel)]="fetchedProject.details.description">
+    </div>-->
+    <mat-form-field>
+      <input matInput type="date" class="form-control" formControlName="start" [(ngModel)]="fetchedProject.dateProject.startString">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="date" class="form-control" formControlName="end" [(ngModel)]="fetchedProject.dateProject.endString">
+    </mat-form-field>
     <div class="form-group">
       <label>Project Owners</label>
       <app-autocomplete [typeAutocomplete]="'user'" [title]="" [search]="{isExternalUser:false}" [singleChoice]=false [arrayContent]="fetchedProject.users"></app-autocomplete>
