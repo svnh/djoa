@@ -1,5 +1,6 @@
 <div>
-  <div class="pic-container"><app-picture [addPicture]=false [deletePicture]=false [forms]="fetchedUser.forms"></app-picture></div>
+  <div class="pic-container">
+    <app-picture [addPicture]=false [deletePicture]=false [forms]="fetchedUser.forms"></app-picture></div>
   <h2 class="my-name">{{fetchedUser.profile.name}} {{fetchedUser.profile.lastName}}</h2>
   <h5>{{fetchedUser.profile.title}}</h5>
   <button (click)="editMode = !editMode" class="profile-button">Edit Profile</button>

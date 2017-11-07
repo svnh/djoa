@@ -114,6 +114,7 @@ router.get('/page/:page', function (req, res, next) {
   User
   .find(searchQuery)
   .populate({ path: 'companies', model: 'Companie'})
+  .populate({ path: 'forms', model: 'Form'})
   .limit(itemsPerPage)
   .skip(skip)
   .sort(req.query.orderBy)
