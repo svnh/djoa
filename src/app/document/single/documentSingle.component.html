@@ -22,13 +22,14 @@
       </div>
     </div>
     <div class="sidewrapper">
-      <app-autocomplete [typeAutocomplete]="'user'" [search]="search" [canDelete]=true [title]="'crewMembers'" [singleChoice]=true [arrayContent]="fetchedDocument.crewMembers">
+      <label class="label-title">Assign Crew Members</label>
+      <app-autocomplete [typeAutocomplete]="'user'" [search]="search" [canDelete]=true [title]="'Gets the work done:'" [singleChoice]=true [arrayContent]="fetchedDocument.crewMembers">
       </app-autocomplete>
-      <app-autocomplete [typeAutocomplete]="'user'" [search]="search" [canDelete]=true [title]="'reviewers'" [singleChoice]=true [arrayContent]="fetchedDocument.reviewers">
+      <app-autocomplete [typeAutocomplete]="'user'" [search]="search" [canDelete]=true [title]="'Reviews:'" [singleChoice]=true [arrayContent]="fetchedDocument.reviewers">
       </app-autocomplete>
     </div>
-    <div class="valid-edit">
-      <button type="submit" class="done btn btn-success" [disabled]="!myForm.valid">{{'Save' }}</button>
+    <div class="sidewrapper valid-edit">
+      <button type="submit" class="save" [disabled]="!myForm.valid">{{'Save' }}</button>
       <button *ngIf="fetchedDocument._id" type="button" class="delete" md-button (click)="openDeleteConfirmation()">
         {{'Delete' }}
       </button>
