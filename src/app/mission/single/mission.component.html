@@ -1,8 +1,8 @@
 <div>
-  <!--<h4 class="">id: {{fetchedMission._id}}</h4>-->
+  <h2 class="sidewrapper">Mission</h2>
   <form [formGroup]="myForm" novalidate (ngSubmit)="save()">
     <div>
-      <app-autocomplete [typeAutocomplete]="'project'" [canDelete]=true [search]="search" [title]="'Project'" [singleChoice]=true [arrayContent]="fetchedMission.projects">
+      <app-autocomplete [typeAutocomplete]="'project'" [canDelete]=true [search]="search" [title]="" [singleChoice]=true [arrayContent]="fetchedMission.projects">
       </app-autocomplete>
       <app-autocomplete [typeAutocomplete]="'categorie'" [canDelete]=true [search]="search" [title]="'categorie'" [singleChoice]=true [arrayContent]="fetchedMission.categories">
       </app-autocomplete>

@@ -1,8 +1,7 @@
 <div class="container">
-  <div>
-    <h3>Strat</h3>
-    <h4 class="">id: {{fetchedStrat._id}}</h4>
-    <form [formGroup]="myForm" novalidate (ngSubmit)="save()">
+  <div class="greyback">
+    <h2 class="sidewrapper">Strategy</h2>
+    <form class="sidewrapper" [formGroup]="myForm" novalidate (ngSubmit)="save()">
       <div>
         <app-autocomplete [typeAutocomplete]="'project'" [search]="search" [canDelete]=true [title]="'Project'" [singleChoice]=true [arrayContent]="fetchedStrat.projects">
         </app-autocomplete>
@@ -13,20 +12,19 @@
           <textarea matInput class="form-control" formControlName="description" [(ngModel)]="fetchedStrat.description" placeholder="Description">
         </textarea>
         </mat-form-field>
+        <label class="label-title">Project Owners</label>
         <app-autocomplete [typeAutocomplete]="'user'" [singleChoice]="'true'" [arrayContent]="fetchedStrat.users">
         </app-autocomplete>
-        <mat-form-field>
+        <!---<mat-form-field>
           <input matInput type="date" class="form-control" formControlName="startString" [(ngModel)]="fetchedStrat.dateStrat.startString">
-        </mat-form-field>
+        </mat-form-field>--->
         <mat-form-field>
           <input matInput type="date" class="form-control" formControlName="endString" [(ngModel)]="fetchedStrat.dateStrat.endString">
         </mat-form-field>
       </div>
       <div class="valid-edit">
-        <button type="submit" class="sln-edt done">{{'Save' }}</button>
-        <button *ngIf="fetchedStrat._id" type="button" class="delete" md-button (click)="openDialogDelete()">
-          Delete
-        </button>
+        <button type="submit" class="save">{{'Save' }}</button>
+        <button *ngIf="fetchedStrat._id" type="button" class="delete" md-button (click)="openDialogDelete()">Delete</button>
       </div>
     </form>
   </div>
