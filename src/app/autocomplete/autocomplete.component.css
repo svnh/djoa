@@ -5,7 +5,7 @@
   min-height: 40px;
 }
 .resultleft {
-  padding: 0 5px;
+  padding: 0 8px;
   background-color: #330066;
   color: #ffffff;
 }
@@ -31,4 +31,7 @@
   border: 1px solid;
   border-radius: 3px;
   color: #f44336;
+}
+.listname {
+  width:70%;
 }

@@ -47,7 +47,7 @@
 <div class="result" *ngFor="let data of arrayContent; let i=index">
   <table>
     <tr>
-      <td class="" (click)="linkToObject(data)">
+      <td class="listname" (click)="linkToObject(data)">
         <div *ngIf="typeAutocomplete=='user'">
           <app-picture [addPicture]=false [deletePicture]=false [forms]="data.profile.profilePicture"></app-picture>
           {{data.profile.name}} {{data.profile.lastName}}
