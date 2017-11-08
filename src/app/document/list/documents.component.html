@@ -48,8 +48,7 @@
       <div *ngIf="document.status.global == 'CHANGES SENT'" class="doc-status">
         <div *ngIf="fetchedDocuments[i].currentUserBelongsTo === 'crew'">
           <mat-slide-toggle (change)="changeStatus($event, i, 'CHANGES REQUEST', 'crew')" [(ngModel)]="fetchedDocuments[i].status.changeSent">CHANGES SENT</mat-slide-toggle>
-          <br>
-          NO ACTION REQUIRED
+          <br> NO ACTION REQUIRED
         </div>
         <div *ngIf="fetchedDocuments[i].currentUserBelongsTo ==='client'">
           <mat-slide-toggle (change)="changeStatus($event, i, 'COMPLETE', '')" [(ngModel)]="fetchedDocuments[i].status.approve">APPROVE</mat-slide-toggle>
@@ -70,10 +69,36 @@
         <button type="button" (click)="openDetails(document._id)" class="edit-btn">Edit</button>
       </div>
       <div class="doc-state-bar">
-        <div class="doc-state-bottom"><div class="circle"></div>{{document.status.global}}</div>
-        <div class="doc-state-bottom"><div class="circle"></div>REVIEW</div>
-        <div class="doc-state-bottom"><div class="circle"></div>CHANGES</div>
-        <div class="doc-state-bottom end"><div class="circle"></div>COMPLETE</div>
+        <div [ngClass]="{'off':
+          document.status.global==='WIP'
+         }">
+          <div class="doc-state-bottom">
+            <div class="circle"></div>WIP</div>
+        </div>
+        <div [ngClass]="{'off':
+          document.status.global==='WIP' ||
+          document.status.global==='REVIEW'
+         }">
+          <div class="doc-state-bottom">
+            <div class="circle"></div>REVIEW</div>
+        </div>
+        <div [ngClass]="{'off':
+          document.status.global==='WIP' ||
+          document.status.global==='REVIEW' ||
+          document.status.global==='CHANGES REQUEST'
+         }">
+          <div class="doc-state-bottom">
+            <div class="circle"></div>CHANGES</div>
+        </div>
+        <div [ngClass]="{'off':
+          document.status.global==='WIP' ||
+          document.status.global==='REVIEW' ||
+          document.status.global==='CHANGES REQUEST' ||
+          document.status.global==='CHANGES SENT'
+         }">
+          <div class="doc-state-bottom end">
+            <div class="circle"></div>COMPLETE</div>
+        </div>
       </div>
 
     </mat-card-content>
