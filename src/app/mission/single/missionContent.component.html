@@ -30,7 +30,7 @@
         <app-documents [search]="search"></app-documents>
       </mat-card-content>
     </mat-card>
-    <mat-card>
+    <mat-card class="card-margin">
       <mat-card-content>
         <h2>Crew Members for This Mission</h2>
         <button type="button" (click)="openTeam()" class="edit-btn">Edit</button>
@@ -40,6 +40,16 @@
           </div>
           <p>{{user.profile.name}} {{user.profile.lastName}}</p>
         </div>
+      </mat-card-content>
+    </mat-card>
+    <mat-card>
+      <mat-card-content>
+        <app-chat
+          [linkGoToChat]="'mission/' + fetchedMission._id + '/chat'"
+          [addMessage]=false
+          [onlylastPost]=true
+          [search]="search">
+        </app-chat>
       </mat-card-content>
     </mat-card>
     <div class="bottom-shadow"></div>

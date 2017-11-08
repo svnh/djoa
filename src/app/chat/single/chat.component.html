@@ -1,21 +1,24 @@
 <div class="chat-wrapper">
-  <div #readChat class="read-chat" >
+  <div #readChat class="read-chat">
     <div *ngIf="!messages.length">
       Write your first message to start the discussion...
     </div>
-    <div *ngFor="let message of messages" class="indiv-chat">
-      <div *ngFor="let user of message.users">
-        <div class="pic-container">
-          <app-picture [userIdToOpenProfile]="user._id" [addPicture]=false [deletePicture]=false [forms]="user.forms"></app-picture>
-        </div>
-        <div class="chat-content">
-          <p>{{message.chatName}}</p>
-          <h5>{{message.createdAt | date:'yMdjm'}}</h5>
+    <div *ngFor="let message of messages; let i=index;" class="indiv-chat">
+      <div *ngIf="!onlylastPost || i === messages.length-1">
+        <div *ngFor="let user of message.users">
+          <div class="pic-container">
+            <app-picture [userIdToOpenProfile]="user._id" [addPicture]=false [deletePicture]=false [forms]="user.forms"></app-picture>
+          </div>
+          <div class="chat-content">
+            <p>{{message.chatName}}</p>
+            <button *ngIf="linkGoToChat" type="button" (click)="goToChat()">GO TO Chat</button>
+            <h5>{{message.createdAt | date:'yMdjm'}}</h5>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="write-chat">
+  <div *ngIf="addMessage" class="write-chat">
     <textarea [(ngModel)]="message.chatName" (keyup.enter)="sendMessage()"></textarea>
     <button (click)="sendMessage()" class="edit-btn">Send</button>
   </div>

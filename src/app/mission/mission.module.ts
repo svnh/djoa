@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 import { MissionComponent} from './single/mission.component';
+import { MissionChatComponent} from './single/missionChat.component';
 import { MissionTeamComponent} from './single/missionTeam.component';
 import { MissionContentComponent} from './single/missionContent.component';
 // import { MissionSingleComponent} from './missionSingle/missionSingle.component';
@@ -50,6 +51,7 @@ import {ChatModule} from '../chat/chat.module';
     MissionContentComponent,
     MissionsComponent,
     LightMissionsComponent,
+    MissionChatComponent,
     // ProjectMissionsComponent,
     // MissionDialogComponent,
     // MissionSingleComponent,

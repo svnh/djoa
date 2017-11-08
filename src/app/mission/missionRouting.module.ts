@@ -1,8 +1,9 @@
 import { Routes, RouterModule } from '@angular/router';
-import { NgModule }            from '@angular/core';
+import { NgModule } from '@angular/core';
 import { MissionComponent} from './single/mission.component';
 import { MissionContentComponent} from './single/missionContent.component';
 import { MissionsComponent} from './list/missions.component';
+import { MissionChatComponent} from './single/missionChat.component';
 // import {ProjectMissionsComponent} from './project/projectMissions.component';
 export const routes: Routes = [
   {path: '', component: MissionsComponent},
@@ -13,6 +14,7 @@ export const routes: Routes = [
   // {path: 'new', component: MissionComponent},
   // {path: 'new/:idClient', component: MissionSingleComponent},
   {path: ':id', component: MissionContentComponent},
+  {path: ':id/chat', component: MissionChatComponent},
 
 
 

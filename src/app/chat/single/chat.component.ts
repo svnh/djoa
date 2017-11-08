@@ -16,6 +16,10 @@ import {Router, ActivatedRoute, Params } from '@angular/router';
 })
 export class ChatComponent implements OnInit, OnDestroy {
   @Input() search: Search = new Search()
+  @Input() onlylastPost: boolean = false
+  @Input() addMessage: boolean = true
+  @Input() linkGoToChat: string = ''
+
   @ViewChild('readChat', { read: ElementRef }) public readChat: ElementRef;
   loading: boolean;
   messages = [];
@@ -29,11 +33,11 @@ export class ChatComponent implements OnInit, OnDestroy {
   constructor(
     private activatedRoute: ActivatedRoute,
     private chatService: ChatService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router,
   ) { }
 
   sendMessage() {
-
     if(this.message.chatName) {
       if(this.search.stratId) {
         let newStrat = new Strat()
@@ -57,11 +61,12 @@ export class ChatComponent implements OnInit, OnDestroy {
       //     this.readChat.nativeElement.scrollTop = this.readChat.nativeElement.scrollHeight;
       // } catch(err) { }
 
-
-
     }
   }
 
+  goToChat() {
+    this.router.navigate([this.linkGoToChat]);
+  }
   ngOnInit() {
 
     this.activatedRoute.params.subscribe((params: Params) => {
