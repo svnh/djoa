@@ -17,8 +17,9 @@ import {ShowNavBarData} from '../home/home.model'
 
 export class PictureComponent {
   @Input() forms: Form[] = [];
-  @Input() ngStyleImg: string = '';
+  // @Input() ngStyleImg: string = '';
   @Input() addPicture: boolean = true
+  @Input() loadSinglePicture: boolean = false
   @Input() userIdToOpenProfile: string = ''
   @Input() deletePicture: boolean = true
   // @Input() useDialog: boolean = true

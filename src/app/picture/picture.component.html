@@ -1,13 +1,15 @@
 
 <div (click)="openProfile()">
   <div *ngFor="let singleForm of forms; let i=index;">
-    <img [ngStyle]="ngStyleImg" class="imgList" src="./uploads/forms/{{singleForm.owner}}/{{singleForm.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
+    <img class="imgList" src="./uploads/forms/{{singleForm.owner}}/{{singleForm.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
     <button *ngIf="deletePicture" type="button" md-button (click)="removePic(i)">
       <i class="fa fa-times"></i>
     </button>
   </div>
 
   <div *ngIf="addPicture">
+  <div *ngIf="!loadSinglePicture || forms.length<1">
     <app-form (onPassForm)="onPassForm($event)"></app-form>
+  </div>
   </div>
 </div>

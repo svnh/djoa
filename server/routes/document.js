@@ -517,7 +517,27 @@ router.get('/:id', function(req, res, next) {
       })
     }
 
-    Document.findById({_id: req.params.id}).populate({path: 'briefs', model: 'Brief'}).populate({path: 'missions', model: 'Mission'}).populate({path: 'strats', model: 'Strat'}).populate({path: 'crewMembers', model: 'User'}).populate({path: 'reviewers', model: 'User'}).populate({path: 'owners', model: 'User'})
+    Document.findById({_id: req.params.id})
+    .populate({path: 'briefs', model: 'Brief'})
+    .populate({path: 'missions', model: 'Mission'})
+    .populate({path: 'strats', model: 'Strat'})
+    .populate({
+      path: 'crewMembers',
+      model: 'User',
+        populate: {
+          path: 'forms',
+          model: 'Form'
+        }
+      })
+    .populate({
+      path: 'reviewers',
+      model: 'User',
+      populate: {
+            path: 'forms',
+            model: 'Form'
+          }
+        })
+    .populate({path: 'owners', model: 'User'})
     // .populate({path: 'logs.forms', model: 'Form'})
     // .populate({path: 'logs.by', model: 'User'})
     // .populate({path: 'assignedTos', model: 'User'})
