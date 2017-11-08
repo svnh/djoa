@@ -9,6 +9,7 @@
   display: flex;
   align-items: center;
   float: left;
+  max-width: 50px;
 }
 .doc-info {
   display: inline-block;
@@ -17,10 +18,11 @@
 }
 .open {
   text-transform: uppercase;
-  text-decoration: none;
   border: 1px solid;
-  padding: 10px 40px;
   float: right;
+}
+.open a {
+  text-decoration: none !important;
 }
 img.doc-icon {
   float: left;
@@ -32,7 +34,6 @@ img.doc-icon {
 }
 .doc-state-bottom {
   float: left;
-  width: 16%;
   border-top: 1px solid;
 }
 .circle {
@@ -50,7 +51,7 @@ img.doc-icon {
   color: #cccccc;
 }
 .end {
-  border: none !important;
+  border-color: transparent !important;
 }
 .cho-filcnt img {
   max-width: 100% !important;
@@ -62,4 +63,23 @@ img.doc-icon {
   content: "";
   display: block;
   clear: both;
+}
+
+@media screen and (min-width: 600px) {
+  .doc-state-bottom {
+    width: 16%;
+    font-size: 12px;
+  }
+  .open {
+    padding: 10px 40px;
+  }
+}
+@media screen and (max-width: 599px) {
+  .doc-state-bottom {
+    width: 25%;
+    font-size: 10px;
+  }
+  .open {
+    padding: 10px 15px;
+  }
 }

@@ -15,34 +15,33 @@
       </div>
       <div *ngIf="document.status.global == 'WIP'" class="doc-status">
         <div *ngIf="fetchedDocuments[i].currentUserBelongsTo ==='crew'">
-          <mat-slide-toggle (change)="changeStatus($event, i, 'REVIEW', 'client')" [(ngModel)]="fetchedDocuments[i].status.review">SEND FOR REVIEW</mat-slide-toggle>
+          <mat-slide-toggle (change)="changeStatus($event, i, 'REVIEW', 'client')" [(ngModel)]="fetchedDocuments[i].status.review" class="myturn">SEND FOR REVIEW</mat-slide-toggle>
         </div>
-        <div *ngIf="fetchedDocuments[i].currentUserBelongsTo ==='client'">
-          WORK IN PROGRESS NO ACTION REQUIRED
+        <div *ngIf="fetchedDocuments[i].currentUserBelongsTo ==='client'" class="docproginfo">
+          WORK IN PROGRESS - NO ACTION REQUIRED
         </div>
       </div>
 
       <div *ngIf="document.status.global == 'REVIEW'" class="doc-status">
         <div *ngIf="fetchedDocuments[i].currentUserBelongsTo === 'crew'">
-          <mat-slide-toggle (change)="changeStatus($event, i, 'WIP', 'crew')" [(ngModel)]="fetchedDocuments[i].status.review">REVIEW REQUESTED</mat-slide-toggle>
+          <mat-slide-toggle (change)="changeStatus($event, i, 'WIP', 'crew')" [(ngModel)]="fetchedDocuments[i].status.review" class="yourturn">REVIEW REQUESTED</mat-slide-toggle>
         </div>
         <div *ngIf="fetchedDocuments[i].currentUserBelongsTo ==='client'">
-          <mat-slide-toggle (change)="changeStatus($event, i, 'COMPLETE', '')" [(ngModel)]="fetchedDocuments[i].status.approve">APPROVE</mat-slide-toggle>
+          <mat-slide-toggle (change)="changeStatus($event, i, 'COMPLETE', '')" [(ngModel)]="fetchedDocuments[i].status.approve" class="myturn">APPROVE</mat-slide-toggle>
           <br>
-          <mat-slide-toggle (change)="changeStatus($event, i, 'CHANGES REQUEST', 'crew')" [(ngModel)]="fetchedDocuments[i].status.changeRequest">REQUEST CHANGES</mat-slide-toggle>
+          <mat-slide-toggle (change)="changeStatus($event, i, 'CHANGES REQUEST', 'crew')" [(ngModel)]="fetchedDocuments[i].status.changeRequest" class="myturn">REQUEST CHANGES</mat-slide-toggle>
         </div>
       </div>
 
       <div *ngIf="document.status.global == 'CHANGES REQUEST'" class="doc-status">
-        <div *ngIf="fetchedDocuments[i].currentUserBelongsTo === 'crew'">
+        <div *ngIf="fetchedDocuments[i].currentUserBelongsTo === 'crew'" class="docproginfo">
           SEE DOCUMENT AND/OR CHAT FOR INSTRUCTIONS
           <BR>
-          <mat-slide-toggle (change)="changeStatus($event, i, 'CHANGES SENT', 'client')" [(ngModel)]="fetchedDocuments[i].status.changeSent">SEND APPLIED CHANGES</mat-slide-toggle>
+          <mat-slide-toggle (change)="changeStatus($event, i, 'CHANGES SENT', 'client')" [(ngModel)]="fetchedDocuments[i].status.changeSent" class="myturn">SEND APPLIED CHANGES</mat-slide-toggle>
         </div>
         <div *ngIf="fetchedDocuments[i].currentUserBelongsTo ==='client'">
-          <mat-slide-toggle (change)="changeStatus($event, i, 'REVIEW', 'crew')" [(ngModel)]="fetchedDocuments[i].status.changeRequest">CHANGE REQUESTED</mat-slide-toggle>
-          <br>
-          NO ACTION REQUIRED
+          <mat-slide-toggle (change)="changeStatus($event, i, 'REVIEW', 'crew')" [(ngModel)]="fetchedDocuments[i].status.changeRequest" class="yourturn">CHANGE REQUESTED</mat-slide-toggle>
+          <div class="docproginfo">NO ACTION REQUIRED</div>
         </div>
       </div>
 
