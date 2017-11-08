@@ -65,7 +65,7 @@
           <mat-slide-toggle (change)="changeStatus($event, i, 'CHANGES SENT', 'client')" [(ngModel)]="fetchedDocuments[i].status.approve">APPROVED</mat-slide-toggle>
         </div>
       </div>
-      <div class="editdoc">
+      <div *ngIf="editMode" class="editdoc">
         <button type="button" (click)="openDetails(document._id)" class="edit-btn">Edit</button>
       </div>
       <div class="doc-state-bar">
