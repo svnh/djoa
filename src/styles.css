@@ -110,13 +110,21 @@ a {
   cursor: pointer;
   font-family: inherit;
 }
-.save {
+.save, .delete {
   width: 100%;
   height: 35px;
+  text-transform: uppercase;
+  padding: 5px;
+}
+.save {
   background-color: #009688;
   color: #fff;
   font-weight: 600;
-  text-transform: uppercase;
+}
+.delete {
+  text-align: center;
+  border: 1px solid;
+  margin-top: 15px;
 }
 p.percent {
   display: inline-block;

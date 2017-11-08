@@ -50,7 +50,7 @@
       <td class="listname" (click)="linkToObject(data)">
         <div *ngIf="typeAutocomplete=='user'">
           <app-picture [addPicture]=false [deletePicture]=false [forms]="data.forms"></app-picture>
-          <div class="namelist">{{data.profile.name}} {{data.profile.lastName}}</div>
+          <div class="listname-txt">{{data.profile.name}} {{data.profile.lastName}}</div>
         </div>
         <div *ngIf="typeAutocomplete=='companie'">{{data.nameCompanie}}</div>
         <div *ngIf="typeAutocomplete=='quote'">{{data.name}}</div>
