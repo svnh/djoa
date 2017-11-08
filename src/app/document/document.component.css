@@ -2,17 +2,18 @@
   box-shadow: none !important;
   background-color: #f4f4f4 !important;
   margin: 15px 0 35px;
+  padding: 0 24px !important;
 }
 .doc-title {
   height: 50px;
   display: flex;
   align-items: center;
-  margin-bottom: 15px;
   float: left;
 }
 .doc-info {
   display: inline-block;
   width: 100%;
+  margin: 15px 0 !important;
 }
 .open {
   text-transform: uppercase;
@@ -31,9 +32,31 @@ img.doc-icon {
 }
 .doc-state-bottom {
   float: left;
-  margin-top: 30px;
-  width: 12%;
+  width: 16%;
+  border-top: 1px solid;
+}
+.circle {
+  height: 14px;
+  width: 14px;
+  background-color: #fff;
+  border-radius: 10px;
+  border: 1px solid;
+  margin-top: -7px;
+}
+.on {
+  color: #330066;
+}
+.off {
+  color: #cccccc;
+}
+.end {
+  border: none !important;
 }
 .cho-filcnt img {
   max-width: 100% !important;
+}
+.editdoc:after {
+  content: "";
+  display: block;
+  clear: both;
 }

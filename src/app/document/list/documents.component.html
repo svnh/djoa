@@ -67,15 +67,14 @@
           <mat-slide-toggle (change)="changeStatus($event, i, 'CHANGES SENT', 'client')" [(ngModel)]="fetchedDocuments[i].status.approve">APPROVED</mat-slide-toggle>
         </div>
       </div>
-
-      <button type="button" (click)="openDetails(document._id)" class="edit-btn">Edit</button>
-
+      <div class="editdoc">
+        <button type="button" (click)="openDetails(document._id)" class="edit-btn">Edit</button>
+      </div>
       <div class="doc-state-bar">
-        <div class="doc-state-bottom">{{document.status.global}}</div>
-        <div class="doc-state-bottom">{{document.status.global}}</div>
-        <div class="doc-state-bottom">{{document.status.global}}</div>
-        <div class="doc-state-bottom">{{document.status.global}}</div>
-        <div class="doc-state-bottom">{{document.status.global}}</div>
+        <div class="doc-state-bottom"><div class="circle"></div>{{document.status.global}}</div>
+        <div class="doc-state-bottom"><div class="circle"></div>REVIEW</div>
+        <div class="doc-state-bottom"><div class="circle"></div>CHANGES</div>
+        <div class="doc-state-bottom"><div class="circle"></div>COMPLETE</div>
       </div>
 
     </mat-card-content>
