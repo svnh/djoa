@@ -13,6 +13,8 @@ import { UserService} from '../../user/user.service';
 // import { QuoteService} from '../../quote/quote.service';
 
 import { User } from '../../user/user.model';
+import { Project } from '../../project/project.model';
+import { Categorie } from '../../categorie/categorie.model';
 // import { Quote } from '../../quote/quote.model';
 import { AuthService} from '../../auth/auth.service';
 
@@ -44,7 +46,8 @@ export class DocumentSingleComponent implements OnInit {
   // fetchedUsers: User[] = [];
   // fetchedQuotes: Quote[] = [];
 
-
+  autocompleteSearchProjects: Project[] = []
+  autocompleteSearchCategories: Categorie[] = []
   fetchedDocument: Document = new Document();
 
 
@@ -104,6 +107,15 @@ export class DocumentSingleComponent implements OnInit {
 
   }
 
+  getResultSearchProjects(project: Project) {
+    this.search.projectId = project._id
+  }
+  getResultSearchCategories(categorie: Categorie) {
+    this.search.categorieId = categorie._id
+  }
+  clearSearchProjects() {
+    this.search.projectId = ''
+  }
 
   save() {
 

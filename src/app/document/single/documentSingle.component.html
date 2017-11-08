@@ -2,7 +2,13 @@
   <h2 class="sidewrapper greyback">Document</h2>
   <form [formGroup]="myForm" novalidate (ngSubmit)="save()" (keydown.enter)="$event.preventDefault()">
     <div class="sidewrapper greyback">
-      <app-autocomplete [typeAutocomplete]="'strat'" [search]="search" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedDocument.strats">
+      <!-- <app-autocomplete [typeAutocomplete]="'strat'" [search]="search" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedDocument.strats">
+      </app-autocomplete> -->
+
+
+      <app-autocomplete [typeAutocomplete]="'project'" [search]="search" [canDelete]=true [title]="'Search Input'" [singleChoice]=true [arrayContent]="autocompleteSearchProjects" (clearAutocomplete)="clearSearchProjects()" (getResultAutocomplete)="getResultSearchProjects($event[0])">
+      </app-autocomplete>
+      <app-autocomplete [typeAutocomplete]="'categorie'" [search]="search" [canDelete]=true [title]="'Search Input'" [singleChoice]=true [arrayContent]="autocompleteSearchCategories" (getResultAutocomplete)="getResultSearchCategories($event[0])">
       </app-autocomplete>
       <app-autocomplete [typeAutocomplete]="'mission'" [search]="search" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedDocument.missions">
       </app-autocomplete>
