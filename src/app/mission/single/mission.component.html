@@ -15,7 +15,7 @@
     </div>
     <div class="sidewrapper">
       <label class="label-title">Assign Crew Members</label>
-      <app-autocomplete [typeAutocomplete]="'user'" [singleChoice]="'true'" [arrayContent]="fetchedMission.users">
+      <app-autocomplete [typeAutocomplete]="'user'" [singleChoice]=false [arrayContent]="fetchedMission.users">
       </app-autocomplete>
       <mat-form-field>
         <input matInput type="date" formControlName="startString" [(ngModel)]="fetchedMission.dateMission.startString">

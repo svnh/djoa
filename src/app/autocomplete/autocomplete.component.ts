@@ -35,7 +35,7 @@ export class AutocompleteComponent implements OnInit {
   @Input() title: string = '';
   @Input() search: Search = new Search();
   @Input() canDelete: boolean = true;
-  @Input() enableLink: boolean = true;
+  @Input() enableLink: boolean = false;
   // createNewItem: boolean = false;
   autocompleteSearch = ''
   fetchedData: User[] = [];
