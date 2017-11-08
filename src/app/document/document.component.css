@@ -1,13 +1,13 @@
 .single-doc {
   box-shadow: none !important;
   background-color: #f4f4f4 !important;
-  margin: 15px 0;
+  margin: 15px 0 35px;
 }
 .doc-title {
   height: 50px;
   display: flex;
   align-items: center;
-  margin: 15px 0;
+  margin-bottom: 15px;
   float: left;
 }
 .doc-info {
@@ -23,15 +23,16 @@
 }
 img.doc-icon {
   float: left;
-  width: 50px;
+  width: 35px;
   margin-right: 15px;
 }
 .doc-title p {
   margin: 0;
 }
 .doc-state-bottom {
-  position: absolute;
-  bottom: -20px;
+  float: left;
+  margin-top: 30px;
+  width: 12%;
 }
 .cho-filcnt img {
   max-width: 100% !important;
