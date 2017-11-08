@@ -34,3 +34,9 @@
 .listname {
   width:155px !important;
 }
+.listname img.imgList {
+  width: 30px;
+  height: 30px !important;
+  float: left;
+  margin-right: 5px;
+}

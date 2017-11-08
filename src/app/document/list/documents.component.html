@@ -3,10 +3,9 @@
 <div *ngFor="let document of fetchedDocuments; let i = index;">
   <mat-card class="single-doc">
     <mat-card-content>
-      currentUserBelongsTo: {{fetchedDocuments[i].currentUserBelongsTo}}
-      pendingActionFrom:{{fetchedDocuments[i].status.pendingActionFrom}}
+      <!---currentUserBelongsTo: {{fetchedDocuments[i].currentUserBelongsTo}}
+      pendingActionFrom:{{fetchedDocuments[i].status.pendingActionFrom}}-->
       <button type="button" *ngIf="editMode" (click)="delete(document._id)" class="delete-x"><i class="fa fa-trash-o"></i></button>
-      <button type="button" (click)="openDetails(document._id)" class="edit-btn">Edit</button>
       <div class="doc-info">
         <div class="doc-title">
           <img class="doc-icon" src="assets/images/doc-icon.png">
@@ -69,7 +68,15 @@
         </div>
       </div>
 
-      <div class="doc-state-bottom">{{document.status.global}}</div>
+      <button type="button" (click)="openDetails(document._id)" class="edit-btn">Edit</button>
+
+      <div class="doc-state-bar">
+        <div class="doc-state-bottom">{{document.status.global}}</div>
+        <div class="doc-state-bottom">{{document.status.global}}</div>
+        <div class="doc-state-bottom">{{document.status.global}}</div>
+        <div class="doc-state-bottom">{{document.status.global}}</div>
+        <div class="doc-state-bottom">{{document.status.global}}</div>
+      </div>
     </mat-card-content>
   </mat-card>
 </div>
