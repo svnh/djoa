@@ -105,14 +105,14 @@ mat-progress-bar.mat-progress-bar.mat-primary, .project-progress {
   -o-filter: drop-shadow(0 0 5px #aaaaaa);
   filter: drop-shadow(0 0 5px #aaaaaa);
 }
-.list-on {
+.selected.list-on {
   background-color: #ffffff;
   padding: 5px;
   display: table-cell;
   width: 160px;
   vertical-align: middle;
 }
-.triangle {
+.selected.triangle {
   display: table-cell;
   width: 0;
   height: 0;
