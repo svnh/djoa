@@ -49,9 +49,3 @@
   margin: 0;
   padding:15px 0;
 }
-
-@media screen and (max-width: 991px) {
-  .mobile-chat {
-    display: none;
-  }
-}
