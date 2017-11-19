@@ -18,7 +18,8 @@
   background-color: #330066 !important;
   padding: 10px !important;
   border: 1px solid !important;
-  border-radius: 20px !important;}
+  border-radius: 20px !important;
+}
 a.nav-link {
   padding: 0 1em !important;
 }
@@ -60,4 +61,16 @@ a.nav-link {
   background-color: #ffffff;
   border-radius: 100px;
   width: 65px;
+}
+
+@media screen and (max-width: 1199px) {
+  .nav.leftmenu {
+    margin-left: 1%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .nav.leftmenu {
+    margin-left: 4%;
+  }
 }

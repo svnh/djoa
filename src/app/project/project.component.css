@@ -49,16 +49,6 @@ mat-progress-bar.mat-progress-bar.mat-primary, .project-progress {
   width: 80% !important;
   padding: 1px !important;
 }
-.delete-x {
-  position: absolute;
-  top: 0%;
-  right: 0%;
-  background: none;
-  background-color: #f44336;
-  border: none;
-  color: #fff;
-  height: 100%;
-}
 .projectsummary section {
   position: relative;
 }

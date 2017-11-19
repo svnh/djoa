@@ -54,13 +54,13 @@ a {
   color: inherit !important;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 992px) {
   .dspl-nn-dsktp {
     display: none !important;
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 991px) {
   .dspl-nn-mbl {
     display: none !important;
   }
@@ -90,8 +90,7 @@ a {
   max-width: 100%;
   display:inline-block;
 }
-.edit-btn {
-  color: #ccc;
+.edit-btn, .delete-x {
   float: right;
   text-transform: uppercase;
   font-size: 12px;
@@ -99,6 +98,12 @@ a {
   text-decoration: none;
   background: none;
   border: none;
+}
+.edit-btn {
+  color: #ccc;
+}
+.delete-x {
+  color: #f44336;
 }
 .add-object {
   width: 100%;
@@ -109,7 +114,7 @@ a {
   color: #fff;
   text-align: left;
   cursor: pointer;
-  font-family: inherit;
+  text-transform: uppercase;
 }
 .save, .delete {
   width: 100%;
