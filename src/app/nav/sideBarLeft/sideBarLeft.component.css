@@ -1,4 +1,4 @@
-@media screen and (min-width: 991px) {
+@media screen and (min-width: 992px) {
   mat-sidenav.sidebarleft {
     background-color: transparent !important;
     background-image: url("/assets/images/left-sidenav-back.png");
@@ -11,6 +11,11 @@
   }
   .mat-drawer-container {
     height: 100%;
+  }
+}
+@media screen and (max-width: 991px) {
+  mat-sidenav.sidebarleft {
+    padding-top: 50px;
   }
 }
 

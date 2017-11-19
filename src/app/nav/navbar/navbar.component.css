@@ -5,13 +5,10 @@
 }
 .nav.rightmenu {
   float: right;
-  padding: 15px;
 }
 .nav.leftmenu {
-  margin-left: 1.8%;
   float: left;
   z-index: 999;
-  padding: 15px;
 }
 .fa-home {
   color: #ffffff !important;
@@ -24,29 +21,20 @@ a.nav-link {
   padding: 0 1em !important;
 }
 .fa-bars {
-  background: #4a148c;
-  background: -webkit-linear-gradient(left, #4a148c , #0d47a1);
-  background: -o-linear-gradient(right, #4a148c , #0d47a1);
-  background: -moz-linear-gradient(right, #4a148c , #0d47a1);
-  background: linear-gradient(to right, #4a148c , #0d47a1);
+  color: #4a148c;
 }
 .navadd .fa.fa-plus, .navnotif button {
   color: #fff;
-  border-radius: 30px;
-  width: 40px;
-  height: 40px;
+  border-radius: 100px;
   font-weight: 500;
+  border: 1px solid;
 }
 .navadd .fa.fa-plus {
   background-color: #330066;
-  border: 1px solid #330066;
-  margin: 10px 20px;
-  padding: 12px;
+  border-color: #330066;
 }
 .navnotif button {
   background-color: #f44336;
-  border: 1px solid;
-  margin: 10px 0;
 }
 .adm-btn {
   color: #ffffff;
@@ -57,10 +45,8 @@ a.nav-link {
 }
 .pic-container {
   border: 1px solid #4a148c;
-  padding: 1px;
   background-color: #ffffff;
   border-radius: 100px;
-  width: 65px;
 }
 
 @media screen and (max-width: 1199px) {
@@ -72,5 +58,44 @@ a.nav-link {
 @media screen and (min-width: 1200px) {
   .nav.leftmenu {
     margin-left: 4%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .navadd .fa.fa-plus, .navnotif button {
+    width: 40px;
+    height: 40px;
+  }
+  .navadd .fa.fa-plus {
+    margin: 10px 20px;
+    padding: 12px;
+  }
+  .navnotif button {
+    margin: 10px 0;
+  }
+  .pic-container {
+    width: 65px;
+    padding: 1px;
+  }
+  .nav.rightmenu, .nav.leftmenu {
+    padding: 15px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .nav-container {
+    background-color: #fff;
+  }
+  .navadd .fa.fa-plus, .navnotif button, .pic-container {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+  .navadd .fa.fa-plus {
+    margin: 0 10px;
+    padding: 8px;
+  }
+  .nav.rightmenu, .nav.leftmenu {
+    padding: 7px;
   }
 }

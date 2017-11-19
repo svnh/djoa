@@ -4,7 +4,6 @@
   height: auto;
 }
 .mission-nav {
-  margin-top: 80px;
   color: #c9c9c9;
   opacity: 0.5;
   padding: 0 15px;
@@ -48,4 +47,10 @@
 .indiv-team p {
   margin: 0;
   padding:15px 0;
+}
+
+@media screen and (min-width: 992px) {
+  .mission-nav {
+    margin-top: 80px;
+  }
 }

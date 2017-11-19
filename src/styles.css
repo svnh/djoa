@@ -76,13 +76,9 @@ a {
 }
 .djoa-container {
   float: none;
-  margin: 0 0 0 13%;
-  height: 93vh !important;
   overflow: hidden;
   background-image: url(/assets/images/page-title-back.png);
   background-repeat: no-repeat;
-  background-size: 80%;
-  background-position: 50% -10%;
 }
 .missionbox {
   float: left;
@@ -173,13 +169,27 @@ p.percent {
   font-size: 18px;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 992px) {
   .djoa-container {
+    margin: 0 0 0 13%;
+    height: 93vh !important;
+    background-size: 80%;
+    background-position: 50% -10%;
     width: 80% !important;
     max-width: 80% !important;
   }
   .missionbox {
     margin-right: 20px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .djoa-container {
+    background-size: 100%;
+    background-position: 50% -6%;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-top: 46px;
   }
 }
 
