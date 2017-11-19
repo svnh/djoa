@@ -64,6 +64,9 @@ img.doc-icon {
   display: block;
   clear: both;
 }
+.docproginfo {
+  margin: 15px 0;
+}
 
 @media screen and (min-width: 600px) {
   .doc-state-bottom {

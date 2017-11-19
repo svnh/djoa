@@ -105,6 +105,10 @@ mat-progress-bar.mat-progress-bar.mat-primary, .project-progress {
   -o-filter: drop-shadow(0 0 5px #aaaaaa);
   filter: drop-shadow(0 0 5px #aaaaaa);
 }
+.selected {
+  color: inherit !important;
+  margin: 15px 0;
+}
 .selected .list-on {
   background-color: #ffffff;
   padding: 5px;
