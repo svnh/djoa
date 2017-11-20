@@ -1,7 +1,7 @@
 <div class="djoa-container no-image">
-  <div *ngFor="let project of fetchedMission.projects">
-    <div>< Back</div>
-    <h1>{{project.details.name}}</h1>
+  <div *ngFor="let project of fetchedMission.projects" class="top-nav-chat">
+    <a href="#" class="back-chat">< Back</a>
+    <h3>{{project.details.name}}</h3>
   </div>
 
   <div class="mission-nav">
@@ -13,8 +13,8 @@
     </div>
   </div>
 
-  <div class="col-md-12">
-    <mat-card class="chat single-chat">
+  <div class="single-chat">
+    <mat-card class="chat">
       <mat-card-content>
         <app-chat [search]="search"></app-chat>
       </mat-card-content>

@@ -61,8 +61,6 @@ mat-progress-bar.mat-progress-bar.mat-primary, .project-progress {
 .pic-container {
   width: 60px;
   float: left;
-  padding-right: 15px;
-  padding-top: 15px;
 }
 .number {
   display: inline-block;
