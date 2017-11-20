@@ -12,7 +12,7 @@
     </div>
   </div>
   <div class="col-md-12 col-lg-6 lineback">
-    <mat-card class="card-margin dspl-nn-dsktp">
+    <mat-card class="card-margin dspl-nn-dsktp chat-card">
       <mat-card-content>
         <app-chat
           [linkGoToChat]="'mission/' + fetchedMission._id + '/chat'"
@@ -40,7 +40,7 @@
         <app-documents [search]="search"></app-documents>
       </mat-card-content>
     </mat-card>
-    <mat-card class="card-margin">
+    <mat-card>
       <mat-card-content>
         <h2>Crew Members for This Mission</h2>
         <button type="button" (click)="openTeam()" class="edit-btn">Edit</button>
