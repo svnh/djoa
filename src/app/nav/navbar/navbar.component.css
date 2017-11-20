@@ -1,14 +1,16 @@
 .nav-container {
-  z-index: 5;
   position: absolute;
   width: 100%;
+}
+.nav.rightmenu, .nav.leftmenu {
+  z-index: 5;
+  position: relative;
 }
 .nav.rightmenu {
   float: right;
 }
 .nav.leftmenu {
   float: left;
-  z-index: 999;
 }
 .fa-home {
   color: #ffffff !important;
