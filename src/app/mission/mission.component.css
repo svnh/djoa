@@ -48,6 +48,15 @@
   margin: 0;
   padding:15px 0;
 }
+.no-image {
+  background: none !important;
+  color: #eee;
+}
+.single-chat {
+  position: absolute;
+  bottom: 0;
+  height: 86% !important;
+}
 
 @media screen and (min-width: 992px) {
   .mission-nav {
