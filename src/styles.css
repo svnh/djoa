@@ -198,7 +198,7 @@ p.percent {
     background-position: 50% 2%;
     width: 100% !important;
     max-width: 100% !important;
-    padding-top: 46px;
+    padding: 46px 15px 0;
     height: 100vh;
     overflow: auto;
   }

@@ -147,9 +147,6 @@ mat-progress-bar.mat-progress-bar.mat-primary, .project-progress {
 }
 
 @media screen and (max-width: 991px) {
-  .allmissions, .projectinfo {
-    margin: 0 15px;
-  }
   .projectsummary, .teaminfo, .activity, .your-activity {
     margin-bottom: 15px;
   }
