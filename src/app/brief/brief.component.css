@@ -1,3 +1,16 @@
-.open {
-  float: left !important;
+.review-brief {
+  text-transform: uppercase;
+  border: 1px solid;
+  float: right;
+  text-decoration: none !important;
+}
+@media screen and (min-width: 600px) {
+  .review-brief {
+    padding: 10px 40px;
+  }
+}
+@media screen and (max-width: 599px) {
+  .review-brief {
+    padding: 10px 15px;
+  }
 }
