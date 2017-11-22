@@ -1,7 +1,7 @@
 .allmissions {
   overflow-x: auto;
-  margin: 50px 0;
   padding-bottom: 15px;
+  margin: 50px 0;
 }
 .allmissions-container {
   width: 5000px;
@@ -24,6 +24,8 @@
   display: inline-grid;
   box-shadow: none !important;
   border-radius: 0 !important;
+}
+.projectsummary, .teaminfo {
   height: 200px;
 }
 .teaminfo, .your-activity {
@@ -112,9 +114,12 @@ mat-progress-bar.mat-progress-bar.mat-primary, .project-progress {
   border-bottom: 40px solid transparent;
 }
 
-@media screen and (min-width: 992px){
+@media screen and (min-width: 1175px) {
   .projectsummary, .teaminfo, .activity, .your-activity {
     margin: 0 -6px 0 0;
+  }
+  .activity, .your-activity {
+    height: 200px;
   }
   .projectsummary {
     width: 35%;
@@ -126,9 +131,31 @@ mat-progress-bar.mat-progress-bar.mat-primary, .project-progress {
     width: 20%;
   }
 }
-
-@media screen and (min-width: 992px){
+@media screen and (max-width: 1174px) {
   .projectsummary, .teaminfo, .activity, .your-activity {
-    margin: 0 15px 15px;
+    padding: 15px;
+  }
+  .activity, .your-activity {
+    height: 177px;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1174px){
+  .projectsummary, .teaminfo, .activity, .your-activity {
+    margin: 0 -6px 15px 0;
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .allmissions, .projectinfo {
+    margin: 0 15px;
+  }
+  .projectsummary, .teaminfo, .activity, .your-activity {
+    margin-bottom: 15px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .projectsummary, .teaminfo, .activity, .your-activity {
+    width: 100%;
   }
 }

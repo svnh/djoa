@@ -168,15 +168,25 @@ p.percent {
   font-size: 18px;
 }
 
+@media screen and (min-width: 1175px) {
+  .djoa-container {
+    height: 93vh !important;
+    overflow: hidden;
+  }
+}
+@media screen and (min-width: 992px) and (max-width: 1174px) {
+  .djoa-container {
+    height: 100vh !important;
+    overflow: auto;
+  }
+}
 @media screen and (min-width: 992px) {
   .djoa-container {
     margin: 0 0 0 13%;
-    height: 93vh !important;
     background-size: 80%;
     background-position: 50% -10%;
     width: 80% !important;
     max-width: 80% !important;
-    overflow: hidden;
   }
   .missionbox {
     width: 500px;
@@ -189,7 +199,7 @@ p.percent {
     width: 100% !important;
     max-width: 100% !important;
     padding-top: 46px;
-    height: 100%;
+    height: 100vh;
     overflow: auto;
   }
   .missionbox {
