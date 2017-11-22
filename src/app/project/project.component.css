@@ -87,22 +87,23 @@ mat-progress-bar.mat-progress-bar.mat-primary, .project-progress {
 .your-activity h4 {
   color: #f44336;
 }
-.sidebar-item {
+.selected {
+  color: inherit !important;
+  margin: 15px 0;
   -webkit-filter: drop-shadow(0 0 5px #aaaaaa);
   -moz-filter: drop-shadow(0 0 5px #aaaaaa);
   -ms-filter: drop-shadow(0 0 5px #aaaaaa);
   -o-filter: drop-shadow(0 0 5px #aaaaaa);
   filter: drop-shadow(0 0 5px #aaaaaa);
 }
-.selected {
-  color: inherit !important;
-  margin: 15px 0;
+.list-on {
+  padding: 5px;
+  width: 117px;
 }
 .selected .list-on {
   background-color: #ffffff;
-  padding: 5px;
   display: table-cell;
-  width: 160px;
+  width: 160px !important;
   vertical-align: middle;
 }
 .selected .triangle {
