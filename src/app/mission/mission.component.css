@@ -65,8 +65,9 @@
   float: left;
 }
 .chat-card {
-  height: 90px !important;
+  height: 120px !important;
   padding: 0 !important;
+  padding-right: 100px !important;
 }
 
 @media screen and (min-width: 992px) {

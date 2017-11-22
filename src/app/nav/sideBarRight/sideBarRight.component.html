@@ -2,6 +2,7 @@
   <div (click)="sideNavAction('rightSideBar', false, '')" class="sidebarright-back"></div>
   <div class="sidebarright">
     <div class="sidebarright-content">
+      <div (click)="sideNavAction('rightSideBar', false, '')" class="dspl-nn-dsktp close-x"><i class="fa fa-times"></i></div>
       <div *ngIf="showNavBarData.search.typeScreen == 'object'">
         <app-strat *ngIf="showNavBarData.search.typeObj == 'strat'" [search]="showNavBarData.search"></app-strat>
         <app-brief *ngIf="showNavBarData.search.typeObj == 'brief'" [search]="showNavBarData.search"></app-brief>
