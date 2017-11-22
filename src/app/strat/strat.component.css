@@ -1,0 +1,78 @@
+.col-md-12, .col-lg-6 {
+  float: left;
+  max-height: 75vh;
+  height: auto;
+}
+
+.lineback section {
+  position: relative;
+}
+.lineback mat-progress-bar.mat-progress-bar.mat-primary {
+  height: 38px !important;
+}
+.previous {
+  float: left;
+}
+.next {
+  float: right;
+}
+.lineback {
+  background: -webkit-linear-gradient(left, transparent 5%, white 5%, white 5.1%,transparent 5.1%);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.card-margin {
+  margin-bottom: 30px;
+}
+.chat {
+  background-color: #f4f4f4;
+  padding: 0;
+  height: 100%;
+}
+.pic-container {
+  width: 50px;
+  padding: 0 !important;
+  margin-right: 15px;
+}
+.indiv-team {
+  clear: both;
+  margin-bottom: 15px;
+  height: 50px;
+}
+.indiv-team p {
+  margin: 0;
+  padding:15px 0;
+}
+.no-image {
+  background: none !important;
+  color: #eee;
+}
+.single-chat {
+  position: absolute;
+  bottom: 0;
+  height: 89% !important;
+  margin-left: -15px;
+}
+.top-nav-chat {
+  padding: 5px;
+}
+.back-chat {
+  float: left;
+}
+.chat-card {
+  height: 120px !important;
+  padding: 0 !important;
+  padding-right: 100px !important;
+}
+
+@media screen and (min-width: 992px) {
+  .mission-nav {
+    margin-top: 80px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .indiv-chat {
+    margin-bottom: 0 !important;
+  }
+}

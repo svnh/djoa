@@ -1,45 +1,59 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <h3>Strat</h3>
-      <h4>id: {{fetchedStrat._id}}</h4>
-      <mat-card>
-        <mat-card-content>
-          <h2>Links to documents</h2>
-          <app-documents [search]="search"></app-documents>
-        </mat-card-content>
-      </mat-card>
-      <br>
-      <mat-card>
-        <mat-card-content>
-          <h2>Goal</h2>
-          <app-briefs [search]="search"></app-briefs>
-        </mat-card-content>
-      </mat-card>
-      <br>
-      <mat-card>
-        <mat-card-content>
-          <h2>Chat</h2>
-          <app-chat [search]="search"></app-chat>
-        </mat-card-content>
-      </mat-card>
-
-      <mat-card>
-        <mat-card-content>
-          <h2>Team</h2>
-          <button type="button" (click)="openTeam()" class="edit-btn">Edit</button>
-          <br>
-          <div *ngFor="let user of fetchedStrat.users">
-            <div (click)="openProfile(user._id)">
-              <app-picture [addPicture]=false [deletePicture]=false [forms]="user.forms"></app-picture>
-              <p>{{user.profile.name}}</p>
-            </div>
-            <br>
+<div class="djoa-container">
+  <div *ngFor="let project of fetchedMission.projects">
+    <h1>{{project.details.name}}</h1>
+  </div>
+  <div class="col-md-12 col-lg-6 lineback">
+    <mat-card class="card-margin dspl-nn-dsktp chat-card">
+      <mat-card-content>
+        <app-chat
+          [linkGoToChat]="'mission/' + fetchedMission._id + '/chat'"
+          [addMessage]=false
+          [onlylastPost]=true
+          [search]="search">
+        </app-chat>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="card-margin">
+      <mat-card-content>
+        <h4>Project Goal</h4>
+        <app-briefs [search]="search"></app-briefs>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="card-margin">
+      <mat-card-content>
+        <h2>Recommended Strategy</h2>
+        <button type="button" class="edit-btn">Edit</button>
+        <p>Here there should be a one sentence input that the strategist can fill in and edit using edit button above</p>
+        <section>
+          Here we need to add the strategy progress bar like we did for Missions
+        </section>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="card-margin">
+      <mat-card-content>
+        <h2>Links to Documents</h2>
+        <app-documents [search]="search"></app-documents>
+      </mat-card-content>
+    </mat-card>
+    <mat-card>
+      <mat-card-content>
+        <h2>Crew Members for this Strategy</h2>
+        <button type="button" (click)="openTeam()" class="edit-btn">Edit</button>
+        <div *ngFor="let user of fetchedStrat.users" class="indiv-team">
+          <div (click)="openProfile(user._id)">
+            <div class="pic-container"><app-picture [addPicture]=false [deletePicture]=false [forms]="user.forms"></app-picture></div>
           </div>
-        </mat-card-content>
-      </mat-card>
-
-
-    </div>
+          <p>{{user.profile.name}} {{user.profile.lastName}}</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <div class="bottom-shadow"></div>
+  </div>
+  <div class="col-md-12 col-lg-6 dspl-nn-mbl">
+    <mat-card class="chat">
+      <mat-card-content>
+        <app-chat [search]="search"></app-chat>
+      </mat-card-content>
+    </mat-card>
   </div>
 </div>

@@ -13,35 +13,37 @@
   background: none;
   overflow: hidden;
 }
-
+.sidebarright {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  background-color: #fff;
+  height: 100%;
+  overflow: auto;
+}
 @media screen and (min-width: 768px) {
-
   .sidebarright {
-    display: inline-block;
     width: 250px;
-    position: absolute;
-    right: 0;
-    background-color: #fff;
-    height: 100%;
-    overflow: auto;
   }
   .sidebarright-content {
     padding: 100px 0 15px;
   }
 }
-
 @media screen and (max-width: 767px) {
 .sidebarright-content {
     padding: 46px 0 15px;
   }
 }
-
 @media screen and (min-width: 500px) and (max-width: 767px) {
   .sidebarright-page {
     width: 50%;
   }
 }
-
+@media screen and (min-width: 500px) {
+  .close-x {
+    display: none !important;
+  }
+}
 @media screen and (max-width: 500px) {
   .sidebarright-page {
     width: 100%;
