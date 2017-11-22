@@ -87,32 +87,9 @@ mat-progress-bar.mat-progress-bar.mat-primary, .project-progress {
 .your-activity h4 {
   color: #f44336;
 }
-.selected {
-  color: inherit !important;
-  margin: 15px 0;
-  -webkit-filter: drop-shadow(0 0 5px #aaaaaa);
-  -moz-filter: drop-shadow(0 0 5px #aaaaaa);
-  -ms-filter: drop-shadow(0 0 5px #aaaaaa);
-  -o-filter: drop-shadow(0 0 5px #aaaaaa);
-  filter: drop-shadow(0 0 5px #aaaaaa);
-}
 .list-on {
   padding: 5px;
   width: 117px;
-}
-.selected .list-on {
-  background-color: #ffffff;
-  display: table-cell;
-  width: 160px !important;
-  vertical-align: middle;
-}
-.selected .triangle {
-  display: table-cell;
-  width: 0;
-  height: 0;
-  border-top: 40px solid transparent;
-  border-left: 18px solid #ffffff;
-  border-bottom: 40px solid transparent;
 }
 
 @media screen and (min-width: 1175px) {
@@ -144,6 +121,32 @@ mat-progress-bar.mat-progress-bar.mat-primary, .project-progress {
   .projectsummary, .teaminfo, .activity, .your-activity {
     margin: 0 -6px 15px 0;
     width: 50%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .selected {
+    color: inherit !important;
+    margin: 15px 0;
+    -webkit-filter: drop-shadow(0 0 5px #aaaaaa);
+    -moz-filter: drop-shadow(0 0 5px #aaaaaa);
+    -ms-filter: drop-shadow(0 0 5px #aaaaaa);
+    -o-filter: drop-shadow(0 0 5px #aaaaaa);
+    filter: drop-shadow(0 0 5px #aaaaaa);
+  }
+  .selected .list-on {
+    background-color: #ffffff;
+    display: table-cell;
+    width: 160px !important;
+    vertical-align: middle;
+  }
+  .selected .triangle {
+    display: table-cell;
+    width: 0;
+    height: 0;
+    border-top: 40px solid transparent;
+    border-left: 18px solid #ffffff;
+    border-bottom: 40px solid transparent;
   }
 }
 

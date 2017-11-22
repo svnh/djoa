@@ -9,7 +9,7 @@
   display: flex;
   align-items: center;
   float: left;
-  max-width: 50px;
+  max-width: 350px;
 }
 .doc-info {
   display: inline-block;

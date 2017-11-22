@@ -189,7 +189,7 @@ p.percent {
     max-width: 80% !important;
   }
   .missionbox {
-    width: 500px;
+    width: 450px;
   }
 }
 @media screen and (max-width: 991px) {

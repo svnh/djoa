@@ -1,12 +1,40 @@
 .categ-top {
   background-color: #fff;
 }
-@media screen and (min-width: 991px) {
+.list-on {
+  padding: 5px;
+  width: 117px;
+}
+
+@media screen and (min-width: 992px) {
   .categ-top {
     margin-top: 120px;
   }
+  .selected {
+    color: inherit !important;
+    margin: 15px 0;
+    -webkit-filter: drop-shadow(0 0 5px #aaaaaa);
+    -moz-filter: drop-shadow(0 0 5px #aaaaaa);
+    -ms-filter: drop-shadow(0 0 5px #aaaaaa);
+    -o-filter: drop-shadow(0 0 5px #aaaaaa);
+    filter: drop-shadow(0 0 5px #aaaaaa);
+  }
+  .selected .list-on {
+    background-color: #ffffff;
+    display: table-cell;
+    width: 160px !important;
+    vertical-align: middle;
+  }
+  .selected .triangle {
+    display: table-cell;
+    width: 0;
+    height: 0;
+    border-top: 40px solid transparent;
+    border-left: 18px solid #ffffff;
+    border-bottom: 40px solid transparent;
+  }
 }
-@media screen and (max-width: 990px) {
+@media screen and (max-width: 991px) {
   .categ-top {
     margin-top: 20px;
   }
