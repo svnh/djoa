@@ -1,10 +1,5 @@
 <button type="button" (click)="addBrief()">+</button>
 <div *ngFor="let brief of fetchedBriefs">
-  <mat-card>
-    <mat-card-content>
-      <div [routerLink]="['/brief/' + brief._id]">Review Brief</div>
-      <br>
-      <div class="">{{brief.details.name}}</div>
-    </mat-card-content>
-  </mat-card>
+  <p>{{brief.details.name}}</p>
+  <div [routerLink]="['/brief/' + brief._id]" class="open">Review Brief</div>
 </div>
