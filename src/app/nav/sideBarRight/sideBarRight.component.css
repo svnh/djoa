@@ -8,13 +8,14 @@
   opacity: 0.5;
   position: absolute;
 }
+.sidebarright-page {
+  width: 100%;
+  background: none;
+  overflow: hidden;
+}
 
 @media screen and (min-width: 768px) {
-  .sidebarright-page {
-    width: 100%;
-    background: none;
-    overflow: hidden;
-  }
+
   .sidebarright {
     display: inline-block;
     width: 250px;
@@ -44,5 +45,8 @@
 @media screen and (max-width: 500px) {
   .sidebarright-page {
     width: 100%;
+  }
+  .close-x {
+    display: none !important;
   }
 }
