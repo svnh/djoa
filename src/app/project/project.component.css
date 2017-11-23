@@ -89,7 +89,6 @@ mat-progress-bar.mat-progress-bar.mat-primary, .project-progress {
 }
 .list-on {
   padding: 5px;
-  width: 117px;
 }
 
 @media screen and (min-width: 1175px) {
@@ -147,6 +146,9 @@ mat-progress-bar.mat-progress-bar.mat-primary, .project-progress {
     border-top: 40px solid transparent;
     border-left: 18px solid #ffffff;
     border-bottom: 40px solid transparent;
+  }
+  .list-on {
+    width: 117px;
   }
 }
 

@@ -16,6 +16,9 @@ html, body {
 ::-webkit-scrollbar-thumb {
   background-color: #330066;
 }
+.djoa-container::-webkit-scrollbar {
+  width: 0px !important;
+}
 h1, h2, h3, h4, h5, a, p, td, th, button, input, .table td, .mat-card {
   font-family: inherit !important;
 }

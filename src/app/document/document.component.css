@@ -35,6 +35,7 @@ img.doc-icon {
 .doc-state-bottom {
   float: left;
   border-top: 1px solid;
+  width: 25%;
 }
 .circle {
   height: 14px;
@@ -76,7 +77,6 @@ img.doc-icon {
 
 @media screen and (min-width: 600px) {
   .doc-state-bottom {
-    width: 16%;
     font-size: 12px;
   }
   .open {
@@ -85,7 +85,6 @@ img.doc-icon {
 }
 @media screen and (max-width: 599px) {
   .doc-state-bottom {
-    width: 25%;
     font-size: 10px;
   }
   .open {

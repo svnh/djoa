@@ -2,18 +2,17 @@
   <h2 class="sidewrapper">Add Crew Member</h2>
   <form [formGroup]="myForm" novalidate (ngSubmit)="save()">
     <div class="sidewrapper greyback">
-      <app-autocomplete [typeAutocomplete]="'project'" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedUsersToObjects.projects">
+      <app-autocomplete [typeAutocomplete]="'Project'" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedUsersToObjects.projects">
       </app-autocomplete>
-      <app-autocomplete [typeAutocomplete]="'mission'" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedUsersToObjects.missions">
+      <app-autocomplete [typeAutocomplete]="'Mission'" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedUsersToObjects.missions">
       </app-autocomplete>
-      Alan:Right? this is for new user? What if user is created below and no right selected? what is user already exist anf have right. Rights will be changed for all app?I reocment to set a default right for all new users.
-      <app-autocomplete [typeAutocomplete]="'right'" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedUsersToObjects.rights">
+      <app-autocomplete [typeAutocomplete]="'Right'" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedUsersToObjects.rights">
       </app-autocomplete>
-      <app-autocomplete [typeAutocomplete]="'user'" [canDelete]=true [title]="" [singleChoice]=false [arrayContent]="fetchedUsersToObjects.users">
+      <app-autocomplete [typeAutocomplete]="'User'" [canDelete]=true [title]="" [singleChoice]=false [arrayContent]="fetchedUsersToObjects.users">
       </app-autocomplete>
     </div>
     <div class="sidewrapper valid-edit">
-      <button type="submit" [disabled]="!myForm.valid" [ngClass]="{'done':myForm.valid,'pas-done':!myForm.valid}">Done</button>
+      <button type="submit" [disabled]="!myForm.valid" [ngClass]="{'done':myForm.valid,'pas-done':!myForm.valid}" class="done">Done</button>
     </div>
     <div class="clearfix"></div>
   </form>
