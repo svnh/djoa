@@ -22,11 +22,13 @@
   overflow: auto;
 }
 @media screen and (min-width: 992px) {
-  .sidebarright {
-    width: 250px;
-  }
   .sidebarright-content {
     padding: 100px 0 15px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .sidebarright {
+    width: 250px;
   }
 }
 @media screen and (max-width: 991px) {
@@ -47,8 +49,5 @@
 @media screen and (max-width: 500px) {
   .sidebarright {
     width: 100%;
-  }
-  .close-x {
-    display: none !important;
   }
 }
