@@ -1,75 +1,73 @@
 <div>
+  {{title}}
 
-{{title}}
-
-<div *ngIf="!arrayContent.length || !singleChoice">
-
-  <div class="">
-    <mat-form-field>
-    <input matInput autofocus autocapitalize="none" autocomplete="off" spellcheck="false" autocorrect="none" type="text" name="Search" placeholder="{{typeAutocomplete}}" [(ngModel)]="autocompleteSearch" (ngModelChange)="searchData()">
-    </mat-form-field>
+  <div *ngIf="!arrayContent.length || !singleChoice">
+    <div>
+      <mat-form-field>
+      <input matInput autofocus autocapitalize="none" autocomplete="off" spellcheck="false" autocorrect="none" type="text" name="Search" placeholder="{{typeAutocomplete}}" [(ngModel)]="autocompleteSearch" (ngModelChange)="searchData()">
+      </mat-form-field>
+    </div>
   </div>
-</div>
 
-<div class="result" *ngFor="let data of fetchedData; let i=index">
-  <table>
-    <tr>
-      <td class="resultleft" (click)="selectData(data)">
-        <i class="fa fa-plus"></i>
-      </td>
-      <td class="resultright">
-        <div *ngIf="typeAutocomplete=='user'"><div class="resultname">{{data.profile.name}} {{data.profile.lastName}}</div><div class="resultemail">{{data.email}}</div></div>
-        <div *ngIf="typeAutocomplete=='companie'">{{data.nameCompanie}}</div>
-        <!-- <div *ngIf="typeAutocomplete=='quote'">{{data.name}}</div> -->
-        <div *ngIf="typeAutocomplete=='project'">{{data.details.name}}</div>
-        <div *ngIf="typeAutocomplete=='categorie'">{{data.name}}</div>
-        <div *ngIf="typeAutocomplete=='brief'">{{data.details.name}}</div>
-        <div *ngIf="typeAutocomplete=='strat'">{{data.title}}</div>
-        <div *ngIf="typeAutocomplete=='mission'">{{data.title}}</div>
-        <div *ngIf="typeAutocomplete=='document'">{{data.details.name}}</div>
-        <div *ngIf="typeAutocomplete=='right'">{{data.detailRight.nameRight}}</div>
-        <div *ngIf="typeAutocomplete=='templateQuote'">{{data.nameTemplate}}</div>
-      </td>
-    </tr>
-  </table>
-</div>
-<div *ngIf="fetchedData.length == 0 && autocompleteSearch !=''">
-  No results.
-  <button
-    class=""
-    *ngIf="typeAutocomplete=='user'"
-    type="button" md-button
-    (click)="createObj(typeAutocomplete)">
-    <i class="fa fa-plus"></i> Add new one
-  </button>
-</div>
+  <div class="result" *ngFor="let data of fetchedData; let i=index">
+    <table>
+      <tr>
+        <td class="resultleft" (click)="selectData(data)">
+          <i class="fa fa-plus"></i>
+        </td>
+        <td class="resultright">
+          <div *ngIf="typeAutocomplete=='user'"><div class="resultname">{{data.profile.name}} {{data.profile.lastName}}</div><div class="resultemail">{{data.email}}</div></div>
+          <div *ngIf="typeAutocomplete=='companie'">{{data.nameCompanie}}</div>
+          <!-- <div *ngIf="typeAutocomplete=='quote'">{{data.name}}</div> -->
+          <div *ngIf="typeAutocomplete=='project'">{{data.details.name}}</div>
+          <div *ngIf="typeAutocomplete=='categorie'">{{data.name}}</div>
+          <div *ngIf="typeAutocomplete=='brief'">{{data.details.name}}</div>
+          <div *ngIf="typeAutocomplete=='strat'">{{data.title}}</div>
+          <div *ngIf="typeAutocomplete=='mission'">{{data.title}}</div>
+          <div *ngIf="typeAutocomplete=='document'">{{data.details.name}}</div>
+          <div *ngIf="typeAutocomplete=='right'">{{data.detailRight.nameRight}}</div>
+          <div *ngIf="typeAutocomplete=='templateQuote'">{{data.nameTemplate}}</div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div *ngIf="fetchedData.length == 0 && autocompleteSearch !=''">
+    No results.
+    <button
+      class=""
+      *ngIf="typeAutocomplete=='user'"
+      type="button" md-button
+      (click)="createObj(typeAutocomplete)">
+      <i class="fa fa-plus"></i> Add new one
+    </button>
+  </div>
 
-<div class="result" *ngFor="let data of arrayContent; let i=index">
-  <table>
-    <tr>
-      <td class="listname" (click)="linkToObject(data)">
-        <div *ngIf="typeAutocomplete=='user'">
-          <div class="listname-img">
-            <app-picture [addPicture]=false [deletePicture]=false [forms]="data.forms"></app-picture>
+  <div class="result" *ngFor="let data of arrayContent; let i=index">
+    <table>
+      <tr>
+        <td class="listname" (click)="linkToObject(data)">
+          <div *ngIf="typeAutocomplete=='user'">
+            <div class="listname-img">
+              <app-picture [addPicture]=false [deletePicture]=false [forms]="data.forms"></app-picture>
+            </div>
+            <div class="listname-txt">
+              {{data.profile.name}} {{data.profile.lastName}}
+            </div>
           </div>
-          <div class="listname-txt">
-            {{data.profile.name}} {{data.profile.lastName}}
-          </div>
-        </div>
-        <div *ngIf="typeAutocomplete=='companie'">{{data.nameCompanie}}</div>
-        <div *ngIf="typeAutocomplete=='quote'">{{data.name}}</div>
-        <div *ngIf="typeAutocomplete=='strat'">{{data.title}}</div>
-        <div *ngIf="typeAutocomplete=='mission'">{{data.title}}</div>
-        <div *ngIf="typeAutocomplete=='brief'">{{data.details.name}}</div>
-        <div *ngIf="typeAutocomplete=='project'">{{data.details.name}}</div>
-        <div *ngIf="typeAutocomplete=='categorie'">{{data.name}}</div>
-        <div *ngIf="typeAutocomplete=='document'">{{data.details.name}}</div>
-        <div *ngIf="typeAutocomplete=='right'">{{data.detailRight.nameRight}}</div>
-      </td>
-      <td class="remove">
-        <button *ngIf="canDelete" type="button" (click)="removeData(i)">REMOVE</button>
-      </td>
-    </tr>
-  </table>
-</div>
+          <div *ngIf="typeAutocomplete=='companie'">{{data.nameCompanie}}</div>
+          <div *ngIf="typeAutocomplete=='quote'">{{data.name}}</div>
+          <div *ngIf="typeAutocomplete=='strat'">{{data.title}}</div>
+          <div *ngIf="typeAutocomplete=='mission'">{{data.title}}</div>
+          <div *ngIf="typeAutocomplete=='brief'">{{data.details.name}}</div>
+          <div *ngIf="typeAutocomplete=='project'">{{data.details.name}}</div>
+          <div *ngIf="typeAutocomplete=='categorie'">{{data.name}}</div>
+          <div *ngIf="typeAutocomplete=='document'">{{data.details.name}}</div>
+          <div *ngIf="typeAutocomplete=='right'">{{data.detailRight.nameRight}}</div>
+        </td>
+        <td class="remove">
+          <button *ngIf="canDelete" type="button" (click)="removeData(i)">REMOVE</button>
+        </td>
+      </tr>
+    </table>
+  </div>
 </div>

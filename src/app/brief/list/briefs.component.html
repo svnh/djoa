@@ -1,6 +1,6 @@
 <button type="button" (click)="addBrief()">+</button>
 <div *ngFor="let brief of fetchedBriefs">
   <p>{{brief.details.name}}</p>
-  <div [routerLink]="['/brief/' + brief._id]" class="open">Review Brief</div>
+  <div [routerLink]="['/brief/' + brief._id]" class="review-brief">Review Brief</div>
   <div style="clear:both;"></div>
 </div>
