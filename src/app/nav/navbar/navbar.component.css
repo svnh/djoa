@@ -18,12 +18,15 @@
   padding: 10px !important;
   border: 1px solid !important;
   border-radius: 20px !important;
+  margin-right: 15px;
 }
 a.nav-link {
   padding: 0 1em !important;
 }
 .fa-bars {
   color: #4a148c;
+  margin-right: 15px;
+  padding: 7px;
 }
 .navadd .fa.fa-plus, .navnotif button {
   color: #fff;
@@ -81,6 +84,9 @@ a.nav-link {
   .nav.rightmenu, .nav.leftmenu {
     padding: 15px;
   }
+  img.logo-top {
+    width: 110px;
+  }
 }
 
 @media screen and (max-width: 991px) {
@@ -88,7 +94,7 @@ a.nav-link {
     background-color: #fff;
     z-index: 15;
     box-shadow: 0 0 5px #ccc;
-}
+  }
   .navadd .fa.fa-plus, .navnotif button, .pic-container {
     width: 30px;
     height: 30px;
@@ -100,5 +106,8 @@ a.nav-link {
   }
   .nav.rightmenu, .nav.leftmenu {
     padding: 7px;
+  }
+  img.logo-top {
+    width: 70px;
   }
 }
