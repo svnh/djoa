@@ -2,7 +2,6 @@
   <div *ngFor="let project of fetchedMission.projects">
     <h1>{{project.details.name}}</h1>
   </div>
-
   <div class="mission-nav">
     <div *ngIf="buttonDataMission.left._id" (click)="goTo('mission', buttonDataMission.left._id)" class="previous">
       <i class="fa fa-chevron-left"></i> {{buttonDataMission.left.title}}
@@ -61,4 +60,6 @@
       </mat-card-content>
     </mat-card>
   </div>
+  <div class="clearfix"></div>
+  <h5>Back to Project <i class="fa fa-chevron-down" aria-hidden="true"></i></h5>
 </div>
