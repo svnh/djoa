@@ -87,8 +87,24 @@ mat-progress-bar.mat-progress-bar.mat-primary, .project-progress {
 .your-activity h4 {
   color: #f44336;
 }
+.sidebar-item {
+  margin: 10px 0;
+  width: 100%;
+  overflow: hidden;
+}
 .list-on {
+  width: 100%;
+  height: 60px;
   padding: 5px;
+  text-transform: uppercase;
+  vertical-align: middle !important;
+  display: table-cell;
+  font-size: 14px;
+  font-weight: 500;
+}
+.selected .list-on {
+  background-color: #4a148c;
+  color: #fff;
 }
 
 @media screen and (min-width: 1175px) {
@@ -108,6 +124,7 @@ mat-progress-bar.mat-progress-bar.mat-primary, .project-progress {
     width: 20%;
   }
 }
+
 @media screen and (max-width: 1174px) {
   .projectsummary, .teaminfo, .activity, .your-activity {
     padding: 15px;
@@ -122,36 +139,6 @@ mat-progress-bar.mat-progress-bar.mat-primary, .project-progress {
     width: 50%;
   }
 }
-
-@media screen and (min-width: 992px) {
-  .selected {
-    color: inherit !important;
-    margin: 15px 0;
-    -webkit-filter: drop-shadow(0 0 5px #aaaaaa);
-    -moz-filter: drop-shadow(0 0 5px #aaaaaa);
-    -ms-filter: drop-shadow(0 0 5px #aaaaaa);
-    -o-filter: drop-shadow(0 0 5px #aaaaaa);
-    filter: drop-shadow(0 0 5px #aaaaaa);
-  }
-  .selected .list-on {
-    background-color: #ffffff;
-    display: table-cell;
-    width: 160px !important;
-    vertical-align: middle;
-  }
-  .selected .triangle {
-    display: table-cell;
-    width: 0;
-    height: 0;
-    border-top: 40px solid transparent;
-    border-left: 18px solid #ffffff;
-    border-bottom: 40px solid transparent;
-  }
-  .list-on {
-    width: 117px;
-  }
-}
-
 @media screen and (max-width: 991px) {
   .projectsummary, .teaminfo, .activity, .your-activity {
     margin-bottom: 15px;

@@ -1,17 +1,8 @@
-@media screen and (min-width: 992px) {
-  mat-sidenav.sidebarleft {
-    background-color: transparent !important;
-    background-image: url("/assets/images/left-sidenav-back.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 125% 0%;
-    width: 160px;
-    height: 100vh;
-    padding-top: 90px;
-  }
-  .mat-drawer-container {
-    height: 100%;
-  }
+.sidebarleft {
+  background-color: #f4f4f4;
+  height: 100vh;
+  padding: 90px 5px 0;
+  overflow-x: hidden;
 }
 
 @media screen and (min-width: 1200px) {
@@ -30,11 +21,5 @@
   mat-sidenav.sidebarleft {
     width: 200px;
     padding: 50px 0 15px;
-  }
-  .sidebar-item {
-    padding: 5px 10px;
-    border-bottom: 1px solid;
-    background-color: #330066;
-    color: #fff;
   }
 }

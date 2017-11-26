@@ -76,7 +76,7 @@
     height: 50vh;
   }
 }
-@media screen and (max-width: 274px) {
+@media screen and (max-height: 274px) {
   .read-chat {
     height: 40vh;
   }
