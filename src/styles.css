@@ -255,3 +255,6 @@ md-sidenav-container.mat-drawer-container.mat-sidenav-container {
 .mat-drawer-content {
   overflow: hidden !important;
 }
+.leftmenu .nav-link {
+  padding: 0 !important;
+}

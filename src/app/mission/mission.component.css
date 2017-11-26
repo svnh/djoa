@@ -54,12 +54,13 @@
 }
 .single-chat {
   position: absolute;
+  top: 85px;
   bottom: 0;
-  height: 89% !important;
-  margin-left: -15px;
+  right: 0;
+  left: 0;
 }
 .top-nav-chat {
-  padding: 5px;
+  padding: 7px 5px;
 }
 .back-chat {
   float: left;
@@ -75,7 +76,6 @@
     margin-top: 80px;
   }
 }
-
 @media screen and (min-width: 992px) {
   .indiv-chat {
     margin-bottom: 0 !important;
