@@ -21,7 +21,7 @@
   border: 1px solid;
   float: right;
 }
-.open a {
+a.open {
   text-decoration: none !important;
 }
 img.doc-icon {
