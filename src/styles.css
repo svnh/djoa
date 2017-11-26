@@ -258,3 +258,6 @@ md-sidenav-container.mat-drawer-container.mat-sidenav-container {
 .leftmenu .nav-link {
   padding: 0 !important;
 }
+button {
+  padding: 0;
+}

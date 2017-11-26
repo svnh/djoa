@@ -106,6 +106,10 @@ mat-progress-bar.mat-progress-bar.mat-primary, .project-progress {
   background-color: #4a148c;
   color: #fff;
 }
+.selected {
+  display: table;
+  width: 100%;
+}
 
 @media screen and (min-width: 1175px) {
   .projectsummary, .teaminfo, .activity, .your-activity {

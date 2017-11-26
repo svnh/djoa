@@ -52,18 +52,16 @@ a.nav-link {
   border-radius: 100px;
 }
 
-@media screen and (max-width: 1199px) {
-  .nav.leftmenu {
-    margin-left: 1%;
-  }
-}
-
 @media screen and (min-width: 1200px) {
   .nav.leftmenu {
-    margin-left: 4%;
+    margin-left: 126px;
   }
 }
-
+@media screen and (max-width: 1199px) {
+  .nav.leftmenu {
+    margin-left: 88px;
+  }
+}
 @media screen and (min-width: 992px) {
   .navadd .fa.fa-plus, .navnotif button {
     width: 40px;

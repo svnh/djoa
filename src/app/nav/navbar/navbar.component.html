@@ -7,11 +7,14 @@
       <li class="nav-item">
         <div class="nav-link" routerLinkActive="active" (click)="goHome()"><i class="fa fa-home dspl-nn-mbl"></i></div>
       </li>
+      <li class="nav-item">
+        <div class="nav-link" routerLinkActive="active" (click)="goHome()"><img class="logo-top dspl-nn-mbl"src="src\assets\images\small-logo-djoa-white.png"/></div>
+      </li>
+      <li class="nav-item">
+        <div class="nav-link" routerLinkActive="active" (click)="goHome()"><img class="logo-top dspl-nn-dsktp"src="src\assets\images\small-logo-djoa.png"/></div>
+      </li>
     </ul>
     <ul class="nav rightmenu">
-      <!-- <button md-button [matMenuTriggerFor]="menu" class="adm-btn">Admin</button> -->
-      <!-- <button md-button class="adm-btn">Admin</button> -->
-      <!-- <mat-menu #menu="mdMenu"> -->
       <mat-menu>
         <button md-menu-item routerLinkActive="active" [routerLink]="['/user/list/false']">Users</button>
         <button md-menu-item routerLinkActive="active" [routerLink]="['/categorie']">Categories</button>
