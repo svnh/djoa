@@ -4,4 +4,23 @@
   width: 100%;
   height: 60px;
   background-color: transparent;
+  z-index: 5;
+}
+.fa-search {
+  color: #ffffff !important;
+  background-color: #330066 !important;
+  padding: 10px !important;
+  border: 1px solid !important;
+  border-radius: 20px !important;
+}
+
+@media screen and (min-width: 1200px) {
+  .footer.leftmenu {
+    margin-left: 126px;
+  }
+}
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  .footer.leftmenu {
+    margin-left: 88px;
+  }
 }
