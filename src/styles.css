@@ -203,19 +203,11 @@ p.percent {
   padding: 15px 0;
   text-transform: uppercase;
 }
+.col-md-12, .col-lg-6 {
+  float: left;
+  height: auto;
+}
 
-@media screen and (min-width: 1175px) {
-  .djoa-container {
-    height: 93vh !important;
-    overflow: hidden;
-  }
-}
-@media screen and (min-width: 992px) and (max-width: 1174px) {
-  .djoa-container {
-    height: 100vh !important;
-    overflow: auto;
-  }
-}
 @media screen and (min-width: 992px) {
   .djoa-container {
     margin: 0 0 0 13%;
@@ -240,6 +232,47 @@ p.percent {
   }
   .missionbox {
     width: 300px;
+  }
+}
+
+@media screen and (min-height: 660px) and (min-width: 660px) {
+  .read-chat, .col-md-12, .col-lg-6 {
+    height: 74vh;
+  }
+}
+@media screen and (min-height: 660px) and (max-width: 559px) {
+  .read-chat, .col-md-12, .col-lg-6 {
+    height: 80vh;
+  }
+}
+@media screen and (min-height: 550px) and (max-height: 659px) {
+  .read-chat, .col-md-12, .col-lg-6 {
+    height: 75vh;
+  }
+}
+@media screen and (min-height: 480px) and (max-height: 549px) {
+  .read-chat, .col-md-12, .col-lg-6 {
+    height: 70vh;
+  }
+}
+@media screen and (min-height: 400px) and (max-height: 479px) {
+  .read-chat, .col-md-12, .col-lg-6 {
+    height: 65vh;
+  }
+}
+@media screen and (min-height: 350px) and (max-height: 399px) {
+  .read-chat, .col-md-12, .col-lg-6 {
+    height: 60vh;
+  }
+}
+@media screen and (min-height: 275px) and (max-height: 349px) {
+  .read-chat, .col-md-12, .col-lg-6 {
+    height: 50vh;
+  }
+}
+@media screen and (max-height: 274px) {
+  .read-chat, .col-md-12, .col-lg-6 {
+    height: 40vh;
   }
 }
 
@@ -285,9 +318,4 @@ md-sidenav-container.mat-drawer-container.mat-sidenav-container {
 }
 button {
   padding: 0;
-}
-.col-md-12, .col-lg-6 {
-  float: left;
-  max-height: 74vh;
-  height: auto;
 }
