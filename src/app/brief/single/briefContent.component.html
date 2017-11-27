@@ -1,8 +1,11 @@
 <div class="djoa-container">
+  <div *ngFor="let project of fetchedMission.projects">
+    <h1>Title of Project Here</h1>
+  </div>
   <div class="col-md-12 col-lg-6">
     <mat-card>
       <mat-card-content>
-        <h1>Brief</h1>
+        <h2>Brief</h2>
         <div class="briefentry">
           <label>{{'What are you trying to do in one sentence?' }}</label>
           <p>{{fetchedBrief.details.name}}</p>
@@ -26,7 +29,7 @@
   <div class="col-md-12 col-lg-6">
     <mat-card>
       <mat-card-content>
-        <h1>Documents Relevant to project</h1>
+        <h2>Documents Relevant to project</h2>
         <app-documents [search]="search"></app-documents>
       </mat-card-content>
     </mat-card>
