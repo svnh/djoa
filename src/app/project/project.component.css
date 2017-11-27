@@ -8,6 +8,7 @@
 }
 .projectinfo {
   clear: both;
+  margin-bottom: 15px;
 }
 .startdate, .enddate {
   display: inline-block;
