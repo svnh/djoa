@@ -14,7 +14,7 @@
 }
 .read-chat {
   overflow: auto;
-  padding: 24px;
+  padding: 24px 24px 74px;
 }
 .write-chat, .write-chat textarea {
   width: 100%;
@@ -48,7 +48,7 @@
 }
 @media screen and (min-height: 660px) and (min-width: 660px) {
   .read-chat {
-    height: 75vh;
+    height: 74vh;
   }
 }
 @media screen and (min-height: 660px) and (max-width: 559px) {

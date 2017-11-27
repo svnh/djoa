@@ -1,9 +1,3 @@
-.col-md-12, .col-lg-6 {
-  float: left;
-  max-height: 75vh;
-  height: auto;
-}
-
 .lineback section {
   position: relative;
 }

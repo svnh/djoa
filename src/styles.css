@@ -286,3 +286,8 @@ md-sidenav-container.mat-drawer-container.mat-sidenav-container {
 button {
   padding: 0;
 }
+.col-md-12, .col-lg-6 {
+  float: left;
+  max-height: 74vh;
+  height: auto;
+}
