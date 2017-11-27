@@ -54,6 +54,9 @@ a.nav-link {
   background-color: #ffffff;
   border-radius: 100px;
 }
+img.logo-top {
+  width: 70px;
+}
 
 @media screen and (min-width: 1200px) {
   .nav.leftmenu {
@@ -84,8 +87,8 @@ a.nav-link {
   .nav.rightmenu, .nav.leftmenu {
     padding: 15px;
   }
-  img.logo-top {
-    width: 110px;
+  .logo-wrap {
+    padding-left: 6px 0;
   }
 }
 
@@ -106,8 +109,5 @@ a.nav-link {
   }
   .nav.rightmenu, .nav.leftmenu {
     padding: 7px;
-  }
-  img.logo-top {
-    width: 70px;
   }
 }

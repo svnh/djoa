@@ -5,13 +5,13 @@
   overflow-x: hidden;
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1300px) {
   mat-sidenav.sidebarleft {
     width: 160px;
   }
 }
 
-@media screen and (min-width: 992px) and (max-width: 1199px) {
+@media screen and (min-width: 992px) and (max-width: 1299px) {
   mat-sidenav.sidebarleft {
     width: 120px;
   }

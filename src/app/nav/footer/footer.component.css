@@ -16,12 +16,12 @@
 
 @media screen and (min-width: 1200px) {
   .footer .leftmenu {
-    margin-left: 126px;
+    margin-left: 142px;
   }
 }
 @media screen and (min-width: 992px) and (max-width: 1199px) {
   .footer .leftmenu {
-    margin-left: 88px;
+    margin-left: 102px;
   }
 }
 @media screen and (max-width: 991px) {

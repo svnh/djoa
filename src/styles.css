@@ -206,7 +206,7 @@ p.percent {
 @media screen and (max-width: 991px) {
   .djoa-container {
     background-size: 100%;
-    background-position: 50% 2%;
+    background-position: 50% 8%;
     width: 100% !important;
     max-width: 100% !important;
     padding: 46px 15px 0;
