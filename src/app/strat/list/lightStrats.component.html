@@ -1,3 +1,8 @@
 <div *ngFor="let strat of fetchedStrats">
-  <div (click)="goTo(strat._id)">Strategy</div>
+  <div class="sidebar-item">
+    <div (click)="goTo(strat._id)" class="list-on">
+      <i class="fa fa-tachometer" aria-hidden="true"></i>
+      STRATEGY
+    </div>
+  </div>
 </div>

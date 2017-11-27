@@ -92,24 +92,6 @@ mat-progress-bar.mat-progress-bar.mat-primary, .project-progress {
   width: 100%;
   overflow: hidden;
 }
-.list-on {
-  width: 100%;
-  height: 60px;
-  padding: 5px;
-  text-transform: uppercase;
-  vertical-align: middle !important;
-  display: table-cell;
-  font-size: 14px;
-  font-weight: 500;
-}
-.selected .list-on {
-  background-color: #4a148c;
-  color: #fff;
-}
-.selected {
-  display: table;
-  width: 100%;
-}
 
 @media screen and (min-width: 1175px) {
   .projectsummary, .teaminfo, .activity, .your-activity {
