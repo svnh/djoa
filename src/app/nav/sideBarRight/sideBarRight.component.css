@@ -21,6 +21,7 @@
   width: 100%;
   overflow-y: auto;
   overflow-x: hidden;
+  box-shadow: -1px 0 1px #aaa;
 }
 
 @media screen and (min-width: 992px) {

@@ -10,8 +10,8 @@
       <button *ngIf="editMode" type="button" (click)="createNewMission()" class="add-object">Add Mission</button>
       <table class="table table-hover">
         <tbody>
-          <tr *ngFor="let mission of fetchedMissions">
-            <td (click)="goTo(mission._id)" routerLinkActive="active">{{mission.title}}</td>
+          <tr *ngFor="let mission of fetchedMissions" (click)="goTo(mission._id)" routerLinkActive="active">
+            <td>{{mission.title}}</td>
             <td>
               <section>
                 <mat-progress-bar  [value]="mission.dateMission.percentageProgress">
