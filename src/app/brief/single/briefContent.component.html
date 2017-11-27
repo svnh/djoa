@@ -1,46 +1,38 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <h3>Brief</h3>
-
-        <div>
-          <div>
-            <label>Id</label> {{fetchedBrief._id}}
-          </div>
+<div class="djoa-container">
+  <div class="col-md-12 col-lg-6">
+    <mat-card>
+      <mat-card-content>
+        <h1>Brief</h1>
+        <div class="briefentry">
+          <label>{{'What are you trying to do in one sentence?' }}</label>
+          <p>{{fetchedBrief.details.name}}</p>
         </div>
-        <br>
-
-
-        <br>
-        <mat-card>
-          <mat-card-content>
-            <h2></h2>
-            <div class="">
-              <label>{{'Name' }}</label>
-              {{fetchedBrief.details.name}}
-            </div>
-            <div class="form-group">
-              <label>{{'Description' }}</label>
-              {{fetchedBrief.details.description}}
-            </div>
-            <button type="button" (click)="openDetails(fetchedBrief._id)">Edit Brief</button>
-
-
-          </mat-card-content>
-        </mat-card>
-
-
-        <br>
-        <mat-card>
-          <mat-card-content>
-            <h2>Documents Relevant to project</h2>
-            <app-documents [search]="search"></app-documents>
-          </mat-card-content>
-        </mat-card>
-  <br>  <br>  <br>  <br>  <br>  <br>
-
-
-
-    </div>
+        <div class="briefentry">
+          <label>{{'What is your goal? How will you measure it?' }}</label>
+          <p>{{fetchedBrief.details.description}}</p>
+        </div>
+        <div class="briefentry">
+          <label>{{'Do you have existing assets for this project? If so, what are they?' }}</label>
+          <p>{{fetchedBrief.details.description}}</p>
+        </div>
+        <div class="briefentry">
+          <label>{{'What is your company’s website?' }}</label>
+          <p>{{fetchedBrief.details.description}}</p>
+        </div>
+        <button type="button" (click)="openDetails(fetchedBrief._id)" class="review-brief">Edit Brief</button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="col-md-12 col-lg-6">
+    <mat-card>
+      <mat-card-content>
+        <h1>Documents Relevant to project</h1>
+        <app-documents [search]="search"></app-documents>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="clearfix"></div>
+  <div class="backtobottom">
+    <h5>Back to Strategy <i class="fa fa-chevron-down" aria-hidden="true"></i></h5>
   </div>
 </div>
