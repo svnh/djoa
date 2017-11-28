@@ -150,9 +150,17 @@ getDocumentsInStrats() {
     this.getMyDocuments()
     this.getDocumentsInStrats()
     this.getDocumentsByMissions()
-
   }
 
+  goToEmit(result) {
+    console.log(result)
+    let newShowNavBarData = new ShowNavBarData()
+    newShowNavBarData.showNavBar = false
+    this.globalEventsManager.showNavBarRight(newShowNavBarData)
+
+    this.router.navigate([result.typeObj + '/' + result.missionId]);
+  }
+  // must dbu deprecated
   goTo(typeObj: string, missionId: string) {
 
     let newShowNavBarData = new ShowNavBarData()

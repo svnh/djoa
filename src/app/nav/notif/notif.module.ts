@@ -7,6 +7,7 @@ import { Routes, RouterModule} from '@angular/router';
 
 
 import { NotifComponent} from './notif.component';
+import { ChatUnreadInMissions} from './chatUnreadInMissions.component';
 // import {SharedModule } from '../../shared/shared.module';
 // import { NotificationService} from '../../notification/notification.service';
 
@@ -18,20 +19,22 @@ import { NotifComponent} from './notif.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+
     // SharedModule,
     //  FormsModule,
-    
+
     // ReactiveFormsModule,
 
   ],
   declarations: [
-
     NotifComponent,
+    ChatUnreadInMissions,
     // CategoriesComponent,
     // CategorieSingleComponent,
   ],
   exports:      [
-    NotifComponent
+    NotifComponent,
+    ChatUnreadInMissions,
     // CategoriesComponent
   ],
   providers:    [
