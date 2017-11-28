@@ -221,6 +221,9 @@ export class StratContentComponent implements OnInit {
         res => {
           this.fetchedStrat = res
 
+          this.fetchedStrat.dateStrat
+          .percentageProgress = this.authService
+          .getPourcentageProgress(this.fetchedStrat.dateStrat.start, this.fetchedStrat.dateStrat.end)
 
           this.fetchedStrat.dateStrat
             .startString = this.authService

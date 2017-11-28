@@ -25,7 +25,7 @@
     </div>
     <div class="sidewrapper valid-edit">
       <button type="submit" class="save">{{'Save' }}</button>
-      <button *ngIf="fetchedStrat._id" type="button" class="delete" md-button (click)="openDialogDelete()">Delete</button>
+      <button *ngIf="fetchedStrat._id" type="button" class="delete" md-button (click)="openDeleteConfirmation()">Delete</button>
     </div>
   </form>
 </div>

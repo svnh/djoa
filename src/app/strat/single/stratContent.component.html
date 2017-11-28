@@ -17,10 +17,11 @@
     <mat-card class="card-margin">
       <mat-card-content>
         <h2>Recommended Strategy</h2>
-        <button type="button" class="edit-btn">Edit</button>
-        <p>Here there should be a one sentence input that the strategist can fill in and edit using edit button above</p>
+        <button type="button" class="edit-btn" (click)="openDetails()">Edit</button>
+        <p>{{fetchedStrat.description}}</p>
         <section>
-          Here we need to add the strategy progress bar like we did for Missions
+          <mat-progress-bar [value]="fetchedStrat.dateStrat.percentageProgress"></mat-progress-bar>
+          <p class="percent">{{fetchedStrat.dateStrat.percentageProgress}}%</p>
         </section>
       </mat-card-content>
     </mat-card>
@@ -53,6 +54,8 @@
   </div>
   <div class="clearfix"></div>
   <div class="backtobottom">
-    <h5>Back to Project <i class="fa fa-chevron-down" aria-hidden="true"></i></h5>
+    <div *ngFor="let project of fetchedStrat.projects">
+      <h5 [routerLink]="['/project/' + project._id]">Back to Project <i class="fa fa-chevron-down" aria-hidden="true"></i></h5>
+    </div>
   </div>
 </div>

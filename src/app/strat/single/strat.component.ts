@@ -187,6 +187,16 @@ export class StratComponent implements OnInit {
   }
 
 
+
+    openDeleteConfirmation() {
+        const newShowNavBarData = new ShowNavBarData()
+        newShowNavBarData.search.typeScreen = 'deleteConfirmation'
+        newShowNavBarData.search.typeObj = 'strat'
+        newShowNavBarData.search.stratId = this.fetchedStrat._id
+        this.globalEventsManager.showNavBarRight(newShowNavBarData)
+    }
+
+
   // openDialogDelete(){
   //   let this2 = this
   //   let dialogRefDelete = this.dialog.open(DeleteDialog)

@@ -26,7 +26,6 @@
         <h4>{{fetchedMission.title}}</h4>
         <button type="button" (click)="openDetails()" class="edit-btn">Edit</button>
         <p>{{fetchedMission.description}}</p>
-        <!--Start Date {{fetchedMission.dateMission.start | date:'yyyy-MM-dd' }} / End Date {{fetchedMission.dateMission.end | date:'yyyy-MM-dd' }} /-->
         <section>
           <mat-progress-bar [value]="fetchedMission.dateMission.percentageProgress"></mat-progress-bar>
           <p class="percent">{{fetchedMission.dateMission.percentageProgress}}%</p>
