@@ -82,7 +82,7 @@ export class MissionsComponent implements OnInit {
   }
 
   goTo(missionId: string) {
-    this.openCategoriesSideBar(missionId)
+    // this.openCategoriesSideBar(missionId)
     this.router.navigate(['mission/' + missionId]);
   }
 

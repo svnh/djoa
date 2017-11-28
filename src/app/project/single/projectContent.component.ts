@@ -176,6 +176,13 @@ export class ProjectContentComponent implements OnInit {
         res => {
           this.fetchedProject = <Project>res
 
+          const showNavBarData = new ShowNavBarData()
+          // showNavBarData.showNavBar = true
+          showNavBarData.search.typeObj = 'project'
+          showNavBarData.search.projectId = this.fetchedProject._id
+          this.globalEventsManager.showNavBarLeft(showNavBarData);
+
+
           this.fetchedProject.dateProject.startString = this.authService.isoDateToHtmlDate(this.fetchedProject.dateProject.start)
           this.fetchedProject.dateProject.endString = this.authService.isoDateToHtmlDate(this.fetchedProject.dateProject.end)
 

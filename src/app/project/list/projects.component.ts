@@ -58,6 +58,7 @@ export class ProjectsComponent implements OnInit {
     })
   }
   ngOnChanges() {
+    console.log(this.search)
   }
 
 
@@ -67,8 +68,7 @@ export class ProjectsComponent implements OnInit {
     //might be change into ngOnCVHanges
     // this.activatedRoute.params.subscribe((params: Params) => {
     //   console.log(params)
-    //   console.log('ddd')
-    //   this.getProjects(1, this.search)
+    //   // this.getProjects(1, this.search)
     // })
     // }, 200);
   }

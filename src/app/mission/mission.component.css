@@ -71,3 +71,11 @@
     margin-bottom: 0 !important;
   }
 }
+
+.selected {
+  color:red;
+}
+
+.noMission{
+  color:grey;
+}

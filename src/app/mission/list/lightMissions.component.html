@@ -1,16 +1,19 @@
 <div *ngFor="let mission of fetchedMissions; let i = index;">
   <div class="sidebar-item">
-    <div *ngIf="i==0" (click)="goToMission(mission._id)" routerLinkActive="active" class="list-on">
-      <i [ngClass]="'fa fa-' + categorie.icone"></i>
-      {{categorie.name}}
+    <div
+      *ngIf="i==0"
+      [ngClass]="{'selected':mission._id === search.missionId,'':mission._id !== search.missionId}"
+      (click)="goToMission(mission._id)"
+      routerLinkActive="active"
+      class="list-on">
+      <i [ngClass]="'fa fa-' + categorie.icone"></i> {{categorie.name}}
     </div>
   </div>
 </div>
 <div *ngIf="!fetchedMissions.length">
   <div class="sidebar-item noMission">
-    <div  class="list-on">
-      <i [ngClass]="'fa fa-' + categorie.icone"></i>
-      {{categorie.name}}
+    <div class="list-on">
+      <i [ngClass]="'fa fa-' + categorie.icone"></i> {{categorie.name}}
     </div>
   </div>
 </div>

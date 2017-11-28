@@ -68,7 +68,7 @@ export class LightMissionsComponent implements OnInit {
   }
 
   ngOnChanges(changes) {
-    // console.log(this.search)
+    console.log(this.search)
     if(this.search.projectId && this.search.categorieId)
       this.getMissions(1, this.search)
   }

@@ -123,7 +123,7 @@ export class MissionContentComponent implements OnInit {
     this.globalEventsManager.showNavBarRight(showNavBarData);
   }
   openTeam() {
-    let showNavBarData = new ShowNavBarData()
+    const showNavBarData = new ShowNavBarData()
     showNavBarData.search.typeScreen = 'team'
     showNavBarData.search.typeObj = 'mission'
     showNavBarData.search.missionId = this.fetchedMission._id
@@ -240,12 +240,26 @@ export class MissionContentComponent implements OnInit {
     this.router.navigate([typeObj + '/' + id]);
   }
 
+
   getMission(id: string) {
     this.missionService.getMission(id)
       .subscribe(
       res => {
         this.fetchedMission = res
-        console.log(res)
+
+          this.fetchedMission.projects.forEach(project => {
+            const newShowNavBarData = new ShowNavBarData()
+            newShowNavBarData.search.typeObj = 'categorie'
+            newShowNavBarData.search.missionId = this.fetchedMission._id
+            newShowNavBarData.search.projectId = project._id
+            this.globalEventsManager.showNavBarLeft(newShowNavBarData)
+
+          });
+        //
+        // const showNavBarData = new ShowNavBarData()
+        // showNavBarData.search.typeObj = 'mission'
+        // showNavBarData.search.missionId = this.fetchedMission._id
+        // this.globalEventsManager.showNavBarLeft(showNavBarData);
 
         this.fetchedMission.dateMission.startString = this.authService
           .isoDateToHtmlDate(this.fetchedMission.dateMission.start)
