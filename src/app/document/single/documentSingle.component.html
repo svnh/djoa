@@ -6,9 +6,9 @@
       </app-autocomplete> -->
       <app-autocomplete [typeAutocomplete]="'project'" [search]="search" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="autocompleteSearchProjects" (clearAutocomplete)="clearSearchProjects()" (getResultAutocomplete)="getResultSearchProjects($event[0])">
       </app-autocomplete>
-      <app-autocomplete [typeAutocomplete]="'categorie'" [search]="search" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="autocompleteSearchCategories" (getResultAutocomplete)="getResultSearchCategories($event[0])">
+      <app-autocomplete *ngIf="autocompleteSearchProjects.length" [typeAutocomplete]="'categorie'" [search]="search" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="autocompleteSearchCategories" (clearAutocomplete)="clearSearchCategories()" (getResultAutocomplete)="getResultSearchCategories($event[0])">
       </app-autocomplete>
-      <app-autocomplete [typeAutocomplete]="'mission'" [search]="search" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedDocument.missions">
+      <app-autocomplete *ngIf="autocompleteSearchCategories.length" [typeAutocomplete]="'mission'" [search]="search" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedDocument.missions">
       </app-autocomplete>
       <!-- <app-autocomplete [typeAutocomplete]="'brief'" [search]="search" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedDocument.briefs">
       </app-autocomplete> -->

@@ -116,6 +116,9 @@ export class DocumentSingleComponent implements OnInit {
   clearSearchProjects() {
     this.search.projectId = ''
   }
+  clearSearchCategories() {
+    this.search.categorieId = ''
+  }
 
   save() {
 

@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 import { MissionComponent} from './single/mission.component';
+import { NewMissionBox} from './single/newMissionBox.component';
 import { MissionChatComponent} from './single/missionChat.component';
 import { MissionTeamComponent} from './single/missionTeam.component';
 import { MissionContentComponent} from './single/missionContent.component';
@@ -52,6 +53,7 @@ import {ChatModule} from '../chat/chat.module';
     MissionsComponent,
     LightMissionsComponent,
     MissionChatComponent,
+    NewMissionBox,
     // ProjectMissionsComponent,
     // MissionDialogComponent,
     // MissionSingleComponent,
@@ -59,6 +61,7 @@ import {ChatModule} from '../chat/chat.module';
   ],
   exports:      [
     MissionComponent,
+    NewMissionBox,
     MissionTeamComponent,
     MissionsComponent,
     LightMissionsComponent,

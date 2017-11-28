@@ -1,4 +1,4 @@
-<div class="missionbox">
+<div *ngIf="fetchedMissions.length" class="missionbox">
   <div class="card">
     <div class="card-header">
       <i [ngClass]="'fa fa-' + categorie.icone"></i>
@@ -14,7 +14,7 @@
             <td>{{mission.title}}</td>
             <td>
               <section>
-                <mat-progress-bar  [value]="mission.dateMission.percentageProgress">
+                <mat-progress-bar [value]="mission.dateMission.percentageProgress">
                 </mat-progress-bar>
               </section>
             </td>

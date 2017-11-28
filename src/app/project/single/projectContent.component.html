@@ -8,6 +8,7 @@
           <app-missions (getResultMissions)="getResultMissions($event)" [categorie]="categorie" [search]="{projectId:fetchedProject._id, categorieId:categorie._id}"></app-missions>
         </div>
       </div>
+      <app-newMissionBox [search]="search"></app-newMissionBox>
     </div>
   </div>
   <div class="projectinfo">
