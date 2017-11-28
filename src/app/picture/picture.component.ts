@@ -49,13 +49,14 @@ export class PictureComponent {
   }
   //might be deprecated
   openProfile() {
-    if(this.userIdToOpenProfile) {
+    // if(this.userIdToOpenProfile) {
       let showNavBarData = new ShowNavBarData()
       showNavBarData.search.typeScreen = 'profile'
       showNavBarData.search.typeObj = 'user'
+      showNavBarData.showNavBar = 1
       showNavBarData.search.userId = this.userIdToOpenProfile
       this.globalEventsManager.showNavBarRight(showNavBarData);
     }
-  }
+  // }
 
 }

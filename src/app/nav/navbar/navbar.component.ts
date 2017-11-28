@@ -116,24 +116,26 @@ export class NavbarComponent implements OnInit {
     this.globalEventsManager.showNavBarRight(newShowNavBarData)
   }
   createUser() {
-    let newShowNavBarData = new ShowNavBarData()
+    const newShowNavBarData = new ShowNavBarData()
     newShowNavBarData.search.typeObj = 'user'
     newShowNavBarData.search.isExternalUser = false
     this.globalEventsManager.showNavBarRight(newShowNavBarData)
   }
-  createMission(){
-    let newShowNavBarData = new ShowNavBarData()
+  createMission() {
+    const newShowNavBarData = new ShowNavBarData()
     newShowNavBarData.search.typeObj = 'mission'
     this.globalEventsManager.showNavBarRight(newShowNavBarData)
   }
-  newObj(){
-    let newShowNavBarData = new ShowNavBarData()
+  newObj() {
+    const newShowNavBarData = new ShowNavBarData()
+    newShowNavBarData.showNavBar = 1
     newShowNavBarData.search.typeObj = 'newObj'
     this.globalEventsManager.showNavBarRight(newShowNavBarData)
   }
-  notif(){
-    let newShowNavBarData = new ShowNavBarData()
+  notif() {
+    const newShowNavBarData = new ShowNavBarData()
     newShowNavBarData.search.typeObj = 'notif'
+    newShowNavBarData.showNavBar = 1
     this.globalEventsManager.showNavBarRight(newShowNavBarData)
   }
 
