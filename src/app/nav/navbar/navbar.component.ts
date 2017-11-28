@@ -28,8 +28,9 @@ export class NavbarComponent implements OnInit {
   // private userId: string;
   fetchedCurrentUser: User = new User();
   fetchedNotifications: Notification[] = [];
-  notificationsNotRead: number=0;
+  notificationsNotRead: number = 0;
   showNavBarData: ShowNavBarData = new ShowNavBarData()
+  showNavBarDataLeft: ShowNavBarData = new ShowNavBarData()
   topNavOpen: boolean = false
 
   constructor(
@@ -43,7 +44,14 @@ export class NavbarComponent implements OnInit {
     // private companieGuardService: CompanieGuardService,
     // private paiementGuardService: PaiementGuardService,
   ) {
-    this.globalEventsManager.showNavBarEmitterTop.subscribe((showNavBarData)=>{
+    this.globalEventsManager.showNavBarEmitterLeft.subscribe((showNavBarData) => {
+      if (showNavBarData !== null) {
+        this.showNavBarDataLeft = showNavBarData;
+      }
+
+    })
+    this.globalEventsManager.showNavBarEmitterTop.subscribe((showNavBarData) => {
+      // console.log(showNavBarData)
         if (showNavBarData !== null) {
           this.showNavBarData = showNavBarData;
           if(this.showNavBarData.showNavBar) {
@@ -62,7 +70,7 @@ export class NavbarComponent implements OnInit {
 
     if (this.authService.isLoggedIn()) {
       // this.fetchedCurrentUser = this.authService.getCurrentUser()
-      this.showNavBarData.showNavBar = true
+      this.showNavBarData.showNavBar = 1
       this.globalEventsManager.showNavBarTop(this.showNavBarData);
 
     }
@@ -82,15 +90,23 @@ export class NavbarComponent implements OnInit {
   }
 
   createProject() {
-    let newShowNavBarData = new ShowNavBarData()
+    const newShowNavBarData = new ShowNavBarData()
     newShowNavBarData.search.typeObj = 'project'
     newShowNavBarData.search.userId = ''
     this.globalEventsManager.showNavBarRight(newShowNavBarData);
   }
-  openSideBarLeft() {
-    let newShowNavBarData = new ShowNavBarData()
-    newShowNavBarData.search.typeObj = 'project'
-    this.globalEventsManager.showNavBarLeft(newShowNavBarData)
+  toggleSideBarLeft() {
+    console.log(this.showNavBarDataLeft)
+    // const newShowNavBarData = new ShowNavBarData()
+    if(this.showNavBarDataLeft.showNavBar === 1 ) {
+      // newShowNavBarData.showNavBar = -1
+      this.showNavBarDataLeft.showNavBar = -1
+    } else {
+      // newShowNavBarData.showNavBar = 1
+      this.showNavBarDataLeft.showNavBar = 1
+    }
+    // newShowNavBarData.search.typeObj = 'project'
+    this.globalEventsManager.showNavBarLeft(this.showNavBarDataLeft)
   }
   openMyProfile() {
     let newShowNavBarData = new ShowNavBarData()

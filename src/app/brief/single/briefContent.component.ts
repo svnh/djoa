@@ -124,7 +124,7 @@ export class BriefContentComponent implements OnInit {
 
   openDetails(briefId: string) {
     let showNavBarData = new ShowNavBarData()
-    showNavBarData.showNavBar = true
+    showNavBarData.showNavBar = 1
     showNavBarData.search.typeScreen = 'object'
     showNavBarData.search.typeObj = 'brief'
     showNavBarData.search.briefId = briefId
@@ -132,7 +132,7 @@ export class BriefContentComponent implements OnInit {
   }
   delete(briefId: string) {
     let showNavBarData = new ShowNavBarData()
-    showNavBarData.showNavBar = true
+    showNavBarData.showNavBar = 1
     showNavBarData.search.typeScreen = 'deleteConfirmation'
     showNavBarData.search.typeObj = 'brief'
     showNavBarData.search.briefId = briefId

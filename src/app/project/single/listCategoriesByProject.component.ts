@@ -118,14 +118,14 @@ export class ListCategoriesByProjectComponent implements OnInit {
 
   openDetails() {
     let showNavBarData = new ShowNavBarData()
-    showNavBarData.showNavBar = true
+    showNavBarData.showNavBar = 1
     showNavBarData.search.typeObj = 'project'
     showNavBarData.search.projectId = this.fetchedProject._id
     this.globalEventsManager.showNavBarRight(showNavBarData);
   }
   openTeam() {
     let showNavBarData = new ShowNavBarData()
-    showNavBarData.showNavBar = true
+    showNavBarData.showNavBar = 1
     showNavBarData.search.typeScreen = 'team'
     showNavBarData.search.typeObj = 'project'
     showNavBarData.search.projectId = this.fetchedProject._id

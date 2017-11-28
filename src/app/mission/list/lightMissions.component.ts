@@ -135,7 +135,7 @@ export class LightMissionsComponent implements OnInit {
   }
   // createNewMission() {
   //   let newShowNavBarData = new ShowNavBarData()
-  //   newShowNavBarData.showNavBar = true
+  //   newShowNavBarData.showNavBar = 1
   //   newShowNavBarData.search.typeObj = 'mission'
   //   newShowNavBarData.search.projectId = this.search.projectId
   //   newShowNavBarData.search.categorieId = this.search.categorieId
@@ -143,7 +143,7 @@ export class LightMissionsComponent implements OnInit {
   // }
   // openDeleteMission(missionId: string) {
   //   let newShowNavBarData = new ShowNavBarData()
-  //   newShowNavBarData.showNavBar = true
+  //   newShowNavBarData.showNavBar = 1
   //   newShowNavBarData.search.typeScreen = 'deleteConfirmation'
   //   newShowNavBarData.search.typeObj = 'mission'
   //   newShowNavBarData.search.missionId = missionId

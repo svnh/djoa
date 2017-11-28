@@ -71,7 +71,7 @@ export class BriefsComponent implements OnInit {
   //
   addBrief() {
     let showNavBarData = new ShowNavBarData()
-    showNavBarData.showNavBar = true
+    showNavBarData.showNavBar = 1
     showNavBarData.search.typeScreen = 'object'
     showNavBarData.search.typeObj = 'brief'
     showNavBarData.search.stratId = this.search.stratId

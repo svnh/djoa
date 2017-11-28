@@ -232,8 +232,8 @@ export class AuthService {
 
   // logout function to be used in html file of both pages (login/register) in order to clear the localStorage from token and user id.
   logout() {
-    let newShowNavBarData = new ShowNavBarData()
-    newShowNavBarData.showNavBar = false
+    const newShowNavBarData = new ShowNavBarData()
+    newShowNavBarData.showNavBar = -1
     this.globalEventsManager.showNavBarLeft(newShowNavBarData);
     this.globalEventsManager.showNavBarRight(newShowNavBarData);
     this.globalEventsManager.showNavBarTop(newShowNavBarData);

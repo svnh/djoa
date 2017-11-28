@@ -136,7 +136,7 @@ export class ProjectTeamComponent implements OnInit {
 
   closeRight() {
     let showNavBarData = new ShowNavBarData()
-    showNavBarData.showNavBar = false
+    showNavBarData.showNavBar = -1
     this.globalEventsManager.showNavBarRight(showNavBarData);
   }
 
@@ -150,7 +150,7 @@ export class ProjectTeamComponent implements OnInit {
       this.globalEventsManager.showNavBarRight(newShowNavBarData)
 
     //   let newShowNavBarData = new ShowNavBarData()
-    //   newShowNavBarData.showNavBar = true
+    //   newShowNavBarData.showNavBar = 1
     //   newShowNavBarData.search.typeObj = 'document'
     //   this.globalEventsManager.showNavBarRight(newShowNavBarData)
     // let this2 = this

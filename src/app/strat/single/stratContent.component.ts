@@ -108,7 +108,7 @@ export class StratContentComponent implements OnInit {
 
   openDetails() {
     let showNavBarData = new ShowNavBarData()
-    showNavBarData.showNavBar = true
+    showNavBarData.showNavBar = 1
     showNavBarData.search.typeObj = 'strat'
     showNavBarData.search.stratId = this.fetchedStrat._id
     this.globalEventsManager.showNavBarRight(showNavBarData);
@@ -117,7 +117,7 @@ export class StratContentComponent implements OnInit {
 
   openTeam() {
     let showNavBarData = new ShowNavBarData()
-    showNavBarData.showNavBar = true
+    showNavBarData.showNavBar = 1
     showNavBarData.search.typeScreen = 'team'
     showNavBarData.search.typeObj = 'strat'
     showNavBarData.search.stratId = this.fetchedStrat._id

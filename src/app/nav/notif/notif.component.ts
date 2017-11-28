@@ -154,8 +154,8 @@ export class NotifComponent implements OnInit {
 
   goToEmit(result) {
     // console.log(result)
-    let newShowNavBarData = new ShowNavBarData()
-    newShowNavBarData.showNavBar = false
+    const newShowNavBarData = new ShowNavBarData()
+    newShowNavBarData.showNavBar = -1
     this.globalEventsManager.showNavBarRight(newShowNavBarData)
 
     this.router.navigate([result.typeObj + '/' + result.missionId]);
@@ -164,7 +164,7 @@ export class NotifComponent implements OnInit {
   // goTo(typeObj: string, missionId: string) {
   //
   //   let newShowNavBarData = new ShowNavBarData()
-  //   newShowNavBarData.showNavBar = false
+  //   newShowNavBarData.showNavBar = -1
   //   this.globalEventsManager.showNavBarRight(newShowNavBarData)
   //
   //   this.router.navigate([typeObj + '/' + missionId]);
@@ -172,40 +172,40 @@ export class NotifComponent implements OnInit {
   //
   // createProject() {
   //   let newShowNavBarData = new ShowNavBarData()
-  //   newShowNavBarData.showNavBar = true
+  //   newShowNavBarData.showNavBar = 1
   //   newShowNavBarData.search.typeObj = 'project'
   //   newShowNavBarData.search.userId = ''
   //   this.globalEventsManager.showNavBarRight(newShowNavBarData);
   // }
   // openSideBarLeft(){
   //   let newShowNavBarData = new ShowNavBarData()
-  //   newShowNavBarData.showNavBar = true
+  //   newShowNavBarData.showNavBar = 1
   //   newShowNavBarData.search.typeObj = ''
   //   this.globalEventsManager.showNavBarLeft(newShowNavBarData)
   // }
   // openMyProfile() {
   //   let newShowNavBarData = new ShowNavBarData()
-  //   newShowNavBarData.showNavBar = true
+  //   newShowNavBarData.showNavBar = 1
   //   newShowNavBarData.search.typeObj = 'user'
   //   newShowNavBarData.search.userId = this.authService.getCurrentUser()._id
   //   this.globalEventsManager.showNavBarRight(newShowNavBarData)
   // }
   // createUser() {
   //   let newShowNavBarData = new ShowNavBarData()
-  //   newShowNavBarData.showNavBar = true
+  //   newShowNavBarData.showNavBar = 1
   //   newShowNavBarData.search.typeObj = 'user'
   //   newShowNavBarData.search.isExternalUser = false
   //   this.globalEventsManager.showNavBarRight(newShowNavBarData)
   // }
   // createMission(){
   //   let newShowNavBarData = new ShowNavBarData()
-  //   newShowNavBarData.showNavBar = true
+  //   newShowNavBarData.showNavBar = 1
   //   newShowNavBarData.search.typeObj = 'mission'
   //   this.globalEventsManager.showNavBarRight(newShowNavBarData)
   // }
   // createDocument(){
   //   let newShowNavBarData = new ShowNavBarData()
-  //   newShowNavBarData.showNavBar = true
+  //   newShowNavBarData.showNavBar = 1
   //   newShowNavBarData.search.typeObj = 'document'
   //   this.globalEventsManager.showNavBarRight(newShowNavBarData)
   // }

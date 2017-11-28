@@ -1,6 +1,6 @@
 
   export class ShowNavBarData {
-    showNavBar: boolean = true;
+    showNavBar: number = 0;
     search: Search = new Search();
   }
 

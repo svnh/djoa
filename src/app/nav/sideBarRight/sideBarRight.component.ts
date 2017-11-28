@@ -33,7 +33,7 @@ export class SideBarRightComponent implements OnInit {
 
   ngOnInit() {}
 
-  sideNavAction(side: string, showNavBar: boolean, typeObj: string) {
+  sideNavAction(side: string, showNavBar: number, typeObj: string) {
     this.showNavBarData.showNavBar = showNavBar
     this.showNavBarData.search.typeObj = typeObj
     this.globalEventsManager.showNavBarRight(this.showNavBarData);

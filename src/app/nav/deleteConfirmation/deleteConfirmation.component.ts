@@ -68,7 +68,7 @@ export class DeleteConfirmationComponent implements OnInit {
 
   cancel() {
     let showNavBarData = new ShowNavBarData()
-    showNavBarData.showNavBar = false
+    showNavBarData.showNavBar = -1
     // showNavBarData.search.typeObj = 'project'
     // showNavBarData.search.projectId = this.search.projectId
     this.globalEventsManager.showNavBarRight(showNavBarData);
@@ -102,7 +102,7 @@ export class DeleteConfirmationComponent implements OnInit {
   successDeleted(res) {
     this.toastr.success('Great!', res.message);
     let newShowNavBarData = new ShowNavBarData()
-    newShowNavBarData.showNavBar = false
+    newShowNavBarData.showNavBar = -1
     this.globalEventsManager.showNavBarRight(newShowNavBarData)
     if(this.search.typeObj === 'brief') this.router.navigate(['/']);
     if(this.search.typeObj === 'mission') this.router.navigate(['/']);

@@ -33,22 +33,24 @@ export class SideBarLeftComponent implements OnInit {
     private userService: UserService,
     private router: Router,
   ) {
-    this.globalEventsManager.showNavBarEmitterLeft.subscribe((showNavBarData)=>{
+    this.globalEventsManager.showNavBarEmitterLeft.subscribe((showNavBarData) => {
+      console.log(showNavBarData)
         if (showNavBarData !== null) {
           this.showNavBarData = showNavBarData;
-          if(this.showNavBarData.showNavBar) {
+          if(this.showNavBarData.showNavBar === 1) {
             this.sidenav.open()
-          } else {
+          }
+          if(this.showNavBarData.showNavBar === -1) {
             this.sidenav.close()
           }
         }
     })
   }
-  sideNavAction(side: string, showNavBar: boolean, typeObj: string) {
-    this.showNavBarData.showNavBar = showNavBar
-    this.showNavBarData.search.typeObj = typeObj
-    this.globalEventsManager.showNavBarLeft(this.showNavBarData);
-  }
+  // sideNavAction(side: string, showNavBar: number, typeObj: string) {
+  //   this.showNavBarData.showNavBar = showNavBar
+  //   this.showNavBarData.search.typeObj = typeObj
+  //   this.globalEventsManager.showNavBarLeft(this.showNavBarData);
+  // }
   // sidenavOpen(search) {
   //   this.sidenav.open()
   // }
@@ -62,7 +64,7 @@ export class SideBarLeftComponent implements OnInit {
   // }
   ngOnInit() {
     if (this.authService.isLoggedIn()) {
-      this.showNavBarData.showNavBar = true
+      this.showNavBarData.showNavBar = 1
       this.showNavBarData.search.typeObj = 'project'
       this.globalEventsManager.showNavBarLeft(this.showNavBarData);
       // this.globalEventsManager.showNavBar(true);

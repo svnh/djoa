@@ -253,7 +253,6 @@ export class MissionContentComponent implements OnInit {
             newShowNavBarData.search.missionId = this.fetchedMission._id
             newShowNavBarData.search.projectId = project._id
             this.globalEventsManager.showNavBarLeft(newShowNavBarData)
-
           });
         //
         // const showNavBarData = new ShowNavBarData()

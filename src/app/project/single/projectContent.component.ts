@@ -146,14 +146,14 @@ export class ProjectContentComponent implements OnInit {
 
   openDetails() {
     let showNavBarData = new ShowNavBarData()
-    showNavBarData.showNavBar = true
+    showNavBarData.showNavBar = 1
     showNavBarData.search.typeObj = 'project'
     showNavBarData.search.projectId = this.fetchedProject._id
     this.globalEventsManager.showNavBarRight(showNavBarData);
   }
   openTeam() {
     let showNavBarData = new ShowNavBarData()
-    showNavBarData.showNavBar = true
+    showNavBarData.showNavBar = 1
     showNavBarData.search.typeScreen = 'team'
     showNavBarData.search.typeObj = 'project'
     showNavBarData.search.projectId = this.fetchedProject._id
@@ -161,7 +161,7 @@ export class ProjectContentComponent implements OnInit {
   }
   openNotif() {
     let showNavBarData = new ShowNavBarData()
-    showNavBarData.showNavBar = true
+    showNavBarData.showNavBar = 1
     showNavBarData.search.typeObj = 'notif'
     this.globalEventsManager.showNavBarRight(showNavBarData);
   }
@@ -177,7 +177,7 @@ export class ProjectContentComponent implements OnInit {
           this.fetchedProject = <Project>res
 
           const showNavBarData = new ShowNavBarData()
-          // showNavBarData.showNavBar = true
+          // showNavBarData.showNavBar = 1
           showNavBarData.search.typeObj = 'project'
           showNavBarData.search.projectId = this.fetchedProject._id
           this.globalEventsManager.showNavBarLeft(showNavBarData);

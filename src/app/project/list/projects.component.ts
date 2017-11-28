@@ -81,7 +81,7 @@ export class ProjectsComponent implements OnInit {
   }
   openProjects(projectId: string) {
     let showNavBarData = new ShowNavBarData()
-    showNavBarData.showNavBar = true
+    showNavBarData.showNavBar = 1
     showNavBarData.search.typeObj = 'project'
     showNavBarData.search.projectId = projectId
     this.globalEventsManager.showNavBarLeft(showNavBarData);

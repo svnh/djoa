@@ -132,7 +132,7 @@ export class DocumentsComponent implements OnInit {
   addDocument() {
     let showNavBarData = new ShowNavBarData()
     // console.log(this.search)
-    showNavBarData.showNavBar = true
+    showNavBarData.showNavBar = 1
     showNavBarData.search.typeScreen = 'object'
     showNavBarData.search.typeObj = 'document'
     showNavBarData.search.stratId = this.search.stratId
@@ -143,13 +143,13 @@ export class DocumentsComponent implements OnInit {
   }
   // closeRight() {
   //   let showNavBarData = new ShowNavBarData()
-  //   showNavBarData.showNavBar = false
+  //   showNavBarData.showNavBar = -1
   //   this.globalEventsManager.showNavBarRight(showNavBarData)
   //   // console.log()
   // }
   openDetails(documentId: string) {
     let showNavBarData = new ShowNavBarData()
-    showNavBarData.showNavBar = true
+    showNavBarData.showNavBar = 1
     showNavBarData.search.typeScreen = 'object'
     showNavBarData.search.typeObj = 'document'
     showNavBarData.search.documentId = documentId
@@ -157,7 +157,7 @@ export class DocumentsComponent implements OnInit {
   }
   delete(documentId: string) {
     let showNavBarData = new ShowNavBarData()
-    showNavBarData.showNavBar = true
+    showNavBarData.showNavBar = 1
     showNavBarData.search.typeScreen = 'deleteConfirmation'
     showNavBarData.search.typeObj = 'document'
     showNavBarData.search.documentId = documentId
