@@ -8,7 +8,7 @@ import { Router} from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ViewEncapsulation} from '@angular/core';
 import { UserService} from '../../user/user.service';
-
+import { Search, PaginationData } from '../../shared/shared.model'
 
 @Component({
   selector: 'app-adminCategories',
@@ -26,11 +26,7 @@ export class AdminCategoriesComponent implements OnInit {
   };
   loading: boolean= false;
 
-  paginationData = {
-    currentPage: 1,
-    itemsPerPage: 0,
-    totalItems: 0
-  };
+  paginationData: PaginationData = new PaginationData();
 
   trackinPage : any = {
     lastVisitPagePressCount:[],
