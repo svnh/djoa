@@ -109,45 +109,45 @@ export class NotifComponent implements OnInit {
 //     )
 // }
 
-
-
-  getMyDocuments() {
-    let search = { myDocuments: true }
-    this.documentService.getDocuments(1, search)
-      .subscribe(
-      res => {
-        console.log(res)
-        this.myDocuments = res.data
-        // this.myDocuments.forEach(document => {
-        //   document.missions.forEach(mission => {
-        //     if (!(this.newMissionDocs.some((newMissionDoc, i) => {
-        //       if (newMissionDoc.mission._id === mission._id) {
-        //         this.newMissionDocs[i].documents.push(document)
-        //         return true
-        //       }
-        //       return false
-        //     }
-        //     ))) {
-        //       let newMissionDoc = {
-        //         mission: mission,
-        //         documents: [document]
-        //       }
-        //       this.newMissionDocs.push(newMissionDoc)
-        //     }
-        //   })
-        // })
-        // console.log(this.newMissionDocs)
-      },
-      error => {
-        console.log(error);
-      }
-      );
-  }
+  //
+  //
+  // getMyDocuments() {
+  //   let search = { myDocuments: true }
+  //   this.documentService.getDocuments(1, search)
+  //     .subscribe(
+  //     res => {
+  //       console.log(res)
+  //       this.myDocuments = res.data
+  //       // this.myDocuments.forEach(document => {
+  //       //   document.missions.forEach(mission => {
+  //       //     if (!(this.newMissionDocs.some((newMissionDoc, i) => {
+  //       //       if (newMissionDoc.mission._id === mission._id) {
+  //       //         this.newMissionDocs[i].documents.push(document)
+  //       //         return true
+  //       //       }
+  //       //       return false
+  //       //     }
+  //       //     ))) {
+  //       //       let newMissionDoc = {
+  //       //         mission: mission,
+  //       //         documents: [document]
+  //       //       }
+  //       //       this.newMissionDocs.push(newMissionDoc)
+  //       //     }
+  //       //   })
+  //       // })
+  //       // console.log(this.newMissionDocs)
+  //     },
+  //     error => {
+  //       console.log(error);
+  //     }
+  //     );
+  // }
 
   ngOnInit() {
     // this.getChatUnreadInMissions()
     // this.getChatUnreadInStrats()
-    this.getMyDocuments()
+    // this.getMyDocuments()
     // this.getDocumentsInStrats()
     // this.getDocumentsByMissions()
   }
@@ -161,14 +161,14 @@ export class NotifComponent implements OnInit {
     this.router.navigate([result.typeObj + '/' + result.missionId]);
   }
   // must dbu deprecated
-  goTo(typeObj: string, missionId: string) {
-
-    let newShowNavBarData = new ShowNavBarData()
-    newShowNavBarData.showNavBar = false
-    this.globalEventsManager.showNavBarRight(newShowNavBarData)
-
-    this.router.navigate([typeObj + '/' + missionId]);
-  }
+  // goTo(typeObj: string, missionId: string) {
+  //
+  //   let newShowNavBarData = new ShowNavBarData()
+  //   newShowNavBarData.showNavBar = false
+  //   this.globalEventsManager.showNavBarRight(newShowNavBarData)
+  //
+  //   this.router.navigate([typeObj + '/' + missionId]);
+  // }
   //
   // createProject() {
   //   let newShowNavBarData = new ShowNavBarData()
