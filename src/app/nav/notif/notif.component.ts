@@ -31,7 +31,7 @@ export class NotifComponent implements OnInit {
   // private userId: string = localStorage.getItem('userId');
   // private userId: string;
   notifChatsInStrats: NotifChat[] = []
-  notifChatsInMissions: NotifChat[] = []
+  // notifChatsInMissions: NotifChat[] = []
   myDocuments: Document[] = []
   newMissionDocs = []
   documentsByMissions = []
@@ -58,17 +58,17 @@ export class NotifComponent implements OnInit {
     // });
   }
 
-  getChatUnreadInMissions() {
-    this.chatService.getChatUnreadInMissions()
-      .subscribe(
-      res => {
-        this.notifChatsInMissions = res.obj
-      },
-      error => {
-        console.log(error);
-      }
-      );
-  }
+  // getChatUnreadInMissions() {
+  //   this.chatService.getChatUnreadInMissions()
+  //     .subscribe(
+  //     res => {
+  //       this.notifChatsInMissions = res.obj
+  //     },
+  //     error => {
+  //       console.log(error);
+  //     }
+  //     );
+  // }
   getChatUnreadInStrats() {
     this.chatService.getChatUnreadInStrats()
       .subscribe(
@@ -145,7 +145,7 @@ getDocumentsInStrats() {
   }
 
   ngOnInit() {
-    this.getChatUnreadInMissions()
+    // this.getChatUnreadInMissions()
     this.getChatUnreadInStrats()
     this.getMyDocuments()
     this.getDocumentsInStrats()
@@ -153,7 +153,7 @@ getDocumentsInStrats() {
   }
 
   goToEmit(result) {
-    console.log(result)
+    // console.log(result)
     let newShowNavBarData = new ShowNavBarData()
     newShowNavBarData.showNavBar = false
     this.globalEventsManager.showNavBarRight(newShowNavBarData)

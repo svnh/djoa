@@ -20,18 +20,18 @@ import { ChatService } from '../../chat/chat.service';
 
 
 @Component({
-  selector: 'app-chat-unread-in-missions',
-  templateUrl: './chatUnreadInMissions.component.html',
+  selector: 'app-chat-unread-in-strats',
+  templateUrl: './chatUnreadInStrats.component.html',
   styleUrls: ['./notif.component.css']
 })
-export class ChatUnreadInMissions implements OnInit {
+export class ChatUnreadInStrats implements OnInit {
   @Output() goToEmit: EventEmitter<any> = new EventEmitter();
 
   // showNavBar: boolean = false;
   // private userId: string = localStorage.getItem('userId');
   // private userId: string;
-  // notifChatsInStrats: NotifChat[] = []
-  notifChatsInMissions: NotifChat[] = []
+  notifChatsInStrats: NotifChat[] = []
+  // notifChatsInMissions: NotifChat[] = []
   // myDocuments: Document[] = []
   // newMissionDocs = []
   // documentsByMissions = []
@@ -43,23 +43,25 @@ export class ChatUnreadInMissions implements OnInit {
     private chatService: ChatService,
   ) {
   }
-
-
-
   ngOnInit() {
-    this.getChatUnreadInMissions()
+    this.getChatUnreadInStrats()
   }
-  getChatUnreadInMissions() {
-    this.chatService.getChatUnreadInMissions()
+
+  getChatUnreadInStrats() {
+    this.chatService.getChatUnreadInStrats()
       .subscribe(
       res => {
-        this.notifChatsInMissions = res.obj
+        this.notifChatsInStrats = res.obj
       },
       error => {
         console.log(error);
       }
       );
   }
+
+
+
+
   goTo(typeObj: string, missionId: string) {
     this.goToEmit.emit({typeObj, missionId})
   }

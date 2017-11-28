@@ -8,6 +8,7 @@ import { Routes, RouterModule} from '@angular/router';
 
 import { NotifComponent} from './notif.component';
 import { ChatUnreadInMissions} from './chatUnreadInMissions.component';
+import { ChatUnreadInStrats} from './chatUnreadInStrats.component';
 // import {SharedModule } from '../../shared/shared.module';
 // import { NotificationService} from '../../notification/notification.service';
 
@@ -29,12 +30,14 @@ import { ChatUnreadInMissions} from './chatUnreadInMissions.component';
   declarations: [
     NotifComponent,
     ChatUnreadInMissions,
+    ChatUnreadInStrats,
     // CategoriesComponent,
     // CategorieSingleComponent,
   ],
   exports:      [
     NotifComponent,
     ChatUnreadInMissions,
+    ChatUnreadInStrats,
     // CategoriesComponent
   ],
   providers:    [

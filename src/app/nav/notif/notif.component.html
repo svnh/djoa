@@ -1,12 +1,6 @@
 <div class="sidewrapper">
-  <div *ngFor="let notifChat of notifChatsInStrats">
-    <div *ngIf="notifChat.countUnread !== 0">
-      {{notifChat.mission.title}}
-      <div (click)="goTo('mission', notifChat.mission._id)" class="sidebar-notif">
-        {{notifChat.countUnread}} New Messages
-      </div>
-    </div>
-  </div>
+
+  <app-chat-unread-in-strats (goToEmit)="goToEmit($event)"></app-chat-unread-in-strats>
   <app-chat-unread-in-missions (goToEmit)="goToEmit($event)"></app-chat-unread-in-missions>
 </div>
 <div class="sidewrapper">
