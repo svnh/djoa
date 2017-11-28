@@ -70,7 +70,7 @@ export class SideBarLeftComponent implements OnInit {
     if (this.authService.isLoggedIn()) {
       if(this.widthContainer) {
         // console.log(this.widthContainer)
-        if(this.widthContainer > 700) {
+        if(this.widthContainer > 991) {
           this.showNavBarData.showNavBar = 1
         }
         this.showNavBarData.search.typeObj = 'project'
