@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
+import { ChatPipe } from './chat.pipe';
 
 
 
@@ -35,7 +36,7 @@ import {SharedSmallModule } from '../shared/sharedSmall.module';
     ChatRouting,
     // CommonModule,
     // FormsModule,
-    
+
     ReactiveFormsModule,
     // PictureModule,
     // QuoteModule,
@@ -46,6 +47,7 @@ import {SharedSmallModule } from '../shared/sharedSmall.module';
   declarations: [
 
     ChatComponent,
+    ChatPipe,
     // ChatsComponent,
 
     // ChatDialogComponent,

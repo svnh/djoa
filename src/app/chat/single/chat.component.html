@@ -11,7 +11,8 @@
           </div>
           <div class="chat-content">
             <button *ngIf="linkGoToChat" type="button" (click)="goToChat()" class="gotochat-btn">CHAT</button>
-            <p>{{message.chatName}}</p>
+            <p class="longMessage">{{message.chatName}}</p>
+            <p class="shortMessage">{{message.chatName | shortMessage}}</p>
             <h5>{{message.createdAt | date:'yMdjm'}}</h5>
           </div>
         </div>
