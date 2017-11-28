@@ -20,7 +20,7 @@ import {ShowNavBarData} from '../../shared/shared.model'
 })
 export class SideBarLeftComponent implements OnInit {
   @ViewChild('sidenav') public sidenav: MatSidenav;
-  // @Input() sidenav: any;
+  @Input() widthContainer: number;
   showNavBarData: ShowNavBarData = new ShowNavBarData()
  // private userId: string = localStorage.getItem('userId');
   // private userId: string;
@@ -62,16 +62,28 @@ export class SideBarLeftComponent implements OnInit {
   //   }
   //   this.globalEventsManager.showNavBar(showNavBarData);
   // }
-  ngOnInit() {
-    if (this.authService.isLoggedIn()) {
-      this.showNavBarData.showNavBar = 1
-      this.showNavBarData.search.typeObj = 'project'
-      this.globalEventsManager.showNavBarLeft(this.showNavBarData);
-      // this.globalEventsManager.showNavBar(true);
-      // this.showNavBar = true;
-      //let userId = localStorage.getItem('userId');
 
-      this.fetchedUser = this.authService.getCurrentUser()
+  ngOnInit(){
+    // console.log(this.widthContainer)
+  }
+  ngOnChanges() {
+    if (this.authService.isLoggedIn()) {
+      if(this.widthContainer) {
+        // console.log(this.widthContainer)
+        if(this.widthContainer > 700) {
+          this.showNavBarData.showNavBar = 1
+        }
+        this.showNavBarData.search.typeObj = 'project'
+        this.globalEventsManager.showNavBarLeft(this.showNavBarData);
+
+
+        // this.globalEventsManager.showNavBar(true);
+        // this.showNavBar = true;
+        //let userId = localStorage.getItem('userId');
+
+        this.fetchedUser = this.authService.getCurrentUser()
+
+      }
     }
   }
   // redirect(typeObj) {

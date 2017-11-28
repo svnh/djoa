@@ -1,10 +1,11 @@
-<mat-sidenav-container>
+<div #mainScreen>
+  <mat-sidenav-container>
   <app-navbar></app-navbar>
-  <app-sideBarLeft></app-sideBarLeft>
+  <app-sideBarLeft [widthContainer]="widthContainer"></app-sideBarLeft>
   <app-sideBarRight></app-sideBarRight>
   <router-outlet></router-outlet>
 </mat-sidenav-container>
-
+</div>
 <div *ngIf="loading">
     <app-loading></app-loading>
 </div>

@@ -1,4 +1,4 @@
-import {Component, ViewContainerRef} from '@angular/core';
+import {Component, ViewContainerRef, ViewChild, AfterViewInit} from '@angular/core';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 import {
     Router,
@@ -16,8 +16,10 @@ import {AuthService} from './auth/auth.service';
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css']
 })
-export class AppComponent {
-loading: boolean = true;
+export class AppComponent implements AfterViewInit {
+  @ViewChild('mainScreen') elementView;
+  loading: boolean = true;
+  widthContainer: number = 0;
 
   constructor(
     private router: Router,
@@ -29,6 +31,12 @@ loading: boolean = true;
     router.events.subscribe((event: RouterEvent) => {
           this.navigationInterceptor(event);
       });
+  }
+  ngAfterViewInit(){
+    const this2 = this
+    setTimeout(() => {
+      this2.widthContainer = this2.elementView.nativeElement.offsetWidth
+    });
   }
 
 

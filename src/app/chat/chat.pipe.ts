@@ -4,6 +4,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class ChatPipe implements PipeTransform {
   transform(value: string, args: string[]): any {
     if (!value) return value;
-    return value.substring(0, 30) + ' [...]';
+    if(value.length > 30)
+      return value.substring(0, 30) + ' [...]';
+    return value
   }
 }
