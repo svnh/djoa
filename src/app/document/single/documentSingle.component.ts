@@ -18,9 +18,9 @@ import { Categorie } from '../../categorie/categorie.model';
 // import { Quote } from '../../quote/quote.model';
 import { AuthService} from '../../auth/auth.service';
 
-import {Search} from '../../home/home.model'
+import { Search } from '../../shared/shared.model'
 import {GlobalEventsManager} from '../../globalEventsManager';
-import {ShowNavBarData} from '../../home/home.model'
+import {ShowNavBarData} from '../../shared/shared.model'
 
 
 @Component({

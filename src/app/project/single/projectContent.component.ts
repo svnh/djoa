@@ -18,9 +18,9 @@ import { Mission } from '../../mission/mission.model';
 import {CategorieService} from '../../categorie/categorie.service';
 
 import { AuthService} from '../../auth/auth.service';
-import {Search} from '../../home/home.model';
+import { Search } from '../../shared/shared.model';
 import {GlobalEventsManager} from '../../globalEventsManager';
-import {ShowNavBarData} from '../../home/home.model';
+import {ShowNavBarData} from '../../shared/shared.model';
 
 
 

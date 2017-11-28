@@ -9,7 +9,7 @@ import { CompanieGuardService} from '../../companie/companieGuard.service'
 // import { ChangeDetectionStrategy} from '@angular/core';
 import {GlobalEventsManager} from '../../globalEventsManager';
 import {MatSidenav} from '@angular/material';
-import {ShowNavBarData} from '../../home/home.model'
+import {ShowNavBarData} from '../../shared/shared.model'
 
 
 @Component({

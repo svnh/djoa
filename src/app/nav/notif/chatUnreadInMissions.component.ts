@@ -14,9 +14,9 @@ import { NotifChat } from './notif.model';
 import { ChatService } from '../../chat/chat.service';
 // import { Notification} from '../../notification/notification.model';
 // import {Observable} from 'rxjs/Rx';
-// import { ShowNavBarData } from '../../home/home.model'
+// import { ShowNavBarData } from '../../shared/shared.model'
 // import { GlobalEventsManager } from '../../globalEventsManager';
-// import { Search } from '../../home/home.model'
+// import { Search } from '../../shared/shared.model'
 
 
 @Component({

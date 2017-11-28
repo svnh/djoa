@@ -5,7 +5,7 @@ import { Form } from './form/form.model';
 // import { EditOptionsComponentDialog } from './form/single/modalLibrary/modalLibrary.component';
 // import { MatDialog } from '@angular/material';
 import {GlobalEventsManager} from '../globalEventsManager';
-import {ShowNavBarData} from '../home/home.model'
+import { ShowNavBarData } from '../shared/shared.model'
 
 
 

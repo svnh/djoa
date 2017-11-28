@@ -16,7 +16,7 @@ import { UserService } from '../../user/user.service'
 import { User } from '../../user/user.model'
 import { AuthService} from '../../auth/auth.service';
 import {GlobalEventsManager} from '../../globalEventsManager';
-import {ShowNavBarData} from '../../home/home.model'
+import {ShowNavBarData} from '../../shared/shared.model'
 
 
 

@@ -10,7 +10,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { ViewEncapsulation} from '@angular/core';
 import { UserService} from '../../user/user.service';
 // import { DeleteDialog } from '../../deleteDialog/deleteDialog.component';
-import {Search, PaginationData} from '../../home/home.model'
+import {Search, PaginationData} from '../../shared/shared.model'
 
 
 @Component({

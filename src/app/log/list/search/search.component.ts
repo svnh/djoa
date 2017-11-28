@@ -23,8 +23,7 @@ import { Document } from '../../../document/document.model';
 // import { Categorie } from '../../categorie/categorie.model';
 import { Project } from '../../../project/project.model';
 // import { Project } from '../../project/project.model';
-import {Search} from '../../../home/home.model'
-
+import { Search } from '../../../shared/shared.model'
 
 
 

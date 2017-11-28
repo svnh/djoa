@@ -16,7 +16,7 @@ import { User } from '../user.model';
 
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 // import { DeleteDialog } from '../../deleteDialog/deleteDialog.component'
-import {Search} from '../../home/home.model'
+import { Search } from '../../shared/shared.model'
 
 @Component({
   selector: 'app-newUser',

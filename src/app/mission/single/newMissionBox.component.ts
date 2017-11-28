@@ -19,9 +19,9 @@ import { Location } from '@angular/common';
 // import { Quote } from '../../quote/quote.model';
 // import { Categorie } from '../../categorie/categorie.model';
 // import { Project } from '../../project/project.model';
-import {Search} from '../../home/home.model'
+import { Search } from '../../shared/shared.model'
 import {GlobalEventsManager} from '../../globalEventsManager';
-import {ShowNavBarData} from '../../home/home.model'
+import {ShowNavBarData} from '../../shared/shared.model'
 
 @Component({
   selector: 'app-newMissionBox',

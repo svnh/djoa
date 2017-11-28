@@ -9,9 +9,9 @@ import { Location } from '@angular/common';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ViewEncapsulation } from '@angular/core';
 import { UserService } from '../../user/user.service';
-import { ShowNavBarData } from '../../home/home.model'
+import { ShowNavBarData } from '../../shared/shared.model'
 import { GlobalEventsManager } from '../../globalEventsManager';
-import { Search } from '../../home/home.model'
+import { Search, PaginationData } from '../../shared/shared.model'
 
 
 @Component({
@@ -35,11 +35,7 @@ export class DocumentsComponent implements OnInit {
   // };
   loading: boolean;
 
-  paginationData = {
-    currentPage: 1,
-    itemsPerPage: 0,
-    totalItems: 0
-  };
+  paginationData: PaginationData = new PaginationData();
 
 
   categories2 = '';

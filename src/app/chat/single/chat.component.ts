@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy, Input , ViewChild, ElementRef} from '@ang
 
 import { ChatService } from '../chat.service';
 import { Chat } from '../chat.model';
-import { Search, PaginationData } from '../../home/home.model'
+import { Search, PaginationData } from '../../shared/shared.model'
 import { Strat } from '../../strat/strat.model';
 import { Mission } from '../../mission/mission.model';
 import { AuthService} from '../../auth/auth.service';

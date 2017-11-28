@@ -2,7 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 // import {AuthService} from '../../auth/auth.service';
 import { GlobalEventsManager} from '../../globalEventsManager';
 import {MatSidenav} from '@angular/material';
-import {ShowNavBarData} from '../../home/home.model'
+import {ShowNavBarData} from '../../shared/shared.model'
 
 @Component({
   selector: 'app-sideBarRight',

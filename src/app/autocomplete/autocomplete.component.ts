@@ -12,7 +12,7 @@ import { MissionService} from '../mission/mission.service';
 import { DocumentService} from '../document/document.service';
 import { BriefService} from '../brief/brief.service';
 import { MatDialog } from '@angular/material';
-import { Search} from '../home/home.model'
+import { Search } from '../shared/shared.model'
 // import { UserDialogComponent } from '../user/singleUser/dialog/userDialog.component';
 // import { CompanieDialogComponent } from '../companie/single/dialog/companieDialog.component';
 // import { ProjectDialogComponent } from '../project/single/dialog/projectDialog.component';
