@@ -9,6 +9,7 @@ import { Routes, RouterModule} from '@angular/router';
 import { NotifComponent} from './notif.component';
 import { ChatUnreadInMissions} from './chatUnreadInMissions.component';
 import { ChatUnreadInStrats} from './chatUnreadInStrats.component';
+import { DocumentsByMissions} from './documentsByMissions.component';
 // import {SharedModule } from '../../shared/shared.module';
 // import { NotificationService} from '../../notification/notification.service';
 
@@ -31,6 +32,7 @@ import { ChatUnreadInStrats} from './chatUnreadInStrats.component';
     NotifComponent,
     ChatUnreadInMissions,
     ChatUnreadInStrats,
+    DocumentsByMissions,
     // CategoriesComponent,
     // CategorieSingleComponent,
   ],
@@ -38,6 +40,7 @@ import { ChatUnreadInStrats} from './chatUnreadInStrats.component';
     NotifComponent,
     ChatUnreadInMissions,
     ChatUnreadInStrats,
+    DocumentsByMissions,
     // CategoriesComponent
   ],
   providers:    [

@@ -34,7 +34,7 @@ export class NotifComponent implements OnInit {
   // notifChatsInMissions: NotifChat[] = []
   myDocuments: Document[] = []
   newMissionDocs = []
-  documentsByMissions = []
+  // documentsByMissions = []
   search: Search = new Search()
   // fetchedNotifications: Notification[] = [];
   // notificationsNotRead: number=0;
@@ -69,45 +69,45 @@ export class NotifComponent implements OnInit {
   //     }
   //     );
   // }
-  getChatUnreadInStrats() {
-    this.chatService.getChatUnreadInStrats()
-      .subscribe(
-      res => {
-        this.notifChatsInStrats = res.obj
-      },
-      error => {
-        console.log(error);
-      }
-      );
-  }
+  // getChatUnreadInStrats() {
+  //   this.chatService.getChatUnreadInStrats()
+  //     .subscribe(
+  //     res => {
+  //       this.notifChatsInStrats = res.obj
+  //     },
+  //     error => {
+  //       console.log(error);
+  //     }
+  //     );
+  // }
 
 
 
-getDocumentsByMissions() {
-  let search = new Search()
-  search.myDocuments = true
-  this.documentService.getDocumentsByMissions(search)
-    .subscribe(
-      res => {
-        console.log(res)
-        this.documentsByMissions = res
-      },
-      error => { console.log(error) }
-    )
+// getDocumentsByMissions() {
+//   let search = new Search()
+//   search.myDocuments = true
+//   this.documentService.getDocumentsByMissions(search)
+//     .subscribe(
+//       res => {
+//         console.log(res)
+//         this.documentsByMissions = res
+//       },
+//       error => { console.log(error) }
+//     )
+//
+// }
 
-}
-
-
-getDocumentsInStrats() {
-  let search = new Search()
-  this.documentService.getDocumentsInStrats(search)
-    .subscribe(
-      res => {
-        console.log(res)
-      },
-      error => { console.log(error) }
-    )
-}
+//
+// getDocumentsInStrats() {
+//   let search = new Search()
+//   this.documentService.getDocumentsInStrats(search)
+//     .subscribe(
+//       res => {
+//         console.log(res)
+//       },
+//       error => { console.log(error) }
+//     )
+// }
 
 
 
@@ -146,10 +146,10 @@ getDocumentsInStrats() {
 
   ngOnInit() {
     // this.getChatUnreadInMissions()
-    this.getChatUnreadInStrats()
+    // this.getChatUnreadInStrats()
     this.getMyDocuments()
-    this.getDocumentsInStrats()
-    this.getDocumentsByMissions()
+    // this.getDocumentsInStrats()
+    // this.getDocumentsByMissions()
   }
 
   goToEmit(result) {

@@ -1,17 +1,10 @@
 <div class="sidewrapper">
-
   <app-chat-unread-in-strats (goToEmit)="goToEmit($event)"></app-chat-unread-in-strats>
   <app-chat-unread-in-missions (goToEmit)="goToEmit($event)"></app-chat-unread-in-missions>
 </div>
 <div class="sidewrapper">
-  <div *ngFor="let documentsByMission of documentsByMissions">
-    <div (click)="goTo('mission', documentsByMission.mission._id)">
-      <div *ngFor="let document of documentsByMission.documents">
-        <h4>{{document.details.name}}</h4>
-        <div class="sidebar-notif">{{document.myActivityPendingTasks}} Pending Tasks</div>
-      </div>
-    </div>
-  </div>
+
+  <app-documents-by-missions (goToEmit)="goToEmit($event)"></app-documents-by-missions>
   <div *ngFor="let document of myDocuments">
     <div *ngFor="let strat of document.strats">
       Strategy: {{strat.title}}

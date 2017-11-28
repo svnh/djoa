@@ -1,0 +1,8 @@
+<div *ngFor="let documentsByMission of documentsByMissions">
+  <div (click)="goTo('mission', documentsByMission.mission._id)">
+    <div *ngFor="let document of documentsByMission.documents">
+      <h4>{{document.details.name}}</h4>
+      <div class="sidebar-notif">{{document.myActivityPendingTasks}} Pending Tasks</div>
+    </div>
+  </div>
+</div>
