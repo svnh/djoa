@@ -148,6 +148,7 @@ export class MissionContentComponent implements OnInit {
         res => {
           this.toastr.success('Great!', res.message)
           this.getMission(res.obj._id)
+
           // this.fetchedMission = res.obj
           //this.router.navigate(['mission/edit/' + this.fetchedMission._id])
         },
@@ -244,7 +245,7 @@ export class MissionContentComponent implements OnInit {
       .subscribe(
       res => {
         this.fetchedMission = res
-
+        console.log(res)
 
         this.fetchedMission.dateMission.startString = this.authService
           .isoDateToHtmlDate(this.fetchedMission.dateMission.start)
@@ -253,13 +254,19 @@ export class MissionContentComponent implements OnInit {
           .isoDateToHtmlDate(this.fetchedMission.dateMission.end)
 
 
-        this.fetchedMission.dateMission.percentageProgress = this.authService.getPourcentageProgress(this.fetchedMission.dateMission.start, this.fetchedMission.dateMission.end)
-        let newSearch = new Search()
+        this.fetchedMission.dateMission
+        .percentageProgress = this.authService
+        .getPourcentageProgress(this.fetchedMission.dateMission.start, this.fetchedMission.dateMission.end)
+        // let newSearch = new Search()
 
-        this.fetchedMission.projects.forEach(project => { newSearch.projectId = project._id })
-        this.fetchedMission.categories.forEach(categorie => { newSearch.categorieId = categorie._id })
+        // this.fetchedMission.projects.forEach(project => { newSearch.projectId = project._id })
+        // this.fetchedMission.categories.forEach(categorie => { newSearch.categorieId = categorie._id })
+        this.fetchedMission.projects.forEach(project => { this.search.projectId = project._id })
+        this.fetchedMission.categories.forEach(categorie => { this.search.categorieId = categorie._id })
 
-        this.getMissionsButtons(1, newSearch)
+
+        // Alan je ne sais pas pkoi
+        // this.getMissionsButtons(1, newSearch)
 
       },
       error => { console.log(error) }

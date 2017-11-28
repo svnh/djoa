@@ -10,8 +10,8 @@
       </app-autocomplete>
       <app-autocomplete [typeAutocomplete]="'mission'" [search]="search" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedDocument.missions">
       </app-autocomplete>
-      <app-autocomplete [typeAutocomplete]="'brief'" [search]="search" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedDocument.briefs">
-      </app-autocomplete>
+      <!-- <app-autocomplete [typeAutocomplete]="'brief'" [search]="search" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedDocument.briefs">
+      </app-autocomplete> -->
       <mat-form-field>
         <input matInput type="text" formControlName="name" [(ngModel)]="fetchedDocument.details.name" placeholder="Name">
       </mat-form-field>

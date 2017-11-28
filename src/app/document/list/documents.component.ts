@@ -134,11 +134,14 @@ export class DocumentsComponent implements OnInit {
 
   addDocument() {
     let showNavBarData = new ShowNavBarData()
+    // console.log(this.search)
     showNavBarData.showNavBar = true
     showNavBarData.search.typeScreen = 'object'
     showNavBarData.search.typeObj = 'document'
     showNavBarData.search.stratId = this.search.stratId
     showNavBarData.search.missionId = this.search.missionId
+    showNavBarData.search.projectId = this.search.projectId
+    showNavBarData.search.categorieId = this.search.categorieId
     this.globalEventsManager.showNavBarRight(showNavBarData);
   }
   // closeRight() {

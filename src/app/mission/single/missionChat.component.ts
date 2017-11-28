@@ -259,7 +259,7 @@ export class MissionChatComponent implements OnInit {
         this.fetchedMission.projects.forEach(project => { newSearch.projectId = project._id })
         this.fetchedMission.categories.forEach(categorie => { newSearch.categorieId = categorie._id })
 
-        this.getMissionsButtons(1, newSearch)
+        // this.getMissionsButtons(1, newSearch)
 
       },
       error => { console.log(error) }
