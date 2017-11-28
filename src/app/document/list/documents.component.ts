@@ -67,6 +67,7 @@ export class DocumentsComponent implements OnInit {
       if (isRefresh) {
         this.getDocuments(1, this.search)
         this.globalEventsManager.refreshCenter(false);
+        this.editMode = false
       }
     })
   }

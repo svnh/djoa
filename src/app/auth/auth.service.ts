@@ -286,7 +286,7 @@ export class AuthService {
       let returnData = Math.round((timeSpent / durationProject) * 100)
       if(returnData>100) returnData = 100
 
-      console.log(returnData)
+      // console.log(returnData)
       return returnData
     }
 

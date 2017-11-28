@@ -1,18 +1,18 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { AuthService} from '../../auth/auth.service';
-import { MissionService} from '../mission.service';
-import { Mission} from '../mission.model';
-import { ToastsManager} from 'ng2-toastr';
+import { AuthService } from '../../auth/auth.service';
+import { MissionService } from '../mission.service';
+import { Mission } from '../mission.model';
+import { ToastsManager } from 'ng2-toastr';
 // import { MatDialog} from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { DomSanitizer } from '@angular/platform-browser';
-import { ViewEncapsulation} from '@angular/core';
-import { UserService} from '../../user/user.service';
-import {ShowNavBarData} from '../../home/home.model'
-import {GlobalEventsManager} from '../../globalEventsManager';
-import {Search, PaginationData} from '../../home/home.model'
-import {Categorie} from '../../categorie/categorie.model';
+import { ViewEncapsulation } from '@angular/core';
+import { UserService } from '../../user/user.service';
+import { ShowNavBarData } from '../../home/home.model'
+import { GlobalEventsManager } from '../../globalEventsManager';
+import { Search, PaginationData } from '../../home/home.model'
+import { Categorie } from '../../categorie/categorie.model';
 
 
 @Component({
@@ -54,10 +54,11 @@ export class MissionsComponent implements OnInit {
 
   ) {
     this.globalEventsManager.refreshCenterEmitter.subscribe((isRefresh) => {
-        if(isRefresh) {
-          this.globalEventsManager.refreshCenter(false);
-          this.getMissions(1, this.search)
-        }
+      if (isRefresh) {
+        this.globalEventsManager.refreshCenter(false);
+        this.getMissions(1, this.search)
+        this.editMode = false
+      }
 
     })
   }
@@ -145,34 +146,34 @@ export class MissionsComponent implements OnInit {
     this.loading = true;
     this.missionService.getMissions(page, search)
       .subscribe(
-        res => {
-          this.paginationData = res.paginationData;
-          this.fetchedMissions = res.data
-          this.fetchedMissions.forEach((mission, i) => {
-              this.fetchedMissions[i].dateMission.percentageProgress = this.authService.getPourcentageProgress(mission.dateMission.start, mission.dateMission.end)
-          });
+      res => {
+        this.paginationData = res.paginationData;
+        this.fetchedMissions = res.data
+        this.fetchedMissions.forEach((mission, i) => {
+          this.fetchedMissions[i].dateMission.percentageProgress = this.authService.getPourcentageProgress(mission.dateMission.start, mission.dateMission.end)
+        });
 
-          this.getResultMissions.emit(this.fetchedMissions)
+        this.getResultMissions.emit(this.fetchedMissions)
 
 
-          // let durationProject = +new Date(this.fetchedProject.dateProject.end) - +new Date(this.fetchedProject.dateProject.start)
-          // let timeSpent = +new Date() - +new Date(this.fetchedProject.dateProject.start)
-          // this.fetchedProject.dateProject.percentageProgress = Math.round((timeSpent / durationProject) * 100)
-          //
-          this.loading = false;
-        },
-        error => {
-          console.log(error);
-        }
+        // let durationProject = +new Date(this.fetchedProject.dateProject.end) - +new Date(this.fetchedProject.dateProject.start)
+        // let timeSpent = +new Date() - +new Date(this.fetchedProject.dateProject.start)
+        // this.fetchedProject.dateProject.percentageProgress = Math.round((timeSpent / durationProject) * 100)
+        //
+        this.loading = false;
+      },
+      error => {
+        console.log(error);
+      }
       );
   }
 
 
-    ngOnDestroy() {
-      console.log('destroy Missions')
-      // prevent memory leak when component destroyed
-      // this.subscription.unsubscribe();
-    }
+  ngOnDestroy() {
+    console.log('destroy Missions')
+    // prevent memory leak when component destroyed
+    // this.subscription.unsubscribe();
+  }
 
   // isAdmin() {
   //   return this.authService.isAdmin();

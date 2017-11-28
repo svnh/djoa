@@ -63,6 +63,7 @@ export class StratsComponent implements OnInit {
         if(isRefresh) {
           this.getStrats(1, this.search)
           this.globalEventsManager.refreshCenter(false);
+          this.editMode = false
         }
 
     })

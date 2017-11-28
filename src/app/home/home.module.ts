@@ -23,7 +23,7 @@ import {SharedModule } from '../shared/shared.module';
 
 // import { SideBarRightModule } from '../nav/sideBarRight/sideBarRight.module';
 // import { SideBarLeftModule } from '../nav/sideBarLeft/sideBarLeft.module';
-
+import { NotifModule} from '../nav/notif/notif.module'
 
 
 
@@ -34,11 +34,12 @@ import {SharedModule } from '../shared/shared.module';
     HomeRouting,
     CommonModule,
     FormsModule,
-    
+
     ReactiveFormsModule,
     RouterModule,
     // CategorieModule,
     SharedModule,
+    NotifModule,
     // SideBarRightModule,
     // SideBarLeftModule,
     // SignaturePadModule,
