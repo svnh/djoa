@@ -3,6 +3,7 @@
     <div *ngIf="!messages.length">
       Write your first message to start the discussion...
     </div>
+    <button *ngIf="linkGoToChat" type="button" (click)="goToChat()" class="gotochat-btn">CHAT</button>
     <div *ngFor="let message of messages; let i=index;" class="indiv-chat">
       <div *ngIf="!onlylastPost || i === messages.length-1">
         <div *ngFor="let user of message.users">
@@ -10,7 +11,6 @@
             <app-picture [userIdToOpenProfile]="user._id" [addPicture]=false [deletePicture]=false [forms]="user.forms"></app-picture>
           </div>
           <div class="chat-content">
-            <button *ngIf="linkGoToChat" type="button" (click)="goToChat()" class="gotochat-btn">CHAT</button>
             <p class="longMessage">{{message.chatName}}</p>
             <p class="shortMessage">{{message.chatName | shortMessage}}</p>
             <h5>{{message.createdAt | date:'yMdjm'}}</h5>
