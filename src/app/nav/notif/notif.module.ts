@@ -10,6 +10,7 @@ import { NotifComponent} from './notif.component';
 import { ChatUnreadInMissions} from './chatUnreadInMissions.component';
 import { ChatUnreadInStrats} from './chatUnreadInStrats.component';
 import { DocumentsByMissions} from './documentsByMissions.component';
+import { MyDocuments} from './myDocuments.component';
 // import {SharedModule } from '../../shared/shared.module';
 // import { NotificationService} from '../../notification/notification.service';
 
@@ -33,6 +34,7 @@ import { DocumentsByMissions} from './documentsByMissions.component';
     ChatUnreadInMissions,
     ChatUnreadInStrats,
     DocumentsByMissions,
+    MyDocuments,
     // CategoriesComponent,
     // CategorieSingleComponent,
   ],
@@ -41,6 +43,7 @@ import { DocumentsByMissions} from './documentsByMissions.component';
     ChatUnreadInMissions,
     ChatUnreadInStrats,
     DocumentsByMissions,
+    MyDocuments,
     // CategoriesComponent
   ],
   providers:    [

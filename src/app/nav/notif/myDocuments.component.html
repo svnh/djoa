@@ -1,0 +1,9 @@
+<div *ngFor="let document of myDocuments">
+  <div *ngFor="let strat of document.strats">
+    Strategy: {{strat.title}}
+    <div (click)="goTo('strat', strat._id)" class="sidebar-notif">
+      {{document.details.name}}: {{document.status.global}}
+      <div>{{document.myActivityPendingTasks}} pendingTasks</div>
+    </div>
+  </div>
+</div>
