@@ -6,8 +6,7 @@ import { UserService} from '../../user/user.service';
 import { User} from '../../user/user.model';
 import { CompanieGuardService} from '../../companie/companieGuard.service'
 // import { PaiementGuardService} from '../../user/paiement/paiementGuard.service'
-import { ChangeDetectionStrategy} from '@angular/core';
-// import { GlobalEventsManager} from '../../globalEventsManager';
+// import { ChangeDetectionStrategy} from '@angular/core';
 // // import { NotificationService} from '../../notification/notification.service';
 // import { Notification} from '../../notification/notification.model';
 // import {Observable} from 'rxjs/Rx';

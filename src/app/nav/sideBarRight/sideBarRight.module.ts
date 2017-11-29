@@ -16,6 +16,8 @@ import { SharedObjModule } from '../../shared/sharedObj.module';
 import {NewObjModule} from '../newObj/newObj.module';
 import {NotifModule} from '../notif/notif.module';
 import {DeleteConfirmationModule} from '../deleteConfirmation/deleteConfirmation.module';
+import {SearchModule} from '../search/search.module';
+
 
 
 
@@ -32,9 +34,10 @@ import {DeleteConfirmationModule} from '../deleteConfirmation/deleteConfirmation
     // QuoteModule,
     // SharedSmallModule
     SharedObjModule,
+    SearchModule,
 
     //  FormsModule,
-    
+
     NewObjModule,
     NotifModule,
     // ReactiveFormsModule,

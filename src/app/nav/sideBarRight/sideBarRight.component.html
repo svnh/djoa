@@ -17,6 +17,9 @@
       <div *ngIf="showNavBarData.search.typeScreen == 'profile'">
         <app-profile *ngIf="showNavBarData.search.typeObj == 'user'" [search]="showNavBarData.search"></app-profile>
       </div>
+      <div *ngIf="showNavBarData.search.typeScreen == 'search'">
+        <app-search [search]="showNavBarData.search"></app-search>
+      </div>
       <div *ngIf="showNavBarData.search.typeScreen == 'deleteConfirmation'">
         <app-deleteConfirmation [search]="showNavBarData.search"></app-deleteConfirmation>
       </div>

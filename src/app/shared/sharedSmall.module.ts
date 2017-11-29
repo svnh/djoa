@@ -12,7 +12,7 @@ import {MatInputModule} from '@angular/material';
 import {MatSidenavModule} from '@angular/material';
 import {MatCardModule} from '@angular/material';
 
-
+import {MatFormFieldModule} from '@angular/material';
 
 import { RoundPipe} from './round.pipe';
 
@@ -38,6 +38,7 @@ import { LoginInAppComponent } from '../nav/loginInApp/loginInApp.component';
     MatPaginatorModule,
     MatSidenavModule,
     MatCardModule,
+    MatFormFieldModule,
     // CommentModule,
 
     // SideBarObjModule,
@@ -69,6 +70,7 @@ import { LoginInAppComponent } from '../nav/loginInApp/loginInApp.component';
     MatInputModule,
     MatSidenavModule,
     MatCardModule,
+    MatFormFieldModule,
     // SideBarObjModule,
     // HeaderComponent,
     // newObjDialogComponent,
