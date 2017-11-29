@@ -109,16 +109,18 @@ export class MissionContentComponent implements OnInit {
 
 
   openDetails() {
-    let showNavBarData = new ShowNavBarData()
+    const showNavBarData = new ShowNavBarData()
     showNavBarData.search.typeObj = 'mission'
+    showNavBarData.showNavBar = 1
     showNavBarData.search.missionId = this.fetchedMission._id
     this.globalEventsManager.showNavBarRight(showNavBarData);
   }
 
   openProfile(userId: string) {
-    let showNavBarData = new ShowNavBarData()
+    const showNavBarData = new ShowNavBarData()
     showNavBarData.search.typeScreen = 'profile'
     showNavBarData.search.typeObj = 'user'
+    showNavBarData.showNavBar = 1
     showNavBarData.search.userId = userId
     this.globalEventsManager.showNavBarRight(showNavBarData);
   }
@@ -126,6 +128,7 @@ export class MissionContentComponent implements OnInit {
     const showNavBarData = new ShowNavBarData()
     showNavBarData.search.typeScreen = 'team'
     showNavBarData.search.typeObj = 'mission'
+    showNavBarData.showNavBar = 1
     showNavBarData.search.missionId = this.fetchedMission._id
     this.globalEventsManager.showNavBarRight(showNavBarData);
   }

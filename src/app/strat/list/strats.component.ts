@@ -128,14 +128,16 @@ export class StratsComponent implements OnInit {
   // }
 
   createNewStrat() {
-    let newShowNavBarData = new ShowNavBarData()
+    const newShowNavBarData = new ShowNavBarData()
     newShowNavBarData.search.typeObj = 'strat'
+    newShowNavBarData.showNavBar = 1;
     newShowNavBarData.search.projectId = this.search.projectId
     // newShowNavBarData.search.stratType = this.search.stratType
     this.globalEventsManager.showNavBarRight(newShowNavBarData)
   }
   openDeleteStrat(stratId: string) {
-    let newShowNavBarData = new ShowNavBarData()
+    const newShowNavBarData = new ShowNavBarData()
+    newShowNavBarData.showNavBar = 1;
     newShowNavBarData.search.typeScreen = 'deleteConfirmation'
     newShowNavBarData.search.typeObj = 'strat'
     newShowNavBarData.search.stratId = stratId
@@ -150,14 +152,11 @@ export class StratsComponent implements OnInit {
           this.paginationData = res.paginationData;
           this.fetchedStrats = res.data
           this.fetchedStrats.forEach((strat, i) => {
-              this.fetchedStrats[i].dateStrat.percentageProgress = this.authService.getPourcentageProgress(strat.dateStrat.start, strat.dateStrat.end)
+              this.fetchedStrats[i].dateStrat
+              .percentageProgress = this.authService
+              .getPourcentageProgress(strat.dateStrat.start, strat.dateStrat.end)
           });
 
-
-          // let durationProject = +new Date(this.fetchedProject.dateProject.end) - +new Date(this.fetchedProject.dateProject.start)
-          // let timeSpent = +new Date() - +new Date(this.fetchedProject.dateProject.start)
-          // this.fetchedProject.dateProject.percentageProgress = Math.round((timeSpent / durationProject) * 100)
-          //
           this.loading = false;
         },
         error => {
