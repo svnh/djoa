@@ -34,13 +34,17 @@ var user = new Schema({
       profilePicture : [{type: Schema.Types.ObjectId, ref: 'Form'}],
       language: {type: String, default: ['en']},
       name: {type: String, default: ['']},
-      fax:{type: String, default: ['']},
+      // fax:{type: String, default: ['']},
       title: {type: String, default: ['']},
       lastName: {type: String, default: ['']},
       phoneNumber:{type: String, default: ['']},
       typeClient:{type: String, default: ['']},
-      colorCalendar:{type: String, default: ['#ad2121']},
-      statusHouse:{type: String, default: ['']},
+
+      emailPreferences: {
+        frequencyEmail: {type: String, default: ['']}
+      }
+      // colorCalendar:{type: String, default: ['#ad2121']},
+      // statusHouse:{type: String, default: ['']},
       // otherData:{type: String, default: ['']},
       // detailHouse:{
       //   typeHouse:{type: String, default: ['']},
@@ -49,12 +53,12 @@ var user = new Schema({
       //   floor:{type: String, default: ['']},
       //   accessType:{type: String, default: ['']},
       // },
-      address:{
-        address : {type: String, default: ['']},
-        city : {type: String, default: ['']},
-        state : {type: String, default: ['']},
-        zip : {type: String, default: ['']},
-      },
+      // address:{
+      //   address : {type: String, default: ['']},
+      //   city : {type: String, default: ['']},
+      //   state : {type: String, default: ['']},
+      //   zip : {type: String, default: ['']},
+      // },
     }
   },
   {

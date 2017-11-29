@@ -59,7 +59,7 @@ import{ AddUsersToObjectsComponent } from './addUsersToObjects/addUsersToObjects
 // import { AutocompleteComponent } from '../autocomplete/autocomplete.component'
 
 import {SharedModule } from '../shared/shared.module';
-
+import {MatRadioModule} from '@angular/material';
 
 @NgModule({
   imports:      [
@@ -76,6 +76,7 @@ import {SharedModule } from '../shared/shared.module';
     SharedModule,
     RightModule,
     MatSelectModule,
+    MatRadioModule,
   ],
   declarations: [
 //    UserDeleteDialog,

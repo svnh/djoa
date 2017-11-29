@@ -31,9 +31,9 @@ export class UsersToObjects {
   users: User[] = [];
 }
 
-export class Paiement{
-  stripe: Stripe = new Stripe()
-}
+// export class Paiement {
+//   stripe: Stripe = new Stripe()
+// }
 export class Stripe {
   current_period_end: Date= new Date()
 }
@@ -45,36 +45,33 @@ export class Profile {
   // otherData: string = '';
   // parentUser: User[] = [];
   profilePicture: Form[] = [];
-  colorCalendar: string = '';
-  fax: string = '';
+  // colorCalendar: string = '';
+  // fax: string = '';
   title: string = '';
   // typeClient: string = '';
   // statusHouse: string = '';
   // detailHouse: DetailHouse = new DetailHouse();
-  address: Address = new Address();
+  // address: Address = new Address();
   language: string = '';
+  emailPreferences: EmailPreferences = new EmailPreferences()
 }
 
 
 
 
-export class DetailHouse {
-  typeHouse: string = '';
-  surface: number = 0;
-  accesCode: string = '';
-  floor: string = '';
-  accessType: string = '';
+export class EmailPreferences {
+  frequencyEmail: string = '';
 }
 
 
-
-
-export class Address {
-    address : string = '';
-    city : string = '';
-    state : string = '';
-    zip : string = '';
-}
+//
+//
+// export class Address {
+//     address : string = '';
+//     city : string = '';
+//     state : string = '';
+//     zip : string = '';
+// }
 
 
 export class UserProfile {
