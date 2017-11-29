@@ -293,6 +293,7 @@ router.get('/:id', function (req, res, next) {
     .populate({path: 'logs.forms', model: 'Form'})
     .populate({path: 'logs.by', model: 'User'})
     .populate({path: 'assignedTos', model: 'User'})
+    .populate({path: 'strats', model: 'Strat'})
     .populate({
       path: 'bucketTasks.tasks',
       model: 'Task',

@@ -1,6 +1,6 @@
 <div class="djoa-container">
-  <div>
-    <h1 class="bigmarg">({{fetchedBrief.details.name}})</h1>
+  <div *ngFor="let strat of fetchedBrief.strats">
+    <h1 class="bigmarg">({{strat.title}})</h1>
   </div>
   <div class="col-md-12 col-lg-6">
     <mat-card>
@@ -31,7 +31,6 @@
     <mat-card>
       <mat-card-content>
         <h2>Documents Relevant to project</h2>
-        {{search|json}}
         <app-documents [search]="search"></app-documents>
       </mat-card-content>
     </mat-card>
