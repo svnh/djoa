@@ -24,6 +24,7 @@ import { ProjectModule} from '../project/project.module';
 import { RegisterComponent} from './register/register.component';
 
 import { NewUserComponent} from './single/newUser.component';
+import { SettingsUser } from './single/settingsUser.component';
 // import { EditUserComponent} from './singleUser/editUser.component';
 import { ProfileComponent} from './single/profile.component';
 // import { SingleUserComponent} from './singleUser/singleUser.component';
@@ -82,6 +83,7 @@ import {SharedModule } from '../shared/shared.module';
 
     // AutocompleteComponent,
     NewUserComponent,
+    SettingsUser,
     // EditUserComponent,
     ProfileComponent,
     // UserDialogComponent,
@@ -110,6 +112,7 @@ import {SharedModule } from '../shared/shared.module';
   ],
   exports:      [
     NewUserComponent,
+    // SettingsUser,
     // EditUserComponent,
     ProfileComponent,
     AddUsersToObjectsComponent,

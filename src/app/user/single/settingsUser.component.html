@@ -1,6 +1,6 @@
 <form [formGroup]="myForm" novalidate (ngSubmit)="save()">
   <mat-form-field>
-    <input matInput type="text" class="form-control" formControlName="name" [(ngModel)]="fetchedUser.profile.name" placeholder="name">
+    <input matInput type="text" class="form-control" formControlName="email" [(ngModel)]="fetchedUser.profile.email" placeholder="email">
   </mat-form-field>
   <mat-form-field>
     <input matInput type="text" class="form-control" formControlName="lastName" [(ngModel)]="fetchedUser.profile.lastName" placeholder="lastName">

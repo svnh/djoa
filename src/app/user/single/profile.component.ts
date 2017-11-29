@@ -59,36 +59,36 @@ export class ProfileComponent implements OnInit {
 
 
     ngOnInit() {
-      this.myForm = this._fb.group({
-          email: [this.emailValidator],
-          typeUsers: [''],
-          language: [''],
-          colorCalendar: [''],
-          otherData: [''],
-          name: ['', [Validators.required, Validators.minLength(3)]],
-          lastName: ['', [Validators.required, Validators.minLength(3)]],
-          phoneNumber: [''],
-          fax: [''],
-          title: [''],
-          typeClient: [''],
-          statusHouse: [''],
-          detailHouse: this._fb.group({
-            typeHouse: [''],
-            surface: [''],
-            accesCode: [''],
-            floor: [''],
-            accessType: [''],
-          }),
-          address: this._fb.group({
-            address: [''],
-            city: [''],
-            state: [''],
-            zip: [''],
-          })
+      // this.myForm = this._fb.group({
+      //     email: [this.emailValidator],
+      //     typeUsers: [''],
+      //     language: [''],
+      //     colorCalendar: [''],
+      //     otherData: [''],
+      //     name: ['', [Validators.required, Validators.minLength(3)]],
+      //     lastName: ['', [Validators.required, Validators.minLength(3)]],
+      //     phoneNumber: [''],
+      //     fax: [''],
+      //     title: [''],
+      //     typeClient: [''],
+      //     statusHouse: [''],
+      //     detailHouse: this._fb.group({
+      //       typeHouse: [''],
+      //       surface: [''],
+      //       accesCode: [''],
+      //       floor: [''],
+      //       accessType: [''],
+      //     }),
+      //     address: this._fb.group({
+      //       address: [''],
+      //       city: [''],
+      //       state: [''],
+      //       zip: [''],
+      //     })
+      //
+      // })
 
-      })
-
-      this.fetchedUser.isExternalUser = this.search.isExternalUser
+      // this.fetchedUser.isExternalUser = this.search.isExternalUser
       // console.log(this.search.userId)
       this.activatedRoute.params.subscribe((params: Params) => {
         if(params['id']) {
@@ -181,13 +181,13 @@ export class ProfileComponent implements OnInit {
   }
   // autocolplete typeUser
 
-  emailValidator(control: any) {
-    let EMAIL_REGEXP = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
-
-    if (!EMAIL_REGEXP.test(control.value)) {
-      return {invalidEmail: true};
-    }
-  }
+  // emailValidator(control: any) {
+  //   let EMAIL_REGEXP = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
+  //
+  //   if (!EMAIL_REGEXP.test(control.value)) {
+  //     return {invalidEmail: true};
+  //   }
+  // }
 
   // goBack() {
   //   this.location.back();
