@@ -7,10 +7,12 @@ import { Routes, RouterModule} from '@angular/router';
 
 
 import { NotifComponent} from './notif.component';
+
 import { ChatUnreadInMissions} from './chatUnreadInMissions.component';
 import { ChatUnreadInStrats} from './chatUnreadInStrats.component';
 import { DocumentsByMissions} from './documentsByMissions.component';
 import { MyDocuments} from './myDocuments.component';
+import { NotifTotal} from './notifTotal.component';
 // import {SharedModule } from '../../shared/shared.module';
 // import { NotificationService} from '../../notification/notification.service';
 
@@ -35,6 +37,7 @@ import { MyDocuments} from './myDocuments.component';
     ChatUnreadInStrats,
     DocumentsByMissions,
     MyDocuments,
+    NotifTotal,
     // CategoriesComponent,
     // CategorieSingleComponent,
   ],
@@ -44,6 +47,7 @@ import { MyDocuments} from './myDocuments.component';
     ChatUnreadInStrats,
     DocumentsByMissions,
     MyDocuments,
+    NotifTotal,
     // CategoriesComponent
   ],
   providers:    [

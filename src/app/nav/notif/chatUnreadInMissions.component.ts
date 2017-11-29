@@ -26,6 +26,7 @@ import { ChatService } from '../../chat/chat.service';
 })
 export class ChatUnreadInMissions implements OnInit {
   @Output() goToEmit: EventEmitter<any> = new EventEmitter();
+  @Output() dataUpdated: EventEmitter<any> = new EventEmitter();
 
   // showNavBar: boolean = false;
   // private userId: string = localStorage.getItem('userId');
@@ -54,6 +55,7 @@ export class ChatUnreadInMissions implements OnInit {
       .subscribe(
       res => {
         this.notifChatsInMissions = res.obj
+        this.dataUpdated.emit(this.notifChatsInMissions)
       },
       error => {
         console.log(error);

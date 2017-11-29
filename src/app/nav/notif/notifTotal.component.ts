@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 // import { AuthService } from '../../auth/auth.service';
 // import { AdminService } from '../../admin/services/admin.service';
 // import { Router } from '@angular/router';
@@ -17,21 +17,23 @@ import { ChatService } from '../../chat/chat.service';
 // import { ShowNavBarData } from '../../shared/shared.model'
 // import { GlobalEventsManager } from '../../globalEventsManager';
 // import { Search } from '../../shared/shared.model'
-
+import { ChatUnreadInMissions } from './chatUnreadInMissions.component';
 
 @Component({
-  selector: 'app-chat-unread-in-strats',
-  templateUrl: './chatUnreadInStrats.component.html',
+  selector: 'app-notif-total',
+  templateUrl: './notifTotal.component.html',
   styleUrls: ['./notif.component.css']
 })
-export class ChatUnreadInStrats implements OnInit {
-  @Output() goToEmit: EventEmitter<any> = new EventEmitter();
-  @Output() dataUpdated: EventEmitter<any> = new EventEmitter();
+export class NotifTotal implements OnInit {
+  // @ViewChild(ChatUnreadInMissions) chatUnreadInMissions: ChatUnreadInMissions
+  // @Output() goToEmit: EventEmitter<any> = new EventEmitter();
+
   // showNavBar: boolean = false;
   // private userId: string = localStorage.getItem('userId');
   // private userId: string;
-  notifChatsInStrats: NotifChat[] = []
-  // notifChatsInMissions: NotifChat[] = []
+  // notifChatsInStrats: NotifChat[] = []
+  notifChatsInMissions: NotifChat[] = []
+  countTotal:number = 0;
   // myDocuments: Document[] = []
   // newMissionDocs = []
   // documentsByMissions = []
@@ -43,25 +45,39 @@ export class ChatUnreadInStrats implements OnInit {
     private chatService: ChatService,
   ) {
   }
+
+  chatUnreadInMissions(result) {
+    result.forEach(mission => {
+      this.countTotal += mission.countUnread
+    })
+  }
+  chatUnreadInStrats(result) {
+    console.log(result)
+  }
+  documentsByMissions(result) {
+    console.log(result)
+    result.forEach(obj => {
+      obj.documents.forEach(document => {
+        this.countTotal += document.myActivityPendingTasks
+      });
+    })
+  }
+  myDocuments(result) {
+    result.forEach(document => {
+      this.countTotal += document.myActivityPendingTasks
+    })
+  }
+
+
+
+
+
+
+
   ngOnInit() {
-    this.getChatUnreadInStrats()
+    // this.ChatUnreadInMissions
+
   }
 
-  getChatUnreadInStrats() {
-    this.chatService.getChatUnreadInStrats()
-      .subscribe(
-      res => {
-        this.notifChatsInStrats = res.obj
-        this.dataUpdated.emit(this.notifChatsInStrats)
-      },
-      error => {
-        console.log(error);
-      }
-      );
-  }
-
-  goTo(typeObj: string, missionId: string) {
-    this.goToEmit.emit({typeObj, missionId})
-  }
 
 }

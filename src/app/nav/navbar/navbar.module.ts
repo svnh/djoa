@@ -11,7 +11,7 @@ import { NavbarComponent} from './navbar.component';
 // import { NotificationService} from '../../notification/notification.service';
 import {SharedSmallModule } from '../../shared/sharedSmall.module';
 import {MatMenuModule} from '@angular/material';
-
+import {NotifModule} from '../notif/notif.module';
 
 @NgModule({
   imports:      [
@@ -22,6 +22,7 @@ import {MatMenuModule} from '@angular/material';
     ReactiveFormsModule,
     SharedSmallModule,
     MatMenuModule,
+    NotifModule,
     // SharedModule,
     //  FormsModule,
 

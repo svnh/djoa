@@ -26,6 +26,7 @@ import { Search } from '../../shared/shared.model'
 })
 export class DocumentsByMissions implements OnInit {
   @Output() goToEmit: EventEmitter<any> = new EventEmitter();
+  @Output() dataUpdated: EventEmitter<any> = new EventEmitter();
 
   // showNavBar: boolean = false;
   // private userId: string = localStorage.getItem('userId');
@@ -57,6 +58,7 @@ export class DocumentsByMissions implements OnInit {
       .subscribe(
         res => {
           this.documentsByMissions = res
+          this.dataUpdated.emit(this.documentsByMissions)
         },
         error => { console.log(error) }
       )
