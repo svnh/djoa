@@ -1,26 +1,27 @@
 <div class="djoa-container">
   <div>
-    <h1 class="bigmarg">Title of Project Here</h1>
+    <h1 class="bigmarg">({{fetchedBrief.details.name}})</h1>
   </div>
   <div class="col-md-12 col-lg-6">
     <mat-card>
       <mat-card-content>
         <h2>Brief</h2>
+
         <div class="briefentry">
           <label>{{'What are you trying to do in one sentence?' }}</label>
-          <p>{{fetchedBrief.details.name}}</p>
+          <p>{{fetchedBrief.questions.tryingToDo}}</p>
         </div>
         <div class="briefentry">
           <label>{{'What is your goal? How will you measure it?' }}</label>
-          <p>{{fetchedBrief.details.description}}</p>
+          <p>{{fetchedBrief.questions.goal}}</p>
         </div>
         <div class="briefentry">
           <label>{{'Do you have existing assets for this project? If so, what are they?' }}</label>
-          <p>{{fetchedBrief.details.description}}</p>
+          <p>{{fetchedBrief.questions.existingAssets}}</p>
         </div>
         <div class="briefentry">
           <label>{{'What is your company’s website?' }}</label>
-          <p>{{fetchedBrief.details.description}}</p>
+          <p>{{fetchedBrief.questions.companyWebsite}}</p>
         </div>
         <button type="button" (click)="openDetails(fetchedBrief._id)" class="review-brief">Edit Brief</button>
       </mat-card-content>
@@ -30,6 +31,7 @@
     <mat-card>
       <mat-card-content>
         <h2>Documents Relevant to project</h2>
+        {{search|json}}
         <app-documents [search]="search"></app-documents>
       </mat-card-content>
     </mat-card>

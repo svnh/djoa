@@ -14,6 +14,12 @@ var brief = new Schema({
     name: {type: String},
     description: {type: String},
   },
+  questions: {
+    tryingToDo: {type: String, default: ['']},
+    goal: {type: String, default: ['']},
+    existingAssets: {type: String, default: ['']},
+    companyWebsite: {type: String, default: ['']},
+  },
   forms: [{type: Schema.Types.ObjectId, ref: 'Form'}],
   dateBrief: {
     start: {type: Date, default: [Date()]},

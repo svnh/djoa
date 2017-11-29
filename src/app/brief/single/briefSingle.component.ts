@@ -85,8 +85,12 @@ export class BriefSingleComponent implements OnInit {
       status: [''],
       start: [''],
       end: [''],
-      name: ['', [Validators.required, Validators.minLength(2)]],
+      // name: ['', [Validators.required, Validators.minLength(2)]],
       description: [''],
+      tryingToDo: [''],
+      goal: [''],
+      existingAssets: [''],
+      companyWebsite: [''],
     });
 
 

@@ -138,6 +138,7 @@ export class DocumentsComponent implements OnInit {
     showNavBarData.search.typeScreen = 'object'
     showNavBarData.search.typeObj = 'document'
     showNavBarData.search.stratId = this.search.stratId
+    showNavBarData.search.briefId = this.search.briefId
     showNavBarData.search.missionId = this.search.missionId
     showNavBarData.search.projectId = this.search.projectId
     showNavBarData.search.categorieId = this.search.categorieId

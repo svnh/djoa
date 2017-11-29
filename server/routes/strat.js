@@ -97,7 +97,6 @@ router.put('/:id', function (req, res, next) {
             obj: result
           })
         })
-
     }
   })
 })
@@ -215,8 +214,6 @@ router.get('/page/:page', function (req, res, next) {
 
 // getting user forms to display them on front end
 router.get('/:id', function (req, res, next) {
-
-
   Strat.findById((req.params.id), function (err, obj) {
     if (err) {
       return res.status(500).json({
@@ -230,12 +227,16 @@ router.get('/:id', function (req, res, next) {
         error: {message: 'Obj not found!'}
       })
     }
-
-
     Strat
     .findById({_id: req.params.id})
     .populate({path: 'projects', model: 'Project'})
-    .populate({path: 'users', model: 'User'})
+    .populate({
+      path: 'users',
+      model: 'User',
+      populate: {
+        path: 'forms',
+        model: 'Form'        
+      }})
     // .populate({path: 'forms', model: 'Form'})
     // .populate({path: 'assignedTos', model: 'User'})
     // .populate(

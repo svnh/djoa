@@ -7,6 +7,7 @@ import { Strat } from '../strat/strat.model';
 export class Brief {
     _id: string = '';
     details: Details = new Details()
+    questions: Question = new Question()
     documents: Document[] = []
     clients: User[] = [];
     strats: Strat[]=[]
@@ -29,6 +30,13 @@ export class DateBrief {
   end: Date = new Date()
   endString: string = '';
   percentageProgress: number = 0;
+}
+export class Question {
+  tryingToDo: string = '';
+  goal: string = '';
+  existingAssets: string = '';
+  companyWebsite: string = '';
+
 }
 
 //
