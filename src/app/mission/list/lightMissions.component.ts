@@ -20,7 +20,7 @@ import {Categorie} from '../../categorie/categorie.model';
   selector: 'app-lightMissions',
   templateUrl: './lightMissions.component.html',
   styleUrls: ['../mission.component.css'],
-  encapsulation: ViewEncapsulation.None
+  // encapsulation: ViewEncapsulation.None
 
 })
 export class LightMissionsComponent implements OnInit {
@@ -68,8 +68,8 @@ export class LightMissionsComponent implements OnInit {
   }
 
   ngOnChanges(changes) {
-    console.log(this.search)
-    if(this.search.projectId && this.search.categorieId)
+    // console.log(this.search)
+    // if(this.search.projectId && this.search.categorieId)
       this.getMissions(1, this.search)
   }
 

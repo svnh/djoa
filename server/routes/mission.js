@@ -160,8 +160,8 @@ router.get('/page/:page', function (req, res, next) {
     //   }
     // })
 
-  // if(req.query.search)
-  //   searchQuery['details.name'] = new RegExp(req.query.search, 'i')
+  if(req.query.search)
+    searchQuery['title'] = new RegExp(req.query.search, 'i')
 
 
   if(req.query.projectId)

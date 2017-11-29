@@ -7,7 +7,7 @@ import { Routes, RouterModule} from '@angular/router';
 
 
 import { SearchComponent} from './search.component';
-import {SharedSmallModule } from '../../shared/sharedSmall.module';
+import {SharedObjModule } from '../../shared/sharedObj.module';
 // import { NotificationService} from '../../notification/notification.service';
 
 @NgModule({
@@ -17,12 +17,7 @@ import {SharedSmallModule } from '../../shared/sharedSmall.module';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedSmallModule,
-    // SharedModule,
-    //  FormsModule,
-
-    // ReactiveFormsModule,
-
+    SharedObjModule,
   ],
   declarations: [
 

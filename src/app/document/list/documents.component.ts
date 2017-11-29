@@ -67,7 +67,9 @@ export class DocumentsComponent implements OnInit {
       }
     })
   }
-
+  ngOnChanges() {
+    this.getDocuments(1, this.search)
+  }
   ngOnInit() {
     // let this2 = this
     // // setTimeout(function(){

@@ -1,3 +1,4 @@
+
 <div *ngFor="let project of fetchedProjects" (click)="goToProject(project._id)" routerLinkActive="active">
   <div class="sidebar-item">
     <div [ngClass]="{'selected':project._id === search.projectId,'':project._id !== search.projectId}" >
