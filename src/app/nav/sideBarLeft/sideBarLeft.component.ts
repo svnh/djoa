@@ -34,7 +34,6 @@ export class SideBarLeftComponent implements OnInit {
     private router: Router,
   ) {
     this.globalEventsManager.showNavBarEmitterLeft.subscribe((showNavBarData) => {
-      console.log(showNavBarData)
         if (showNavBarData !== null) {
           this.showNavBarData = showNavBarData;
           if(this.showNavBarData.showNavBar === 1) {

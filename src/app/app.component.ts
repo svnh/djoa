@@ -1,15 +1,15 @@
-import {Component, ViewContainerRef, ViewChild, AfterViewInit} from '@angular/core';
+import { Component, ViewContainerRef, ViewChild, AfterViewInit } from '@angular/core';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 import {
-    Router,
-    // import as RouterEvent to avoid confusion with the DOM Event
-    Event as RouterEvent,
-    NavigationStart,
-    NavigationEnd,
-    NavigationCancel,
-    NavigationError
+  Router,
+  // import as RouterEvent to avoid confusion with the DOM Event
+  Event as RouterEvent,
+  NavigationStart,
+  NavigationEnd,
+  NavigationCancel,
+  NavigationError
 } from '@angular/router'
-import {AuthService} from './auth/auth.service';
+import { AuthService } from './auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -29,10 +29,10 @@ export class AppComponent implements AfterViewInit {
   ) {
     this.toastr.setRootViewContainerRef(vcr);
     router.events.subscribe((event: RouterEvent) => {
-          this.navigationInterceptor(event);
-      });
+      this.navigationInterceptor(event);
+    });
   }
-  ngAfterViewInit(){
+  ngAfterViewInit() {
     const this2 = this
     setTimeout(() => {
       this2.widthContainer = this2.elementView.nativeElement.offsetWidth
@@ -42,23 +42,23 @@ export class AppComponent implements AfterViewInit {
 
 
 
-      // Shows and hides the loading spinner during RouterEvent changes
-      navigationInterceptor(event: RouterEvent): void {
-          if (event instanceof NavigationStart) {
-              this.loading = true;
-          }
-          if (event instanceof NavigationEnd) {
-              this.loading = false;
-          }
+  // Shows and hides the loading spinner during RouterEvent changes
+  navigationInterceptor(event: RouterEvent): void {
+    if (event instanceof NavigationStart) {
+      this.loading = true;
+    }
+    if (event instanceof NavigationEnd) {
+      this.loading = false;
+    }
 
-          // Set loading state to false in both of the below events to hide the spinner in case a request fails
-          if (event instanceof NavigationCancel) {
-              this.loading = false;
-          }
-          if (event instanceof NavigationError) {
-              this.loading = false;
-          }
-      }
+    // Set loading state to false in both of the below events to hide the spinner in case a request fails
+    if (event instanceof NavigationCancel) {
+      this.loading = false;
+    }
+    if (event instanceof NavigationError) {
+      this.loading = false;
+    }
+  }
 
 
   // isLoggedIn() {

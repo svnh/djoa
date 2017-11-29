@@ -18,15 +18,16 @@ export class SideBarRightComponent implements OnInit {
     private globalEventsManager: GlobalEventsManager,
   ) {
 
-    this.globalEventsManager.showNavBarEmitterRight.subscribe((showNavBarData)=>{
-        if (showNavBarData !== null) {
-          this.showNavBarData = showNavBarData;
-          if(this.showNavBarData.showNavBar) {
-            this.sidenav.open()
-          } else {
-            this.sidenav.close()
-          }
+    this.globalEventsManager.showNavBarEmitterRight.subscribe((showNavBarData) => {
+      if (showNavBarData !== null) {
+        this.showNavBarData = showNavBarData;
+        if(this.showNavBarData.showNavBar === 1) {
+          this.sidenav.open()
         }
+        if(this.showNavBarData.showNavBar === -1) {
+          this.sidenav.close()
+        }
+      }
     })
   }
 

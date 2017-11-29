@@ -1,8 +1,8 @@
 <mat-sidenav #sidenav align="end" mode="over" class="sidebarright-page">
-  <div (click)="sideNavAction('rightSideBar', false, '')" class="sidebarright-back"></div>
+  <div (click)="sideNavAction('rightSideBar', -1, '')" class="sidebarright-back"></div>
   <div class="sidebarright">
     <div class="sidebarright-content">
-      <i (click)="sideNavAction('rightSideBar', false, '')" class="fa fa-times dspl-nn-dsktp" aria-hidden="true"></i>
+      <i (click)="sideNavAction('rightSideBar', -1, '')" class="fa fa-times dspl-nn-dsktp" aria-hidden="true"></i>
       <div *ngIf="showNavBarData.search.typeScreen == 'object'">
         <app-strat *ngIf="showNavBarData.search.typeObj == 'strat'" [search]="showNavBarData.search"></app-strat>
         <app-brief *ngIf="showNavBarData.search.typeObj == 'brief'" [search]="showNavBarData.search"></app-brief>
@@ -24,7 +24,7 @@
         <app-projectTeam *ngIf="showNavBarData.search.typeObj == 'project'" [search]="showNavBarData.search"></app-projectTeam>
         <app-missionTeam *ngIf="showNavBarData.search.typeObj == 'mission'" [search]="showNavBarData.search"></app-missionTeam>
       </div>
-      <!--<button (click)="sideNavAction('rightSideBar', false, '')" class="save">SAVE</button>-->
+      <!--<button (click)="sideNavAction('rightSideBar', -1, '')" class="save">SAVE</button>-->
     </div>
   </div>
 </mat-sidenav>

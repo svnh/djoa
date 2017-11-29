@@ -51,13 +51,13 @@ export class NavbarComponent implements OnInit {
 
     })
     this.globalEventsManager.showNavBarEmitterTop.subscribe((showNavBarData) => {
-      // console.log(showNavBarData)
         if (showNavBarData !== null) {
           this.showNavBarData = showNavBarData;
-          if(this.showNavBarData.showNavBar) {
+          if(this.showNavBarData.showNavBar === 1) {
             this.topNavOpen = true
             this.fetchedCurrentUser = this.authService.getCurrentUser()
-          } else {
+          }
+          if(this.showNavBarData.showNavBar === -1) {
             this.topNavOpen = false
           }
         }
