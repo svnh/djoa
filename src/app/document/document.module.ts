@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 // import { DocumentTasksComponent} from './task/singleTask/documentTasks.component';
 import { DocumentsComponent} from './list/documents.component';
+import { SearchDocuments} from './list/searchDocuments.component';
 import { DocumentSingleComponent} from './single/documentSingle.component';
 // import { DocumentContentComponent} from './single/documentContent.component';
 import { DocumentService} from './document.service';
@@ -48,6 +49,7 @@ import {SharedModule } from '../shared/shared.module';
   declarations: [
     // DocumentTasksComponent,
     DocumentsComponent,
+    SearchDocuments,
     DocumentSingleComponent,
     // DocumentContentComponent,
     // TasksComponent,
@@ -60,6 +62,7 @@ import {SharedModule } from '../shared/shared.module';
   exports:      [
     DocumentSingleComponent,
     DocumentsComponent,
+    SearchDocuments,
     // DocumentContentComponent,
 
     // DocumentsComponent,

@@ -8,7 +8,7 @@
           <label class="fileContainer">
             Upload
             <input #fileInput name="fileUp" type="file" (change)="onFileSelect($event)">
-          </label>          
+          </label>
           <div *ngIf="hasFiles()">
             <div *ngFor="let file of files" class="cho-filcnt">
               <img *ngIf="!isImagePure(file)" class="img-responsive" src="./assets/images/pdf_icon.png">

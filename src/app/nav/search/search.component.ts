@@ -68,7 +68,7 @@ export class SearchComponent implements OnInit {
   }
 
   cancel() {
-    let showNavBarData = new ShowNavBarData()
+    const showNavBarData = new ShowNavBarData()
     showNavBarData.showNavBar = -1
     // showNavBarData.search.typeObj = 'project'
     // showNavBarData.search.projectId = this.search.projectId

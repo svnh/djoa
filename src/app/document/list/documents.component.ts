@@ -18,7 +18,7 @@ import { Search, PaginationData } from '../../shared/shared.model'
   selector: 'app-documents',
   templateUrl: './documents.component.html',
   styleUrls: ['../document.component.css'],
-  encapsulation: ViewEncapsulation.None
+  // encapsulation: ViewEncapsulation.None
 
 })
 export class DocumentsComponent implements OnInit {
