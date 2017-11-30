@@ -3,11 +3,17 @@ Search for documents..
   <input matInput [(ngModel)]="search.search" placeholder="Search">
 </mat-form-field>
 
-<!-- <button type="button" (click)="test()">test</button> -->
-Missions
-<app-missions [search]="{search: search.search}"></app-missions>
-Projects
-<app-projects [search]="{search: search.search}"></app-projects>
-
-Documents
-<app-search-documents [search]="{search: search.search}"></app-search-documents>
+<div *ngIf="search.search">
+  <div>
+    Missions
+    <app-missions [search]="{search: search.search}"></app-missions>
+  </div>
+  <div>
+    Projects
+    <app-projects [search]="{search: search.search}"></app-projects>
+  </div>
+  <div>
+    Documents
+    <app-search-documents [search]="{search: search.search}"></app-search-documents>
+  </div>
+</div>
