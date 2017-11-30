@@ -128,8 +128,9 @@ export class MissionsComponent implements OnInit {
     this.globalEventsManager.showNavBarLeft(newShowNavBarData)
   }
   createNewMission() {
-    let newShowNavBarData = new ShowNavBarData()
+    const newShowNavBarData = new ShowNavBarData()
     newShowNavBarData.search.typeObj = 'mission'
+    newShowNavBarData.showNavBar = 1
     newShowNavBarData.search.projectId = this.search.projectId
     newShowNavBarData.search.categorieId = this.search.categorieId
     this.globalEventsManager.showNavBarRight(newShowNavBarData)
