@@ -120,6 +120,7 @@ export class MissionsComponent implements OnInit {
   //   this.paginationData.currentPage = this.paginationData.currentPage+1
   //   this.getMissions(this.paginationData.currentPage, this.search)
   // }
+  
   openCategoriesSideBar(missionId: string) {
     let newShowNavBarData = new ShowNavBarData()
     newShowNavBarData.search.typeObj = 'categorie'
