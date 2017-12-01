@@ -16,7 +16,7 @@ import { Search, PaginationData } from '../../shared/shared.model'
 
 @Component({
   selector: 'app-search-documents',
-  templateUrl: './SearchDocuments.component.html',
+  templateUrl: './searchDocuments.component.html',
   styleUrls: ['../document.component.css'],
   // encapsulation: ViewEncapsulation.None
 
