@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/timeout';
+import 'rxjs/add/observable/throw';
 // import { AutocompleteComponent } from '../autocomplete/autocomplete.component'
 import { AutocompleteModule } from '../autocomplete/autocomplete.module';
 import {PictureModule} from '../picture/picture.module';
