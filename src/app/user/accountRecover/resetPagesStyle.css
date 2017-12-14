@@ -11,10 +11,7 @@ p.footnote {
   font-size: 10px;
   text-transform: uppercase;
 }
-.login {
-  background-color: #009688;
-  color: #fff;
-  font-weight: 600;
+.save {
   margin-top: 15px;
 }
 .log-scrn {
