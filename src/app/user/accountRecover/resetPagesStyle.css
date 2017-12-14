@@ -11,3 +11,13 @@ p.footnote {
   font-size: 10px;
   text-transform: uppercase;
 }
+.login {
+  background-color: #009688;
+  color: #fff;
+  font-weight: 600;
+  margin-top: 15px;
+}
+.log-scrn {
+  width: 300px;
+  margin: 100px auto 0;
+}

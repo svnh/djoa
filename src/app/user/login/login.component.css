@@ -24,3 +24,7 @@ h1 {
 .logologin img {
   max-width: 100% !important;
 }
+.log-scrn {
+  width: 300px;
+  margin: 100px auto 0;
+}
