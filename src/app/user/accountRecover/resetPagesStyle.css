@@ -2,9 +2,12 @@ p {
   color: #ffffff;
 }
 .footnote a {
+  color: #ffffff !important;
+}
+p.footnote {
+  color: #ffffff !important;
   margin-top: 20px;
   text-align: center;
   font-size: 10px;
   text-transform: uppercase;
-  color: #ffffff !important;
 }
