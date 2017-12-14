@@ -214,6 +214,10 @@ p.percent {
   float: left;
   height: auto;
 }
+.log-scrn {
+  width: 300px;
+  margin: 100px auto 0;
+}
 
 @media screen and (min-width: 992px) {
   .djoa-container {

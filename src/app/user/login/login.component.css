@@ -1,16 +1,17 @@
-.log-scrn {
-  width: 300px;
-  margin: 100px auto 0;
-}
 .login {
   background-color: #009688;
   color: #fff;
   font-weight: 600;
   margin-top: 15px;
 }
+p.message {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 10px;
+  text-transform: uppercase;
+}
 .message a {
-  color: #ffffff;
-  margin-top: 50px;
+  color: #ffffff !important;
 }
 h1 {
   color: #ffffff;
