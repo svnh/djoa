@@ -4,15 +4,20 @@
   font-weight: 600;
   margin-top: 15px;
 }
-p.message {
+.footnote a {
   margin-top: 20px;
   text-align: center;
   font-size: 10px;
   text-transform: uppercase;
-}
-.message a {
   color: #ffffff !important;
 }
 h1 {
   color: #ffffff;
+}
+.logologin {
+  margin: 0 auto 50px;
+  width: 50%;
+}
+.logologin img {
+  max-width: 100% !important;
 }

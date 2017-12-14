@@ -1,3 +1,10 @@
 p {
   color: #ffffff;
 }
+.footnote a {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 10px;
+  text-transform: uppercase;
+  color: #ffffff !important;
+}
