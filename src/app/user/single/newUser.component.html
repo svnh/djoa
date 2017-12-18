@@ -1,17 +1,18 @@
 <form [formGroup]="myForm" novalidate (ngSubmit)="save()" class="sidebarright-sub">
   <mat-form-field>
-    <input matInput type="text" class="form-control" formControlName="name" [(ngModel)]="fetchedUser.profile.name" placeholder="name">
+    <input matInput type="text" class="form-control" formControlName="name" [(ngModel)]="fetchedUser.profile.name" placeholder="First Name">
   </mat-form-field>
   <mat-form-field>
-    <input matInput type="text" class="form-control" formControlName="lastName" [(ngModel)]="fetchedUser.profile.lastName" placeholder="lastName">
+    <input matInput type="text" class="form-control" formControlName="lastName" [(ngModel)]="fetchedUser.profile.lastName" placeholder="Last Name">
   </mat-form-field>
   <mat-form-field>
-    <input matInput type="text" class="form-control" formControlName="title" [(ngModel)]="fetchedUser.profile.title" placeholder="title">
+    <input matInput type="text" class="form-control" formControlName="title" [(ngModel)]="fetchedUser.profile.title" placeholder="Title">
   </mat-form-field>
+  <label class="label-title">Update Picture</label>
   <app-picture [addPicture]=true [loadSinglePicture]=true [deletePicture]=true [forms]="fetchedUser.forms"></app-picture>
   <div class="valid-edit">
     <button type="submit" [disabled]="!myForm.valid" [ngClass]="{'save':myForm.valid,'delete':!myForm.valid}">Done</button>
-    <button type="button" *ngIf="fetchedUser._id" class="delete" md-button (click)="openDialogDelete()">Delete</button>
+    <button type="button" *ngIf="fetchedUser._id" class="delete" md-button (click)="openDialogDelete()">Delete User</button>
     <!--<button type="button" *ngIf="fetchedUser._id" class="delete" md-button (click)="sendEmailToUserToJoinCompanie()">sendEmailToUserToJoinCompanie</button>-->
   </div>
   <div class="clearfix"></div>

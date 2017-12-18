@@ -5,7 +5,6 @@
   <h5>{{fetchedUser.profile.title}}</h5>
   <button (click)="editMode = !editMode" class="profile-button">Edit Profile</button>
   <app-newUser *ngIf="editMode" [fetchedUser]="fetchedUser" (saved)="save()"></app-newUser>
-
   <button type="button" (click)="editSettings = !editSettings" class="profile-button">Settings</button>
   <app-settings-user *ngIf="editSettings" [fetchedUser]="fetchedUser" (saved)="save()"></app-settings-user>
   <button type="button" (click)="logout()" class="profile-button">Logout</button>

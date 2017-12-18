@@ -56,6 +56,9 @@ h5 {
 a {
   color: inherit !important;
 }
+img {
+    max-width: 100% !important;
+}
 
 @media screen and (min-width: 992px) {
   .dspl-nn-dsktp {
