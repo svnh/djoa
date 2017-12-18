@@ -5,10 +5,10 @@
   <label class="label-title">Email Preferences</label>
   <p>I would like to get notified of a new task or message:</p>
   <mat-radio-group [ngModelOptions]="{standalone: true}" [(ngModel)]="fetchedUser.profile.emailPreferences.frequencyEmail">
-    <mat-radio-button value="asTheyHappen">As they happen</mat-radio-button>
-    <mat-radio-button value="onceADay">Once a Day</mat-radio-button>
-    <mat-radio-button value="onceAWeek">Once a Week</mat-radio-button>
-    <mat-radio-button value="never">Never</mat-radio-button>
+    <mat-radio-button value="asTheyHappen" class="sidebarright-choices">As they happen</mat-radio-button>
+    <mat-radio-button value="onceADay" class="sidebarright-choices">Once a Day</mat-radio-button>
+    <mat-radio-button value="onceAWeek" class="sidebarright-choices">Once a Week</mat-radio-button>
+    <mat-radio-button value="never" class="sidebarright-choices">Never</mat-radio-button>
   </mat-radio-group>
   <div class="valid-edit">
     <button type="submit" [disabled]="!myForm.valid" [ngClass]="{'save':myForm.valid,'delete':!myForm.valid}">Submit</button>

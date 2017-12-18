@@ -7,16 +7,16 @@
   font-size: 12px;
   cursor: pointer;
 }
-h9 {
+.fileContainer p {
   display: block;
   float: left;
   width: 80%;
   border-bottom: 1px solid;
 }
 .fileContainer .fa.fa-upload {
-  background-color: #f44336;
-  color: #fff;
-  padding: 10px;
-  border-radius: 100px;
-  float: right;
+  background-color: #f44336 !important;
+  color: #fff !important;
+  padding: 10px !important;
+  border-radius: 100px !important;
+  float: right !important;
 }

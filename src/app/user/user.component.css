@@ -23,6 +23,6 @@ h5 {
 .sidebarright-sub {
   padding: 15px;
 }
-.sidebarright mat-radio-button {
+.sidebarright-choices {
   display: block !important;
 }
