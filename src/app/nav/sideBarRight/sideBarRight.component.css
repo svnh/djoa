@@ -11,6 +11,7 @@
   width: 100%;
   background: none;
   overflow: hidden;
+  box-shadow: none !important;
 }
 .sidebarright {
   display: inline-block;
