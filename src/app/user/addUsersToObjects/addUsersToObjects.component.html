@@ -6,13 +6,13 @@
       </app-autocomplete>
       <app-autocomplete [typeAutocomplete]="'Mission'" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedUsersToObjects.missions" [placeholderString]="'Mission'">
       </app-autocomplete>
-      <app-autocomplete [typeAutocomplete]="'Right'" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedUsersToObjects.rights" [placeholderString]="'User's Rights (Admin Only)'">
+      <app-autocomplete [typeAutocomplete]="'Right'" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedUsersToObjects.rights" [placeholderString]="'User Rights (Admin Only)'">
       </app-autocomplete>
       <app-autocomplete [typeAutocomplete]="'User'" [canDelete]=true [title]="" [singleChoice]=false [arrayContent]="fetchedUsersToObjects.users" [placeholderString]="'Add Email'">
       </app-autocomplete>
     </div>
     <div class="sidewrapper valid-edit">
-      <button type="submit" [disabled]="!myForm.valid" [ngClass]="{'done':myForm.valid,'pas-done':!myForm.valid}" class="save">Save</button>
+      <button type="submit" [disabled]="!myForm.valid" [ngClass]="{'save':myForm.valid,'delete':!myForm.valid}" class="save">Save</button>
     </div>
     <div class="clearfix"></div>
   </form>
