@@ -236,6 +236,12 @@ p.percent {
   border-radius: 100px !important;
   float: right !important;
 }
+.single-chat .read-chat p.longMessage {
+  display: block !important;
+}
+.single-chat .read-chat p.shortMessage {
+  display: none !important;
+}
 
 @media screen and (min-width: 992px) {
   .djoa-container {
@@ -250,6 +256,9 @@ p.percent {
   }
   .list-on {
     height: 50px;
+  }
+  .read-chat p.shortMessage {
+    display: none;
   }
 }
 @media screen and (max-width: 991px) {
@@ -266,6 +275,9 @@ p.percent {
   }
   .list-on {
     height: 35px;
+  }
+  .read-chat p.longMessage {
+    display: none;
   }
 }
 
