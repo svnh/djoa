@@ -214,6 +214,9 @@ p.percent {
   float: left;
   height: auto;
 }
+.leftmenu .nav-link {
+  padding: 0 !important;
+}
 
 @media screen and (min-width: 992px) {
   .djoa-container {
@@ -334,9 +337,10 @@ md-sidenav-container.mat-drawer-container.mat-sidenav-container {
 }
 .mat-drawer-content {
   overflow: hidden !important;
+  height: 100vh !important;
 }
-.leftmenu .nav-link {
-  padding: 0 !important;
+.mat-drawer:not(.mat-drawer-side) {
+  box-shadow: none;
 }
 button {
   padding: 0;
