@@ -7,7 +7,7 @@
       <button type="button" (click)="editMode=!editMode" class="edit-btn">Edit</button>
     </div>
     <div class="card-block clearfix">
-      <button *ngIf="editMode" type="button" (click)="createNewMission()" class="add-object">Add Mission</button>
+      <button *ngIf="editMode" type="button" (click)="createNewMission()" class="add-object">Add Mission<i class="fa fa-plus"></i></button>
       <table class="table table-hover">
         <tbody>
           <tr *ngFor="let mission of fetchedMissions" (click)="goTo(mission._id)" routerLinkActive="active">

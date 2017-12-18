@@ -119,11 +119,16 @@ img {
   background: none;
   border: none;
   padding: 20px 15px;
-  background-color: #4a148c;
-  color: #fff;
+  background-color: #f4f4f4;
   text-align: left;
   cursor: pointer;
-  text-transform: uppercase;
+}
+.add-object .fa.fa-plus {
+  float: right;
+  padding: 4px 6px;
+  border-radius: 100px;
+  color: #fff;
+  background-color: #4a148c;
 }
 .save, .delete {
   width: 100%;
