@@ -2,7 +2,7 @@
   <h2 class="greyback sidewrapper">Strategy</h2>
   <form [formGroup]="myForm" novalidate (ngSubmit)="save()">
     <div class="greyback sidewrapper">
-      <app-autocomplete [typeAutocomplete]="'project'" [search]="search" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedStrat.projects" placeholder="Project">
+      <app-autocomplete [typeAutocomplete]="'project'" [search]="search" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedStrat.projects" [placeholder]="'Project'">
       </app-autocomplete>
       <mat-form-field>
         <input matInput type="text" formControlName="title" [(ngModel)]="fetchedStrat.title" placeholder="Strategy Title">
@@ -14,7 +14,7 @@
     </div>
     <div class="sidewrapper">
       <label class="label-title">Assign Crew Members</label>
-      <app-autocomplete [typeAutocomplete]="'user'" [singleChoice]="'true'" [arrayContent]="fetchedStrat.users" placeholder="Add Email">
+      <app-autocomplete [typeAutocomplete]="'user'" [singleChoice]="'true'" [arrayContent]="fetchedStrat.users" [placeholder]="'Add Email'">
       </app-autocomplete>
       <!---<mat-form-field>
         <input matInput type="date" class="form-control" formControlName="startString" [(ngModel)]="fetchedStrat.dateStrat.startString">

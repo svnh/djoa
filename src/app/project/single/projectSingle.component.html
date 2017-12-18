@@ -16,7 +16,7 @@
     </div>
     <div class="sidewrapper">
       <label class="label-title">Project Owners</label>
-      <app-autocomplete [typeAutocomplete]="'user'" [title]="" [search]="{isExternalUser:false}" [singleChoice]=false [arrayContent]="fetchedProject.users" placeholder="Add Email"></app-autocomplete>
+      <app-autocomplete [typeAutocomplete]="'user'" [title]="" [search]="{isExternalUser:false}" [singleChoice]=false [arrayContent]="fetchedProject.users" [placeholder]="'Add Email'"></app-autocomplete>
     </div>
     <div class="sidewrapper valid-edit">
       <button type="submit" class="save" [disabled]="!myForm.valid">{{'Save' }}</button>
