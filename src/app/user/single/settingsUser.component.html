@@ -1,10 +1,9 @@
 <form [formGroup]="myForm" novalidate (ngSubmit)="save()" class="sidebarright-sub">
   <mat-form-field>
-    <input matInput type="text" class="form-control" formControlName="email" [(ngModel)]="fetchedUser.email" placeholder="email">
+    <input matInput type="text" class="form-control" formControlName="email" [(ngModel)]="fetchedUser.email" placeholder="Email">
   </mat-form-field>
-
-  Emails Preference
-  I would like to get ...
+  <label class="label-title">Email Preferences</label>
+  <p>I would like to get notified of a new task or message:</p>
   <mat-radio-group [ngModelOptions]="{standalone: true}" [(ngModel)]="fetchedUser.profile.emailPreferences.frequencyEmail">
     <mat-radio-button value="asTheyHappen">As they happen</mat-radio-button>
     <mat-radio-button value="onceADay">Once a Day</mat-radio-button>
@@ -12,7 +11,7 @@
     <mat-radio-button value="never">Never</mat-radio-button>
   </mat-radio-group>
   <div class="valid-edit">
-    <button type="submit" [disabled]="!myForm.valid" [ngClass]="{'done':myForm.valid,'pas-done':!myForm.valid}">Done</button>
+    <button type="submit" [disabled]="!myForm.valid" [ngClass]="{'save':myForm.valid,'delete':!myForm.valid}">Submit</button>
   </div>
   <div class="clearfix"></div>
 </form>

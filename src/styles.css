@@ -348,3 +348,6 @@ md-sidenav-container.mat-drawer-container.mat-sidenav-container {
 button {
   padding: 0;
 }
+mat-form-field {
+  width: 100% !important;
+}

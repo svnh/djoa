@@ -7,3 +7,16 @@
   font-size: 12px;
   cursor: pointer;
 }
+h9 {
+  display: block;
+  float: left;
+  width: 80%;
+  border-bottom: 1px solid;
+}
+.fileContainer .fa.fa-upload {
+  background-color: #f44336;
+  color: #fff;
+  padding: 10px;
+  border-radius: 100px;
+  float: right;
+}

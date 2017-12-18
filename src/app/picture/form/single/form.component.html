@@ -1,7 +1,8 @@
   <form  (ngSubmit)="onSubmit()" novalidate>
     <fieldset>
           <label class="fileContainer">
-            Upload
+            <h9>Upload</h9>
+            <i class="fa fa-upload" aria-hidden="true"></i>
             <input #fileInput name="fileUp" type="file" (change)="onFileSelect($event)">
           </label>
           <div *ngIf="hasFiles()">
