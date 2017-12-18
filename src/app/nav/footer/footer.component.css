@@ -13,6 +13,10 @@
   border: 1px solid !important;
   border-radius: 20px !important;
 }
+.footer .leftmenu {
+  width: 38px;
+  display: inline-block;
+}
 
 @media screen and (min-width: 1200px) {
   .footer .leftmenu {
