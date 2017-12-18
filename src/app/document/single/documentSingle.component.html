@@ -24,10 +24,7 @@
       <mat-form-field>
         <input matInput type="text" formControlName="link" [(ngModel)]="fetchedDocument.link" placeholder="Add Link">
       </mat-form-field>
-      <!--<mat-form-field>
-        <input matInput class="form-control col-md-4" type="text" formControlName="description" placeholder="description" [(ngModel)]="fetchedDocument.details.description">
-      </mat-form-field>--->
-
+      <label class="label-title">OR</label>
       <app-picture [forms]="fetchedDocument.forms"></app-picture>
 
     </div>
@@ -36,7 +33,7 @@
       <app-autocomplete [typeAutocomplete]="'user'" [search]="search" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedDocument.crewMembers" [placeholderString]="'Gets the work done'">
       </app-autocomplete>
 
-      <app-autocomplete [typeAutocomplete]="'user'" [search]="search" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedDocument.reviewers" [placeholderString]="'Reviews the work:'">
+      <app-autocomplete [typeAutocomplete]="'user'" [search]="search" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedDocument.reviewers" [placeholderString]="'Reviews the work'">
       </app-autocomplete>
     </div>
     <div class="sidewrapper valid-edit">

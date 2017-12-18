@@ -220,6 +220,22 @@ p.percent {
 .leftmenu .nav-link {
   padding: 0 !important;
 }
+.fileContainer {
+  width: 100%;
+}
+.fileContainer p {
+  display: block;
+  float: left;
+  width: 80%;
+  border-bottom: 1px solid;
+}
+.fileContainer .fa.fa-upload {
+  background-color: #f44336 !important;
+  color: #fff !important;
+  padding: 10px !important;
+  border-radius: 100px !important;
+  float: right !important;
+}
 
 @media screen and (min-width: 992px) {
   .djoa-container {
