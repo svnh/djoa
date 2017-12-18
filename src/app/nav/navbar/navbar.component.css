@@ -8,6 +8,8 @@
 }
 .nav.rightmenu {
   float: right;
+  width: 250px;
+  background-color: #ffffff;
 }
 .nav.leftmenu {
   float: left;

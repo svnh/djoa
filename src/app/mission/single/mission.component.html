@@ -17,9 +17,11 @@
       <label class="label-title">Assign Crew Members</label>
       <app-autocomplete [typeAutocomplete]="'user'" [singleChoice]=false [arrayContent]="fetchedMission.users" [placeholderString]="'Add Email'">
       </app-autocomplete>
+      <label class="label-title">Start Date</label>
       <mat-form-field>
         <input matInput type="date" formControlName="startString" [(ngModel)]="fetchedMission.dateMission.startString">
       </mat-form-field>
+      <label class="label-title">Due Date</label>
       <mat-form-field>
         <input matInput type="date" formControlName="endString" [(ngModel)]="fetchedMission.dateMission.endString">
       </mat-form-field>

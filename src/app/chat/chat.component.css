@@ -46,3 +46,20 @@
   color: #ffffff;
   padding: 8px 16px;
 }
+.single-chat .read-chat p.longMessage {
+  display: block !important;
+}
+.single-chat .read-chat p.shortMessage {
+  display: none !important;
+}
+
+@media screen and (min-width: 992px) {
+  .read-chat p.shortMessage {
+    display: none;
+  }
+}
+@media screen and (max-width: 991px) {
+  .read-chat p.longMessage {
+    display: none;
+  }
+}
