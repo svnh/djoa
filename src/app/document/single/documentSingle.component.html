@@ -33,9 +33,9 @@
     </div>
     <div class="sidewrapper">
       <label class="label-title">Assign Crew Members</label>
-      <app-autocomplete [typeAutocomplete]="'user'" [search]="search" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedDocument.crewMembers" [placeholder]="'Gets the work done'">
+      <app-autocomplete [typeAutocomplete]="'user'" [search]="search" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedDocument.crewMembers" [placeholderString]="'Gets the work done'">
       </app-autocomplete>
-      <app-autocomplete [typeAutocomplete]="'user'" [search]="search" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedDocument.reviewers" [placeholder]="'Reviews the work:''">
+      <app-autocomplete [typeAutocomplete]="'user'" [search]="search" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedDocument.reviewers" [placeholderString]="'Reviews the work:''">
       </app-autocomplete>
     </div>
     <div class="sidewrapper valid-edit">
