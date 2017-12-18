@@ -1,4 +1,5 @@
 <div *ngIf="topNavOpen">
+
   <div class="nav-container">
     <ul *ngIf="topNavOpen" class="nav leftmenu">
       <li class="nav-item">
@@ -14,7 +15,9 @@
         <div class="nav-link" routerLinkActive="active" (click)="goHome()"><img class="logo-top dspl-nn-dsktp"src="/assets/images/small-logo-djoa.png"/></div>
       </li>
     </ul>
-    <ul class="nav rightmenu">
+
+
+    <ul [ngClass]="{'classOuvert': showNavBarDataRight.showNavBar === 1}" class="nav rightmenu">
       <mat-menu>
         <button md-menu-item routerLinkActive="active" [routerLink]="['/user/list/false']">Users</button>
         <button md-menu-item routerLinkActive="active" [routerLink]="['/categorie']">Categories</button>
@@ -22,9 +25,6 @@
         <button md-menu-item routerLinkActive="active" [routerLink]="['/log']">Logs</button>
       </mat-menu>
       <li class="nav-item navnotif">
-
-
-
         <button type="button" (click)="notif()"><app-notif-total></app-notif-total></button>
       </li>
       <li class="nav-item navadd">

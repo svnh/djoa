@@ -30,6 +30,7 @@ export class NavbarComponent implements OnInit {
   notificationsNotRead: number = 0;
   showNavBarData: ShowNavBarData = new ShowNavBarData()
   showNavBarDataLeft: ShowNavBarData = new ShowNavBarData()
+  showNavBarDataRight: ShowNavBarData = new ShowNavBarData()
   topNavOpen: boolean = false
 
   constructor(
@@ -47,7 +48,11 @@ export class NavbarComponent implements OnInit {
       if (showNavBarData !== null) {
         this.showNavBarDataLeft = showNavBarData;
       }
-
+    })
+    this.globalEventsManager.showNavBarEmitterRight.subscribe((showNavBarData) => {
+      if (showNavBarData !== null) {
+        this.showNavBarDataRight = showNavBarData;
+      }
     })
     this.globalEventsManager.showNavBarEmitterTop.subscribe((showNavBarData) => {
         if (showNavBarData !== null) {
