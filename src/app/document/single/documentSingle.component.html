@@ -5,21 +5,21 @@
       <div *ngIf="!search.stratId && !search.briefId">
         <app-autocomplete [typeAutocomplete]="'project'" [search]="search" [canDelete]=true [title]=""
         [singleChoice]=true [arrayContent]="autocompleteSearchProjects" (clearAutocomplete)="clearSearchProjects()"
-        (getResultAutocomplete)="getResultSearchProjects($event[0])" [placeholder]="'Project'">
+        (getResultAutocomplete)="getResultSearchProjects($event[0])" [placeholderString]="'Project'">
         </app-autocomplete>
         <app-autocomplete *ngIf="autocompleteSearchProjects.length" [typeAutocomplete]="'categorie'" [search]="search" [canDelete]=true [title]=""
         [singleChoice]=true [arrayContent]="autocompleteSearchCategories" (clearAutocomplete)="clearSearchCategories()"
-        (getResultAutocomplete)="getResultSearchCategories($event[0])" [placeholder]="'Marketing Field'">
+        (getResultAutocomplete)="getResultSearchCategories($event[0])" [placeholderString]="'Marketing Field'">
         </app-autocomplete>
-        <app-autocomplete *ngIf="autocompleteSearchCategories.length" [typeAutocomplete]="'mission'" [search]="search" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedDocument.missions" [placeholder]="'Mission'">
+        <app-autocomplete *ngIf="autocompleteSearchCategories.length" [typeAutocomplete]="'mission'" [search]="search" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedDocument.missions" [placeholderString]="'Mission'">
         </app-autocomplete>
       </div>
       <div *ngIf="search.briefId">
-        <app-autocomplete [typeAutocomplete]="'brief'" [search]="search" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedDocument.briefs" [placeholder]="'Brief Title'">
+        <app-autocomplete [typeAutocomplete]="'brief'" [search]="search" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedDocument.briefs" [placeholderString]="'Brief Title'">
         </app-autocomplete>
       </div>
       <div *ngIf="search.stratId">
-        <app-autocomplete [typeAutocomplete]="'strat'" [search]="search" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedDocument.strats" [placeholder]="'Strategy Title'">
+        <app-autocomplete [typeAutocomplete]="'strat'" [search]="search" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedDocument.strats" [placeholderString]="'Strategy Title'">
         </app-autocomplete>
       </div>
       <mat-form-field>
@@ -37,9 +37,9 @@
     </div>
     <div class="sidewrapper">
       <label class="label-title">Assign Crew Members</label>
-      <app-autocomplete [typeAutocomplete]="'user'" [search]="search" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedDocument.crewMembers" [placeholder]="'Gets the work done'">
+      <app-autocomplete [typeAutocomplete]="'user'" [search]="search" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedDocument.crewMembers" [placeholderString]="'Gets the work done'">
       </app-autocomplete>
-      <app-autocomplete [typeAutocomplete]="'user'" [search]="search" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedDocument.reviewers" [placeholder]="'Reviews the work:''">
+      <app-autocomplete [typeAutocomplete]="'user'" [search]="search" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedDocument.reviewers" [placeholderString]="'Reviews the work:'">
       </app-autocomplete>
     </div>
     <div class="sidewrapper valid-edit">

@@ -2,9 +2,9 @@
   <h2 class="sidewrapper">Mission</h2>
   <form [formGroup]="myForm" novalidate (ngSubmit)="save()">
     <div class="sidewrapper greyback">
-      <app-autocomplete [typeAutocomplete]="'project'" [canDelete]=true [search]="search" [title]="" [singleChoice]=true [arrayContent]="fetchedMission.projects" [placeholder]="'Project'">
+      <app-autocomplete [typeAutocomplete]="'project'" [canDelete]=true [search]="search" [title]="" [singleChoice]=true [arrayContent]="fetchedMission.projects" [placeholderString]="'Project'">
       </app-autocomplete>
-      <app-autocomplete [typeAutocomplete]="'categorie'" [canDelete]=true [search]="search" [title]="" [singleChoice]=true [arrayContent]="fetchedMission.categories" [placeholder]="'Marketing Field'">
+      <app-autocomplete [typeAutocomplete]="'categorie'" [canDelete]=true [search]="search" [title]="" [singleChoice]=true [arrayContent]="fetchedMission.categories" [placeholderString]="'Marketing Field'">
       </app-autocomplete>
       <mat-form-field>
         <input matInput type="text" formControlName="title" [(ngModel)]="fetchedMission.title" placeholder="Title">
@@ -15,7 +15,7 @@
     </div>
     <div class="sidewrapper">
       <label class="label-title">Assign Crew Members</label>
-      <app-autocomplete [typeAutocomplete]="'user'" [singleChoice]=false [arrayContent]="fetchedMission.users" [placeholder]="'Add Email'">
+      <app-autocomplete [typeAutocomplete]="'user'" [singleChoice]=false [arrayContent]="fetchedMission.users" [placeholderString]="'Add Email'">
       </app-autocomplete>
       <mat-form-field>
         <input matInput type="date" formControlName="startString" [(ngModel)]="fetchedMission.dateMission.startString">
