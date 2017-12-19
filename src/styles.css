@@ -91,7 +91,6 @@ img {
   background-image: url(/assets/images/page-title-back.png);
   background-repeat: no-repeat;
   overflow-y: auto;
-  height: 100%;
 }
 .missionbox {
   float: left;
@@ -220,7 +219,7 @@ p.percent {
 }
 .col-md-12, .col-lg-6 {
   float: left;
-  height: 73%;
+  height: 65%;
 }
 .leftmenu .nav-link {
   padding: 0 !important;
@@ -268,6 +267,7 @@ p.percent {
     max-width: 100% !important;
     padding: 46px 15px 0;
     overflow: auto;
+    height: 90%;
   }
   .missionbox {
     width: 300px;
@@ -314,7 +314,7 @@ p.percent {
 .chat-card .read-chat {
   padding: 0 !important;
 }
-.single-chat .chat, .single-chat .read-chat,g .chat-wrapper {
+.single-chat .chat, .single-chat .read-chat, .chat-wrapper {
   position: absolute;
   bottom: 0;
   top: 0;
