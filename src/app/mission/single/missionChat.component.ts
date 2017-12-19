@@ -62,10 +62,12 @@ export class MissionChatComponent implements OnInit {
         this.getMission(this.fetchedMission._id)
         this.globalEventsManager.refreshCenter(false);
       }
-
     })
   }
 
+  goBack() {
+    this.location.back();
+  }
   ngOnInit() {
     this.myForm = this._fb.group({
       description: [''],

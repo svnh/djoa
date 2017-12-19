@@ -7,18 +7,8 @@ import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {Mission} from '../mission.model';
 
 import {ToastsManager} from 'ng2-toastr';
-
-// import {MatDialog } from '@angular/material';
 import {Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
-// import { FormBuilder, FormGroup} from '@angular/forms';
-// import { UserService} from '../../user/user.service';
-// import { QuoteService } from '../../quote/quote.service';
-// import { DeleteDialog } from '../../deleteDialog/deleteDialog.component';
-// import { User } from '../../user/user.model';
-// import { Quote } from '../../quote/quote.model';
-// import { Categorie } from '../../categorie/categorie.model';
-// import { Project } from '../../project/project.model';
 import { Search } from '../../shared/shared.model'
 import {GlobalEventsManager} from '../../globalEventsManager';
 import {ShowNavBarData} from '../../shared/shared.model'

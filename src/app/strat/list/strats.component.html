@@ -7,6 +7,12 @@
     </div>
     <div class="card-block clearfix">
       <button *ngIf="editMode" type="button" (click)="createNewStrat()" class="add-object">Add Strategy</button>
+
+      <div *ngIf="!fetchedStrats.length">
+        <button type="button" (click)="createNewStrat()" class="add-object">Add a Strategy to your Project<i class="fa fa-plus"></i></button>
+      </div>
+
+
       <table class="table table-hover">
         <tbody class="">
           <tr *ngFor="let strat of fetchedStrats">
