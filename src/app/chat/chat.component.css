@@ -14,7 +14,7 @@
 }
 .read-chat {
   overflow: auto;
-  padding: 24px 24px 74px;
+  padding: 0 0 50px;
 }
 .write-chat, .write-chat textarea {
   width: 100%;
