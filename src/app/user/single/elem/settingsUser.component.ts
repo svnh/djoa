@@ -9,7 +9,7 @@ import { Search } from '../../../shared/shared.model'
   styleUrls: ['../../user.component.css'],
 })
 
-export class SettingsUser implements OnInit {
+export class SettingsUserComponent implements OnInit {
   @Output() saved: EventEmitter<any> = new EventEmitter();
   @Input() search: Search = new Search();
   @Input() fetchedUser: User = new User();

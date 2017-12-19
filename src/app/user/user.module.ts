@@ -15,7 +15,7 @@ import { ProjectModule} from '../project/project.module';
 import { RegisterComponent} from './register/register.component';
 
 import { NewUserComponent} from './single/elem/newUser.component';
-import { SettingsUser } from './single/elem/settingsUser.component';
+import { SettingsUserComponent } from './single/elem/settingsUser.component';
 // import { EditUserComponent} from './singleUser/editUser.component';
 import { ProfileComponent} from './single/profile.component';
 
@@ -63,7 +63,7 @@ import {MatExpansionModule} from '@angular/material';
 
     // AutocompleteComponent,
     NewUserComponent,
-    SettingsUser,
+    SettingsUserComponent,
     // EditUserComponent,
     ProfileComponent,
     // UserDialogComponent,
