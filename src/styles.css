@@ -220,7 +220,7 @@ p.percent {
 }
 .col-md-12, .col-lg-6 {
   float: left;
-  height: auto;
+  height: 73%;
 }
 .leftmenu .nav-link {
   padding: 0 !important;
@@ -293,7 +293,7 @@ p.percent {
   float: left;
 }
 .chat-card {
-  height: 94px !important;
+  height: 112px !important;
   padding-right: 100px !important;
 }
 .single-chat .chat {
@@ -310,6 +310,9 @@ p.percent {
   overflow: auto;
   padding: 24px 24px 72px;
   height: 100%;
+}
+.chat-card .read-chat {
+  padding: 0 !important;
 }
 .single-chat .chat, .single-chat .read-chat,g .chat-wrapper {
   position: absolute;
