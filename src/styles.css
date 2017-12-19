@@ -284,6 +284,7 @@ p.percent {
 
 .chat {
   background-color: #f4f4f4;
+  height: 100%;
 }
 .top-nav-chat {
   padding: 5px;
@@ -292,8 +293,7 @@ p.percent {
   float: left;
 }
 .chat-card {
-  height: 120px !important;
-  padding: 0 !important;
+  height: 94px !important;
   padding-right: 100px !important;
 }
 .single-chat .chat {
@@ -306,10 +306,12 @@ p.percent {
   right: 0;
   left: 0;
 }
-.single-chat .read-chat {
-  padding: 24px 24px 74px !important;
+.read-chat {
+  overflow: auto;
+  padding: 24px 24px 72px;
+  height: 100%;
 }
-.single-chat .chat, .single-chat .read-chat, .single-chat .chat-wrapper {
+.single-chat .chat, .single-chat .read-chat, .chat-wrapper {
   position: absolute;
   bottom: 0;
   top: 0;

@@ -12,10 +12,6 @@
 .chat-content {
   margin-left: 55px;
 }
-.read-chat {
-  overflow: auto;
-  padding: 0 0 50px;
-}
 .write-chat, .write-chat textarea {
   width: 100%;
 }
@@ -24,6 +20,7 @@
   border-top: 1px solid #330066;
   position: absolute;
   bottom: 0;
+  left: 0;
 }
 .write-chat textarea {
   border: none;
