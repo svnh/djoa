@@ -24,11 +24,6 @@
 .card-margin {
   margin-bottom: 30px;
 }
-.chat {
-  background-color: #f4f4f4;
-  padding: 0;
-  height: 100%;
-}
 .pic-container {
   width: 50px;
   padding: 0 !important;
@@ -46,30 +41,6 @@
 .no-image {
   background: none !important;
   color: #eee;
-}
-.single-chat {
-  position: absolute;
-  top: 85px;
-  bottom: 60px;
-  right: 0;
-  left: 0;
-}
-.top-nav-chat {
-  padding: 7px 5px;
-}
-.back-chat {
-  float: left;
-}
-.chat-card {
-  height: 120px !important;
-  padding: 0 !important;
-  padding-right: 100px !important;
-}
-
-@media screen and (min-width: 992px) {
-  .indiv-chat {
-    margin-bottom: 0 !important;
-  }
 }
 
 .selected {

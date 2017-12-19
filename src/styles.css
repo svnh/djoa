@@ -241,6 +241,40 @@ p.percent {
   border-radius: 100px !important;
   float: right !important;
 }
+.chat {
+  background-color: #f4f4f4;
+}
+.top-nav-chat {
+  padding: 5px;
+}
+.back-chat {
+  float: left;
+}
+.chat-card {
+  height: 120px !important;
+  padding: 0 !important;
+  padding-right: 100px !important;
+}
+.single-chat .chat {
+  padding: 0;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.single-chat .chat-wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+.single-chat {
+  position: absolute;
+  top: 85px;
+  bottom: 60px;
+  right: 0;
+  left: 0;
+}
 .single-chat .read-chat {
   position: absolute;
   top: 0;
