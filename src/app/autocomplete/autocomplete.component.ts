@@ -99,7 +99,6 @@ export class AutocompleteComponent implements OnInit {
   }
 
   getData(page: number, search: any) {
-
     if(this.typeAutocomplete ==='user')
       this.userService.getUsers(page, search)
       .subscribe( res => { this.fetchedData = res.data }, error => { console.log(error); });
@@ -116,9 +115,12 @@ export class AutocompleteComponent implements OnInit {
       this.documentService.getDocuments(page, search)
       .subscribe( res => { this.fetchedData = res.data }, error => { console.log(error); });
 
-    if(this.typeAutocomplete ==='project')
+    if(this.typeAutocomplete === 'project') {
       this.projectService.getProjects(page, search)
-      .subscribe( res => { this.fetchedData = res.data }, error => { console.log(error); });
+      .subscribe( res => {
+        this.fetchedData = res.data
+      }, error => { console.log(error); });
+    }
 
 
     // if(this.typeAutocomplete ==='templateQuote')
@@ -228,6 +230,7 @@ export class AutocompleteComponent implements OnInit {
     this.getResultAutocomplete.emit(this.arrayContent)
   }
   searchData() {
+
     if (!this.autocompleteSearch) {
       this.fetchedData = []
     } else {

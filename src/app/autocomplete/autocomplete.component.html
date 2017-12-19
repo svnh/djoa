@@ -4,7 +4,7 @@
   <div *ngIf="!arrayContent.length || !singleChoice">
     <div>
       <mat-form-field>
-      <input matInput autofocus autocapitalize="none" autocomplete="off" spellcheck="false" autocorrect="none" type="text" name="Search" placeholder="{{placeholderString}}" [(ngModel)]="autocompleteSearch" (ngModelChange)="searchData()">
+        <input matInput autofocus autocapitalize="none" autocomplete="off" spellcheck="false" autocorrect="none" type="text" name="Search" placeholder="{{placeholderString}}" [(ngModel)]="autocompleteSearch" (ngModelChange)="searchData()">
       </mat-form-field>
     </div>
   </div>

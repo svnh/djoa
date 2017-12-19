@@ -2,13 +2,13 @@
   <h2 class="sidewrapper">Add Crew Member</h2>
   <form [formGroup]="myForm" novalidate (ngSubmit)="save()">
     <div class="sidewrapper greyback">
-      <app-autocomplete [typeAutocomplete]="'Project'" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedUsersToObjects.projects" [placeholderString]="'Project'">
+      <app-autocomplete [typeAutocomplete]="'project'" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedUsersToObjects.projects" [placeholderString]="'Project'">
       </app-autocomplete>
-      <app-autocomplete [typeAutocomplete]="'Mission'" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedUsersToObjects.missions" [placeholderString]="'Mission'">
+      <app-autocomplete [typeAutocomplete]="'mission'" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedUsersToObjects.missions" [placeholderString]="'Mission'">
       </app-autocomplete>
-      <app-autocomplete [typeAutocomplete]="'Right'" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedUsersToObjects.rights" [placeholderString]="'User Rights (Admin Only)'">
+      <app-autocomplete [typeAutocomplete]="'right'" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedUsersToObjects.rights" [placeholderString]="'User Rights (Admin Only)'">
       </app-autocomplete>
-      <app-autocomplete [typeAutocomplete]="'User'" [canDelete]=true [title]="" [singleChoice]=false [arrayContent]="fetchedUsersToObjects.users" [placeholderString]="'Add Email'">
+      <app-autocomplete [typeAutocomplete]="'user'" [canDelete]=true [title]="" [singleChoice]=false [arrayContent]="fetchedUsersToObjects.users" [placeholderString]="'Add Email'">
       </app-autocomplete>
     </div>
     <div class="sidewrapper valid-edit">
