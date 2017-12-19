@@ -60,6 +60,7 @@ import{ AddUsersToObjectsComponent } from './addUsersToObjects/addUsersToObjects
 
 import {SharedModule } from '../shared/shared.module';
 import {MatRadioModule} from '@angular/material';
+import {MatExpansionModule} from '@angular/material';
 
 @NgModule({
   imports:      [
@@ -77,6 +78,7 @@ import {MatRadioModule} from '@angular/material';
     RightModule,
     MatSelectModule,
     MatRadioModule,
+    MatExpansionModule,
   ],
   declarations: [
 //    UserDeleteDialog,

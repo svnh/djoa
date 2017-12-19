@@ -32,7 +32,7 @@ export class ProfileComponent implements OnInit {
   editMode: boolean = false;
   fetchedCompanies: Companie[] = []
   autocompleteCompanie: string = '';
-
+  step = -1;
   fetchedTypeUsers = []
   autocompleteTypeUser: string = '';
 
@@ -95,6 +95,10 @@ export class ProfileComponent implements OnInit {
             this.getUser(params['id'])
         }
       })
+    }
+
+    setStep(index: number) {
+      this.step = index;
     }
 
     ngOnChanges() {

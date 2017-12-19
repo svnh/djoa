@@ -3,9 +3,39 @@
     <app-picture [addPicture]=false [deletePicture]=false [forms]="fetchedUser.forms"></app-picture></div>
   <h2 class="my-name">{{fetchedUser.profile.name}} {{fetchedUser.profile.lastName}}</h2>
   <h5>{{fetchedUser.profile.title}}</h5>
+
+
+
+  <mat-accordion>
+    <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Edit Profile
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <app-newUser *ngIf="step === 0" [fetchedUser]="fetchedUser" (saved)="save()"></app-newUser>
+    </mat-expansion-panel>
+    <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Settings
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <app-settings-user *ngIf="step === 1" [fetchedUser]="fetchedUser" (saved)="save()"></app-settings-user>
+    </mat-expansion-panel>
+    <mat-expansion-panel hideToggle="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title (click)="logout()">
+          Logout
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+<!--
   <button (click)="editMode = !editMode" class="profile-button">Edit Profile</button>
   <app-newUser *ngIf="editMode" [fetchedUser]="fetchedUser" (saved)="save()"></app-newUser>
   <button type="button" (click)="editSettings = !editSettings" class="profile-button">Settings</button>
   <app-settings-user *ngIf="editSettings" [fetchedUser]="fetchedUser" (saved)="save()"></app-settings-user>
-  <button type="button" (click)="logout()" class="profile-button">Logout</button>
+  <button type="button" (click)="logout()" class="profile-button">Logout</button> -->
 </div>
