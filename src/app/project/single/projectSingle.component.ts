@@ -247,6 +247,10 @@ export class ProjectSingleComponent implements OnInit {
 
 
   save() {
+    if(!this.fetchedProject.users.length) {
+      this.toastr.error('Error!', 'You must have a Project Owner')
+      return;
+    }
 
     this.fetchedProject.dateProject.start = this.authService.HTMLDatetoIsoDate(this.fetchedProject.dateProject.startString)
     this.fetchedProject.dateProject.end = this.authService.HTMLDatetoIsoDate(this.fetchedProject.dateProject.endString)

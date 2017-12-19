@@ -1,6 +1,6 @@
 <div class="djoa-container no-image">
   <div *ngFor="let project of fetchedMission.projects" class="top-nav-chat">
-    <a href="#" class="top-left-chat">< Back</a>
+    <a (click)="goBack()" class="top-left-chat">< Back</a>
     <h3 class="top-right-chat">{{project.details.name}}</h3>
   </div>
 
