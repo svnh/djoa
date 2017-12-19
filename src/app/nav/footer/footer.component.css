@@ -4,7 +4,6 @@
   width: 52px;
   height: 50px;
   background-color: transparent;
-  z-index: 5;
 }
 .fa-search {
   color: #ffffff !important;
@@ -31,5 +30,8 @@
 @media screen and (max-width: 991px) {
   .footer .leftmenu {
     margin-left: 15px;
+  }
+  .footer {
+    width: 52px;
   }
 }
