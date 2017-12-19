@@ -241,6 +241,11 @@ p.percent {
   border-radius: 100px !important;
   float: right !important;
 }
+.single-chat .read-chat {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
 .single-chat .read-chat p.longMessage {
   display: block !important;
 }
@@ -269,7 +274,7 @@ p.percent {
 @media screen and (max-width: 991px) {
   .djoa-container {
     background-size: 100%;
-    background-position: 50% 8%;
+    background-position: 50% 5%;
     width: 100% !important;
     max-width: 100% !important;
     padding: 46px 15px 0;
@@ -283,57 +288,6 @@ p.percent {
   }
   .read-chat p.longMessage {
     display: none;
-  }
-}
-
-@media screen and (min-height: 930px) {
-  .read-chat, .col-md-12, .col-lg-6 {
-    height: 75vh;
-  }
-}
-@media screen and (min-height: 780px) and (max-height: 929px) {
-  .read-chat, .col-md-12, .col-lg-6 {
-    height: 70vh;
-  }
-}
-@media screen and (min-height: 670px) and (max-height: 779px) {
-  .read-chat, .col-md-12, .col-lg-6 {
-    height: 65vh;
-  }
-}
-@media screen and (min-height: 580px) and (max-height: 669px) {
-  .read-chat, .col-md-12, .col-lg-6 {
-    height: 60vh;
-  }
-}
-@media screen and (min-height: 520px) and (max-height: 579px) {
-  .read-chat, .col-md-12, .col-lg-6 {
-    height: 55vh;
-  }
-}
-@media screen and (min-height: 480px) and (max-height: 519px) {
-  .read-chat, .col-md-12, .col-lg-6 {
-    height: 50vh;
-  }
-}
-@media screen and (min-height: 430px) and (max-height: 479px) {
-  .read-chat, .col-md-12, .col-lg-6 {
-    height: 45vh;
-  }
-}
-@media screen and (min-height: 400px) and (max-height: 429px) {
-  .read-chat, .col-md-12, .col-lg-6 {
-    height: 40vh;
-  }
-}
-@media screen and (min-height: 370px) and (max-height: 399px) {
-  .read-chat, .col-md-12, .col-lg-6 {
-    height: 35vh;
-  }
-}
-@media screen and (max-height: 369px) {
-  .read-chat, .col-md-12, .col-lg-6 {
-    height: 30vh;
   }
 }
 
@@ -380,4 +334,7 @@ button {
 }
 mat-form-field {
   width: 100% !important;
+}
+button:focus {
+  outline:0 !important;
 }

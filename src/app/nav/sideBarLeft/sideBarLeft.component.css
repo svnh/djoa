@@ -4,6 +4,12 @@
   padding: 90px 5px 0;
   overflow-x: hidden;
 }
+.sidebarleft-back {
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  position: absolute;
+}
 
 @media screen and (min-width: 1300px) {
   mat-sidenav.sidebarleft {
