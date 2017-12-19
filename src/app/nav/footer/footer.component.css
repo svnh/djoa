@@ -21,10 +21,16 @@
   .footer .leftmenu {
     margin-left: 142px;
   }
+  .footer {
+    z-index:5;
+  }
 }
 @media screen and (min-width: 992px) and (max-width: 1199px) {
   .footer .leftmenu {
     margin-left: 102px;
+  }
+  .footer {
+    z-index:5;
   }
 }
 @media screen and (max-width: 991px) {
