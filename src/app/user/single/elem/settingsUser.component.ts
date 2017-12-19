@@ -1,12 +1,12 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { User } from '../user.model';
+import { User } from '../../user.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Search } from '../../shared/shared.model'
+import { Search } from '../../../shared/shared.model'
 
 @Component({
   selector: 'app-settings-user',
   templateUrl: './settingsUser.component.html',
-  styleUrls: ['../user.component.css'],
+  styleUrls: ['../../user.component.css'],
 })
 
 export class SettingsUser implements OnInit {

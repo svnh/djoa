@@ -5,17 +5,14 @@ import { Right} from '../../right/right.model';
 
 import { Companie } from '../../companie/companie.model';
 import { CompanieService } from '../../companie/companie.service';
-// import { EditOptionsComponentDialog } from '../../form/modalLibrary/modalLibrary.component';
 import { ToastsManager} from 'ng2-toastr';
 
 import { MatDialog} from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Location }               from '@angular/common';
+import { Location } from '@angular/common';
 import { User } from '../user.model';
-//import { Form } from '../../form/form.model';
 
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
-// import { DeleteDialog } from '../../deleteDialog/deleteDialog.component'
 import { Search } from '../../shared/shared.model'
 
 @Component({

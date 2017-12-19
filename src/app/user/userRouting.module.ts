@@ -1,5 +1,5 @@
 import { Routes, RouterModule } from '@angular/router';
-import { NgModule }            from '@angular/core';
+import { NgModule } from '@angular/core';
 
 
 import {LoginComponent} from './login/login.component';
@@ -21,8 +21,8 @@ import {ChangePasswordComponent} from './single/changePassword/changePassword.co
 //import {UserPicturesComponent} from './singleUser/userPictures.component';
 // import {AddCategoriesToUserComponent} from './singleUser/addCategoriesToUser.component';
 // import { UserCategoriesHistory} from './singleUser/userCategoriesHistory.component';
-import {NewUserComponent} from './single/newUser.component';
-import{ AdminUsersComponent } from './users/adminUsers.component';
+import {NewUserComponent} from './single/elem/newUser.component';
+import { AdminUsersComponent } from './users/adminUsers.component';
 
 
 export const routes: Routes = [
