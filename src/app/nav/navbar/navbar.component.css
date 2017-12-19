@@ -8,7 +8,8 @@
 }
 .nav.rightmenu {
   float: right;
-  width: 250px;
+}
+.opensidebarright {
   background-color: #ffffff;
 }
 .nav.leftmenu {
@@ -88,6 +89,9 @@ img.logo-top {
   }
   .nav.rightmenu, .nav.leftmenu {
     padding: 15px;
+  }
+  .nav.rightmenu {
+    width: 250px;
   }
   .logo-wrap {
     padding: 6px 0;
