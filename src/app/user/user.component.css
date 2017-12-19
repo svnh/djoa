@@ -20,8 +20,10 @@ h5 {
   padding: 0;
   float: none;
 }
-.sidebarright-sub {
-  padding: 15px;
+.sidebarright-sub .save, .sidebarright-sub .delete {
+  width: 95%;
+  height: 25px;
+  margin-bottom: 25px;
 }
 .sidebarright-choices {
   display: block !important;

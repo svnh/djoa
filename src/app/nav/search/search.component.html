@@ -1,18 +1,20 @@
-Search for documents..
-<mat-form-field>
-  <input matInput [(ngModel)]="search.search" placeholder="Search">
-</mat-form-field>
-<div *ngIf="search.search">
-  <div>
-    Missions
-    <app-missions [search]="{search: search.search}"></app-missions>
-  </div>
-  <div>
-    Projects
-    <app-projects [search]="{search: search.search}"></app-projects>
-  </div>
-  <div>
-    Documents
-    <app-search-documents [search]="{search: search.search}"></app-search-documents>
+<div class="sidewrapper">
+  <p>Search for projects, missions, strategies, briefs or documents.</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="search.search" placeholder="Search">
+  </mat-form-field>
+  <div *ngIf="search.search">
+    <div>
+      Missions
+      <app-missions [search]="{search: search.search}"></app-missions>
+    </div>
+    <div>
+      Projects
+      <app-projects [search]="{search: search.search}"></app-projects>
+    </div>
+    <div>
+      Documents
+      <app-search-documents [search]="{search: search.search}"></app-search-documents>
+    </div>
   </div>
 </div>
