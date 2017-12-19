@@ -90,7 +90,8 @@ img {
   float: none;
   background-image: url(/assets/images/page-title-back.png);
   background-repeat: no-repeat;
-  overflow-y: auto;
+  overflow-y: hidden;
+  height: 90%;
 }
 .missionbox {
   float: left;
@@ -266,7 +267,6 @@ p.percent {
     max-width: 100% !important;
     padding: 46px 15px 0;
     overflow: auto;
-    height: 90%;
   }
   .missionbox {
     width: 300px;
