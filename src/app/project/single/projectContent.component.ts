@@ -143,16 +143,23 @@ export class ProjectContentComponent implements OnInit {
       );
   }
 
-
+  openPorfile(userId) {
+    const showNavBarData = new ShowNavBarData()
+    showNavBarData.showNavBar = 1
+    showNavBarData.search.typeScreen = 'profile'
+    showNavBarData.search.typeObj = 'user'
+    showNavBarData.search.userId = userId
+    this.globalEventsManager.showNavBarRight(showNavBarData);
+  }
   openDetails() {
-    let showNavBarData = new ShowNavBarData()
+    const showNavBarData = new ShowNavBarData()
     showNavBarData.showNavBar = 1
     showNavBarData.search.typeObj = 'project'
     showNavBarData.search.projectId = this.fetchedProject._id
     this.globalEventsManager.showNavBarRight(showNavBarData);
   }
   openTeam() {
-    let showNavBarData = new ShowNavBarData()
+    const showNavBarData = new ShowNavBarData()
     showNavBarData.showNavBar = 1
     showNavBarData.search.typeScreen = 'team'
     showNavBarData.search.typeObj = 'project'
@@ -160,7 +167,7 @@ export class ProjectContentComponent implements OnInit {
     this.globalEventsManager.showNavBarRight(showNavBarData);
   }
   openNotif() {
-    let showNavBarData = new ShowNavBarData()
+    const showNavBarData = new ShowNavBarData()
     showNavBarData.showNavBar = 1
     showNavBarData.search.typeObj = 'notif'
     this.globalEventsManager.showNavBarRight(showNavBarData);

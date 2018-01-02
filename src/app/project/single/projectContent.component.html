@@ -38,6 +38,7 @@
         <button type="button" (click)="openTeam()" class="edit-btn">Edit</button>
         <div style="clear:both"></div>
         <div *ngFor="let user of fetchedProject.users" class="pic-container">
+          <div (click)="openPorfile(user._id)" *ngIf="!user.forms.length">{{user.profile.name}}</div>
           <app-picture [userIdToOpenProfile]="user._id" [addPicture]=false [deletePicture]=false [forms]="user.forms"></app-picture>
         </div>
       </mat-card-content>

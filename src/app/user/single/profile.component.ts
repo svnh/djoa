@@ -273,11 +273,12 @@ export class ProfileComponent implements OnInit {
     this.router.navigate(['user/' + id])
   }
 //
-// isUserIsMyself() {
-//   if(this.currentUser._id === this.fetchedUser._id)
-//     return true
-//   return false
-// }
+isUserIsMyself() {
+  if(this.authService.getCurrentUser()._id === this.fetchedUser._id) {
+    return true
+  }
+  return false
+}
 
 
   getUser(id: string) {

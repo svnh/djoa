@@ -50,7 +50,7 @@ export class PictureComponent {
   //might be deprecated
   openProfile() {
     // if(this.userIdToOpenProfile) {
-      let showNavBarData = new ShowNavBarData()
+      const showNavBarData = new ShowNavBarData()
       showNavBarData.search.typeScreen = 'profile'
       showNavBarData.search.typeObj = 'user'
       showNavBarData.showNavBar = 1
