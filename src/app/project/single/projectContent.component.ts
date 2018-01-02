@@ -209,7 +209,7 @@ export class ProjectContentComponent implements OnInit {
     this.documentService.getDocumentsByMissions(search)
       .subscribe(
         res => {
-          console.log(res)
+          // console.log(res)
           res.forEach(missionsDoc => {
             missionsDoc.documents.forEach(document => {
               this.activityPendingTasksInProject += document.activityPendingTasks

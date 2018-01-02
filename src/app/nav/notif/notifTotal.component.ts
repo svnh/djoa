@@ -52,10 +52,10 @@ export class NotifTotal implements OnInit {
     })
   }
   chatUnreadInStrats(result) {
-    console.log(result)
+    // console.log(result)
   }
   documentsByMissions(result) {
-    console.log(result)
+    // console.log(result)
     result.forEach(obj => {
       obj.documents.forEach(document => {
         this.countTotal += document.myActivityPendingTasks

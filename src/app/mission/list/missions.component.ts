@@ -120,7 +120,7 @@ export class MissionsComponent implements OnInit {
   //   this.paginationData.currentPage = this.paginationData.currentPage+1
   //   this.getMissions(this.paginationData.currentPage, this.search)
   // }
-  
+
   openCategoriesSideBar(missionId: string) {
     let newShowNavBarData = new ShowNavBarData()
     newShowNavBarData.search.typeObj = 'categorie'
@@ -172,7 +172,7 @@ export class MissionsComponent implements OnInit {
 
 
   ngOnDestroy() {
-    console.log('destroy Missions')
+    // console.log('destroy Missions')
     // prevent memory leak when component destroyed
     // this.subscription.unsubscribe();
   }
