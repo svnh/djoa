@@ -4,13 +4,13 @@ import { FormGroup } from '@angular/forms';
 import { ToastsManager} from 'ng2-toastr';
 import { MatDialog} from '@angular/material';
 // import { EditOptionsComponentDialog }  from '../form/modalLibrary/modalLibrary.component';
-import { AdminService} from '../admin/services/admin.service';
+// import { AdminService} from '../admin/services/admin.service';
 // import { SideBarRightComponent} from '../nav/sideBarRight/sideBarRight.component';
 // import { SideBarLeftComponent} from '../nav/sideBarLeft/sideBarLeft.component';
 
 import { Search } from '../shared/shared.model'
 // import { Options } from './options.model';
-import { Router} from '@angular/router';
+// import { Router} from '@angular/router';
 import { AuthService} from '../auth/auth.service';
 import { User} from '../user/user.model';
 
@@ -22,20 +22,20 @@ import { User} from '../user/user.model';
 export class HomeComponent implements OnInit {
   // @ViewChild(SideBarRightComponent) private sideBarRightComponent: SideBarRightComponent;
   // @ViewChild(SideBarLeftComponent) private sideBarLeftComponent: SideBarLeftComponent;
-  fetchedUser: User = new User();
+  // fetchedUser: User = new User();
   search: Search = new Search(
 
 
   )
   constructor(
 
-    private router:Router,
-    private adminService: AdminService,
+    // private router: Router,
+    // private adminService: AdminService,
     private homeService: HomeService,
     private toastr: ToastsManager,
     // public dialog: MatDialog,
 
-    private authService: AuthService,
+    public authService: AuthService,
   ) {}
 
   ngOnInit() {
