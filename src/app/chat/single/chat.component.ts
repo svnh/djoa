@@ -38,6 +38,10 @@ export class ChatComponent implements OnInit, OnDestroy {
   ) { }
 
   sendMessage() {
+    if(this.message.chatName.charCodeAt(0) === 10 && this.message.chatName.length === 1) {
+      this.message.chatName = '';
+      return;
+    }
     if(this.message.chatName) {
       if(this.search.stratId) {
         let newStrat = new Strat()
@@ -78,8 +82,8 @@ export class ChatComponent implements OnInit, OnDestroy {
       this.connection = this.chatService.getMessages(this.search.stratId).subscribe(message => {
         this.messages.push(message);
         // console.log(this.messages.length )
-        if (this.messages.length > this.paginationData.itemsPerPage)
-          this.messages.splice(0, 1);
+        // if (this.messages.length > this.paginationData.itemsPerPage)
+        //   this.messages.splice(0, 1);
 
 
       })
@@ -91,7 +95,10 @@ export class ChatComponent implements OnInit, OnDestroy {
   }
 
 
-
+  buttonGetOldChats() {
+    this.paginationData.currentPage++;
+    this.getOldChats(this.paginationData.currentPage, this.search)
+  }
 
   getOldChats(page: number, search: any) {
     this.loading = true;
@@ -99,7 +106,11 @@ export class ChatComponent implements OnInit, OnDestroy {
       .subscribe(
       res => {
         this.paginationData = res.paginationData;
-        this.messages = res.data
+        // this.messages = res.data
+        res.data.reverse();
+        res.data.forEach(obj => {
+          this.messages.unshift(obj)
+        })
         this.loading = false;
         // setTimeout(()=>this.readChat.nativeElement.scrollTop += 10000 , 1);
       },
