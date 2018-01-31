@@ -45,6 +45,7 @@ mat-progress-bar.mat-progress-bar.mat-primary, .project-progress {
   background-color: #f4f4f4;
   position: relative;
   padding: 20px 5px 15px 20px;
+  cursor: pointer;
 }
 .missionbox table td {
   border: none !important;
@@ -81,6 +82,7 @@ mat-progress-bar.mat-progress-bar.mat-primary, .project-progress {
 }
 .your-activity .number {
   background-color: #f44336;
+  cursor: pointer;
 }
 .activity h4 {
   color: #4a148c;
