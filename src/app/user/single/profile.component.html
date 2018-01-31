@@ -6,9 +6,9 @@
 
 
 
-  <mat-accordion *ngIf="isUserIsMyself()">
+  <mat-accordion [displayMode]="'flat'" *ngIf="isUserIsMyself()">
     <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)">
-      <mat-expansion-panel-header>
+      <mat-expansion-panel-header [collapsedHeight]="'60px'" [expandedHeight]="'60px'">
         <mat-panel-title>
           Edit Profile
         </mat-panel-title>
@@ -16,7 +16,7 @@
       <app-newUser *ngIf="step === 0" [fetchedUser]="fetchedUser" (saved)="save()"></app-newUser>
     </mat-expansion-panel>
     <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)">
-      <mat-expansion-panel-header>
+      <mat-expansion-panel-header [collapsedHeight]="'60px'" [expandedHeight]="'60px'">
         <mat-panel-title>
           Settings
         </mat-panel-title>
@@ -24,8 +24,8 @@
       <app-settings-user *ngIf="step === 1" [fetchedUser]="fetchedUser" (saved)="save()"></app-settings-user>
     </mat-expansion-panel>
     <mat-expansion-panel hideToggle="true">
-      <mat-expansion-panel-header>
-        <mat-panel-title (click)="logout()">
+      <mat-expansion-panel-header (click)="logout()" [collapsedHeight]="'60px'" [expandedHeight]="'60px'">
+        <mat-panel-title>
           Logout
         </mat-panel-title>
       </mat-expansion-panel-header>
