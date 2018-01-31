@@ -343,6 +343,7 @@ p.percent {
   bottom: 60px;
   right: 0;
   left: 0;
+  z-index: 10;
 }
 .read-chat {
   overflow: auto;
