@@ -2,6 +2,7 @@
   position: fixed;
   top: 0 !important;
   width: 100%;
+  z-index: 10;
 }
 .nav.rightmenu, .nav.leftmenu {
   z-index: 5;
@@ -61,7 +62,9 @@ a.nav-link {
 img.logo-top {
   width: 70px;
 }
-
+.classOuvert {
+  background-color: #ffffff !important;
+}
 @media screen and (min-width: 1200px) {
   .nav.leftmenu {
     margin-left: 126px;
