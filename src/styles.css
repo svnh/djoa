@@ -207,12 +207,12 @@ p.percent {
   padding: 5px;
   text-transform: uppercase;
   vertical-align: middle !important;
-  display: table-cell;
+  display: table-cell !important;
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
 }
-.selected .list-on {
+.selected .list-on, .list-on.selected {
   background-color: #4a148c !important;
   color: #fff !important;
 }

@@ -39,5 +39,6 @@
   }
   .footer {
     width: 52px;
+    z-index: 1;
   }
 }

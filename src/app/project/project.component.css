@@ -65,6 +65,9 @@ mat-progress-bar.mat-progress-bar.mat-primary, .project-progress {
   width: 60px;
   float: left;
 }
+.teaminfo .pic-container {
+  width: 40px;
+}
 .number {
   display: inline-block;
   color: #fff;
