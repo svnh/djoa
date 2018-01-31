@@ -50,6 +50,7 @@ export class NavbarComponent implements OnInit {
         this.showNavBarDataLeft = showNavBarData;
       }
     })
+    
     this.globalEventsManager.showNavBarEmitterRight.subscribe((showNavBarData) => {
       if (showNavBarData !== null) {
         this.showNavBarDataRight = showNavBarData;
