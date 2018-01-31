@@ -31,6 +31,7 @@ export class NavbarComponent implements OnInit {
   showNavBarData: ShowNavBarData = new ShowNavBarData()
   showNavBarDataLeft: ShowNavBarData = new ShowNavBarData()
   showNavBarDataRight: ShowNavBarData = new ShowNavBarData()
+  showNavBarDataRightdelay: ShowNavBarData = new ShowNavBarData()
   topNavOpen: boolean = false
 
   constructor(
@@ -52,6 +53,7 @@ export class NavbarComponent implements OnInit {
     this.globalEventsManager.showNavBarEmitterRight.subscribe((showNavBarData) => {
       if (showNavBarData !== null) {
         this.showNavBarDataRight = showNavBarData;
+        setTimeout(_ => {this.showNavBarDataRightdelay = showNavBarData;}, 1000)
       }
     })
     this.globalEventsManager.showNavBarEmitterTop.subscribe((showNavBarData) => {
