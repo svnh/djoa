@@ -195,6 +195,12 @@ p.percent {
   height: 40px;
   text-align: right;
 }
+.sidebar-item {
+  margin: 10px 0;
+  width: 100%;
+  overflow: hidden;
+  display: table;
+}
 .list-on {
   width: 100%;
   padding: 5px;
@@ -203,6 +209,7 @@ p.percent {
   display: table-cell;
   font-size: 14px;
   font-weight: 500;
+  cursor: pointer;
 }
 .selected .list-on {
   background-color: #4a148c;

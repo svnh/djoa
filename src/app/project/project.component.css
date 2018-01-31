@@ -88,11 +88,6 @@ mat-progress-bar.mat-progress-bar.mat-primary, .project-progress {
 .your-activity h4 {
   color: #f44336;
 }
-.sidebar-item {
-  margin: 10px 0;
-  width: 100%;
-  overflow: hidden;
-}
 
 @media screen and (min-width: 1175px) {
   .projectsummary, .teaminfo, .activity, .your-activity {
