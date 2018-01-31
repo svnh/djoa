@@ -224,6 +224,7 @@ export class NavbarComponent implements OnInit {
     let showNavBarData = new ShowNavBarData()
     showNavBarData.search.typeScreen = 'profile'
     showNavBarData.search.typeObj = 'user'
+    showNavBarData.showNavBar = 1
     showNavBarData.search.userId = this.authService.getCurrentUser()._id
     this.globalEventsManager.showNavBarRight(showNavBarData);
   }
