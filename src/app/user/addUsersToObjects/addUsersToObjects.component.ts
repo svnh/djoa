@@ -2,24 +2,19 @@ import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { AuthService} from '../../auth/auth.service';
 import { UserService} from '../user.service';
 import { Right} from '../../right/right.model';
-
 import { Companie } from '../../companie/companie.model';
 import { CompanieService } from '../../companie/companie.service';
-// import { EditOptionsComponentDialog } from '../../form/modalLibrary/modalLibrary.component';
 import { ToastsManager} from 'ng2-toastr';
-
 import { MatDialog} from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Location }               from '@angular/common';
+import { Location } from '@angular/common';
 import { UsersToObjects } from '../user.model';
-//import { Form } from '../../form/form.model';
-
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { Search } from '../../shared/shared.model';
+import { RightService } from '../../right/right.service';
+// import { EditOptionsComponentDialog } from '../../form/modalLibrary/modalLibrary.component';
+//import { Form } from '../../form/form.model';
 // import { DeleteDialog } from '../../deleteDialog/deleteDialog.component'
-import { Search } from '../../shared/shared.model'
-
-
-
 
 @Component({
   selector: 'app-addUsersToObjects',
@@ -55,13 +50,28 @@ export class AddUsersToObjectsComponent implements OnInit {
     private location: Location,
     private activatedRoute: ActivatedRoute,
     private _fb: FormBuilder,
-    private authService: AuthService,
+    private rightService: RightService,
+    public authService: AuthService,
     private companieService: CompanieService,
   ) {
   }
 
 
     ngOnInit() {
+      this.rightService.getRights(1, {})
+        .subscribe(
+          res => {
+            res.data.forEach(right => {
+                if (right.detailRight.nameRight === 'client') {
+                  this.fetchedUsersToObjects.rights.push(right)
+                }
+            });
+          },
+          error => {
+            console.log(error);
+          }
+        );
+
       // this.currentUser = this.authService.getCurrentUser()
       this.myForm = this._fb.group({
           email: [this.emailValidator],

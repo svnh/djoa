@@ -6,8 +6,11 @@
       </app-autocomplete>
       <app-autocomplete [typeAutocomplete]="'mission'" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedUsersToObjects.missions" [placeholderString]="'Mission'">
       </app-autocomplete>
-      <app-autocomplete [typeAutocomplete]="'right'" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedUsersToObjects.rights" [placeholderString]="'User Rights (Admin Only)'">
-      </app-autocomplete>
+      <!-- {{authService.getCurrentUser()|json}} -->
+      <div *ngFor="let right of authService.getCurrentUser().rights">
+        <app-autocomplete *ngIf="right.detailRight.nameRight === 'admin'" [typeAutocomplete]="'right'" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedUsersToObjects.rights" [placeholderString]="'User Rights (Admin Only)'">
+        </app-autocomplete>
+      </div>
       <app-autocomplete [typeAutocomplete]="'user'" [canDelete]=true [title]="" [singleChoice]=false [arrayContent]="fetchedUsersToObjects.users" [placeholderString]="'Add Email'">
       </app-autocomplete>
     </div>
