@@ -63,10 +63,12 @@ mat-progress-bar.mat-progress-bar.mat-primary, .project-progress {
 }
 .pic-container {
   width: 60px;
+  height: 60px;
   float: left;
 }
 .teaminfo .pic-container {
   width: 40px;
+  height: 40px;
 }
 .number {
   display: inline-block;

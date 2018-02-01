@@ -1,6 +1,17 @@
-.imgList {
-  max-width: 100%;
+.wrapper-profimg {
+  overflow: hidden;
+  position: relative;
   border-radius: 100px;
+}
+.profimg {
+  position: absolute;
+  left: -9999px;
+  right: -9999px;
+  top: -9999px;
+  bottom: -9999px;
+  margin: auto;
+  max-width: 150%;
+  max-height: 150%;
 }
 .removepic {
   text-transform: uppercase;
