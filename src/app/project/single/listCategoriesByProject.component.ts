@@ -30,11 +30,11 @@ export class ListCategoriesByProjectComponent implements OnInit {
   // @Input() showBackButton: Boolean = true;
   // @Output() saved: EventEmitter<any> = new EventEmitter();
   @Input() search: Search = new Search();
-
+  @Input() isDesktopScreen = false;
   searchMissionStrat: Search = new Search();
   searchMissionContent: Search = new Search();
   searchMissionResearch: Search = new Search();
-
+  showNavBarData: ShowNavBarData = new ShowNavBarData();
 
   fetchedCategories: Categorie[] = []
   //

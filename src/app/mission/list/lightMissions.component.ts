@@ -28,7 +28,10 @@ export class LightMissionsComponent implements OnInit {
   // @Input() missionType = '';
   @Input() search: Search = new Search();
   @Input() categorie: Categorie = new Categorie();
+  @Input() isDesktopScreen = false;
 
+
+  showNavBarData: ShowNavBarData = new ShowNavBarData();
   // token: string = localStorage.getItem('id_token');
   fetchedMissions: Mission[] = [];
   // search: any = {
@@ -90,6 +93,14 @@ export class LightMissionsComponent implements OnInit {
   goToMission(missionId: string) {
     this.openCategoriesSideBar(missionId)
     this.router.navigate(['mission/' + missionId]);
+    if (!this.isDesktopScreen) {
+      this.closeLeft();
+    }
+  }
+
+  closeLeft() {
+    this.showNavBarData.showNavBar = -1;
+    this.globalEventsManager.showNavBarLeft(this.showNavBarData);
   }
 
   // ngOnChanges(changes: any){

@@ -24,11 +24,13 @@ import { Search } from '../../shared/shared.model'
 })
 export class LightStratsComponent implements OnInit {
   @Input() userId = '';
+  @Input() isDesktopScreen = false;
 
   @Input() search: Search = new Search()
 
   // token: string = localStorage.getItem('id_token');
   fetchedStrats: Strat[] = [];
+  showNavBarData: ShowNavBarData = new ShowNavBarData();
   // search: any = {
   //   categories : [],
   //   search: ''
@@ -64,7 +66,11 @@ export class LightStratsComponent implements OnInit {
           this.getStrats(1, this.search)
           this.globalEventsManager.refreshCenter(false);
         }
-
+    })
+    this.globalEventsManager.showNavBarEmitterLeft.subscribe((showNavBarData) => {
+        if (showNavBarData !== null) {
+          this.showNavBarData = showNavBarData;
+        }
     })
   }
 
@@ -112,7 +118,17 @@ export class LightStratsComponent implements OnInit {
   goTo(stratId: string) {
     this.openCategoriesSideBar(stratId)
     this.router.navigate(['strat/' + stratId]);
+    if (!this.isDesktopScreen) {
+      this.closeLeft();
+    }
   }
+
+  closeLeft() {
+    this.showNavBarData.showNavBar = -1;
+    this.globalEventsManager.showNavBarLeft(this.showNavBarData);
+  }
+
+
   openCategoriesSideBar(stratId: string) {
     let newShowNavBarData = new ShowNavBarData()
     newShowNavBarData.search.typeObj = 'categorie'

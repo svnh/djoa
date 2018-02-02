@@ -29,8 +29,8 @@ export class ProjectsComponent implements OnInit {
   fetchedProjects: Project[] = [];
   @Input() search: Search = new Search
   loading: boolean;
-  showNavBarData: ShowNavBarData = new ShowNavBarData()
-  paginationData: PaginationData = new PaginationData()
+  showNavBarData: ShowNavBarData = new ShowNavBarData();
+  paginationData: PaginationData = new PaginationData();
   @Input() isDesktopScreen= false;
   // categories2 = '';
 
