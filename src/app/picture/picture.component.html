@@ -1,5 +1,5 @@
-<div>
-  <div *ngFor="let singleForm of forms; let i=index;" class="wrapper-profimg">
+<div class="wrapper-profimg">
+  <div *ngFor="let singleForm of forms; let i=index;">
     <img (click)="openProfile()" class="profimg" src="./uploads/forms/{{singleForm.owner}}/{{singleForm.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
     <button *ngIf="deletePicture" type="button" md-button (click)="removePic(i)"><p class="removepic">Remove Picture</p></button>
   </div>

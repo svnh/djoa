@@ -340,10 +340,9 @@ p.percent {
 .single-chat {
   position: absolute;
   top: 85px;
-  bottom: 60px;
+  bottom: 0;
   right: 0;
   left: 0;
-  z-index: 10;
 }
 .read-chat {
   overflow: auto;
