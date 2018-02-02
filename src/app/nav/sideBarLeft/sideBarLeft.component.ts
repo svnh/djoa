@@ -49,7 +49,7 @@ export class SideBarLeftComponent implements OnInit {
 
   closeLeft() {
 
-    this.showNavBarData.showNavBar = -1
+    this.showNavBarData.showNavBar = -1;
     this.globalEventsManager.showNavBarLeft(this.showNavBarData);
   }
 
