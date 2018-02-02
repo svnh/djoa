@@ -314,7 +314,7 @@ export class BriefSingleComponent implements OnInit {
   }
 
   closeRight() {
-    let showNavBarData = new ShowNavBarData()
+    const showNavBarData = new ShowNavBarData()
     showNavBarData.showNavBar = -1
     this.globalEventsManager.showNavBarRight(showNavBarData);
   }

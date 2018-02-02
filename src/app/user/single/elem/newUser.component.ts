@@ -24,7 +24,15 @@ export class NewUserComponent implements OnInit {
 
   save() {
     this.saved.emit();
+    this.closeRight();
   }
+
+  closeRight() {
+    const showNavBarData = new ShowNavBarData()
+    showNavBarData.showNavBar = -1
+    this.globalEventsManager.showNavBarRight(showNavBarData);
+  }
+
   ngOnInit() {
     this.myForm = this._fb.group({
       name: ['', [Validators.required, Validators.minLength(3)]],

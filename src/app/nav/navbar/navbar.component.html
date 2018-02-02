@@ -14,7 +14,7 @@
         <div class="nav-link" routerLinkActive="active" (click)="goHome()"><img class="logo-top dspl-nn-dsktp"src="/assets/images/small-logo-djoa.png"/></div>
       </li>
     </ul>
-    <ul [ngClass]="{'opensidebarright': showNavBarDataRight.showNavBar === 1}" class="nav rightmenu">
+    <ul [ngClass]="{'classOuvert': showNavBarDataRightdelay.showNavBar === 1}" class="nav rightmenu">
       <mat-menu>
         <button md-menu-item routerLinkActive="active" [routerLink]="['/user/list/false']">Users</button>
         <button md-menu-item routerLinkActive="active" [routerLink]="['/categorie']">Categories</button>
