@@ -45,6 +45,15 @@ export class SideBarLeftComponent implements OnInit {
         }
     })
   }
+
+
+  closeLeft() {
+
+    this.showNavBarData.showNavBar = -1
+    this.globalEventsManager.showNavBarLeft(this.showNavBarData);
+  }
+
+
   // sideNavAction(side: string, showNavBar: number, typeObj: string) {
   //   this.showNavBarData.showNavBar = showNavBar
   //   this.showNavBarData.search.typeObj = typeObj
