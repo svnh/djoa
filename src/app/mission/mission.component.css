@@ -43,11 +43,9 @@
   background: none !important;
   color: #eee;
 }
-
-.selected {
-  color:red;
-}
-
 .noMission{
   color:grey;
+}
+.top-left-chat {
+  cursor: pointer;
 }
