@@ -20,6 +20,7 @@ export class AppComponent implements AfterViewInit {
   @ViewChild('mainScreen') elementView;
   loading: boolean = true;
   widthContainer: number = 0;
+  isDesktopScreen = false;
 
   constructor(
     private router: Router,
@@ -36,6 +37,10 @@ export class AppComponent implements AfterViewInit {
     const this2 = this
     setTimeout(() => {
       this2.widthContainer = this2.elementView.nativeElement.offsetWidth
+
+      if(this2.widthContainer > 991) {
+        this.isDesktopScreen = true
+      }
     });
   }
 

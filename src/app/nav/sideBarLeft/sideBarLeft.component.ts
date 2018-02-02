@@ -21,6 +21,7 @@ import {ShowNavBarData} from '../../shared/shared.model'
 export class SideBarLeftComponent implements OnInit {
   @ViewChild('sidenav') public sidenav: MatSidenav;
   @Input() widthContainer: number;
+  @Input() isDesktopScreen = false;
   showNavBarData: ShowNavBarData = new ShowNavBarData()
  // private userId: string = localStorage.getItem('userId');
   // private userId: string;

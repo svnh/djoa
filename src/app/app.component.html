@@ -1,7 +1,7 @@
 <div #mainScreen>
   <mat-sidenav-container>
     <app-navbar></app-navbar>
-    <app-sideBarLeft [widthContainer]="widthContainer"></app-sideBarLeft>
+    <app-sideBarLeft [widthContainer]="widthContainer" [isDesktopScreen]="isDesktopScreen"></app-sideBarLeft>
     <app-sideBarRight></app-sideBarRight>
     <router-outlet></router-outlet>
   </mat-sidenav-container>

@@ -103,7 +103,7 @@ export class NavbarComponent implements OnInit {
     this.globalEventsManager.showNavBarRight(newShowNavBarData);
   }
   toggleSideBarLeft() {
-    console.log(this.showNavBarDataLeft)
+    // console.log(this.showNavBarDataLeft)
     // const newShowNavBarData = new ShowNavBarData()
     if(this.showNavBarDataLeft.showNavBar === 1 ) {
       // newShowNavBarData.showNavBar = -1

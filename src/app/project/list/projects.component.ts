@@ -29,9 +29,9 @@ export class ProjectsComponent implements OnInit {
   fetchedProjects: Project[] = [];
   @Input() search: Search = new Search
   loading: boolean;
-
+  showNavBarData: ShowNavBarData = new ShowNavBarData()
   paginationData: PaginationData = new PaginationData()
-
+  @Input() isDesktopScreen= false;
   // categories2 = '';
 
 
@@ -54,7 +54,11 @@ export class ProjectsComponent implements OnInit {
           this.getProjects(1, this.search)
           this.globalEventsManager.refreshCenter(false);
         }
-
+    })
+    this.globalEventsManager.showNavBarEmitterLeft.subscribe((showNavBarData) => {
+        if (showNavBarData !== null) {
+          this.showNavBarData = showNavBarData;
+        }
     })
   }
   ngOnChanges() {
@@ -77,10 +81,20 @@ export class ProjectsComponent implements OnInit {
   // goBack() {
   //   this.location.back();
   // }
-  goToProject(projectId: string){
+  goToProject(projectId: string) {
     this.router.navigate(['project/' + projectId]);
-    this.openProjects(projectId)
+    this.openProjects(projectId);
+    if (!this.isDesktopScreen) {
+      this.closeLeft();
+    }
   }
+
+  closeLeft() {
+    this.showNavBarData.showNavBar = -1;
+    this.globalEventsManager.showNavBarLeft(this.showNavBarData);
+  }
+
+
   openProjects(projectId: string) {
     let showNavBarData = new ShowNavBarData()
     showNavBarData.showNavBar = 1
