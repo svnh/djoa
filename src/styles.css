@@ -9,6 +9,9 @@ html, body {
   height: 100%;
   overflow-x: hidden;
 }
+body {
+  word-break: break-all;
+}
 ::-webkit-scrollbar {
   width: 4px;
   background-color: transparent;
