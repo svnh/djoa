@@ -1,7 +1,6 @@
 .wrapper-profimg {
   overflow: hidden;
   position: relative;
-  border-radius: 100px;
   height: 100%;
   width: 100%;
 }
@@ -14,6 +13,7 @@
   margin: auto;
   max-width: 150%;
   max-height: 150%;
+  border-radius: 100px;
 }
 .removepic {
   text-transform: uppercase;
