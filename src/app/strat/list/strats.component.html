@@ -6,7 +6,7 @@
       <button type="button" (click)="editMode=!editMode" class="edit-btn">Edit</button>
     </div>
     <div class="card-block clearfix">
-      <button *ngIf="editMode" type="button" (click)="createNewStrat()" class="add-object">Add Strategy</button>
+      <button *ngIf="editMode" type="button" (click)="createNewStrat()" class="add-object">Add Strategy<i class="fa fa-plus"></button>
 
       <div *ngIf="!fetchedStrats.length">
         <button type="button" (click)="createNewStrat()" class="add-object">Add a Strategy to your Project<i class="fa fa-plus"></i></button>
