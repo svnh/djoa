@@ -3,6 +3,7 @@
   position: relative;
   height: 100%;
   width: 100%;
+  border-radius: 100px;
 }
 .profimg {
   position: absolute;
@@ -11,9 +12,8 @@
   top: -9999px;
   bottom: -9999px;
   margin: auto;
-  max-width: 150%;
+  max-width: 150% !important;
   max-height: 150%;
-  border-radius: 100px;
 }
 .removepic {
   text-transform: uppercase;
