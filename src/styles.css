@@ -127,6 +127,11 @@ img {
   text-align: left;
   cursor: pointer;
 }
+.add-object p {
+  float: left;
+  max-width: 70%;
+  margin-bottom: 0 !important;
+}
 .add-object .fa.fa-plus {
   float: right;
   padding: 4px 6px;
