@@ -2,7 +2,11 @@
   background-color: #f4f4f4;
   height: 100vh;
   padding: 90px 5px 0;
-  overflow-x: visible;
+  overflow: visible !important;
+}
+.leftmenu {
+  max-height: 100%;
+  overflow: auto;
 }
 .fa-search {
   color: #ffffff !important;
