@@ -366,7 +366,7 @@ p.percent {
   height: 100%;
 }
 .chat-card .read-chat {
-  padding: 0 !important;
+  padding: 15px !important;
 }
 .single-chat .chat, .single-chat .read-chat, .chat-wrapper {
   position: absolute;
@@ -418,7 +418,6 @@ md-sidenav-container.mat-drawer-container.mat-sidenav-container {
 }
 .mat-drawer-content {
   overflow: hidden !important;
-  height: 100vh !important;
 }
 button {
   padding: 0;
@@ -428,4 +427,15 @@ mat-form-field {
 }
 button:focus {
   outline:0 !important;
+}
+
+@media screen and (min-width: 992px) {
+  .mat-drawer-content {
+    height: 100vh !important;
+  }
+}
+@media screen and (max-width: 991px) {
+  .mat-drawer-content {
+    height: 91.5vh !important;
+  }
 }

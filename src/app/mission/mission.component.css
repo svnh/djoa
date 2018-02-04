@@ -48,4 +48,8 @@
 }
 .top-left-chat {
   cursor: pointer;
+  float: left;
+}
+h3.top-right-chat {
+    margin-top: 5px;
 }
