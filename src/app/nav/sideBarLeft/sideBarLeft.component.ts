@@ -55,22 +55,6 @@ export class SideBarLeftComponent implements OnInit {
   }
 
 
-  // sideNavAction(side: string, showNavBar: number, typeObj: string) {
-  //   this.showNavBarData.showNavBar = showNavBar
-  //   this.showNavBarData.search.typeObj = typeObj
-  //   this.globalEventsManager.showNavBarLeft(this.showNavBarData);
-  // }
-  // sidenavOpen(search) {
-  //   this.sidenav.open()
-  // }
-
-  // test() {
-  //   let showNavBarData = {
-  //     showNavBar: true,
-  //     typeObj: 'project'
-  //   }
-  //   this.globalEventsManager.showNavBar(showNavBarData);
-  // }
 
   ngOnInit(){
     // console.log(this.widthContainer)
@@ -95,72 +79,11 @@ export class SideBarLeftComponent implements OnInit {
       }
     }
   }
-  // redirect(typeObj) {
-  //     // this.router.navigate([typeObj]);
-  //
-  // }
-  // isCurrentUserIsInSubPeriod(){
-  //   return this.userService.isCurrentUserIsInSubPeriod()
-  // }
 
-  // isCurrentUserIsInSubPeriod(){
-  //   // console.log('aa')
-  //   //return true;
-  //   return this.authService.isCurrentUserIsInSubPeriod()
-  // }
-  // isCurrentUserHasCompanie(){
-  //   // console.log('bb')
-  //   // return true;
-  //   return this.authService.isCurrentUserHasCompanie()
-  // }
-
-
-  // getUser(id: string) {
-  //
-  //   this.fetchedUser = this.authService.getCurrentUser()
-  //   console.log(this.fetchedUser)
-  //   // let this2 = this
-  //   // setTimeout(function(){
-  //   //     this2.fetchedUser = this2.authService.getCurrentUser()
-  //   // }, 2000);
-  //
-  //   // this.userService.getUser(id)
-  //   //   .subscribe(
-  //   //     res => { this.fetchedUser = res },
-  //   //     error => { console.log(error) }
-  //   //   )
-  // }
-
-  // isCurrentUserIsInSubPeriod() {
-  //   return this.authService.isCurrentUserIsInSubPeriod()
-  // }
-  // showObjHTML(nameObject) {
-  //   return this.authService.showObjHTML(nameObject)
-  // }
-  // // isCurentUserHasAccess(nameObject, typeAccess) {
-  // //   return this.authService.isCurentUserHasAccess(nameObject, typeAccess);
-  // // }
-  //
-  // // check if user is logged in by asking our authentication service, we use this function in html file *ngIf directive
-  // isLoggedIn() {
-  //   return this.authService.isLoggedIn();
-  // }
-  //
-  // // this calls the logout function from our authentication service, it's activated when user clicks logout in front end.
-  // // It's called by the (click)='logout()' when the user presses the button
-  // logout() {
-  //   this.authService.logout();
-  //   let this2 = this
-  //   setTimeout(function(){
-  //       this2.router.navigate(['/user/login']);
-  //   }, 150);
-  //
-  // }
-  // // sideNavOpen(){
-  // //   //this.sidenav.open()
-  // //   this.sidenav.toggle()
-  // // }
-  // isAdmin() {
-  //   return this.adminService.isAdmin();
-  // }
+  openSearch() {
+    const newShowNavBarData = new ShowNavBarData()
+    newShowNavBarData.showNavBar = 1
+    newShowNavBarData.search.typeScreen = 'search'
+    this.globalEventsManager.showNavBarRight(newShowNavBarData)
+  }
 }
