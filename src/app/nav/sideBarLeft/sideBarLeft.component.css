@@ -2,7 +2,7 @@
   background-color: #f4f4f4;
   height: 100vh;
   padding: 90px 5px 0;
-  overflow-x: hidden;
+  overflow-x: visible;
 }
 .fa-search {
   color: #ffffff !important;
@@ -10,11 +10,16 @@
   padding: 10px !important;
   border: 1px solid !important;
   border-radius: 20px !important;
+  position: absolute;
+  bottom: 15px;
 }
 
 @media screen and (min-width: 1300px) {
   mat-sidenav.sidebarleft {
     width: 160px;
+  }
+  .sidebarleft .fa-search {
+    left: 140px;
   }
 }
 
@@ -22,11 +27,17 @@
   mat-sidenav.sidebarleft {
     width: 120px;
   }
+  .sidebarleft .fa-search {
+    left: 100px;
+  }
 }
 
 @media screen and (max-width: 991px) {
   mat-sidenav.sidebarleft {
     width: 200px;
     padding: 50px 0 15px;
+  }
+  .sidebarleft .fa-search {
+    left: 15px;
   }
 }
