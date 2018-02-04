@@ -12,7 +12,7 @@
     <button type="submit" [disabled]="!myForm.valid" [ngClass]="{'save':myForm.valid,'delete':!myForm.valid}">Done</button>
   </div>
   <label class="label-title">Update Picture</label>
-  <div class="pic-container">
+  <div class="pic-container2">
     <app-picture [addPicture]=true [loadSinglePicture]=true [deletePicture]=true [forms]="fetchedUser.forms"></app-picture>
   </div>
   <div class="valid-edit">

@@ -121,7 +121,7 @@ img {
 .add-object {
   width: 100%;
   background: none;
-  border: none;
+  border: 1px solid #ccc;
   padding: 20px 15px;
   background-color: #f4f4f4;
   text-align: left;

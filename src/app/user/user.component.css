@@ -13,13 +13,14 @@ h5 {
   background-color: #f4f4f4;
   margin: 0 -15px;
 }
-.pic-container {
+.pic-container, .pic-container2 {
 	width: 100px;
   height: 100px;
-	display: flex;
-	margin: 50px auto 10px;
   padding: 0;
   float: none;
+}
+.pic-container, .pic-container2 {
+	margin: 50px auto 10px;
 }
 .sidebarright-sub .save, .sidebarright-sub .delete {
   width: 95%;
@@ -28,4 +29,7 @@ h5 {
 }
 .sidebarright-choices {
   display: block !important;
+}
+.mat-expansion-panel {
+    box-shadow: none !important;
 }
