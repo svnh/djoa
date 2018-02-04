@@ -33,7 +33,7 @@
   background-color: #f4f4f4;
 }
 mat-progress-bar.mat-progress-bar.mat-primary, .project-progress {
-  width: 88% !important;
+  width: 72% !important;
   display: inline-block;
 }
 .project-progress {

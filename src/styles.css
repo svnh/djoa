@@ -5,8 +5,14 @@
 
 /*----------General---------*/
 
-html, body {
+html {
+  min-width: 300px;
   height: 100%;
+}
+body {
+  max-width: 100%;
+}
+html, body {
   overflow-x: hidden;
 }
 p {
@@ -256,7 +262,9 @@ p.percent {
   border-radius: 100px !important;
   float: right !important;
 }
-
+.chat-card .getolderchats {
+  display: none;
+}
 @media screen and (min-width: 992px) {
   .djoa-container {
     margin: 0 0 0 13%;

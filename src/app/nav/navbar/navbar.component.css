@@ -1,6 +1,7 @@
 .nav-container {
   top: 0 !important;
   width: 100%;
+  min-width: 300px;
 }
 .nav.rightmenu, .nav.leftmenu {
   z-index: 5;
