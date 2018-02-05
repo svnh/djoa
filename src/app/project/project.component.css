@@ -40,7 +40,7 @@ mat-progress-bar.mat-progress-bar.mat-primary, .project-progress {
   margin-top: 50px;
 }
 .missionbox tr {
-  margin: 15px 0 !important;
+  margin: 0 0 15px !important;
   display: block;
   background-color: #f4f4f4;
   position: relative;
