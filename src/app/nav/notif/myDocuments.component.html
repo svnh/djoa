@@ -1,8 +1,8 @@
 <div *ngFor="let document of myDocuments">
   <div *ngFor="let strat of document.strats">
     Strategy: {{strat.title}}
-    <div (click)="goTo('strat', strat._id)" class="home-wrapper">
-      {{document.details.name}}: {{document.status.global}}
+    <div (click)="goTo('strat', strat._id)" class="notif-wrapper">
+      <h4>{{document.details.name}}: {{document.status.global}}</h4>
       <div class="dynamic">{{document.myActivityPendingTasks}} pendingTasks</div>
     </div>
   </div>

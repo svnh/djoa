@@ -19,8 +19,11 @@ h5 {
   padding: 0;
   float: none;
 }
-.pic-container, .pic-container2 {
+.pic-container {
 	margin: 50px auto 10px;
+}
+.pic-container2 {
+	margin: 10px auto;
 }
 .sidebarright-sub .save, .sidebarright-sub .delete {
   width: 95%;

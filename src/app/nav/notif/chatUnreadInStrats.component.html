@@ -1,7 +1,7 @@
 <div *ngFor="let notifChat of notifChatsInStrats">
-  <div *ngIf="notifChat.countUnread !== 0">
-    {{notifChat.mission.title}}
-    <div (click)="goTo('mission', notifChat.mission._id)" class="sidebar-notif">
+  <div *ngIf="notifChat.countUnread !== 0" class="notif-wrapper">
+    <h4>{{notifChat.mission.title}}</h4>
+    <div (click)="goTo('mission', notifChat.mission._id)" class="dynamic">
       {{notifChat.countUnread}} New Messages
     </div>
   </div>
