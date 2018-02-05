@@ -7,6 +7,9 @@
 .leftmenu {
   overflow: auto;
 }
+.leftmenu h5 {
+  margin: 15px 0;
+}
 .fa-search {
   color: #ffffff !important;
   background-color: #330066 !important;
