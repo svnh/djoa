@@ -1,11 +1,11 @@
 .sidebarleft {
   background-color: #f4f4f4;
-  height: 100vh;
+  height: 100%;
   padding: 90px 5px;
   overflow: visible !important;
 }
 .leftmenu {
-  max-height: 100%;
+  max-height: 75%;
   overflow: auto;
 }
 .fa-search {
