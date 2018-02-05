@@ -5,7 +5,6 @@
   overflow: visible !important;
 }
 .leftmenu {
-  max-height: 75%;
   overflow: auto;
 }
 .fa-search {
@@ -43,5 +42,8 @@
   }
   .sidebarleft .fa-search {
     left: 15px;
+  }
+  .leftmenu {
+    max-height: 75%;
   }
 }
