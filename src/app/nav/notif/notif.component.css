@@ -5,16 +5,3 @@
   display: list-item;
   margin-bottom: 15px;
 }
-.card-margin .notif-wrapper {
-  background: #f4f4f4 !important;
-  padding: 15px !important;
-  color: #000 !important;
-}
-.card-margin .dynamic {
-  width: 50%;
-  float: right;
-  text-align: right;
-}
-.card-margin .notif-wrapper h4 {
-  margin-bottom: 0 !important;
-}
