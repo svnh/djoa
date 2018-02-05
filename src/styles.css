@@ -18,6 +18,9 @@ html, body {
 p {
   word-break: break-all;
 }
+:focus {
+  outline: 0 !important;
+}
 ::-webkit-scrollbar {
   width: 4px;
   background-color: transparent;
@@ -234,6 +237,9 @@ p.percent {
   display: table;
   width: 100%;
 }
+.backtobottom {
+  cursor: pointer;
+}
 .backtobottom h5 {
   text-align: center;
   margin-top: 15px;
@@ -269,10 +275,16 @@ p.percent {
   background: #f4f4f4 !important;
   padding: 15px !important;
 }
+.notif-wrapper .dynamic {
+  background-color: #f44336;
+  color: #fff;
+}
 .card-margin .dynamic {
   width: 50%;
   float: right;
   text-align: right;
+  background-color: transparent !important;
+  color: #000 !important;
 }
 .card-margin .notif-wrapper h4 {
   margin-bottom: 0 !important;

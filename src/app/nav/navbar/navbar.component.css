@@ -102,6 +102,7 @@ img.logo-top {
   }
   .logo-wrap {
     padding: 6px 0;
+    cursor: pointer;
   }
 }
 
