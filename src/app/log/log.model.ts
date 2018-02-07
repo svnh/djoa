@@ -7,22 +7,20 @@ import { Companie } from '../companie/companie.model';
 
 export class Log {
     _id: string = '';
-
-
     type: string = '';
-
-
     projects: Companie[] = [];
     users: User[] = [];
     strats: Strat[] = [];
     documents: Document[] = [];
-    createdAt: Date = new Date()
-
-
-
-
-    // dateLog: DateLog = new DateLog()
+    createdAt: Date = new Date();
+    email = new Email()
 }
+export class Email {
+  mailSent = '';
+  to = '';
+  toType = '';
+}
+
 // export class DateLog {
 //   start: Date = new Date()
 //   startString: string = '';

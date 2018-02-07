@@ -1,5 +1,6 @@
 var Notification = require('../models/notification.model'),
-  User = require('../models/user.model')
+  User = require('../models/user.model'),
+  Log = require('../models/log.model');
 
 module.exports = {
 
@@ -26,62 +27,163 @@ module.exports = {
   },
 
   postNotification(req, typeObject) {
-    //init new notification
-    return new Promise((resolve, reject) => {
-      var notification = new Notification()
-      notification.ownerCompanies = req.user.ownerCompanies
-      notification.nameNotification = 'New Update ' + typeObject + ' ' + req.params.id
-      notification.typeObject = typeObject
-      notification.quotes = [req.params.id]
+    // //init new notification
+    // return new Promise((resolve, reject) => {
+    //   var notification = new Notification()
+    //   notification.ownerCompanies = req.user.ownerCompanies
+    //   notification.nameNotification = 'New Update ' + typeObject + ' ' + req.params.id
+    //   notification.typeObject = typeObject
+    //   notification.quotes = [req.params.id]
+    //
+    //   let searchQuery = {}
+    //   searchQuery['ownerCompanies'] = req.user.ownerCompanies
+    //   User.find(searchQuery).populate({path: 'rights', model: 'Right'}).exec(function (err, item) {
+    //     if (err) {
+    //       reject(err)
+    //       // return res.status(404).json({message: 'No results', err: err})
+    //     } else {
+    //       // add users with the 'notification right'
+    //       item.forEach(user => {
+    //         if (shared.isCurentUserHasAccess(user, typeObject, 'notification')) {
+    //           notification.users.push(user)
+    //         }
+    //       })
+    //       // add user owner of typeObject
+    //       if (typeObject === 'quote') {
+    //         req.body.projects.forEach(project => {
+    //           project.assignedTos.forEach(user => {
+    //             notification.users.push(user)
+    //           })
+    //         })
+    //       }
+    //       if (typeObject === 'userCalendar') {
+    //         req.body.users.forEach(user => {
+    //           notification.users.push(user)
+    //         })
+    //       }
+    //
+    //       //remove duplicate
+    //       notification.users = Array.from(new Set(JSON.parse(JSON.stringify(notification.users))))
+    //
+    //       // save in DB
+    //       notification.save(function (err, result2) {
+    //         if (err) {
+    //           // console.log(err)
+    //           // return res.status(403).json({
+    //           //   title: 'There was an issue',
+    //           //   error: {
+    //           //     message: 'Error'
+    //           //   }
+    //           // })
+    //         }
+    //         // res.status(200).json({message: 'Ok', obj: 'ok'})
+    //         resolve(result2)
+    //       })
+    //
+    //     }
+    //   })
+    // })
+  },
+  sendEmailBatchDocuments () {
+    // var itemsPerPage = 10
+    // var currentPage = Number(req.params.page)
+    // var pageNumber = currentPage - 1
+    // var skip = (itemsPerPage * pageNumber)
 
-      let searchQuery = {}
-      searchQuery['ownerCompanies'] = req.user.ownerCompanies
-      User.find(searchQuery).populate({path: 'rights', model: 'Right'}).exec(function (err, item) {
-        if (err) {
-          reject(err)
-          // return res.status(404).json({message: 'No results', err: err})
-        } else {
-          // add users with the 'notification right'
-          item.forEach(user => {
-            if (shared.isCurentUserHasAccess(user, typeObject, 'notification')) {
-              notification.users.push(user)
-            }
-          })
-          // add user owner of typeObject
-          if (typeObject === 'quote') {
-            req.body.projects.forEach(project => {
-              project.assignedTos.forEach(user => {
-                notification.users.push(user)
-              })
-            })
-          }
-          if (typeObject === 'userCalendar') {
-            req.body.users.forEach(user => {
-              notification.users.push(user)
-            })
-          }
+  // let rights = new Date(JSON.parse(JSON.stringify(req.query.start)))
 
-          //remove duplicate
-          notification.users = Array.from(new Set(JSON.parse(JSON.stringify(notification.users))))
+    let searchQuery = {}
 
-          // save in DB
-          notification.save(function (err, result2) {
-            if (err) {
-              // console.log(err)
-              // return res.status(403).json({
-              //   title: 'There was an issue',
-              //   error: {
-              //     message: 'Error'
-              //   }
-              // })
-            }
-            // res.status(200).json({message: 'Ok', obj: 'ok'})
-            resolve(result2)
-          })
+    // searchQuery['ownerCompanies'] = req.user.ownerCompanies
 
-        }
-      })
+
+
+
+    //
+    // if(req.query.start)
+    //   searchQuery['createdAt'] = {
+    //     "$gte":  new Date(JSON.parse(req.query.start)),
+    //     "$lt":  new Date(JSON.parse(req.query.end))
+    //   }
+    //
+
+
+
+
+
+    // if(req.query.search) {
+    //   searchQuery['name'] = new RegExp(req.query.search, 'i')
+    // }
+
+
+    // if(req.query.start)
+    //   searchQuery['createdAt']['$lt'] = new Date(JSON.parse(req.query.start))
+
+    // if(req.query.projectId)
+    //   searchQuery['projects'] = mongoose.Types.ObjectId(req.query.projectId)
+    // if(req.query.categorieId)
+    //   searchQuery['categories'] = mongoose.Types.ObjectId(req.query.categorieId)
+    // if(req.query.userId)
+    //   searchQuery['users'] = mongoose.Types.ObjectId(req.query.userId)
+    // if(req.query.documentId)
+    //   searchQuery['documents'] = mongoose.Types.ObjectId(req.query.documentId)
+    // if(req.query.stratId)
+    //   searchQuery['strats'] = mongoose.Types.ObjectId(req.query.stratId)
+    // if(req.query.missionId)
+    //   searchQuery['missions'] = mongoose.Types.ObjectId(req.query.missionId)
+
+      // console.log(searchQuery)
+
+    searchQuery['documents'] = {$exists: true}
+    searchQuery['type'] = 'change'
+    searchQuery['mailSent'] = false
+
+    Log
+    .find(searchQuery)
+    // .sort('-createdAt')
+    // .populate({path: 'users', model: 'User'})
+    // .populate({path: 'missions', model: 'Mission'})
+    // .populate({path: 'strats', model: 'Strat'})
+    .populate({
+      path: 'documents',
+      model: 'Document',
+      populate: {
+        path: 'crewMembers',
+        model: 'User',
+      }
     })
+    .populate({
+      path: 'documents',
+      model: 'Document',
+      populate: {
+        path: 'reviewers',
+        model: 'User',
+      }
+    })
+    .exec(function (err, items) {
+      if (err) {
+        console.log(err)
+      } else {
+        items.forEach((item, i) => {
+          item.documents.forEach(document => {
+            // console.log(document.status.pendingActionFrom)
+            // if (document.status.pendingActionFrom === 'crew') {
+            //   document.crewMembers.forEach(user => {
+            //     console.log('crew', user.email)
+            //   })
+            // } else if (document.status.pendingActionFrom === 'client') {
+            //   document.reviewers.forEach(user => {
+            //     console.log('client', user.email)
+            //   })
+            // }
+          })
+
+        })
+
+      }
+    })
+
   }
+
 
 }

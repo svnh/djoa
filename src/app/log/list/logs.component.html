@@ -13,7 +13,7 @@
                   </div>
                 </td>
                 <td class="">{{log.logName}}</td>
-                <td class="">{{log.createdAt | date:'yMdjm'}}
+                <td class="">{{log.createdAt | date:'short'}}
                 </td>
                 <td class="">
                   <div *ngFor="let user of log.writtenBy">
@@ -38,8 +38,17 @@
                   </div>
 
                 </td>
-                <td class="">
+                <td>
                   {{log.type}}
+                </td>
+                <td>
+                  mail Sent: {{log.email.mailSent}}
+                </td>
+                <td>
+                  {{log.email.to}}
+                </td>
+                <td>
+                  {{log.email.toType}}
                 </td>
 
                 <!-- <td class="">{{project.details.customer}}</td>

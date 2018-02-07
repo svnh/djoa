@@ -173,11 +173,25 @@ router.put('/:id', function(req, res, next) {
         log.users = [req.user]
         log.documents = [req.params.id]
         log.type = 'change'
+
+
+        if(req.body.status.pendingActionFrom === 'client') {
+          log.email.toType = 'client'
+          req.body.reviewers.forEach(user => {
+            log.email.to = user.email
+          })
+        } else if (req.body.status.pendingActionFrom === 'crew') {
+          log.email.toType = 'crew'
+          req.body.crewMembers.forEach(user => {
+            log.email.to = user.email
+          })
+        }
+
         log.save(function(err, result) {
           if (err) {
             console.log(err)
           } else {
-            console.log(result)
+            shared.sendEmailBatchDocuments()
           }
         })
 
@@ -187,6 +201,9 @@ router.put('/:id', function(req, res, next) {
     }
   })
 })
+
+
+
 
 router.post('/', function(req, res, next) {
   if (!shared.isCurentUserHasAccess(req.user, nameObject, 'write')) {
@@ -200,7 +217,7 @@ router.post('/', function(req, res, next) {
   // if (!req.user.companies.length) {
   //   return res.status(404).json({message: 'You must belong to a companie', err: ''})
   // }
-  console.log(req.user.companies)
+  // console.log(req.user.companies)
   req.body.ownerCompanies = req.user.ownerCompanies
   req.body.owners = req.user._id
   // document.ownerCompanies = req.user.companies
@@ -215,9 +232,25 @@ router.post('/', function(req, res, next) {
         }
       })
     }
+
+    var log = new Log()
+    log.ownerCompanies = req.user.ownerCompanies
+    log.missions = req.body.missions
+    log.documents = [result._id]
+    log.users = [req.user]
+    log.type = 'create'
+    log.save((err, result) => {
+      console.log('result')
+      console.log(result)
+      if (err) {
+        console.log(err)
+      }
+    })
+
     res.status(200).json({message: 'Registration Successfull', obj: result})
   })
 })
+
 
 router.get('/page/:page', function(req, res, next) {
   var itemsPerPage = 10

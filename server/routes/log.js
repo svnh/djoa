@@ -162,8 +162,9 @@ router.get('/page/:page', function (req, res, next) {
 
 
 
-  if(req.query.search)
+  if(req.query.search) {
     searchQuery['name'] = new RegExp(req.query.search, 'i')
+  }
 
 
   // if(req.query.start)
