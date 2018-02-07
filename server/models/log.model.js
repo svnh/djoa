@@ -11,11 +11,11 @@ var log = new Schema({
     missions: [{type: Schema.Types.ObjectId, ref: 'Mission'}],
     documents: [{type: Schema.Types.ObjectId, ref: 'Document'}],
     type: {type: String, default: ['']},
-    email : {
-      mailSent: {type: Boolean, default: false},
-      to: {type: String, default: ''},
-      toType: {type: String, default: ''},
-    }
+    mailSent: {type: Boolean, default: false},
+    // email : {
+    //   to: {type: String, default: ''},
+    //   toType: {type: String, default: ''},
+    // }
   },
   {
     timestamps: true

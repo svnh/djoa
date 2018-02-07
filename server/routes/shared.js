@@ -167,16 +167,18 @@ module.exports = {
         items.forEach((item, i) => {
           item.documents.forEach(document => {
             // console.log(document.status.pendingActionFrom)
-            // if (document.status.pendingActionFrom === 'crew') {
-            //   document.crewMembers.forEach(user => {
-            //     console.log('crew', user.email)
-            //   })
-            // } else if (document.status.pendingActionFrom === 'client') {
-            //   document.reviewers.forEach(user => {
-            //     console.log('client', user.email)
-            //   })
-            // }
+            if (document.status.pendingActionFrom === 'crew') {
+              document.crewMembers.forEach(user => {
+                console.log('crew', user.email)
+              })
+            } else if (document.status.pendingActionFrom === 'client') {
+              document.reviewers.forEach(user => {
+                console.log('client', user.email)
+              })
+            }
           })
+
+
 
         })
 

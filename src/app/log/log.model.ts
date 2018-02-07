@@ -13,13 +13,13 @@ export class Log {
     strats: Strat[] = [];
     documents: Document[] = [];
     createdAt: Date = new Date();
-    email = new Email()
+    mailSent = false;
+    // email = new Email()
 }
-export class Email {
-  mailSent = '';
-  to = '';
-  toType = '';
-}
+// export class Email {
+//   to = '';
+//   toType = '';
+// }
 
 // export class DateLog {
 //   start: Date = new Date()

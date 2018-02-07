@@ -175,17 +175,17 @@ router.put('/:id', function(req, res, next) {
         log.type = 'change'
 
 
-        if(req.body.status.pendingActionFrom === 'client') {
-          log.email.toType = 'client'
-          req.body.reviewers.forEach(user => {
-            log.email.to = user.email
-          })
-        } else if (req.body.status.pendingActionFrom === 'crew') {
-          log.email.toType = 'crew'
-          req.body.crewMembers.forEach(user => {
-            log.email.to = user.email
-          })
-        }
+        // if(req.body.status.pendingActionFrom === 'client') {
+        //   log.email.toType = 'client'
+        //   req.body.reviewers.forEach(user => {
+        //     log.email.to = user.email
+        //   })
+        // } else if (req.body.status.pendingActionFrom === 'crew') {
+        //   log.email.toType = 'crew'
+        //   req.body.crewMembers.forEach(user => {
+        //     log.email.to = user.email
+        //   })
+        // }
 
         log.save(function(err, result) {
           if (err) {
