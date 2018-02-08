@@ -250,17 +250,27 @@ router.get('/page/:page', function (req, res, next) {
   var pageNumber = currentPage - 1
   var skip = (itemsPerPage * pageNumber)
 
+
+
+  let isAdmin = req.user.rights.some(right => right.detailRight.nameRight === 'admin')
+
   let searchQuery = {}
   searchQuery['ownerCompanies'] = req.user.ownerCompanies
 
-  if (req.query.search)
+  if (req.query.search) {
     searchQuery['details.name'] = new RegExp(req.query.search, 'i')
+  }
 
-  if (req.query.userId)
-    searchQuery['users'] = mongoose.Types.ObjectId(req.query.userId)
+  // if (req.query.userId) {
+  //   searchQuery['users'] = mongoose.Types.ObjectId(req.query.userId)
+  // }
+  if (!isAdmin) {
+    searchQuery['users'] = mongoose.Types.ObjectId(req.user._id)
+  }
+
 
     // console.log(hasWhatsNewCateg)
-  // console.log(searchQuery)
+
 
   Project.find(searchQuery)
   .sort('-createdAt')
