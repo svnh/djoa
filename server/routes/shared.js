@@ -145,20 +145,14 @@ module.exports = {
     // .populate({path: 'missions', model: 'Mission'})
     // .populate({path: 'strats', model: 'Strat'})
     .populate({
-      path: 'documents',
-      model: 'Document',
-      populate: {
-        path: 'crewMembers',
-        model: 'User',
-      }
+
+      path: 'documents.crewMembers',
+      model: 'User',
+
     })
     .populate({
-      path: 'documents',
-      model: 'Document',
-      populate: {
-        path: 'reviewers',
-        model: 'User',
-      }
+      path: 'documents.reviewers',
+      model: 'User',
     })
     .exec(function (err, items) {
       if (err) {
@@ -169,23 +163,16 @@ module.exports = {
             // console.log(document.status.pendingActionFrom)
             if (document.status.pendingActionFrom === 'crew') {
               document.crewMembers.forEach(user => {
-                console.log('crew', user.email)
+                console.log('crew', user.email, item._id)
               })
             } else if (document.status.pendingActionFrom === 'client') {
               document.reviewers.forEach(user => {
-                console.log('client', user.email)
+                console.log('client', user.email, item._id)
               })
             }
           })
-
-
-
         })
-
       }
     })
-
   }
-
-
 }

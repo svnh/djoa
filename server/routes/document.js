@@ -171,7 +171,7 @@ router.put('/:id', function(req, res, next) {
         var log = new Log()
         log.ownerCompanies = req.user.ownerCompanies
         log.users = [req.user]
-        log.documents = [req.params.id]
+        log.documents = [result]
         log.type = 'change'
 
 
