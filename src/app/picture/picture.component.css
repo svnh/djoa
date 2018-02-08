@@ -2,6 +2,7 @@
   height: 100%;
   width: 100%;
 }
+
 .wrapper-profimg {
   overflow: hidden;
   position: sticky;
@@ -21,6 +22,10 @@
   margin: auto;
   max-width: 150% !important;
   max-height: 150%;
+}
+.container-profimg button {
+  width: 100%;
+  padding: 5px 0;
 }
 .removepic {
   text-transform: uppercase;

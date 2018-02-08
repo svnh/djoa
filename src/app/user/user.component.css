@@ -14,16 +14,17 @@ h5 {
   margin: 0 -15px;
 }
 .pic-container, .pic-container2 {
-	width: 100px;
-  height: 100px;
   padding: 0;
   float: none;
 }
 .pic-container {
+  width: 100px;
+  height: 100px;
 	margin: 50px auto 10px;
 }
 .pic-container2 {
-	margin: 10px auto;
+	margin: 10px auto 25px;
+  height: 200px;
 }
 .sidebarright-sub .save, .sidebarright-sub .delete {
   width: 95%;
