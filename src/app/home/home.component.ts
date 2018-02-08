@@ -3,16 +3,16 @@ import { HomeService} from './home.service';
 import { FormGroup } from '@angular/forms';
 import { ToastsManager} from 'ng2-toastr';
 import { MatDialog} from '@angular/material';
+import { Search } from '../shared/shared.model'
+import { AuthService} from '../auth/auth.service';
+import { User} from '../user/user.model';
+
 // import { EditOptionsComponentDialog }  from '../form/modalLibrary/modalLibrary.component';
 // import { AdminService} from '../admin/services/admin.service';
 // import { SideBarRightComponent} from '../nav/sideBarRight/sideBarRight.component';
 // import { SideBarLeftComponent} from '../nav/sideBarLeft/sideBarLeft.component';
-
-import { Search } from '../shared/shared.model'
 // import { Options } from './options.model';
 // import { Router} from '@angular/router';
-import { AuthService} from '../auth/auth.service';
-import { User} from '../user/user.model';
 
 @Component({
   selector: 'app-admin',

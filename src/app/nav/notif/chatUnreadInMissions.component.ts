@@ -1,17 +1,17 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { NotifChat } from './notif.model';
+import { ChatService } from '../../chat/chat.service';
+import { Router } from '@angular/router';
 // import { AuthService } from '../../auth/auth.service';
 // import { AdminService } from '../../admin/services/admin.service';
-// import { Router } from '@angular/router';
 // import { UserService } from '../../user/user.service';
 // import { DocumentService } from '../../document/document.service';
 // import { User } from '../../user/user.model';
 // import { Document } from '../../document/document.model';
-import { NotifChat } from './notif.model';
 // import { CompanieGuardService } from '../../companie/companieGuard.service'
 // import { PaiementGuardService} from '../../user/paiement/paiementGuard.service'
 // import { ChangeDetectionStrategy } from '@angular/core';
 // import { GlobalEventsManager} from '../../globalEventsManager';
-import { ChatService } from '../../chat/chat.service';
 // import { Notification} from '../../notification/notification.model';
 // import {Observable} from 'rxjs/Rx';
 // import { ShowNavBarData } from '../../shared/shared.model'
@@ -27,12 +27,13 @@ import { ChatService } from '../../chat/chat.service';
 export class ChatUnreadInMissions implements OnInit {
   @Output() goToEmit: EventEmitter<any> = new EventEmitter();
   @Output() dataUpdated: EventEmitter<any> = new EventEmitter();
+  notifChatsInMissions: NotifChat[] = []
+  nbNotifChat = 0
 
   // showNavBar: boolean = false;
   // private userId: string = localStorage.getItem('userId');
   // private userId: string;
   // notifChatsInStrats: NotifChat[] = []
-  notifChatsInMissions: NotifChat[] = []
   // myDocuments: Document[] = []
   // newMissionDocs = []
   // documentsByMissions = []
@@ -42,6 +43,7 @@ export class ChatUnreadInMissions implements OnInit {
 
   constructor(
     private chatService: ChatService,
+    private router: Router,
   ) {
   }
 
@@ -55,6 +57,9 @@ export class ChatUnreadInMissions implements OnInit {
       .subscribe(
       res => {
         this.notifChatsInMissions = res.obj
+        this.notifChatsInMissions.forEach(singleNotifChatsInMissions => {
+          this.nbNotifChat += singleNotifChatsInMissions.countUnread;
+        })
         this.dataUpdated.emit(this.notifChatsInMissions)
       },
       error => {
@@ -62,8 +67,9 @@ export class ChatUnreadInMissions implements OnInit {
       }
       );
   }
-  goTo(typeObj: string, missionId: string) {
-    this.goToEmit.emit({typeObj, missionId})
+  goTo(typeObj: string, id: string) {
+    // this.goToEmit.emit({typeObj, missionId})
+    this.router.navigate([typeObj + '/' + id]);
   }
 
 }
