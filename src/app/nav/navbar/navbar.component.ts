@@ -228,7 +228,7 @@ export class NavbarComponent implements OnInit {
   }
 
   openProfile() {
-    let showNavBarData = new ShowNavBarData()
+    const showNavBarData = new ShowNavBarData()
     showNavBarData.search.typeScreen = 'profile'
     showNavBarData.search.typeObj = 'user'
     showNavBarData.showNavBar = 1
