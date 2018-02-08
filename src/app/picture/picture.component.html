@@ -1,4 +1,4 @@
-<div *ngFor="let singleForm of forms; let i=index;" >
+<div *ngFor="let singleForm of forms; let i=index;" class="container-profimg" >
   <div class="wrapper-profimg">
     <img (click)="openProfile()" class="profimg" src="./uploads/forms/{{singleForm.owner}}/{{singleForm.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'">
   </div>

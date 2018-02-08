@@ -1,3 +1,7 @@
+.container-profimg {
+  height: 100%;
+  width: 100%;
+}
 .wrapper-profimg {
   overflow: hidden;
   position: sticky;
