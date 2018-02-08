@@ -226,43 +226,27 @@ export class ProfileComponent implements OnInit {
   // }
 
   save() {
-    // this.userService.cleanCurrentUserInSession()
-    //console.log(this.typeUserDropDown)
-    //this.fetchedUser.type = [this.typeUserDropDown]
-    if(this.fetchedUser._id) {
+    if (this.fetchedUser._id) {
       this.userService.updateUser(this.fetchedUser)
         .subscribe(
           res => {
-            this.toastr.success('Great!', res.message)
-            // location.reload();
-            // if(redirect == 'profile')
-            //   this.router.navigate(['user/profile/' + res.obj._id])
-            // if(redirect == 'project')
-            //   this.router.navigate(['project/new/' + res.obj._id])
+            this.toastr.success('Great!', res.message);
           },
           error => {
-            this.toastr.error('Error!')
-            console.log(error)
+            this.toastr.error('Error!');
+            console.log(error);
           }
-        )
+        );
     } else {
       this.userService.saveUser(this.fetchedUser)
         .subscribe(
           res => {
-            this.toastr.success('Great!', res.message)
-            this.fetchedUser = res.obj
-            // this.saved.emit(res.obj)
-            // if(redirect == 'profile')
-            // this.router.navigate(['user/newuser/' + res.obj._id])
-            // location.reload();
-            // if(redirect == 'project')
-            //   this.router.navigate(['project/new/' + res.obj._id])
-            // this.addUserIdToCompanie(res.obj)
-            //this.router.navigate(['user'])
+            this.toastr.success('Great!', res.message);
+            this.fetchedUser = res.obj;
           },
           error => {
-            console.log(error)
-            this.toastr.error('Error!')
+            console.log(error);
+            this.toastr.error('Error!');
           }
         );
     }
