@@ -1,5 +1,5 @@
 <form [formGroup]="myForm" novalidate (ngSubmit)="save()" class="sidebarright-sub">
-  <app-autocomplete [typeAutocomplete]="'right'" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedUser.rights" [placeholderString]="'User Rights (Admin Only)'">
+  <app-autocomplete *ngIf=false [typeAutocomplete]="'right'" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedUser.rights" [placeholderString]="'User Rights (Admin Only)'">
   </app-autocomplete>
 
   <mat-form-field>
