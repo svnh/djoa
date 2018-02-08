@@ -157,22 +157,19 @@ export class AutocompleteComponent implements OnInit {
 
 
   createObj(typeObj: string) {
-
-    if(typeObj === 'user') {
-
-      if(!this.emailValidator(this.autocompleteSearch)) {
+    if (typeObj === 'user') {
+      if (!this.emailValidator(this.autocompleteSearch)) {
         this.toastr.error('Error! Not valid email')
         return
       }
 
-
-      let newUser = new User()
+      const newUser = new User()
       newUser.email = this.autocompleteSearch
+      newUser.profile.name = 'Djoa\'s User'
       this.userService.saveUser(newUser)
         .subscribe(
           res => {
             this.toastr.success('Great!', res.message)
-            // this.fetchedUser = res.obj
             this.selectData(res.obj)
           },
           error => {
@@ -219,13 +216,14 @@ export class AutocompleteComponent implements OnInit {
   // }
 
   saved(result) {
-    if(result)
-      this.arrayContent = [result]
+    if(result) {
+      this.arrayContent = [result];
+    }
   }
 
   selectData(data) {
-    this.autocompleteSearch = ''
-    this.fetchedData = []
+    this.autocompleteSearch = '';
+    this.fetchedData = [];
     this.arrayContent.push(data)
     this.getResultAutocomplete.emit(this.arrayContent)
   }
