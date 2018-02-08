@@ -4,6 +4,12 @@
   </div>
   <button *ngIf="deletePicture" type="button" md-button (click)="removePic(i)"><p class="removepic">Remove Picture</p></button>
 </div>
+<div *ngIf="!forms.length">
+  <div class="wrapper-profimg">
+    <!-- DORIANE ICI IL FAUT fair le css du deuxieme child -->
+    <img (click)="openProfile()" class="profimg" src="assets/images/no-image-found.jpg">
+  </div>
+</div>
 <div *ngIf="addPicture">
   <div *ngIf="!loadSinglePicture || forms.length<1">
     <app-form (onPassForm)="onPassForm($event)"></app-form>

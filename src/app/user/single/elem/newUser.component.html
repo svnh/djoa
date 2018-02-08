@@ -16,7 +16,7 @@
   </div>
   <label class="label-title">Update Picture</label>
   <div class="pic-container2">
-    <app-picture [addPicture]=true [loadSinglePicture]=true [deletePicture]=true [forms]="fetchedUser.forms"></app-picture>
+    <app-picture [addPicture]=true [loadSinglePicture]=true [deletePicture]=true (pictureRemoved)="pictureRemoved()" [forms]="fetchedUser.forms"></app-picture>
   </div>
   <div class="valid-edit">
     <button type="button" *ngIf="fetchedUser._id" class="delete" md-button (click)="openDeleteConfirmation()">Delete User</button>

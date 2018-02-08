@@ -24,6 +24,7 @@ export class PictureComponent {
   @Input() deletePicture: boolean = true
   // @Input() useDialog: boolean = true
   @Output() getPicture: EventEmitter<any> = new EventEmitter();
+  @Output() pictureRemoved: EventEmitter<any> = new EventEmitter();
 
 
   constructor(
@@ -46,6 +47,7 @@ export class PictureComponent {
   }
   removePic(i) {
     this.forms.splice(i, 1);
+    this.pictureRemoved.emit()
   }
   //might be deprecated
   openProfile() {

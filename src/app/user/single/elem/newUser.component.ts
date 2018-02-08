@@ -26,10 +26,13 @@ export class NewUserComponent implements OnInit {
     this.saved.emit();
     this.closeRight();
   }
+  pictureRemoved() {
+    this.saved.emit();
+  }
 
   closeRight() {
-    const showNavBarData = new ShowNavBarData()
-    showNavBarData.showNavBar = -1
+    const showNavBarData = new ShowNavBarData();
+    showNavBarData.showNavBar = -1;
     this.globalEventsManager.showNavBarRight(showNavBarData);
   }
 

@@ -292,7 +292,7 @@ router.get('/page/:page', function (req, res, next) {
   //     path: 'bucketTasks.tasks.assignedTos',
   //     model: 'User',
   //   })
-    .limit(itemsPerPage).skip(skip).exec(function (err, item) {
+  .limit(itemsPerPage).skip(skip).exec(function (err, item) {
     if (err) {
       return res.status(404).json({message: 'No results', err: err})
     } else {
