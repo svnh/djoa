@@ -115,13 +115,14 @@ export class LightStratsComponent implements OnInit {
   getPage(page: number) {
     this.getStrats(page, this.search);
   }
-  goTo(stratId: string) {
+  goTo(typeObj: string, stratId: string) {
     this.openCategoriesSideBar(stratId)
-    this.router.navigate(['strat/' + stratId]);
+    this.router.navigate([typeObj + '/' + stratId]);
     if (!this.isDesktopScreen) {
       this.closeLeft();
     }
   }
+
 
   closeLeft() {
     this.showNavBarData.showNavBar = -1;

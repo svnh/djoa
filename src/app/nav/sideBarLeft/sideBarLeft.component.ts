@@ -54,7 +54,9 @@ export class SideBarLeftComponent implements OnInit {
     this.globalEventsManager.showNavBarLeft(this.showNavBarData);
   }
 
-
+  // goToProject(projectId: string) {
+  //   this.router.navigate(['project/' + projectId]);
+  // }
 
   ngOnInit(){
     // console.log(this.widthContainer)

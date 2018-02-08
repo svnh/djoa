@@ -1,6 +1,13 @@
+
 <div *ngFor="let strat of fetchedStrats">
+  <div *ngFor="let project of strat.projects">
+    <h5 (click)="goTo('project', project._id)">< BACK TO PROJECT</h5>
+    <h4>{{project.details.name}}</h4>
+  </div>
+
+
   <div class="sidebar-item">
-    <div (click)="goTo(strat._id)" class="list-on">
+    <div (click)="goTo('strat', strat._id)" class="list-on">
       <i class="fa fa-tachometer" aria-hidden="true"></i>
       STRATEGY
     </div>

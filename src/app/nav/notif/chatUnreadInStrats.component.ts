@@ -1,4 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { NotifChat } from './notif.model';
+import { ChatService } from '../../chat/chat.service';
 // import { AuthService } from '../../auth/auth.service';
 // import { AdminService } from '../../admin/services/admin.service';
 // import { Router } from '@angular/router';
@@ -6,12 +8,10 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 // import { DocumentService } from '../../document/document.service';
 // import { User } from '../../user/user.model';
 // import { Document } from '../../document/document.model';
-import { NotifChat } from './notif.model';
 // import { CompanieGuardService } from '../../companie/companieGuard.service'
 // import { PaiementGuardService} from '../../user/paiement/paiementGuard.service'
 // import { ChangeDetectionStrategy } from '@angular/core';
 // import { GlobalEventsManager} from '../../globalEventsManager';
-import { ChatService } from '../../chat/chat.service';
 // import { Notification} from '../../notification/notification.model';
 // import {Observable} from 'rxjs/Rx';
 // import { ShowNavBarData } from '../../shared/shared.model'
@@ -27,10 +27,10 @@ import { ChatService } from '../../chat/chat.service';
 export class ChatUnreadInStrats implements OnInit {
   @Output() goToEmit: EventEmitter<any> = new EventEmitter();
   @Output() dataUpdated: EventEmitter<any> = new EventEmitter();
+  notifChatsInStrats: NotifChat[] = []
   // showNavBar: boolean = false;
   // private userId: string = localStorage.getItem('userId');
   // private userId: string;
-  notifChatsInStrats: NotifChat[] = []
   // notifChatsInMissions: NotifChat[] = []
   // myDocuments: Document[] = []
   // newMissionDocs = []

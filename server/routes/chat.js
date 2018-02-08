@@ -255,10 +255,10 @@ router.get('/unreadChatInMissions', function (req, res, next) {
             if (err) {
               console.log(err)
             } else {
-
               let searchQueryChat = {}
               searchQueryChat['missions'] = mongoose.Types.ObjectId(singleMission._id)
               if (itemLog) {
+                console.log(itemLog)
                 searchQueryChat['createdAt'] = {
                   '$gte': itemLog.createdAt
                 }
@@ -297,11 +297,12 @@ router.get('/unreadChatInStrats', function (req, res, next) {
       let requests = itemStrats.map((singleStrat) => {
         return new Promise(function (resolve, reject) {
           let searchQueryLog = {}
-          searchQueryLog['missions'] = mongoose.Types.ObjectId(singleStrat._id)
+          searchQueryLog['strats'] = mongoose.Types.ObjectId(singleStrat._id)
           Log.findOne(searchQueryLog).sort('-createdAt').exec(function (err, itemLog) {
             if (err) {
               console.log(err)
             } else {
+              // console.log('itemLog',itemLog)
 
               let searchQueryChat = {}
               searchQueryChat['missions'] = mongoose.Types.ObjectId(singleStrat._id)
