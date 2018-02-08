@@ -27,6 +27,8 @@ import { Search } from '../../shared/shared.model';
 export class MyDocuments implements OnInit {
   @Output() goToEmit: EventEmitter<any> = new EventEmitter();
   @Output() dataUpdated: EventEmitter<any> = new EventEmitter();
+  myDocuments: Document[] = []
+  search: Search = new Search()
 
   // showNavBar: boolean = false;
   // private userId: string = localStorage.getItem('userId');
@@ -34,10 +36,8 @@ export class MyDocuments implements OnInit {
   // documentsByMissions = []
   // notifChatsInStrats: NotifChat[] = []
   // notifChatsInMissions: NotifChat[] = []
-  myDocuments: Document[] = []
   // newMissionDocs = []
   // documentsByMissions = []
-  search: Search = new Search()
   // fetchedNotifications: Notification[] = [];
   // notificationsNotRead: number=0;
 
@@ -59,6 +59,7 @@ export class MyDocuments implements OnInit {
       res => {
         this.myDocuments = res.data
         this.dataUpdated.emit(this.myDocuments)
+        // console.log(this.myDocuments)
       },
       error => {
         console.log(error);

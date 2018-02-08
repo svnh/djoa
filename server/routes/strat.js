@@ -81,6 +81,7 @@ router.put('/:id', function (req, res, next) {
         item.dateStrat = req.body.dateStrat
         item.description = req.body.description
         item.name = req.body.name
+        item.title = req.body.title
         item.dateStrat = req.body.dateStrat
         item.status = req.body.status
 
@@ -235,7 +236,7 @@ router.get('/:id', function (req, res, next) {
       model: 'User',
       populate: {
         path: 'forms',
-        model: 'Form'        
+        model: 'Form'
       }})
     // .populate({path: 'forms', model: 'Form'})
     // .populate({path: 'assignedTos', model: 'User'})

@@ -33,6 +33,7 @@ export class NavbarComponent implements OnInit {
   showNavBarDataRight: ShowNavBarData = new ShowNavBarData()
   showNavBarDataRightdelay: ShowNavBarData = new ShowNavBarData()
   topNavOpen: boolean = false
+  showTotal = true
 
   constructor(
     // private globalEventsManager: GlobalEventsManager,
@@ -140,10 +141,13 @@ export class NavbarComponent implements OnInit {
     this.globalEventsManager.showNavBarRight(newShowNavBarData)
   }
   notif() {
+    this.showTotal = false
     const newShowNavBarData = new ShowNavBarData()
     newShowNavBarData.search.typeObj = 'notif'
     newShowNavBarData.showNavBar = 1
     this.globalEventsManager.showNavBarRight(newShowNavBarData)
+    const this2 = this
+    setTimeout(function(){ this2.showTotal = true }, 30);
   }
 
   // cleanNotifications() {

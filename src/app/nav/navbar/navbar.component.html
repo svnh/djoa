@@ -23,7 +23,7 @@
       </mat-menu>
       <li class="nav-item navnotif">
         <button type="button" (click)="notif()">
-          <app-notif-total></app-notif-total>
+          <app-notif-total *ngIf="showTotal"></app-notif-total>
         </button>
       </li>
       <li class="nav-item navadd">
