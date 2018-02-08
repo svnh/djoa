@@ -1,12 +1,13 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { DocumentService } from '../../document/document.service';
+import { NotifChat } from './notif.model';
+import { Search } from '../../shared/shared.model';
 // import { AuthService } from '../../auth/auth.service';
 // import { AdminService } from '../../admin/services/admin.service';
 // import { Router } from '@angular/router';
 // import { UserService } from '../../user/user.service';
-import { DocumentService } from '../../document/document.service';
 // import { User } from '../../user/user.model';
 // import { Document } from '../../document/document.model';
-import { NotifChat } from './notif.model';
 // import { CompanieGuardService } from '../../companie/companieGuard.service'
 // import { PaiementGuardService} from '../../user/paiement/paiementGuard.service'
 // import { ChangeDetectionStrategy } from '@angular/core';
@@ -16,7 +17,6 @@ import { NotifChat } from './notif.model';
 // import {Observable} from 'rxjs/Rx';
 // import { ShowNavBarData } from '../../shared/shared.model'
 // import { GlobalEventsManager } from '../../globalEventsManager';
-import { Search } from '../../shared/shared.model'
 
 
 @Component({

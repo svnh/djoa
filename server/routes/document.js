@@ -260,7 +260,7 @@ router.get('/page/:page', function(req, res, next) {
 
   let searchQuery = {}
 
-  if (req.query.myDocuments) {
+  if (req.query.myDocuments === 'true') {
     let arrObj = []
     arrObj.push({
       'crewMembers': mongoose.Types.ObjectId(req.user._id)

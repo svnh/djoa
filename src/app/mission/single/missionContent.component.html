@@ -35,7 +35,8 @@
     <mat-card class="card-margin">
       <mat-card-content>
         <h2>Documents for This Mission</h2>
-        <app-documents [search]="search"></app-documents>
+
+        <app-documents [search]="{projectId: search.projectId,missionId:search.missionId, categorieId:search.categorieId, myDocuments:false}"></app-documents>
       </mat-card-content>
     </mat-card>
     <mat-card>
