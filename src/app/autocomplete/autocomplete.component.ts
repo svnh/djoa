@@ -2,9 +2,6 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { UserService} from '../user/user.service';
 import { CompanieService} from '../companie/companie.service';
 import { CategorieService} from '../categorie/categorie.service';
-// import { QuoteService} from '../quote/quote.service';
-// import { TemplateQuoteService} from '../quote/templateQuote.service';
-
 import { RightService} from '../right/right.service';
 import { ProjectService} from '../project/project.service';
 import { StratService} from '../strat/strat.service';
@@ -12,13 +9,15 @@ import { MissionService} from '../mission/mission.service';
 import { DocumentService} from '../document/document.service';
 import { BriefService} from '../brief/brief.service';
 import { MatDialog } from '@angular/material';
-import { Search } from '../shared/shared.model'
+import { Search } from '../shared/shared.model';
+import { ToastsManager} from 'ng2-toastr';
+import { Router} from '@angular/router';
+import { User } from '../user/user.model';
+// import { QuoteService} from '../quote/quote.service';
+// import { TemplateQuoteService} from '../quote/templateQuote.service';
 // import { UserDialogComponent } from '../user/singleUser/dialog/userDialog.component';
 // import { CompanieDialogComponent } from '../companie/single/dialog/companieDialog.component';
 // import { ProjectDialogComponent } from '../project/single/dialog/projectDialog.component';
-import { ToastsManager} from 'ng2-toastr';
-import {Router} from '@angular/router';
-import { User } from '../user/user.model';
 // // import { Quote } from '../quote/quote.model';
 
 
@@ -37,7 +36,7 @@ export class AutocompleteComponent implements OnInit {
   @Input() enableLink: boolean = false;
   @Input() placeholderString: string = '';
   // createNewItem: boolean = false;
-  autocompleteSearch = ''
+  autocompleteSearch = '';
   fetchedData: User[] = [];
 
 
@@ -216,7 +215,7 @@ export class AutocompleteComponent implements OnInit {
   // }
 
   saved(result) {
-    if(result) {
+    if (result) {
       this.arrayContent = [result];
     }
   }
@@ -224,27 +223,26 @@ export class AutocompleteComponent implements OnInit {
   selectData(data) {
     this.autocompleteSearch = '';
     this.fetchedData = [];
-    this.arrayContent.push(data)
-    this.getResultAutocomplete.emit(this.arrayContent)
+    this.arrayContent.push(data);
+    this.getResultAutocomplete.emit(this.arrayContent);
   }
   searchData() {
-
     if (!this.autocompleteSearch) {
-      this.fetchedData = []
+      this.fetchedData = [];
     } else {
       this.search.search = this.autocompleteSearch,
-
-      this.getData(1, this.search)
+      this.getData(1, this.search);
     }
   }
   removeData(i: number) {
     this.arrayContent.splice(i, 1);
-    this.clearAutocomplete.emit()
+    this.clearAutocomplete.emit();
   }
 
   linkToObject(data) {
-    if(this.enableLink)
+    if (this.enableLink) {
       this.router.navigate([this.typeAutocomplete + '/' + data._id]);
+    }
   }
 
 

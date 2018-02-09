@@ -61,14 +61,11 @@ export class NotifTotal implements OnInit {
         this.countTotal += document.myActivityPendingTasks
       });
     })
-    console.log(this.countTotal)
   }
   myDocuments(result) {
-    console.log(this.countTotal)
     result.forEach(document => {
       this.countTotal += document.myActivityPendingTasks
     })
-    console.log(this.countTotal)
   }
 
 

@@ -37,10 +37,10 @@ export class SideBarLeftComponent implements OnInit {
     this.globalEventsManager.showNavBarEmitterLeft.subscribe((showNavBarData) => {
         if (showNavBarData !== null) {
           this.showNavBarData = showNavBarData;
-          if(this.showNavBarData.showNavBar === 1) {
+          if (this.showNavBarData.showNavBar === 1) {
             this.sidenav.open()
           }
-          if(this.showNavBarData.showNavBar === -1) {
+          if (this.showNavBarData.showNavBar === -1) {
             this.sidenav.close()
           }
         }
@@ -68,7 +68,7 @@ export class SideBarLeftComponent implements OnInit {
         if(this.widthContainer > 991) {
           this.showNavBarData.showNavBar = 1
         }
-        this.showNavBarData.search.typeObj = 'project'
+        // this.showNavBarData.search.typeObj = 'project'
         this.globalEventsManager.showNavBarLeft(this.showNavBarData);
 
 

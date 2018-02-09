@@ -106,12 +106,12 @@ export class NavbarComponent implements OnInit {
   toggleSideBarLeft() {
     // console.log(this.showNavBarDataLeft)
     // const newShowNavBarData = new ShowNavBarData()
-    if(this.showNavBarDataLeft.showNavBar === 1 ) {
+    if (this.showNavBarDataLeft.showNavBar === 1) {
       // newShowNavBarData.showNavBar = -1
-      this.showNavBarDataLeft.showNavBar = -1
+      this.showNavBarDataLeft.showNavBar = -1;
     } else {
       // newShowNavBarData.showNavBar = 1
-      this.showNavBarDataLeft.showNavBar = 1
+      this.showNavBarDataLeft.showNavBar = 1;
     }
     // newShowNavBarData.search.typeObj = 'project'
     this.globalEventsManager.showNavBarLeft(this.showNavBarDataLeft)

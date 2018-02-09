@@ -3,25 +3,22 @@ import { AuthService } from '../../auth/auth.service';
 import { MissionService } from '../mission.service';
 import { CategorieService } from '../../categorie/categorie.service';
 import { ProjectService } from '../../project/project.service';
-
 import { Mission, ButtonDataMission } from '../mission.model';
-
 import { ToastsManager } from 'ng2-toastr';
-
 import { MatDialog } from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { UserService } from '../../user/user.service';
-// import { QuoteService } from '../../quote/quote.service';
-// import { DeleteDialog } from '../../deleteDialog/deleteDialog.component';
 import { User } from '../../user/user.model';
-// import { Quote } from '../../quote/quote.model';
 import { Categorie } from '../../categorie/categorie.model';
 import { Project } from '../../project/project.model';
-import { Search } from '../../shared/shared.model'
+import { Search } from '../../shared/shared.model';
 import { GlobalEventsManager } from '../../globalEventsManager';
-import { ShowNavBarData } from '../../shared/shared.model'
+import { ShowNavBarData } from '../../shared/shared.model';
+// import { QuoteService } from '../../quote/quote.service';
+// import { DeleteDialog } from '../../deleteDialog/deleteDialog.component';
+// import { Quote } from '../../quote/quote.model';
 
 
 @Component({
@@ -31,38 +28,36 @@ import { ShowNavBarData } from '../../shared/shared.model'
 })
 export class MissionContentComponent implements OnInit {
   @Output() newMissionSaved: EventEmitter<any> = new EventEmitter();
-
-  @Input() fetchedMission: Mission = new Mission()
-  @Input() search: Search = new Search()
+  @Input() fetchedMission: Mission = new Mission();
+  @Input() search: Search = new Search();
   fetchedMissions: Mission[] = [];
   loading: boolean;
   myForm: FormGroup;
-  buttonDataMission: ButtonDataMission = new ButtonDataMission()
+  buttonDataMission: ButtonDataMission = new ButtonDataMission();
 
-  // ]
+
   constructor(
     private missionService: MissionService,
-    // private quoteService: QuoteService,
     private globalEventsManager: GlobalEventsManager,
-
-    // private projectService: ProjectService,
-    // private userService: UserService,
-    // private categorieService: CategorieService,
-    //    private modalService: NgbModal,
     private toastr: ToastsManager,
-    // public dialog: MatDialog,
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private location: Location,
     private _fb: FormBuilder,
     private authService: AuthService,
+    // private quoteService: QuoteService,
+
+    // private projectService: ProjectService,
+    // private userService: UserService,
+    // private categorieService: CategorieService,
+    //    private modalService: NgbModal,
+    // public dialog: MatDialog,
   ) {
     this.globalEventsManager.refreshCenterEmitter.subscribe((isRefresh) => {
       if (isRefresh) {
-        this.getMission(this.fetchedMission._id)
+        this.getMission(this.fetchedMission._id);
         this.globalEventsManager.refreshCenter(false);
       }
-
     })
   }
 

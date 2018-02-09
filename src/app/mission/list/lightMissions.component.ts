@@ -91,7 +91,7 @@ export class LightMissionsComponent implements OnInit {
   }
 
   goToMission(missionId: string) {
-    this.openCategoriesSideBar(missionId)
+    this.openCategoriesSideBar(missionId);
     this.router.navigate(['mission/' + missionId]);
     if (!this.isDesktopScreen) {
       this.closeLeft();
@@ -99,6 +99,7 @@ export class LightMissionsComponent implements OnInit {
   }
 
   closeLeft() {
+    this.showNavBarData.search.typeObj = 'categorie';
     this.showNavBarData.showNavBar = -1;
     this.globalEventsManager.showNavBarLeft(this.showNavBarData);
   }
@@ -128,9 +129,9 @@ export class LightMissionsComponent implements OnInit {
   //     );
   // }
 
-  getPage(page: number) {
-    this.getMissions(page, this.search);
-  }
+  // getPage(page: number) {
+  //   this.getMissions(page, this.search);
+  // }
 
 
   // loadMore(){
