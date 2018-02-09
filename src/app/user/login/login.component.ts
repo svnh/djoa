@@ -25,7 +25,10 @@ export class LoginComponent implements OnInit, AfterViewInit {
     private _fb: FormBuilder,
     private globalEventsManager: GlobalEventsManager,
     private _authService: AuthService,
-              private _router: Router, private toastr: ToastsManager, private renderer: Renderer) {
+    private _router: Router,
+    private toastr: ToastsManager,
+    private renderer: Renderer
+  ) {
   }
 
   ngOnInit() {
@@ -56,9 +59,9 @@ export class LoginComponent implements OnInit, AfterViewInit {
     this._authService.signin(user)
       .subscribe(
         data => {
-          const newShowNavBarData = new ShowNavBarData()
-          newShowNavBarData.showNavBar = 1
-          newShowNavBarData.search.typeObj = 'project'
+          const newShowNavBarData = new ShowNavBarData();
+          newShowNavBarData.showNavBar = 1;
+          newShowNavBarData.search.typeObj = 'project';
           this.globalEventsManager.showNavBarLeft(newShowNavBarData);
           this.globalEventsManager.showNavBarTop(newShowNavBarData);
           //console.log(data)
@@ -69,7 +72,6 @@ export class LoginComponent implements OnInit, AfterViewInit {
           //localStorage.setItem('userId', data.userId);
           // navigate user to index page of our app
 
-          //gooplus
           this._router.navigate(['/']);
           // location.reload();
 
