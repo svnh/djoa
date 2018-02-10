@@ -30,12 +30,14 @@
   border: 1px solid;
   border-radius: 3px;
   color: #f44336;
+  margin-top: 15px;
 }
 .listname {
   width:155px !important;
 }
 .listname-img {
   width: 35px;
+  height: 35px;
   float: left;
   margin-right: 5px;
 }
@@ -43,6 +45,7 @@
     font-size: 12px;
     height: 35px;
     padding-top: 5px;
+    margin-top: 15px;
 }
 button.addnew {
   display: block;
@@ -51,4 +54,11 @@ button.addnew {
   color: #fff;
   padding: 10px;
   width: 100%;
+}
+label {
+  display: block;
+  font-size: 10px;
+  margin-bottom: 0;
+  text-transform: uppercase;
+  color: #aaa;
 }

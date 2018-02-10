@@ -203,6 +203,7 @@ p.percent {
   color: #000000;
   font-weight: 500;
   font-size: 18px;
+  margin: 10px 0 2px;
 }
 .fa.fa-times.dspl-nn-dsktp {
   background-color: #ddd;
@@ -254,6 +255,7 @@ p.percent {
 }
 .fileContainer {
   width: 100%;
+  margin-top: 15px;
 }
 .fileContainer p {
   display: block;

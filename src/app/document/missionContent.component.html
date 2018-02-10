@@ -38,8 +38,8 @@
         <div *ngFor="let user of fetchedMission.users" class="indiv-team">
           <div (click)="openProfile(user._id)">
             <div class="pic-container"><app-picture [addPicture]=false [deletePicture]=false [forms]="user.forms"></app-picture></div>
+            <p>{{user.profile.name}}</p>
           </div>
-          <p>{{user.profile.name}}</p>
         </div>
       </mat-card-content>
     </mat-card>

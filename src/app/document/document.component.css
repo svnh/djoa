@@ -71,7 +71,13 @@ img.doc-icon {
 .mat-slide-toggle {
   margin-bottom: 15px;
 }
-
+.label-subtitle {
+  display: block;
+  font-size: 10px;
+  margin-bottom: 0;
+  text-transform: uppercase;
+  color: #aaa;
+}
 @media screen and (min-width: 600px) {
   .doc-state-bottom {
     font-size: 12px;
