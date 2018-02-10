@@ -7,10 +7,12 @@
           <input [maxlength]="30" matInput type="text" formControlName="name" [(ngModel)]="fetchedProject.details.name" placeholder="Title">
         </mat-form-field>
       </div>
-      <mat-form-field>
+      <label class="label-title">Start Date</label>
+      <mat-form-field class="date">
         <input matInput type="date" formControlName="start" [(ngModel)]="fetchedProject.dateProject.startString">
       </mat-form-field>
-      <mat-form-field>
+      <label class="label-title">Due Date</label>
+      <mat-form-field class="date">
         <input matInput type="date" formControlName="end" [(ngModel)]="fetchedProject.dateProject.endString">
       </mat-form-field>
     </div>

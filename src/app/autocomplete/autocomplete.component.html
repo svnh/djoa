@@ -25,7 +25,7 @@
           <div *ngIf="typeAutocomplete=='strat'"><label>Strategy:</label>{{data.title}}</div>
           <div *ngIf="typeAutocomplete=='mission'"><label>Mission:</label>{{data.title}}</div>
           <div *ngIf="typeAutocomplete=='document'"><label>Document:</label>{{data.details.name}}</div>
-          <div *ngIf="typeAutocomplete=='right'">{{data.detailRight.nameRight}}</div>
+          <div *ngIf="typeAutocomplete=='right'"><label>Role:</label>{{data.detailRight.nameRight}}</div>
           <div *ngIf="typeAutocomplete=='templateQuote'"><label>Quote:</label>{{data.nameTemplate}}</div>
         </td>
       </tr>
