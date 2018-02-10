@@ -184,9 +184,9 @@ p.percent {
   bottom: 0;
   left: 0;
   right: 0;
-  -webkit-box-shadow: 0 0 4px 3px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0 0 4px 3px rgba(0, 0, 0, 0.5);
-  box-shadow: 0 0 4px 3px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2);
 }
 .greyback {
   background-color: #f4f4f4;
@@ -273,6 +273,9 @@ p.percent {
 .chat-card .getolderchats {
   display: none;
 }
+.card-margin {
+  margin-bottom: 30
+}
 .card-margin .notif-wrapper {
   background: #f4f4f4 !important;
   padding: 15px !important;
@@ -291,7 +294,12 @@ p.percent {
 .card-margin .notif-wrapper h4 {
   margin-bottom: 0 !important;
 }
-
+.lineback {
+  background: -webkit-linear-gradient(left, transparent 5%, white 5%, white 5.1%,transparent 5.1%);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 30px;
+}
 
 @media screen and (min-width: 992px) {
   .djoa-container {
@@ -334,7 +342,7 @@ p.percent {
 
 @media screen and (min-height: 751px) {
   .col-md-12, .col-lg-6 {
-    height: 74%;
+    height: 69%;
   }
 }
 @media screen and (min-height: 651px) and (max-height: 750px) {
