@@ -44,3 +44,11 @@
     height: 35px;
     padding-top: 5px;
 }
+button.addnew {
+  display: block;
+  background-color: #4a148c;
+  margin-top: 10px;
+  color: #fff;
+  padding: 10px;
+  width: 100%;
+}

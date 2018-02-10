@@ -2,15 +2,15 @@
   <h2 class="sidewrapper">Mission</h2>
   <form [formGroup]="myForm" novalidate (ngSubmit)="save()">
     <div class="sidewrapper greyback">
-      <app-autocomplete [typeAutocomplete]="'project'" [canDelete]=true [search]="search" [title]="" [singleChoice]=true [arrayContent]="fetchedMission.projects" [placeholderString]="'Project'">
+      <app-autocomplete [typeAutocomplete]="'project'" [canDelete]=true [search]="search" [title]="" [singleChoice]=true [arrayContent]="fetchedMission.projects" [placeholderString]="'Add Project Title'">
       </app-autocomplete>
-      <app-autocomplete [typeAutocomplete]="'categorie'" [canDelete]=true [search]="search" [title]="" [singleChoice]=true [arrayContent]="fetchedMission.categories" [placeholderString]="'Marketing Field'">
+      <app-autocomplete [typeAutocomplete]="'categorie'" [canDelete]=true [search]="search" [title]="" [singleChoice]=true [arrayContent]="fetchedMission.categories" [placeholderString]="'Add Field Name'">
       </app-autocomplete>
       <mat-form-field>
-        <input matInput type="text" formControlName="title" [(ngModel)]="fetchedMission.title" placeholder="Title">
+        <input matInput type="text" formControlName="title" [(ngModel)]="fetchedMission.title" placeholder="Add Mission Title">
       </mat-form-field>
       <mat-form-field>
-        <textarea matInput formControlName="description" [(ngModel)]="fetchedMission.description" placeholder="Description"></textarea>
+        <textarea matInput formControlName="description" [(ngModel)]="fetchedMission.description" placeholder="Add Description"></textarea>
       </mat-form-field>
     </div>
     <div class="sidewrapper">

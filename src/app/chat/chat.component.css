@@ -9,6 +9,7 @@
   border-radius: 100px;
   width: 40px;
   height: 40px;
+  float: left;
 }
 .chat-content {
   margin-left: 55px;

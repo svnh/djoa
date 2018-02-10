@@ -34,11 +34,11 @@
   <div *ngIf="fetchedData.length == 0 && autocompleteSearch !=''">
     No results.
     <button
-      class=""
+      class="addnew"
       *ngIf="typeAutocomplete=='user'"
       type="button" md-button
       (click)="createObj(typeAutocomplete)">
-      <i class="fa fa-plus"></i> Add new one
+      <i class="fa fa-plus"></i> Add New User
     </button>
   </div>
 
@@ -59,13 +59,13 @@
           <div *ngIf="typeAutocomplete=='strat'">{{data.title}}</div>
           <div *ngIf="typeAutocomplete=='mission'">{{data.title}}</div>
           <div *ngIf="typeAutocomplete=='brief'">{{data.questions.tryingToDo}}</div>
-          <div *ngIf="typeAutocomplete=='project'">{{data.details.name}}</div>
+          <div *ngIf="typeAutocomplete=='project'">Project Title: {{data.details.name}}</div>
           <div *ngIf="typeAutocomplete=='categorie'">{{data.name}}</div>
           <div *ngIf="typeAutocomplete=='document'">{{data.details.name}}</div>
           <div *ngIf="typeAutocomplete=='right'">{{data.detailRight.nameRight}}</div>
         </td>
         <td class="remove">
-          <button *ngIf="canDelete" type="button" (click)="removeData(i)">REMOVE</button>
+          <button *ngIf="canDelete" type="button" (click)="removeData(i)">CHANGE</button>
         </td>
       </tr>
     </table>

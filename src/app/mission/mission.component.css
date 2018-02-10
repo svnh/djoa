@@ -29,15 +29,18 @@
   height: 50px;
   padding: 0 !important;
   margin-right: 15px;
+  float: left;
 }
 .indiv-team {
   clear: both;
-  margin-bottom: 15px;
+  margin: 15px 0;
   height: 50px;
 }
 .indiv-team p {
   margin: 0;
   padding:15px 0;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 .no-image {
   background: none !important;
