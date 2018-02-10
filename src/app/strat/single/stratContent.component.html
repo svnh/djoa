@@ -2,35 +2,43 @@
   <div>
     <h1 class="bigmarg">{{fetchedStrat.title}}</h1>
   </div>
-  <div class="col-md-12 col-lg-6 lineback">
-    <mat-card class="dspl-nn-dsktp chat-card">
-      <mat-card-content>
-        <app-chat [search]="search"></app-chat>
-      </mat-card-content>
-    </mat-card>
-    <mat-card class="card-margin">
-      <mat-card-content>
-        <h4>Project Goal</h4>
-        <app-briefs [search]="search"></app-briefs>
-      </mat-card-content>
-    </mat-card>
-    <mat-card>
-      <mat-card-content>
-        <h2>Recommended Strategy</h2>
-        <button type="button" class="edit-btn" (click)="openDetails()">Edit</button>
-        <p>{{fetchedStrat.description}}</p>
-        <section>
-          <mat-progress-bar [value]="fetchedStrat.dateStrat.percentageProgress"></mat-progress-bar>
-          <p class="percent">{{fetchedStrat.dateStrat.percentageProgress}}%</p>
-        </section>
-      </mat-card-content>
-    </mat-card>
-    <mat-card class="card-margin">
-      <mat-card-content>
-        <h2>Links to Documents</h2>
-        <app-documents [search]="search"></app-documents>
-      </mat-card-content>
-    </mat-card>
+  <div class="col-md-12 col-lg-6">
+    <div class="lineback dspl-nn-dsktp">
+      <mat-card class="chat-card">
+        <mat-card-content>
+          <app-chat [search]="search"></app-chat>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="lineback">
+      <mat-card>
+        <mat-card-content>
+          <h4>Project Goal</h4>
+          <app-briefs [search]="search"></app-briefs>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="lineback">
+      <mat-card>
+        <mat-card-content>
+          <h2>Recommended Strategy</h2>
+          <button type="button" class="edit-btn" (click)="openDetails()">Edit</button>
+          <p>{{fetchedStrat.description}}</p>
+          <section>
+            <mat-progress-bar [value]="fetchedStrat.dateStrat.percentageProgress"></mat-progress-bar>
+            <p class="percent">{{fetchedStrat.dateStrat.percentageProgress}}%</p>
+          </section>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="lineback">
+      <mat-card class="card-margin">
+        <mat-card-content>
+          <h2>Links to Documents</h2>
+          <app-documents [search]="search"></app-documents>
+        </mat-card-content>
+      </mat-card>
+    </div>
     <mat-card>
       <mat-card-content>
         <h2>Crew Members for this Strategy</h2>
