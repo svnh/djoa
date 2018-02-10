@@ -1,7 +1,7 @@
 .allmissions {
   overflow-x: auto;
   padding-bottom: 15px;
-  margin: 50px 0;
+  margin: 50px 0 35px;
 }
 .allmissions-container {
   width: 5000px;
@@ -33,7 +33,7 @@
   background-color: #f4f4f4;
 }
 mat-progress-bar.mat-progress-bar.mat-primary, .project-progress {
-  width: 72% !important;
+  width: 100% !important;
   display: inline-block;
 }
 .project-progress {
@@ -44,7 +44,7 @@ mat-progress-bar.mat-progress-bar.mat-primary, .project-progress {
   display: block;
   background-color: #f4f4f4;
   position: relative;
-  padding: 20px 5px 15px 20px;
+  padding: 15px 15px 10px;
   cursor: pointer;
 }
 .missionbox table td {

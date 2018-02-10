@@ -102,7 +102,7 @@ img {
   float: none;
   background-image: url(/assets/images/page-title-back.png);
   background-repeat: no-repeat;
-  overflow-y: hidden;
+  overflow-y: auto;
 }
 .missionbox {
   float: left;
@@ -130,7 +130,7 @@ img {
   width: 100%;
   background: none;
   border: 1px solid #ccc;
-  padding: 20px 15px;
+  padding: 15px;
   background-color: #f4f4f4;
   text-align: left;
   cursor: pointer;
@@ -165,13 +165,13 @@ img {
   margin-top: 15px;
 }
 p.percent {
-  display: inline-block;
   margin: 0 !important;
   padding: 1px 10px 0;
-  position: absolute;
-  top: 25%;
-  color: #009688;
+  top: 28%;
+  right: 0;
+  color: #ffffff;
   font-weight: 600;
+  position: absolute;
 }
 .bottom-shadow {
   position: sticky;
@@ -298,7 +298,7 @@ p.percent {
     background-position: 50% -10%;
     width: 80% !important;
     max-width: 80% !important;
-    height: 90%;
+    height: 93%;
   }
   .missionbox {
     width: 450px;
@@ -309,9 +309,6 @@ p.percent {
   .read-chat p.shortMessage {
     display: none;
   }
-  .add-object {
-    height: 68px;
-  }
 }
 @media screen and (max-width: 991px) {
   .djoa-container {
@@ -321,7 +318,6 @@ p.percent {
     max-width: 100% !important;
     height: 100%;
     padding: 46px 15px 0;
-    overflow: auto;
   }
   .missionbox {
     width: 300px;

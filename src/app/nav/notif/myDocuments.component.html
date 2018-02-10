@@ -4,14 +4,14 @@
       Strategy: {{strat.title}}
       <div (click)="goTo('strat', strat._id)" class="notif-wrapper">
         <h4>{{document.details.name}}: {{document.status.global}}</h4>
-        <div class="dynamic">{{document.myActivityPendingTasks}} pendingTasks</div>
+        <div class="dynamic">{{document.myActivityPendingTasks}} Pending Task(s)</div>
       </div>
     </div>
     <div *ngFor="let mission of document.missions">
       Mission: {{mission.title}}
       <div (click)="goTo('mission', mission._id)" class="notif-wrapper">
         <h4>{{document.details.name}}: {{document.status.global}}</h4>
-        <div class="dynamic">{{document.myActivityPendingTasks}} pendingTasks</div>
+        <div class="dynamic">{{document.myActivityPendingTasks}} Pending Task(s)</div>
       </div>
     </div>
   </div>

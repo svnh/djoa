@@ -51,5 +51,12 @@
   float: left;
 }
 h3.top-right-chat {
-    margin-top: 5px;
+  margin-top: 5px;
+}
+.mat-paginator-container, .mat-paginator-range-actions {
+  min-height: 25px !important;
+}
+.mat-icon-button {
+  height: 25px !important;
+  width: 40px !important;
 }
