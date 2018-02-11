@@ -519,17 +519,24 @@ function sendEmailToUserToJoinCompanie(req, res, user) {
         <head>
           <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-          <title>Email from My Chair App by Phyto Paris</title>
+          <title>Email from Djoa App</title>
           <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"></link>
         </head>
         <body style="margin: 0; padding: 0; font-family: 'Montserrat', sans-serif;">
           <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border: 1px solid #cccccc;">
-
             <tr>
               <td bgcolor="#ffffff" style="padding: 15px 15px 15px 15px;">
                 <table border="0" cellpadding="0" cellspacing="0" width="100%">
                   <tr>
-                    <td>Hi ${user.profile.name} ${user.profile.lastName},</td>
+                    <td align="center" bgcolor="#4a148c" height="150">
+                      <img
+                        src="http://${req.headers.host}/assets/images/small-logo-djoa-white.png"
+                        alt="Invitation from Djoa App" width="305" height="100" style="display: block; color: #ffffff;"
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Hi there,</td>
                   </tr>
                   <tr>
                     <td style="padding: 15px 0 30px 0;">
@@ -537,7 +544,7 @@ function sendEmailToUserToJoinCompanie(req, res, user) {
                     </td>
                   </tr>
                   <tr>
-                    <td align="center" style="background-color: #0a2f87; padding: 10px 15px; cursor: pointer;">
+                    <td align="center" style="background-color: #4a148c; padding: 10px 15px; cursor: pointer;">
                       <a
                         href="http://${req.headers.host}/#/user/reset/${token}"
                         style="color: #ffffff; text-decoration: none;"
@@ -546,10 +553,23 @@ function sendEmailToUserToJoinCompanie(req, res, user) {
                       </a>
                     </td>
                   </tr>
+                  <tr>
+                    <td bgcolor="#ede7f6">
+                      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                       <tr>
+                        <td style="padding: 15px 15px 15px 15px;">
+                          <a href="https://www.djoa.co/" style="text-decoration: none;">Djoa App</a>
+                        </td>
+                        <td style="padding: 15px 15px 15px 15px;">
+                          <a href="mailto:info@djoa.co?Subject=Djoa%20App%20Invitation%20Email" style="text-decoration: none;">Contact Us</a>
+                        </td>
+                       </tr>
+                      </table>
+                    </td>
+                  </tr>
                 </table>
               </td>
             </tr>
-
           </table>
         </body>
       </html>
