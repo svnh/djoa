@@ -134,7 +134,7 @@ button {
   background: none;
   border: 1px solid #ccc;
   padding: 15px;
-  background-color: #f4f4f4;
+  background-color: #F4F0F9;
   text-align: left;
   cursor: pointer;
   margin-bottom: 15px;
@@ -192,7 +192,7 @@ p.percent {
   box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.4);
 }
 .greyback {
-  background-color: #f4f4f4;
+  background-color: #F4F0F9;
 }
 .card-header i {
   color: #4a148c !important;
@@ -296,7 +296,7 @@ p.percent {
   margin: 15px 0 0;
 }
 .homenotif .notif-wrapper {
-  background: #f4f4f4 !important;
+  background: #EDE7F6 !important;
   padding: 15px !important;
   display: table;
 }
@@ -327,7 +327,7 @@ p.percent {
 }
 .sidenavcat-header p {
   padding: 15px 0;
-  background: #f4f4f4;
+  background: #F4F0F9;
   margin: 0 !important;
   color: #4a148c;
 }
@@ -421,7 +421,7 @@ p.percent {
 /*---------- Single Chat --------*/
 
 .chat {
-  background-color: #f4f4f4;
+  background-color: #F4F0F9;
   height: 100%;
 }
 .top-nav-chat {

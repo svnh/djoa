@@ -30,7 +30,7 @@
   height: 200px;
 }
 .teaminfo, .your-activity {
-  background-color: #f4f4f4;
+  background-color: #F4F0F9;
 }
 mat-progress-bar.mat-progress-bar.mat-primary, .project-progress {
   width: 100% !important;
@@ -42,7 +42,7 @@ mat-progress-bar.mat-progress-bar.mat-primary, .project-progress {
 .missionbox tr {
   margin: 0 0 15px !important;
   display: block;
-  background-color: #f4f4f4;
+  background-color: #F4F0F9;
   position: relative;
   padding: 15px 15px 10px;
   cursor: pointer;
