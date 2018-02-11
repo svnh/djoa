@@ -1,16 +1,22 @@
 <div *ngFor="let document of myDocuments">
-  <div *ngIf="document.myActivityPendingTasks">
+  <div *ngIf="document.myActivityPendingTasks" class="homenotif">
     <div *ngFor="let strat of document.strats">
-      Strategy: {{strat.title}}
+      <h5>Strategy: {{strat.title}}</h5>
       <div (click)="goTo('strat', strat._id)" class="notif-wrapper">
-        <h4>{{document.details.name}}: {{document.status.global}}</h4>
+        <div class="homenotif-left">
+          <h4>{{document.details.name}}</h4>
+          <p>{{document.status.global}}</p>
+        </div>
         <div class="dynamic">{{document.myActivityPendingTasks}} Pending Task(s)</div>
       </div>
     </div>
     <div *ngFor="let mission of document.missions">
-      Mission: {{mission.title}}
+      <h5>Mission: {{mission.title}}</h5>
       <div (click)="goTo('mission', mission._id)" class="notif-wrapper">
-        <h4>{{document.details.name}}: {{document.status.global}}</h4>
+        <div class="homenotif-left">
+          <h4>{{document.details.name}}</h4>
+          <p>{{document.status.global}}</p>
+        </div>
         <div class="dynamic">{{document.myActivityPendingTasks}} Pending Task(s)</div>
       </div>
     </div>
