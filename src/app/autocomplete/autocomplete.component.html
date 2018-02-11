@@ -15,7 +15,7 @@
         <td class="resultleft" (click)="selectData(data)">
           <i class="fa fa-plus"></i>
         </td>
-        <td class="resultright">
+        <td class="resultright" (click)="selectData(data)">
           <div *ngIf="typeAutocomplete=='user'"><div class="resultname">{{data.profile.name}} {{data.profile.lastName}}</div><div class="resultemail">{{data.email}}</div></div>
           <div *ngIf="typeAutocomplete=='companie'"><label>Company:</label>{{data.nameCompanie}}</div>
           <!-- <div *ngIf="typeAutocomplete=='quote'">{{data.name}}</div> -->

@@ -7,11 +7,13 @@
   padding: 0 8px;
   background-color: #330066;
   color: #ffffff;
+  cursor: pointer;
 }
 .resultright {
   padding: 5px;
   background-color: #f4f4f4;
   width: 100%;
+  cursor: pointer;
 }
 .resultemail {
   font-size: 12px;
