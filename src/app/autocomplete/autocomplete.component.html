@@ -62,7 +62,7 @@
           <div *ngIf="typeAutocomplete=='project'"><label>Project:</label>{{data.details.name}}</div>
           <div *ngIf="typeAutocomplete=='categorie'"><label>Marketing Field:</label>{{data.name}}</div>
           <div *ngIf="typeAutocomplete=='document'"><label>Document:</label>{{data.details.name}}</div>
-          <div *ngIf="typeAutocomplete=='right'">{{data.detailRight.nameRight}}</div>
+          <div *ngIf="typeAutocomplete=='right'"><label>Role:</label>{{data.detailRight.nameRight}}</div>
         </td>
         <td class="remove">
           <button *ngIf="canDelete" type="button" (click)="removeData(i)">CHANGE</button>

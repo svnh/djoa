@@ -71,6 +71,9 @@ a {
 img {
     max-width: 100% !important;
 }
+button {
+  cursor: pointer;
+}
 
 @media screen and (min-width: 992px) {
   .dspl-nn-dsktp {
@@ -309,6 +312,16 @@ p.percent {
 }
 .sidenavcat-header h5 {
   cursor: pointer;
+}
+.loading {
+  z-index:10;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform: -webkit-translate(-50%, -50%);
+  transform: -moz-translate(-50%, -50%);
+  transform: -ms-translate(-50%, -50%);
 }
 
 @media screen and (min-width: 992px) {
