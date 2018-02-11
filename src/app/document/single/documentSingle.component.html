@@ -25,8 +25,9 @@
         <input matInput type="text" formControlName="link" [(ngModel)]="fetchedDocument.link" placeholder="Add Link">
       </mat-form-field>
       <label class="label-title">OR</label>
-      <app-picture [forms]="fetchedDocument.forms"></app-picture>
-
+      <div class="docimage">
+        <app-picture [forms]="fetchedDocument.forms"></app-picture>
+      </div>
     </div>
     <div class="sidewrapper">
       <label class="label-title">Assign Crew Members</label>
