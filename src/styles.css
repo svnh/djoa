@@ -280,24 +280,37 @@ p.percent {
 .card-margin {
   margin-bottom: 30
 }
-.card-margin .notif-wrapper {
+.notif-wrapper {
+  width: 100%;
+}
+.notif-wrapper p, .notif-txt h4 {
+  margin-bottom: 0 !important;
+}
+.notif-wrapper .dynamic {
+  padding: 5px 10px;
+  margin-bottom: 15px;
+  background-color: #f44336;
+  color: #fff;
+}
+.homenotif .notif-wrapper {
   background: #f4f4f4 !important;
   padding: 15px !important;
   display: table;
 }
-.card-margin .notif-wrapper h4 {
+.homenotif .notif-wrapper h4 {
   margin-bottom: 0 !important;
 }
-.notif-wrapper .dynamic {
-  background-color: #f44336;
-  color: #fff;
-}
-.card-margin .dynamic {
+.homenotif .dynamic {
   width: 50%;
   float: right;
   text-align: right;
   background-color: transparent !important;
   color: #000 !important;
+  margin-bottom: 0 !important;
+}
+.homenotif .notif-txt {
+  width: 50%;
+  float: left;
 }
 .lineback {
   background: -webkit-linear-gradient(left, transparent 5%, white 5%, white 5.1%,transparent 5.1%);
