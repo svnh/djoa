@@ -282,6 +282,7 @@ p.percent {
 }
 .notif-wrapper {
   width: 100%;
+  cursor: pointer;
 }
 .notif-wrapper p {
   margin-bottom: 0 !important;
