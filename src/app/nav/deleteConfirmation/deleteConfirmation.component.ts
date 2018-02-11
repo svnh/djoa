@@ -130,8 +130,6 @@ export class DeleteConfirmationComponent implements OnInit {
     }
 
 
-
-
   }
 
   // deleteObj(){
