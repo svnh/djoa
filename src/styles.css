@@ -297,6 +297,7 @@ p.percent {
 }
 .card-margin .notif-wrapper h4 {
   margin-bottom: 0 !important;
+  max-width: 50%;
 }
 .lineback {
   background: -webkit-linear-gradient(left, transparent 5%, white 5%, white 5.1%,transparent 5.1%);
@@ -360,6 +361,9 @@ p.percent {
   }
   .read-chat p.longMessage {
     display: none;
+  }
+  .card-margin .notif-wrapper h4 {
+    font-size: 14px;
   }
 }
 
