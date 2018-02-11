@@ -283,7 +283,7 @@ p.percent {
 .notif-wrapper {
   width: 100%;
 }
-.notif-wrapper p, .notif-txt h4 {
+.notif-wrapper p {
   margin-bottom: 0 !important;
 }
 .notif-wrapper .dynamic {
@@ -291,6 +291,9 @@ p.percent {
   margin-bottom: 15px;
   background-color: #f44336;
   color: #fff;
+}
+.sidewrapper h5 {
+  margin: 15px 0 0;
 }
 .homenotif .notif-wrapper {
   background: #f4f4f4 !important;
@@ -300,6 +303,9 @@ p.percent {
 .homenotif .notif-wrapper h4 {
   margin-bottom: 0 !important;
 }
+.homenotif h5 {
+  margin: 15px 0 3px;
+}
 .homenotif .dynamic {
   width: 50%;
   float: right;
@@ -307,6 +313,7 @@ p.percent {
   background-color: transparent !important;
   color: #000 !important;
   margin-bottom: 0 !important;
+  padding: 0 !important;
 }
 .homenotif .notif-txt {
   width: 50%;
