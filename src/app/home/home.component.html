@@ -1,7 +1,7 @@
 <div class="djoa-container">
   <h1 class="bigmarg">Welcome, {{authService.getCurrentUser().profile.name}}!</h1>
   <div class="col-md-12 col-lg-6">
-    <mat-card class="card-margin">
+    <mat-card class="card-margin homenotif">
       <mat-card-content>
         <h2>Documents Waiting for your input</h2>
         <app-my-documents></app-my-documents>
@@ -9,7 +9,7 @@
     </mat-card>
   </div>
   <div class="col-md-12 col-lg-6">
-    <mat-card class="card-margin">
+    <mat-card class="card-margin homenotif">
       <mat-card-content>
         <h2>Missions with New Messages</h2>
         <app-chat-unread-in-missions></app-chat-unread-in-missions>

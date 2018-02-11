@@ -283,6 +283,10 @@ p.percent {
 .card-margin .notif-wrapper {
   background: #f4f4f4 !important;
   padding: 15px !important;
+  display: table;
+}
+.card-margin .notif-wrapper h4 {
+  margin-bottom: 0 !important;
 }
 .notif-wrapper .dynamic {
   background-color: #f44336;
@@ -294,10 +298,6 @@ p.percent {
   text-align: right;
   background-color: transparent !important;
   color: #000 !important;
-}
-.card-margin .notif-wrapper h4 {
-  margin-bottom: 0 !important;
-  max-width: 50%;
 }
 .lineback {
   background: -webkit-linear-gradient(left, transparent 5%, white 5%, white 5.1%,transparent 5.1%);
