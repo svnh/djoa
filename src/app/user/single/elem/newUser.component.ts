@@ -1,9 +1,12 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { User } from '../../user.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Search } from '../../../shared/shared.model'
-import {ShowNavBarData} from '../../../shared/shared.model'
-import {GlobalEventsManager} from '../../../globalEventsManager';
+import { Search } from '../../../shared/shared.model';
+import { ShowNavBarData} from '../../../shared/shared.model';
+import { GlobalEventsManager} from '../../../globalEventsManager';
+import { AuthService} from '../../../auth/auth.service';
+
+
 
 @Component({
   selector: 'app-newUser',
@@ -18,6 +21,7 @@ export class NewUserComponent implements OnInit {
   public myForm: FormGroup;
 
   constructor(
+    private authService: AuthService,
     private _fb: FormBuilder,
     private globalEventsManager: GlobalEventsManager,
   ) { }
@@ -54,6 +58,10 @@ export class NewUserComponent implements OnInit {
       newShowNavBarData.search.typeObj = 'user'
       newShowNavBarData.search.userId = this.fetchedUser._id
       this.globalEventsManager.showNavBarRight(newShowNavBarData)
+  }
+
+  isAdmin() {
+    return this.authService.getCurrentUser().rights.some(right => right.detailRight.nameRight === 'admin');
   }
 
 

@@ -4,6 +4,10 @@
   <h2 class="my-name">{{fetchedUser.profile.name}} {{fetchedUser.profile.lastName}}</h2>
   <h5>{{fetchedUser.profile.title}}</h5>
 
+  <button type="button" *ngIf="isAdmin()" class="delete" md-button (click)="openDeleteConfirmation()">
+    Delete User (Admin Only)
+  </button>
+
 
 
   <mat-accordion [displayMode]="'flat'" *ngIf="isUserIsMyself()">

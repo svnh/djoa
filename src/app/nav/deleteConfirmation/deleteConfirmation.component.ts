@@ -4,15 +4,9 @@ import {AdminService} from '../../admin/services/admin.service';
 import {Router} from '@angular/router';
 import { UserService} from '../../user/user.service';
 import { User} from '../../user/user.model';
-import { CompanieGuardService} from '../../companie/companieGuard.service'
-// import { PaiementGuardService} from '../../user/paiement/paiementGuard.service'
-// import { ChangeDetectionStrategy} from '@angular/core';
-// import { GlobalEventsManager} from '../../globalEventsManager';
-// // import { NotificationService} from '../../notification/notification.service';
-// import { Notification} from '../../notification/notification.model';
-// import {Observable} from 'rxjs/Rx';
-import {ShowNavBarData} from '../../shared/shared.model'
-import { Search } from '../../shared/shared.model'
+import { CompanieGuardService} from '../../companie/companieGuard.service';
+import {ShowNavBarData} from '../../shared/shared.model';
+import { Search } from '../../shared/shared.model';
 import {GlobalEventsManager} from '../../globalEventsManager';
 import { ProjectService} from '../../project/project.service';
 import { StratService} from '../../strat/strat.service';
@@ -21,6 +15,12 @@ import { MissionService} from '../../mission/mission.service';
 import { CategorieService} from '../../categorie/categorie.service';
 import { DocumentService} from '../../document/document.service';
 import { ToastsManager} from 'ng2-toastr';
+// import { PaiementGuardService} from '../../user/paiement/paiementGuard.service'
+// import { ChangeDetectionStrategy} from '@angular/core';
+// import { GlobalEventsManager} from '../../globalEventsManager';
+// // import { NotificationService} from '../../notification/notification.service';
+// import { Notification} from '../../notification/notification.model';
+// import {Observable} from 'rxjs/Rx';
 
 @Component({
   selector: 'app-deleteConfirmation',
@@ -52,7 +52,7 @@ export class DeleteConfirmationComponent implements OnInit {
     private adminService: AdminService,
     private toastr: ToastsManager,
     // private notificationService: NotificationService,
-    // private userService: UserService,
+    private userService: UserService,
     private globalEventsManager: GlobalEventsManager,
     private router: Router,
     // private companieGuardService: CompanieGuardService,
@@ -74,9 +74,18 @@ export class DeleteConfirmationComponent implements OnInit {
     this.globalEventsManager.showNavBarRight(showNavBarData);
   }
   deleteObject() {
-    if(this.search.typeObj === 'project')
+    if (this.search.typeObj === 'project') {
       this.projectService.deleteProject(this.search.projectId)
-      .subscribe( res => { this.successDeleted(res) }, error => { console.log(error) })
+      .subscribe(
+        res => { this.successDeleted(res); },
+        error => { console.log(error); });
+    }
+    if (this.search.typeObj === 'user') {
+      this.userService.deleteUser(this.search.userId)
+      .subscribe(
+        res => { this.successDeleted(res); },
+        error => { console.log(error); });
+    }
 
     if(this.search.typeObj === 'mission')
       this.missionService.deleteMission(this.search.missionId)
@@ -113,7 +122,12 @@ export class DeleteConfirmationComponent implements OnInit {
       this.router.navigate(['/']);
       this.globalEventsManager.refreshCenter(true);
     }
-    if(this.search.typeObj === 'document') this.globalEventsManager.refreshCenter(true);
+    if (this.search.typeObj === 'user') {
+      this.globalEventsManager.refreshCenter(true);
+    }
+    if(this.search.typeObj === 'document') {
+      this.globalEventsManager.refreshCenter(true);
+    }
 
 
 

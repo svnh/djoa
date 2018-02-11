@@ -2,18 +2,17 @@ import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { AuthService} from '../../auth/auth.service';
 import { UserService} from '../user.service';
 import { Right} from '../../right/right.model';
-
 import { Companie } from '../../companie/companie.model';
 import { CompanieService } from '../../companie/companie.service';
 import { ToastsManager} from 'ng2-toastr';
-
 import { MatDialog} from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { User } from '../user.model';
-
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
-import { Search } from '../../shared/shared.model'
+import { Search } from '../../shared/shared.model';
+import { ShowNavBarData} from '../../shared/shared.model';
+import { GlobalEventsManager} from '../../globalEventsManager';
 
 @Component({
   selector: 'app-profile',
@@ -44,6 +43,7 @@ export class ProfileComponent implements OnInit {
   constructor(
     private userService: UserService,
     private toastr: ToastsManager,
+    private globalEventsManager: GlobalEventsManager,
     // public dialog: MatDialog,
     private router: Router,
     private location: Location,
@@ -114,6 +114,16 @@ export class ProfileComponent implements OnInit {
 
     }
 
+    isAdmin() {
+      return this.authService.getCurrentUser().rights.some(right => right.detailRight.nameRight === 'admin');
+    }
+    openDeleteConfirmation() {
+        const newShowNavBarData = new ShowNavBarData()
+        newShowNavBarData.search.typeScreen = 'deleteConfirmation'
+        newShowNavBarData.search.typeObj = 'user'
+        newShowNavBarData.search.userId = this.fetchedUser._id
+        this.globalEventsManager.showNavBarRight(newShowNavBarData)
+    }
   // searchCompanies() {
   //   if(!this.autocompleteCompanie) {
   //     this.fetchedCompanies = []

@@ -19,7 +19,7 @@
     <app-picture [addPicture]=true [loadSinglePicture]=true [deletePicture]=true (pictureRemoved)="pictureRemoved()" [forms]="fetchedUser.forms"></app-picture>
   </div>
   <div class="valid-edit">
-    <button type="button" *ngIf="fetchedUser._id" class="delete" md-button (click)="openDeleteConfirmation()">Delete User</button>
+    <button type="button" *ngIf="fetchedUser._id || isAdmin()" class="delete" md-button (click)="openDeleteConfirmation()">Delete User</button>
     <!--<button type="button" *ngIf="fetchedUser._id" class="delete" md-button (click)="sendEmailToUserToJoinCompanie()">sendEmailToUserToJoinCompanie</button>-->
   </div>
   <div class="clearfix"></div>
