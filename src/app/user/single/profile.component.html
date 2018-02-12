@@ -3,13 +3,9 @@
     <app-picture [addPicture]=false [deletePicture]=false [forms]="fetchedUser.forms"></app-picture></div>
   <h2 class="my-name">{{fetchedUser.profile.name}} {{fetchedUser.profile.lastName}}</h2>
   <h5>{{fetchedUser.profile.title}}</h5>
-
   <button type="button" *ngIf="isAdmin()" class="delete" md-button (click)="openDeleteConfirmation()">
     Delete User (Admin Only)
   </button>
-
-
-
   <mat-accordion [displayMode]="'flat'" *ngIf="isUserIsMyself()">
     <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)">
       <mat-expansion-panel-header [collapsedHeight]="'60px'" [expandedHeight]="'60px'">

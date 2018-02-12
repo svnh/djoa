@@ -167,8 +167,8 @@ router.post('/', upload.single('fileUp'), function (req, res, err) {
           err: err
         });
       }
-      user.forms.push(result);
-      user.save();
+      // user.forms.push(result);
+      // user.save();
       res.status(201).json({
         message: 'Form Saved Successfully',
         obj: result

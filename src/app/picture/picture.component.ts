@@ -1,11 +1,11 @@
 import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { MatDialogRef} from '@angular/material';
-// import { ProjectSingleComponent }  from '../projectSingle.component';
 import { Form } from './form/form.model';
+import {GlobalEventsManager} from '../globalEventsManager';
+import { ShowNavBarData } from '../shared/shared.model';
+// import { ProjectSingleComponent }  from '../projectSingle.component';
 // import { EditOptionsComponentDialog } from './form/single/modalLibrary/modalLibrary.component';
 // import { MatDialog } from '@angular/material';
-import {GlobalEventsManager} from '../globalEventsManager';
-import { ShowNavBarData } from '../shared/shared.model'
 
 
 
@@ -17,14 +17,14 @@ import { ShowNavBarData } from '../shared/shared.model'
 
 export class PictureComponent {
   @Input() forms: Form[] = [];
-  // @Input() ngStyleImg: string = '';
   @Input() addPicture: boolean = true
   @Input() loadSinglePicture: boolean = false
   @Input() userIdToOpenProfile: string = ''
   @Input() deletePicture: boolean = true
-  // @Input() useDialog: boolean = true
   @Output() getPicture: EventEmitter<any> = new EventEmitter();
   @Output() pictureRemoved: EventEmitter<any> = new EventEmitter();
+  // @Input() ngStyleImg: string = '';
+  // @Input() useDialog: boolean = true
 
 
   constructor(
@@ -42,12 +42,12 @@ export class PictureComponent {
   //   })
   // }
   onPassForm(result) {
-    this.forms.push(result)
-    this.getPicture.emit(result)
+    this.forms.push(result);
+    this.getPicture.emit(result);
   }
   removePic(i) {
     this.forms.splice(i, 1);
-    this.pictureRemoved.emit()
+    this.pictureRemoved.emit();
   }
   //might be deprecated
   openProfile() {

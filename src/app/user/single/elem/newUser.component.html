@@ -11,12 +11,12 @@
   <mat-form-field>
     <input matInput type="text" class="form-control" formControlName="title" [(ngModel)]="fetchedUser.profile.title" placeholder="Title">
   </mat-form-field>
-  <div class="valid-edit">
-    <button type="submit" [disabled]="!myForm.valid" [ngClass]="{'save':myForm.valid,'delete':!myForm.valid}">Done</button>
-  </div>
   <label class="label-title">Update Picture</label>
   <div class="pic-container2">
     <app-picture [addPicture]=true [loadSinglePicture]=true [deletePicture]=true (pictureRemoved)="pictureRemoved()" [forms]="fetchedUser.forms"></app-picture>
+  </div>
+  <div class="valid-edit">
+    <button type="submit" [disabled]="!myForm.valid" [ngClass]="{'save':myForm.valid,'delete':!myForm.valid}">Done</button>
   </div>
   <!--<div class="valid-edit">
     <button type="button" *ngIf="fetchedUser._id || isAdmin()" class="delete" md-button (click)="openDeleteConfirmation()">Delete User</button>
