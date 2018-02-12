@@ -62,6 +62,7 @@ export class MyDocuments implements OnInit {
         this.myActivityPendingTasksDocuments = 0
         this.myDocuments = res.data
         this.dataUpdated.emit(this.myDocuments)
+        console.log(this.myDocuments)
         this.myDocuments.forEach(document => {
           // this.myActivityPendingTasksDocuments += document.myActivityPendingTasks
         })
