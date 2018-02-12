@@ -1,9 +1,5 @@
 
 <div *ngFor="let strat of fetchedStrats">
-  <div *ngFor="let project of strat.projects" class="sidenavcat-header">
-    <h5 (click)="goTo('project', project._id)">< BACK TO PROJECT LIST</h5>
-    <p class="titleundercats">{{project.details.name}}</p>
-  </div>
   <div class="sidebar-item">
     <div (click)="goTo('strat', strat._id)" class="list-on">
       <i class="fa fa-tachometer" aria-hidden="true"></i>

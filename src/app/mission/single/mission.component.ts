@@ -22,8 +22,8 @@ import { Project } from '../../project/project.model';
 
 
 import { Search } from '../../shared/shared.model'
-import {GlobalEventsManager} from '../../globalEventsManager';
-import {ShowNavBarData} from '../../shared/shared.model'
+import { GlobalEventsManager} from '../../globalEventsManager';
+import { ShowNavBarData} from '../../shared/shared.model';
 
 
 @Component({
@@ -171,7 +171,7 @@ export class MissionComponent implements OnInit {
 
 
   closeRight() {
-    let showNavBarData = new ShowNavBarData()
+    const showNavBarData = new ShowNavBarData()
     showNavBarData.showNavBar = -1
     this.globalEventsManager.showNavBarRight(showNavBarData);
   }

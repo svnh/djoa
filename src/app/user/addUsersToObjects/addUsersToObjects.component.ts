@@ -12,6 +12,9 @@ import { UsersToObjects } from '../user.model';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Search } from '../../shared/shared.model';
 import { RightService } from '../../right/right.service';
+import { ShowNavBarData} from '../../shared/shared.model';
+import { GlobalEventsManager} from '../../globalEventsManager';
+
 // import { EditOptionsComponentDialog } from '../../form/modalLibrary/modalLibrary.component';
 //import { Form } from '../../form/form.model';
 // import { DeleteDialog } from '../../deleteDialog/deleteDialog.component'
@@ -45,9 +48,9 @@ export class AddUsersToObjectsComponent implements OnInit {
   constructor(
     private userService: UserService,
     private toastr: ToastsManager,
-    // public dialog: MatDialog,
     private router: Router,
     private location: Location,
+    private globalEventsManager: GlobalEventsManager,
     private activatedRoute: ActivatedRoute,
     private _fb: FormBuilder,
     private rightService: RightService,
@@ -206,6 +209,9 @@ export class AddUsersToObjectsComponent implements OnInit {
         .subscribe(
           res => {
             this.toastr.success('Great!', res.message)
+            this.closeRight();
+
+
             // this.fetchedUsersToObjects = res.obj
             // this.saved.emit(res.obj)
             // if(redirect == 'profile')
@@ -222,6 +228,12 @@ export class AddUsersToObjectsComponent implements OnInit {
           })
 
 
+  }
+
+  closeRight() {
+    const showNavBarData = new ShowNavBarData();
+    showNavBarData.showNavBar = -1;
+    this.globalEventsManager.showNavBarRight(showNavBarData);
   }
 
   //

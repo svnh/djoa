@@ -53,11 +53,11 @@ export class NewUserComponent implements OnInit {
 
 
   openDeleteConfirmation() {
-      const newShowNavBarData = new ShowNavBarData()
-      newShowNavBarData.search.typeScreen = 'deleteConfirmation'
-      newShowNavBarData.search.typeObj = 'user'
-      newShowNavBarData.search.userId = this.fetchedUser._id
-      this.globalEventsManager.showNavBarRight(newShowNavBarData)
+    const newShowNavBarData = new ShowNavBarData();
+    newShowNavBarData.search.typeScreen = 'deleteConfirmation';
+    newShowNavBarData.search.typeObj = 'user';
+    newShowNavBarData.search.userId = this.fetchedUser._id;
+    this.globalEventsManager.showNavBarRight(newShowNavBarData);
   }
 
   isAdmin() {
