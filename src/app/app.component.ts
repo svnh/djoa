@@ -10,6 +10,7 @@ import {
   NavigationError
 } from '@angular/router'
 import { AuthService } from './auth/auth.service';
+import { GlobalEventsManager } from './globalEventsManager';
 
 @Component({
   selector: 'app-root',
@@ -23,6 +24,7 @@ export class AppComponent implements AfterViewInit {
   isDesktopScreen = false;
 
   constructor(
+    private globalEventsManager: GlobalEventsManager,
     private router: Router,
     private authService: AuthService,
     public toastr: ToastsManager,
@@ -38,8 +40,11 @@ export class AppComponent implements AfterViewInit {
     setTimeout(() => {
       this2.widthContainer = this2.elementView.nativeElement.offsetWidth
 
-      if(this2.widthContainer > 991) {
+      if (this2.widthContainer > 991) {
+        this.globalEventsManager.isMobileSizeScreen(false);
         this.isDesktopScreen = true
+      } else {
+        this.globalEventsManager.isMobileSizeScreen(true);
       }
     });
   }

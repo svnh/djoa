@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
   email: FormControl;
   userId: string;
   password: FormControl;
+  private isMobileSizeScreen = false;
   @ViewChild('userEmail') userEmail: ElementRef;
 
   constructor(
@@ -29,6 +30,12 @@ export class LoginComponent implements OnInit, AfterViewInit {
     private toastr: ToastsManager,
     private renderer: Renderer
   ) {
+    this.globalEventsManager.isMobileSizeScreenEmitter.subscribe((mode) => {
+      if (mode !== null) {
+        // console.log(mode)
+        this.isMobileSizeScreen = mode;
+      }
+    });
   }
 
   ngOnInit() {
@@ -62,8 +69,14 @@ export class LoginComponent implements OnInit, AfterViewInit {
           const newShowNavBarData = new ShowNavBarData();
           newShowNavBarData.showNavBar = 1;
           newShowNavBarData.search.typeObj = 'project';
-          this.globalEventsManager.showNavBarLeft(newShowNavBarData);
+
+          if (!this.isMobileSizeScreen) {
+            // console.log('a')
+            setTimeout(() => this.globalEventsManager.showNavBarLeft(newShowNavBarData), 700)
+          }
+
           this.globalEventsManager.showNavBarTop(newShowNavBarData);
+
           //console.log(data)
           // if the user credentials are correct, set the localStorage token and userId,
           // we need these info in order to do stuff later when the user is signed in and verified

@@ -24,6 +24,7 @@ import { GlobalEventsManager} from '../globalEventsManager';
 export class AuthService {
   private url: string = '/';
   public token: string;
+  private isMobileSizeScreen = false;
   public currentUser={
     userId: '',
     token: '',
@@ -47,10 +48,16 @@ export class AuthService {
       this.user = localStorage.getItem('id_token') ? this.jwtHelper.decodeToken(localStorage.getItem('id_token')).user : null;
       // set token if saved in local storage
       //console.log('AuthService called')
-      var currentUser = JSON.parse(localStorage.getItem('currentUser'));
+      const currentUser = JSON.parse(localStorage.getItem('currentUser'));
       this.token = currentUser && currentUser.token;
       this.currentUser = currentUser;
 
+      this.globalEventsManager.isMobileSizeScreenEmitter.subscribe((mode) => {
+        if (mode !== null) {
+          // console.log(mode)
+          this.isMobileSizeScreen = mode;
+        }
+      });
 
   }
 
@@ -86,7 +93,9 @@ export class AuthService {
           this.token = token
           this.currentUser = currentUser
           this.user = this.jwtHelper.decodeToken(token).user
-
+          // if (!this.isMobileSizeScreen) {
+          //   setTimeout(() => this.globalEventsManager.showNavBar(true), 700)
+          // }
         //  console.log(this.currentUser)
           localStorage.setItem('currentUser', JSON.stringify(currentUser))
         }

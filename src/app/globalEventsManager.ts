@@ -17,6 +17,9 @@ export class GlobalEventsManager {
     private _refreshCenter: BehaviorSubject<any> = new BehaviorSubject<any>(null);
     public refreshCenterEmitter: Observable<any> = this._refreshCenter.asObservable();
 
+    private _isMobileSizeScreen: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(null);
+    public isMobileSizeScreenEmitter: Observable<boolean> = this._isMobileSizeScreen.asObservable();
+
     constructor() {}
 
     showNavBarLeft(ifShow: any) {
@@ -32,5 +35,8 @@ export class GlobalEventsManager {
     }
     refreshCenter(ifShow: boolean) {
         this._refreshCenter.next(ifShow);
+    }
+    isMobileSizeScreen(ifShow: boolean) {
+        this._isMobileSizeScreen.next(ifShow);
     }
 }
