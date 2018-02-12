@@ -1,26 +1,24 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { ProjectService} from '../project.service';
 import { ToastsManager} from 'ng2-toastr';
-// import { MatDialog } from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { Project} from '../project.model';
-// import { EditOptionsComponentDialog } from '../../form/modalLibrary/modalLibrary.component';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
-// import { DeleteDialog } from '../../deleteDialog/deleteDialog.component'
 import { UserService} from '../../user/user.service';
 import { DocumentService} from '../../document/document.service';
-
 import { User } from '../../user/user.model';
 import { Categorie } from '../../categorie/categorie.model';
 import { Mission } from '../../mission/mission.model';
 import {CategorieService} from '../../categorie/categorie.service';
-
 import { AuthService} from '../../auth/auth.service';
 import { Search } from '../../shared/shared.model';
 import {GlobalEventsManager} from '../../globalEventsManager';
 import {ShowNavBarData} from '../../shared/shared.model';
+// import { MatDialog } from '@angular/material';
+// import { EditOptionsComponentDialog } from '../../form/modalLibrary/modalLibrary.component';
+// import { DeleteDialog } from '../../deleteDialog/deleteDialog.component'
 
 
 

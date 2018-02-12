@@ -2,9 +2,9 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DocumentService } from '../../document/document.service';
 import { NotifChat } from './notif.model';
 import { Search } from '../../shared/shared.model';
+import { Router } from '@angular/router';
 // import { AuthService } from '../../auth/auth.service';
 // import { AdminService } from '../../admin/services/admin.service';
-// import { Router } from '@angular/router';
 // import { UserService } from '../../user/user.service';
 // import { User } from '../../user/user.model';
 // import { Document } from '../../document/document.model';
@@ -44,7 +44,8 @@ export class MyDocuments implements OnInit {
 
   constructor(
     // private chatService: ChatService,
-    private documentService: DocumentService
+    private documentService: DocumentService,
+    private router: Router,
   ) {
   }
   ngOnInit() {
@@ -68,7 +69,8 @@ export class MyDocuments implements OnInit {
   }
 
   goTo(typeObj: string, missionId: string) {
-    this.goToEmit.emit({typeObj, missionId})
+    this.router.navigate([typeObj + '/' + missionId]);
+    this.goToEmit.emit({typeObj, missionId});
   }
 
 }
