@@ -147,7 +147,7 @@ router.use('/', function (req, res, next) {
 //   }
 //   if(!req.user.ownerCompanies.length) {
 //     return res.status(404).json({
-//       message: 'You must belong to a companie',
+//       message: 'You must belong to a company',
 //       err: ''
 //     })
 //   }

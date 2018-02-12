@@ -102,7 +102,7 @@ router.post('/', function(req, res, next) {
     })
   }
   if (!req.user.ownerCompanies.length) {
-    return res.status(404).json({message: 'You must belong to a companie', err: ''})
+    return res.status(404).json({message: 'You must belong to a company', err: ''})
   }
 
   var mission = new Mission(req.body)

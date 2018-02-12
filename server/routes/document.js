@@ -215,7 +215,7 @@ router.post('/', function(req, res, next) {
     })
   }
   // if (!req.user.companies.length) {
-  //   return res.status(404).json({message: 'You must belong to a companie', err: ''})
+  //   return res.status(404).json({message: 'You must belong to a company', err: ''})
   // }
   // console.log(req.user.companies)
   req.body.ownerCompanies = req.user.ownerCompanies
