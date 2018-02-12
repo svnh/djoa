@@ -29,6 +29,7 @@ export class MyDocuments implements OnInit {
   @Output() dataUpdated: EventEmitter<any> = new EventEmitter();
   myDocuments: Document[] = []
   search: Search = new Search()
+  myActivityPendingTasksDocuments = 0;
 
   // showNavBar: boolean = false;
   // private userId: string = localStorage.getItem('userId');
@@ -58,8 +59,12 @@ export class MyDocuments implements OnInit {
     this.documentService.getDocuments(1, search)
       .subscribe(
       res => {
+        this.myActivityPendingTasksDocuments = 0
         this.myDocuments = res.data
         this.dataUpdated.emit(this.myDocuments)
+        this.myDocuments.forEach(document => {
+          // this.myActivityPendingTasksDocuments += document.myActivityPendingTasks
+        })
         // console.log(this.myDocuments)
       },
       error => {

@@ -1,5 +1,5 @@
 
-<p *ngIf="!totalMyActivityPendingTasks">You're all done!</p>
+<p *ngIf="!totalMyActivityPendingTasks">You're all done for the missions!</p>
 <div *ngFor="let documentsByMission of documentsByMissions">
   <div (click)="goTo('mission', documentsByMission.mission._id)">
     <div *ngFor="let document of documentsByMission.documents">
