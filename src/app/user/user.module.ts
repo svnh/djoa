@@ -7,7 +7,6 @@ import { UserRouting } from './userRouting.module';
 import { RightModule} from '../right/right.module';
 
 import {MatSelectModule} from '@angular/material';
-// import { QuoteModule} from '../quote/quote.module';
 import { CompanieModule} from '../companie/companie.module';
 import { ProjectModule} from '../project/project.module';
 
@@ -15,8 +14,8 @@ import { ProjectModule} from '../project/project.module';
 import { RegisterComponent} from './register/register.component';
 
 import { NewUserComponent} from './single/elem/newUser.component';
+import { NewUserFirstConnectionComponent} from './single/elem/newUserFirstConnection.component';
 import { SettingsUserComponent } from './single/elem/settingsUser.component';
-// import { EditUserComponent} from './singleUser/editUser.component';
 import { ProfileComponent} from './single/profile.component';
 
 import { ChangePasswordComponent } from './single/changePassword/changePassword.component';
@@ -24,6 +23,8 @@ import { ResetPasswordComponent} from './accountRecover/resetPassword.component'
 import { ForgetPasswordComponent} from './accountRecover/forgetPassword.component';
 
 import { UserService} from './user.service';
+// import { QuoteModule} from '../quote/quote.module';
+// import { EditUserComponent} from './singleUser/editUser.component';
 // import { PaiementService} from './paiement/paiement.service';
 import { LoginComponent} from './login/login.component';
 
@@ -63,6 +64,7 @@ import {MatExpansionModule} from '@angular/material';
 
     // AutocompleteComponent,
     NewUserComponent,
+    NewUserFirstConnectionComponent,
     SettingsUserComponent,
     // EditUserComponent,
     ProfileComponent,

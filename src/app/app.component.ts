@@ -49,10 +49,10 @@ export class AppComponent implements AfterViewInit {
       }
 
 
-      const newShowNavBarData = new ShowNavBarData();
-      newShowNavBarData.search.typeObj = 'project';
-      newShowNavBarData.search.typeScreen = 'object';
-      this2.globalEventsManager.showNavBarLeft(newShowNavBarData);
+      // const newShowNavBarData = new ShowNavBarData();
+      // newShowNavBarData.search.typeObj = 'project';
+      // newShowNavBarData.search.typeScreen = 'object';
+      // this2.globalEventsManager.showNavBarLeft(newShowNavBarData);
     });
 
 

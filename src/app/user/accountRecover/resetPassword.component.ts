@@ -63,12 +63,14 @@ export class ResetPasswordComponent implements OnInit, AfterViewInit {
           // this.globalEventsManager.showNavBarLeft(newShowNavBarData);
           this.globalEventsManager.showNavBarTop(newShowNavBarData);
 
-          const showNavBarData = new ShowNavBarData()
-          showNavBarData.search.typeScreen = 'profile'
-          showNavBarData.search.typeObj = 'user'
-          showNavBarData.showNavBar = 1
-          showNavBarData.search.userId = this.fetchedUser._id
-          this.globalEventsManager.showNavBarRight(showNavBarData);
+          // const showNavBarData = new ShowNavBarData()
+          // showNavBarData.search.typeScreen = 'profile'
+          // showNavBarData.search.typeObj = 'user'
+          // showNavBarData.showNavBar = 1
+          // showNavBarData.search.userId = this.fetchedUser._id
+          // this.globalEventsManager.showNavBarRight(showNavBarData);
+
+
           //console.log(data)
           // if the user credentials are correct, set the localStorage token and userId,
           // we need these info in order to do stuff later when the user is signed in and verified
@@ -78,7 +80,7 @@ export class ResetPasswordComponent implements OnInit, AfterViewInit {
           // navigate user to index page of our app
 
           //gooplus
-          this._router.navigate(['/']);
+          this._router.navigate(['user/' + this.fetchedUser._id]);
           // location.reload();
 
 

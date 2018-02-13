@@ -21,13 +21,12 @@ import {ChangePasswordComponent} from './single/changePassword/changePassword.co
 //import {UserPicturesComponent} from './singleUser/userPictures.component';
 // import {AddCategoriesToUserComponent} from './singleUser/addCategoriesToUser.component';
 // import { UserCategoriesHistory} from './singleUser/userCategoriesHistory.component';
-import {NewUserComponent} from './single/elem/newUser.component';
+import { NewUserFirstConnectionComponent} from './single/elem/newUserFirstConnection.component';
 import { AdminUsersComponent } from './users/adminUsers.component';
 
 
 export const routes: Routes = [
 
-  {path: 'newuser', component: NewUserComponent, canActivate: [AuthGuardService]},
 
   // {path: ':id', component: NewUserComponent, canActivate: [AuthGuardService]},
   {path: 'login', component: LoginComponent},
@@ -39,7 +38,8 @@ export const routes: Routes = [
   // {path: 'profile', component: UserProfileComponent, canActivate: [AuthGuardService]},
   // {path: 'paiement', component: PaiementComponent, canActivate: [AuthGuardService]},
   // {path: 'profile/:id', component: UserProfileComponent, canActivate: [AuthGuardService]},
-  {path: ':id', component: NewUserComponent, canActivate: [AuthGuardService]},
+  // {path: ':id', component: NewUserComponent, canActivate: [AuthGuardService]},
+  {path: ':id', component: NewUserFirstConnectionComponent, canActivate: [AuthGuardService]},
   {path: 'list/:isExternalUser', component: AdminUsersComponent, canActivate: [AuthGuardService]},
 
 //  {path: 'profile/:id/userProfileSettings', component: UserProfileSettingsComponent, canActivate: [AuthGuardService]},

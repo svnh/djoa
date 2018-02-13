@@ -47,7 +47,7 @@ export class ProfileComponent implements OnInit {
     // public dialog: MatDialog,
     private router: Router,
     private location: Location,
-    private activatedRoute: ActivatedRoute,
+    // private activatedRoute: ActivatedRoute,
     private _fb: FormBuilder,
     private authService: AuthService,
     private companieService: CompanieService,
@@ -87,11 +87,11 @@ export class ProfileComponent implements OnInit {
 
       // this.fetchedUser.isExternalUser = this.search.isExternalUser
       // console.log(this.search.userId)
-      this.activatedRoute.params.subscribe((params: Params) => {
-        if(params['id']) {
-            this.getUser(params['id'])
-        }
-      })
+      // this.activatedRoute.params.subscribe((params: Params) => {
+      //   if(params['id']) {
+      //       this.getUser(params['id'])
+      //   }
+      // })
     }
 
     setStep(index: number) {
