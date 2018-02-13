@@ -2,26 +2,15 @@
   height: 100%;
   width: 100%;
 }
-
-.wrapper-profimg {
-  overflow: hidden;
-  position: sticky;
+.profimg {
+  background-position: center;
+  background-size: cover;
   height: 100%;
   width: 100%;
   border-top-left-radius: 100px;
   border-top-right-radius: 100px;
   border-bottom-left-radius: 100px;
   border-bottom-right-radius: 100px;
-}
-.profimg {
-  position: absolute;
-  left: -9999px;
-  right: -9999px;
-  top: -9999px;
-  bottom: -9999px;
-  margin: auto;
-  max-width: 150% !important;
-  max-height: 150%;
 }
 .container-profimg button {
   width: 100%;
