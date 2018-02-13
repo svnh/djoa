@@ -3,7 +3,6 @@ import {AuthService} from '../../auth/auth.service';
 import {MissionService} from '../mission.service';
 import {CategorieService} from '../../categorie/categorie.service';
 import { ProjectService} from '../../project/project.service';
-
 import {Mission} from '../mission.model';
 
 import {ToastsManager} from 'ng2-toastr';
@@ -37,29 +36,31 @@ export class MissionComponent implements OnInit {
   @Input() fetchedMission: Mission = new Mission()
   @Input() search: Search = new Search()
 
-
+  fetchedCategories: Categorie[] = [];
+  loading = false;
   myForm: FormGroup;
 
 // ]
   constructor(
     private missionService: MissionService,
-    // private quoteService: QuoteService,
     private globalEventsManager: GlobalEventsManager,
-    // private projectService: ProjectService,
-    // private projectService: ProjectService,
-    // private userService: UserService,
-    // private categorieService: CategorieService,
-//    private modalService: NgbModal,
+    private categorieService: CategorieService,
     private toastr: ToastsManager,
-    // public dialog: MatDialog,
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private location: Location,
     private _fb: FormBuilder,
     private authService: AuthService,
+    // private quoteService: QuoteService,
+    // private projectService: ProjectService,
+    // private projectService: ProjectService,
+    // private userService: UserService,
+    //    private modalService: NgbModal,
+    // public dialog: MatDialog,
   ) {}
 
   ngOnInit() {
+    // this.getCategories(1, {});
     this.myForm = this._fb.group({
       description: [''],
       title: [''],
@@ -98,6 +99,23 @@ export class MissionComponent implements OnInit {
     })
   }
 
+
+  // getCategories(page: number, search: any) {
+  //   this.loading = true;
+  //   this.categorieService.getCategories(page, search)
+  //     .subscribe(
+  //       res => {
+  //         this.fetchedCategories = res.data
+  //         if (this.fetchedCategories.length && !this.fetchedMission.categories.length) {
+  //           this.fetchedMission.categories.push(this.fetchedCategories[0])
+  //         }
+  //         this.loading = false;
+  //       },
+  //       error => {
+  //         console.log(error);
+  //       }
+  //     );
+  // }
 
   // getProject(id: string) {
   //   this.projectService.getProject(id)

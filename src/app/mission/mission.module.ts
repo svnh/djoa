@@ -16,7 +16,7 @@ import { MissionService} from './mission.service';
 import { MissionRouting} from './missionRouting.module';
 import { MissionsComponent} from './list/missions.component';
 import { LightMissionsComponent} from './list/lightMissions.component';
-
+// import { MatSelectModule} from '@angular/material/select';
 // import { ProjectMissionsComponent} from './project/projectMissions.component';
 // // import { QuoteModule} from '../quote/quote.module';
 
@@ -43,6 +43,7 @@ import {ChatModule} from '../chat/chat.module';
     SharedModule,
     DocumentModule,
     ChatModule,
+    // MatSelectModule,
     // AutocompleteModule,
   ],
   declarations: [

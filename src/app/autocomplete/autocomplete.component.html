@@ -3,9 +3,19 @@
 
   <div *ngIf="!arrayContent.length || !singleChoice">
     <div>
-      <mat-form-field>
+      <mat-form-field *ngIf="typeAutocomplete!=='categorie'">
         <input matInput autofocus autocapitalize="none" autocomplete="off" spellcheck="false" autocorrect="none" type="text" name="Search" placeholder="{{placeholderString}}" [(ngModel)]="autocompleteSearch" (ngModelChange)="searchData()">
       </mat-form-field>
+
+
+      <mat-form-field *ngIf="typeAutocomplete==='categorie'">
+        <mat-select placeholder="Add Field Name" (selectionChange)="selectData(autocompleteSearch)" [(ngModel)]="autocompleteSearch">
+          <mat-option *ngFor="let category of fetchedCategories" [value]="category">
+            {{ category.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
     </div>
   </div>
 
@@ -20,7 +30,7 @@
           <div *ngIf="typeAutocomplete=='companie'"><label>Company:</label>{{data.nameCompanie}}</div>
           <!-- <div *ngIf="typeAutocomplete=='quote'">{{data.name}}</div> -->
           <div *ngIf="typeAutocomplete=='project'"><label>Project:</label>{{data.details.name}}</div>
-          <div *ngIf="typeAutocomplete=='categorie'"><label>Marketing Field:</label>{{data.name}}</div>
+          <!-- <div *ngIf="typeAutocomplete=='categorie'"><label>Marketing Field:</label>{{data.name}}</div> -->
           <div *ngIf="typeAutocomplete=='brief'"><label>Brief:</label>{{data.questions.tryingToDo}}</div>
           <div *ngIf="typeAutocomplete=='strat'"><label>Strategy:</label>{{data.title}}</div>
           <div *ngIf="typeAutocomplete=='mission'"><label>Mission:</label>{{data.title}}</div>
