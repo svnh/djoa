@@ -241,6 +241,7 @@ export class AutocompleteComponent implements OnInit, OnChanges {
     }
   }
 
+
   selectData(data) {
     this.autocompleteSearch = '';
     this.fetchedData = [];
