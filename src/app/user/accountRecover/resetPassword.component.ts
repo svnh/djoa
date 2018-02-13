@@ -57,11 +57,11 @@ export class ResetPasswordComponent implements OnInit, AfterViewInit {
     this._authService.signin(user)
       .subscribe(
         data => {
-          const newShowNavBarData = new ShowNavBarData()
-          newShowNavBarData.showNavBar = 1
+          // const newShowNavBarData = new ShowNavBarData()
+          // newShowNavBarData.showNavBar = 1
           // newShowNavBarData.search.typeObj = 'project'
           // this.globalEventsManager.showNavBarLeft(newShowNavBarData);
-          this.globalEventsManager.showNavBarTop(newShowNavBarData);
+          // this.globalEventsManager.showNavBarTop(newShowNavBarData);
 
           // const showNavBarData = new ShowNavBarData()
           // showNavBarData.search.typeScreen = 'profile'

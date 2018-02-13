@@ -7,6 +7,7 @@ import { GlobalEventsManager} from '../../../globalEventsManager';
 import { AuthService} from '../../../auth/auth.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { UserService} from '../../user.service';
+import { ToastsManager} from 'ng2-toastr';
 
 @Component({
   selector: 'app-new-user-first-connection',
@@ -25,13 +26,49 @@ export class NewUserFirstConnectionComponent implements OnInit {
     private authService: AuthService,
     private _fb: FormBuilder,
     private userService: UserService,
+    private toastr: ToastsManager,
+    private router: Router,
     private globalEventsManager: GlobalEventsManager,
   ) { }
 
+  // save() {
+  //   // this.saved.emit();
+  //   // this.closeRight();
+  // }
+
   save() {
-    this.saved.emit();
-    this.closeRight();
+    if (this.fetchedUser._id) {
+      this.userService.updateUser(this.fetchedUser)
+        .subscribe(
+          res => {
+            this.toastr.success('Great!', res.message);
+            this.router.navigate(['/']);
+            const newShowNavBarData = new ShowNavBarData()
+            newShowNavBarData.showNavBar = 1
+            newShowNavBarData.search.typeObj = 'project'
+            this.globalEventsManager.showNavBarLeft(newShowNavBarData);
+            this.globalEventsManager.showNavBarTop(newShowNavBarData);
+          },
+          error => {
+            this.toastr.error('Error!');
+            console.log(error);
+          }
+        );
+    } else {
+      this.userService.saveUser(this.fetchedUser)
+        .subscribe(
+          res => {
+            this.toastr.success('Great!', res.message);
+            this.fetchedUser = res.obj;
+          },
+          error => {
+            console.log(error);
+            this.toastr.error('Error!');
+          }
+        );
+    }
   }
+
   pictureRemoved() {
     this.saved.emit();
   }

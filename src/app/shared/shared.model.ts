@@ -5,7 +5,7 @@
   }
 
   export class Search {
-      typeObj: string = '';
+      typeObj: string = 'project';
       typeScreen: string = 'object';
       userId: string = '';
       briefId: string = '';
