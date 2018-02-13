@@ -1,7 +1,7 @@
 <div *ngFor="let singleForm of forms; let i=index;" class="container-profimg" >
   <div class="wrapper-profimg">
     <!-- <div style="background-image: url('assets/images/no-image-found.jpg')"> -->
-    <div [ngStyle]="{background-image: url('/uploads/forms/{{singleForm.owner}}/{{singleForm.imagePath}})}">
+    <div [ngStyle]="{'background-image': 'url(/uploads/forms/' + singleForm.owner + '/' + singleForm.imagePath + ')'}">
     <!-- <img (click)="openProfile()" class="profimg" src="./uploads/forms/{{singleForm.owner}}/{{singleForm.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'"> -->
   </div>
   <button *ngIf="deletePicture" type="button" md-button (click)="removePic(i)"><p class="removepic">Remove Picture</p></button>
