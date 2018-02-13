@@ -85,6 +85,11 @@ export class SideBarLeftComponent implements OnInit, OnChanges {
     // console.log(this.widthContainer)
   }
 
+  closeLeft() {
+    this.showNavBarData.showNavBar = -1;
+    this.globalEventsManager.showNavBarLeft(this.showNavBarData);
+  }
+
   ngOnChanges() {
     // console.log('b')
     // console.log(this.showNavBarData.search)
