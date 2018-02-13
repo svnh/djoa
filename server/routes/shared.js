@@ -1,6 +1,7 @@
 var Notification = require('../models/notification.model'),
   User = require('../models/user.model'),
-  Log = require('../models/log.model');
+  Log = require('../models/log.model'),
+  emailGenerator = require('./emailGenerator.js');
 
 module.exports = {
 
@@ -163,11 +164,16 @@ module.exports = {
             // console.log(document.status.pendingActionFrom)
             if (document.status.pendingActionFrom === 'crew') {
               document.crewMembers.forEach(user => {
-                console.log('crew', user.email, item._id)
+                if (user.profile.emailPreferences.frequencyEmail === 'asTheyHappen') {
+                  // to do
+                }
+                emailGenerator.sendEmailBatchDocuments(user)
+                console.log(user)
+                // console.log('crew', user.email, item._id)
               })
             } else if (document.status.pendingActionFrom === 'client') {
               document.reviewers.forEach(user => {
-                console.log('client', user.email, item._id)
+                // console.log('client', user.email, item._id)
               })
             }
           })
