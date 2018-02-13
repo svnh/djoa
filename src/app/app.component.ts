@@ -11,6 +11,7 @@ import {
 } from '@angular/router'
 import { AuthService } from './auth/auth.service';
 import { GlobalEventsManager } from './globalEventsManager';
+import { ShowNavBarData} from './shared/shared.model';
 
 @Component({
   selector: 'app-root',
@@ -46,7 +47,17 @@ export class AppComponent implements AfterViewInit {
       } else {
         this.globalEventsManager.isMobileSizeScreen(true);
       }
+
+
+      const newShowNavBarData = new ShowNavBarData();
+      newShowNavBarData.search.typeObj = 'project';
+      newShowNavBarData.search.typeScreen = 'object';
+      this2.globalEventsManager.showNavBarLeft(newShowNavBarData);
     });
+
+
+
+
   }
 
 

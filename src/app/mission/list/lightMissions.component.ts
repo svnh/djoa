@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import { AuthService} from '../../auth/auth.service';
 import { MissionService} from '../mission.service';
 import { Mission} from '../mission.model';
@@ -9,9 +9,9 @@ import { Location } from '@angular/common';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ViewEncapsulation} from '@angular/core';
 import { UserService} from '../../user/user.service';
-import {ShowNavBarData} from '../../shared/shared.model'
+import {ShowNavBarData} from '../../shared/shared.model';
 import {GlobalEventsManager} from '../../globalEventsManager';
-import { Search } from '../../shared/shared.model'
+import { Search } from '../../shared/shared.model';
 import {Categorie} from '../../categorie/categorie.model';
 
 
@@ -23,22 +23,22 @@ import {Categorie} from '../../categorie/categorie.model';
   // encapsulation: ViewEncapsulation.None
 
 })
-export class LightMissionsComponent implements OnInit {
+export class LightMissionsComponent implements OnInit, OnChanges {
   // @Input() userId = '';
   // @Input() missionType = '';
   @Input() search: Search = new Search();
   @Input() categorie: Categorie = new Categorie();
   @Input() isDesktopScreen = false;
-
-
   showNavBarData: ShowNavBarData = new ShowNavBarData();
-  // token: string = localStorage.getItem('id_token');
   fetchedMissions: Mission[] = [];
+  loading: boolean;
+
+
+  // token: string = localStorage.getItem('id_token');
   // search: any = {
   //   categories : [],
   //   search: ''
   // };
-  loading: boolean;
 
   // paginationData = {
   //   currentPage: 1,
@@ -56,12 +56,12 @@ export class LightMissionsComponent implements OnInit {
     private sanitizer: DomSanitizer,
     private missionService: MissionService,
     private toastr: ToastsManager,
-    // // public dialog: MatDialog,
     private router: Router,
     private location: Location,
     private authService: AuthService,
     private userService: UserService,
     private activatedRoute: ActivatedRoute,
+    // // public dialog: MatDialog,
 
   ) {
     // this.globalEventsManager.refreshCenterEmitter.subscribe((isRefresh) => {
@@ -73,7 +73,7 @@ export class LightMissionsComponent implements OnInit {
   ngOnChanges(changes) {
     // console.log(this.search)
     // if(this.search.projectId && this.search.categorieId)
-      this.getMissions(1, this.search)
+      this.getMissions(1, this.search);
   }
 
   ngOnInit() {
@@ -139,7 +139,7 @@ export class LightMissionsComponent implements OnInit {
   //   this.getMissions(this.paginationData.currentPage, this.search)
   // }
   openCategoriesSideBar(missionId: string) {
-    let newShowNavBarData = new ShowNavBarData()
+    const newShowNavBarData = new ShowNavBarData()
     newShowNavBarData.search.typeObj = 'categorie'
     newShowNavBarData.search.missionId = missionId
     newShowNavBarData.search.projectId = this.search.projectId

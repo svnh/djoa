@@ -7,6 +7,7 @@ import { Routes, RouterModule} from '@angular/router';
 
 
 import { SideBarLeftComponent} from './sideBarLeft.component';
+import { GoBackToProjectComponent} from './goBackToProject/goBackToProject.component';
 import { SharedObjModule } from '../../shared/sharedObj.module';
 @NgModule({
   imports:      [
@@ -17,13 +18,14 @@ import { SharedObjModule } from '../../shared/sharedObj.module';
     ReactiveFormsModule,
     SharedObjModule,
     //  FormsModule,
-    
+
     // ReactiveFormsModule,
 
   ],
   declarations: [
 
     SideBarLeftComponent,
+    GoBackToProjectComponent,
     // CategoriesComponent,
     // CategorieSingleComponent,
   ],

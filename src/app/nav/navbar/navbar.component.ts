@@ -4,15 +4,14 @@ import {AdminService} from '../../admin/services/admin.service';
 import {Router} from '@angular/router';
 import { UserService} from '../../user/user.service';
 import { User} from '../../user/user.model';
-import { CompanieGuardService} from '../../companie/companieGuard.service'
+import { CompanieGuardService} from '../../companie/companieGuard.service';
+import {ShowNavBarData} from '../../shared/shared.model';
+import {GlobalEventsManager} from '../../globalEventsManager';
 // import { PaiementGuardService} from '../../user/paiement/paiementGuard.service'
 // import { ChangeDetectionStrategy} from '@angular/core';
 // // import { NotificationService} from '../../notification/notification.service';
 // import { Notification} from '../../notification/notification.model';
 // import {Observable} from 'rxjs/Rx';
-import {ShowNavBarData} from '../../shared/shared.model'
-
-import {GlobalEventsManager} from '../../globalEventsManager';
 
 @Component({
   selector: 'app-navbar',

@@ -8,11 +8,8 @@
     </app-projects>
     <div *ngIf="showNavBarData.search.typeObj == 'categorie'">
 
-      <div class="sidenavcat-header">
-        <h5 (click)="goTo('project', fetchedProject._id)">< BACK TO PROJECT LIST</h5>
-        <p class="titleundercats">{{fetchedProject.details.name}}</p>
-      </div>
 
+      <app-go-back-to-project [isDesktopScreen]="isDesktopScreen" [search]="showNavBarData.search"></app-go-back-to-project>
 
       <app-lightStrats [isDesktopScreen]="isDesktopScreen" [search]="showNavBarData.search"></app-lightStrats>
       <app-listCategoriesByProject [isDesktopScreen]="isDesktopScreen" [search]="showNavBarData.search"></app-listCategoriesByProject>

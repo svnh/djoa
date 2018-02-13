@@ -8,8 +8,8 @@ import { CompanieGuardService} from '../../companie/companieGuard.service';
 import {GlobalEventsManager} from '../../globalEventsManager';
 import {MatSidenav} from '@angular/material';
 import {ShowNavBarData} from '../../shared/shared.model';
-import { ProjectService} from '../../project/project.service';
-import { Project} from '../../project/project.model';
+// import { ProjectService} from '../../project/project.service';
+// import { Project} from '../../project/project.model';
 // import { PaiementGuardService} from '../../user/paiement/paiementGuard.service'
 // import { ChangeDetectionStrategy} from '@angular/core';
 
@@ -23,18 +23,18 @@ export class SideBarLeftComponent implements OnInit, OnChanges {
   @ViewChild('sidenav') public sidenav: MatSidenav;
   @Input() widthContainer: number;
   @Input() isDesktopScreen = false;
-  showNavBarData: ShowNavBarData = new ShowNavBarData()
+  showNavBarData: ShowNavBarData = new ShowNavBarData();
  // private userId: string = localStorage.getItem('userId');
   // private userId: string;
   fetchedUser: User = new User();
-  fetchedProject: Project = new Project();
+  // fetchedProject: Project = new Project();
   constructor(
     private globalEventsManager: GlobalEventsManager,
     private authService: AuthService,
     private adminService: AdminService,
     private userService: UserService,
     private router: Router,
-    private projectService: ProjectService,
+    // private projectService: ProjectService,
   ) {
     this.globalEventsManager.showNavBarEmitterLeft.subscribe((showNavBarData) => {
         if (showNavBarData !== null) {
@@ -50,44 +50,47 @@ export class SideBarLeftComponent implements OnInit, OnChanges {
   }
 
 
-  closeLeft() {
-
-    this.showNavBarData.showNavBar = -1;
-    this.globalEventsManager.showNavBarLeft(this.showNavBarData);
-  }
+  // closeLeft() {
+  //
+  //   this.showNavBarData.showNavBar = -1;
+  //   this.globalEventsManager.showNavBarLeft(this.showNavBarData);
+  // }
 
   // goToProject(projectId: string) {
   //   this.router.navigate(['project/' + projectId]);
   // }
 
 
-  getProject(id: string) {
-    this.projectService.getProject(id)
-      .subscribe(
-        res => {
-          this.fetchedProject = <Project>res
-        },
-        error => {
-          console.log(error);
-        }
-      )
-  }
+  // getProject(id: string) {
+  //   this.projectService.getProject(id)
+  //     .subscribe(
+  //       res => {
+  //         this.fetchedProject = <Project>res;
+  //       },
+  //       error => {
+  //         console.log(error);
+  //       }
+  //     )
+  // }
 
-  goTo(typeObj: string, stratId: string) {
-    this.router.navigate([typeObj + '/' + stratId]);
-    if (!this.isDesktopScreen) {
-      this.closeLeft();
-    }
-  }
+  // goTo(typeObj: string, stratId: string) {
+  //   this.router.navigate([typeObj + '/' + stratId]);
+  //   if (!this.isDesktopScreen) {
+  //     this.closeLeft();
+  //   }
+  // }
 
   ngOnInit() {
+    // console.log('a')
     // console.log(this.widthContainer)
   }
 
   ngOnChanges() {
-    if (this.showNavBarData.search.projectId) {
-      this.getProject(this.showNavBarData.search.projectId);
-    }
+    // console.log('b')
+    // console.log(this.showNavBarData.search)
+    // if (this.showNavBarData.search.projectId) {
+    //   this.getProject(this.showNavBarData.search.projectId);
+    // }
     if (this.authService.isLoggedIn()) {
       if(this.widthContainer) {
         // console.log(this.widthContainer)

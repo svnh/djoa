@@ -11,7 +11,7 @@ import { ViewEncapsulation} from '@angular/core';
 import { UserService} from '../../user/user.service';
 import {ShowNavBarData} from '../../shared/shared.model'
 import {GlobalEventsManager} from '../../globalEventsManager';
-import { Search } from '../../shared/shared.model'
+import { Search } from '../../shared/shared.model';
 
 
 
@@ -26,7 +26,7 @@ export class LightStratsComponent implements OnInit {
   @Input() userId = '';
   @Input() isDesktopScreen = false;
 
-  @Input() search: Search = new Search()
+  @Input() search: Search = new Search();
 
   // token: string = localStorage.getItem('id_token');
   fetchedStrats: Strat[] = [];
@@ -62,7 +62,7 @@ export class LightStratsComponent implements OnInit {
 
   ) {
     this.globalEventsManager.refreshCenterEmitter.subscribe((isRefresh) => {
-        if(isRefresh) {
+        if (isRefresh) {
           this.getStrats(1, this.search)
           this.globalEventsManager.refreshCenter(false);
         }
