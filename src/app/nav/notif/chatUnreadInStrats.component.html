@@ -1,3 +1,4 @@
+<p *ngIf="!nbNotifChat && !search.isInSideBar">You're all done!</p>
 <div *ngFor="let notifChat of notifChatsInStrats">
   <div *ngIf="notifChat.countUnread !== 0" class="notif-wrapper">
     <h4>{{notifChat.mission.title}}</h4>

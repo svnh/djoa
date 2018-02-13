@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { NotifChat } from './notif.model';
 import { ChatService } from '../../chat/chat.service';
 import { Router } from '@angular/router';
+import { Search } from '../../shared/shared.model';
 // import { AuthService } from '../../auth/auth.service';
 // import { AdminService } from '../../admin/services/admin.service';
 // import { UserService } from '../../user/user.service';
@@ -16,7 +17,6 @@ import { Router } from '@angular/router';
 // import {Observable} from 'rxjs/Rx';
 // import { ShowNavBarData } from '../../shared/shared.model'
 // import { GlobalEventsManager } from '../../globalEventsManager';
-// import { Search } from '../../shared/shared.model'
 
 
 @Component({
@@ -27,8 +27,9 @@ import { Router } from '@angular/router';
 export class ChatUnreadInMissions implements OnInit {
   @Output() goToEmit: EventEmitter<any> = new EventEmitter();
   @Output() dataUpdated: EventEmitter<any> = new EventEmitter();
-  notifChatsInMissions: NotifChat[] = []
-  nbNotifChat = 0
+  @Input() search: Search = new Search();
+  notifChatsInMissions: NotifChat[] = [];
+  nbNotifChat = 0;
 
   // showNavBar: boolean = false;
   // private userId: string = localStorage.getItem('userId');
@@ -37,7 +38,6 @@ export class ChatUnreadInMissions implements OnInit {
   // myDocuments: Document[] = []
   // newMissionDocs = []
   // documentsByMissions = []
-  // search: Search = new Search()
   // fetchedNotifications: Notification[] = [];
   // notificationsNotRead: number=0;
 

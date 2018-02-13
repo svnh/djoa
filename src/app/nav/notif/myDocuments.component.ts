@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DocumentService } from '../../document/document.service';
+import { Document } from '../../document/document.model';
 import { NotifChat } from './notif.model';
 import { Search } from '../../shared/shared.model';
 import { Router } from '@angular/router';
@@ -27,8 +28,8 @@ import { Router } from '@angular/router';
 export class MyDocuments implements OnInit {
   @Output() goToEmit: EventEmitter<any> = new EventEmitter();
   @Output() dataUpdated: EventEmitter<any> = new EventEmitter();
+  @Input() search: Search = new Search()
   myDocuments: Document[] = []
-  search: Search = new Search()
   myActivityPendingTasksDocuments = 0;
 
   // showNavBar: boolean = false;
@@ -62,9 +63,9 @@ export class MyDocuments implements OnInit {
         this.myActivityPendingTasksDocuments = 0
         this.myDocuments = res.data
         this.dataUpdated.emit(this.myDocuments)
-        console.log(this.myDocuments)
         this.myDocuments.forEach(document => {
-          // this.myActivityPendingTasksDocuments += document.myActivityPendingTasks
+          // console.log(document.myActivityPendingTasks)
+          this.myActivityPendingTasksDocuments += document.myActivityPendingTasks
         })
         // console.log(this.myDocuments)
       },

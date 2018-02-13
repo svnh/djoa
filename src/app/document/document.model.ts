@@ -18,11 +18,11 @@ export class Document {
     strats: Strat[] = [];
     missions: Mission[] = [];
     categorie: Categorie = new Categorie();
-    progressTasks: number = 0;
+    progressTasks = 0;
     dateDocument: DateDocument = new DateDocument()
-    currentUserBelongsTo: string = '';
-    activityPendingTasks: number =0;
-    myActivityPendingTasks: number=0;
+    currentUserBelongsTo = '';
+    activityPendingTasks = 0;
+    myActivityPendingTasks = 0;
 
 }
 

@@ -17,6 +17,7 @@
       search: string = '';
       orderBy: string = '';
       start: Date;
+      isInSideBar = false;
       // startString: string = '';
       end: Date;
       // endString: string = '';

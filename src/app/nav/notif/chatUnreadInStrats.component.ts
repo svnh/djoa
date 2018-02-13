@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { NotifChat } from './notif.model';
 import { ChatService } from '../../chat/chat.service';
+import { Search } from '../../shared/shared.model';
 // import { AuthService } from '../../auth/auth.service';
 // import { AdminService } from '../../admin/services/admin.service';
 // import { Router } from '@angular/router';
@@ -16,7 +17,6 @@ import { ChatService } from '../../chat/chat.service';
 // import {Observable} from 'rxjs/Rx';
 // import { ShowNavBarData } from '../../shared/shared.model'
 // import { GlobalEventsManager } from '../../globalEventsManager';
-// import { Search } from '../../shared/shared.model'
 
 
 @Component({
@@ -27,7 +27,9 @@ import { ChatService } from '../../chat/chat.service';
 export class ChatUnreadInStrats implements OnInit {
   @Output() goToEmit: EventEmitter<any> = new EventEmitter();
   @Output() dataUpdated: EventEmitter<any> = new EventEmitter();
-  notifChatsInStrats: NotifChat[] = []
+  @Input() search: Search = new Search();
+  notifChatsInStrats: NotifChat[] = [];
+  nbNotifChat = 0;
   // showNavBar: boolean = false;
   // private userId: string = localStorage.getItem('userId');
   // private userId: string;
@@ -35,7 +37,6 @@ export class ChatUnreadInStrats implements OnInit {
   // myDocuments: Document[] = []
   // newMissionDocs = []
   // documentsByMissions = []
-  // search: Search = new Search()
   // fetchedNotifications: Notification[] = [];
   // notificationsNotRead: number=0;
 
@@ -52,6 +53,9 @@ export class ChatUnreadInStrats implements OnInit {
       .subscribe(
       res => {
         this.notifChatsInStrats = res.obj
+        this.notifChatsInStrats.forEach(singleNotifChatsInMissions => {
+          this.nbNotifChat += singleNotifChatsInMissions.countUnread;
+        })
         this.dataUpdated.emit(this.notifChatsInStrats)
       },
       error => {

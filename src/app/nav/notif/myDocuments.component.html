@@ -1,3 +1,4 @@
+<p *ngIf="!myActivityPendingTasksDocuments && !search.isInSideBar">You're all done!</p>
 <div *ngFor="let document of myDocuments">
   <div *ngIf="document.myActivityPendingTasks">
     <div *ngFor="let strat of document.strats">
