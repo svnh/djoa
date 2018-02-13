@@ -1,16 +1,12 @@
 <div *ngFor="let singleForm of forms; let i=index;" class="container-profimg" >
-  <div class="wrapper-profimg">
+  <div [ngStyle]="{'background-image': 'url(/uploads/forms/' + singleForm.owner + '/' + singleForm.imagePath + ')'}" class="profimg"></div>
     <!-- <div style="background-image: url('assets/images/no-image-found.jpg')"> -->
-    <div [ngStyle]="{'background-image': 'url(/uploads/forms/' + singleForm.owner + '/' + singleForm.imagePath + ')'}">
     <!-- <img (click)="openProfile()" class="profimg" src="./uploads/forms/{{singleForm.owner}}/{{singleForm.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'"> -->
-  </div>
   <button *ngIf="deletePicture" type="button" md-button (click)="removePic(i)"><p class="removepic">Remove Picture</p></button>
 </div>
 <div *ngIf="!forms.length" class="container-profimg">
-  <div class="wrapper-profimg">
-    <div style="background-image: url('assets/images/no-image-found.jpg')">
+  <div style="background-image: url('assets/images/no-image-found.jpg')" class="profimg"></div>
     <!-- <img (click)="openProfile()" class="profimg" src="assets/images/no-image-found.jpg"> -->
-  </div>
 </div>
 <div *ngIf="addPicture">
   <div *ngIf="!loadSinglePicture || forms.length<1">
