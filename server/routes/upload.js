@@ -139,17 +139,16 @@ router.post('/', upload.single('fileUp'), function (req, res, err) {
 
 
 //Gooplus
-    const filename = req.file.filename.split(' ').join('_');
-    let nbChar = filename.split('.').shift().length + 1
+    let nbChar = req.file.filename.split('.').shift().length + 1
     //console.log(req.file.filename.substring(nbChar))
 
     var form = new Form({
     //  textInputOne: req.body.textInput1,
     //  textInputTwo: req.body.textInput2,
-      title: filename.substring(nbChar),
-      imagePath: filename,
+      title: req.file.filename.substring(nbChar),
+      imagePath: req.file.filename,
       //type: req.file.filename.slice(-3),
-      type: filename.split('.').pop(),
+      type: req.file.filename.split('.').pop(),
       owner: user._id,
       ownerCompanies: req.user.companies
     });
