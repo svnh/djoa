@@ -6,8 +6,7 @@ import { FormsModule }         from '@angular/forms';
 // import {NewUserComponent} from '../user/singleUser/newUser.component'
 // import {SharedModule } from '../shared/shared.module';
 // import { newObjDialogComponent } from './newObjDialog/newObjDialog.component';
-
-
+import {MatProgressBarModule} from '@angular/material';
 import { FormService} from './form/form.service';
 // import { UserFormsComponent} from './form/list/userForms.component';
 // import { UserFormsUploadAndList} from './form/both/userFormsUploadAndList.component';
@@ -23,6 +22,7 @@ import { FormComponent} from './form/single/form.component';
   imports: [
     CommonModule,
     FormsModule,
+    MatProgressBarModule,
     // SharedModule,
     // UserModule,
 
