@@ -37,3 +37,6 @@ h5 {
 .mat-expansion-panel {
     box-shadow: none !important;
 }
+.edituser .valid-edit {
+  margin-top: 70px;
+}
