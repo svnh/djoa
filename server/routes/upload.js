@@ -67,6 +67,7 @@ var storage = multer.diskStorage({
       console.log(dest);
     }
     catch (err) {
+      console.log(err)
       fs.mkdirSync(dest);
     }
     if (stat && !stat.isDirectory()) {
