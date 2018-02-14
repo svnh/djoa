@@ -77,7 +77,7 @@ var storage = multer.diskStorage({
   filename: function (req, file, cb) {
     //if you want even more random characters prefixing the filename then change the value '2' below as you wish, right now, 4 charaters are being prefixed
     crypto.pseudoRandomBytes(2, function (err, raw) {
-      cb(null, raw.toString('hex') + '.' + file.originalname.toLowerCase());
+      cb(null, raw.toString('hex') + '.' + file.originalname.toLowerCase().split(' ').join('_'));
     });
   }
 });
