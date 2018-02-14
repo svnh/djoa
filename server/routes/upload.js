@@ -138,6 +138,7 @@ router.post('/', upload.single('fileUp'), function (req, res, err) {
     //   });
 
 
+
 //Gooplus
     let nbChar = req.file.filename.split('.').shift().length + 1
     //console.log(req.file.filename.substring(nbChar))
