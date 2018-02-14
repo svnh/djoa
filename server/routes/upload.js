@@ -67,7 +67,6 @@ var storage = multer.diskStorage({
       console.log(dest);
     }
     catch (err) {
-      console.log(err)
       fs.mkdirSync(dest);
     }
     if (stat && !stat.isDirectory()) {
@@ -140,16 +139,17 @@ router.post('/', upload.single('fileUp'), function (req, res, err) {
 
 
 //Gooplus
-    let nbChar = req.file.filename.split('.').shift().length + 1
+    let filename = req.file.filename.split(' ').join('_');
+    let nbChar = filename.split('.').shift().length + 1
     //console.log(req.file.filename.substring(nbChar))
 
     var form = new Form({
     //  textInputOne: req.body.textInput1,
     //  textInputTwo: req.body.textInput2,
-      title: req.file.filename.substring(nbChar),
-      imagePath: req.file.filename,
+      title: filename.substring(nbChar),
+      imagePath: filename,
       //type: req.file.filename.slice(-3),
-      type: req.file.filename.split('.').pop(),
+      type: filename.split('.').pop(),
       owner: user._id,
       ownerCompanies: req.user.companies
     });
@@ -227,7 +227,7 @@ router.patch('/edit/:id', upload.single('fileUp'), function (req, res, err) {
   //  form.textInputTwo = req.body.textInput2;
     // check if the user has uploaded a new file, if he has, then store the image path to Mongo and replace the old one
     if (req.file !== undefined) {
-      form.imagePath = req.file.filename;
+      form.imagePath = filename;
     }
 
     form.save(function (err, result) {
