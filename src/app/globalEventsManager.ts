@@ -20,6 +20,9 @@ export class GlobalEventsManager {
     private _isMobileSizeScreen: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(null);
     public isMobileSizeScreenEmitter: Observable<boolean> = this._isMobileSizeScreen.asObservable();
 
+    private _isLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(null);
+    public isLoggedInEmitter: Observable<boolean> = this._isLoggedIn.asObservable();
+
     constructor() {}
 
     showNavBarLeft(ifShow: any) {
@@ -38,5 +41,8 @@ export class GlobalEventsManager {
     }
     isMobileSizeScreen(ifShow: boolean) {
         this._isMobileSizeScreen.next(ifShow);
+    }
+    isLoggedIn(ifShow: boolean) {
+        this._isLoggedIn.next(ifShow);
     }
 }

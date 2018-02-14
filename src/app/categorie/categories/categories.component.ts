@@ -24,7 +24,7 @@ export class CategoriesComponent implements OnInit {
     categories : [],
     search: ''
   };
-  loading: boolean= false;
+  loading = false;
 
   paginationData = {
     currentPage: 1,

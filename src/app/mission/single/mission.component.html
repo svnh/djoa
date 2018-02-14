@@ -6,6 +6,15 @@
       </app-autocomplete>
       <app-autocomplete [typeAutocomplete]="'categorie'" [canDelete]=true [search]="search" [title]="" [singleChoice]=true [arrayContent]="fetchedMission.categories" [placeholderString]="'Add Field Name'">
       </app-autocomplete>
+
+      <!-- <mat-form-field *ngIf="fetchedMission.categories.length">
+        <mat-select placeholder="Add Field Name" [(ngModel)]="fetchedMission.categories[0]._id" [ngModelOptions]="{standalone: true}">
+          <mat-option *ngFor="let category of fetchedCategories" [value]="category._id">
+            {{ category.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field> -->
+
       <mat-form-field>
         <input matInput type="text" formControlName="title" [(ngModel)]="fetchedMission.title" placeholder="Add Mission Title">
       </mat-form-field>

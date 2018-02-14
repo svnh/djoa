@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
 import { UserService} from '../user/user.service';
 import { CompanieService} from '../companie/companie.service';
 import { CategorieService} from '../categorie/categorie.service';
@@ -13,6 +13,7 @@ import { Search } from '../shared/shared.model';
 import { ToastsManager} from 'ng2-toastr';
 import { Router} from '@angular/router';
 import { User } from '../user/user.model';
+import { Categorie } from '../categorie/categorie.model';
 // import { QuoteService} from '../quote/quote.service';
 // import { TemplateQuoteService} from '../quote/templateQuote.service';
 // import { UserDialogComponent } from '../user/singleUser/dialog/userDialog.component';
@@ -26,7 +27,7 @@ import { User } from '../user/user.model';
   templateUrl: './autocomplete.component.html',
   styleUrls: ['./autocomplete.component.css'],
 })
-export class AutocompleteComponent implements OnInit {
+export class AutocompleteComponent implements OnInit, OnChanges {
   @Input() typeAutocomplete: string;
   @Input() arrayContent = [];
   @Input() singleChoice: boolean = true;
@@ -38,7 +39,7 @@ export class AutocompleteComponent implements OnInit {
   // createNewItem: boolean = false;
   autocompleteSearch = '';
   fetchedData: User[] = [];
-
+  fetchedCategories: Categorie[] = [];
 
   @Output() getResultAutocomplete: EventEmitter<any> = new EventEmitter();
   @Output() clearAutocomplete: EventEmitter<any> = new EventEmitter();
@@ -52,15 +53,35 @@ export class AutocompleteComponent implements OnInit {
     private briefService: BriefService,
     private categorieService: CategorieService,
     private toastr: ToastsManager,
-    // // private quoteService: QuoteService,
     private stratService: StratService,
     private projectService: ProjectService,
-    // private templateQuoteService: TemplateQuoteService,
     private rightService: RightService,
     private router: Router,
+    // // private quoteService: QuoteService,
+    // private templateQuoteService: TemplateQuoteService,
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (this.typeAutocomplete === 'categorie') {
+      this.getCategories(1, {});
+    }
+  }
+
+  getCategories(page: number, search: any) {
+    this.categorieService.getCategories(page, search)
+      .subscribe(
+        res => {
+          this.fetchedCategories = res.data
+          // if (this.fetchedCategories.length && !this.fetchedMission.categories.length) {
+          //   this.fetchedMission.categories.push(this.fetchedCategories[0])
+          // }
+        },
+        error => {
+          console.log(error);
+        }
+      );
+  }
+
   ngOnChanges() {
     if(this.typeAutocomplete ==='project' && this.search.projectId)
         this.projectService.getProject(this.search.projectId)
@@ -219,6 +240,7 @@ export class AutocompleteComponent implements OnInit {
       this.arrayContent = [result];
     }
   }
+
 
   selectData(data) {
     this.autocompleteSearch = '';

@@ -1,4 +1,4 @@
-<mat-sidenav #sidenav mode="side" class="sidebarleft">
+<mat-sidenav *ngIf="isLoggedIn" #sidenav mode="side" class="sidebarleft">
   <i class="fa fa-times dspl-nn-dsktp" (click)="closeLeft()" aria-hidden="true"></i>
   <div *ngIf="showNavBarData.search.typeScreen == 'object'" class="leftmenu">
     <app-projects

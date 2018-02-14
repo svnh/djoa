@@ -7,13 +7,14 @@ import { FormsModule } from '@angular/forms';
 // import {SharedModule } from '../shared/shared.module';
 // import { newObjDialogComponent } from './newObjDialog/newObjDialog.component';
 import {SharedSmallModule } from '../shared/sharedSmall.module';
-
+import { MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     SharedSmallModule,
+    MatSelectModule,
 
     // SharedModule,
     // UserModule,
