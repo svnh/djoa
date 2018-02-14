@@ -6,7 +6,7 @@
   <div *ngIf="search.search">
     <div>
       Missions
-      <app-missions [search]="{search: search.search}"></app-missions>
+      <app-missions [showHeader]=false [search]="{search: search.search}"></app-missions>
     </div>
     <div>
       Projects

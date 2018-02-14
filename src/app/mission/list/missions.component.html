@@ -1,6 +1,6 @@
 <div *ngIf="fetchedMissions.length" class="missionbox">
   <div class="card">
-    <div class="card-header">
+    <div *ngIf="showHeader" class="card-header">
       <i [ngClass]="'fa fa-' + categorie.icone"></i>
       <h2>{{categorie.name}}</h2>
       <h3 [ngPlural]="paginationData.totalItems">

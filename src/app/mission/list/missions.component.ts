@@ -24,6 +24,7 @@ import { Categorie } from '../../categorie/categorie.model';
 })
 export class MissionsComponent implements OnInit {
   @Input() userId = '';
+  @Input() showHeader = true;
   @Input() categorie: Categorie = new Categorie();
   @Input() search: Search = new Search()
   @Output() getResultMissions: EventEmitter<any> = new EventEmitter();
