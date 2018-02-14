@@ -3,7 +3,12 @@
     <div class="card-header">
       <i [ngClass]="'fa fa-' + categorie.icone"></i>
       <h2>{{categorie.name}}</h2>
-      <h3>{{paginationData.totalItems}} missions</h3>
+      <h3 [ngPlural]="paginationData.totalItems">
+        <ng-template ngPluralCase="=0">{{paginationData.totalItems}} mission</ng-template>
+        <ng-template ngPluralCase="1">{{paginationData.totalItems}} mission</ng-template>
+        <ng-template ngPluralCase="other">{{paginationData.totalItems}} missions</ng-template>
+      </h3>
+
       <button type="button" (click)="editMode=!editMode" class="edit-btn">Edit</button>
     </div>
     <div class="card-block clearfix">
