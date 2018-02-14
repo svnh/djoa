@@ -258,7 +258,7 @@ router.get('/unreadChatInMissions', function (req, res, next) {
               let searchQueryChat = {}
               searchQueryChat['missions'] = mongoose.Types.ObjectId(singleMission._id)
               if (itemLog) {
-                console.log(itemLog)
+                // console.log(itemLog)
                 searchQueryChat['createdAt'] = {
                   '$gte': itemLog.createdAt
                 }
