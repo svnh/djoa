@@ -54,7 +54,6 @@ export class AuthService {
 
       this.globalEventsManager.isMobileSizeScreenEmitter.subscribe((mode) => {
         if (mode !== null) {
-          // console.log(mode)
           this.isMobileSizeScreen = mode;
         }
       });
@@ -97,6 +96,7 @@ export class AuthService {
           //   setTimeout(() => this.globalEventsManager.showNavBar(true), 700)
           // }
         //  console.log(this.currentUser)
+          this.globalEventsManager.isLoggedIn(true);
           localStorage.setItem('currentUser', JSON.stringify(currentUser))
         }
 
@@ -246,7 +246,7 @@ export class AuthService {
     this.globalEventsManager.showNavBarLeft(newShowNavBarData);
     this.globalEventsManager.showNavBarRight(newShowNavBarData);
     this.globalEventsManager.showNavBarTop(newShowNavBarData);
-
+    this.globalEventsManager.isLoggedIn(false);
     localStorage.clear();
     this.token = null;
 
@@ -261,6 +261,9 @@ export class AuthService {
   isLoggedIn() {
     if (!tokenNotExpired()) {
       localStorage.clear();
+      this.globalEventsManager.isLoggedIn(false);
+    } else {
+      this.globalEventsManager.isLoggedIn(true);
     }
     return tokenNotExpired();
   }

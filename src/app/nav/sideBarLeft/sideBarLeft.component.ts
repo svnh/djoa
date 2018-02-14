@@ -23,6 +23,7 @@ export class SideBarLeftComponent implements OnInit, OnChanges {
   @ViewChild('sidenav') public sidenav: MatSidenav;
   @Input() widthContainer: number;
   @Input() isDesktopScreen = false;
+  isLoggedIn = false;
   showNavBarData: ShowNavBarData = new ShowNavBarData();
  // private userId: string = localStorage.getItem('userId');
   // private userId: string;
@@ -45,6 +46,11 @@ export class SideBarLeftComponent implements OnInit, OnChanges {
           if (this.showNavBarData.showNavBar === -1) {
             this.sidenav.close()
           }
+        }
+    })
+    this.globalEventsManager.isLoggedInEmitter.subscribe((isLoggedIn) => {
+        if (isLoggedIn !== null) {
+          this.isLoggedIn = isLoggedIn;
         }
     })
   }
