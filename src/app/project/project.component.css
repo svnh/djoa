@@ -66,6 +66,10 @@ mat-progress-bar.mat-progress-bar.mat-primary, .project-progress {
   height: 60px;
   float: left;
 }
+.container-profimg {
+  height: 100%;
+  width: 100%;
+}
 .teaminfo .pic-container {
   width: 40px;
   height: 40px;
