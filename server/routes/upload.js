@@ -138,7 +138,6 @@ router.post('/', upload.single('fileUp'), function (req, res, err) {
     //   });
 
 
-
 //Gooplus
     let nbChar = req.file.filename.split('.').shift().length + 1
     //console.log(req.file.filename.substring(nbChar))
@@ -156,7 +155,7 @@ router.post('/', upload.single('fileUp'), function (req, res, err) {
 
     if(!req.user.ownerCompanies.length) {
       return res.status(404).json({
-        message: 'You must belong to a company',
+        message: 'You must belong to a companie',
         err: ''
       })
     }
@@ -168,8 +167,8 @@ router.post('/', upload.single('fileUp'), function (req, res, err) {
           err: err
         });
       }
-      // user.forms.push(result);
-      // user.save();
+      user.forms.push(result);
+      user.save();
       res.status(201).json({
         message: 'Form Saved Successfully',
         obj: result
