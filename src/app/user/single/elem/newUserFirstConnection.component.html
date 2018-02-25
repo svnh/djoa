@@ -1,23 +1,22 @@
-<form [formGroup]="myForm" novalidate (ngSubmit)="save()" class="sidebarright-sub">
-  <app-autocomplete *ngIf=false [typeAutocomplete]="'right'" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedUser.rights" [placeholderString]="'User Rights (Admin Only)'">
-  </app-autocomplete>
-
-  <mat-form-field>
-    <input matInput type="text" class="form-control" formControlName="name" [(ngModel)]="fetchedUser.profile.name" placeholder="First Name">
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput type="text" class="form-control" formControlName="lastName" [(ngModel)]="fetchedUser.profile.lastName" placeholder="Last Name">
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput type="text" class="form-control" formControlName="title" [(ngModel)]="fetchedUser.profile.title" placeholder="Title">
-  </mat-form-field>
-  <label class="label-title">Update Picture</label>
-  <div class="pic-container2">
-    <app-picture [addPicture]=true [loadSinglePicture]=true [deletePicture]=true (pictureRemoved)="pictureRemoved()" [forms]="fetchedUser.forms"></app-picture>
-  </div>
-  <div class="valid-edit">
+<div class="log-scrn">
+  <form [formGroup]="myForm" novalidate (ngSubmit)="save()" class="login-form">
+    <div class="logologin"><img src="/assets/images/small-logo-djoa-white.png"/></div>
+    <app-autocomplete *ngIf=false [typeAutocomplete]="'right'" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedUser.rights" [placeholderString]="'User Rights (Admin Only)'">
+    </app-autocomplete>
+    <div class="input-group">
+      <input matInput type="text" class="form-control" formControlName="name" [(ngModel)]="fetchedUser.profile.name" placeholder="First Name">
+    </div>
+    <div class="input-group">
+      <input matInput type="text" class="form-control" formControlName="lastName" [(ngModel)]="fetchedUser.profile.lastName" placeholder="Last Name">
+    </div>
+    <div class="input-group">
+      <input matInput type="text" class="form-control" formControlName="title" [(ngModel)]="fetchedUser.profile.title" placeholder="Title">
+    </div>
+    <label class="label-title">Update Picture</label>
+    <div class="pic-container">
+      <app-picture [addPicture]=true [loadSinglePicture]=true [deletePicture]=true (pictureRemoved)="pictureRemoved()" [forms]="fetchedUser.forms"></app-picture>
+    </div>
     <button type="submit" [disabled]="!myForm.valid" [ngClass]="{'save':myForm.valid,'delete':!myForm.valid}">Done</button>
-  </div>
-
-  <div class="clearfix"></div>
-</form>
+    <div class="clearfix"></div>
+  </form>
+</div>
