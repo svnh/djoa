@@ -528,15 +528,15 @@ function sendEmailToUserToJoinCompanie(req, res, user) {
               <td bgcolor="#ffffff" style="padding: 15px 15px 15px 15px;">
                 <table border="0" cellpadding="0" cellspacing="0" width="100%">
                   <tr>
-                    <td align="center" bgcolor="#4a148c" height="150">
+                    <td align="center" bgcolor="#ffffff" height="150">
                       <img
-                        src="http://${req.headers.host}/assets/images/small-logo-djoa-white.png"
-                        alt="Invitation from Djoa App" width="305" height="100" style="display: block; color: #ffffff;"
+                        src="http://${req.headers.host}/assets/images/small-logo-djoa.png"
+                        alt="Invitation from Djoa App" width="auto" height="50" style="display: block; color: #4a148c;"
                       />
                     </td>
                   </tr>
                   <tr>
-                    <td>Hi there,</td>
+                    <td style="padding: 15px 0 0 0;">Hi there,</td>
                   </tr>
                   <tr>
                     <td style="padding: 15px 0 30px 0;">
