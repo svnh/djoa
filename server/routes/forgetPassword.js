@@ -82,10 +82,10 @@ router.post('/', function (req, res, next) {
         <body style="margin: 0; padding: 0; font-family: 'Montserrat', sans-serif;">
           <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border: 1px solid #cccccc;">
             <tr>
-              <td align="center" bgcolor="#4a148c" height="150">
+              <td align="center" bgcolor="#ffffff" height="150">
                 <img
-                  src="http://${req.headers.host}/assets/images/small-logo-djoa-white.png"
-                  alt="Email from Djoa App" width="305" height="100" style="display: block; color: #ffffff;"
+                  src="http://${req.headers.host}/assets/images/small-logo-djoa.png"
+                  alt="Email from Djoa App" width="auto" height="75" style="display: block; color: #4a148c;"
                 />
               </td>
             </tr>
