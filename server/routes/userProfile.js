@@ -528,18 +528,18 @@ function sendEmailToUserToJoinCompanie(req, res, user) {
               <td bgcolor="#ffffff" style="padding: 15px 15px 15px 15px;">
                 <table border="0" cellpadding="0" cellspacing="0" width="100%">
                   <tr>
-                    <td align="center" bgcolor="#ffffff" height="150">
+                    <td align="center" bgcolor="#ffffff" height="50">
                       <img
                         src="http://${req.headers.host}/assets/images/small-logo-djoa.png"
-                        alt="Invitation from Djoa App" width="auto" height="50" style="display: block; color: #4a148c;"
+                        alt="Invitation from Djoa App" width="auto" height="35" style="display: block; color: #4a148c;"
                       />
                     </td>
                   </tr>
                   <tr>
-                    <td style="padding: 15px 0 0 0;">Hi there,</td>
+                    <td align="center" style="padding: 15px 0 0 0; font-size: 16px; font-family: 'Montserrat';">Hi there,</td>
                   </tr>
                   <tr>
-                    <td style="padding: 15px 0 30px 0;">
+                    <td align="center" style="padding: 15px 0 30px 0; font-size: 16px; font-family: 'Montserrat';">
                       You have been invited to join the Djoa App.
                     </td>
                   </tr>
@@ -547,7 +547,7 @@ function sendEmailToUserToJoinCompanie(req, res, user) {
                     <td align="center" style="background-color: #4a148c; padding: 10px 15px; cursor: pointer;">
                       <a
                         href="http://${req.headers.host}/#/user/reset/${token}"
-                        style="color: #ffffff; text-decoration: none;"
+                        style="color: #ffffff; text-decoration: none;  font-size: 16px; font-family: 'Montserrat';"
                       >
                         Accept the Invitation
                       </a>
@@ -557,11 +557,11 @@ function sendEmailToUserToJoinCompanie(req, res, user) {
                     <td bgcolor="#ede7f6">
                       <table border="0" cellpadding="0" cellspacing="0" width="100%">
                        <tr>
-                        <td style="padding: 15px 15px 15px 15px;">
-                          <a href="https://www.djoa.co/" style="text-decoration: none;">Djoa App</a>
+                        <td align="center" style="padding: 15px 15px 15px 15px; font-size: 10px; font-family: 'Montserrat';">
+                          <a href="https://www.djoa.co/" style="text-decoration: none;">DJOA APP</a>
                         </td>
-                        <td style="padding: 15px 15px 15px 15px;">
-                          <a href="mailto:info@djoa.co?Subject=Djoa%20App%20Invitation%20Email" style="text-decoration: none;">Contact Us</a>
+                        <td align="center" style="padding: 15px 15px 15px 15px; font-size: 10px; font-family: 'Montserrat';">
+                          <a href="mailto:info@djoa.co?Subject=Djoa%20App%20Invitation%20Email" style="text-decoration: none;">CONTACT US</a>
                         </td>
                        </tr>
                       </table>
