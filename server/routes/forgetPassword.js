@@ -82,10 +82,10 @@ router.post('/', function (req, res, next) {
         <body style="margin: 0; padding: 0; font-family: 'Montserrat', sans-serif;">
           <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border: 1px solid #cccccc;">
             <tr>
-              <td align="center" bgcolor="#ffffff" height="150">
+              <td align="center" bgcolor="#ffffff" height="50">
                 <img
                   src="http://${req.headers.host}/assets/images/small-logo-djoa.png"
-                  alt="Email from Djoa App" width="auto" height="75" style="display: block; color: #4a148c;"
+                  alt="Email from Djoa App" width="auto" height="35" style="display: block; color: #4a148c;"
                 />
               </td>
             </tr>
@@ -93,7 +93,7 @@ router.post('/', function (req, res, next) {
               <td bgcolor="#ffffff" style="padding: 15px 15px 15px 15px;">
                 <table border="0" cellpadding="0" cellspacing="0" width="100%">
                   <tr>
-                    <td style="padding: 15px 0 30px 0;">
+                    <td align="center" style="padding: 15px 0 30px 0; font-family: 'Montserrat'; font-size: 16px;">
                       You are receiving this email because you or someone else asked for a password reset for your account on the Djoa App.
                       Please follow the link or copy paste it in your browser address bar to initiate password change:
                     </td>
@@ -102,14 +102,14 @@ router.post('/', function (req, res, next) {
                     <td align="center" style="background-color: #4a148c; padding: 10px 15px;">
                       <a
                         href="http://${req.headers.host}/#/user/reset/${token}"
-                        style="background-color: #0a2f87; padding: 10px 15px; border: none; outline: none; color: #ffffff; text-decoration: none;"
+                        style="background-color: #0a2f87; padding: 10px 15px; border: none; outline: none; color: #ffffff; text-decoration: none; font-family: 'Montserrat'; font-size: 16px;"
                       >
                         Reset Password
                       </a>
                     </td>
                   </tr>
                   <tr>
-                    <td style="padding: 15px 0 30px 0;">
+                    <td style="padding: 15px 0 30px 0; font-family: 'Montserrat'; font-size: 10px;">
                       Direct Link: http://${req.headers.host}/#/user/reset/${token}<br>
                       The link will remain active for one hour. If you didnt asked for a password reset, please ignore this email and reply to this email to let us know someone tried to log into your account.
                     </td>
@@ -121,11 +121,11 @@ router.post('/', function (req, res, next) {
               <td bgcolor="#ede7f6">
                 <table border="0" cellpadding="0" cellspacing="0" width="100%">
                  <tr>
-                  <td style="padding: 15px 15px 15px 15px;">
-                    <a href="https://www.djoa.co/" style="text-decoration: none;">Djoa App</a>
+                  <td align="center" style="padding: 15px 15px 15px 15px; font-family: 'Montserrat'; font-size: 10px;">
+                    <a href="https://www.djoa.co/" style="text-decoration: none;">DJOA APP</a>
                   </td>
-                  <td style="padding: 15px 15px 15px 15px;">
-                    <a href="mailto:info@djoa.co?Subject=Djoa%20App%20Invitation%20Email" style="text-decoration: none;">Contact Us</a>
+                  <td align="center" style="padding: 15px 15px 15px 15px; font-family: 'Montserrat'; font-size: 10px;">
+                    <a href="mailto:info@djoa.co?Subject=Djoa%20App%20Invitation%20Email" style="text-decoration: none;">CONTACT US</a>
                   </td>
                  </tr>
                 </table>
