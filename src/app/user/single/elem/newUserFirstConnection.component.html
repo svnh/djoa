@@ -15,7 +15,7 @@
     <div class="input-group">
       <input type="text" class="form-control" formControlName="title" [(ngModel)]="fetchedUser.profile.title">
     </div>
-    <label class="label-title">Update Picture</label>
+    <label class="label-title">Choose a Profile Picture</label>
     <div class="pic-container">
       <app-picture [addPicture]=true [loadSinglePicture]=true [deletePicture]=true (pictureRemoved)="pictureRemoved()" [forms]="fetchedUser.forms"></app-picture>
     </div>
