@@ -1,16 +1,19 @@
-<div class="log-scrn">
+<div class="log-scrn newuser">
   <form [formGroup]="myForm" novalidate (ngSubmit)="save()" class="login-form">
     <div class="logologin"><img src="/assets/images/small-logo-djoa-white.png"/></div>
     <app-autocomplete *ngIf=false [typeAutocomplete]="'right'" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedUser.rights" [placeholderString]="'User Rights (Admin Only)'">
     </app-autocomplete>
+    <label class="label-title">First Name</label>
     <div class="input-group">
-      <input matInput type="text" class="form-control" formControlName="name" [(ngModel)]="fetchedUser.profile.name" placeholder="First Name">
+      <input type="text" class="form-control" formControlName="name" [(ngModel)]="fetchedUser.profile.name">
     </div>
+    <label class="label-title">Last Name</label>
     <div class="input-group">
-      <input matInput type="text" class="form-control" formControlName="lastName" [(ngModel)]="fetchedUser.profile.lastName" placeholder="Last Name">
+      <input type="text" class="form-control" formControlName="lastName" [(ngModel)]="fetchedUser.profile.lastName">
     </div>
+    <label class="label-title">Job Title</label>
     <div class="input-group">
-      <input matInput type="text" class="form-control" formControlName="title" [(ngModel)]="fetchedUser.profile.title" placeholder="Title">
+      <input type="text" class="form-control" formControlName="title" [(ngModel)]="fetchedUser.profile.title">
     </div>
     <label class="label-title">Update Picture</label>
     <div class="pic-container">
