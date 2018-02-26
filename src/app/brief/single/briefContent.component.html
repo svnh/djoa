@@ -6,7 +6,6 @@
     <mat-card>
       <mat-card-content>
         <h2>Brief</h2>
-
         <div class="briefentry">
           <label>{{'What are you trying to do in one sentence?' }}</label>
           <p>{{fetchedBrief.questions.tryingToDo}}</p>
@@ -23,7 +22,9 @@
           <label>{{'What is your company’s website?' }}</label>
           <p>{{fetchedBrief.questions.companyWebsite}}</p>
         </div>
-        <button type="button" (click)="openDetails(fetchedBrief._id)" class="review-brief">Edit Brief</button>
+        <div class="editbrief">
+          <button type="button" (click)="openDetails(fetchedBrief._id)" class="review-brief">Edit Brief</button>
+        </div>
       </mat-card-content>
     </mat-card>
   </div>
