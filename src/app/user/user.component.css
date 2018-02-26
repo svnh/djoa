@@ -40,3 +40,14 @@ h5 {
 .edituser .valid-edit {
   margin-top: 70px;
 }
+.logologin {
+  margin: 0 auto 50px;
+  width: 50%;
+}
+.logologin img {
+  max-width: 100% !important;
+}
+.log-scrn {
+  width: 300px;
+  margin: 100px auto 0;
+}
