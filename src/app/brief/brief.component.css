@@ -25,6 +25,13 @@ button.addbrief {
   text-decoration: none !important;
   cursor: pointer;
 }
+.editbrief {
+  height: 42px:
+}
+.briefentry label {
+  font-weight: 700;
+}
+
 @media screen and (min-width: 600px) {
   .review-brief {
     padding: 10px 40px;
