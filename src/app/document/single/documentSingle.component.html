@@ -10,7 +10,7 @@
         <app-autocomplete *ngIf="autocompleteSearchCategories.length" [typeAutocomplete]="'mission'" [search]="search" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedDocument.missions" [placeholderString]="'Mission'">
         </app-autocomplete>
       </div>
-      <div *ngIf="search.briefId">
+      <div *ngIf="search.briefId" class="dspl-nn">
         <app-autocomplete [typeAutocomplete]="'brief'" [search]="search" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedDocument.briefs" [placeholderString]="'Brief Title'">
         </app-autocomplete>
       </div>
