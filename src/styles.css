@@ -74,6 +74,9 @@ img {
 button {
   cursor: pointer;
 }
+.dspl-nn {
+  display: none !important;
+}
 
 @media screen and (min-width: 992px) {
   .dspl-nn-dsktp {
