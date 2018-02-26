@@ -1,3 +1,7 @@
+.specialwrapper {
+  padding: 0 15px;
+  margin-top: -10px;
+}
 button.addbrief {
   display: block;
   background-color: #4a148c;
@@ -12,7 +16,7 @@ label {
   color: #4a148c;
 }
 .firstlabstart {
-  margin-top:30px;
+  margin-top: 15px;
 }
 .review-brief {
   text-transform: uppercase;
