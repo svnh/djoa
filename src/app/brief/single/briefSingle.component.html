@@ -1,8 +1,8 @@
 <div>
-  <h2 class="sidewrapper">Mission</h2>
+  <h2 class="sidewrapper">Brief</h2>
   <form [formGroup]="myForm" novalidate (ngSubmit)="save()" (keydown.enter)="$event.preventDefault()">
     <div class="sidewrapper">
-      <app-autocomplete [typeAutocomplete]="'strat'" [search]="search" [canDelete]=true [title]="'strat'" [singleChoice]=true [arrayContent]="fetchedBrief.strats">
+      <app-autocomplete [typeAutocomplete]="'strat'" [search]="search" [canDelete]=true [singleChoice]=true [arrayContent]="fetchedBrief.strats">
       </app-autocomplete>
       <label class="firstlabstart">What are you trying to do in one sentence?</label>
       <mat-form-field>
