@@ -6,19 +6,19 @@
       </app-autocomplete>
     </div>
     <div class="sidewrapper">
-      <label class="firstlabstart">What are you trying to do in one sentence?</label>
+      <label class="firstquestion">What are you trying to do in one sentence?</label>
       <mat-form-field>
         <input matInput type="text" formControlName="tryingToDo" [(ngModel)]="fetchedBrief.questions.tryingToDo">
       </mat-form-field>
-      <label>What is your goal? How will you measure it?</label>
+      <label class="questions">What is your goal? How will you measure it?</label>
       <mat-form-field>
         <input matInput type="text" formControlName="goal" [(ngModel)]="fetchedBrief.questions.goal">
       </mat-form-field>
-      <label>Do you have existing assets for this project? If so, what are they?</label>
+      <label class="questions">Do you have existing assets for this project? If so, what are they?</label>
       <mat-form-field>
         <input matInput type="text" formControlName="existingAssets" [(ngModel)]="fetchedBrief.questions.existingAssets">
       </mat-form-field>
-      <label>What is your company’s website?</label>
+      <label class="questions">What is your company’s website?</label>
       <mat-form-field>
         <input matInput type="text" formControlName="companyWebsite" [(ngModel)]="fetchedBrief.questions.companyWebsite">
       </mat-form-field>
