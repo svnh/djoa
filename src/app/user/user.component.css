@@ -51,3 +51,11 @@ h5 {
   width: 300px;
   margin: 100px auto 0;
 }
+.newuser .label-title, .newuser .fileContainer p {
+  color: #fff;
+}
+.newuser .pic-container {
+  width: 175px;
+  height: 175px;
+  margin: 15px auto 50px;
+}
