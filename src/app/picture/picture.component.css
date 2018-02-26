@@ -34,3 +34,6 @@
   border-radius: 100px !important;
   float: right !important;
 }
+.newuser .fileContainer p {
+  color: #fff !important;
+}
