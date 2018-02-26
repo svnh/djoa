@@ -9,13 +9,13 @@ button.addbrief {
   color: #fff;
   text-transform: uppercase;
 }
-label {
+.questions, .firstquestion {
   font-size: 12px;
   margin-bottom: 0;
   text-transform: uppercase;
   color: #4a148c;
 }
-.firstlabstart {
+.firstquestion {
   margin-top: 15px;
 }
 .review-brief {
@@ -23,6 +23,7 @@ label {
   border: 1px solid;
   float: right;
   text-decoration: none !important;
+  cursor: pointer;
 }
 @media screen and (min-width: 600px) {
   .review-brief {
