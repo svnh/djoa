@@ -3,9 +3,9 @@ var express = require('express'),
   config = require('../config/config'),
   User = require('../models/user.model'),
   Mission = require('../models/mission.model'),
-  Form = require('../models/form.model'),
   Log = require('../models/log.model'),
-  fs = require('fs'),
+  shared = require('./shared'),
+  // fs = require('fs'),
   jwt = require('jsonwebtoken'),
   nameObject = 'mission'
 
@@ -80,17 +80,19 @@ router.put('/:id', function(req, res, next) {
       item.dateMission = req.body.dateMission
       item.status = req.body.status
       item.categories = req.body.categories
-
       item.save(function(err, result) {
         if (err) {
           return res.status(404).json({message: 'There was an error, please try again', err: err})
         }
+        shared.saveUsersMissionToProjectWithoutDuplicate(result);
         res.status(201).json({message: 'Updated successfully', obj: result})
       })
 
     }
   })
 })
+
+
 
 router.post('/', function(req, res, next) {
   if (!shared.isCurentUserHasAccess(req.user.rights, nameObject, 'write')) {
@@ -111,9 +113,9 @@ router.post('/', function(req, res, next) {
 
   mission.save(function(err, result) {
     if (err) {
-
       return res.status(403).json({title: 'There was an issue', error: err})
     }
+    shared.saveUsersMissionToProjectWithoutDuplicate(result);
     res.status(200).json({message: 'Registration Successfull', obj: result})
   })
 })

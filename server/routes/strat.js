@@ -2,11 +2,12 @@ var express = require('express'),
     router  = express.Router(),
     config  = require('../config/config'),
     User    = require('../models/user.model'),
-    Strat    = require('../models/strat.model'),
-    Log    = require('../models/log.model'),
-    Form    = require('../models/form.model'),
-    fs      = require('fs'),
-    jwt     = require('jsonwebtoken'),
+    Strat = require('../models/strat.model'),
+    shared = require('./shared'),
+    Log = require('../models/log.model'),
+    Form = require('../models/form.model'),
+    fs = require('fs'),
+    jwt = require('jsonwebtoken'),
     nameObject = 'strat'
 
 // this process does not hang the nodejs server on error
@@ -93,6 +94,7 @@ router.put('/:id', function (req, res, next) {
               err: err
             })
           }
+          shared.saveUsersStratToProjectWithoutDuplicate(result)
           res.status(201).json({
             message: 'Updated successfully',
             obj: result
@@ -126,6 +128,7 @@ router.post('/', function (req, res, next) {
         error: err
       })
     }
+    shared.saveUsersStratToProjectWithoutDuplicate(result)
     res.status(200).json({
       message: 'Registration Successfull',
       obj: result

@@ -1,10 +1,44 @@
 var Notification = require('../models/notification.model'),
-  User = require('../models/user.model'),
+  // User = require('../models/user.model'),
+  Project = require('../models/project.model'),
+  Strat = require('../models/strat.model'),
   Log = require('../models/log.model'),
   emailGenerator = require('./emailGenerator.js');
 
 module.exports = {
 
+  saveUsersMissionToProjectWithoutDuplicate (mission) {
+    mission.projects.forEach(missionId => {
+      Project.findById(({_id: missionId}), function (err, item) {
+        if (err) {
+        } else {
+          mission.users.forEach(user => {
+            item.users.push(user)
+          })
+          var uniq = new Set(item.users.map(e => JSON.stringify(e)));
+          var res = Array.from(uniq).map(e => JSON.parse(e));
+          item.users = res
+          item.save()
+        }
+      })
+    })
+  },
+  saveUsersStratToProjectWithoutDuplicate (strat) {
+    strat.projects.forEach(stratId => {
+      Strat.findById(({_id: stratId}), function (err, item) {
+        if (err) {
+        } else {
+          strat.users.forEach(user => {
+            item.users.push(user)
+          })
+          var uniq = new Set(item.users.map(e => JSON.stringify(e)));
+          var res = Array.from(uniq).map(e => JSON.parse(e));
+          item.users = res
+          item.save()
+        }
+      })
+    })
+  },
   isCurentUserHasAccess(user, nameObject, typeAccess) {
     // console.log(user, nameObject, typeAccess)
     return true;
