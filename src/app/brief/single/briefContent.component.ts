@@ -1,24 +1,22 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { BriefService} from '../brief.service';
 import { ToastsManager} from 'ng2-toastr';
-// import { MatDialog } from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { Brief, StatusBrief, Log} from '../brief.model';
-// import { EditOptionsComponentDialog } from '../../form/modalLibrary/modalLibrary.component';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
-// import { DeleteDialog } from '../../deleteDialog/deleteDialog.component'
 import { UserService} from '../../user/user.service';
-// import { QuoteService} from '../../quote/quote.service';
-
 import { User } from '../../user/user.model';
-// import { Quote } from '../../quote/quote.model';
 import { AuthService} from '../../auth/auth.service';
-import { Search } from '../../shared/shared.model'
-
-import {ShowNavBarData} from '../../shared/shared.model'
+import { Search } from '../../shared/shared.model';
+import {ShowNavBarData} from '../../shared/shared.model';
 import {GlobalEventsManager} from '../../globalEventsManager';
+// import { MatDialog } from '@angular/material';
+// import { EditOptionsComponentDialog } from '../../form/modalLibrary/modalLibrary.component';
+// import { DeleteDialog } from '../../deleteDialog/deleteDialog.component'
+// import { QuoteService} from '../../quote/quote.service';
+// import { Quote } from '../../quote/quote.model';
 
 
 
@@ -189,8 +187,12 @@ export class BriefContentComponent implements OnInit {
     this.briefService.getBrief(id)
       .subscribe(
         res => {
-
           this.fetchedBrief = <Brief>res
+          // this.fetchedBrief.strats.forEach(strat => {
+          //   strat.projects.forEach(projectId => {
+          //     this.search.projectId = projectId._id
+          //   })
+          // })
 
 
           this.fetchedBrief.dateBrief.startString = this.authService.isoDateToHtmlDate(this.fetchedBrief.dateBrief.start)

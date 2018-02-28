@@ -553,7 +553,10 @@ router.get('/:id', function(req, res, next) {
     }
 
     Document.findById({_id: req.params.id})
-    .populate({path: 'briefs', model: 'Brief'})
+    .populate({
+      path: 'briefs',
+      model: 'Brief'
+    })
     .populate({path: 'missions', model: 'Mission'})
     .populate({path: 'strats', model: 'Strat'})
     .populate({
@@ -568,10 +571,10 @@ router.get('/:id', function(req, res, next) {
       path: 'reviewers',
       model: 'User',
       populate: {
-            path: 'forms',
-            model: 'Form'
-          }
-        })
+        path: 'forms',
+        model: 'Form'
+      }
+    })
     .populate({path: 'owners', model: 'User'})
     // .populate({path: 'logs.forms', model: 'Form'})
     // .populate({path: 'logs.by', model: 'User'})

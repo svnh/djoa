@@ -2,7 +2,8 @@
   <h2 class="sidewrapper greyback">Document</h2>
   <form [formGroup]="myForm" novalidate (ngSubmit)="save()" (keydown.enter)="$event.preventDefault()">
     <div class="sidewrapper greyback">
-      <div *ngIf="!search.stratId && !search.briefId">
+      <!-- <div *ngIf="(!search.stratId && !search.briefId)"> -->
+      <div *ngIf="!fetchedDocument.briefs.length && !fetchedDocument.strats.length">
         <app-autocomplete [typeAutocomplete]="'project'" [search]="search" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="autocompleteSearchProjects" (clearAutocomplete)="clearSearchProjects()" (getResultAutocomplete)="getResultSearchProjects($event[0])" [placeholderString]="'Project'">
         </app-autocomplete>
         <app-autocomplete *ngIf="autocompleteSearchProjects.length" [typeAutocomplete]="'categorie'" [search]="search" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="autocompleteSearchCategories" (clearAutocomplete)="clearSearchCategories()" (getResultAutocomplete)="getResultSearchCategories($event[0])" [placeholderString]="'Marketing Field'">
@@ -32,7 +33,6 @@
     <div *ngIf="!fetchedDocument.briefs.length" class="sidewrapper">
       <label class="label-title">Assign Crew Members</label>
       <label class="label-subtitle">Gets the workd done:</label>
-
       <app-autocomplete [typeAutocomplete]="'user'" [search]="search" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedDocument.crewMembers">
       </app-autocomplete>
       <label class="label-subtitle">Reviews the work:</label>

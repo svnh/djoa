@@ -9,10 +9,9 @@ import { Location } from '@angular/common';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ViewEncapsulation} from '@angular/core';
 import { UserService} from '../../user/user.service';
-import {ShowNavBarData} from '../../shared/shared.model'
+import {ShowNavBarData} from '../../shared/shared.model';
 import {GlobalEventsManager} from '../../globalEventsManager';
-import { Search } from '../../shared/shared.model'
-
+import { Search, PaginationData} from '../../shared/shared.model';
 
 @Component({
   selector: 'app-briefs',
@@ -24,16 +23,18 @@ import { Search } from '../../shared/shared.model'
 export class BriefsComponent implements OnInit {
   @Input() userId = '';
   @Input() showHeader = true;
-  // token: string = localStorage.getItem('id_token');
   fetchedBriefs: Brief[] = [];
   @Input() search: Search = new Search()
   loading: boolean;
+  // token: string = localStorage.getItem('id_token');
 
-  paginationData = {
-    currentPage: 1,
-    itemsPerPage: 0,
-    totalItems: 0
-  };
+  // paginationData = {
+  //   currentPage: 1,
+  //   itemsPerPage: 0,
+  //   totalItems: 0
+  // };
+  paginationData: PaginationData = new PaginationData();
+
 
 
   categories2 = '';
@@ -41,10 +42,10 @@ export class BriefsComponent implements OnInit {
 
 
   constructor(
-    // private sanitizer: DomSanitizer,
     private briefService: BriefService,
     private toastr: ToastsManager,
     private globalEventsManager: GlobalEventsManager,
+    // private sanitizer: DomSanitizer,
     // // public dialog: MatDialog,
     // private router: Router,
     // private location: Location,
@@ -61,16 +62,16 @@ export class BriefsComponent implements OnInit {
   }
 
   ngOnInit() {
-    let this2 = this
+    // let this2 = this
     // setTimeout(function(){
     //   this2.search.userId = this2.userId
     //   this2.search.orderBy = 'name'
-      this2.getBriefs(1, this2.search)
+      this.getBriefs(1, this.search)
     // }, 200);
   }
   //
   addBrief() {
-    let showNavBarData = new ShowNavBarData()
+    const showNavBarData = new ShowNavBarData()
     showNavBarData.showNavBar = 1
     showNavBarData.search.typeScreen = 'object'
     showNavBarData.search.typeObj = 'brief'
