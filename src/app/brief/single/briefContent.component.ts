@@ -206,7 +206,11 @@ export class BriefContentComponent implements OnInit {
         }
       )
   }
-
+  goToStrat() {
+    this.fetchedBrief.strats.forEach(strat => {
+      this.router.navigate(['strat/' + strat._id]);
+    })
+  }
 
   // onDelete(id: string) {
   //   let this2 = this
