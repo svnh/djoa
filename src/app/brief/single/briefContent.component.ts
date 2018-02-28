@@ -24,51 +24,28 @@ import {GlobalEventsManager} from '../../globalEventsManager';
   selector: 'app-briefContent',
   templateUrl: './briefContent.component.html',
   styleUrls: ['../brief.component.css'],
-
 })
 
 export class BriefContentComponent implements OnInit {
 
   @Input() showBackButton: Boolean = true;
   @Output() saved: EventEmitter<any> = new EventEmitter();
+  @Input() search: Search = new Search();
 
-  @Input() search: Search = new Search()
-
-  // selectedIndex0: number = -1
-  // selectedIndex1: number = -1
-  // selectedIndex2: number = -1
-  // show1 = false
-  // show2 = false
-  // categ0: string = '';
-  // categ1: string = '';
-  // categ2: string = '';
-
-  // itemSteps:any =[];
-
-
-  // status = StatusBrief
-
-  // autocompleteUser: string = '';
-  // autocompleteQuote: string = '';
   fetchedUsers: User[] = [];
-  // fetchedQuotes: Quote[] = [];
-
-
   fetchedBrief: Brief = new Brief();
-
-
 
   constructor(
     private sanitizer: DomSanitizer,
     private globalEventsManager: GlobalEventsManager,
     private briefService: BriefService,
     private toastr: ToastsManager,
-    // public dialog: MatDialog,
     private router: Router,
     private location: Location,
     private activatedRoute: ActivatedRoute,
     private _fb: FormBuilder,
     private userService: UserService,
+    // public dialog: MatDialog,
     // private quoteService: QuoteService,
     private authService: AuthService,
   ) {
