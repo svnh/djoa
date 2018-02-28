@@ -69,36 +69,38 @@
         <button type="button" (click)="openDetails(document._id)" class="edit-btn">Edit</button>
         <button type="button" (click)="delete(document._id)" class="delete-x">Delete</button>
       </div>
-      <div class="doc-state-bar">
-        <div [ngClass]="{'off':
-          document.status.global==='WIP'
-         }">
-          <div class="doc-state-bottom">
-            <div class="circle"></div>WIP</div>
-        </div>
-        <div [ngClass]="{'off':
-          document.status.global==='WIP' ||
-          document.status.global==='REVIEW'
-         }">
-          <div class="doc-state-bottom">
-            <div class="circle"></div>REVIEW</div>
-        </div>
-        <div [ngClass]="{'off':
-          document.status.global==='WIP' ||
-          document.status.global==='REVIEW' ||
-          document.status.global==='CHANGES REQUEST'
-         }">
-          <div class="doc-state-bottom">
-            <div class="circle"></div>CHANGES</div>
-        </div>
-        <div [ngClass]="{'off':
-          document.status.global==='WIP' ||
-          document.status.global==='REVIEW' ||
-          document.status.global==='CHANGES REQUEST' ||
-          document.status.global==='CHANGES SENT'
-         }">
-          <div class="doc-state-bottom end">
-            <div class="circle"></div>COMPLETE</div>
+      <div *ngIf="!search.briefId">
+        <div class="doc-state-bar">
+          <div [ngClass]="{'off':
+            document.status.global==='WIP'
+           }">
+            <div class="doc-state-bottom">
+              <div class="circle"></div>WIP</div>
+          </div>
+          <div [ngClass]="{'off':
+            document.status.global==='WIP' ||
+            document.status.global==='REVIEW'
+           }">
+            <div class="doc-state-bottom">
+              <div class="circle"></div>REVIEW</div>
+          </div>
+          <div [ngClass]="{'off':
+            document.status.global==='WIP' ||
+            document.status.global==='REVIEW' ||
+            document.status.global==='CHANGES REQUEST'
+           }">
+            <div class="doc-state-bottom">
+              <div class="circle"></div>CHANGES</div>
+          </div>
+          <div [ngClass]="{'off':
+            document.status.global==='WIP' ||
+            document.status.global==='REVIEW' ||
+            document.status.global==='CHANGES REQUEST' ||
+            document.status.global==='CHANGES SENT'
+           }">
+            <div class="doc-state-bottom end">
+              <div class="circle"></div>COMPLETE</div>
+          </div>
         </div>
       </div>
 

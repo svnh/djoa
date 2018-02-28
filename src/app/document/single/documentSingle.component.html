@@ -29,9 +29,10 @@
         <app-picture [forms]="fetchedDocument.forms"></app-picture>
       </div>
     </div>
-    <div class="sidewrapper">
+    <div *ngIf="!fetchedDocument.briefs.length" class="sidewrapper">
       <label class="label-title">Assign Crew Members</label>
       <label class="label-subtitle">Gets the workd done:</label>
+
       <app-autocomplete [typeAutocomplete]="'user'" [search]="search" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedDocument.crewMembers">
       </app-autocomplete>
       <label class="label-subtitle">Reviews the work:</label>

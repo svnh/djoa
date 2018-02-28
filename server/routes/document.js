@@ -262,14 +262,16 @@ router.get('/page/:page', function(req, res, next) {
 
   if (req.query.myDocuments === 'true') {
     let arrObj = []
-    arrObj.push({
-      'crewMembers': mongoose.Types.ObjectId(req.user._id)
-    })
-    arrObj.push({
-      'reviewers': mongoose.Types.ObjectId(req.user._id)
-    })
-    searchQuery = {
-      $or: arrObj
+    if (!req.query.briefId) {
+      arrObj.push({
+        'crewMembers': mongoose.Types.ObjectId(req.user._id)
+      })
+      arrObj.push({
+        'reviewers': mongoose.Types.ObjectId(req.user._id)
+      })
+      searchQuery = {
+        $or: arrObj
+      }
     }
   }
 
