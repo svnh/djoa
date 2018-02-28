@@ -17,7 +17,7 @@
     </div>
     <label class="label-title">Choose a Profile Picture</label>
     <div class="pic-container">
-      <app-picture [addPicture]=true [loadSinglePicture]=true [deletePicture]=true (pictureRemoved)="pictureRemoved()" [forms]="fetchedUser.forms"></app-picture>
+      <app-picture [isInNewUser]=true [addPicture]=true [loadSinglePicture]=true [deletePicture]=true (pictureRemoved)="pictureRemoved()" [forms]="fetchedUser.forms"></app-picture>
     </div>
     <button type="submit" [disabled]="!myForm.valid" [ngClass]="{'save':myForm.valid,'delete':!myForm.valid}">Done</button>
     <div class="clearfix"></div>

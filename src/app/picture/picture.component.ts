@@ -17,6 +17,7 @@ import { ShowNavBarData } from '../shared/shared.model';
 
 export class PictureComponent {
   @Input() forms: Form[] = [];
+  @Input() isInNewUser: boolean = false;
   @Input() addPicture: boolean = true
   @Input() loadSinglePicture: boolean = false
   @Input() userIdToOpenProfile: string = ''

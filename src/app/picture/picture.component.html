@@ -10,6 +10,6 @@
 </div>
 <div *ngIf="addPicture">
   <div *ngIf="!loadSinglePicture || forms.length<1">
-    <app-form (onPassForm)="onPassForm($event)"></app-form>
+    <app-form [isInNewUser]="isInNewUser" (onPassForm)="onPassForm($event)"></app-form>
   </div>
 </div>

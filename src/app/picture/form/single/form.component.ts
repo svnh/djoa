@@ -16,7 +16,7 @@ export class FormComponent implements OnInit {
 
     @ViewChild('item') item: ElementRef;
     @ViewChild('appendToChildEl') appendToChildEl: ElementRef;
-
+    @Input() isInNewUser: boolean = false;
 
   @Output() onPassForm = new EventEmitter<any>();
   // setting up the form
