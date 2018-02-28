@@ -1,4 +1,4 @@
-<button type="button" (click)="addBrief()" class="addbrief">Add Brief <i class="fa fa-plus"></i></button>
+<button *ngIf="fetchedBriefs.length === 0" type="button" (click)="addBrief()" class="addbrief">Add Brief <i class="fa fa-plus"></i></button>
 <div *ngFor="let brief of fetchedBriefs">
   <p>{{brief.details.name}}</p>
   <div [routerLink]="['/brief/' + brief._id]" class="review-brief">Review Brief</div>
