@@ -1,0 +1,19 @@
+<div>
+  <h2 class="sidewrapper">Strat Crew</h2>
+  <form [formGroup]="myForm" novalidate (ngSubmit)="save()">
+    <div class="sidewrapper">
+      <app-autocomplete
+        [typeAutocomplete]="'user'"
+        [singleChoice]=false
+        [search]="{isExternalUser:false}"
+        [arrayContent]="fetchedStrat.users">
+      </app-autocomplete>
+    </div>
+    <div class="sidewrapper valid-edit">
+      <button type="submit" class="save">{{'Save' }}</button>
+      <button *ngIf="fetchedStrat._id" type="button" class="delete" md-button (click)="openDialogDelete()">
+        Delete
+      </button>
+    </div>
+  </form>
+</div>

@@ -8,8 +8,8 @@ var Notification = require('../models/notification.model'),
 module.exports = {
 
   saveUsersMissionToProjectWithoutDuplicate (mission) {
-    mission.projects.forEach(missionId => {
-      Project.findById(({_id: missionId}), function (err, item) {
+    mission.projects.forEach(projectId => {
+      Project.findById(({_id: projectId}), function (err, item) {
         if (err) {
         } else {
           mission.users.forEach(user => {
@@ -24,8 +24,8 @@ module.exports = {
     })
   },
   saveUsersStratToProjectWithoutDuplicate (strat) {
-    strat.projects.forEach(stratId => {
-      Strat.findById(({_id: stratId}), function (err, item) {
+    strat.projects.forEach(projectId => {
+      Project.findById(({_id: projectId}), function (err, item) {
         if (err) {
         } else {
           strat.users.forEach(user => {
