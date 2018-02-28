@@ -1,8 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-// import {AuthService} from '../../auth/auth.service';
 import { GlobalEventsManager} from '../../globalEventsManager';
 import {MatSidenav} from '@angular/material';
 import {ShowNavBarData} from '../../shared/shared.model'
+// import {AuthService} from '../../auth/auth.service';
 
 @Component({
   selector: 'app-sideBarRight',
@@ -19,13 +19,12 @@ export class SideBarRightComponent implements OnInit {
   ) {
 
     this.globalEventsManager.showNavBarEmitterRight.subscribe((showNavBarData) => {
-      console.log(showNavBarData)
       if (showNavBarData !== null) {
         this.showNavBarData = showNavBarData;
-        if(this.showNavBarData.showNavBar === 1) {
+        if (this.showNavBarData.showNavBar === 1) {
           this.sidenav.open()
         }
-        if(this.showNavBarData.showNavBar === -1) {
+        if (this.showNavBarData.showNavBar === -1) {
           this.sidenav.close()
         }
       }

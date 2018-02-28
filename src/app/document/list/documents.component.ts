@@ -67,6 +67,13 @@ export class DocumentsComponent implements OnInit {
       }
     })
   }
+
+  openLink(link) {
+    if (link.substring(0, 7) !== 'http://') {
+      link = 'http://' + link;
+    }
+    window.open(link, '_blank');
+  }
   ngOnChanges() {
     this.getDocuments(1, this.search)
   }
