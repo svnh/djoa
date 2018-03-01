@@ -24,7 +24,7 @@
 .fileContainer p {
   display: block;
   float: left;
-  width: 80%;
+  width: 65%;
   border-bottom: 1px solid;
 }
 .fileContainer .fa.fa-upload {
