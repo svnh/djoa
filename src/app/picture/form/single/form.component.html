@@ -4,7 +4,7 @@
       <p>Upload</p>
       <i class="fa fa-upload" aria-hidden="true"></i>
     </label>
-    <input #fileInput name="file" id="upload-photo" type="file" (change)="onFileSelect($event)">
+    <input #fileInput name="file" id="upload-photo" type="file" class="dspl-nn" (change)="onFileSelect($event)">
     <div *ngIf="hasFiles()">
       <div *ngFor="let file of files">
         <img *ngIf="!isImagePure(file)" src="./assets/images/pdf_icon.png">
