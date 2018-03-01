@@ -1,3 +1,16 @@
 .isInNewUser {
   color: white!important;
 }
+.fileContainer p {
+  display: block;
+  float: left;
+  width: 65%;
+  border-bottom: 1px solid;
+}
+.fileContainer .fa.fa-upload {
+  background-color: #f44336 !important;
+  color: #fff !important;
+  padding: 10px !important;
+  border-radius: 100px !important;
+  float: right !important;
+}
