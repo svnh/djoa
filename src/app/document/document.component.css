@@ -80,8 +80,9 @@ img.doc-icon {
   color: #aaa;
 }
 .docimage {
-  height: auto;
-  width: 100%;
+   height: 150px;
+   width: 150px;
+   margin: 0 auto 40px;
 }
 
 @media screen and (min-width: 600px) {
