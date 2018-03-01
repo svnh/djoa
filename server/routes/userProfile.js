@@ -576,7 +576,7 @@ function sendEmailToUserToJoinCompanie(req, res, user) {
       `;
       var mailOptions = {
         to: user.email,
-        from: 'hello@gooplus.fr',
+        from: 'info@djoa.co',
         subject: 'Djoa App | New Invitation',
         html: html
       };
