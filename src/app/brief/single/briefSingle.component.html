@@ -8,19 +8,19 @@
     <div class="sidewrapper">
       <label class="firstquestion">What are you trying to do in one sentence?</label>
       <mat-form-field>
-        <input matInput type="text" formControlName="tryingToDo" [(ngModel)]="fetchedBrief.questions.tryingToDo">
+        <textarea matInput type="text" formControlName="tryingToDo" [(ngModel)]="fetchedBrief.questions.tryingToDo"></textarea>
       </mat-form-field>
       <label class="questions">What is your goal? How will you measure it?</label>
       <mat-form-field>
-        <input matInput type="text" formControlName="goal" [(ngModel)]="fetchedBrief.questions.goal">
+        <textarea matInput type="text" formControlName="goal" [(ngModel)]="fetchedBrief.questions.goal"></textarea>
       </mat-form-field>
       <label class="questions">Do you have existing assets for this project? If so, what are they?</label>
       <mat-form-field>
-        <input matInput type="text" formControlName="existingAssets" [(ngModel)]="fetchedBrief.questions.existingAssets">
+        <textarea matInput type="text" formControlName="existingAssets" [(ngModel)]="fetchedBrief.questions.existingAssets"></textarea>
       </mat-form-field>
       <label class="questions">What is your company’s website?</label>
       <mat-form-field>
-        <input matInput type="text" formControlName="companyWebsite" [(ngModel)]="fetchedBrief.questions.companyWebsite">
+        <textarea matInput type="text" formControlName="companyWebsite" [(ngModel)]="fetchedBrief.questions.companyWebsite"></textarea>
       </mat-form-field>
     </div>
     <div class="sidewrapper valid-edit">
