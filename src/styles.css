@@ -74,14 +74,11 @@ img {
 button {
   cursor: pointer;
 }
-.dspl-nn {
-  display: none !important;
+textarea {
+  height: 100px;
 }
 
 @media screen and (min-width: 992px) {
-  .dspl-nn-dsktp {
-    display: none !important;
-  }
   h1 {
     margin-bottom: 25px;
   }
@@ -90,11 +87,6 @@ button {
   }
 }
 
-@media screen and (max-width: 991px) {
-  .dspl-nn-mbl {
-    display: none !important;
-  }
-}
 /*----------Body---------*/
 
 .djoa-background {
@@ -348,6 +340,9 @@ p.percent {
   transform: -moz-translate(-50%, -50%);
   transform: -ms-translate(-50%, -50%);
 }
+.dspl-nn {
+  display: none !important;
+}
 
 @media screen and (min-width: 992px) {
   .djoa-container {
@@ -366,6 +361,9 @@ p.percent {
   }
   .read-chat p.shortMessage {
     display: none;
+  }
+  .dspl-nn-dsktp {
+    display: none !important;
   }
 }
 @media screen and (max-width: 991px) {
@@ -388,6 +386,9 @@ p.percent {
   }
   .card-margin .notif-wrapper h4 {
     font-size: 14px;
+  }
+  .dspl-nn-mbl {
+    display: none !important;
   }
 }
 
