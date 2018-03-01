@@ -20,6 +20,7 @@
   text-transform: uppercase;
   border: 1px solid;
   float: right;
+  cursor: pointer;
 }
 a.open {
   text-decoration: none !important;
