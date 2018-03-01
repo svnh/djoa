@@ -9,10 +9,6 @@
     [ngStyle]="{'background-image': 'url(assets/images/pdf-icon.png)'}"
     class="profimg">
   </div>
-  <div
-    [ngStyle]="{'background-image': 'url(/uploads/forms/' + singleForm.owner + '/' + singleForm.imagePath + ')'}"
-    class="profimg">
-  </div>
     <!-- <div style="background-image: url('assets/images/no-image-found.jpg')"> -->
     <!-- <img (click)="openProfile()" class="profimg" src="./uploads/forms/{{singleForm.owner}}/{{singleForm.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'"> -->
   <button *ngIf="deletePicture" type="button" md-button (click)="removePic(i)"><p class="removepic">Remove Picture</p></button>
