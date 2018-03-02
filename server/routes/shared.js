@@ -119,7 +119,7 @@ module.exports = {
     //   })
     // })
   },
-  sendEmailBatchDocuments () {
+  sendEmailBatchDocuments (req) {
     // var itemsPerPage = 10
     // var currentPage = Number(req.params.page)
     // var pageNumber = currentPage - 1
@@ -201,7 +201,8 @@ module.exports = {
                 if (user.profile.emailPreferences.frequencyEmail === 'asTheyHappen') {
                   // to do
                 }
-                emailGenerator.sendEmailBatchDocuments(user)
+                // emailGenerator.sendEmailBatchDocuments(user)
+                emailGenerator.sendEmailBatchDocuments(req, user)
                 console.log(user)
                 // console.log('crew', user.email, item._id)
               })

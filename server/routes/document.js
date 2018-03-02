@@ -191,7 +191,7 @@ router.put('/:id', function(req, res, next) {
           if (err) {
             console.log(err)
           } else {
-            shared.sendEmailBatchDocuments()
+            shared.sendEmailBatchDocuments(req)
           }
         })
 
