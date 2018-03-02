@@ -26,6 +26,7 @@ h5 {
 	margin: 10px auto 25px;
   height: 150px;
   width: 150px;
+  position: relative;
 }
 .sidebarright-sub .save, .sidebarright-sub .delete {
   width: 95%;
