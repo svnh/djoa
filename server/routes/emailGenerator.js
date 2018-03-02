@@ -88,6 +88,7 @@ module.exports = {
       </html>
 
     `
+    
     var mailer = nodemailer.createTransport({
         service: "Gmail",
         // host: 'smtp.gmail.com',
