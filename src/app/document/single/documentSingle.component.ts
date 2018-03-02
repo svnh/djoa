@@ -1,26 +1,25 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { DocumentService} from '../document.service';
 import { ToastsManager} from 'ng2-toastr';
-// import { MatDialog } from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { Document, StatusDocument} from '../document.model';
-// import { EditOptionsComponentDialog } from '../../form/modalLibrary/modalLibrary.component';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
-// import { DeleteDialog } from '../../deleteDialog/deleteDialog.component'
 import { UserService} from '../../user/user.service';
-// import { QuoteService} from '../../quote/quote.service';
-
 import { User } from '../../user/user.model';
 import { Project } from '../../project/project.model';
 import { Categorie } from '../../categorie/categorie.model';
-// import { Quote } from '../../quote/quote.model';
 import { AuthService} from '../../auth/auth.service';
+import { Search } from '../../shared/shared.model';
+import { GlobalEventsManager} from '../../globalEventsManager';
+import { ShowNavBarData} from '../../shared/shared.model';
 
-import { Search } from '../../shared/shared.model'
-import {GlobalEventsManager} from '../../globalEventsManager';
-import {ShowNavBarData} from '../../shared/shared.model'
+// import { MatDialog } from '@angular/material';
+// import { EditOptionsComponentDialog } from '../../form/modalLibrary/modalLibrary.component';
+// import { DeleteDialog } from '../../deleteDialog/deleteDialog.component'
+// import { QuoteService} from '../../quote/quote.service';
+// import { Quote } from '../../quote/quote.model';
 
 
 @Component({
@@ -35,7 +34,7 @@ export class DocumentSingleComponent implements OnInit {
   @Input() showBackButton: Boolean = true;
   @Output() saved: EventEmitter<any> = new EventEmitter();
 
-  @Input() search: Search = new Search()
+  @Input() search: Search = new Search();
 
 
   // status = StatusDocument
@@ -46,8 +45,8 @@ export class DocumentSingleComponent implements OnInit {
   // fetchedUsers: User[] = [];
   // fetchedQuotes: Quote[] = [];
 
-  autocompleteSearchProjects: Project[] = []
-  autocompleteSearchCategories: Categorie[] = []
+  autocompleteSearchProjects: Project[] = [];
+  autocompleteSearchCategories: Categorie[] = [];
   fetchedDocument: Document = new Document();
 
 
@@ -121,7 +120,14 @@ export class DocumentSingleComponent implements OnInit {
   }
 
   save() {
-
+    if (!this.fetchedDocument.crewMembers.length) {
+      this.toastr.error('Error!', 'Crew Member is required');
+      return;
+    }
+    if (!this.fetchedDocument.reviewers.length) {
+      this.toastr.error('Error!', 'Reviewer is required');
+      return;
+    }
 
     if(this.fetchedDocument._id) {
       this.documentService.updateDocument(this.fetchedDocument)
