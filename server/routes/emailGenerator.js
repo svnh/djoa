@@ -12,7 +12,11 @@ var express     = require('express'),
 
 
 module.exports = {
-  sendEmailBatchDocuments (req, user) {
+  sendEmailBatchDocuments (req, user, stackDocuments) {
+
+    // console.log('ppp')
+    // console.log(stackDocuments[0])
+    // console.log(typeof stackDocuments)
     var html = `
       <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
       <html xmlns="http://www.w3.org/1999/xhtml">
@@ -40,7 +44,16 @@ module.exports = {
                       Some documents need your attention in the Djoa App:
                     </td>
                   </tr>
-                  <tr>
+                  <tr>`
+
+// html = `<td></td>
+
+stackDocuments.forEach(documenta => {
+  console.log('documenta')
+  // html = `<td>${document.details.name}</td>`
+})
+
+                  var html = `
                     <td align="center" style="padding: 15px 0 30px 0; font-size: 16px; font-family: 'Montserrat';">
                       THE TABLE TAG BELOW IS THE TAG WE WANT TO DUPLICATE DEPENDING ON THE NUMBER OF DOCUMENTS
                       <table border="0" cellpadding="0" cellspacing="0" width="100%">
@@ -88,7 +101,7 @@ module.exports = {
       </html>
 
     `
-    
+
     var mailer = nodemailer.createTransport({
         service: "Gmail",
         // host: 'smtp.gmail.com',

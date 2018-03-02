@@ -242,8 +242,8 @@ router.post('/', function(req, res, next) {
     log.users = [req.user]
     log.type = 'create'
     log.save((err, result) => {
-      console.log('result')
-      console.log(result)
+      // console.log('result')
+      // console.log(result)
       if (err) {
         console.log(err)
       }
