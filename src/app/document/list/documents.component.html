@@ -11,7 +11,8 @@
           <img class="doc-icon" src="assets/images/doc-icon.png">
           <p class="">{{document.details.name}}</p>
         </div>
-        <a (click)="openLink(document.link)" class="open">open</a>
+
+        <a (click)="openLink(document)" class="open">open</a>
       </div>
       <div *ngIf="document.status.global == 'WIP'" class="doc-status">
         <div *ngIf="fetchedDocuments[i].currentUserBelongsTo ==='crew'">

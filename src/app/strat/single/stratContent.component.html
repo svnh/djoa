@@ -35,7 +35,7 @@
       <mat-card class="card-margin">
         <mat-card-content>
           <h2>Links to Documents</h2>
-          <app-documents [search]="search"></app-documents>
+          <app-documents [search]="{stratId: search.stratId, myDocuments:false}"></app-documents>
         </mat-card-content>
       </mat-card>
     </div>

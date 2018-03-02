@@ -5,13 +5,13 @@
       <i class="fa fa-upload" aria-hidden="true"></i>
     </label>
     <input #fileInput name="file" id="upload-photo" type="file" class="dspl-nn" (change)="onFileSelect($event)">
-    <div *ngIf="hasFiles()">
+    <!-- <div *ngIf="hasFiles()">
       <div *ngFor="let file of files">
         <img *ngIf="!isImagePure(file)" src="./assets/images/pdf_icon.png">
-        <img [src]="file.objectURL" *ngIf="isImagePure(file)" onerror="this.src ='assets/images/no-image-found.jpg'"><br>
+        <img class="uploadPicture" [src]="file.objectURL" *ngIf="isImagePure(file)" onerror="this.src ='assets/images/no-image-found.jpg'"><br>
         <button type="button" (click)="remove(i)">Remove Picture</button>
       </div>
-    </div>
+    </div> -->
     <div class="sbmt-pic">
       <mat-progress-bar *ngIf="hasFiles() && submitStarted" [color]="primary" [mode]="determinate" [value]="progress">
       </mat-progress-bar>

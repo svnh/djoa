@@ -68,11 +68,21 @@ export class DocumentsComponent implements OnInit {
     })
   }
 
-  openLink(link) {
-    if (link.substring(0, 7) !== 'http://') {
-      link = 'http://' + link;
+  openLink(document) {
+    document.forms.forEach(singleForm => {
+      window.open('/uploads/forms/' + singleForm.owner + '/' + singleForm.imagePath , '_blank');
+    });
+
+
+    if(document.link) {
+      console.log(document.link)
+      if (document.link.substring(0, 7) !== 'http://') {
+        document.link = 'http://' + document.link;
+      }
+      // console.log(link)
+      window.open(document.link, '_blank');
+
     }
-    window.open(link, '_blank');
   }
   ngOnChanges() {
     this.getDocuments(1, this.search)

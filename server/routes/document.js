@@ -294,8 +294,13 @@ router.get('/page/:page', function(req, res, next) {
 
   Document.find(searchQuery).sort('-createdAt')
   // .populate({path: 'clients', model: 'User'})
-  // .populate({path: 'assignedTos', model: 'User'})
-    .populate({path: 'missions', model: 'Mission'}).populate({path: 'strats', model: 'Strat'}).populate({path: 'briefs', model: 'Brief'}).populate({path: 'crewMembers', model: 'User'}).populate({path: 'reviewers', model: 'User'}).populate({path: 'owners', model: 'User'})
+    .populate({path: 'forms', model: 'Form'})
+    .populate({path: 'missions', model: 'Mission'})
+    .populate({path: 'strats', model: 'Strat'})
+    .populate({path: 'briefs', model: 'Brief'})
+    .populate({path: 'crewMembers', model: 'User'})
+    .populate({path: 'reviewers', model: 'User'})
+    .populate({path: 'owners', model: 'User'})
   // .populate({path: 'quotes', model: 'Quote'})
   // .populate(
   //   {
