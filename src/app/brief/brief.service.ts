@@ -145,17 +145,17 @@ export class BriefService {
 
   updateBrief(brief) {
     let briefTemp = JSON.parse(JSON.stringify(brief))
-    briefTemp.bucketTasks.forEach((bucketTask, i) => {
-      bucketTask.tasks.forEach((task, j) => {
-        task.assignedTos.forEach((assignedTo, k) => {
-          let assignedToId = assignedTo._id
-          briefTemp.bucketTasks[i].tasks[j].assignedTos = []
-          briefTemp.bucketTasks[i].tasks[j].assignedTos.push({
-            _id: assignedToId
-          })
-        })
-      })
-    })
+    // briefTemp.bucketTasks.forEach((bucketTask, i) => {
+    //   bucketTask.tasks.forEach((task, j) => {
+    //     task.assignedTos.forEach((assignedTo, k) => {
+    //       let assignedToId = assignedTo._id
+    //       briefTemp.bucketTasks[i].tasks[j].assignedTos = []
+    //       briefTemp.bucketTasks[i].tasks[j].assignedTos.push({
+    //         _id: assignedToId
+    //       })
+    //     })
+    //   })
+    // })
     // console.log(briefTemp)
     const body = JSON.stringify(briefTemp);
     const headers = new Headers({'Content-Type': 'application/json'});

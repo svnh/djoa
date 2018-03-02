@@ -124,6 +124,7 @@ router.put('/:id', function (req, res, next) {
       item.progressTasks = req.body.progressTasks
       item.dateBrief = req.body.dateBrief
       item.logs = req.body.logs
+      item.questions = req.body.questions
 
       item.save(function (err, result) {
         if (err) {
