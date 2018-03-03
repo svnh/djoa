@@ -130,7 +130,37 @@ module.exports = {
           err: err
         })
       } else {
-        users.forEach(user=> {
+        console.log('-------------')
+        users.forEach(user => {
+          console.log(user.email)
+
+          console.log('check if batch should proceed....')
+          if (user.profile.emailPreferences.frequencyEmail === 'asTheyHappen') {
+            console.log('User is asTheyHappen. Last mail sent was: ' + user.dateLastMailSent)
+            // good
+          }
+          if (user.profile.emailPreferences.frequencyEmail === 'onceADay') {
+            if (user.dateLastMailSent > (new Date().getDate() - 1)) {
+              console.log('Batch stopped because user is onceADay. Last mail sent was: ' + user.dateLastMailSent)
+              console.log('-------------')
+              return;
+            }
+          }
+          if (user.profile.emailPreferences.frequencyEmail === 'onceAWeek') {
+            if (user.dateLastMailSent > (new Date().getDate() - 7)) {
+              console.log('Batch stopped because user is onceAWeek. Last mail sent was: ' + user.dateLastMailSent)
+              console.log('-------------')
+              return;
+            }
+          }
+          if (user.profile.emailPreferences.frequencyEmail === 'never') {
+            console.log('Batch stopped because user is never.')
+            console.log('-------------')
+            return;
+          }
+
+          console.log('batch Ok go')
+          console.log('-------------')
 
               // var itemsPerPage = 10
               // var currentPage = Number(req.params.page)
@@ -184,7 +214,6 @@ module.exports = {
               searchQuery['documents'] = {$exists: true}
               searchQuery['type'] = 'change'
               searchQuery['mailSent'] = false
-              searchQuery['mailSent'] = false
               searchQuery['users'] = mongoose.Types.ObjectId(user._id)
 
 
@@ -205,34 +234,39 @@ module.exports = {
                 path: 'documents.reviewers',
                 model: 'User',
               })
-              .exec(function (err, items) {
+              .exec(function (err, logs) {
                 if (err) {
                   console.log(err)
                 } else {
-                  items.forEach((item, i) => {
-                    var stackDocuments = []
-                    item.documents.forEach(document => {
+                  var stackDocuments = []
+                  logs.forEach((log, i) => {
+                    log.documents.forEach(document => {
                       // console.log(document.status.pendingActionFrom)
-                      if (user.profile.emailPreferences.frequencyEmail === 'asTheyHappen') {
-                        // if (document.status.pendingActionFrom === 'crew') {
-                        //   document.crewMembers.forEach(user => {
-                        //     stackDocuments.push({ document: document, pendingActionFrom: pendingActionFrom})
-                        //   })
-                        // }
-                        // if (document.status.pendingActionFrom === 'client') {
-                        //   document.reviewers.forEach(user => {
-                        //    })
-                        // }
-                        stackDocuments.push(document)
-                      }
+
+                      // if (user.profile.emailPreferences.frequencyEmail === 'asTheyHappen') {
+                      Log.update({_id: log._id}, {$set: {mailSent: true}}).exec()
+                      stackDocuments.push(document)
+                      // }
+                      // if (user.profile.emailPreferences.frequencyEmail === 'onceAWeek') {
+                      //   if(Date())
+                      //   Log.findOneAndUpdate({_id: log._id}, {$set:{mailSent: true}}, {upsert: false}, true)
+                      //   stackDocuments.push(document)
+                      // }
                     })
-                    emailGenerator.sendEmailBatchDocuments(req, user, stackDocuments)
-                        // Log.findOneAndUpdate({_id: item._id}, {mailSent: true}, {upsert: true})
-
-
-
-
                   })
+
+                  if(stackDocuments.length) {
+                    console.log('Mail will be sent to' + user.email + ' with ' + stackDocuments.length + ' docs')
+                    // User.findOneAndUpdate({_id: user._id}, {$set:{dateLastMailSent: Date()}}, )
+                    User.update({_id: user._id}, {$set: {dateLastMailSent: Date()}}).exec()
+                    emailGenerator.sendEmailBatchDocuments(req, user, stackDocuments)
+                    // stackDocuments.forEach(stackDocument => {
+                    //   console.log('updatestackDocument', stackDocument._id)
+                    //   Log.findOneAndUpdate({_id: stackDocument._id}, {mailSent: true}, {upsert: true})
+                    // })
+                  } else {
+                    console.log('no new doc. No Mail sent to ' + user.email)
+                  }
                 }
               })
             })

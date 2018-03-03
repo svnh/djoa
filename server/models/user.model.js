@@ -10,7 +10,7 @@ var user = new Schema({
 
     // isAdminOfHisCompanie:{type: Boolean, default: [false]},
     isExternalUser:{type: Boolean, default: [false]},
-    // dateSeeLatestNotif: {type: Date, default: [Date()]},
+    dateLastMailSent: {type: Date, default: [Date()]},
     email: {type: String, unique: true, required: true, lowercase: true},
     password: {type: String, required: true},
     forms: [{type: Schema.Types.ObjectId, ref: 'Form'}],

@@ -13,10 +13,6 @@ var express     = require('express'),
 
 module.exports = {
   sendEmailBatchDocuments (req, user, stackDocuments) {
-
-    // console.log('ppp')
-    // console.log(stackDocuments[0])
-    // console.log(typeof stackDocuments)
     var html = `
       <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
       <html xmlns="http://www.w3.org/1999/xhtml">
@@ -44,28 +40,32 @@ module.exports = {
                       Some documents need your attention in the Djoa App:
                     </td>
                   </tr>
-                  <tr>`
-
-// html = `<td></td>
-
-stackDocuments.forEach(documenta => {
-  console.log('documenta')
-  // html = `<td>${document.details.name}</td>`
-})
-
-                  var html = `
+                  <tr>
                     <td align="center" style="padding: 15px 0 30px 0; font-size: 16px; font-family: 'Montserrat';">
                       THE TABLE TAG BELOW IS THE TAG WE WANT TO DUPLICATE DEPENDING ON THE NUMBER OF DOCUMENTS
-                      <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                       <tr>
-                        <td font-family: 'Montserrat';">
-                          [NAME OF DOCUMENT HERE]
-                        </td>
-                        <td align="center" style="background-color: #4a148c; padding: 15px 15px 15px 15px; font-size: 10px; font-family: 'Montserrat';">
-                          [WHEN DOCUMENT IS ASSIGNED TO CREW OR WHEN REVIEWER SELECTS "REQUEST CHANGES": WORK ASSIGNED]
-                          [WHEN CREW SELECTS "SEND FOR REVIEW": REVIEW]
-                        </td>
-                       </tr>
+                      <table border="0" cellpadding="0" cellspacing="0" width="100%">`
+                      // console.log(stackDocuments)
+                      stackDocuments.forEach(documenta => {
+                        // console.log(documenta.details.name)
+                        // html = `${documenta.details.name} alan <br>
+                        html += `
+                        <tr>
+                          <td font-family: 'Montserrat';">
+                          ${documenta.details.name}
+                          </td>
+                          <td align="center" style="background-color: #4a148c; padding: 15px 15px 15px 15px; font-size: 10px; font-family: 'Montserrat';">
+                          `
+                          if (documenta.status.pendingActionFrom === 'crew') {
+                            html += `"REQUEST CHANGES": WORK ASSIGNED`
+                          }
+                          if (documenta.status.pendingActionFrom === 'client') {
+                            html += `"SEND FOR REVIEW": REVIEW`
+                          }
+                          html += `
+                          </td>
+                        </tr>`
+                      })
+                      html += `
                       </table>
                     </td>
                   </tr>
@@ -123,11 +123,8 @@ stackDocuments.forEach(documenta => {
       if (err) {
         console.log(err)
       } else {
-        console.log('info', 'Un message a été envoyé à ' + user.email + ' avec de plus amples informations.');
+        console.log('info', 'Mail sent to:  ' + user.email );
       }
-      // return res.status(200).json({
-      //   message: 'Succès'
-      // })
     });
 
 
