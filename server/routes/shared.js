@@ -137,7 +137,6 @@ module.exports = {
           console.log('check if batch should proceed....')
           if (user.profile.emailPreferences.frequencyEmail === 'asTheyHappen') {
             console.log('User is asTheyHappen. Last mail sent was: ' + user.dateLastMailSent)
-            // good
           }
           if (user.profile.emailPreferences.frequencyEmail === 'onceADay') {
             if (user.dateLastMailSent > (new Date().getDate() - 1)) {
@@ -159,7 +158,7 @@ module.exports = {
             return;
           }
 
-          console.log('batch Ok go')
+          console.log('batch running..')
           console.log('-------------')
 
               // var itemsPerPage = 10
