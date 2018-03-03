@@ -237,13 +237,23 @@ router.post('/', function(req, res, next) {
     log.ownerCompanies = req.user.ownerCompanies
     log.missions = req.body.missions
     log.documents = [result._id]
-    log.users = [req.user]
     log.type = 'create'
-    log.save((err, result) => {
-      // console.log('result')
-      // console.log(result)
+
+    if(req.body.status.pendingActionFrom === 'client') {
+      req.body.reviewers.forEach(user => {
+        log.users.push(user._id)
+      })
+    } else if (req.body.status.pendingActionFrom === 'crew') {
+      req.body.crewMembers.forEach(user => {
+        log.users.push(user._id)
+      })
+    }
+
+    log.save(function(err, result) {
       if (err) {
         console.log(err)
+      } else {
+        shared.sendEmailBatchDocuments(req)
       }
     })
 
