@@ -256,7 +256,7 @@ module.exports = {
                   })
 
                   if(stackDocuments.length) {
-                    console.log('Mail will be sent to' + user.email + ' with ' + stackDocuments.length + ' docs')
+                    console.log('Mail will be sent to ' + user.email + ' with ' + stackDocuments.length + ' docs')
                     // User.findOneAndUpdate({_id: user._id}, {$set:{dateLastMailSent: Date()}}, )
                     User.update({_id: user._id}, {$set: {dateLastMailSent: Date()}}).exec()
                     emailGenerator.sendEmailBatchDocuments(req, user, stackDocuments)
