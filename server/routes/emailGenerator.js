@@ -42,7 +42,6 @@ module.exports = {
                   </tr>
                   <tr>
                     <td align="center" style="padding: 15px 0 30px 0; font-size: 16px; font-family: 'Montserrat';">
-                      THE TABLE TAG BELOW IS THE TAG WE WANT TO DUPLICATE DEPENDING ON THE NUMBER OF DOCUMENTS
                       <table border="0" cellpadding="0" cellspacing="0" width="100%">`
                       // console.log(stackDocuments)
                       stackDocuments.forEach(documenta => {
@@ -50,16 +49,16 @@ module.exports = {
                         // html = `${documenta.details.name} alan <br>
                         html += `
                         <tr>
-                          <td font-family: 'Montserrat';">
+                          <td width="60%" font-family: 'Montserrat';">
                           ${documenta.details.name}
                           </td>
-                          <td align="center" style="background-color: #4a148c; padding: 15px 15px 15px 15px; font-size: 10px; font-family: 'Montserrat';">
+                          <td width="40%" align="center" style="background-color: #4a148c; padding: 15px 15px 15px 15px; border-bottom: 3px solid #fff; font-size: 10px; font-family: 'Montserrat'; color: #ffffff;">
                           `
                           if (documenta.status.pendingActionFrom === 'crew') {
-                            html += `"REQUEST CHANGES": WORK ASSIGNED`
+                            html += `WORK ASSIGNED`
                           }
                           if (documenta.status.pendingActionFrom === 'client') {
-                            html += `"SEND FOR REVIEW": REVIEW`
+                            html += `REVIEW NEEDED`
                           }
                           html += `
                           </td>
