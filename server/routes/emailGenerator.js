@@ -115,7 +115,7 @@ module.exports = {
     var mailOptions = {
       to: user.email,
       from: config.userGmail,
-      subject: 'Bienvenue sur Mirabelle!',
+      subject: 'Some Documents Need Your Input in the Djoa App',
       html: html
     };
     mailer.sendMail(mailOptions, function(err) {
