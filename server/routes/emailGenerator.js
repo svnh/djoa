@@ -71,7 +71,7 @@ module.exports = {
                   <tr>
                     <td align="center" style="background-color: #4a148c; padding: 10px 15px; cursor: pointer;">
                       <a
-                        href="http://${req.headers.host}/ [<<THIS NEEDS TO BE CHANGED TO OPEN THE NOTIFICATION SIDEBAR"
+                        href="http://${req.headers.host}/"
                         style="color: #ffffff; text-decoration: none;  font-size: 16px; font-family: 'Montserrat';"
                       >
                         See All Notifications
@@ -83,7 +83,7 @@ module.exports = {
                       <table border="0" cellpadding="0" cellspacing="0" width="100%">
                        <tr>
                         <td align="center" style="padding: 15px 15px 15px 15px; font-size: 10px; font-family: 'Montserrat';">
-                          <a href="UPDATE URL HERE TO OPEN SETTINGS UNDER PROFILE IF POSSIBLE" style="text-decoration: none;">EMAIL PREFERENCES</a>
+                          <a href="http://${req.headers.host}/?type=emailPreferences" style="text-decoration: none;">EMAIL PREFERENCES</a>
                         </td>
                         <td align="center" style="padding: 15px 15px 15px 15px; font-size: 10px; font-family: 'Montserrat';">
                           <a href="mailto:info@djoa.co?Subject=Djoa%20App%20Invitation%20Email" style="text-decoration: none;">CONTACT US</a>

@@ -8,6 +8,7 @@
       typeObj: string = 'project';
       typeScreen: string = 'object';
       userId: string = '';
+      section: string = '';
       briefId: string = '';
       projectId: string = '';
       documentId: string = '';

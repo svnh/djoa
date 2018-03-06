@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges} from '@angular/core';
 import { AuthService} from '../../auth/auth.service';
 import { UserService} from '../user.service';
 import { Right} from '../../right/right.model';
@@ -21,7 +21,7 @@ import { GlobalEventsManager} from '../../globalEventsManager';
 
 })
 
-export class ProfileComponent implements OnInit {
+export class ProfileComponent implements OnInit, OnChanges {
   @Output() saved: EventEmitter<any> = new EventEmitter();
   @Input() search: Search = new Search();
   editSettings: boolean = false;
@@ -101,6 +101,9 @@ export class ProfileComponent implements OnInit {
     ngOnChanges() {
       if (this.search.userId) {
         this.getUser(this.search.userId)
+      }
+      if (this.search.section === 'settings') {
+        this.step = 1
       }
     }
 

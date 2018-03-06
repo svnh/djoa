@@ -35,7 +35,6 @@ export class NavbarComponent implements OnInit {
   showTotal = true
 
   constructor(
-    // private globalEventsManager: GlobalEventsManager,
     private authService: AuthService,
     private adminService: AdminService,
     // private notificationService: NotificationService,
