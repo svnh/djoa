@@ -49,10 +49,10 @@ module.exports = {
                         // html = `${documenta.details.name} alan <br>
                         var linkDocument ='';
                         documenta.strats.forEach(idElem => {
-                          linkDocument = 'http://${req.headers.host}/strat/' + idElem
+                          linkDocument = `http://${req.headers.host}/strat/${idElem}`
                         })
                         documenta.missions.forEach(idElem => {
-                          linkDocument = 'http://${req.headers.host}/mission/' + idElem
+                          linkDocument = `http://${req.headers.host}/mission/${idElem}`
                         })
                         documenta.briefs.forEach(idElem => {
                           linkDocument = `http://${req.headers.host}/brief/${idElem}`
