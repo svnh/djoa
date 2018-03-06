@@ -47,10 +47,23 @@ module.exports = {
                       stackDocuments.forEach(documenta => {
                         // console.log(documenta.details.name)
                         // html = `${documenta.details.name} alan <br>
+                        var linkDocument ='';
+                        documenta.strats.forEach(idElem => {
+                          linkDocument = 'http://${req.headers.host}/strat/' + idElem
+                        })
+                        documenta.missions.forEach(idElem => {
+                          linkDocument = 'http://${req.headers.host}/mission/' + idElem
+                        })
+                        documenta.briefs.forEach(idElem => {
+                          linkDocument = 'http://${req.headers.host}/brief/' + idElem
+                        })
+
                         html += `
                         <tr>
                           <td width="60%" font-family: 'Montserrat';">
-                          ${documenta.details.name}
+                            <a href="${linkDocument}">
+                              ${documenta.details.name}
+                            </a>
                           </td>
                           <td width="40%" align="center" style="background-color: #4a148c; padding: 15px 15px 15px 15px; border-bottom: 3px solid #fff; font-size: 10px; font-family: 'Montserrat'; color: #ffffff;">
                           `
