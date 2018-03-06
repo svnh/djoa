@@ -1,12 +1,61 @@
 var Notification = require('../models/notification.model'),
   User = require('../models/user.model'),
   Project = require('../models/project.model'),
+  Mission = require('../models/mission.model'),
   Strat = require('../models/strat.model'),
   Log = require('../models/log.model'),
   emailGenerator = require('./emailGenerator.js');
+  // shared = require('./shared.js');
 
-module.exports = {
-
+var self = module.exports = {
+  saveUsersDocumentsToMissionsWithoutDuplicate (document) {
+    document.missions.forEach(missionId => {
+      Mission.findById(({_id: missionId}), function (err, item) {
+        if (err) {
+        } else {
+          document.crewMembers.forEach(user => {
+            item.users.push(user)
+          })
+          document.reviewers.forEach(user => {
+            item.users.push(user)
+          })
+          var uniq = new Set(item.users.map(e => JSON.stringify(e)));
+          var res = Array.from(uniq).map(e => JSON.parse(e));
+          item.users = res
+          item.save(function(err, result) {
+            if (err) {
+              console.log(err)
+            }
+            self.saveUsersMissionToProjectWithoutDuplicate(result)
+          })
+        }
+      })
+    })
+  },
+  saveUsersDocumentsToStratWithoutDuplicate (document) {
+    document.starts.forEach(stratId => {
+      Mission.findById(({_id: stratId}), function (err, item) {
+        if (err) {
+        } else {
+          document.crewMembers.forEach(user => {
+            item.users.push(user)
+          })
+          document.reviewers.forEach(user => {
+            item.users.push(user)
+          })
+          var uniq = new Set(item.users.map(e => JSON.stringify(e)));
+          var res = Array.from(uniq).map(e => JSON.parse(e));
+          item.users = res
+          item.save(function(err, result) {
+            if (err) {
+              console.log(err)
+            }
+            self.saveUsersstartToProjectWithoutDuplicate(result)
+          })
+        }
+      })
+    })
+  },
   saveUsersMissionToProjectWithoutDuplicate (mission) {
     mission.projects.forEach(projectId => {
       Project.findById(({_id: projectId}), function (err, item) {

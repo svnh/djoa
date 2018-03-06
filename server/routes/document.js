@@ -168,6 +168,8 @@ router.put('/:id', function(req, res, next) {
           return res.status(404).json({message: 'There was an error, please try again', err: err})
         }
 
+        shared.saveUsersDocumentsToMissionsWithoutDuplicate(result)
+
         var log = new Log()
         log.ownerCompanies = req.user.ownerCompanies
         // log.users = [req.user]
@@ -232,7 +234,8 @@ router.post('/', function(req, res, next) {
         }
       })
     }
-
+    shared.saveUsersDocumentsToMissionsWithoutDuplicate(result)
+    
     var log = new Log()
     log.ownerCompanies = req.user.ownerCompanies
     log.missions = req.body.missions
