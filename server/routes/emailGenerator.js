@@ -49,13 +49,13 @@ module.exports = {
                         // html = `${documenta.details.name} alan <br>
                         var linkDocument ='';
                         documenta.strats.forEach(idElem => {
-                          linkDocument = `http://${req.headers.host}/strat/${idElem}`
+                          linkDocument = `http://${req.headers.host}/#/strat/${idElem}`
                         })
                         documenta.missions.forEach(idElem => {
-                          linkDocument = `http://${req.headers.host}/mission/${idElem}`
+                          linkDocument = `http://${req.headers.host}/#/mission/${idElem}`
                         })
                         documenta.briefs.forEach(idElem => {
-                          linkDocument = `http://${req.headers.host}/brief/${idElem}`
+                          linkDocument = `http://${req.headers.host}/#/brief/${idElem}`
                         })
 
                         html += `
@@ -96,7 +96,7 @@ module.exports = {
                       <table border="0" cellpadding="0" cellspacing="0" width="100%">
                        <tr>
                         <td align="center" style="padding: 15px 15px 15px 15px; font-size: 10px; font-family: 'Montserrat';">
-                          <a href="http://${req.headers.host}/?type=emailPreferences" style="text-decoration: none;">EMAIL PREFERENCES</a>
+                          <a href="http://${req.headers.host}/#/?type=emailPreferences" style="text-decoration: none;">EMAIL PREFERENCES</a>
                         </td>
                         <td align="center" style="padding: 15px 15px 15px 15px; font-size: 10px; font-family: 'Montserrat';">
                           <a href="mailto:info@djoa.co?Subject=Djoa%20App%20Invitation%20Email" style="text-decoration: none;">CONTACT US</a>
