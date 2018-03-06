@@ -55,7 +55,7 @@ module.exports = {
                           linkDocument = 'http://${req.headers.host}/mission/' + idElem
                         })
                         documenta.briefs.forEach(idElem => {
-                          linkDocument = 'http://${req.headers.host}/brief/' + idElem
+                          linkDocument = `http://${req.headers.host}/brief/${idElem}`
                         })
 
                         html += `
