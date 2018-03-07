@@ -39,7 +39,7 @@
         </div>
         <div *ngIf="fetchedDocuments[i].currentUserBelongsTo ==='client'">
           <mat-slide-toggle (change)="changeStatus($event, i, 'REVIEW', 'crew')" [(ngModel)]="fetchedDocuments[i].status.changeRequest" class="yourturn">CHANGE REQUESTED</mat-slide-toggle>
-          <p class="docproginfo">NO ACTION REQUIRED</p>
+          <p>NO ACTION REQUIRED</p>
         </div>
       </div>
 
