@@ -62,20 +62,21 @@ module.exports = {
                         <tr>
                           <td width="60%">
                             <a href="${linkDocument}" style="font-family: 'Montserrat'; display: block; padding: 10px 0; text-decoration: none; color: #222 !important; font-weight: 600;">
-                              ${documenta.details.name}
+                              <font color="#222">${documenta.details.name}</font>
                             </a>
                           </td>
                           <td width="40%" align="center" style="background-color: #4a148c; border-bottom: 3px solid #fff;">
-                            <a href="${linkDocument}" style="padding: 11px; font-size: 10px; font-family: 'Montserrat'; color: #ffffff !important; text-decoration: none; width: 90%; display: block;
-}">
-                            `
-                            if (documenta.status.pendingActionFrom === 'crew') {
-                              html += `WORK ASSIGNED`
-                            }
-                            if (documenta.status.pendingActionFrom === 'client') {
-                              html += `REVIEW NEEDED`
-                            }
-                            html += `
+                            <a href="${linkDocument}" style="padding: 11px; font-size: 10px; font-family: 'Montserrat'; color: #ffffff !important; text-decoration: none; width: 90%; display: block;">
+                              <font color="#FFFFFF">
+                              `
+                              if (documenta.status.pendingActionFrom === 'crew') {
+                                html += `WORK ASSIGNED`
+                              }
+                              if (documenta.status.pendingActionFrom === 'client') {
+                                html += `REVIEW NEEDED`
+                              }
+                              html += `
+                              </font>
                             </a>
                           </td>
                         </tr>`
@@ -86,11 +87,10 @@ module.exports = {
                   </tr>
                   <tr>
                     <td align="center" style="background-color: #4a148c; padding: 10px 15px; cursor: pointer;">
-                      <a
-                        href="http://${req.headers.host}/"
-                        style="color: #ffffff; text-decoration: none;  font-size: 16px; font-family: 'Montserrat';"
-                      >
-                        See All Notifications
+                      <a href="http://${req.headers.host}/" style="color: #ffffff; text-decoration: none;  font-size: 16px; font-family: 'Montserrat';">
+                        <font color="#FFFFFF">
+                          See All Notifications
+                        </font>
                       </a>
                     </td>
                   </tr>
