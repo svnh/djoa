@@ -4,8 +4,6 @@
 <div *ngFor="let document of fetchedDocuments; let i = index;">
   <mat-card class="single-doc">
     <mat-card-content>
-      <!---currentUserBelongsTo: {{fetchedDocuments[i].currentUserBelongsTo}}
-      pendingActionFrom:{{fetchedDocuments[i].status.pendingActionFrom}}-->
       <div class="doc-info">
         <div class="doc-title">
           <img class="doc-icon" src="assets/images/doc-icon.png">
@@ -36,9 +34,8 @@
 
       <div *ngIf="document.status.global == 'CHANGES REQUEST'" class="doc-status">
         <div *ngIf="fetchedDocuments[i].currentUserBelongsTo === 'crew'" class="docproginfo">
-          SEE DOCUMENT AND/OR CHAT FOR INSTRUCTIONS
-          <BR>
           <mat-slide-toggle (change)="changeStatus($event, i, 'CHANGES SENT', 'client')" [(ngModel)]="fetchedDocuments[i].status.changeSent" class="myturn">SEND APPLIED CHANGES</mat-slide-toggle>
+          <br>SEE DOCUMENT AND/OR CHAT FOR INSTRUCTIONS
         </div>
         <div *ngIf="fetchedDocuments[i].currentUserBelongsTo ==='client'">
           <mat-slide-toggle (change)="changeStatus($event, i, 'REVIEW', 'crew')" [(ngModel)]="fetchedDocuments[i].status.changeRequest" class="yourturn">CHANGE REQUESTED</mat-slide-toggle>
@@ -49,7 +46,7 @@
       <div *ngIf="document.status.global == 'CHANGES SENT'" class="doc-status">
         <div *ngIf="fetchedDocuments[i].currentUserBelongsTo === 'crew'">
           <mat-slide-toggle (change)="changeStatus($event, i, 'CHANGES REQUEST', 'crew')" [(ngModel)]="fetchedDocuments[i].status.changeSent">CHANGES SENT</mat-slide-toggle>
-          <br> NO ACTION REQUIRED
+          <br>NO ACTION REQUIRED
         </div>
         <div *ngIf="fetchedDocuments[i].currentUserBelongsTo ==='client'">
           <mat-slide-toggle (change)="changeStatus($event, i, 'COMPLETE', '')" [(ngModel)]="fetchedDocuments[i].status.approve">APPROVE</mat-slide-toggle>
