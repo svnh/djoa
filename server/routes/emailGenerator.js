@@ -60,20 +60,22 @@ module.exports = {
 
                         html += `
                         <tr>
-                          <td width="60%" font-family: 'Montserrat';">
-                            <a href="${linkDocument}">
+                          <td width="60%">
+                            <a href="${linkDocument}" style="font-family: 'Montserrat'; display: block; padding: 10px 0; text-decoration: none; color: #222 !important; font-weight: 600;">
                               ${documenta.details.name}
                             </a>
                           </td>
-                          <td width="40%" align="center" style="background-color: #4a148c; padding: 15px 15px 15px 15px; border-bottom: 3px solid #fff; font-size: 10px; font-family: 'Montserrat'; color: #ffffff;">
-                          `
-                          if (documenta.status.pendingActionFrom === 'crew') {
-                            html += `WORK ASSIGNED`
-                          }
-                          if (documenta.status.pendingActionFrom === 'client') {
-                            html += `REVIEW NEEDED`
-                          }
-                          html += `
+                          <td width="40%" align="center" style="background-color: #4a148c; border-bottom: 3px solid #fff;">
+                            <a href="${linkDocument}" style="padding: 15px 15px 15px 15px; font-size: 10px; font-family: 'Montserrat'; color: #ffffff;"
+                            `
+                            if (documenta.status.pendingActionFrom === 'crew') {
+                              html += `WORK ASSIGNED`
+                            }
+                            if (documenta.status.pendingActionFrom === 'client') {
+                              html += `REVIEW NEEDED`
+                            }
+                            html += `
+                            </a>
                           </td>
                         </tr>`
                       })
