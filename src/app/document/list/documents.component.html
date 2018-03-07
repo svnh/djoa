@@ -16,7 +16,7 @@
         <div *ngIf="fetchedDocuments[i].currentUserBelongsTo ==='crew'">
           <mat-slide-toggle (change)="changeStatus($event, i, 'REVIEW', 'client')" [(ngModel)]="fetchedDocuments[i].status.review" class="myturn">SEND FOR REVIEW</mat-slide-toggle>
         </div>
-        <div *ngIf="fetchedDocuments[i].currentUserBelongsTo ==='client'" class="docproginfo">
+        <div *ngIf="fetchedDocuments[i].currentUserBelongsTo ==='client'">
           <p>WORK IN PROGRESS - NO ACTION REQUIRED</p>
         </div>
       </div>
@@ -33,7 +33,7 @@
       </div>
 
       <div *ngIf="document.status.global == 'CHANGES REQUEST'" class="doc-status">
-        <div *ngIf="fetchedDocuments[i].currentUserBelongsTo === 'crew'" class="docproginfo">
+        <div *ngIf="fetchedDocuments[i].currentUserBelongsTo === 'crew'">
           <mat-slide-toggle (change)="changeStatus($event, i, 'CHANGES SENT', 'client')" [(ngModel)]="fetchedDocuments[i].status.changeSent" class="myturn">SEND APPLIED CHANGES</mat-slide-toggle>
           <p>SEE DOCUMENT AND/OR CHAT FOR INSTRUCTIONS</p>
         </div>
