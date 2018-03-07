@@ -57,7 +57,7 @@
 
       <div *ngIf="document.status.global == 'COMPLETE'" class="doc-status">
         <div *ngIf="fetchedDocuments[i].currentUserBelongsTo === 'crew'">
-          </p>THE DOCUMENT IS APPROVED</p>
+          <p>THE DOCUMENT IS APPROVED</p>
         </div>
         <div *ngIf="fetchedDocuments[i].currentUserBelongsTo ==='client'">
           <mat-slide-toggle (change)="changeStatus($event, i, 'CHANGES SENT', 'client')" [(ngModel)]="fetchedDocuments[i].status.approve">APPROVED</mat-slide-toggle>
