@@ -60,12 +60,12 @@ module.exports = {
 
                         html += `
                         <tr>
-                          <td width="60%">
+                          <td width="60%" style="padding: 10px 0;">
                             <a href="${linkDocument}" style="font-family: 'Montserrat'; display: block; padding: 10px 0; text-decoration: none; color: #222 !important; font-weight: 600;">
                               <font color="#222">${documenta.details.name}</font>
                             </a>
                           </td>
-                          <td width="40%" align="center" style="background-color: #4a148c; border-bottom: 3px solid #fff;">
+                          <td width="40%" align="center" style="padding: 11px; background-color: #4a148c; border-bottom: 3px solid #fff;">
                             <a href="${linkDocument}" style="padding: 11px; font-size: 10px; font-family: 'Montserrat'; color: #ffffff !important; text-decoration: none; width: 90%; display: block;">
                               <font color="#FFFFFF">
                               `
