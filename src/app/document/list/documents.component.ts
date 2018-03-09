@@ -74,9 +74,9 @@ export class DocumentsComponent implements OnInit {
     });
 
 
-    if(document.link) {
+    if (document.link) {
       console.log(document.link)
-      if (document.link.substring(0, 7) !== 'http://') {
+      if (document.link.substring(0, 7) !== 'http://' && document.link.substring(0, 8) !== 'https://') {
         document.link = 'http://' + document.link;
       }
       // console.log(link)

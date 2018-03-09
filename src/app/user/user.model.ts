@@ -58,9 +58,8 @@ export class Profile {
 
 
 
-
 export class EmailPreferences {
-  frequencyEmail: string = '';
+  frequencyEmail: string = 'asTheyHappen';
 }
 
 
