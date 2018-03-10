@@ -89,12 +89,17 @@ textarea {
 
 /*----------Body---------*/
 
-.djoa-background {
-  background: #4a148c;
+
+ /*background: #4a148c;
   background: -webkit-linear-gradient(left, #4a148c , #0d47a1);
   background: -o-linear-gradient(right, #4a148c , #0d47a1);
   background: -moz-linear-gradient(right, #4a148c , #0d47a1);
-  background: linear-gradient(to right, #4a148c , #0d47a1);
+  background: linear-gradient(to right, #4a148c , #0d47a1);*/
+
+.djoa-background {
+  background: #0f0c29;
+  background: -webkit-linear-gradient(to right, #0f0c29, #302b63, #24243e);
+  background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
 }
 .djoa-container {
   float: none;
@@ -132,7 +137,7 @@ textarea {
   background-color: #F4F0F9;
   text-align: left;
   cursor: pointer;
-  margin-bottom: 15px;
+  margin-bottom: 19px;
 }
 .add-object p {
   float: left;
@@ -229,8 +234,7 @@ p.percent {
   cursor: pointer;
 }
 .selected .list-on, .list-on.selected {
-  background-color: #4a148c !important;
-  color: #fff !important;
+  background-color: #f4f0f9 !important;
 }
 .selected {
   display: table;
@@ -322,10 +326,12 @@ p.percent {
   padding-bottom: 30px;
 }
 .sidenavcat-header p {
-  padding: 15px 0;
-  background: #F4F0F9;
-  margin: 0 !important;
-  color: #4a148c;
+  padding: 10px;
+  background: #4a148c;
+  margin: 15px 0 0 0 !important;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  font-size: 12px;
 }
 .sidenavcat-header h5 {
   cursor: pointer;
@@ -346,7 +352,7 @@ p.percent {
 
 @media screen and (min-width: 992px) {
   .djoa-container {
-    margin: 0 0 0 13%;
+    margin: 0 0 0 16%;
     background-size: 80%;
     background-position: 50% -10%;
     width: 80% !important;
@@ -354,10 +360,10 @@ p.percent {
     height: 93%;
   }
   .missionbox {
-    width: 450px;
+    width: 400px;
   }
   .list-on {
-    height: 50px;
+    height: 45px;
   }
   .read-chat p.shortMessage {
     display: none;
@@ -392,29 +398,24 @@ p.percent {
   }
 }
 
-@media screen and (min-height: 751px) {
+@media screen and (min-height: 670px) {
   .col-md-12, .col-lg-6 {
-    height: 69%;
+    height: 75%;
   }
 }
-@media screen and (min-height: 651px) and (max-height: 750px) {
+@media screen and (min-height: 551px) and (max-height: 669px) {
   .col-md-12, .col-lg-6 {
     height: 70%;
   }
 }
-@media screen and (min-height: 551px) and (max-height: 650px) {
+@media screen and (min-height: 501px) and (max-height: 550px) {
   .col-md-12, .col-lg-6 {
     height: 65%;
   }
 }
-@media screen and (min-height: 501px) and (max-height: 550px) {
-  .col-md-12, .col-lg-6 {
-    height: 61%;
-  }
-}
 @media screen and (min-height: 451px) and (max-height: 500px) {
   .col-md-12, .col-lg-6 {
-    height: 55%;
+    height: 60%;
   }
 }
 @media screen and (max-height: 450px) {
