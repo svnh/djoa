@@ -77,7 +77,7 @@ img.logo-top {
     width: 40px;
     height: 24px;
   }
-  .navadd button:after, .navnotif button:before, .navhome button:before {
+  .navadd button:before, .navnotif button:before, .navhome button:before {
     top: -10px;
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
