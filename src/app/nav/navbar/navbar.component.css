@@ -18,7 +18,7 @@
   float: left;
 }
 .navhome button {
-  margin-right: 15px;
+  margin: 20px 15px 0 0;
 }
 a.nav-link {
   padding: 0 1em !important;
@@ -45,7 +45,7 @@ a.nav-link {
   color: #ffffff;
   background-color: #5e5899;
   border: 1px solid;
-  margin: 10px 50px;
+  margin: 20px 50px;
   height: 40px;
 }
 .pic-container {
@@ -90,10 +90,10 @@ img.logo-top {
     border-top: 10px solid #5e5899;
   }
   .navnotif button {
-    margin: 10px 0;
+    margin: 20px 0;
   }
   .navadd button {
-    margin: 10px 25px;
+    margin: 20px 25px;
   }
   .pic-container {
     width: 65px;

@@ -15,7 +15,7 @@
   font-weight: 500;
   background: #5e5899;
   position: absolute;
-  button: 25px;
+  bottom: 25px;
 }
 .sidebarleft button:before, .sidebarleft button:after {
   content: "";
