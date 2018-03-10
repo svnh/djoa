@@ -29,9 +29,3 @@
   background: none !important;
   color: #eee;
 }
-
-@media screen and (min-width: 992px) {
-  .mission-nav {
-    margin-top: 80px;
-  }
-}

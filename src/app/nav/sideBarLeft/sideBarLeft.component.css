@@ -10,14 +10,18 @@
 .leftmenu h5 {
   margin: 15px 0;
 }
-.fa-search {
+.sidebarleft button {
   color: #ffffff !important;
-  background-color: #330066 !important;
-  padding: 10px !important;
-  border: 1px solid !important;
-  border-radius: 20px !important;
+  font-weight: 500;
+  background: #5e5899;
+  position: relative;
+}
+.sidebarleft button:before, .sidebarleft button:after {
+  content: "";
   position: absolute;
-  bottom: 15px;
+  left: 0;
+  width: 0;
+  height: 0;
 }
 
 @media screen and (min-width: 1300px) {
@@ -33,20 +37,59 @@
   mat-sidenav.sidebarleft {
     width: 120px;
   }
-  .sidebarleft .fa-search {
+  .sidebarleft button {
     left: 100px;
   }
 }
-
+@media screen and (min-width: 992px) {
+  .nav-container {
+    position: absolute;
+  }
+  .sidebarleft button {
+    width: 40px;
+    height: 24px;
+  }
+  .sidebarleft button:before {
+    top: -10px;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 10px solid #5e5899;
+  }
+  .sidebarleft button:after {
+    bottom: -10px;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 10px solid #5e5899;
+  }
+}
 @media screen and (max-width: 991px) {
   mat-sidenav.sidebarleft {
     width: 200px;
     padding: 50px 0 15px;
   }
-  .sidebarleft .fa-search {
-    left: 15px;
-  }
   .leftmenu {
     max-height: 75%;
+  }
+  .sidebarleft button {
+    left: 15px;
+  }
+  .sidebarleft button {
+    font-size: 12px;
+  }
+  .sidebarleft button {
+    width: 30px;
+    height: 20px;
+  }
+  .sidebarleft button:before {
+    top: -5px;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 5px solid #5e5899;
+  }
+  .sidebarleft button:after {
+    bottom: -5px;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 5px solid #5e5899;
   }
 }

@@ -17,9 +17,6 @@
 .nav.leftmenu {
   float: left;
 }
-.fa-home {
-  padding: 10px !important;
-}
 .navhome button {
   margin-right: 15px;
 }
@@ -37,7 +34,7 @@ a.nav-link {
   background: #5e5899;
   position: relative;
 }
-.navadd .fa.fa-plus:after, .navnotif button:before, .navhome button:before, .navadd .fa.fa-plus:after, .navnotif button:after, .navhome button:after {
+.navadd button:before, .navnotif button:before, .navhome button:before, .navadd button:after, .navnotif button:after, .navhome button:after {
   content: "";
   position: absolute;
   left: 0;
@@ -76,7 +73,7 @@ img.logo-top {
   .nav-container {
     position: absolute;
   }
-  .navadd button, .navnotif button, fa-home {
+  .navadd button, .navnotif button, .navhome button {
     width: 40px;
     height: 24px;
   }
@@ -91,9 +88,6 @@ img.logo-top {
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
     border-top: 10px solid #5e5899;
-  }
-  .navadd .fa.fa-plus {
-    padding: 12px;
   }
   .navnotif button {
     margin: 10px 0;
@@ -126,17 +120,14 @@ img.logo-top {
     position: fixed;
   }
   .navadd button, .navnotif button, .pic-container {
-    font-size: 14px;
-  }
-  .navadd .fa.fa-plus {
-    padding: 8px;
+    font-size: 12px;
   }
   .navadd button, .navnotif button {
     width: 30px;
     height: 20px;
     margin-top: 5px;
   }
-  .navadd button:after, .navnotif button:before, .fa-home:before {
+  .navadd button:before, .navnotif button:before, .fa-home:before {
     top: -5px;
     border-left: 15px solid transparent;
     border-right: 15px solid transparent;
