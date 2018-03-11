@@ -3,7 +3,6 @@
     <div *ngIf="!messages.length">
       Write your first message to start the discussion...
     </div>
-    <button *ngIf="linkGoToChat" type="button" (click)="goToChat()" class="gotochat-btn">CHAT</button>
     <button *ngIf="paginationData.currentPage * paginationData.itemsPerPage < paginationData.totalItems" type="button" (click)="buttonGetOldChats()" class="getolderchats">Get older chats.. </button>
     <div *ngFor="let message of messages; let i=index;" class="indiv-chat">
       <div *ngIf="!onlylastPost || i === messages.length-1">
@@ -19,6 +18,7 @@
         </div>
       </div>
     </div>
+    <button *ngIf="linkGoToChat" type="button" (click)="goToChat()" class="gotochat-btn">CHAT</button>
   </div>
   <div *ngIf="addMessage" class="write-chat">
     <textarea [(ngModel)]="message.chatName" (keyup.enter)="sendMessage()"></textarea>
