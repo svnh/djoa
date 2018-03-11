@@ -33,7 +33,6 @@ export class StratChatComponent implements OnInit {
   fetchedStrats: Strat[] = [];
   loading: boolean;
   myForm: FormGroup;
-  buttonDataStrat: ButtonDataStrat = new ButtonDataStrat()
 
   // ]
   constructor(
@@ -255,7 +254,6 @@ export class StratChatComponent implements OnInit {
         let newSearch = new Search()
 
         this.fetchedStrat.projects.forEach(project => { newSearch.projectId = project._id })
-        this.fetchedStrat.categories.forEach(categorie => { newSearch.categorieId = categorie._id })
 
         // this.getStratsButtons(1, newSearch)
 
