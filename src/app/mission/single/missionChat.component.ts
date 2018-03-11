@@ -3,26 +3,22 @@ import { AuthService } from '../../auth/auth.service';
 import { MissionService } from '../mission.service';
 import { CategorieService } from '../../categorie/categorie.service';
 import { ProjectService } from '../../project/project.service';
-
 import { Mission, ButtonDataMission } from '../mission.model';
-
 import { ToastsManager } from 'ng2-toastr';
-
 import { MatDialog } from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { UserService } from '../../user/user.service';
-// import { QuoteService } from '../../quote/quote.service';
-// import { DeleteDialog } from '../../deleteDialog/deleteDialog.component';
 import { User } from '../../user/user.model';
-// import { Quote } from '../../quote/quote.model';
 import { Categorie } from '../../categorie/categorie.model';
 import { Project } from '../../project/project.model';
-import { Search } from '../../shared/shared.model'
+import { Search } from '../../shared/shared.model';
 import { GlobalEventsManager } from '../../globalEventsManager';
-import { ShowNavBarData } from '../../shared/shared.model'
-
+import { ShowNavBarData } from '../../shared/shared.model';
+// import { QuoteService } from '../../quote/quote.service';
+// import { DeleteDialog } from '../../deleteDialog/deleteDialog.component';
+// import { Quote } from '../../quote/quote.model';
 
 @Component({
   selector: 'app-missionChat',
