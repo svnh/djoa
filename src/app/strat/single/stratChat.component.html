@@ -1,17 +1,8 @@
 <div class="djoa-container no-image">
-  <div *ngFor="let project of fetchedMission.projects" class="top-nav-chat">
+  <div *ngFor="let project of fetchedStrat.projects" class="top-nav-chat">
     <div (click)="goBack()" class="top-left-chat">< Back</div>
     <h3 class="top-right-chat">{{project.details.name}}</h3>
   </div>
-  <!--<div class="mission-nav">
-    <div *ngIf="buttonDataMission.left._id" (click)="goTo('mission', buttonDataMission.left._id)" class="previous">
-      <i class="fa f
-      a-chevron-left"></i> {{buttonDataMission.left.title}}
-    </div>
-    <div *ngIf="buttonDataMission.right._id" (click)="goTo('mission', buttonDataMission.right._id)" class="next">
-      {{buttonDataMission.right.title}} <i class="fa fa-chevron-right"></i>
-    </div>
-  </div>-->
   <div class="single-chat">
     <mat-card class="chat">
       <mat-card-content>
