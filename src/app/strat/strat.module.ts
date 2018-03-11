@@ -12,6 +12,7 @@ import { SharedModule } from '../shared/shared.module';
 import { DocumentModule} from '../document/document.module';
 import { BriefModule} from '../brief/brief.module';
 import { ChatModule} from '../chat/chat.module';
+import { StratChatComponent} from './single/stratChat.component';
 // import { StratTeamComponent} from './single/stratTeam.component';
 // import { StratSingleComponent} from './stratSingle/stratSingle.component';
 
@@ -50,6 +51,7 @@ import { ChatModule} from '../chat/chat.module';
     StratTeamComponent,
     StratsComponent,
     LightStratsComponent,
+    StratChatComponent,
     // ProjectStratsComponent,
     // StratDialogComponent,
     // StratSingleComponent,
