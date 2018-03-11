@@ -30,7 +30,7 @@
   height: 200px;
 }
 .teaminfo, .your-activity {
-  background-color: #F4F0F9;
+  background-color: #F5F5F5;
 }
 mat-progress-bar.mat-progress-bar.mat-primary, .project-progress {
   width: 100% !important;
@@ -42,7 +42,7 @@ mat-progress-bar.mat-progress-bar.mat-primary, .project-progress {
 .missionbox tr {
   margin: 0 0 15px !important;
   display: block;
-  background-color: #F4F0F9;
+  background-color: #F5F5F5;
   position: relative;
   padding: 15px 15px 10px;
   cursor: pointer;
@@ -87,14 +87,14 @@ mat-progress-bar.mat-progress-bar.mat-primary, .project-progress {
   padding-top: 8px;
 }
 .activity .number {
-  background-color: #4a148c;
+  background-color: #5e5899;
 }
 .your-activity .number {
   background-color: #f44336;
   cursor: pointer;
 }
 .activity h4 {
-  color: #4a148c;
+  color: #5e5899;
 }
 .your-activity h4 {
   color: #f44336;

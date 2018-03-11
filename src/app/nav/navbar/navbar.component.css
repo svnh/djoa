@@ -20,12 +20,8 @@
 .navhome button {
   margin: 20px 15px 0 0;
 }
-a.nav-link {
-  padding: 0 1em !important;
-}
 .fa-bars {
   color: #5e5899;
-  margin-right: 15px;
   padding: 7px;
 }
 .navadd button, .navnotif button, .navhome button {
@@ -96,8 +92,8 @@ img.logo-top {
     margin: 20px 25px;
   }
   .pic-container {
-    width: 65px;
-    height: 65px;
+    width: 65px !important;
+    height: 65px !important;
     padding: 1px;
   }
   .nav.rightmenu, .nav.leftmenu {
@@ -119,7 +115,7 @@ img.logo-top {
     box-shadow: 0 0 5px #ccc;
     position: fixed;
   }
-  .navadd button, .navnotif button, .pic-container {
+  .navadd button, .navnotif button {
     font-size: 12px;
   }
   .navadd button, .navnotif button {
@@ -133,6 +129,10 @@ img.logo-top {
     border-right: 15px solid transparent;
     border-bottom: 5px solid #5e5899;
   }
+  .navadd button {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
   .navadd button:after, .navnotif button:after, .fa-home:after {
     bottom: -5px;
     border-left: 15px solid transparent;
@@ -141,5 +141,10 @@ img.logo-top {
   }
   .nav.rightmenu, .nav.leftmenu {
     padding: 7px;
+  }
+  .pic-container {
+    width: 30px !important;
+    height: 30px !important;
+    margin-right: 5px;
   }
 }

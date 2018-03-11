@@ -4,7 +4,7 @@
 }
 button.addbrief {
   display: block;
-  background-color: #4a148c;
+  background-color: #5e5899;
   padding: 10px 15px;
   color: #fff;
   text-transform: uppercase;
@@ -13,7 +13,7 @@ button.addbrief {
   font-size: 12px;
   margin-bottom: 0;
   text-transform: uppercase;
-  color: #4a148c;
+  color: #5e5899;
 }
 .firstquestion {
   margin-top: 15px;

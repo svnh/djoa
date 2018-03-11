@@ -24,6 +24,9 @@
   width: 0;
   height: 0;
 }
+i.fa.fa-search {
+  padding-bottom: 5px;
+}
 
 @media screen and (min-width: 1300px) {
   mat-sidenav.sidebarleft {

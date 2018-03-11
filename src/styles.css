@@ -39,15 +39,18 @@ h1 {
   text-align: center;
   padding: 15px 0;
 }
+h1.bigmarg {
+  color: #ffffff !important;
+}
 h2 {
   font-size: 15px;
-  color: #4a148c;
+  color: #5e5899;
   display: inline-block;
   margin-bottom: 10px !important;
 }
 h3 {
   font-size: 13px;
-  background-color: #4a148c;
+  background-color: #5e5899;
   color: #fff;
   padding: 2px 5px;
   float: right;
@@ -83,18 +86,18 @@ textarea {
     margin-bottom: 25px;
   }
   h1.bigmarg {
-    margin-bottom: 50px !important;
+    margin-bottom: 20px 0 40px !important;
   }
 }
 
 /*----------Body---------*/
 
 
- /*background: #4a148c;
-  background: -webkit-linear-gradient(left, #4a148c , #0d47a1);
-  background: -o-linear-gradient(right, #4a148c , #0d47a1);
-  background: -moz-linear-gradient(right, #4a148c , #0d47a1);
-  background: linear-gradient(to right, #4a148c , #0d47a1);*/
+ /*background: #5e5899;
+  background: -webkit-linear-gradient(left, #5e5899 , #0d47a1);
+  background: -o-linear-gradient(right, #5e5899 , #0d47a1);
+  background: -moz-linear-gradient(right, #5e5899 , #0d47a1);
+  background: linear-gradient(to right, #5e5899 , #0d47a1);*/
 
 .djoa-background {
   background: #0f0c29;
@@ -149,7 +152,7 @@ textarea {
   padding: 4px 6px;
   border-radius: 100px;
   color: #fff;
-  background-color: #4a148c;
+  background-color: #5e5899;
 }
 .save, .delete {
   width: 100%;
@@ -195,7 +198,7 @@ p.percent {
   background-color: #F4F0F9;
 }
 .card-header i {
-  color: #4a148c !important;
+  color: #5e5899 !important;
 }
 .sidewrapper {
   width: 100%;
@@ -327,7 +330,7 @@ p.percent {
 }
 .sidenavcat-header p {
   padding: 10px;
-  background: #4a148c;
+  background: #5e5899;
   margin: 15px 0 0 0 !important;
   color: #FFFFFF;
   text-transform: uppercase;
@@ -353,7 +356,7 @@ p.percent {
 @media screen and (min-width: 992px) {
   .djoa-container {
     margin: 0 0 0 16%;
-    background-size: 80%;
+    background-size: 50%;
     background-position: 50% -10%;
     width: 80% !important;
     max-width: 80% !important;
@@ -374,7 +377,7 @@ p.percent {
 }
 @media screen and (max-width: 991px) {
   .djoa-container {
-    background-size: 100%;
+    background-size: 90%;
     background-position: 50% 5%;
     width: 100% !important;
     max-width: 100% !important;
