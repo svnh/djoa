@@ -3,7 +3,7 @@ import { AuthService } from '../../auth/auth.service';
 import { StratService } from '../strat.service';
 import { CategorieService } from '../../categorie/categorie.service';
 import { ProjectService } from '../../project/project.service';
-import { Strat, ButtonDataStrat } from '../strat.model';
+import { Strat } from '../strat.model';
 import { ToastsManager } from 'ng2-toastr';
 import { MatDialog } from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
