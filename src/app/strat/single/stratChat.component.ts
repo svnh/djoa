@@ -206,32 +206,6 @@ export class StratChatComponent implements OnInit {
   // }
 
 
-
-  getStratsButtons(page: number, search: any) {
-    this.loading = true;
-    this.stratService.getStrats(page, search)
-      .subscribe(
-      res => {
-        this.fetchedStrats = res.data
-        let positionObj: number = this.fetchedStrats.findIndex(strat => strat._id === this.fetchedStrat._id)
-        let countStrats = this.fetchedStrats.length
-        if (positionObj === 0) {
-          this.buttonDataStrat.left = new Strat()
-        } else {
-          this.buttonDataStrat.left = this.fetchedStrats[positionObj - 1]
-        }
-        if (positionObj === countStrats - 1) {
-          this.buttonDataStrat.right = new Strat()
-        } else {
-          this.buttonDataStrat.right = this.fetchedStrats[positionObj + 1]
-        }
-        this.loading = false;
-      },
-      error => {
-        console.log(error);
-      }
-      );
-  }
   goTo(typeObj: string, id: string) {
     this.router.navigate([typeObj + '/' + id]);
   }
