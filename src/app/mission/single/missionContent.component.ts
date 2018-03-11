@@ -245,13 +245,13 @@ export class MissionContentComponent implements OnInit {
       res => {
         this.fetchedMission = res
 
-          this.fetchedMission.projects.forEach(project => {
-            const newShowNavBarData = new ShowNavBarData()
-            newShowNavBarData.search.typeObj = 'categorie'
-            newShowNavBarData.search.missionId = this.fetchedMission._id
-            newShowNavBarData.search.projectId = project._id
-            this.globalEventsManager.showNavBarLeft(newShowNavBarData)
-          });
+        this.fetchedMission.projects.forEach(project => {
+          const newShowNavBarData = new ShowNavBarData()
+          newShowNavBarData.search.typeObj = 'categorie'
+          newShowNavBarData.search.missionId = this.fetchedMission._id
+          newShowNavBarData.search.projectId = project._id
+          this.globalEventsManager.showNavBarLeft(newShowNavBarData)
+        });
         //
         // const showNavBarData = new ShowNavBarData()
         // showNavBarData.search.typeObj = 'mission'
@@ -266,8 +266,8 @@ export class MissionContentComponent implements OnInit {
 
 
         this.fetchedMission.dateMission
-        .percentageProgress = this.authService
-        .getPourcentageProgress(this.fetchedMission.dateMission.start, this.fetchedMission.dateMission.end)
+          .percentageProgress = this.authService
+            .getPourcentageProgress(this.fetchedMission.dateMission.start, this.fetchedMission.dateMission.end)
         // let newSearch = new Search()
 
         // this.fetchedMission.projects.forEach(project => { newSearch.projectId = project._id })

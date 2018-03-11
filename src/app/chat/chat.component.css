@@ -19,7 +19,7 @@
 }
 .write-chat {
   background-color: #ffffff;
-  border-top: 1px solid #330066;
+  border-top: 1px solid #5e5899;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -41,7 +41,7 @@
   position: absolute;
   right: 24px;
   top: 24px;
-  background-color: #330066;
+  background-color: #5e5899;
   color: #ffffff;
   padding: 8px 16px;
 }

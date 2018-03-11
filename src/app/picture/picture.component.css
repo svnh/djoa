@@ -11,6 +11,7 @@
   border-top-right-radius: 100px;
   border-bottom-left-radius: 100px;
   border-bottom-right-radius: 100px;
+  cursor: pointer;
 }
 .container-profimg button {
   width: 100%;

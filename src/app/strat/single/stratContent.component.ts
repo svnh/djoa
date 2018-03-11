@@ -1,18 +1,15 @@
-import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
-import {AuthService} from '../../auth/auth.service';
-import {StratService} from '../strat.service';
-import {CategorieService} from '../../categorie/categorie.service';
-import { ProjectService} from '../../project/project.service';
-
-import {Strat} from '../strat.model';
-
-import {ToastsManager} from 'ng2-toastr';
-
-import {MatDialog } from '@angular/material';
-import {Router, ActivatedRoute, Params } from '@angular/router';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { AuthService } from '../../auth/auth.service';
+import { StratService } from '../strat.service';
+import { CategorieService } from '../../categorie/categorie.service';
+import { ProjectService } from '../../project/project.service';
+import { Strat } from '../strat.model';
+import { ToastsManager } from 'ng2-toastr';
+import { MatDialog } from '@angular/material';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
-import { FormBuilder, FormGroup} from '@angular/forms';
-import { UserService} from '../../user/user.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { UserService } from '../../user/user.service';
 // import { QuoteService } from '../../quote/quote.service';
 // import { DeleteDialog } from '../../deleteDialog/deleteDialog.component';
 import { User } from '../../user/user.model';
@@ -20,8 +17,8 @@ import { User } from '../../user/user.model';
 import { Categorie } from '../../categorie/categorie.model';
 import { Project } from '../../project/project.model';
 import { Search } from '../../shared/shared.model'
-import {GlobalEventsManager} from '../../globalEventsManager';
-import {ShowNavBarData} from '../../shared/shared.model'
+import { GlobalEventsManager } from '../../globalEventsManager';
+import { ShowNavBarData } from '../../shared/shared.model'
 
 
 @Component({
@@ -31,30 +28,24 @@ import {ShowNavBarData} from '../../shared/shared.model'
 })
 export class StratContentComponent implements OnInit {
   @Output() newStratSaved: EventEmitter<any> = new EventEmitter();
-
   @Input() fetchedStrat: Strat = new Strat()
   @Input() search: Search = new Search()
-
-
   myForm: FormGroup;
 
-// ]
   constructor(
     private stratService: StratService,
-    // private quoteService: QuoteService,
     private globalEventsManager: GlobalEventsManager,
-
-    // private projectService: ProjectService,
-    // private userService: UserService,
-    // private categorieService: CategorieService,
-//    private modalService: NgbModal,
     private toastr: ToastsManager,
-    // public dialog: MatDialog,
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private location: Location,
     private _fb: FormBuilder,
     private authService: AuthService,
+    // private projectService: ProjectService,
+    // private userService: UserService,
+    // private categorieService: CategorieService,
+    // private modalService: NgbModal,
+    // public dialog: MatDialog,
   ) {
     this.globalEventsManager.refreshCenterEmitter.subscribe((isRefresh) => {
         if(isRefresh) {
@@ -168,17 +159,9 @@ export class StratContentComponent implements OnInit {
   }
 
 
-
-
-
-
-
   goBack() {
     this.location.back();
   }
-
-
-
 
 
   onDelete(id: string) {
@@ -213,8 +196,6 @@ export class StratContentComponent implements OnInit {
   // }
 
 
-
-
   getStrat(id: string) {
     this.stratService.getStrat(id)
       .subscribe(
@@ -234,7 +215,6 @@ export class StratContentComponent implements OnInit {
               .isoDateToHtmlDate(this.fetchedStrat.dateStrat.end)
 
 
-
           // this.fetchedStrat
           // .datePaiementString =
           // this.authService
@@ -249,6 +229,8 @@ export class StratContentComponent implements OnInit {
     return this.authService.isAdmin();
   }
 
-
+  goTo(typeObj: string, id: string) {
+    this.router.navigate([typeObj + '/' + id]);
+  }
 
 }

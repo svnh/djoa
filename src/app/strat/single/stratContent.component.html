@@ -1,12 +1,17 @@
 <div class="djoa-container">
   <div>
-    <h1 class="bigmarg">{{fetchedStrat.title}}</h1>
+    <h1>{{fetchedStrat.title}}</h1>
   </div>
   <div class="col-md-12 col-lg-6">
     <div class="lineback dspl-nn-dsktp">
       <mat-card class="chat-card">
         <mat-card-content>
-          <app-chat [search]="search"></app-chat>
+          <app-chat
+            [linkGoToChat]="'strat/' + fetchedStrat._id + '/chat'"
+            [addMessage]=false
+            [onlylastPost]=true
+            [search]="search">
+          </app-chat>
         </mat-card-content>
       </mat-card>
     </div>
