@@ -3,7 +3,7 @@ import { AuthService } from '../../auth/auth.service';
 import { StratService } from '../strat.service';
 import { CategorieService } from '../../categorie/categorie.service';
 import { ProjectService } from '../../project/project.service';
-import { Strat } from '../strat.model';
+import { Strat, ButtonDataStrat } from '../strat.model';
 import { ToastsManager } from 'ng2-toastr';
 import { MatDialog } from '@angular/material';
 import { Router, ActivatedRoute, Params } from '@angular/router';
@@ -16,24 +16,37 @@ import { Project } from '../../project/project.model';
 import { Search } from '../../shared/shared.model';
 import { GlobalEventsManager } from '../../globalEventsManager';
 import { ShowNavBarData } from '../../shared/shared.model';
+// import { QuoteService } from '../../quote/quote.service';
+// import { DeleteDialog } from '../../deleteDialog/deleteDialog.component';
+// import { Quote } from '../../quote/quote.model';
 
 @Component({
   selector: 'app-stratChat',
   templateUrl: './stratChat.component.html',
   styleUrls: ['../strat.component.css'],
 })
-export class StratContentComponent implements OnInit {
+export class StratChatComponent implements OnInit {
   @Output() newStratSaved: EventEmitter<any> = new EventEmitter();
+
   @Input() fetchedStrat: Strat = new Strat()
   @Input() search: Search = new Search()
   fetchedStrats: Strat[] = [];
   loading: boolean;
   myForm: FormGroup;
+  buttonDataStrat: ButtonDataStrat = new ButtonDataStrat()
 
+  // ]
   constructor(
     private stratService: StratService,
+    // private quoteService: QuoteService,
     private globalEventsManager: GlobalEventsManager,
+
+    // private projectService: ProjectService,
+    // private userService: UserService,
+    // private categorieService: CategorieService,
+    //    private modalService: NgbModal,
     private toastr: ToastsManager,
+    // public dialog: MatDialog,
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private location: Location,
@@ -60,17 +73,38 @@ export class StratContentComponent implements OnInit {
       endString: [''],
     })
 
+
     this.fetchedStrat.dateStrat.startString = this.authService.isoDateToHtmlDate(this.fetchedStrat.dateStrat.start)
     this.fetchedStrat.dateStrat.endString = this.authService.isoDateToHtmlDate(this.fetchedStrat.dateStrat.end)
 
-    this.activatedRoute.params.subscribe((params: Params) => {
 
+
+    // this.fetchedStrat
+    // .datePaiementString =
+    // this.authService
+    // .isoDateToHtmlDate(this.fetchedStrat.datePaiement)
+    // if (this.search.stratType)
+    //   this.fetchedStrat.stratType = this.search.stratType
+    //
+
+    // if (this.search.projectId) {
+    //   let newProject = new Project()
+    //   newProject._id = this.search.projectId
+    //   this.fetchedStrat.projects.push(newProject)
+    //
+    // }
+
+    this.activatedRoute.params.subscribe((params: Params) => {
+      // if (this.search.stratId) {
+      //   this.getStrat(this.search.stratId)
+      // } else
       if (params['id']) {
         this.search.stratId = params['id']
         this.getStrat(params['id'])
       }
     })
   }
+
 
   openDetails() {
     let showNavBarData = new ShowNavBarData()
@@ -104,12 +138,16 @@ export class StratContentComponent implements OnInit {
       .end = this.authService
         .HTMLDatetoIsoDate(this.fetchedStrat.dateStrat.endString)
 
+
+    // this.fetchedStrat.datePaiement = this.authService.HTMLDatetoIsoDate(this.fetchedStrat.datePaiementString)
     if (this.fetchedStrat._id) {
       this.stratService.updateStrat(this.fetchedStrat)
         .subscribe(
         res => {
           this.toastr.success('Great!', res.message)
-          this.getStrat(res.obj._id))
+          this.getStrat(res.obj._id)
+          // this.fetchedStrat = res.obj
+          //this.router.navigate(['strat/edit/' + this.fetchedStrat._id])
         },
         error => {
           this.toastr.error('error!', error)
@@ -122,12 +160,53 @@ export class StratContentComponent implements OnInit {
           this.toastr.success('Great!', res.message)
           this.getStrat(res.obj._id)
           this.globalEventsManager.refreshCenter(true);
+          // this.fetchedStrat = res.obj
+          // this.newStratSaved.emit()
+          // if(this.showHeader)
+          //   this.router.navigate(['strat/edit/' + res.obj._id])
         },
         error => { console.log(error) }
         )
     }
 
   }
+
+
+
+
+  //
+  // onDelete(id: string) {
+  //   let this2 = this
+  //   return new Promise(function(resolve, reject) {
+  //     this2.stratService.deleteStrat(id)
+  //       .subscribe(
+  //       res => {
+  //         this2.toastr.success('Great!', res.message);
+  //         resolve(res)
+  //       },
+  //       error => {
+  //         console.log(error);
+  //         reject(error)
+  //       }
+  //       )
+  //   })
+  // }
+
+
+  // openDialogDelete(){
+  //   let this2 = this
+  //   let dialogRefDelete = this.dialog.open(DeleteDialog)
+  //   dialogRefDelete.afterClosed().subscribe(result => {
+  //     if(result) {
+  //       this.onDelete(this.fetchedStrat._id).then(function(){
+  //         this2.router.navigate(['strat']);
+  //       })
+  //
+  //     }
+  //   })
+  // }
+
+
 
   getStratsButtons(page: number, search: any) {
     this.loading = true;
@@ -164,11 +243,13 @@ export class StratContentComponent implements OnInit {
       res => {
         this.fetchedStrat = res
 
+
         this.fetchedStrat.dateStrat.startString = this.authService
           .isoDateToHtmlDate(this.fetchedStrat.dateStrat.start)
 
         this.fetchedStrat.dateStrat.endString = this.authService
           .isoDateToHtmlDate(this.fetchedStrat.dateStrat.end)
+
 
         this.fetchedStrat.dateStrat.percentageProgress = this.authService.getPourcentageProgress(this.fetchedStrat.dateStrat.start, this.fetchedStrat.dateStrat.end)
         let newSearch = new Search()
@@ -176,9 +257,18 @@ export class StratContentComponent implements OnInit {
         this.fetchedStrat.projects.forEach(project => { newSearch.projectId = project._id })
         this.fetchedStrat.categories.forEach(categorie => { newSearch.categorieId = categorie._id })
 
+        // this.getStratsButtons(1, newSearch)
+
       },
       error => { console.log(error) }
       )
   }
+
+
+  // ngOnDestroy() {
+  //   console.log('destroy')
+  //   // prevent memory leak when component destroyed
+  //   // this.subscription.unsubscribe();
+  // }
 
 }
