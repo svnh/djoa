@@ -87,7 +87,7 @@ textarea {
 }
 @media screen and (max-width: 991px) {
   h1 {
-    margin: 15px auto;
+    margin: 0 !important;
   }
 }
 
@@ -440,8 +440,10 @@ p.percent {
   float: left;
 }
 .chat-card {
-  height: 112px !important;
-  padding-right: 100px !important;
+  height: 121px !important;
+}
+.chat-card .indiv-chat {
+  margin-bottom: 15px;
 }
 .single-chat .chat {
   padding: 0;
