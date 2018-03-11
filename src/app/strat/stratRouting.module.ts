@@ -1,8 +1,9 @@
 import { Routes, RouterModule } from '@angular/router';
-import { NgModule }            from '@angular/core';
+import { NgModule } from '@angular/core';
 import { StratComponent} from './single/strat.component';
 import { StratContentComponent} from './single/stratContent.component';
 import { StratsComponent} from './list/strats.component';
+import { StratChatComponent} from './single/stratChat.component';
 // import {ProjectStratsComponent} from './project/projectStrats.component';
 export const routes: Routes = [
   {path: '', component: StratsComponent},
@@ -13,7 +14,7 @@ export const routes: Routes = [
   // {path: 'new', component: StratComponent},
   // {path: 'new/:idClient', component: StratSingleComponent},
   {path: ':id', component: StratContentComponent},
-
+  {path: ':id/chat', component: StratChatComponent},
 
 
   // {path: 'strats/:id', component: StratsComponent},
