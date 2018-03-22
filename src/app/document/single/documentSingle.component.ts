@@ -120,11 +120,11 @@ export class DocumentSingleComponent implements OnInit {
   }
 
   save() {
-    if (!this.fetchedDocument.crewMembers.length) {
+    if (!this.fetchedDocument.crewMembers.length && !this.fetchedDocument.briefs.length) {
       this.toastr.error('Error!', 'Crew Member is required');
       return;
     }
-    if (!this.fetchedDocument.reviewers.length) {
+    if (!this.fetchedDocument.reviewers.length && !this.fetchedDocument.briefs.length) {
       this.toastr.error('Error!', 'Reviewer is required');
       return;
     }
