@@ -138,7 +138,7 @@ router.post('/', function (req, res, next) {
       var mailOptions = {
         to: user.email,
         from: config.userGmail,
-        subject: 'My Chair by Phyto Paris | Password Change Request  ',
+        subject: 'Djoa App | Password Change Request  ',
         html: html
       };
       mailer.sendMail(mailOptions, function (err) {
