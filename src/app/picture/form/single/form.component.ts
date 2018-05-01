@@ -134,8 +134,21 @@ export class FormComponent implements OnInit {
   // check if the image is actually an image by checking the mime type
   isImage(file: File): boolean {
     console.log(file.type)
-    if (!file.type.match('image/*') && !file.type.match('application/pdf')) {
-      this.toastr.error('Only images are allowed');
+    if (
+      !file.type.match('image/*') &&
+      !file.type.match('application/csv') &&
+      !file.type.match('application/doc') &&
+      !file.type.match('application/docx') &&
+      !file.type.match('application/xls') &&
+      !file.type.match('application/xlsx') &&
+      !file.type.match('application/ppt') &&
+      !file.type.match('application/pptx') &&
+      !file.type.match('application/rtf') &&
+      !file.type.match('application/pot')
+
+
+    ) {
+      this.toastr.error('Format not allowed!');
       return false;
     }
     return true;
