@@ -3,7 +3,7 @@
     *ngIf="
       singleForm.type === 'jpg' ||
       singleForm.type === 'png' ||
-      singleForm.type === 'jpeg' ||
+      singleForm.type === 'jpeg'
        "
     [ngStyle]="{'background-image': 'url(/uploads/forms/' + singleForm.owner + '/' + singleForm.imagePath + ')'}"
     class="profimg">
