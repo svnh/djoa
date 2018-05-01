@@ -136,6 +136,7 @@ export class FormComponent implements OnInit {
     console.log(file.type)
     if (
       !file.type.match('image/*') &&
+      !file.type.match('application/pdf') &&
       !file.type.match('application/csv') &&
       !file.type.match('application/doc') &&
       !file.type.match('application/docx') &&
@@ -144,7 +145,13 @@ export class FormComponent implements OnInit {
       !file.type.match('application/ppt') &&
       !file.type.match('application/pptx') &&
       !file.type.match('application/rtf') &&
+      !file.type.match('application/ai') &&
+      !file.type.match('application/indd') &&
+      !file.type.match('application/psd') &&
+      !file.type.match('application/ips') &&
       !file.type.match('application/pot')
+
+
 
 
     ) {
