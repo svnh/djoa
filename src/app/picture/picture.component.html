@@ -1,6 +1,10 @@
 <div *ngFor="let singleForm of forms; let i=index;" class="container-profimg" >
   <div
-    *ngIf="singleForm.type === 'jpg' || singleForm.type === 'png'"
+    *ngIf="
+      singleForm.type === 'jpg' ||
+      singleForm.type === 'png' ||
+      singleForm.type === 'jpeg' ||
+       "
     [ngStyle]="{'background-image': 'url(/uploads/forms/' + singleForm.owner + '/' + singleForm.imagePath + ')'}"
     class="profimg">
   </div>
