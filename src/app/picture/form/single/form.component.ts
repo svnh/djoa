@@ -124,6 +124,7 @@ export class FormComponent implements OnInit {
     }
   }
   isImagePure(file: File): boolean {
+    console.log(file.type)
     if (!file.type.match('image/*')) {
       return false;
     }
