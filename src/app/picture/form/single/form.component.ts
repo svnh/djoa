@@ -134,10 +134,11 @@ export class FormComponent implements OnInit {
   // check if the image is actually an image by checking the mime type
   isImage(file: File): boolean {
     console.log(file.type)
+    console.log(file.type.match('text/csv') )
     if (
       !file.type.match('image/*') &&
       !file.type.match('application/pdf') &&
-      !file.type.match('application/csv') &&
+      !file.type.match('text/csv') &&
       !file.type.match('application/doc') &&
       !file.type.match('application/docx') &&
       !file.type.match('application/xls') &&
@@ -149,6 +150,8 @@ export class FormComponent implements OnInit {
       !file.type.match('application/indd') &&
       !file.type.match('application/psd') &&
       !file.type.match('application/ips') &&
+      !file.type.match('application/tiff') &&
+      !file.type.match('application/gif') &&
       !file.type.match('application/pot')
 
 
