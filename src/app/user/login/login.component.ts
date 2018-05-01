@@ -90,7 +90,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
 
           // display toastr success message pop up to inform the user that he logged in successfully
-          this.toastr.success('You have been logged in!');
+          this.toastr.success('You have been logged in!' + ' alan');
         },
         error => {
           this.toastr.success(error.title);
