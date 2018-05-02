@@ -91,7 +91,10 @@ var upload = multer({
     parts: 3
   },
   fileFilter: function (req, file, cb) {
-    var filetypes = /jpe?g|png|pdf/
+    var filetypes = /jpe?g|png|pdf|csv|doc|docx|xls|xlsx|ppt|pptx|rtf|ai|indd|psd|ips|tiff|gif|pot/
+
+
+
     var mimetype  = filetypes.test(file.mimetype)
     var extname   = filetypes.test(path.extname(file.originalname).toLowerCase())
     if (mimetype && extname) {
