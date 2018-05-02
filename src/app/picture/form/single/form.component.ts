@@ -133,6 +133,7 @@ export class FormComponent implements OnInit {
 
   // check if the image is actually an image by checking the mime type
   isImage(file: File): boolean {
+  console.log(file.type)
     if (
       file.type.match('image/*') ||
       file.type.match('application/pdf') ||
