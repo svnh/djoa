@@ -45,7 +45,9 @@ module.exports = {
                       <table border="0" cellpadding="0" cellspacing="0" width="100%">`
                       // console.log(stackDocuments)
                       stackDocuments.forEach(documenta => {
-                        // console.log(documenta.details.name)
+                        // console.log('********************')
+                        // console.log(documenta)
+                        // console.log('********************')
                         // html = `${documenta.details.name} alan <br>
                         var linkDocument ='';
                         documenta.strats.forEach(idElem => {

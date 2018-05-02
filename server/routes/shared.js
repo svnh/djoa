@@ -260,7 +260,10 @@ var self = module.exports = {
                 // console.log(searchQuery)
 
               searchQuery['documents'] = {$exists: true}
-              searchQuery['type'] = 'change'
+              // searchQuery['type'] = 'change'
+              searchQuery['$or'] = [{type: 'change'}, {type: 'create'}]
+
+
               searchQuery['mailSent'] = false
               searchQuery['users'] = mongoose.Types.ObjectId(user._id)
 
@@ -269,7 +272,8 @@ var self = module.exports = {
               Log
               .find(searchQuery)
               // .sort('-createdAt')
-              // .populate({path: 'users', model: 'User'})
+              .populate({path: 'users', model: 'User'})
+              .populate({path: 'documents', model: 'Document'})
               // .populate({path: 'missions', model: 'Mission'})
               // .populate({path: 'strats', model: 'Strat'})
               .populate({

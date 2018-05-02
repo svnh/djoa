@@ -9,7 +9,7 @@ var log = new Schema({
     users: [{type: Schema.Types.ObjectId, ref: 'User'}],
     strats: [{type: Schema.Types.ObjectId, ref: 'Strat'}],
     missions: [{type: Schema.Types.ObjectId, ref: 'Mission'}],
-    documents: [],
+    documents: [{type: Schema.Types.ObjectId, ref: 'Document'}],
     type: {type: String, default: ['']},
     mailSent: {type: Boolean, default: false},
     // email : {
