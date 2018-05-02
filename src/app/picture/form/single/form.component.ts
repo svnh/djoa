@@ -133,25 +133,22 @@ export class FormComponent implements OnInit {
 
   // check if the image is actually an image by checking the mime type
   isImage(file: File): boolean {
-  console.log(file.type)
+  // console.log(file.type)
     if (
       file.type.match('image/*') ||
       file.type.match('application/pdf') ||
       file.type.match('text/csv') ||
-      file.type.match('application/doc') ||
-      file.type.match('application/docx') ||
-      file.type.match('application/xls') ||
-      file.type.match('application/xlsx') ||
-      file.type.match('application/ppt') ||
-      file.type.match('application/pptx') ||
-      file.type.match('application/rtf') ||
-      file.type.match('application/ai') ||
-      file.type.match('application/indd') ||
-      file.type.match('application/psd') ||
-      file.type.match('application/ips') ||
-      file.type.match('application/tiff') ||
-      file.type.match('application/gif') ||
-      file.type.match('application/pot')
+      file.type.match('application/msword') ||
+      file.type.match('application/vnd.openxmlformats-officedocument.wordprocessingml.document') ||
+      file.type.match('application/vnd.ms-excel') ||
+      file.type.match('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') ||
+      file.type.match('application/vnd.ms-powerpoint') ||
+      file.type.match('application/vnd.openxmlformats-officedocument.presentationml.presentation') ||
+      // file.type.match('application/rtf') ||
+      // file.type.match('application/ai') ||
+      // file.type.match('application/indd') ||
+      // file.type.match('application/ips') ||
+      file.type.match('application/vnd.ms-powerpoint')
     ) {
       return true;
     }

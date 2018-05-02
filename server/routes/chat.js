@@ -258,12 +258,19 @@ router.get('/unreadChatInMissions', function (req, res, next) {
               let searchQueryChat = {}
               searchQueryChat['missions'] = mongoose.Types.ObjectId(singleMission._id)
               if (itemLog) {
-                // console.log(itemLog)
+
                 searchQueryChat['createdAt'] = {
                   '$gte': itemLog.createdAt
                 }
+                console.log('aa')
+                console.log(req.user._id)
+                searchQueryChat['users'] = {
+                  $ne: req.user._id
+                }
               }
+
               Chat.find(searchQueryChat).count().exec(function (err, CountItemChat) {
+
                 if (err) {
                   console.log(err)
                 } else {
