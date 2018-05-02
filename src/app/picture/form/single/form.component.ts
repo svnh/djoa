@@ -125,7 +125,7 @@ export class FormComponent implements OnInit {
   }
   isImagePure(file: File): boolean {
 
-    if (!file.type.match('image/*')) {
+    if (file.type.match('image/*')) {
       return false;
     }
     return true;
@@ -136,32 +136,28 @@ export class FormComponent implements OnInit {
     console.log(file.type)
     console.log(file.type.match('text/csv') )
     if (
-      !file.type.match('image/*') &&
-      !file.type.match('application/pdf') &&
-      !file.type.match('text/csv') &&
-      !file.type.match('application/doc') &&
-      !file.type.match('application/docx') &&
-      !file.type.match('application/xls') &&
-      !file.type.match('application/xlsx') &&
-      !file.type.match('application/ppt') &&
-      !file.type.match('application/pptx') &&
-      !file.type.match('application/rtf') &&
-      !file.type.match('application/ai') &&
-      !file.type.match('application/indd') &&
-      !file.type.match('application/psd') &&
-      !file.type.match('application/ips') &&
-      !file.type.match('application/tiff') &&
-      !file.type.match('application/gif') &&
-      !file.type.match('application/pot')
-
-
-
-
+      file.type.match('image/*') ||
+      file.type.match('application/pdf') ||
+      file.type.match('text/csv') ||
+      file.type.match('application/doc') ||
+      file.type.match('application/docx') ||
+      file.type.match('application/xls') ||
+      file.type.match('application/xlsx') ||
+      file.type.match('application/ppt') ||
+      file.type.match('application/pptx') ||
+      file.type.match('application/rtf') ||
+      file.type.match('application/ai') ||
+      file.type.match('application/indd') ||
+      file.type.match('application/psd') ||
+      file.type.match('application/ips') ||
+      file.type.match('application/tiff') ||
+      file.type.match('application/gif') ||
+      file.type.match('application/pot')
     ) {
-      this.toastr.error('Format not allowed!');
-      return false;
+      return true;
     }
-    return true;
+    this.toastr.error('Format not allowed!');
+    return false;
   }
   // check if the form has files ready to be uploaded
   hasFiles(): boolean {
