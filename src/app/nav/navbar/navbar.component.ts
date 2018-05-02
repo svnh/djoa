@@ -115,7 +115,7 @@ export class NavbarComponent implements OnInit {
     this.globalEventsManager.showNavBarLeft(this.showNavBarDataLeft)
   }
   openMyProfile() {
-    let newShowNavBarData = new ShowNavBarData()
+    const newShowNavBarData = new ShowNavBarData()
     newShowNavBarData.search.typeObj = 'user'
     newShowNavBarData.search.typeScreen = 'profile'
     newShowNavBarData.search.userId = this.authService.getCurrentUser()._id
@@ -220,20 +220,35 @@ export class NavbarComponent implements OnInit {
 
   goHome() {
     this.router.navigate(['/']);
-    let newShowNavBarData = new ShowNavBarData()
+    const newShowNavBarData = new ShowNavBarData()
     newShowNavBarData.search.typeObj = 'project'
     this.globalEventsManager.showNavBarLeft(newShowNavBarData);
   }
 
   openProfile() {
+    this.refreshUserMyselfToken()
     const showNavBarData = new ShowNavBarData()
     showNavBarData.search.typeScreen = 'profile'
     showNavBarData.search.typeObj = 'user'
     showNavBarData.showNavBar = 1
     showNavBarData.search.userId = this.authService.getCurrentUser()._id
+
     this.globalEventsManager.showNavBarRight(showNavBarData);
   }
 
+  refreshUserMyselfToken() {
+    this.authService.refreshUserMyselfToken()
+      .subscribe(
+        res => {
+          this.fetchedCurrentUser = this.authService.getCurrentUser()
+          // console.log(this.fetchedCurrentUser)
+          console.log(res)
+        },
+        error => {
+          console.log(error);
+        }
+      )
+  }
   // logout() {
   //   // this.globalEventsManager.showNavBar(false);
   //

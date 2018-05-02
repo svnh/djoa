@@ -49,6 +49,50 @@ router.post('/register', function (req, res, next) {
 
 });
 
+
+router.get('/refreshUserMyselfToken', function(req, res, next) {
+  var token = req.headers['authorization']
+  jwt.verify(token, config.secret, function (err, decoded) {
+    if (err) {
+      return res.status(401).json({
+        message: 'Authentication failed',
+        error: err
+      })
+    }
+    if (!decoded) {
+      return res.status(404).json({
+        title: 'Authentication Failed',
+        error: {message: 'Authentication failed, malformed jwt'}
+      })
+    }
+    if (decoded) {
+
+
+
+      User
+      .findById(decoded.user._id)
+      .populate({path: 'ownerCompanies', model: 'Companie'})
+      .populate({path: 'forms', model: 'Form'})
+      .populate({path: 'rights', model: 'Right'})
+      .exec(function(err, doc) {
+
+        if (err) {
+          return res.status(403).json({title: 'There was a problem', error: err});
+        }
+        if (!doc) {
+          return res.status(403).json({
+            title: 'Wrong Email or Password',
+            error: {
+              message: 'Please check if your password or email are correct'
+            }
+          })
+        }
+        returnDataForLogin(doc, res)
+      })
+    }
+  })
+})
+
 // user login
 router.post('/login', function (req, res, next) {
   User
@@ -77,18 +121,24 @@ router.post('/login', function (req, res, next) {
         error: {message: 'Please check your password or email'}
       })
     }
-    var token = jwt.sign({user: doc}, config.secret, {expiresIn: config.jwtExpire});
-    return res.status(200).json({
-      message: 'Login Successfull',
-      token: token,
-      userId: doc._id,
-      // user: doc
-    })
+
+    returnDataForLogin(doc, res)
+
+
   })
 });
 
 
+function returnDataForLogin(user, res) {
+  var token = jwt.sign({user: user}, config.secret, {expiresIn: config.jwtExpire});
+  return res.status(200).json({
+    message: 'Login Successfull',
+    token: token,
+    userId: user._id,
+    // user: doc
+  })
 
+}
 
 
 

@@ -129,6 +129,37 @@ export class AuthService {
   }
 
 
+    refreshUserMyselfToken() {
+      const headers = new Headers({'Content-Type': 'application/json'});
+      headers.append('Authorization', '' + this.currentUser.token);
+      return this.http.get(this.url + 'user/refreshUserMyselfToken', {headers: headers})
+        .map((response: Response) => {
+          const token = response.json() && response.json().token;
+          const userId = response.json() && response.json().userId;
+          // let user = response.json() && response.json().user;
+          if (token) {
+
+            const currentUser = {
+              userId: userId,
+              token: token,
+              // user: user
+            }
+            this.token = token
+            this.currentUser = currentUser
+            this.user = this.jwtHelper.decodeToken(token).user
+            localStorage.setItem('currentUser', JSON.stringify(currentUser))
+            localStorage.setItem('id_token', token);
+            localStorage.setItem('token', token);
+          }
+
+
+          return response.json()
+        })
+        .catch((error: Response) => {
+          this.errorService.handleError(error.json());
+          return Observable.throw(error.json());
+        });
+    }
 
   getCurrentUser() {
     // console.log(localStorage.getItem('id_token') )
