@@ -1,21 +1,37 @@
 <div *ngFor="let singleForm of forms; let i=index;" class="container-profimg" >
   <div
-    *ngIf="
-      singleForm.type === 'jpg' ||
-      singleForm.type === 'png' ||
-      singleForm.type === 'jpeg'
-       "
+    *ngIf="singleForm.type === 'jpg' || singleForm.type === 'png' || singleForm.type === 'jpeg'"
     [ngStyle]="{'background-image': 'url(/uploads/forms/' + singleForm.owner + '/' + singleForm.imagePath + ')'}"
     class="profimg">
   </div>
   <div
     *ngIf="singleForm.type === 'pdf'"
-    [ngStyle]="{'background-image': 'url(assets/images/pdf-icon.png)'}"
+    [ngStyle]="{'background-image': 'url(assets/images/pdficon.png)'}"
     class="profimg">
   </div>
   <div
-    *ngIf="singleForm.type === 'xls' || singleForm.type === 'csv' || singleForm.type === 'xls' || singleForm.type === 'xlsx'"
-    [ngStyle]="{'background-image': 'url(assets/images/spreadsheet.png)'}"
+    *ngIf="singleForm.type === 'xls' || singleForm.type === 'text/csv' || singleForm.type === 'application/xls' || singleForm.type === 'application/xlsx'"
+    [ngStyle]="{'background-image': 'url(assets/images/sheeticon.png)'}"
+    class="profimg">
+  </div>
+  <div
+    *ngIf="singleForm.type === 'application/docx' || singleForm.type === 'application/doc' || singleForm.type === 'application/rtf' || singleForm.type === 'application/indd' || singleForm.type === 'application/tiff'"
+    [ngStyle]="{'background-image': 'url(assets/images/wordicon.png)'}"
+    class="profimg">
+  </div>
+  <div
+    *ngIf="singleForm.type === 'image/*' || singleForm.type === 'application/gif' || singleForm.type === 'application/psd' || singleForm.type === 'application/ai'"
+    [ngStyle]="{'background-image': 'url(assets/images/imgicon.png)'}"
+    class="profimg">
+  </div>
+  <div
+    *ngIf="singleForm.type === 'application/ppt' || singleForm.type === 'application/pptx' || singleForm.type === 'application/pot'"
+    [ngStyle]="{'background-image': 'url(assets/images/prezicon.png)'}"
+    class="profimg">
+  </div>
+  <div
+    *ngIf="singleForm.type === 'application/ips'"
+    [ngStyle]="{'background-image': 'url(assets/images/linkicon.png)'}"
     class="profimg">
   </div>
   <p class="pdfTitle" *ngIf="singleForm.type === 'pdf'">{{singleForm.title}}</p>
