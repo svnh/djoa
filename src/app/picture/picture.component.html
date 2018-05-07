@@ -70,6 +70,7 @@
 
     <!-- <div style="background-image: url('assets/images/no-image-found.jpg')"> -->
     <!-- <img (click)="openProfile()" class="profimg" src="./uploads/forms/{{singleForm.owner}}/{{singleForm.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'"> -->
+  {{singleForm.type}}
   <button *ngIf="deletePicture" type="button" md-button (click)="removePic(i)"><p class="removepic">Remove</p></button>
 </div>
 <div *ngIf="!forms.length" class="container-profimg">
