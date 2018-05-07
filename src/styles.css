@@ -457,7 +457,7 @@ p.percent {
 }
 .read-chat {
   overflow: auto;
-  padding: 24px 24px 72px;
+  padding: 24px 24px 100px;
   height: 100%;
 }
 .chat-card .read-chat {

@@ -136,19 +136,39 @@ export class FormComponent implements OnInit {
   // console.log(file.type)
     if (
       file.type.match('image/*') ||
+
       file.type.match('application/pdf') ||
-      file.type.match('text/csv') ||
+
       file.type.match('application/msword') ||
+      file.type.match('application/vnd.ms-word') ||
+      file.type.match('application/vnd.ms-word.document.macroEnabled.12') ||
       file.type.match('application/vnd.openxmlformats-officedocument.wordprocessingml.document') ||
+      file.type.match('application/rtf') ||
+
+      file.type.match('text/csv') ||
       file.type.match('application/vnd.ms-excel') ||
+      file.type.match('application/vnd.ms-excel.sheet.macroEnabled.12') ||
+      file.type.match('application/vnd.ms-excel.addin.macroEnabled.12') ||
+      file.type.match('application/vnd.ms-excel.template.macroEnabled.12') ||
+      file.type.match('application/vnd.ms-excel.sheet.binary.macroEnabled.12') ||
       file.type.match('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') ||
+      file.type.match('application/vnd.openxmlformats-officedocument.spreadsheetml.template') ||
+      file.type.match('application/vnd.oasis.opendocument.spreadsheet') ||
+
       file.type.match('application/vnd.ms-powerpoint') ||
-      file.type.match('application/vnd.openxmlformats-officedocument.presentationml.presentation')
-      // file.type.match('application/rtf') ||
-      // file.type.match('application/ai') ||
-      // file.type.match('application/indd') ||
-      // file.type.match('application/ips') ||
-      // file.type.match('application/vnd.ms-powerpoint')
+      file.type.match('application/vnd.ms-powerpoint.template.macroEnabled.12') ||
+      file.type.match('application/vnd.ms-powerpoint.addin.macroEnabled.12') ||
+      file.type.match('application/vnd.ms-powerpoint.presentation.macroEnabled.12') ||
+      file.type.match('application/vnd.ms-powerpoint.slideshow.macroEnabled.12') ||
+      file.type.match('application/vnd.openxmlformats-officedocument.presentationml.template') ||
+      file.type.match('application/vnd.openxmlformats-officedocument.presentationml.presentation') ||
+      file.type.match('application/vnd.openxmlformats-officedocument.presentationml.slideshow') ||
+
+      file.type.match('application/x-indesign') ||
+      file.type.match('application/illustrator') ||
+      file.type.match('application/photoshop') ||
+
+      file.type.match('application/zip') ||
     ) {
       return true;
     }
