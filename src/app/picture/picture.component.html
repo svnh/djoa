@@ -11,15 +11,15 @@
   </div>
   <div
     *ngIf="
-      singleForm.type === 'text/csv' ||
-      singleForm.type === 'application/vnd.ms-excel' ||
-      singleForm.type === 'application/vnd.ms-excel.sheet.macroEnabled.12' ||
-      singleForm.type === 'application/vnd.ms-excel.addin.macroEnabled.12' ||
-      singleForm.type === 'application/vnd.ms-excel.template.macroEnabled.12' ||
-      singleForm.type === 'application/vnd.ms-excel.sheet.binary.macroEnabled.12' ||
-      singleForm.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' ||
-      singleForm.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.template' ||
-      singleForm.type === 'application/vnd.oasis.opendocument.spreadsheet'
+      singleForm.type === 'csv' ||
+      singleForm.type === 'xls' ||
+      singleForm.type === 'xlsm' ||
+      singleForm.type === 'xlsx' ||
+      singleForm.type === 'xlsb' ||
+      singleForm.type === 'xlt' ||
+      singleForm.type === 'xltm' ||
+      singleForm.type === 'xltx' ||
+      singleForm.type === 'ods'
       "
     [ngStyle]="{'background-image': 'url(assets/images/sheeticon.png)'}"
     class="profimg">
@@ -70,7 +70,6 @@
 
     <!-- <div style="background-image: url('assets/images/no-image-found.jpg')"> -->
     <!-- <img (click)="openProfile()" class="profimg" src="./uploads/forms/{{singleForm.owner}}/{{singleForm.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'"> -->
-  {{singleForm.type}}
   <button *ngIf="deletePicture" type="button" md-button (click)="removePic(i)"><p class="removepic">Remove</p></button>
 </div>
 <div *ngIf="!forms.length" class="container-profimg">
