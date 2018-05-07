@@ -143,12 +143,12 @@ export class FormComponent implements OnInit {
       file.type.match('application/vnd.ms-excel') ||
       file.type.match('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') ||
       file.type.match('application/vnd.ms-powerpoint') ||
-      file.type.match('application/vnd.openxmlformats-officedocument.presentationml.presentation') ||
+      file.type.match('application/vnd.openxmlformats-officedocument.presentationml.presentation')
       // file.type.match('application/rtf') ||
       // file.type.match('application/ai') ||
       // file.type.match('application/indd') ||
       // file.type.match('application/ips') ||
-      file.type.match('application/vnd.ms-powerpoint')
+      // file.type.match('application/vnd.ms-powerpoint')
     ) {
       return true;
     }
