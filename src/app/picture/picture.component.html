@@ -10,17 +10,17 @@
     class="profimg">
   </div>
   <div
-    *ngIf="singleForm.type === 'xls' || singleForm.type === 'text/csv' || singleForm.type === 'application/xls' || singleForm.type === 'application/xlsx'"
+    *ngIf="singleForm.type === 'application/vnd.ms-excel' || singleForm.type === 'text/csv' || singleForm.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'"
     [ngStyle]="{'background-image': 'url(assets/images/sheeticon.png)'}"
     class="profimg">
   </div>
   <div
-    *ngIf="singleForm.type === 'application/docx' || singleForm.type === 'application/doc' || singleForm.type === 'application/rtf' || singleForm.type === 'application/indd' || singleForm.type === 'application/tiff'"
+    *ngIf="singleForm.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' || singleForm.type === 'application/msword' || singleForm.type === 'application/rtf' || singleForm.type === 'application/indd' || singleForm.type === 'application/tiff'"
     [ngStyle]="{'background-image': 'url(assets/images/wordicon.png)'}"
     class="profimg">
   </div>
 
-  
+
   <div
     *ngIf="singleForm.type === 'image/*' || singleForm.type === 'application/gif' || singleForm.type === 'application/psd' || singleForm.type === 'application/ai'"
     [ngStyle]="{'background-image': 'url(assets/images/imgicon.png)'}"
