@@ -89,16 +89,6 @@
                 [ngStyle]="{'background-image': 'url(assets/images/zipicon.png)'}"
                 class="docimg">
               </div>
-              <div
-                *ngIf="
-                  !singleForm.type === 'image/*' ||
-                  !singleForm.type === 'jpg' ||
-                  !singleForm.type === 'png' ||
-                  singleForm.type === 'jpeg'
-                  "
-                [ngStyle]="{'background-image': 'url(/uploads/forms/' + singleForm.owner + '/' + singleForm.imagePath + ')'}"
-                class="profimg">
-              </div>
             </div>
           </div>
           <div *ngIf="!document.link.length">
