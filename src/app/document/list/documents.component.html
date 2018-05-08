@@ -1,7 +1,7 @@
 <button type="button" (click)="editMode=!editMode" class="edit-btn">Edit</button>
 <button *ngIf="editMode" type="button" (click)="addDocument()" class="add-object">
 <p>Add Document</p><i class="fa fa-plus"></i></button>
-<div *ngFor="let document of fetchedDocuments; let i = index;">
+<div *ngFor="let document of fetchedDocuments; let i = index; let singleForm of document.forms">
   <mat-card class="single-doc">
     <mat-card-content>
       <div class="doc-info">
