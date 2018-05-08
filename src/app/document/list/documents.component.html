@@ -6,14 +6,20 @@
     <mat-card-content>
       <div class="doc-info">
         <div class="doc-title">
-          <div *ngFor="let singleForm of document.forms">
+          <div *ngFor="let singleForm of document.forms" class="container-docimg">
             <div
-              *ngIf="singleForm.type === 'image/*' || singleForm.type === 'jpg' || singleForm.type === 'png' || singleForm.type === 'jpeg'"
+              *ngIf="
+                singleForm.type === 'image/*' ||
+                singleForm.type === 'jpg' ||
+                singleForm.type === 'png' ||
+                singleForm.type === 'jpeg';
+                else htmlpage
+                "
               [ngStyle]="{'background-image': 'url(/uploads/forms/' + singleForm.owner + '/' + singleForm.imagePath + ')'}"
               class="profimg">
             </div>
             <div
-              *ngIf="singleForm.type === 'application/pdf'"
+              *ngIf="singleForm.type === 'application/pdf'; else htmlpage"
               [ngStyle]="{'background-image': 'url(assets/images/pdficon.png)'}"
               class="docimg">
             </div>
@@ -28,7 +34,8 @@
                 singleForm.type === 'xltm' ||
                 singleForm.type === 'xltx' ||
                 singleForm.type === 'ods' ||
-                singleForm.type === 'odf'
+                singleForm.type === 'odf';
+                else htmlpage
                 "
               [ngStyle]="{'background-image': 'url(assets/images/sheeticon.png)'}"
               class="docimg">
@@ -45,7 +52,8 @@
                 singleForm.type === 'rtx' ||
                 singleForm.type === 'indd' ||
                 singleForm.type === 'odt' ||
-                singleForm.type === 'one'
+                singleForm.type === 'one';
+                else htmlpage
                 "
               [ngStyle]="{'background-image': 'url(assets/images/wordicon.png)'}"
               class="docimg">
@@ -54,7 +62,8 @@
               *ngIf="
                 singleForm.type === 'ai' ||
                 singleForm.type === 'psd' ||
-                singleForm.type === 'odg'
+                singleForm.type === 'odg';
+                else htmlpage
                 "
               [ngStyle]="{'background-image': 'url(assets/images/imgicon.png)'}"
               class="docimg">
@@ -70,7 +79,8 @@
                 singleForm.type === 'ppt'  ||
                 singleForm.type === 'pptm' ||
                 singleForm.type === 'pptx' ||
-                singleForm.type === 'odp'
+                singleForm.type === 'odp';
+                else htmlpage
                 "
               [ngStyle]="{'background-image': 'url(assets/images/prezicon.png)'}"
               class="docimg">
@@ -78,12 +88,16 @@
             <div
               *ngIf="
                 singleForm.type === 'zip' ||
-                singleForm.type === 'rar'
+                singleForm.type === 'rar';
+                else htmlpage
                 "
               [ngStyle]="{'background-image': 'url(assets/images/zipicon.png)'}"
               class="docimg">
             </div>
           </div>
+          <ng-template #htmlpage>
+            <div [ngStyle]="{'background-image': 'url(assets/images/linkicon.png)'}" class="docimg"></div>
+          </ng-template>
           <p class="">{{document.details.name}}</p>
         </div>
 
