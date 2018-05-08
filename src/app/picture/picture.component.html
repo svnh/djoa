@@ -5,7 +5,7 @@
     class="profimg">
   </div>
   <div
-    *ngIf="singleForm.type === 'application/pdf'"
+    *ngIf="singleForm.type === 'pdf'"
     [ngStyle]="{'background-image': 'url(assets/images/pdficon.png)'}"
     class="docimg">
   </div>
@@ -75,6 +75,16 @@
     [ngStyle]="{'background-image': 'url(assets/images/zipicon.png)'}"
     class="docimg">
   </div>
+
+
+  <!-- <div *ngIf="!document.link">
+    <div
+      [ngStyle]="{'background-image': 'url(assets/images/linkicon.png)'}"
+      class="docimg">
+    </div>
+  </div> -->
+
+
   <p class="docTitle"
     *ngIf="
       singleForm.type === 'pdf' ||

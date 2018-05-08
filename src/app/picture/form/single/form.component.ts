@@ -133,7 +133,7 @@ export class FormComponent implements OnInit {
 
   // check if the image is actually an image by checking the mime type
   isImage(file: File): boolean {
-  // console.log(file.type)
+    console.log(file.type)
     if (
       file.type.match('image/*') ||
 
@@ -168,7 +168,16 @@ export class FormComponent implements OnInit {
       file.type.match('application/illustrator') ||
       file.type.match('application/photoshop') ||
 
+
+      // adobe https://helpx.adobe.com/experience-manager/6-3/assets/using/assets-formats.html
       file.type.match('application/zip') ||
+      file.type.match('application/postscript') ||
+      file.type.match('image_x-eps') ||
+      file.type.match('application-eps') ||
+      file.type.match('application_x-eps') ||
+      file.type.match('image_eps') ||
+
+
       file.type.match('application/x-rar-compressed')
     ) {
       return true;
@@ -258,6 +267,7 @@ export class FormComponent implements OnInit {
 
           this.toastr.success('Form submitted successfully');
         } else if (xhr.status !== 201) {
+          console.log(xhr)
           this.toastr.error('There was an error!');
         }
         this.clear();

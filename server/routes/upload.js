@@ -87,16 +87,71 @@ var storage = multer.diskStorage({
 var upload = multer({
   storage: storage,
   limits: {
-    fileSize: 10000000, // 5MB filesize limit
+    fileSize: 10000000, // 10MB filesize limit
     parts: 3
   },
   fileFilter: function (req, file, cb) {
-    var filetypes = /jpe?g|png|pdf|csv|doc|docx|xls|xlsx|ppt|pptx|rtf|ai|indd|psd|ips|tiff|gif|pot/
+    var filetypes = /jpe?g|png|pdf|csv|doc|docx|xls|xlsx|ppt|pptx|rtf|ai|indd|psd|ips|tiff|gif|pot|postscript/
+    var mimetype = false
+    if (
+
+      file.mimetype.match('image/*') ||
+
+      file.mimetype.match('application/pdf') ||
+
+      file.mimetype.match('application/msword') ||
+      file.mimetype.match('application/vnd.ms-word') ||
+      file.mimetype.match('application/vnd.ms-word.document.macroEnabled.12') ||
+      file.mimetype.match('application/vnd.openxmlformats-officedocument.wordprocessingml.document') ||
+      file.mimetype.match('application/rtf') ||
+
+      file.mimetype.match('text/csv') ||
+      file.mimetype.match('application/vnd.ms-excel') ||
+      file.mimetype.match('application/vnd.ms-excel.sheet.macroEnabled.12') ||
+      file.mimetype.match('application/vnd.ms-excel.addin.macroEnabled.12') ||
+      file.mimetype.match('application/vnd.ms-excel.template.macroEnabled.12') ||
+      file.mimetype.match('application/vnd.ms-excel.sheet.binary.macroEnabled.12') ||
+      file.mimetype.match('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') ||
+      file.mimetype.match('application/vnd.openxmlformats-officedocument.spreadsheetml.template') ||
+      file.mimetype.match('application/vnd.oasis.opendocument.spreadsheet') ||
+
+      file.mimetype.match('application/vnd.ms-powerpoint') ||
+      file.mimetype.match('application/vnd.ms-powerpoint.template.macroEnabled.12') ||
+      file.mimetype.match('application/vnd.ms-powerpoint.addin.macroEnabled.12') ||
+      file.mimetype.match('application/vnd.ms-powerpoint.presentation.macroEnabled.12') ||
+      file.mimetype.match('application/vnd.ms-powerpoint.slideshow.macroEnabled.12') ||
+      file.mimetype.match('application/vnd.openxmlformats-officedocument.presentationml.template') ||
+      file.mimetype.match('application/vnd.openxmlformats-officedocument.presentationml.presentation') ||
+      file.mimetype.match('application/vnd.openxmlformats-officedocument.presentationml.slideshow') ||
+
+      file.mimetype.match('application/x-indesign') ||
+      file.mimetype.match('application/illustrator') ||
+      file.mimetype.match('application/photoshop') ||
+
+
+      // adobe https://helpx.adobe.com/experience-manager/6-3/assets/using/assets-formats.html
+      file.mimetype.match('application/zip') ||
+      file.mimetype.match('application/postscript') ||
+      file.mimetype.match('image_x-eps') ||
+      file.mimetype.match('application-eps') ||
+      file.mimetype.match('application_x-eps') ||
+      file.mimetype.match('image_eps') ||
+
+
+      file.mimetype.match('application/x-rar-compressed')
+    ) {
+      mimetype = true
+    }
 
 
 
-    var mimetype  = filetypes.test(file.mimetype)
-    var extname   = filetypes.test(path.extname(file.originalname).toLowerCase())
+    // var mimetype = filetypes.test(file.mimetype)
+
+    var extname = filetypes.test(path.extname(file.originalname).toLowerCase())
+    // console.log('file.originalname', file.originalname)
+    // console.log('extname', extname)
+    // console.log('mimetype', mimetype)
+    // console.log('file.mimetype', file.mimetype)
     if (mimetype && extname) {
       return cb(null, true)
     }
