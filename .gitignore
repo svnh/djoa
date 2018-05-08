@@ -12,7 +12,7 @@
 /server/config/config.js
 
 # Cert SSL
-/bin/cert/*
+/bin/certs/*
 
 
 
