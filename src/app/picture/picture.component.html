@@ -7,7 +7,7 @@
   <div
     *ngIf="singleForm.type === 'application/pdf'"
     [ngStyle]="{'background-image': 'url(assets/images/pdficon.png)'}"
-    class="profimg">
+    class="docimg">
   </div>
   <div
     *ngIf="
@@ -19,57 +19,104 @@
       singleForm.type === 'xlt' ||
       singleForm.type === 'xltm' ||
       singleForm.type === 'xltx' ||
-      singleForm.type === 'ods'
+      singleForm.type === 'ods' ||
+      singleForm.type === 'odf'
       "
     [ngStyle]="{'background-image': 'url(assets/images/sheeticon.png)'}"
-    class="profimg">
+    class="docimg">
   </div>
   <div
     *ngIf="
-      singleForm.type === 'application/msword' ||
-      singleForm.type === 'application/vnd.ms-word' ||
-      singleForm.type === 'application/vnd.ms-word.document.macroEnabled.12' ||
-      singleForm.type === 'application/application/vnd.openxmlformats-officedocument.wordprocessingml.document' ||
-      singleForm.type === 'application/rtf' ||
-      singleForm.type === 'application/indd'
+      singleForm.type === 'doc' ||
+      singleForm.type === 'docm' ||
+      singleForm.type === 'docx' ||
+      singleForm.type === 'dot' ||
+      singleForm.type === 'dotm' ||
+      singleForm.type === 'dotx' ||
+      singleForm.type === 'rtf' ||
+      singleForm.type === 'rtx' ||
+      singleForm.type === 'indd' ||
+      singleForm.type === 'odt' ||
+      singleForm.type === 'one'
       "
     [ngStyle]="{'background-image': 'url(assets/images/wordicon.png)'}"
-    class="profimg">
-  </div>
-  <div
-    *ngIf="singleForm.type === 'application/x-indesign' || singleForm.type === 'application/illustrator' || singleForm.type === 'application/photoshop'"
-    [ngStyle]="{'background-image': 'url(assets/images/imgicon.png)'}"
-    class="profimg">
+    class="docimg">
   </div>
   <div
     *ngIf="
-      singleForm.type === 'application/vnd.ms-powerpoint' ||
-      singleForm.type === 'application/vnd.ms-powerpoint.template.macroEnabled.12'  ||
-      singleForm.type === 'application/vnd.ms-powerpoint.addin.macroEnabled.12'  ||
-      singleForm.type === 'application/vnd.ms-powerpoint.presentation.macroEnabled.12'  ||
-      singleForm.type === 'application/vnd.ms-powerpoint.slideshow.macroEnabled.12'  ||
-      singleForm.type === 'application/vnd.openxmlformats-officedocument.presentationml.template'  ||
-      singleForm.type === 'application/vnd.openxmlformats-officedocument.presentationml.presentation'  ||
-      singleForm.type === 'application/vnd.openxmlformats-officedocument.presentationml.slideshow'
+      singleForm.type === 'ai' ||
+      singleForm.type === 'psd' ||
+      singleForm.type === 'odg'
+      "
+    [ngStyle]="{'background-image': 'url(assets/images/imgicon.png)'}"
+    class="docimg">
+  </div>
+  <div
+    *ngIf="
+      singleForm.type === 'potm' ||
+      singleForm.type === 'potx'  ||
+      singleForm.type === 'ppam'  ||
+      singleForm.type === 'pps'  ||
+      singleForm.type === 'ppsm'  ||
+      singleForm.type === 'ppsx'  ||
+      singleForm.type === 'ppt'  ||
+      singleForm.type === 'pptm' ||
+      singleForm.type === 'pptx' ||
+      singleForm.type === 'odp'
       "
     [ngStyle]="{'background-image': 'url(assets/images/prezicon.png)'}"
-    class="profimg">
+    class="docimg">
   </div>
   <div
-    *ngIf="singleForm.type === 'application/ips'"
-    [ngStyle]="{'background-image': 'url(assets/images/linkicon.png)'}"
-    class="profimg">
-  </div>
-  <div
-    *ngIf="singleForm.type === 'application/zip'"
+    *ngIf="
+      singleForm.type === 'zip' ||
+      singleForm.type === 'rar'
+      "
     [ngStyle]="{'background-image': 'url(assets/images/zipicon.png)'}"
-    class="profimg">
+    class="docimg">
   </div>
-  <p class="pdfTitle" *ngIf="singleForm.type === 'pdf'">{{singleForm.title}}</p>
-
-
-    <!-- <div style="background-image: url('assets/images/no-image-found.jpg')"> -->
-    <!-- <img (click)="openProfile()" class="profimg" src="./uploads/forms/{{singleForm.owner}}/{{singleForm.imagePath}}" onerror="this.src ='assets/images/no-image-found.jpg'"> -->
+  <p class="pdfTitle"
+    *ngIf="
+      singleForm.type === 'pdf' ||
+      singleForm.type === 'csv' ||
+      singleForm.type === 'xls' ||
+      singleForm.type === 'xlsm' ||
+      singleForm.type === 'xlsx' ||
+      singleForm.type === 'xlsb' ||
+      singleForm.type === 'xlt' ||
+      singleForm.type === 'xltm' ||
+      singleForm.type === 'xltx' ||
+      singleForm.type === 'ods' ||
+      singleForm.type === 'odf' ||
+      singleForm.type === 'doc' ||
+      singleForm.type === 'docm' ||
+      singleForm.type === 'docx' ||
+      singleForm.type === 'dot' ||
+      singleForm.type === 'dotm' ||
+      singleForm.type === 'dotx' ||
+      singleForm.type === 'rtf' ||
+      singleForm.type === 'rtx' ||
+      singleForm.type === 'indd' ||
+      singleForm.type === 'odt' ||
+      singleForm.type === 'one' ||
+      singleForm.type === 'ai' ||
+      singleForm.type === 'psd' ||
+      singleForm.type === 'odg' ||
+      singleForm.type === 'potm' ||
+      singleForm.type === 'potx'  ||
+      singleForm.type === 'ppam'  ||
+      singleForm.type === 'pps'  ||
+      singleForm.type === 'ppsm'  ||
+      singleForm.type === 'ppsx'  ||
+      singleForm.type === 'ppt'  ||
+      singleForm.type === 'pptm' ||
+      singleForm.type === 'pptx' ||
+      singleForm.type === 'odp' ||
+      singleForm.type === 'zip' ||
+      singleForm.type === 'rar'
+      ">
+    {{singleForm.title}}
+  </p>
   <button *ngIf="deletePicture" type="button" md-button (click)="removePic(i)"><p class="removepic">Remove</p></button>
 </div>
 <div *ngIf="!forms.length" class="container-profimg">

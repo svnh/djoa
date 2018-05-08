@@ -169,6 +169,7 @@ export class FormComponent implements OnInit {
       file.type.match('application/photoshop') ||
 
       file.type.match('application/zip')
+      file.type.match('application/x-rar-compressed')
     ) {
       return true;
     }

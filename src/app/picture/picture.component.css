@@ -3,8 +3,15 @@
   width: 100%;
 }
 .profimg {
-  background-position: center;
   background-size: cover;
+}
+.docimg {
+  background-size: 60%;
+  background-color: #fff;
+}
+.profimg, .docimg {
+  background-position: center;
+  background-repeat: no-repeat;
   height: 100%;
   width: 100%;
   border-top-left-radius: 100px;
