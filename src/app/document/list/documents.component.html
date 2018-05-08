@@ -67,8 +67,11 @@
               </div>
               <div
                 *ngIf="
+                  singleForm.type === 'thmx' ||
+                  singleForm.type === 'pot' ||
                   singleForm.type === 'potm' ||
                   singleForm.type === 'potx'  ||
+                  singleForm.type === 'ppa'  ||
                   singleForm.type === 'ppam'  ||
                   singleForm.type === 'pps'  ||
                   singleForm.type === 'ppsm'  ||
