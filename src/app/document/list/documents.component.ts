@@ -124,6 +124,7 @@ export class DocumentsComponent implements OnInit {
 
   }
 
+
   addDocument() {
     let showNavBarData = new ShowNavBarData()
     // console.log(this.search)
@@ -207,9 +208,12 @@ export class DocumentsComponent implements OnInit {
       file.type.match('application/vnd.openxmlformats-officedocument.presentationml.presentation') ||
       file.type.match('application/vnd.openxmlformats-officedocument.presentationml.slideshow') ||
 
-      file.type.match('application/x-indesign') ||
+      file.type.match('application/x-adobe-indesign') ||
       file.type.match('application/illustrator') ||
+      file.type.match('application/postscript') ||
       file.type.match('application/photoshop') ||
+      file.type.match('image/x-psd') ||
+      file.type.match('image/vnd.adobe.photoshop') ||
 
       file.type.match('application/zip') ||
       file.type.match('application/x-rar-compressed')
