@@ -7,8 +7,13 @@
 # dependencies
 /node_modules
 
+
 # config
 /server/config/config.js
+
+# Cert SSL
+/bin/cert/*
+
 
 
 # backupJson DB

@@ -6,7 +6,9 @@
 
 var app = require('../server/app')
 var debug = require('debug')('petlocator_ng2:server')
-var http = require('http')
+var https = require('https')
+var fs = require('fs');
+
 
 /**
  * Get port from environment and store in Express.
@@ -25,7 +27,14 @@ app.set('port', port)
  * Create HTTP server.
  */
 
-var server = http.createServer(app)
+ var sslOptions = {
+   // cert: fs.readFileSync(__dirname + '/certs/app.mirabelle.io_ssl_certificate.cer', 'utf8'),
+   key: fs.readFileSync(__dirname + '/certs/djoa.key', 'utf8'),
+   ca: fs.readFileSync(__dirname + '/certs/djoa.csr', 'utf8'),
+   requestCert: false,
+   rejectUnauthorized: false
+ };
+var server = https.createServer(sslOptions, app)
 
 /**
  * Listen on provided port, on all network interfaces.
