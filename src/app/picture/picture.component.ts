@@ -19,6 +19,8 @@ export class PictureComponent {
   @Input() forms: Form[] = [];
   @Input() isInNewUser: boolean = false;
   @Input() addPicture: boolean = true
+  @Input() isInList: boolean = false
+
   @Input() loadSinglePicture: boolean = false
   @Input() userIdToOpenProfile: string = ''
   @Input() deletePicture: boolean = true

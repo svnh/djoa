@@ -1,4 +1,11 @@
 <div *ngFor="let singleForm of forms; let i=index;" class="container-profimg" >
+
+
+  <div [ngClass]="{'class1':isInList,'class2':!isInList}">
+    toto
+   <div>
+
+
   <div
     *ngIf="singleForm.type === 'image/*' || singleForm.type === 'jpg' || singleForm.type === 'png' || singleForm.type === 'jpeg'"
     [ngStyle]="{'background-image': 'url(/uploads/forms/' + singleForm.owner + '/' + singleForm.imagePath + ')'}"
@@ -77,12 +84,18 @@
   </div>
 
 
-  <!-- <div *ngIf="!document.link">
-    <div
-      [ngStyle]="{'background-image': 'url(assets/images/linkicon.png)'}"
-      class="docimg">
+
+
+  <div *ngIf="document.link.length">
+    <div class="container-docimg">
+      <div
+        [ngStyle]="{'background-image': 'url(assets/images/linkicon.png)'}"
+        class="docimg">
+      </div>
     </div>
-  </div> -->
+  </div>
+
+
 
 
   <p class="docTitle"

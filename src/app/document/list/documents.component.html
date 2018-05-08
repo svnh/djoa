@@ -6,9 +6,9 @@
     <mat-card-content>
       <div class="doc-info">
         <div class="doc-title">
-          <div *ngIf="!document.link.length">
-            <!-- <app-picture [loadSinglePicture]=true [forms]="document.forms"></app-picture> -->
-            <div *ngFor="let singleForm of document.forms" class="container-docimg">
+          <!-- <div *ngIf="!document.link.length"> -->
+            <app-picture [isInList]=true [loadSinglePicture]=true [forms]="document.forms"></app-picture>
+            <!-- <div *ngFor="let singleForm of document.forms" class="container-docimg">
               <div
                 *ngIf="
                   singleForm.type === 'image/*' ||
@@ -93,16 +93,16 @@
                 [ngStyle]="{'background-image': 'url(assets/images/zipicon.png)'}"
                 class="docimg">
               </div>
-            </div>
-          </div>
-          <div *ngIf="document.link.length">
+            </div> -->
+          <!-- </div> -->
+          <!-- <div *ngIf="document.link.length">
             <div class="container-docimg">
               <div
                 [ngStyle]="{'background-image': 'url(assets/images/linkicon.png)'}"
                 class="docimg">
               </div>
             </div>
-          </div>
+          </div> -->
           <p class="">{{document.details.name}}</p>
         </div>
         <a (click)="openLink(document)" class="open">open</a>
