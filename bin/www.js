@@ -30,8 +30,9 @@ app.set('port', port)
 
  var sslOptions = {
    // cert: fs.readFileSync(__dirname + '/certs/app.mirabelle.io_ssl_certificate.cer', 'utf8'),
-   key: fs.readFileSync( './certs/djoa.key', 'utf8'),
-   cert: fs.readFileSync( './certs/djoa.csr', 'utf8'),
+   key: fs.readFileSync(__dirname + '/certs/djoa.key', 'utf8'),
+   cert: fs.readFileSync(__dirname + '/certs/28b65d120812d3fa.crt', 'utf8'),
+   // cert: fs.readFileSync(__dirname + '/certs/djoa.csr', 'utf8'),
    requestCert: false,
    rejectUnauthorized: false
  };
