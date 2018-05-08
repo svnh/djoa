@@ -12,9 +12,9 @@ var express = require('express'),
 
 // SOCKET.io
 var app = express()
-const http = require('http').Server(app);
+const http = require('https').Server(app);
 const io = require('socket.io')(http);
-io.set('origins', 'https://djoa.co');
+// io.set('origins', 'https://djoa.co');
 io.on('connection', (socket) => {
 
   var room = socket.handshake['query']['r_var'];
