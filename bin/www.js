@@ -6,8 +6,8 @@
 
 var app = require('../server/app')
 var debug = require('debug')('petlocator_ng2:server')
-// var https = require('https')
-var http = require('http')
+var https = require('https')
+// var http = require('http')
 var fs = require('fs');
 
 
@@ -18,8 +18,8 @@ var fs = require('fs');
 //console.log(app.get('env'))
 
 
-// var port = normalizePort(process.env.PORT || '443')
-var port = normalizePort(process.env.PORT || '80')
+var port = normalizePort(process.env.PORT || '443')
+// var port = normalizePort(process.env.PORT || '80')
 
 
 app.set('port', port)
@@ -37,8 +37,8 @@ app.set('port', port)
    rejectUnauthorized: false
  };
  // console.log(sslOptions)
-// var server = https.createServer(sslOptions, app)
-var server = http.createServer( app)
+var server = https.createServer(sslOptions, app)
+// var server = http.createServer( app)
 
 /**
  * Listen on provided port, on all network interfaces.
