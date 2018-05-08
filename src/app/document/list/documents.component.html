@@ -6,103 +6,112 @@
     <mat-card-content>
       <div class="doc-info">
         <div class="doc-title">
-          <div *ngFor="let singleForm of document.forms" class="container-docimg">
-            <div
-              *ngIf="
-                singleForm.type === 'image/*' ||
-                singleForm.type === 'jpg' ||
-                singleForm.type === 'png' ||
-                singleForm.type === 'jpeg';
-                else htmlpage
-                "
-              [ngStyle]="{'background-image': 'url(/uploads/forms/' + singleForm.owner + '/' + singleForm.imagePath + ')'}"
-              class="profimg">
+          <div *ngIf="!document.link.length">
+            <div *ngFor="let singleForm of document.forms" class="container-docimg">
+              <div
+                *ngIf="
+                  singleForm.type === 'image/*' ||
+                  singleForm.type === 'jpg' ||
+                  singleForm.type === 'png' ||
+                  singleForm.type === 'jpeg'
+                  "
+                [ngStyle]="{'background-image': 'url(/uploads/forms/' + singleForm.owner + '/' + singleForm.imagePath + ')'}"
+                class="profimg">
+              </div>
+              <div
+                *ngIf="singleForm.type === 'application/pdf'"
+                [ngStyle]="{'background-image': 'url(assets/images/pdficon.png)'}"
+                class="docimg">
+              </div>
+              <div
+                *ngIf="
+                  singleForm.type === 'csv' ||
+                  singleForm.type === 'xls' ||
+                  singleForm.type === 'xlsm' ||
+                  singleForm.type === 'xlsx' ||
+                  singleForm.type === 'xlsb' ||
+                  singleForm.type === 'xlt' ||
+                  singleForm.type === 'xltm' ||
+                  singleForm.type === 'xltx' ||
+                  singleForm.type === 'ods' ||
+                  singleForm.type === 'odf'
+                  "
+                [ngStyle]="{'background-image': 'url(assets/images/sheeticon.png)'}"
+                class="docimg">
+              </div>
+              <div
+                *ngIf="
+                  singleForm.type === 'doc' ||
+                  singleForm.type === 'docm' ||
+                  singleForm.type === 'docx' ||
+                  singleForm.type === 'dot' ||
+                  singleForm.type === 'dotm' ||
+                  singleForm.type === 'dotx' ||
+                  singleForm.type === 'rtf' ||
+                  singleForm.type === 'rtx' ||
+                  singleForm.type === 'indd' ||
+                  singleForm.type === 'odt' ||
+                  singleForm.type === 'one'
+                  "
+                [ngStyle]="{'background-image': 'url(assets/images/wordicon.png)'}"
+                class="docimg">
+              </div>
+              <div
+                *ngIf="
+                  singleForm.type === 'ai' ||
+                  singleForm.type === 'psd' ||
+                  singleForm.type === 'odg'
+                  "
+                [ngStyle]="{'background-image': 'url(assets/images/imgicon.png)'}"
+                class="docimg">
+              </div>
+              <div
+                *ngIf="
+                  singleForm.type === 'potm' ||
+                  singleForm.type === 'potx'  ||
+                  singleForm.type === 'ppam'  ||
+                  singleForm.type === 'pps'  ||
+                  singleForm.type === 'ppsm'  ||
+                  singleForm.type === 'ppsx'  ||
+                  singleForm.type === 'ppt'  ||
+                  singleForm.type === 'pptm' ||
+                  singleForm.type === 'pptx' ||
+                  singleForm.type === 'odp'
+                  "
+                [ngStyle]="{'background-image': 'url(assets/images/prezicon.png)'}"
+                class="docimg">
+              </div>
+              <div
+                *ngIf="
+                  singleForm.type === 'zip' ||
+                  singleForm.type === 'rar'
+                  "
+                [ngStyle]="{'background-image': 'url(assets/images/zipicon.png)'}"
+                class="docimg">
+              </div>
+              <div
+                *ngIf="
+                  !singleForm.type === 'image/*' ||
+                  !singleForm.type === 'jpg' ||
+                  !singleForm.type === 'png' ||
+                  singleForm.type === 'jpeg'
+                  "
+                [ngStyle]="{'background-image': 'url(/uploads/forms/' + singleForm.owner + '/' + singleForm.imagePath + ')'}"
+                class="profimg">
+              </div>
             </div>
+          </div>
+          <div *ngIf="!document.link.length">
             <div
-              *ngIf="singleForm.type === 'application/pdf'; else htmlpage"
-              [ngStyle]="{'background-image': 'url(assets/images/pdficon.png)'}"
-              class="docimg">
-            </div>
-            <div
-              *ngIf="
-                singleForm.type === 'csv' ||
-                singleForm.type === 'xls' ||
-                singleForm.type === 'xlsm' ||
-                singleForm.type === 'xlsx' ||
-                singleForm.type === 'xlsb' ||
-                singleForm.type === 'xlt' ||
-                singleForm.type === 'xltm' ||
-                singleForm.type === 'xltx' ||
-                singleForm.type === 'ods' ||
-                singleForm.type === 'odf';
-                else htmlpage
-                "
-              [ngStyle]="{'background-image': 'url(assets/images/sheeticon.png)'}"
-              class="docimg">
-            </div>
-            <div
-              *ngIf="
-                singleForm.type === 'doc' ||
-                singleForm.type === 'docm' ||
-                singleForm.type === 'docx' ||
-                singleForm.type === 'dot' ||
-                singleForm.type === 'dotm' ||
-                singleForm.type === 'dotx' ||
-                singleForm.type === 'rtf' ||
-                singleForm.type === 'rtx' ||
-                singleForm.type === 'indd' ||
-                singleForm.type === 'odt' ||
-                singleForm.type === 'one';
-                else htmlpage
-                "
-              [ngStyle]="{'background-image': 'url(assets/images/wordicon.png)'}"
-              class="docimg">
-            </div>
-            <div
-              *ngIf="
-                singleForm.type === 'ai' ||
-                singleForm.type === 'psd' ||
-                singleForm.type === 'odg';
-                else htmlpage
-                "
-              [ngStyle]="{'background-image': 'url(assets/images/imgicon.png)'}"
-              class="docimg">
-            </div>
-            <div
-              *ngIf="
-                singleForm.type === 'potm' ||
-                singleForm.type === 'potx'  ||
-                singleForm.type === 'ppam'  ||
-                singleForm.type === 'pps'  ||
-                singleForm.type === 'ppsm'  ||
-                singleForm.type === 'ppsx'  ||
-                singleForm.type === 'ppt'  ||
-                singleForm.type === 'pptm' ||
-                singleForm.type === 'pptx' ||
-                singleForm.type === 'odp';
-                else htmlpage
-                "
-              [ngStyle]="{'background-image': 'url(assets/images/prezicon.png)'}"
-              class="docimg">
-            </div>
-            <div
-              *ngIf="
-                singleForm.type === 'zip' ||
-                singleForm.type === 'rar';
-                else htmlpage
-                "
-              [ngStyle]="{'background-image': 'url(assets/images/zipicon.png)'}"
+              [ngStyle]="{'background-image': 'url(assets/images/linkicon.png)'}"
               class="docimg">
             </div>
           </div>
-          <ng-template #htmlpage>
-            <div [ngStyle]="{'background-image': 'url(assets/images/linkicon.png)'}" class="docimg"></div>
-          </ng-template>
           <p class="">{{document.details.name}}</p>
         </div>
-
         <a (click)="openLink(document)" class="open">open</a>
       </div>
+
       <div *ngIf="document.status.global == 'WIP'" class="doc-status">
         <div *ngIf="fetchedDocuments[i].currentUserBelongsTo ==='crew'">
           <mat-slide-toggle (change)="changeStatus($event, i, 'REVIEW', 'client')" [(ngModel)]="fetchedDocuments[i].status.review" class="myturn">SEND FOR REVIEW</mat-slide-toggle>
