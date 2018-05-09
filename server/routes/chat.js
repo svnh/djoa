@@ -1,3 +1,6 @@
+
+
+
 var express = require('express'),
   router = express.Router(),
   config = require('../config/config'),
@@ -10,11 +13,38 @@ var express = require('express'),
   fs = require('fs'),
   jwt = require('jsonwebtoken')
 
+  var path = require('path')
+  var fs = require('fs');
+  var https = require('https');
+
+  var express = require('express');
+  var app = express();
+
+  var sslOptions = {
+    // cert: fs.readFileSync(__dirname + '/certs/app.mirabelle.io_ssl_certificate.cer', 'utf8'),
+    key: fs.readFileSync(path.join(__dirname, '../../bin/certs/djoa.key'), 'utf8'),
+    cert: fs.readFileSync(path.join(__dirname, '../../bin/certs/28b65d120812d3fa.crt'), 'utf8'),
+    // cert: fs.readFileSync(__dirname + '/certs/djoa.csr', 'utf8'),
+    requestCert: false,
+    rejectUnauthorized: false
+  };
+  // var serverPort = 443;
+
+  var server = https.createServer(sslOptions, app);
+  var io = require('socket.io')(server);
+
+  var serverPort = 5000;
+
+
+
 // SOCKET.io
-var app = express()
-const http = require('https').Server(app);
-const io = require('socket.io')(http);
-// io.set('origins', 'https://djoa.co');
+
+
+
+
+// var app = express()
+// const http = require('http').Server(app);
+// const io = require('socket.io')(http);
 io.on('connection', (socket) => {
 
   var room = socket.handshake['query']['r_var'];
@@ -49,7 +79,7 @@ io.on('connection', (socket) => {
     saveChat(message)
   });
 });
-http.listen(5000, () => {
+server.listen(serverPort, () => {
   console.log('Server SOCKET.io started on port 5000');
 });
 // SOCKET.io

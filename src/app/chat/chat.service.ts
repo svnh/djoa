@@ -19,8 +19,8 @@ import { AuthService } from '../auth/auth.service';
 
 @Injectable()
 export class ChatService {
-  // private urlSocket = ':5000';
-  private urlSocket = 'http://djoa.co:5000';
+  private urlSocket = ':5000';
+  // private urlSocket = 'http://djoa.co:5000';
   // private urlSocket = 'http://localhost:5000';
   private socket;
 
