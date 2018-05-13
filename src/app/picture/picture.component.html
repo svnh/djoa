@@ -1,53 +1,49 @@
 <div *ngFor="let singleForm of forms; let i=index;" class="container-profimg" >
 
-
-  <div [ngClass]="{'class1':isInList,'class2':!isInList}">
-    toto
-   <div>
-
-
-  <div
-    *ngIf="singleForm.type === 'image/*' || singleForm.type === 'jpg' || singleForm.type === 'png' || singleForm.type === 'jpeg'"
-    [ngStyle]="{'background-image': 'url(/uploads/forms/' + singleForm.owner + '/' + singleForm.imagePath + ')'}"
-    class="profimg">
-  </div>
-  <div
-    *ngIf="singleForm.type === 'pdf'"
-    [ngStyle]="{'background-image': 'url(assets/images/pdficon.png)'}"
-    class="docimg">
-  </div>
-  <div
-    *ngIf="
-      singleForm.type === 'csv' ||
-      singleForm.type === 'xls' ||
-      singleForm.type === 'xlsm' ||
-      singleForm.type === 'xlsx' ||
-      singleForm.type === 'xlsb' ||
-      singleForm.type === 'xlt' ||
-      singleForm.type === 'xltm' ||
-      singleForm.type === 'xltx' ||
-      singleForm.type === 'ods' ||
-      singleForm.type === 'odf'
-      "
-    [ngStyle]="{'background-image': 'url(assets/images/sheeticon.png)'}"
-    class="docimg">
-  </div>
-  <div
-    *ngIf="
-      singleForm.type === 'doc' ||
-      singleForm.type === 'docm' ||
-      singleForm.type === 'docx' ||
-      singleForm.type === 'dot' ||
-      singleForm.type === 'dotm' ||
-      singleForm.type === 'dotx' ||
-      singleForm.type === 'rtf' ||
-      singleForm.type === 'rtx' ||
-      singleForm.type === 'indd' ||
-      singleForm.type === 'odt' ||
-      singleForm.type === 'one'
-      "
-    [ngStyle]="{'background-image': 'url(assets/images/wordicon.png)'}"
-    class="docimg">
+  <div [ngClass]="{'doclistimg':isInList,'docsideimg':!isInList}">
+    <div
+      *ngIf="singleForm.type === 'image/*' || singleForm.type === 'jpg' || singleForm.type === 'png' || singleForm.type === 'jpeg'"
+      [ngStyle]="{'background-image': 'url(/uploads/forms/' + singleForm.owner + '/' + singleForm.imagePath + ')'}"
+      class="profimg">
+    </div>
+    <div
+      *ngIf="singleForm.type === 'pdf'"
+      [ngStyle]="{'background-image': 'url(assets/images/pdficon.png)'}"
+      class="docimg">
+    </div>
+    <div
+      *ngIf="
+        singleForm.type === 'csv' ||
+        singleForm.type === 'xls' ||
+        singleForm.type === 'xlsm' ||
+        singleForm.type === 'xlsx' ||
+        singleForm.type === 'xlsb' ||
+        singleForm.type === 'xlt' ||
+        singleForm.type === 'xltm' ||
+        singleForm.type === 'xltx' ||
+        singleForm.type === 'ods' ||
+        singleForm.type === 'odf'
+        "
+      [ngStyle]="{'background-image': 'url(assets/images/sheeticon.png)'}"
+      class="docimg">
+    </div>
+    <div
+      *ngIf="
+        singleForm.type === 'doc' ||
+        singleForm.type === 'docm' ||
+        singleForm.type === 'docx' ||
+        singleForm.type === 'dot' ||
+        singleForm.type === 'dotm' ||
+        singleForm.type === 'dotx' ||
+        singleForm.type === 'rtf' ||
+        singleForm.type === 'rtx' ||
+        singleForm.type === 'indd' ||
+        singleForm.type === 'odt' ||
+        singleForm.type === 'one'
+        "
+      [ngStyle]="{'background-image': 'url(assets/images/wordicon.png)'}"
+      class="docimg">
+    </div>
   </div>
   <div
     *ngIf="
@@ -82,21 +78,6 @@
     [ngStyle]="{'background-image': 'url(assets/images/zipicon.png)'}"
     class="docimg">
   </div>
-
-
-
-<!-- 
-  <div *ngIf="document.link.length">
-    <div class="container-docimg">
-      <div
-        [ngStyle]="{'background-image': 'url(assets/images/linkicon.png)'}"
-        class="docimg">
-      </div>
-    </div>
-  </div> -->
-
-
-
 
   <p class="docTitle"
     *ngIf="
