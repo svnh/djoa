@@ -1,5 +1,5 @@
-<div *ngFor="let singleForm of forms; let i=index;" class="container-img" >
-  <div [ngClass]="{'container-doclist':isInList,'container-docside':!isInList}">
+<div *ngFor="let singleForm of forms; let i=index;" [ngClass]="{'container-doclist':isInList,'container-docside':!isInList}">
+  <div>
     <div
       *ngIf="singleForm.type === 'image/*' || singleForm.type === 'jpg' || singleForm.type === 'png' || singleForm.type === 'jpeg'"
       [ngStyle]="{'background-image': 'url(/uploads/forms/' + singleForm.owner + '/' + singleForm.imagePath + ')'}"
