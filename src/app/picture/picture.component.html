@@ -1,6 +1,5 @@
-<div *ngFor="let singleForm of forms; let i=index;" class="container-profimg" >
-
-  <div [ngClass]="{'doclistimg':isInList,'docsideimg':!isInList}">
+<div *ngFor="let singleForm of forms; let i=index;" class="container-img" >
+  <div [ngClass]="{'container-doclist':isInList,'container-docside':!isInList}">
     <div
       *ngIf="singleForm.type === 'image/*' || singleForm.type === 'jpg' || singleForm.type === 'png' || singleForm.type === 'jpeg'"
       [ngStyle]="{'background-image': 'url(/uploads/forms/' + singleForm.owner + '/' + singleForm.imagePath + ')'}"
@@ -44,41 +43,40 @@
       [ngStyle]="{'background-image': 'url(assets/images/wordicon.png)'}"
       class="docimg">
     </div>
+    <div
+      *ngIf="
+        singleForm.type === 'ai' ||
+        singleForm.type === 'psd' ||
+        singleForm.type === 'odg'
+        "
+      [ngStyle]="{'background-image': 'url(assets/images/imgicon.png)'}"
+      class="docimg">
+    </div>
+    <div
+      *ngIf="
+        singleForm.type === 'potm' ||
+        singleForm.type === 'potx'  ||
+        singleForm.type === 'ppam'  ||
+        singleForm.type === 'pps'  ||
+        singleForm.type === 'ppsm'  ||
+        singleForm.type === 'ppsx'  ||
+        singleForm.type === 'ppt'  ||
+        singleForm.type === 'pptm' ||
+        singleForm.type === 'pptx' ||
+        singleForm.type === 'odp'
+        "
+      [ngStyle]="{'background-image': 'url(assets/images/prezicon.png)'}"
+      class="docimg">
+    </div>
+    <div
+      *ngIf="
+        singleForm.type === 'zip' ||
+        singleForm.type === 'rar'
+        "
+      [ngStyle]="{'background-image': 'url(assets/images/zipicon.png)'}"
+      class="docimg">
+    </div>
   </div>
-  <div
-    *ngIf="
-      singleForm.type === 'ai' ||
-      singleForm.type === 'psd' ||
-      singleForm.type === 'odg'
-      "
-    [ngStyle]="{'background-image': 'url(assets/images/imgicon.png)'}"
-    class="docimg">
-  </div>
-  <div
-    *ngIf="
-      singleForm.type === 'potm' ||
-      singleForm.type === 'potx'  ||
-      singleForm.type === 'ppam'  ||
-      singleForm.type === 'pps'  ||
-      singleForm.type === 'ppsm'  ||
-      singleForm.type === 'ppsx'  ||
-      singleForm.type === 'ppt'  ||
-      singleForm.type === 'pptm' ||
-      singleForm.type === 'pptx' ||
-      singleForm.type === 'odp'
-      "
-    [ngStyle]="{'background-image': 'url(assets/images/prezicon.png)'}"
-    class="docimg">
-  </div>
-  <div
-    *ngIf="
-      singleForm.type === 'zip' ||
-      singleForm.type === 'rar'
-      "
-    [ngStyle]="{'background-image': 'url(assets/images/zipicon.png)'}"
-    class="docimg">
-  </div>
-
   <p class="docTitle"
     *ngIf="
       singleForm.type === 'pdf' ||

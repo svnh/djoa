@@ -1,4 +1,4 @@
-.container-profimg {
+.container-img, .container-doclist, .container-docside {
   height: 100%;
   width: 100%;
 }
@@ -20,7 +20,7 @@
   border-bottom-right-radius: 100px;
   cursor: pointer;
 }
-.container-profimg button {
+.container-img button {
   width: 100%;
   padding: 5px 0;
 }
