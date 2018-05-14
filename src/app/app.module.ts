@@ -67,7 +67,7 @@ import { CompanieGuardService} from './companie/companieGuard.service';
 
 import { AdminComponent} from './admin/admin.component';
 
-import 'hammerjs';
+// import 'hammerjs';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp( new AuthConfig({}), http, options);
