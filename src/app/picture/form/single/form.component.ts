@@ -169,6 +169,7 @@ export class FormComponent implements OnInit {
       file.type.match('application/postscript') ||
       file.type.match('application-eps') ||
       file.type.match('application_x-eps') ||
+      file.type.match('application/octet-stream') ||
       file.type.match('image/vnd.adobe.photoshop') ||
       file.type.match('image_x-eps') ||
       file.type.match('image_eps') ||
