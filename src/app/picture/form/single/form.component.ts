@@ -179,7 +179,8 @@ export class FormComponent implements OnInit {
       file.type.match('image_x-eps') ||
       file.type.match('image_eps') ||
 
-      file.type.match('application/zip') ||
+      // file.type.match('application/zip') ||
+      file.type.match('application/x-zip-compressed')
       file.type.match('application/x-rar-compressed')
     ) {
       return true;
