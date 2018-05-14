@@ -91,7 +91,7 @@ var upload = multer({
     parts: 3
   },
   fileFilter: function (req, file, cb) {
-    var filetypes = /jpe?g|png|pdf|csv|doc|docx|xls|xlsx|ppt|pptx|rtf|ai|indd|psd|ips|tiff|gif|pot|potm|postscript/
+    var filetypes = /jpe?g|png|pdf|csv|doc|docx|xls|xlsx|ppt|pptx|rtf|ai|indd|psd|ips|tiff|gif|pot|potm|ppsx|postscript/
     var mimetype = false
     console.log('file.mimetype:')
     console.log(file.mimetype)
