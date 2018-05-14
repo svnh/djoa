@@ -109,6 +109,7 @@ var upload = multer({
       file.mimetype.match('application/rtf') ||
 
       file.mimetype.match('text/csv') ||
+      file.mimetype.match('application/octet-stream') ||
       file.mimetype.match('application/vnd.ms-excel') ||
       file.mimetype.match('application/vnd.ms-excel.sheet.macroEnabled.12') ||
       file.mimetype.match('application/vnd.ms-excel.addin.macroEnabled.12') ||
