@@ -10,6 +10,17 @@
   //   res.writeHead(301, { 'Location': 'https://' + req.headers.host + req.url })
   //   res.end()
   // }).listen(80)
+
+  // set port 80 to redirect to https
+  var express = require('express');
+  var app2 = express();
+  app2.get('*',function (req, res) {
+      res.redirect('https://' + req.headers.host + req.url);
+  });
+  app2.listen(80,  function () {
+     console.log('Started port: 80');
+  });
+
 // Redirect from http port 80 to https
 
 var app = require('../server/app')
