@@ -117,7 +117,8 @@ export class NewUserFirstConnectionComponent implements OnInit {
   }
 
   isAdmin() {
-    return this.authService.getCurrentUser().rights.some(right => right.detailRight.nameRight === 'admin');
+    // return this.authService.getCurrentUser().rights.some(right => right.detailRight.nameRight === 'admin');
+    return this.authService.getCurrentUser().isAdmin;
   }
 
 

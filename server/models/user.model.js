@@ -14,6 +14,7 @@ var user = new Schema({
     email: {type: String, unique: true, required: true, lowercase: true},
     password: {type: String, required: true},
     forms: [{type: Schema.Types.ObjectId, ref: 'Form'}],
+    isAdmin: {type: Boolean, default: [false]},
     // paiement: {
     //   stripe:[{
     //     companies:[{type: Schema.Types.ObjectId, ref: 'Companie'}],

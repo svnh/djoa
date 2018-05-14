@@ -13,6 +13,7 @@ export class User {
   // dateSeeLatestNotif: Date= new Date()
   // isAdminOfHisCompanie: Boolean = false;
   isExternalUser: Boolean = false;
+  isAdmin: Boolean = false;
   email: string = '';
   // role: string[] = [];
   typeUsers: string[] = [];

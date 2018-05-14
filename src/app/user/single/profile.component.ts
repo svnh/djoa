@@ -118,7 +118,8 @@ export class ProfileComponent implements OnInit, OnChanges {
     }
 
     isAdmin() {
-      return this.authService.getCurrentUser().rights.some(right => right.detailRight.nameRight === 'admin');
+      // return this.authService.getCurrentUser().rights.some(right => right.detailRight.nameRight === 'admin');
+      return this.authService.getCurrentUser().isAdmin;
     }
     openDeleteConfirmation() {
         const newShowNavBarData = new ShowNavBarData()
