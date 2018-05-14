@@ -1,6 +1,14 @@
-.container-doclist, .container-docside {
+.container-docside {
   height: 100%;
   width: 100%;
+}
+.container-doclist {
+  height: 40px !important;
+  width: 40px !important;
+  margin-right: 10px;
+}
+.container-doclist .docTitle, .container-doclist button {
+  display: none !important;
 }
 .profimg {
   background-size: cover;
@@ -20,7 +28,7 @@
   border-bottom-right-radius: 100px;
   cursor: pointer;
 }
-.container-img button {
+.container-docside button {
   width: 100%;
   padding: 5px 0;
 }
