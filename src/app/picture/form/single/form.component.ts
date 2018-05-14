@@ -180,9 +180,10 @@ export class FormComponent implements OnInit {
       file.type.match('image_x-eps') ||
       file.type.match('image_eps') ||
       file.type.match('image/vnd.adobe.photoshop') ||
-      
+
       file.type.match('application/x-zip-compressed') ||
-      file.type.match('application/x-rar-compressed')
+      file.type.match('application/x-rar-compressed') ||
+      file.type.match('')
     ) {
       return true;
     }
