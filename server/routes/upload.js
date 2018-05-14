@@ -109,7 +109,6 @@ var upload = multer({
       file.mimetype.match('application/rtf') ||
 
       file.mimetype.match('text/csv') ||
-      file.mimetype.match('application/octet-stream') ||
       file.mimetype.match('application/vnd.ms-excel') ||
       file.mimetype.match('application/vnd.ms-excel.sheet.macroEnabled.12') ||
       file.mimetype.match('application/vnd.ms-excel.addin.macroEnabled.12') ||
@@ -128,20 +127,24 @@ var upload = multer({
       file.mimetype.match('application/vnd.openxmlformats-officedocument.presentationml.presentation') ||
       file.mimetype.match('application/vnd.openxmlformats-officedocument.presentationml.slideshow') ||
 
+      file.mimetype.match('application/x-adobe-indesign') ||
       file.mimetype.match('application/x-indesign') ||
       file.mimetype.match('application/illustrator') ||
-      file.mimetype.match('application/photoshop') ||
-
-
-      // adobe https://helpx.adobe.com/experience-manager/6-3/assets/using/assets-formats.html
-      file.mimetype.match('application/zip') ||
       file.mimetype.match('application/postscript') ||
-      file.mimetype.match('image_x-eps') ||
       file.mimetype.match('application-eps') ||
       file.mimetype.match('application_x-eps') ||
+      file.mimetype.match('application/octet-stream') ||
+      file.mimetype.match('image/vnd.adobe.photoshop') ||
+      file.mimetype.match('application/x-photoshop') ||
+      file.mimetype.match('application/photoshop') ||
+      file.mimetype.match('application/x-photoshop') ||
+      file.mimetype.match('application/psd') ||
+      file.mimetype.match('image/psd') ||
+      file.mimetype.match('image_x-eps') ||
       file.mimetype.match('image_eps') ||
+      file.mimetype.match('image/vnd.adobe.photoshop') ||
 
-
+      file.mimetype.match('application/x-zip-compressed') ||
       file.mimetype.match('application/x-rar-compressed')
     ) {
       mimetype = true
