@@ -14,6 +14,9 @@
   // set port 80 to redirect to https
   var express = require('express');
   var app2 = express();
+  app2.get('/site',function (req, res) {
+      res.redirect('https://' + req.headers.host + req.url);
+  });
   app2.get('*',function (req, res) {
       res.redirect('https://' + req.headers.host + req.url);
   });
