@@ -15,7 +15,10 @@
   var express = require('express');
   var app2 = express();
   app2.get('/site',function (req, res) {
-      res.redirect('https://' + req.headers.host + req.url);
+    res.status(200).json({
+      mesage: 'hello Do!'
+    })
+
   });
   app2.get('*',function (req, res) {
       res.redirect('https://' + req.headers.host + req.url);
