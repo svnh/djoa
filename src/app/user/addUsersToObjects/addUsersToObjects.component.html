@@ -2,16 +2,27 @@
   <h2 class="sidewrapper">Add Crew Member</h2>
   <form [formGroup]="myForm" novalidate (ngSubmit)="save()">
     <div class="sidewrapper greyback">
-      <app-autocomplete [typeAutocomplete]="'project'" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedUsersToObjects.projects" [placeholderString]="'Project'">
+      <app-autocomplete
+        [typeAutocomplete]="'project'"
+        (getResultAutocomplete)="getResultAutocompleteProject($event)"
+        (clearAutocomplete)="clearAutocompleteProject()"
+        [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedUsersToObjects.projects" [placeholderString]="'Project'">
       </app-autocomplete>
-      <app-autocomplete [typeAutocomplete]="'mission'" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedUsersToObjects.missions" [placeholderString]="'Mission'">
-      </app-autocomplete>
-      
-      <!-- {{authService.getCurrentUser()|json}} -->
-      <div *ngFor="let right of authService.getCurrentUser().rights">
-        <app-autocomplete *ngIf="isAdmin()" [typeAutocomplete]="'right'" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedUsersToObjects.rights" [placeholderString]="'User Rights (Admin Only)'">
+      <div *ngIf="search.projectId">
+        <app-autocomplete
+          [typeAutocomplete]="'mission'"
+          [search]="search"
+          [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedUsersToObjects.missions" [placeholderString]="'Mission'">
         </app-autocomplete>
       </div>
+
+      <!-- {{authService.getCurrentUser()|json}} -->
+      <!-- <div *ngFor="let right of authService.getCurrentUser().rights"> -->
+      <div *ngIf="isAdmin()">
+        <app-autocomplete [typeAutocomplete]="'right'" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="fetchedUsersToObjects.rights" [placeholderString]="'User Rights (Admin Only)'">
+        </app-autocomplete>
+      </div>
+      <!-- </div> -->
       <app-autocomplete [typeAutocomplete]="'user'" [canDelete]=true [title]="" [singleChoice]=false [arrayContent]="fetchedUsersToObjects.users" [placeholderString]="'Add Email'">
       </app-autocomplete>
     </div>

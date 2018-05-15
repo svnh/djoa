@@ -27,7 +27,7 @@ import { GlobalEventsManager} from '../../globalEventsManager';
 })
 export class AddUsersToObjectsComponent implements OnInit {
   // @Output() saved: EventEmitter<any> = new EventEmitter();
-  // @Input() search: Search = new Search();
+  search: Search = new Search();
 
 
   // fetchedCompanies: Companie[] = []
@@ -59,7 +59,14 @@ export class AddUsersToObjectsComponent implements OnInit {
   ) {
   }
 
-
+  getResultAutocompleteProject(projects) {
+    projects.forEach(project => {
+      this.search.projectId = project._id
+    });
+  }
+  clearAutocompleteProject(projects) {
+    this.search.projectId = ''
+  }
     ngOnInit() {
       this.rightService.getRights(1, {})
         .subscribe(
