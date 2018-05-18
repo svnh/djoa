@@ -8,15 +8,14 @@
           <div class="doc-title">
             <div *ngIf="!document.link.length">
               <app-picture [isInList]=true [addPicture]=false [loadSinglePicture]=true [forms]="document.forms"></app-picture>
-              <p class="doc-title">{{document.details.name}}</p>
             </div>
             <div *ngIf="document.link.length">
               <div
                 [ngStyle]="{'background-image': 'url(assets/images/linkicon.png)'}"
                 class="docimg">
               </div>
-              <p class="doc-title">{{document.details.name}}</p>
             </div>
+            <p class="doc-title">{{document.details.name}}</p>
           </div>
         </div>
         <div class="dynamic" [ngPlural]="document.myActivityPendingTasks">
@@ -33,15 +32,14 @@
           <div class="doc-title">
             <div *ngIf="!document.link.length">
               <app-picture [isInList]=true [addPicture]=false [loadSinglePicture]=true [forms]="document.forms"></app-picture>
-              <p class="doc-title">{{document.details.name}}</p>
             </div>
             <div *ngIf="document.link.length">
               <div
                 [ngStyle]="{'background-image': 'url(assets/images/linkicon.png)'}"
                 class="docimg">
               </div>
-              <p class="doc-title">{{document.details.name}}</p>
             </div>
+            <p class="doc-title">{{document.details.name}}</p>
           </div>
         </div>
         <div class="dynamic" [ngPlural]="document.myActivityPendingTasks">

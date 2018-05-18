@@ -8,7 +8,6 @@
         <div class="doc-title">
           <div *ngIf="!document.link.length">
             <app-picture [isInList]=true [addPicture]=false [loadSinglePicture]=true [forms]="document.forms"></app-picture>
-            <p class="">{{document.details.name}}</p>
           </div>
           <div *ngIf="document.link.length">
             <div
@@ -16,7 +15,7 @@
               class="docimg">
             </div>
           </div>
-          <p class="">{{document.details.name}}</p>
+          <p class="doc-title">{{document.details.name}}</p>
         </div>
         <a (click)="openLink(document)" class="open">open</a>
       </div>

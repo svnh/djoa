@@ -354,7 +354,7 @@ p.percent {
 }
 .doc-title p {
   display: inline-block;
-  margin: 10px 0 !important;
+  margin: 9px 0 !important;
 }
 
 @media screen and (min-width: 992px) {
