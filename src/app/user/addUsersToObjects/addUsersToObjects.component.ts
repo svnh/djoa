@@ -64,7 +64,7 @@ export class AddUsersToObjectsComponent implements OnInit {
       this.search.projectId = project._id
     });
   }
-  clearAutocompleteProject(projects) {
+  clearAutocompleteProject() {
     this.search.projectId = ''
   }
     ngOnInit() {
