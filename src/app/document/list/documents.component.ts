@@ -18,7 +18,6 @@ import { Search, PaginationData } from '../../shared/shared.model';
   selector: 'app-documents',
   templateUrl: './documents.component.html',
   styleUrls: ['../document.component.css'],
-  // encapsulation: ViewEncapsulation.None
 
 })
 export class DocumentsComponent implements OnInit {
@@ -26,24 +25,15 @@ export class DocumentsComponent implements OnInit {
   editMode: boolean = false;
   @Input() search: Search = new Search()
 
-
-  // token: string = localStorage.getItem('id_token');
   fetchedDocuments: Document[] = [];
-  // search: any = {
-  //   categories : [],
-  //   search: ''
-  // };
+
   loading: boolean;
 
   paginationData: PaginationData = new PaginationData();
 
-
   categories2 = '';
 
-  // showNavBarData: any
-
   constructor(
-    // private sanitizer: DomSanitizer,
     private documentService: DocumentService,
     private toastr: ToastsManager,
     private globalEventsManager: GlobalEventsManager,
@@ -73,7 +63,6 @@ export class DocumentsComponent implements OnInit {
         document.link = 'http://' + document.link;
       }
       window.open(document.link, '_blank');
-
     }
   }
   ngOnChanges() {
@@ -108,7 +97,7 @@ export class DocumentsComponent implements OnInit {
       .subscribe(
       res => {
 
-        this.toastr.success('Great!', res.message)
+        this.toastr.success('Done!', res.message)
 
       },
       error => { console.log(error) }
@@ -119,7 +108,7 @@ export class DocumentsComponent implements OnInit {
 
   addDocument() {
     let showNavBarData = new ShowNavBarData()
-    // console.log(this.search)
+
     showNavBarData.showNavBar = 1
     showNavBarData.search.typeScreen = 'object'
     showNavBarData.search.typeObj = 'document'
@@ -168,5 +157,4 @@ export class DocumentsComponent implements OnInit {
       }
       );
   }
-  
 }

@@ -8,7 +8,6 @@ import { Router } from '@angular/router';
 // import { AdminService } from '../../admin/services/admin.service';
 // import { UserService } from '../../user/user.service';
 // import { User } from '../../user/user.model';
-// import { Document } from '../../document/document.model';
 // import { CompanieGuardService } from '../../companie/companieGuard.service'
 // import { PaiementGuardService} from '../../user/paiement/paiementGuard.service'
 // import { ChangeDetectionStrategy } from '@angular/core';
