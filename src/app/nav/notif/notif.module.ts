@@ -15,6 +15,7 @@ import { MyDocuments} from './myDocuments.component';
 import { NotifTotal} from './notifTotal.component';
 // import {SharedModule } from '../../shared/shared.module';
 // import { NotificationService} from '../../notification/notification.service';
+import {PictureModule} from '../../picture/picture.module';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { NotifTotal} from './notifTotal.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    PictureModule,
 
     // SharedModule,
     //  FormsModule,
