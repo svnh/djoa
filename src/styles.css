@@ -374,6 +374,12 @@ p.percent {
   border-bottom-right-radius: 100px;
   cursor: pointer;
 }
+.linkimg {
+  height: 40px !important;
+  width: 40px !important;
+  margin-right: 10px;
+  float: left;
+}
 
 @media screen and (min-width: 992px) {
   .djoa-container {
