@@ -352,6 +352,10 @@ p.percent {
 .dspl-nn {
   display: none !important;
 }
+.doc-title p {
+  display: inline-block;
+  margin: 10px 0 !important;
+}
 
 @media screen and (min-width: 992px) {
   .djoa-container {
