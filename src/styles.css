@@ -356,6 +356,24 @@ p.percent {
   display: inline-block;
   margin: 9px 0 !important;
 }
+.profimg {
+  background-size: cover;
+}
+.docimg {
+  background-size: 60%;
+  background-color: #fff;
+}
+.profimg, .docimg {
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
+  border-bottom-left-radius: 100px;
+  border-bottom-right-radius: 100px;
+  cursor: pointer;
+}
 
 @media screen and (min-width: 992px) {
   .djoa-container {
