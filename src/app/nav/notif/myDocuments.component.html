@@ -5,7 +5,19 @@
       <h5>Strategy: {{strat.title}}</h5>
       <div (click)="goTo('strat', strat._id)" class="notif-wrapper">
         <div class="notif-txt">
-          <h4>{{document.details.name}}</h4>
+          <div class="doc-title">
+            <div *ngIf="!document.link.length">
+              <app-picture [isInList]=true [addPicture]=false [loadSinglePicture]=true [forms]="document.forms"></app-picture>
+              <p class="">{{document.details.name}}</p>
+            </div>
+            <div *ngIf="document.link.length">
+              <div
+                [ngStyle]="{'background-image': 'url(assets/images/linkicon.png)'}"
+                class="docimg">
+              </div>
+            </div>
+            <p class="">{{document.details.name}}</p>
+          </div>
         </div>
         <div class="dynamic" [ngPlural]="document.myActivityPendingTasks">
           <ng-template ngPluralCase="=0">{{document.myActivityPendingTasks}} Pending Task</ng-template>

@@ -31,7 +31,8 @@ img.doc-icon {
   margin-right: 15px;
 }
 .doc-title p {
-  margin: 0;
+  display: inline-block;
+  margin: 10px 0 !important;
 }
 .doc-state-bottom {
   float: left;

@@ -2,7 +2,6 @@
   <h2 class="sidewrapper greyback">Document</h2>
   <form [formGroup]="myForm" novalidate (ngSubmit)="save()" (keydown.enter)="$event.preventDefault()">
     <div class="sidewrapper greyback">
-      <!-- <div *ngIf="(!search.stratId && !search.briefId)"> -->
       <div *ngIf="!fetchedDocument.briefs.length && !fetchedDocument.strats.length && !fetchedDocument.missions.length">
         <app-autocomplete [typeAutocomplete]="'project'" [search]="search" [canDelete]=true [title]="" [singleChoice]=true [arrayContent]="autocompleteSearchProjects" (clearAutocomplete)="clearSearchProjects()" (getResultAutocomplete)="getResultSearchProjects($event[0])" [placeholderString]="'Project'">
         </app-autocomplete>

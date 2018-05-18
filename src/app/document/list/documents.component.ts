@@ -52,13 +52,6 @@ export class DocumentsComponent implements OnInit {
 
   ) {
 
-    // this.globalEventsManager.showNavBarEmitterRight.subscribe((showNavBarData) => {
-    //   if (showNavBarData !== null) {
-    //     this.showNavBarData = showNavBarData;
-    //   }
-    // })
-
-
     this.globalEventsManager.refreshCenterEmitter.subscribe((isRefresh) => {
       if (isRefresh) {
         this.getDocuments(1, this.search)
@@ -79,7 +72,6 @@ export class DocumentsComponent implements OnInit {
       if (document.link.substring(0, 7) !== 'http://' && document.link.substring(0, 8) !== 'https://') {
         document.link = 'http://' + document.link;
       }
-      // console.log(link)
       window.open(document.link, '_blank');
 
     }
@@ -176,54 +168,5 @@ export class DocumentsComponent implements OnInit {
       }
       );
   }
-  // check if the image is actually an image by checking the mime type
-  isImage(file: File): boolean {
-    if (
-      file.type.match('image/*') ||
-
-      file.type.match('application/pdf') ||
-
-      file.type.match('application/msword') ||
-      file.type.match('application/vnd.ms-word') ||
-      file.type.match('application/vnd.ms-word.document.macroEnabled.12') ||
-      file.type.match('application/vnd.openxmlformats-officedocument.wordprocessingml.document') ||
-      file.type.match('application/rtf') ||
-
-      file.type.match('text/csv') ||
-      file.type.match('application/vnd.ms-excel') ||
-      file.type.match('application/vnd.ms-excel.sheet.macroEnabled.12') ||
-      file.type.match('application/vnd.ms-excel.addin.macroEnabled.12') ||
-      file.type.match('application/vnd.ms-excel.template.macroEnabled.12') ||
-      file.type.match('application/vnd.ms-excel.sheet.binary.macroEnabled.12') ||
-      file.type.match('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') ||
-      file.type.match('application/vnd.openxmlformats-officedocument.spreadsheetml.template') ||
-      file.type.match('application/vnd.oasis.opendocument.spreadsheet') ||
-
-      file.type.match('application/vnd.ms-powerpoint') ||
-      file.type.match('application/vnd.ms-powerpoint.template.macroEnabled.12') ||
-      file.type.match('application/vnd.ms-powerpoint.addin.macroEnabled.12') ||
-      file.type.match('application/vnd.ms-powerpoint.presentation.macroEnabled.12') ||
-      file.type.match('application/vnd.ms-powerpoint.slideshow.macroEnabled.12') ||
-      file.type.match('application/vnd.openxmlformats-officedocument.presentationml.template') ||
-      file.type.match('application/vnd.openxmlformats-officedocument.presentationml.presentation') ||
-      file.type.match('application/vnd.openxmlformats-officedocument.presentationml.slideshow') ||
-
-      file.type.match('application/x-adobe-indesign') ||
-      file.type.match('application/illustrator') ||
-      file.type.match('application/postscript') ||
-      file.type.match('application/photoshop') ||
-      file.type.match('image/x-psd') ||
-      file.type.match('image/vnd.adobe.photoshop') ||
-
-      file.type.match('application/zip') ||
-      file.type.match('application/x-rar-compressed')
-    ) {
-      return true;
-    }
-    this.toastr.error('Format not allowed!');
-    return false;
-  }
-  // isAdmin() {
-  //   return this.authService.isAdmin();
-  // }
+  
 }

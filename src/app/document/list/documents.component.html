@@ -11,13 +11,12 @@
             <p class="">{{document.details.name}}</p>
           </div>
           <div *ngIf="document.link.length">
-            <div class="container-docimg">
-              <div
-                [ngStyle]="{'background-image': 'url(assets/images/linkicon.png)'}"
-                class="docimg">
-              </div>
+            <div
+              [ngStyle]="{'background-image': 'url(assets/images/linkicon.png)'}"
+              class="docimg">
             </div>
           </div>
+          <p class="">{{document.details.name}}</p>
         </div>
         <a (click)="openLink(document)" class="open">open</a>
       </div>
@@ -111,7 +110,6 @@
           </div>
         </div>
       </div>
-
     </mat-card-content>
   </mat-card>
 </div>

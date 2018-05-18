@@ -3,10 +3,20 @@
     <mat-card-content>
       <div class="doc-info">
         <div class="doc-title">
-          <img class="doc-icon" src="assets/images/linkicon.png">
-          <p class="">{{document.details.name}}</p>
+          <div *ngIf="!document.link.length">
+            <app-picture [isInList]=true [addPicture]=false [loadSinglePicture]=true [forms]="document.forms"></app-picture>
+            <p class="">{{document.details.name}}</p>
+          </div>
+          <div *ngIf="document.link.length">
+            <div class="container-docimg">
+              <div
+                [ngStyle]="{'background-image': 'url(assets/images/linkicon.png)'}"
+                class="docimg">
+              </div>
+            </div>
+          </div>
         </div>
-        <a target="_blank" href="{{document.link}}" class="open">open</a>
+        <a (click)="openLink(document)" class="open">open</a>
       </div>
     </mat-card-content>
   </mat-card>
