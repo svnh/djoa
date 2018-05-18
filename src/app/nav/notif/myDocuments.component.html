@@ -33,7 +33,7 @@
             <div *ngIf="!document.link.length">
               <app-picture [isInList]=true [addPicture]=false [loadSinglePicture]=true [forms]="document.forms"></app-picture>
             </div>
-            <div *ngIf="document.link.length">
+            <div *ngIf="document.link.length" class="linkimg">
               <div
                 [ngStyle]="{'background-image': 'url(assets/images/linkicon.png)'}"
                 class="docimg">
