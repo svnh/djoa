@@ -556,6 +556,13 @@ button:focus {
 .mat-slide-toggle-bar {
   background-color: #f4d8d7 !important;
 }
+.mat-slide-toggle-content {
+  color: #f44336 !important;
+  font-family: inherit !important;
+}
+.mat-checked .mat-slide-toggle-content {
+  color: #aaa !important;
+}
 .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
   background-color: #ffffff !important;
 }
