@@ -462,7 +462,11 @@ router.post('/sendEmailToUserToJoinCompanie', function (req, res, next) {
 router.post('/saveUsersToObjects', function (req, res, next) {
 
       req.body.projects.forEach(project => {
-        Project.update({ _id: project._id }, { $set: { users: req.body.users}}, function (err, item) {
+        let users = project.users
+        if(req.body.users.length) {
+          users.push(req.body.users[0])
+        }
+        Project.update({ _id: project._id }, { $set: { users: users }}, function (err, item) {
           if (item) { console.log('Project Updated') } else {
             return res.status(403).json({
               title: 'There was a problem',
@@ -473,7 +477,11 @@ router.post('/saveUsersToObjects', function (req, res, next) {
       })
 
       req.body.missions.forEach(mission => {
-        Mission.update({ _id: mission._id }, { $set: { users: req.body.users}}, function (err, item) {
+        let users = mission.users
+        if(req.body.users.length) {
+          users.push(req.body.users[0])
+        }
+        Mission.update({ _id: mission._id }, { $set: { users: users}}, function (err, item) {
           if (item) { console.log('Mission Updated') } else {
             return res.status(403).json({
               title: 'There was a problem',
