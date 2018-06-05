@@ -495,7 +495,7 @@ p.percent {
   right: 0;
 }
 p.longMessage {
-  word-break: break-all;
+  word-break: break-word;
 }
 .single-chat .read-chat p.longMessage {
   display: block !important;
